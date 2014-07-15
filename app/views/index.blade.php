@@ -3,8 +3,8 @@
 Trang chủ
 @endsection
 @section('content')
-<div class="container-fluid">
 <section>
+<div class="container-fluid">
 	<div class="row slide">
 	<div class="col-xs-12">
 			<div id="carousel-example-generic" class="carousel" data-ride="carousel">
@@ -47,12 +47,18 @@ Trang chủ
 		</div>
 		<form class="form-horizontal form-group-lg " role="form">
 		  <div class="form-group">
+		  	
+		  </div>
+		  <div class="form-group">
 		    <div class="row search-form">
 		    	<div class="col-xs-3">
-			    	<input type="text" class="form-control input-lg" placeholder=".col-xs-3">
+			    	<input type="text" class="form-control input-lg" placeholder="Enter Name">
+			  	</div>
+			  	<div class="col-xs-3">
+			    	<input type="text" class="form-control input-lg" placeholder="Enter Location">
 			  	</div>	
 			  	<div class="col-xs-4 dropdown">
-			    	<input id="searchTxt" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder=".col-xs-3">
+			    	<input id="searchTxt" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Click choose Categories">
 			    	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 				    <li role="presentation">
 				    	<div class="row" id="menu">
@@ -85,21 +91,17 @@ Trang chủ
 							$( "#searchTxt" ).val(text);
 						});
 					});
-						</script>
+					</script>
 				  </ul>
 			  	</div>
-			  	<div class="col-xs-3">
-			    	<input type="text" class="form-control input-lg" placeholder=".col-xs-3">
-			  	</div>
+			  	
 			  	<div class="col-xs-2">
 			    	<button type="submit" class="btn btn-default btn-lg">Tìm kiếm</button>
 			  	</div>
 			</div>
 		  </div>
 		</form>
-		</div>
-	</div>
-	</section>
+		</div><!--col-xs-12-->
 	</div>
 	<div class="container content">
 		<div class="row">
@@ -116,5 +118,8 @@ Trang chủ
 		</div>
 		<small>Ultimately the flawless execution of your wedding day will largely rest on the shoulders of your wedding vendors. When you consider the number of different little "mini-events" that take place throughout your wedding day, it becomes quickly apparent that each of them will be greatly influenced by your wedding vendors. </small>
 	</div>
+	</div>
+	</section>
+
 @endsection
 	

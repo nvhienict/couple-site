@@ -1,4 +1,4 @@
-body{
+body.home-page{
 	background: #E38AAE;
 	font-family: Noto Serif, Helvetica Neue,Helvetica,Arial,sans-serif;
 }
@@ -48,7 +48,7 @@ section{
 }
 .search-main{
 		position: absolute;
-		top: 10%;
+		top: 7%;
 		left: 15%;
 		z-index: 20;
 }

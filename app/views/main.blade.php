@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/main.js")}}"></script>
 </head>
-<body>
+<body class="home-page">
 <div class="wrapper">
 <div class="container-fluid header-page">
 	<header>
@@ -562,7 +562,6 @@
 		</div>
 	</div>
 	</footer>
-</div>
 </div>
 </body>
 </html>
