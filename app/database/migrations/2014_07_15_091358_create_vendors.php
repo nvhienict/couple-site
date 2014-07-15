@@ -24,8 +24,8 @@ class CreateVendors extends Migration {
 			$table->integer('album');
 			$table->longText('video');
 			$table->string('map');
-			$table->string('category');
-			$table->string('location');
+			$table->integer('category');
+			$table->integer('location');
 			$table->timestamps();
 		});
 	}
