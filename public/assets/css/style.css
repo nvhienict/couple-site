@@ -1,0 +1,158 @@
+body{
+	background: #E38AAE;
+	font-family: Noto Serif, Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+.wrapper{
+	margin-top: 10px;
+	background: url('http://localhost/thunatest2/public/assets/img/bg.jpg');
+}
+/* ---Header--- */
+ul.nav{
+	font-family: Noto Serif;
+	margin-top: 55px;
+}
+ul.nav li.dropdown:last-child ul.dropdown-menu{
+	left: -180%;
+}
+
+ul.nav li.dropdown a.dropdown-toggle{
+	text-transform: uppercase;
+	padding-right: 25px;
+	color: #E75280;
+	font-weight: bold;
+	background: none;
+}
+ul.nav li.open a.dropdown-toggle{
+	color: #7f8c8d;
+	background: #F48BB8;
+}
+ul.nav li.dropdown a.dropdown-toggle:hover{
+	color: #fff;
+
+}
+ul.nav ul.nav-submenu{
+	width: 300%;
+	
+}
+ul.nav ul.nav-submenu li.dropdown-header{
+	font-size: 18px;
+}
+ul.nav ul.nav-submenu li.dropdown-header span{
+	display: block;
+	border-bottom: 1px solid #DDDDDD;
+	margin-bottom: 10px;
+}
+/*Content*/
+section{
+	position: relative;
+}
+.search-main{
+		position: absolute;
+		top: 10%;
+		left: 15%;
+		z-index: 20;
+}
+.search-form{
+	padding: 25px;
+	background-color: rgba(255, 254, 255, 0.5);
+}
+.search-form input{
+	border-radius: 0px;
+}
+.search-form button{
+	border-radius: 0px;
+	background: #F48BB8;
+	color: #FFFFFF;
+}
+.search-form input.input-text{
+	display: block;
+	cursor:pointer;
+
+}
+.search-form div.dropdown ul.dropdown-menu{
+	width: 250%;
+	position: absolute;
+	left: 5%;
+	padding-left: 20px;
+	font-size: 20px;
+
+}
+div#menu ul.list-unstyled span{
+	display: block;
+	padding: 5px;
+	cursor: pointer;
+}
+div#menu ul.list-unstyled span:hover{
+	color: #3399FF;
+}
+.form-title h2{
+	text-transform: uppercase;
+	color: #FFFFFF;
+	font-size: 70px;
+	margin-bottom: 0px;
+}
+.form-title p{
+	color: #FFFFFF;
+	font-size: 30px;
+	margin-top: 0px;
+}
+.content{
+	margin-top: 20px;
+}
+.content img,.content p{
+	margin-left: 30px;
+}
+/*List title*/
+.list-content .list-title h3{
+	display: inline;
+	margin-right: 10px;
+}
+.list-content .list-title button{
+	margin-top: -2%;
+}
+/*Footer*/
+footer{
+	margin-top: 50px;
+	margin-bottom: 10px;
+	background: #FBE5EC;
+	padding: 10px 10px;
+}
+footer ul li{
+	margin-top: 5px;
+	float: left;
+	overflow: hidden;
+}
+.content-contact{
+	clear: both;
+	margin-left: 10px;
+}
+footer ul li:last-child a{
+	border:none;
+}
+footer ul li a{
+	color: #2c3e50;
+	margin-bottom: 5px;
+	display: block;
+	padding-left: 10px;
+	display: block;
+	padding-right: 10px;
+	border-right: 1px solid #7f8c8d;
+}
+.footer-connect{
+	margin-top: 60px;
+}
+.footer-connect img{
+	width: 30px;
+	width: 30px;
+	float: left;
+	margin-right: 10px;
+}
+footer strong{
+	display: block;
+	margin-bottom: 5px;
+}
+footer div.images{
+	margin-left: 20px;
+}
+
+
