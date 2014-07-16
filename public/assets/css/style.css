@@ -10,7 +10,7 @@ body.home-page{
 }
 .wrapper{
 	margin-top: 10px;
-	background: url('http://localhost/thunatest2/public/assets/img/bg.jpg');
+	background: url('http://localhost/couple-site/public/assets/img/bg.jpg');
 }
 /* ---Header--- */
 ul.nav{
@@ -305,4 +305,7 @@ footer div.images{
 }
 #back-top a:hover span {
 	background-color: #777;
+}
+.map-vendor{
+	padding: 20px;
 }

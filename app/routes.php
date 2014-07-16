@@ -17,3 +17,7 @@ Route::get('/', function()
 });
 
 Route::get('list-vendor', array('as'=>'list-vendor', 'uses'=>'VendorController@listVendor'));
+Route::get('/map', function()
+{
+	return View::make('map');
+});
