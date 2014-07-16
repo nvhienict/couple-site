@@ -246,7 +246,6 @@ footer div.images{
 }
 .name{
 	color: #19B5BC;
-	background: #FFFFFF;
 }
 .compare{
 	border: 1px solid #ddd;
@@ -266,46 +265,50 @@ footer div.images{
 	text-transform: uppercase;
 }
 
-/* BACK TO TOP */
-#back-top {
-	position: fixed;
-	bottom: 30px;
-	margin-left: -150px;
+/*show list vendor for 'list'*/
+.vendor-item-list{
+	border-bottom: 1px solid #ddd;
+    display: inline-block;
+    height: 183px;
+    margin: 30px 50px 30px 0;
+    position: relative;
+    vertical-align: top;
+    text-align: center;
+    width: 100%;
 }
-#back-top a {
-	width: 108px;
+.vendor-item-list-left{
+	width: 20%;
+	height: 10%;
+	padding: 2%;
+	float: left;
+}
+.vendor-item-list-right{
+	width: 77%;
+	height: 10%;
+	float: left;
+	margin-left: 2%;
+	text-align: left;
+	vertical-align: top;
 	display: block;
-	text-align: center;
-	font: 11px/100% Arial, Helvetica, sans-serif;
-	text-transform: uppercase;
-	text-decoration: none;
-	color: #bbb;
-	-webkit-transition: 1s;
-	-moz-transition: 1s;
-	transition: 1s;
 }
-#back-top a:hover {
-	color: #000;
+.decription-list{
+	padding-top: 2%;
 }
-
-#back-top span {
-	width: 108px;
-	height: 108px;
-	display: block;
-	margin-bottom: 7px;
-	background: #ddd url(up-arrow.png) no-repeat center center;
-
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-
-	-webkit-transition: 1s;
-	-moz-transition: 1s;
-	transition: 1s;
+.compare-list{
+	border: 1px solid #ddd;
+	border-radius:6px;
+    bottom: 10px;
+    right: -1px;
+    position: absolute;
+    background-color: #fff;
+    font-weight: normal;
+    padding: 4px 0;
+    margin-right: 2%;
 }
-#back-top a:hover span {
-	background-color: #777;
+.list-vendor-function{
+	padding-top: 2%;
 }
-.map-vendor{
-	padding: 20px;
+.list-check-rates{
+	padding: 4px 0;
+	margin-right: 2%;
 }

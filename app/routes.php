@@ -16,8 +16,14 @@ Route::get('/', function()
 	return View::make('index');
 });
 
-Route::get('list-vendor', array('as'=>'list-vendor', 'uses'=>'VendorController@listVendor'));
-Route::get('/map', function()
-{
+Route::get('/map',function(){
 	return View::make('map');
+});
+
+Route::get('list-vendor', function(){
+	return View::make('list-vendor');
+});
+
+Route::get('list-vendor-list', function(){
+	return View::make('list-vendor-list');
 });
