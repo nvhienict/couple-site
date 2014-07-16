@@ -144,12 +144,11 @@
 							  </div>
 							</div>
 							 <div class="form-group">
-							   <a href="" id="compare-btn">
+							   <a href="" class="compare-btn">
 							        <span class="compare-checkbox checked"><input type="checkbox"></span>
 							        <span class="compare-link-text">So Sánh</span>
 							    </a>
 							  </div>
-							</div>
 							</form>
 					</div>
 					<div class="action">
