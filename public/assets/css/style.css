@@ -316,3 +316,35 @@ footer div.images{
 .iframe{
 	padding: 20px;
 }
+
+/*--Details-vendor*/
+
+/*--Details-vendor*/
+
+#vendor-menu{
+	background-color: #f7dde7 ;
+	border-radius: 8px;
+}
+
+.contact-me
+{
+	margin-left: 20px;
+
+}
+#compare-btn
+{
+	border: 1px solid #fff;
+	background-color: #f7dde7;
+	border-color: #f7dde7;
+	margin-left: 130;
+}
+
+
+#btn-contact
+{
+	
+	margin-left: 120;
+}
+.boder-style{
+	border-left: 2px dashed white;
+}
