@@ -27,3 +27,4 @@ Route::get('list-vendor', function(){
 Route::get('list-vendor-list', function(){
 	return View::make('list-vendor-list');
 });
+Route::post('/', array('as'=>'home-page',"uses"=>"VendorController@search"));
