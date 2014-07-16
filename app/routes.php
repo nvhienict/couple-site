@@ -15,12 +15,11 @@ Route::get('/', function()
 {
 	return View::make('index');
 });
-
-Route::get('/map',function(){
-	return View::make('map');
+Route::get('/video/{id}',function($id){
+	return View::make('video')->with('vendor', Vendor::find($id));
 });
-Route::get('/video',function(){
-	return View::make('video');
+Route::get('/map/{id}',function($id){
+	return View::make('map')->with('vendor', Vendor::find($id));
 });
 Route::get('list-vendor', function(){
 	return View::make('list-vendor');
