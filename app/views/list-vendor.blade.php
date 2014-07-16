@@ -29,6 +29,11 @@ Danh sách Dịch vụ
 		</div>
 		<div class="col-xs-1"></div>
 	</div>
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	    Basic panel example
+	  </div>
+	</div>
 	<div class="row">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-3">
