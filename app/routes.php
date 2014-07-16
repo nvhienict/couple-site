@@ -19,7 +19,9 @@ Route::get('/', function()
 Route::get('/map',function(){
 	return View::make('map');
 });
-
+Route::get('/video',function(){
+	return View::make('video');
+});
 Route::get('list-vendor', function(){
 	return View::make('list-vendor');
 });
