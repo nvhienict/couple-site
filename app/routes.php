@@ -15,3 +15,5 @@ Route::get('/', function()
 {
 	return View::make('index');
 });
+
+Route::get('list-vendor', array('as'=>'list-vendor', 'uses'=>'VendorController@listVendor'));

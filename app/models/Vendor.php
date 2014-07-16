@@ -10,7 +10,7 @@ class Vendor extends Eloquent{
 	 *
 	 * @var string
 	 */
-	protected $table = 'vendor';
+	protected $table = 'vendors';
 
 	/**
 	 * The attributes excluded from the model's JSON form.

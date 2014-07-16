@@ -82,5 +82,11 @@ class VendorController extends \BaseController {
 		//
 	}
 
+	// show list vendor
+	public function listVendor()
+	{
+		$vendors = Vendor::get();
 
+		return View::make('list-vendor')->with('vendors', $vendors);
+	}
 }
