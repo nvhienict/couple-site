@@ -21,7 +21,9 @@ Route::get('/video/{id}',function($id){
 Route::get('/map/{id}',function($id){
 	return View::make('map')->with('vendor', Vendor::find($id));
 });
-
+Route::get('compare', function(){
+	return View::make('compare');
+});
 Route::get('list-vendor',array('as'=>'list-vendor', function(){
 	 return View::make('list-vendor');
 }));

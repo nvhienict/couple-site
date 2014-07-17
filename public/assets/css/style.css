@@ -316,7 +316,57 @@ footer div.images{
 .iframe{
 	padding: 20px;
 }
-
+*compare*/
+.icon-button{
+	float: right;
+	padding-right: 9px;
+}
+.img-vendor{
+	padding: 3px;
+}
+.img-icon{
+	width: 15px; 
+	height: 15px;
+}
+#compare {
+	text-align: center;
+	background-color: #f7dde7;
+	margin: 10px;
+	padding: 20px;
+}
+#compare td{
+	width: 200px;
+	padding: 10px;
+	border-left: 1px solid #fff;
+}
+#compare th{
+	width: 200px;
+	padding: 10px;
+	border-left: 1px solid #fff;
+}
+#compare tr{
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+.button-contact{
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+.icon-ok{
+	margin-bottom: 20px;
+	margin-top: 10px;
+	color: #ff924c;
+}
+.heart{
+	color: #f48277;
+	margin-right: 7px;
+}
+.align{
+	text-align: left;
+}
+.center-align{
+	text-align: center;
+}
 /*--Details-vendor*/
 
 #vendor-menu{
