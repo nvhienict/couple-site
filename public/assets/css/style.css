@@ -320,8 +320,11 @@ footer div.images{
 }
 *compare*/
 .icon-button{
-	float: right;
-	padding-right: 9px;
+	margin-left: 100px;
+}
+.link-img{
+	width: 150px;
+	text-align: right;
 }
 .img-vendor{
 	padding: 3px;
