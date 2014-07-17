@@ -21,13 +21,14 @@ Route::get('/video/{id}',function($id){
 Route::get('/map/{id}',function($id){
 	return View::make('map')->with('vendor', Vendor::find($id));
 });
-Route::get('list-vendor', function(){
-	return View::make('list-vendor');
-});
 
-Route::get('list-vendor-list', function(){
-	return View::make('list-vendor-list');
-});
+Route::get('list-vendor',array('as'=>'list-vendor', function(){
+	 return View::make('list-vendor');
+}));
+
+Route::get('list-vendor-display/{display}',array('as'=>'list-vendor-display', function($display){
+	 return View::make('list-vendor-display')->with('display', $display);
+}));
 
 Route::get('detail-vendor', function(){
 	return View::make('detail-vendor');

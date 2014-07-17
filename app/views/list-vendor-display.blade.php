@@ -29,7 +29,8 @@ Danh sách Dịch vụ
 			<div class="filter">FILTER HERE (FORWARD WE'll DEV IN FUTURE)</div>
 		</div>
 		<div class="col-xs-7">
-			<div class="vendor-item">
+			@if($display=='photo')
+			<div class="vendor-item" id="lazyload">
 				<div class="avatar"><img src=""></div>
 				<div class="category-name">Category</div>
 				<div class="name">Name</div>
@@ -41,6 +42,35 @@ Danh sách Dịch vụ
 					<span class='compare-title'>Compare</span>
 				</a>
 			</div>
+			@else
+			<div class="vendor-item-list" id="lazyload">
+				<div class="vendor-item-list-left">
+					<div class="avatar"><img src=""></div>
+					<div class="category-name">Category</div>
+				</div>
+				<div class="vendor-item-list-right">
+					<div class="name">Name</div>
+					<div class="address">Address</div>
+					<div class="decription-list">Decription..........
+						<span class="label label-info">Detail</span>
+					</div>
+					<div class="list-vendor-function">
+						<a class="list-check-rates" href="#">
+						<span class="glyphicon glyphicon-th">Check-Rates</span>
+						</a>
+						<a class="list-check-rates" href="#">
+							<span class="glyphicon glyphicon-envelope">Contact-Us</span>
+						</a>
+					</div>
+					<a href="#" class="compare-list">
+						<span class='compare-checkbox'>
+							<img src="{{Asset('icon/ui-check-box-uncheck-icon.png')}}">
+						</span>
+						<span class='compare-title'>Compare</span>
+					</a>
+				</div>
+			</div>
+			@endif
 		</div>
 		<div class="col-xs-1"></div>
 	</div>
