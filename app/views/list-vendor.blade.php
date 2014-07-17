@@ -6,7 +6,8 @@ Danh sách Dịch vụ
 <div id='container'>
 	<div class="panel panel-default">
 	  <div class="panel-body">
-	   	Kết quả tìm kiếm với <span style="color: #19B5BC">keyword</span>
+	   	Kết quả tìm kiếm với <span style="color: #19B5BC">
+	   	{{Input::get('name')}}</span> Location: <span style="color: #19B5BC">{{Location::where("id",Input::get('location'))->get()->first()->name}}</span> Category: <span style="color: #19B5BC">{{Input::get('category')}}</span>
 	   	<div class="top-list-vendor-function">
 					<a class="list-photo" href="{{route('list-vendor-display', array('display'=>'photo'))}}">
 						<span class="glyphicon glyphicon-camera"></span>
@@ -28,11 +29,13 @@ Danh sách Dịch vụ
 		<div class="col-xs-3">
 			<div class="filter">FILTER HERE (FORWARD WE'll DEV IN FUTURE)</div>
 		</div>
-		<div class="col-xs-7">
+		<div class="col-xs-8">
+			@if(isset($results))
+			@foreach($results as $vendor)
 			<div class="vendor-item">
-				<div class="avatar"><img src=""></div>
-				<div class="category-name">Category</div>
-				<div class="name">Name</div>
+				<div class="avatar"><a href="detail-vendor">{{'<img src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a></div>
+				<div class="category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
+				<div class="name">{{$vendor->name}}</div>
 				<div class="clr"></div>
 				<a href="#" class="compare">
 					<span class='compare-checkbox'>
@@ -41,8 +44,10 @@ Danh sách Dịch vụ
 					<span class='compare-title'>Compare</span>
 				</a>
 			</div>
+			@endforeach
+			@else <p class="empty">Không tìm thấy kết quả</div>
+			@endif
 		</div>
-		<div class="col-xs-1"></div>
 	</div>
 </div>
 @endsection

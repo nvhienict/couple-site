@@ -45,50 +45,56 @@ Trang chủ
 			<h2>Tìm nhà cung cấp</h2>
 			<p>Với các nguồn thông tin đáng tin cậy nhất cho đám cưới của bạn </p>
 		</div>
-		<form class="form-horizontal form-group-lg " role="form">
-		  <div class="form-group">
-		  	
-		  </div>
+		<form action="{{Asset('list-vendor')}}" method="post" class="form-horizontal form-group-lg" role="form">
 		  <div class="form-group">
 		    <div class="row search-form">
 		    	<div class="col-xs-3">
-			    	<input type="text" class="form-control input-lg" placeholder="Enter Name">
+			    	<input type="text" name="name" class="form-control input-lg" placeholder="Enter Name">
 			  	</div>
 			  	<div class="col-xs-3">
-			    	<input type="text" class="form-control input-lg" placeholder="Enter Location">
+			    	<select name="location" class="form-control input-lg">
+			    	@foreach(Location::get() as $location)
+			    	<option value="{{$location->id}}">{{$location->name}}</option>
+			    	@endforeach
+			    	</select>
 			  	</div>	
 			  	<div class="col-xs-4 dropdown">
-			    	<input id="searchTxt" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Click choose Categories">
+			    	<input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Click choose Categories">
+			    	<input id="searchId" name="category_id" type="hidden">
 			    	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 				    <li role="presentation">
 				    	<div class="row" id="menu">
-				      		<div class="col-xs-6">
-				      			<ul class="list-unstyled">
-				      				<li><span>Áo cưới cô dâu</span></li>
-				      				<li><span>Ban nhạc</span></li>
-				      				<li><span>Bánh cưới</span></li>
-				      				<li><span>Dịch vụ vận chuyển</span></li>
-				      				<li><span>Trang điểm</span></li>
-				      				<li><span>Wedding Planner</span></li>
-				      			</ul>
-				      		</div>
-				      		<div class="col-xs-6">
-				      			<ul class="list-unstyled">
-				      				<li><span>Nhà hàng tiệc cưới</span></li>
-				      				<li><span>Quay phim chụp ảnh</span></li>
-				      				<li><span>Thiệp cưới</span></li>
-				      				<li><span>Trang phục chú rể</span></li>
-				      				<li><span>Trang sức cưới hỏi</span></li>
-				      				<li><span>Trang trí hoa</span></li>
-				      			</ul>
-				      		</div>
+					    	<div class="col-xs-6">
+					      		<ul class="list-unstyled">
+					    	@foreach (Category::get() as $index=> $category)
+					    	@if($index<6)
+					      			<li><span>{{$category['name']}}</span>
+					      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
+					      			</li>
+					      	@endif
+					      	@endforeach
+					      		</ul>
+					      	</div>
+					      	<div class="col-xs-6">
+					      		<ul class="list-unstyled">
+					    	@foreach (Category::get() as $index=> $category)
+					    	@if($index>=6)
+					      			<li><span>{{$category['name']}}</span>
+					      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
+					      			</li>
+					      	@endif
+					      	@endforeach
+					      		</ul>
+					      	</div>
 				      	</div>
 				    </li>
 				    <script>
 				    $(document).ready(function(){
-						$('#menu li').click(function(){
+						$('#menu li span').click(function(){
 						  var text= $(this).text();
+						  var id= $(this).next().val();
 							$( "#searchTxt" ).val(text);
+							$( "#searchId").val(id);
 						});
 					});
 					</script>

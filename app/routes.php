@@ -31,6 +31,9 @@ Route::get('list-vendor-display/{display}',array('as'=>'list-vendor-display', fu
 }));
 
 Route::get('detail-vendor', function(){
-	return View::make('detail-vendor');
+	$vendor=Session::get('vendor');
+	return View::make('detail-vendor')->with("vendor",$vendor);
 });
-Route::post('/', array('as'=>'home-page',"uses"=>"VendorController@search"));
+Route::post('list-vendor', array('as'=>'home-page',"uses"=>"VendorController@search"));
+
+Route::get('show-id/{id}',array('as'=>'home-page',"uses"=>"VendorController@show"));

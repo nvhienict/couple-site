@@ -43,7 +43,8 @@ class VendorController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$vendor=Vendor::find($id)->get()->first();
+		return Redirect::to("detail-vendor")->with("vendor",$vendor);
 	}
 
 
@@ -85,13 +86,9 @@ class VendorController extends \BaseController {
 	{
 		$name=Input::get('name');
 		$location=Input::get('location');
-		$category=Input::get('category');
+		$category=Input::get('category_id');
 		$vendor= new Vendor();
-		if(empty($name)&&empty($location)&&empty($category))
-		{
-			$results=$vendor->get()->orderBy('name', 'desc');
-		}
-		elseif(!empty($name)&&empty($category)&&empty($location))
+		if(!empty($name)&&empty($category)&&empty($location))
 		{
 			$results=$vendor->where('name', 'LIKE', "%$name%")->get();
 
@@ -99,7 +96,7 @@ class VendorController extends \BaseController {
 
 		elseif(empty($name)&&empty($category)&&!empty($location))
 		{
-			$results=$vendor->where('location',$location)->get();
+			$results=$vendor->where('location',"=",$location)->get();
 		}
 
 		elseif(empty($name)&&empty($location)&&!empty($category))
@@ -122,7 +119,7 @@ class VendorController extends \BaseController {
 			$results=$vendor->where('category',$category)->where('name', 'LIKE', "%$name%")->get();
 		}
 
-		elseif(!empty($name)&&!empty($location)&&!empty($category))
+		else
 		{
 			$results=$vendor->where('location',$location)->where('name', 'LIKE', "%$name%")->where('category',$category)->get();
 		}

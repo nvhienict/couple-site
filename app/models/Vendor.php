@@ -19,10 +19,10 @@ class Vendor extends Eloquent{
 	 */
 	public function location()
 	{
-    	return $this->hasOne('Location', 'location');
+    	return $this->belongsTo('Location', 'location');
   	}
   	public function category()
   	{
-    	return $this->hasOne('Category', 'category');
+    	return $this->belongsTo('Category', 'category');
   	}
 }
