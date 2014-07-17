@@ -178,9 +178,9 @@ footer div.images{
 }
 .top-list-vendor-function{
 	float: right;
-	width: 210px;
+	width: 300px;
 	height: 100%;
-	border: 1px solid #DDDDDD;
+	border: none;
 	border-radius: 6px;
 	display: block;
 }
@@ -251,12 +251,15 @@ footer div.images{
 	border: 1px solid #ddd;
 	border-radius: 0 0 6px 6px;
     border-top: medium none;
-    bottom: -29px;
+    bottom: -41px;
     left: -1px;
     position: absolute;
     background-color: #fff;
     font-weight: normal;
-    padding: 4px 0;
+    padding: 0px 4px 0px 4px;
+}
+.check-box{
+	height: 10px;
 }
 .compare-checkbox{
 	display: inline-block;
@@ -297,12 +300,11 @@ footer div.images{
 .compare-list{
 	border: 1px solid #ddd;
 	border-radius:6px;
-    bottom: 10px;
+    bottom: 15px;
     right: -1px;
     position: absolute;
     background-color: #fff;
     font-weight: normal;
-    padding: 4px 0;
     margin-right: 2%;
 }
 .list-vendor-function{
