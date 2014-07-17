@@ -13,9 +13,9 @@
 	<body id="body-detailvendor">
 		<div class="row" id="infor-vendor">
 			<div class="container">
-			<div class="col-xs-12 col-sm-6 col-md-8">
+			<div class="col-xs-12 col-sm-6 col-md-9" id="body-left">
 				
-				<div class="row">
+				<div class="row" id="top-left">
 						<div class="col-xs-4 col-sm-4" id="left-infor">
 							<a href="#" id="left-infor title-infor">Địa điểm đám cưới Đà Nẵng</a>
 							<div id="left-infor avata-vendor">
@@ -46,64 +46,72 @@
 						</div>
 
 					</div><!-- -End infor vendor -->
-
-					
-					<div class="tab-menu">
-										
-							<!-- Nav tabs -->
-						<ul  class="nav nav-tabs" id="vendor-menu" role="tablist"  >
-							  <li class="active"><a data-toggle="tab" href="#aboutme">Hồ sơ</a></li>
-							  <li class="boder-style"><a data-toggle="tab" href="#review" >Nhận xét</a></li>
-							  <li class="boder-style"><a data-toggle="tab" href="#photos" >Ảnh</a></li>
-							  <li class="boder-style"><a data-toggle="tab" href="#video" >Video</a></li>
-							  <li class="boder-style"><a data-toggle="tab" href="#FAQ">FAQ</a></li>
-							  <li class="boder-style"><a data-toggle="tab" href="#map">Map</a></li>
-						</ul>
-
-						
 					<div class="tab-content">
-					  <div class="tab-pane active" id="aboutme">
-					  		<div id="content-vendor">
-								<h4> Đôi nét về chúng tôi</h4>
-								<p>Ở đây có đầy đủ tiện nghi : dịch vụ giặt là, cho thuê xe, dụng cụ các món nướng, dịch vụ đưa đón, tiện nghi cho người khuyết tật chỉ là một vài trong số những thiết bị được lắp đặt tại Fusion Maia resort- All spa inclusive ngoài một số khách sạn khác trong thành phố. Phòng tắm nước khoáng nóng, bóng bàn, bể bơi trong nhà, câu cá ở Fusion Maia resort thật sự rất tuyệt. Là một nơi lý tưởng cho du khách nghỉ chân tìm kiếm sự thoải mái và tiện nghi ở Đà Nẵng.</p>
-									
-							</div>
-					  </div>
-					  <div class="tab-pane" id="review">
-					  		@yield('tab-review')
-					  		<p>Review</p>
-					  </div>
-					  <div class="tab-pane" id="photos">
-					  		
-					  		@yield('tab-photos')
-					  		<p>Photos</p>
-					  </div>
-					  <div class="tab-pane" id="video">
-					  		@yield('tab-video')
-					  		<p>video</p>
-					  </div>
-					  <div class="tab-pane" id="FAQ">
-					  		@yield('tab-FAQ')
-					  		<p>FAQ</p>
+					
+						<div class="tab-menu" >
+											
+								<!-- Nav tabs -->
+							<ul  class="nav nav-tabs" id="vendor-menu" role="tablist"  >
+								  <li class="active"><a data-toggle="tab" href="#aboutme">Hồ sơ</a></li>
+								  <li class="boder-style"><a data-toggle="tab" href="#review" >Nhận xét</a></li>
+								  <li class="boder-style"><a data-toggle="tab" href="#photos" >Ảnh</a></li>
+								  <li class="boder-style"><a data-toggle="tab" href="#video" >Video</a></li>
+								  <li class="boder-style"><a data-toggle="tab" href="#FAQ">FAQ</a></li>
+								  <li class="boder-style"><a data-toggle="tab" href="#map">Map</a></li>
+							</ul>
 
-					  </div>
-					  <div class="tab-pane" id="map">
-					  		@yield('tab-map')
-					  		<p>Map</p>
-					  </div>
+							
+						<div class="tab-content">
+						  <div class="tab-pane active" id="aboutme">
+						  		<div id="content-vendor">
+									<h4> Đôi nét về chúng tôi</h4>
+									<p>Ở đây có đầy đủ tiện nghi : dịch vụ giặt là, cho thuê xe, dụng cụ các món nướng, dịch vụ đưa đón, tiện nghi cho người khuyết tật chỉ là một vài trong số những thiết bị được lắp đặt tại Fusion Maia resort- All spa inclusive ngoài một số khách sạn khác trong thành phố. Phòng tắm nước khoáng nóng, bóng bàn, bể bơi trong nhà, câu cá ở Fusion Maia resort thật sự rất tuyệt. Là một nơi lý tưởng cho du khách nghỉ chân tìm kiếm sự thoải mái và tiện nghi ở Đà Nẵng.</p>
+										
+								</div>
+								<div id="content-photo">
+									<h4>Ảnh</h4>
+								</div>
 
-					  <script type="text/javascript">
-						$(function () {
-    						$('#vendor-menu a:last').tab('show');
- 						 });
-					</script>
+								<div id="content-video">
+									<h4> Video</h4>
+									@include('video')
+								</div>
+						  </div>
+						  <div class="tab-pane" id="review">
+						  		@yield('tab-review')
+						  		<p>Review</p>
+						  </div>
+						  <div class="tab-pane" id="photos">
+						  		
+						  		@yield('tab-photos')
+						  		<p>Photos</p>
+						  </div>
+						  <div class="tab-pane" id="video">
+						  		@yield('tab-video')
+						  		<p>video</p>
+						  </div>
+						  <div class="tab-pane" id="FAQ">
+						  		@yield('tab-FAQ')
+						  		<p>FAQ</p>
+
+						  </div>
+						  <div class="tab-pane" id="map">
+						  		@yield('tab-map')
+						  		<p>Map</p>
+						  </div>
+
+						  <script type="text/javascript">
+							$(function () {
+	    						$('#vendor-menu a:last').tab('show');
+	 						 });
+						</script>
+						</div>
 					</div>
-
 					
 				</div>
 			
-		</div>
-			<div class="col-xs-6 col-md-4">
+			</div>
+			<div class="col-xs-6 col-md-3" id="right-contact">
 					<div class="contact-me">
 						<h3> <i class="glyphicon glyphicon-earphone"></i> 01234 856 856 </h3>
 						<p>Xin vui lòng cho biết nhà cung cấp này bạn tìm thấy trên Thuna.vn</p>
@@ -130,20 +138,85 @@
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <div class="">
-							      <select class="form-control">
-									  <option> Gởi thông tin qua mail cho tôi</option>
-									  <option> Hãy gọi cho tôi </option>
-									  <option> Đặt một câu hỏi</option>
+							    
+							      <select class="form-control" id="selection-contact">
+									  <option value="1"> Gởi thông tin qua mail cho tôi</option>
+									  <option value="2"> Hãy gọi cho tôi </option>
+									  <option value="3"> Đặt một câu hỏi</option>
 								  </select>
-							    </div>
-							  </div>
-							  <div class="form-group">
+							    </div><br/>
+							    <ul id="options" style="margin-left:-40px">
+							  		<li style="display:none;list-style:none;list-style-position:inside; "><div id="number1" calss="number" ></div></li>
+								    <li style="display:none;list-style:none;list-style-position:inside;width:300px;margin-left: -20px;"><div id="number2" calss="number" >
+								    	 <div class="form-group">
+											<div class="">
+												   <input type="text" class="form-control" id="Input-phonenumber" value="" style="width:80%; margin-left: 20px;">
+											</div>
+										</div>
+										<p style="margin-left:80px; ">e.g.xxx.xxx.xxxx</p>
+										<h5 style="margin-left:30px;; font-weight:bold " >Thời gian tốt nhất để liên lạc:</h5>
+										<div class="row">
+											<div class="col-xs-6 .col-sm-2">
+												<div class="checkbox">
+												  <label style="font-weight:bold ">
+												    <input type="checkbox" value="">
+													Bất kì thời gian
+												  </label>
+												</div>
+
+												<div class="checkbox">
+												  <label style="font-weight:bold ">
+												    <input type="checkbox" value="">
+													Hằng ngày
+												  </label>
+												</div>
+											</div>
+											<div class="col-xs-6 .col-sm-4" >
+												<div class="checkbox">
+												  <label style="font-weight:bold ">
+												    <input type="checkbox" value="">
+													Mỗi đêm
+												  </label>
+												</div>
+												<div class="checkbox">
+												  <label style="font-weight:bold ">
+												    <input type="checkbox" value="">
+													Mỗi cuối tuần
+												  </label>
+												</div>
+
+											</div>
+										</div>
+
+								    </div></li><!-- -endcall-div -->
+								    
+								    <li style="display:none ; list-style:none"><div id="number3" class="number">
+								    	<textarea rows="7" cols="40" style="margin-left:-15px" >Vui lòng gởi thông tin về dịch vụ của chúng tôi.
+								    	</textarea>
+
+								    </div></li>
+								 </ul>
+
+								    <!-- -script show call-div -->
+							
+								  <script >
+
+									$("#selection-contact").change(function() {
+										      var index = $(this).children(":selected").index();
+										      $("#options").children().hide().eq(index).show();
+										});
+
+				        			</script>
+
+								  </div>
+								  
+
+							  <div class="form-group" style="margin-left: 62px">
 							    <div class="">
 							      <button type="button" class="btn btn-primary btn-lg active" id="btn-contact"style="background-color: #f7dde7;border-color: #f7dde7"> Liên lạc</button>
 							  </div>
 							</div>
-							 <div class="form-group">
+							 <div class="form-group"style="margin-left:72px">
 							   <a href="" class="compare-btn">
 							        <span class="compare-checkbox checked"><input type="checkbox"></span>
 							        <span class="compare-link-text">So Sánh</span>

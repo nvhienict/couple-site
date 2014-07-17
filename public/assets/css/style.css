@@ -329,16 +329,46 @@ footer div.images{
 	margin-left: 20px;
 
 }
+
 .compare-btn
 {
 	border: 1px solid #fff;
 	background-color: #f7dde7;
 	border-color: #f7dde7;
-	
 }
 
 
 
 .boder-style{
 	border-left: 2px dashed white;
+}
+#right-contact
+{
+
+	border: 1px solid #ddd;
+	border-bottom: none;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+}
+#body-left
+{
+	border: 1px solid #ddd;
+	border-left: none;
+	border-bottom: none;
+	border-top: none;
+	
+}
+
+#top-left
+{
+	border: 1px solid #ddd;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+}
+.container
+{
+	border: 1px solid #ddd;
+	margin-bottom: 30px;
 }
