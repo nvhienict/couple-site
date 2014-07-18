@@ -427,3 +427,56 @@ footer div.images{
 	border: 1px solid #ddd;
 	margin-bottom: 30px;
 }
+
+/*--slide*/
+
+#bigPic{
+	width:700px;
+	height:300px;
+	padding:1px;
+	border:1px solid #CCC;
+	background-color:#FFF;
+	margin-bottom:10px;
+}
+#bigPic img{
+	position:absolute;
+	display:none;
+}
+ul#thumbs li.active{
+	border:2px solid #000;	
+	background:#fff;
+	padding:2px;
+}
+ul#thumbs, ul#thumbs li{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+	
+ul#thumbs li{
+	float:left;
+	margin-right:7px;
+	margin-bottom:5px;
+	border:1px solid #CCC;	
+	padding:3px;
+	cursor:pointer;
+}
+ul#thumbs img{
+	float:left;
+	width:80px;
+	height:80px;
+	line-height:80px;
+	overflow:hidden;
+	position:relative;
+	z-index:1;		
+}
+#bigPic img{
+	width:700px;
+	height:300px;
+	padding:1px;
+
+}
+#photos
+{
+	margin-bottom: 50px;
+}
