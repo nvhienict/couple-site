@@ -5,24 +5,14 @@ Compare
 @section('content')
 <div class="row">
 	<div class="col-xs-10 col-md-offset-1">
-		<table id="compare">
+		<table id="compare" class="table">
 			<tr>
 				<th>
-					
 				</th>
-				<td>
-					<div class="img-vendor">
-						<div class="link-img">
-							<div class="icon-button">
-								<button type="button" class="btn btn-default">
-									<img src="{{Asset('icon/delete.png')}}" class="img-icon" >
-								</button>
-							</div>
-							<a href="#detailvendor"><img src="{{Asset('vendor/1.jpg')}}" class="img-thumbnail"></a>
-						</div>
-						<a style="text-align: center;" href="#">View photo</a>
-					</div>
-				</td>
+
+				@foreach ($results as $result=>$key)
+				@foreach (Vendor::get() as $vendor)
+				@if($vendor->id==$key)
 				<td>
 					<div class="img-vendor">
 						<div class="link-img">
@@ -31,103 +21,81 @@ Compare
 									<img src="{{Asset('icon/delete.png')}}" class="img-icon">
 								</button>
 							</div>
-							<a href="#detailvendor"><img src="{{Asset('vendor/1.jpg')}}" class="img-thumbnail"></a>
+							<a href="{{URL::to('detail-vendor',array($vendor->id))}}">{{'<img class="img-responsive img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a>
 						</div>
 						<a style="text-align: center;" href="#">View photo</a>
 					</div>
 				</td>
-				<td>
-					<div class="img-vendor">
-						<div class="link-img">
-							<div class="icon-button">
-								<button type="button" class="btn btn-default">
-									<img src="{{Asset('icon/delete.png')}}" class="img-icon">
-								</button>
-							</div>
-							<a href="#detailvendor"><img src="{{Asset('vendor/1.jpg')}}" class="img-thumbnail"></a>
-						</div>
-						<a style="text-align: center;" href="#">View photo</a>
-					</div>
-				</td>
-				<td>
-					<div class="img-vendor">
-						<div class="link-img">
-							<div class="icon-button">
-								<button type="button" class="btn btn-default">
-									<img src="{{Asset('icon/delete.png')}}" class="img-icon">
-								</button>
-							</div>
-							<a href="#detailvendor"><img src="{{Asset('vendor/1.jpg')}}" class="img-thumbnail"></a>
-						</div>
-						<a style="text-align: center;" href="#">View photo</a>
-					</div>
-				</td>
-				<td>
-					<div class="img-vendor">
-						<div class="link-img">
-							<div class="icon-button">
-								<button type="button" class="btn btn-default">
-									<img src="{{Asset('icon/delete.png')}}" class="img-icon">
-								</button>
-							</div>
-							<a href="#detailvendor"><img src="{{Asset('vendor/1.jpg')}}" class="img-thumbnail img-photo"></a>
-						</div>
-						<a style="text-align: center;" href="#">View photo</a>
-					</div>
-				</td>
+				@endif
+				@endforeach
+				@endforeach
 			</tr>
 			<tr>
-				<th> </th>
-				<td> vendor1</td>
-				<td> vendor2</td>
-				<td> vendor3</td>
-				<td> vendor4</td>
-				<td> vendor5</td>
+				<th></th>
+				@foreach ($results as $result=>$key)
+				@foreach (Vendor::get() as $vendor)
+				@if($vendor->id==$key)
+				<td> {{$vendor->name}}</td>
+				@endif
+				@endforeach
+				@endforeach
 			</tr>
 			<tr style="background: #f6cddd;">
-				<th> </th>
-				<td> vendor1</td>
-				<td> vendor2</td>
-				<td> vendor3</td>
-				<td> vendor4</td>
-				<td> vendor5</td>
+				<th>Địa chỉ</th>
+			@foreach ($results as $result=>$key)
+				@foreach (Vendor::get() as $vendor)
+				@if($vendor->id==$key)
+				<td> {{$vendor->address}}</td>
+				@endif
+				@endforeach
+				@endforeach
 			</tr>
 			<tr>
-				<th> </th>
-				<td> vendor1</td>
-				<td> vendor2</td>
-				<td> vendor3</td>
-				<td> vendor4</td>
-				<td> vendor5</td>
+				<th>Số điện thoại</th>
+			@foreach ($results as $result=>$key)
+				@foreach (Vendor::get() as $vendor)
+				@if($vendor->id==$key)
+				<td>{{$vendor->phone}}</td>
+				@endif
+				@endforeach
+				@endforeach
 			</tr>
 			<tr style="background: #f6cddd;">
 				<th>Đánh giá</th>
-				<td> vendor1</td>
-				<td> vendor2</td>
-				<td> vendor3</td>
-				<td> vendor4</td>
-				<td> vendor5</td>
+		@foreach ($results as $result=>$key)
+				@foreach (Vendor::get() as $vendor)
+				@if($vendor->id==$key)
+				<td> </td>
+				@endif
+				@endforeach
+				@endforeach
 			</tr>
 			<tr>
 				<th>Style</th>
-				<td> vendor1</td>
-				<td> vendor2</td>
-				<td> vendor3</td>
-				<td> vendor4</td>
-				<td> vendor5</td>
+			@foreach ($results as $result=>$key)
+				@foreach (Vendor::get() as $vendor)
+				@if($vendor->id==$key)
+				<td><img src="{{Asset('images/50_stars.gif')}}"></td>
+				@endif
+				@endforeach
+				@endforeach
 			</tr>
 			<tr style="background: #f6cddd;">
 				<th>Gói dịch vụ</th>
-				<td> vendor1</td>
-				<td> vendor2</td>
-				<td> vendor3</td>
-				<td> vendor4</td>
-				<td> vendor5</td>
+			@foreach ($results as $result=>$key)
+				@foreach (Vendor::get() as $vendor)
+				@if($vendor->id==$key)
+				<td> {{Vendor::find($vendor->id)->category()->get()->first()->name}}</td>
+				@endif
+				@endforeach
+				@endforeach
 			</tr>
 			<tr>
 				<th>Bao hiem</th>
+				@foreach ($results as $result=>$key)
+				@foreach (Vendor::get() as $vendor)
+				@if($vendor->id==$key)
 				<td> 
-					<div>Vendor 1</div>
 					<div class="icon-ok "> <i class="glyphicon glyphicon-ok"></i></div>
 					<div class="button-contact"><button type="button"  class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Liên Hệ</button>
 						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -192,31 +160,11 @@ Compare
 					</div>
 					<div><button type="button" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-heart heart"></i> Lưu</button></div>
 				</td>
-				<td> 
-					<div>Vendor 1</div>
-					<div class="icon-ok "> <i class="glyphicon glyphicon-ok"></i></div>
-					<div class="button-contact"><button type="button" class="btn btn-primary btn-lg">Liên Hệ</button></div>
-					<div><button type="button" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-heart heart"></i> Lưu</button></div>
-				</td>
-				<td> 
-					<div>Vendor 1</div>
-					<div class="icon-ok "> <i class="glyphicon glyphicon-ok"></i></div>
-					<div class="button-contact"><button type="button" class="btn btn-primary btn-lg">Liên Hệ</button></div>
-					<div><button type="button" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-heart heart"></i> Lưu</button></div>
-				</td>
-				<td> 
-					<div>Vendor 1</div>
-					<div class="icon-ok "> <i class="glyphicon glyphicon-ok"></i></div>
-					<div class="button-contact"><button type="button" class="btn btn-primary btn-lg">Liên Hệ</button></div>
-					<div><button type="button" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-heart heart"></i> Lưu</button></div>
-				</td>
-				<td> 
-					<div>Vendor 1</div>
-					<div class="icon-ok "> <i class="glyphicon glyphicon-ok"></i></div>
-					<div class="button-contact"><button type="button" class="btn btn-primary btn-lg">Liên Hệ</button></div>
-					<div><button type="button" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-heart heart"></i> Lưu</button></div>
-				</td>
+				@endif
+				@endforeach
+				@endforeach
 			</tr>
+			
 		</table>
 	</div>
 </div>

@@ -4,7 +4,7 @@ $(function(){
 		$("ul.dropdown-menu", this).fadeIn();
 	},function(){
 		$(this).removeClass("open");
-		$("ul.dropdown-menu", this).fadeOut("fast");
+		$("ul.dropdown-menu", this).fadeOut("slow");
 	});
 });
 

@@ -16,7 +16,6 @@ class CreatePhoto extends Migration {
 			{
 				$table->increments("id");
 				$table->string('image');
-				$table->string('name_image');
 				$table->integer('album');
 				$table->timestamps();
 			});

@@ -256,7 +256,7 @@ footer div.images{
     position: absolute;
     background-color: #fff;
     font-weight: normal;
-    padding: 0px 4px 0px 4px;
+    padding: 10px 4px 0px 4px;
 }
 .check-box{
 	height: 10px;
@@ -267,7 +267,12 @@ footer div.images{
 .compare-title{
 	text-transform: uppercase;
 }
-
+#button-submit{
+	border:none;
+	color: #5683AA;
+	width: 100px;
+	height: 40px;
+}
 /*show list vendor for 'list'*/
 .vendor-item-list{
 	border-bottom: 1px solid #ddd;

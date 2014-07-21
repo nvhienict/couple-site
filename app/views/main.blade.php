@@ -5,23 +5,22 @@
 	<title>@yield('title')</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Login</title>
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style.css")}}">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/main.js")}}"></script>
-
-	
-
 </head>
 <body class="home-page">
+<script src="{{Asset("assets/js/jquery.min.js")}}" type="text/javascript"></script>
+ <script src="{{Asset("assets/js/lazyload-min.js")}}" type="text/javascript"></script>
+ <script src="http://salipropham-blogspot-com.googlecode.com/files/lazyload-min.js" type="text/javascript"></script>
 <div class="wrapper">
 <div class="container-fluid header-page">
 	<header>
 	<div class="row">
 		<div class="col-xs-2 logo">
-			<h1><a href="#"><img class="img-responsive" src="{{Asset('assets/img/logo.png')}}" alt="logo"></a></h1>
+			<h1><a href="{{Asset('/')}}"><img class="img-responsive" src="{{Asset('assets/img/logo.png')}}" alt="logo"></a></h1>
 		</div>
 		<div class="col-xs-10">
 			<div class="row">

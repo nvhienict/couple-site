@@ -1,25 +1,16 @@
 @extends('main')
+@section('title')
+Detail Vendor
+@endsection
 @section('content')
-	<head>
-		<title>Detail vendor</title>
-		<link href="{{Asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
-		<link href="{{Asset('assets/css/bootstrap-theme.min.css')}}" rel="stylesheet">
-		<link href="{{Asset('assets/css/style.css')}}" rel="stylesheet">
-		<link href="{{Asset('assets/js/bootstrap.min.js')}}" rel="stylesheet">
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	</head>
-	<body id="body-detailvendor">
 		<div class="row" id="infor-vendor">
 			<div class="container">
 			<div class="col-xs-12 col-sm-6 col-md-9" id="body-left">
-				
 				<div class="row" id="top-left">
 						<div class="col-xs-4 col-sm-4" id="left-infor">
 							<a href="#" id="left-infor title-infor">Địa điểm đám cưới Đà Nẵng</a>
 							<div id="left-infor avata-vendor">
-								<img src="{{Asset('images/maia-resort.jpg')}}" class="img-responsive" alt="Responsive image">
+								{{'<img class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}
 								<div class="fb-like" data-href="https://www.facebook.com/thuna.1987" data-width="150px" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
 								
 							</div>
@@ -34,10 +25,12 @@
 							</script>
 						</div>
 						<div calss="col-xs-8 col-sm-6" id="right-infor">
-							<h3 id="right-infor name">Fusion Maia Resort-Trường Sa.</h3>
-							<p id="right-infor address">Trường Sa, Quận Ngũ Hành Sơn<a href="" id="right-infor map"> |Map.</a></p>
-							<p id="right-infor web"><b>Website</b>:<a href="http://www.fusionmaiadanang.com"id="right-infor link"> Ghé thăm Website của tôi</a></p>
-							<p id="right-infor service"><b>Dịch vụ</b>: Nhà hàng, khu du lịch.</p>
+							<h3 id="right-infor name">{{$vendor->name}}</h3>
+							<p id="right-infor address">{{$vendor->address}} {{Vendor::find($vendor->id)->location()->get()->first()->name}}<a href="#map" id="right-infor map"> |Map.</a></p>
+							<p id="right-infor web"><b>Website</b>:<a href="http://{{$vendor->website}}"id="right-infor link"> Ghé thăm Website của tôi</a></p>
+							<p id="right-infor service"><b>Dịch vụ</b>:
+								{{Vendor::find($vendor->id)->category()->get()->first()->name}}
+							</p>
 							<p id="right-infor catering"><b>Phục vụ</b>: Vui chơi, ẩm thức, giải trí, thư giãn...Sức chứa 200 người lớn.</p>
 							<p id="right-infor capaty"><b>Sức chứa</b>: 200 người lớn.</p>
 						
@@ -65,8 +58,7 @@
 						  <div class="tab-pane active" id="aboutme">
 						  		<div id="content-vendor">
 									<h4> Đôi nét về chúng tôi</h4>
-									<p>Ở đây có đầy đủ tiện nghi : dịch vụ giặt là, cho thuê xe, dụng cụ các món nướng, dịch vụ đưa đón, tiện nghi cho người khuyết tật chỉ là một vài trong số những thiết bị được lắp đặt tại Fusion Maia resort- All spa inclusive ngoài một số khách sạn khác trong thành phố. Phòng tắm nước khoáng nóng, bóng bàn, bể bơi trong nhà, câu cá ở Fusion Maia resort thật sự rất tuyệt. Là một nơi lý tưởng cho du khách nghỉ chân tìm kiếm sự thoải mái và tiện nghi ở Đà Nẵng.</p>
-										
+									<p>{{$vendor->about}}.</p>
 								</div>
 								<div id="content-photo">
 									<h4>Ảnh</h4>
@@ -74,30 +66,93 @@
 
 								<div id="content-video">
 									<h4> Video</h4>
-									@include('video')
+									{{$vendor->video}}	
 								</div>
 						  </div>
 						  <div class="tab-pane" id="review">
-						  		@yield('tab-review')
-						  		<p>Review</p>
+						  		
+						  			<h4>Review</h4>
 						  </div>
 						  <div class="tab-pane" id="photos">
-						  		
-						  		@yield('tab-photos')
-						  		<p>Photos</p>
+						  			<h4>Photos</h4>  <!-- Wrapper for slides -->
+					<div id="bigPic">
+						<img alt="" src="{{Asset("images/slide/1.jpg")}}">
+						<img alt="" src="{{Asset("images/slide/2.jpg")}}">
+						<img alt="" src="{{Asset("images/slide/3.jpg")}}">
+						<img alt="" src="{{Asset("images/slide/4.jpg")}}">
+						<img alt="" src="{{Asset("images/slide/5.jpg")}}">
+						<img alt="" src="{{Asset("images/slide/6.jpg")}}">
+						<img alt="" src="{{Asset("images/slide/7.jpg")}}">
+									    
+					</div>
+
+					<ul id="thumbs">
+						<li class="active" rel="1"><img alt="" src="{{Asset("images/slide/1_thumb.jpg")}}"> </li>
+						<li rel="2"><img alt="" src="{{Asset("images/slide/2_thumb.jpg")}}"> </li>
+						<li rel="3"><img alt="" src="{{Asset("images/slide/3_thumb.jpg")}}"> </li>
+						<li rel="4"><img alt="" src="{{Asset("images/slide/4_thumb.jpg")}}"> </li>
+						<li rel="5"><img alt="" src="{{Asset("images/slide/5_thumb.jpg")}}"> </li>
+						<li rel="6"><img alt="" src="{{Asset("images/slide/6_thumb.jpg")}}"> </li>
+						<li rel="7"><img alt="" src="{{Asset("images/slide/7_thumb.jpg")}}"> </li>
+									   
+					</ul>
+									
+					<script type="text/javascript">
+						var currentImage;
+						var currentIndex = -1;
+						var interval;
+							function showImage(index){
+								if(index < $('#bigPic img').length){
+									var indexImage = $('#bigPic img')[index]
+									if(currentImage){   
+										if(currentImage != indexImage ){
+											$(currentImage).css('z-index',2);
+												clearTimeout(myTimer);
+											$(currentImage).fadeOut(250, function() {
+												myTimer = setTimeout("showNext()", 3000);
+											$(this).css({'display':'none','z-index':1})
+										 });
+									}
+							  }
+								$(indexImage).css({'display':'block', 'opacity':1});
+								currentImage = indexImage;
+								currentIndex = index;
+								$('#thumbs li').removeClass('active');
+								$($('#thumbs li')[index]).addClass('active');
+									}
+								}
+
+								function showNext(){
+									var len = $('#bigPic img').length;
+									var next = currentIndex < (len-1) ? currentIndex + 1 : 0;
+								 	showImage(next);
+								}
+
+										var myTimer;
+
+											$(document).ready(function() {
+											myTimer = setTimeout("showNext()", 3000);
+											showNext(); //Load first image
+											$('#thumbs li').bind('click',function(e){
+											var count = $(this).attr('rel');
+											showImage(parseInt(count)-1);
+											});
+								});
+											</script>	
 						  </div>
 						  <div class="tab-pane" id="video">
-						  		@yield('tab-video')
-						  		<p>video</p>
+						  		
+						  			<h4>video</h4>
+						  			{{$vendor->video}}	
 						  </div>
 						  <div class="tab-pane" id="FAQ">
 						  		@yield('tab-FAQ')
-						  		<p>FAQ</p>
+						  			<h4>FAQ</h4>
 
 						  </div>
-						  <div class="tab-pane" id="map">
-						  		@yield('tab-map')
-						  		<p>Map</p>
+						  <div class="tab-pane" id="map">	  		
+						  			<h4>Map</h4>
+						  			{{$vendor->map}}
 						  </div>
 
 						  <script type="text/javascript">
@@ -191,7 +246,7 @@
 								    </div></li><!-- -endcall-div -->
 								    
 								    <li style="display:none ; list-style:none"><div id="number3" class="number">
-								    	<textarea rows="7" cols="40" style="margin-left:-15px" >Vui lòng gởi thông tin về dịch vụ của chúng tôi.
+								    	<textarea rows="7" cols="35" style="margin-left:-15px" >Vui lòng gởi thông tin về dịch vụ của chúng tôi.
 								    	</textarea>
 
 								    </div></li>
@@ -236,6 +291,4 @@
 			</div>
 			</div>
 		</div>
-		
-	</body>
 @endsection

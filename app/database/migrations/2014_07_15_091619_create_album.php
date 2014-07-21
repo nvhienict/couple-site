@@ -15,7 +15,7 @@ class CreateAlbum extends Migration {
 		Schema::create('album',function($table)
 			{
 				$table->increments("id");
-				$table->string("name");
+				$table->integer("album");
 				$table->timestamps();
 			});
 	}

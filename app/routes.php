@@ -28,14 +28,15 @@ Route::get('list-vendor',array('as'=>'list-vendor', function(){
 	 return View::make('list-vendor');
 }));
 
-Route::get('list-vendor-display/{display}',array('as'=>'list-vendor-display', function($display){
-	 return View::make('list-vendor-display')->with('display', $display);
-}));
-
-Route::get('detail-vendor', function(){
-	$vendor=Session::get('vendor');
-	return View::make('detail-vendor')->with("vendor",$vendor);
-});
 Route::post('list-vendor', array('as'=>'home-page',"uses"=>"VendorController@search"));
 
-Route::get('show-id/{id}',array('as'=>'home-page',"uses"=>"VendorController@show"));
+Route::get('detail-vendor/{id}',array('as'=>'detail-vendor',"uses"=>"VendorController@show"));
+
+Route::post('compare',array("as"=>"compare", function(){
+	foreach(Vendor::get() as $vendor){
+		if(Input::get('checkbox-'.$vendor->id)==$vendor->id){
+			 $compare[]=Input::get('checkbox-'.$vendor->id);
+		}
+	}
+	return View::make('compare')->with('results',$compare);
+}));
