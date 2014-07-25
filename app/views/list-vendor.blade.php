@@ -32,23 +32,23 @@ Danh sách Dịch vụ
 		<div class="col-xs-2"></div>
 		<div class="tab-content">
 			<div class="col-xs-10 tab-pane active" id="display-photo">
-			<input type="hidden" id="asd" name="a" value="0">
+			<input type="text" id="count" name="a" value="0">
 				@if(!empty($results))
 				@foreach($results as $vendor)
 				<script type="text/javascript">
 					$(document).ready(function(){
-						var $i=$('#asd').val();
+						var $i=$('#count').val();
 								$('input[type="checkbox"]').click(function(){
 								if($(this).is(':checked')) {
 									var id= $(this).val();
 									 $(this).next().val(id);
 										$i++;
-									$("#asd").val($i);
+									$("#count").val($i);
 								}
 								else{
 									 $(this).next().val("");
 									 $i--;
-									 $("#asd").val($i);
+									 $("#count").val($i);
 									}
 							});
 							$("#button-submit").click(function(){
@@ -130,18 +130,6 @@ Danh sách Dịch vụ
 		</div> <!--div tab-content-->
 
 		<!-- lazy load -->
-		<script type="text/javascript">
-			$(function() {    
-			   	$("#lz img").lazyload({
-			   		placeholder: "{{Asset('icon/loading.gif')}}",
-				    effect: "fadeIn",
-				    threshold : 0,
-			  	});
-			   	window.onload = function() {
-        		$(window).resize()
-    			};
-			});
-		</script>
 		<!-- lazy load -->
 
 	</div>
