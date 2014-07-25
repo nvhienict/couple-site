@@ -38,7 +38,7 @@
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-	
+	@yield('nav-bar')
 	<section id="intro" class="home-slide text-light">
 
 		<!-- Carousel -->
@@ -117,7 +117,6 @@
 
 	</section>
 	<!-- /Section: intro -->
-@yield('nav-bar')
 @yield('content')
 	<footer>
 		<div class="container">

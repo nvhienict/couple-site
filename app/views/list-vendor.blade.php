@@ -22,7 +22,7 @@ Danh sách Dịch vụ
 					<a href="#display-list" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-th"></span> LIST</a>
 				</li>
 				<li>
-					<button class="btn btn-default" type="submit" id="button-submit" ><span class="glyphicon glyphicon-random"></span> COMPARE</button>
+					<button class="btn btn-default" id="button-submit" ><span class="glyphicon glyphicon-random"></span> COMPARE</button>
 				</li>
 			</ul>
 		</div>
@@ -32,7 +32,7 @@ Danh sách Dịch vụ
 		<div class="col-xs-2"></div>
 		<div class="tab-content">
 			<div class="col-xs-10 tab-pane active" id="display-photo">
-			<input type="text" id="count" name="a" value="0">
+			<input type="hidden" id="count" name="a" value="0">
 				@if(!empty($results))
 				@foreach($results as $vendor)
 				<script type="text/javascript">
@@ -52,15 +52,17 @@ Danh sách Dịch vụ
 									}
 							});
 							$("#button-submit").click(function(){
-							if($i==6){ 
+							if($i>5){ 
 								alert('Chỉ so sánh tối đa 5 vendor');
 								return false;
+								
 							}
 							else if($i==0){
 							 	alert('Chưa chọn Vendor nào');
-							    return false;
+							 	return false;
+							    
 							}
-							if($i<6&&$i>0){ $("#form-submit").submit();}
+							else if($i<6&&$i>0){ $("#form-submit").submit();}
 							});
 					});
 				</script>

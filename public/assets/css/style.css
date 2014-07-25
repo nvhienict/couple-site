@@ -1033,3 +1033,13 @@ a.btn:focus{
 	min-width: 100%;
 	clear: both;
 }
+#nav-bar .dropdown-menu{
+	width: 560px;
+}
+#nav-bar .dropdown-menu a{
+	font-size: 20px;
+}
+#nav-bar .navbar-nav .active a{
+	background: #3399ff; 
+	color: #fff;
+}
