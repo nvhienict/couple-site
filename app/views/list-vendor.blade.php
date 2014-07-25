@@ -2,6 +2,9 @@
 @section('title')
 Danh sách Dịch vụ
 @endsection
+@section('nav-bar')
+@include('nav')
+@endsection
 @section('content')
 <div id='container'>
 <form id="form-submit" method="post" action="{{Asset('compare')}}">

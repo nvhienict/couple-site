@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/',array("as"=>"index", function()
 {
 	return View::make('index');
-});
+}));
 Route::get('/video/{id}',function($id){
 	return View::make('video')->with('vendor', Vendor::find($id));
 });

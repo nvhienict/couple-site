@@ -1,569 +1,139 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
 	<title>@yield('title')</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
-	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style.css")}}">
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
+    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
+	<link href="{{Asset("assets/css/nivo-lightbox.css")}}" rel="stylesheet" />
+	<link href="{{Asset("assets/css/nivo-lightbox-theme/default/default.css")}}" rel="stylesheet" type="text/css" />
+	<link href="{{Asset("assets/css/owl.carousel.css")}}" rel="stylesheet" media="screen" />
+    <link href="{{Asset("assets/css/owl.theme.css")}}" rel="stylesheet" media="screen" />
+	<link href="{{Asset("assets/css/flexslider.css")}}" rel="stylesheet" />
+	<link href="{{Asset("assets/css/animate.css")}}" rel="stylesheet" />
+    <link href="{{Asset("assets/css/style.css")}}" rel="stylesheet">
+	<link href="{{Asset("assets/color/default.css")}}" rel="stylesheet">
+	
+	 <!-- Core JavaScript Files -->
+	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
-	<script type="text/javascript" src="{{Asset("assets/js/main.js")}}"></script>
+	<script type="text/javascript" src="{{Asset("assets/js/main.js")}}"></script>	 
+	<script src="{{Asset("assets/js/jquery.sticky.js")}}"></script>
+	<script src="{{Asset("assets/js/jquery.flexslider-min.js")}}"></script>
+    <script src="{{Asset("assets/js/jquery.easing.min.js")}}"></script>	
+	<script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
+	<script src="{{Asset("assets/js/jquery.appear.js")}}"></script>
+	<script src="{{Asset("assets/js/stellar.js")}}"></script>
+	<script src="{{Asset("assets/js/wow.min.js")}}"></script>
+	<script src="{{Asset("assets/js/owl.carousel.min.js")}}"></script>
+	<script src="{{Asset("assets/js/nivo-lightbox.min.js")}}"></script>
+	    <script src="{{Asset("assets/js/custom.js")}}"></script>
+
+
+
 </head>
-<body class="home-page">
-<script src="{{Asset("assets/js/jquery.min.js")}}" type="text/javascript"></script>
- <script src="{{Asset("assets/js/lazyload-min.js")}}" type="text/javascript"></script>
- <script src="http://salipropham-blogspot-com.googlecode.com/files/lazyload-min.js" type="text/javascript"></script>
-<div class="wrapper">
-<div class="container-fluid header-page">
-	<header>
-	<div class="row">
-		<div class="col-xs-2 logo">
-			<h1><a href="{{Asset('/')}}"><img class="img-responsive" src="{{Asset('assets/img/logo.png')}}" alt="logo"></a></h1>
-		</div>
-		<div class="col-xs-10">
-			<div class="row">
-				<div class="col-xs-12">
-					<ul class="nav nav-pills nav">
-			  			<li class="dropdown">
-			    		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-			      		Nhà cung cấp
-			    		</a>
-						    <ul class="dropdown-menu nav-submenu" role="menu">
-						      	<li role="presentation" class="dropdown-header"><span>Dịch vụ</span>
-						      	<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Áo cưới cô dâu</a></li>
-						      				<li><a href="#">Ban nhạc</a></li>
-						      				<li><a href="#">Bánh cưới</a></li>
-						      				<li><a href="#">Dịch vụ vận chuyển</a></li>
-						      				<li><a href="#">Trang điểm</a></li>
-						      				<li><a href="#">Wedding Planner</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Nhà hàng tiệc cưới</a></li>
-						      				<li><a href="#">Quay phim chụp ảnh</a></li>
-						      				<li><a href="#">Thiệp cưới</a></li>
-						      				<li><a href="#">Trang phục chú rể</a></li>
-						      				<li><a href="#">Trang sức cưới hỏi</a></li>
-						      				<li><a href="#">Trang trí hoa</a></li>
-						      			</ul>
-						      		</div>
-						      	</div>
-						      	</li>
-						    </ul>
-			  			</li>
-			  			<li class="dropdown">
-			    		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-			      		Dropdown 
-			    		</a>
-						    <ul class="dropdown-menu nav-submenu" role="menu">
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      	<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      	</div>
-						      	</li>
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      		<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		</div>
-						      	</li>
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      		<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		</div>
-						      	</li>
-						    </ul>
-			  			</li>
-			  			<li class="dropdown">
-			    		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-			      		Dropdown 
-			    		</a>
-						    <ul class="dropdown-menu nav-submenu" role="menu">
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      	<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      	</div>
-						      	</li>
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      		<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		</div>
-						      	</li>
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      		<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		</div>
-						      	</li>
-						    </ul>
-			  			</li>
-			  			<li class="dropdown">
-			    		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-			      		Dropdown 
-			    		</a>
-						    <ul class="dropdown-menu nav-submenu" role="menu">
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      	<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      	</div>
-						      	</li>
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      		<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		</div>
-						      	</li>
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      		<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		</div>
-						      	</li>
-						    </ul>
-			  			</li>
-			  			<li class="dropdown">
-			    		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-			      		Dropdown 
-			    		</a>
-						    <ul class="dropdown-menu nav-submenu" role="menu">
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      	<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      	</div>
-						      	</li>
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      		<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		</div>
-						      	</li>
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      		<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		</div>
-						      	</li>
-						    </ul>
-			  			</li>
-			  			<li class="dropdown">
-			    		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-			      		Dropdown 
-			    		</a>
-						    <ul class="dropdown-menu nav-submenu" role="menu">
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      	<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      	</div>
-						      	</li>
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      		<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		</div>
-						      	</li>
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      		<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		</div>
-						      	</li>
-						    </ul>
-			  			</li>
-			  			<li class="dropdown">
-			    		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-			      		Dropdown 
-			    		</a>
-						    <ul class="dropdown-menu nav-submenu" role="menu">
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      	<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      	</div>
-						      	</li>
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      		<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		</div>
-						      	</li>
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      		<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		</div>
-						      	</li>
-						    </ul>
-			  			</li>
-			  			<li class="dropdown">
-			    		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-			      		Dropdown 
-			    		</a>
-						    <ul class="dropdown-menu nav-submenu" role="menu">
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      	<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      	</div>
-						      	</li>
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      		<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		</div>
-						      	</li>
-						      	<li role="presentation" class="dropdown-header"><span>Dropdown header</span>
-						      		<div class="row">
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		<div class="col-xs-6">
-						      			<ul class="list-unstyled">
-						      				<li><a href="#">Example 1</a></li>
-						      				<li><a href="#">Example 2</a></li>
-						      				<li><a href="#">Example 3</a></li>
-						      				<li><a href="#">Example 4</a></li>
-						      			</ul>
-						      		</div>
-						      		</div>
-						      	</li>
-						    </ul>
-			  			</li>
-					</ul><!--nav-->
-				</div>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+	
+	<section id="intro" class="home-slide text-light">
+
+		<!-- Carousel -->
+    	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+			  	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			</ol>
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+			    <div class="item active">
+			    	<img src="{{Asset("assets/img/1.jpg")}}" alt="First slide">
+                    <!-- Static Header -->
+                    <div class="header-text hidden-xs">
+                        <div class="col-md-12 text-center">
+                            <h2>
+                            	<span>Chào mừng bạn đến với Thuna.vn</span>
+                            </h2>
+                            <br>
+                            <h3>
+                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                            </h3>
+                            <br>
+                            <div class="">
+                                 <a class="btn btn-theme btn-sm btn-min-block" href="#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="#search">Tìm nhà cung cấp</a></div>
+                        </div>
+                    </div><!-- /header-text -->
+			    </div>
+			    <div class="item">
+			    	<img src="{{Asset("assets/img/2.jpg")}}" alt="Second slide">
+			    	<!-- Static Header -->
+                    <div class="header-text hidden-xs">
+                        <div class="col-md-12 text-center">
+                            <h2>
+                                <span>Awesome Bootstrap template</span>
+                            </h2>
+                            <br>
+                            <h3>
+                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                            </h3>
+                            <br>
+                            <div class="">
+                                 <a class="btn btn-theme btn-sm btn-min-block" href="#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="#search">Tìm kiếm nhà cung cấp</a></div>
+                        </div>
+                    </div><!-- /header-text -->
+			    </div>
+			    <div class="item">
+			    	<img src="{{Asset("assets/img/3.jpg")}}" alt="Third slide">
+			    	<!-- Static Header -->
+                    <div class="header-text hidden-xs">
+                        <div class="col-md-12 text-center">
+                            <h2>
+                                <span>Use without any charge</span>
+                            </h2>
+                            <br>
+                            <h3>
+                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                            </h3>
+                            <br>
+                            <div class="">
+                                <a class="btn btn-theme btn-sm btn-min-block" href="#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="#search">Tìm kiếm nhà cung cấp</a></div>
+                        </div>
+                    </div><!-- /header-text -->
+			    </div>
 			</div>
-		</div>
-	</div>
-	</header>
-</div><!--.header-page-->
+			<!-- Controls -->
+			<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+		    	<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+		    	<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</div><!-- /carousel -->
+
+	</section>
+	<!-- /Section: intro -->
+@yield('nav-bar')
 @yield('content')
-<footer>
-	<div class="row">
-		<div class="col-xs-9 footer-contact">
-			<ul class="list-unstyled">
-			  <li><a href ="#">Home</a></li>
-			  <li><a href ="#">About</a></li>
-			  <li><a href ="#">Profile</a></li>
-			  <li><a href ="#">Blog</a></li>
-			  <li><a href ="#">Contact Us</a></li>
-			</ul>
-			<div class="content-contact">
-			Lầu 3 Tòa nhà Copac, Số 12, Đường Tôn Đản, Phường 13, Quận 4, Tp. HCM <br>
-	        Điện thoại: (08) 3940 5071 | Email: <a href="mailto:lienhe@marry.vn">lienhe@marry.vn</a><br>
-	        Chịu trách nhiệm quản lý nội dung: Nguyễn Thị Hồng Hoa<br>
-	        Giấy phép hoạt động trang thông tin điện tử tổng hợp số 101/GP-STTTT, HCM ngày 09/12/2011<br>
-	        Giấy xác nhận cung cấp dịch vụ mạng xã hội trực tuyến số 13/GXN-TTĐT - Bộ TTTT, HN ngày 03/02/2012<br>
-	        <strong><a title="Đám cưới, Ảnh cưới, Áo cưới - Trang thông tin dịch vụ cưới hàng đầu Việt Nam" href="{{Asset('/')}}">Đám cưới, Ảnh cưới, Áo cưới - Trang thông tin dịch vụ cưới hàng đầu Việt Nam.</a></strong>
-			<p>Thuna Planner All rights reserved</p>
-			</div>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					
+					<div class="text-center">
+						<a href="#intro" class="totop"><i class="fa fa-angle-up fa-3x"></i></a>
+
+						<p>119 Đặng Công Trứ, Thành phố Huế<br />
+						&copy;Copyright 2014 - Shuffle. Designed by <a href="http://bootstraptaste.com">Bootstraptaste</a></p>
+					</div>
+				</div>
+			</div>	
 		</div>
-		<div class="col-xs-3 footer-connect">
-			<strong>Kết nối với Thuna.vn</strong>
-			<div class="images">
-				<a href="#"><img class="img-responsive" src="{{Asset('assets/img/social-fb.png')}}"></a>
-				<a href="#"><img class="img-responsive" src="{{Asset('assets/img/social-youtube.png')}}"></a>
-				<a href="#"><img class="img-responsive" src="{{Asset('assets/img/social-pinterest.png')}}"></a>
-			</div>
-		</div>
-	</div>
 	</footer>
-</div>
 </body>
+
 </html>
