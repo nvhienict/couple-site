@@ -65,7 +65,7 @@
                             </h3>
                             <br>
                             <div class="">
-                                 <a class="btn btn-theme btn-sm btn-min-block" href="#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="#search">Tìm nhà cung cấp</a></div>
+                                 <a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#search">Tìm nhà cung cấp</a></div>
                         </div>
                     </div><!-- /header-text -->
 			    </div>
@@ -83,7 +83,7 @@
                             </h3>
                             <br>
                             <div class="">
-                                 <a class="btn btn-theme btn-sm btn-min-block" href="#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="#search">Tìm kiếm nhà cung cấp</a></div>
+                                 <a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#search">Tìm kiếm nhà cung cấp</a></div>
                         </div>
                     </div><!-- /header-text -->
 			    </div>
@@ -101,7 +101,7 @@
                             </h3>
                             <br>
                             <div class="">
-                                <a class="btn btn-theme btn-sm btn-min-block" href="#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="#search">Tìm kiếm nhà cung cấp</a></div>
+                                <a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#search">Tìm kiếm nhà cung cấp</a></div>
                         </div>
                     </div><!-- /header-text -->
 			    </div>

@@ -5,7 +5,7 @@
                                     <div class="row">
                                           <div class="col-md-2">
                                                    <div class="site-logo">
-                                                            <a href="index.html" class="brand">Thuna.vn</a>
+                                                            <a href="{{URL::route('index')}}" class="brand">Thuna.vn</a>
                                                     </div>
                                           </div>
                                           
