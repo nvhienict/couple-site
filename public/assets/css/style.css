@@ -1043,3 +1043,126 @@ a.btn:focus{
 	background: #3399ff; 
 	color: #fff;
 }
+
+
+/*--- Giang-> list-vendor ---*/
+.top-list-vendor-function a{
+	color: #19b5bc;
+	font-weight: bold;
+}
+.top-list-vendor-function a:hover{
+	color: #E9539C;
+}
+.top-list-vendor-function button{
+	width: 100px;
+	height: 45px;
+	color: #19b5bc;
+	font-weight: bold;
+	padding: 3px;
+	border: none;
+}
+.top-list-vendor-function button:hover{
+	color: #E9539C;
+	background: #ccc;
+	border: none;
+}
+
+
+.list_vendor_avatar{
+	width: 320px;
+	height: 100px;
+}
+
+.caption {
+    height: 130px;
+    overflow: hidden;
+}
+.caption p{
+    margin: 5px 0px 0px 0px;
+}
+.caption h6 {
+    white-space: nowrap;
+    color: #2A6496;
+}
+.caption>.name{
+	text-align: justify;
+	color: #19B5BC;
+	font-size: 20px;
+}
+.caption>.name a{
+	color: #19B5BC;
+}
+.caption>.website{
+	text-align: justify;
+	color: #19B5BC;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+.category-name{
+	text-transform: uppercase;
+	color: #FFFFFF;
+	background: #AAAAAA;
+	text-align: center;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+.thumbnail {
+    padding: 0;
+}
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+.checkbox{
+	height: 10px;
+	margin-left: 62%;
+}
+.compare-checkbox{
+	display: inline-block;
+}
+.compare-title{
+	text-transform: uppercase;
+}
+
+/*-----*/
+#show-list{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px 10px 10px 0px;
+	margin: 0px 0px 20px 0px; 
+}
+.list-avatar img{
+	width: 100%;
+}
+.list-category-name{
+	text-transform: uppercase;
+	color: #FFFFFF;
+	background: #AAAAAA;
+	text-align: center;
+}
+.compare-list{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1% 0 0 1%;
+    margin-left: 80%;
+    width: 20%;
+}
+=======
+#nav-bar .dropdown-menu{
+	width: 560px;
+}
+#nav-bar .dropdown-menu a{
+	font-size: 20px;
+}
+#nav-bar .navbar-nav .active a{
+	background: #3399ff; 
+	color: #fff;
+}
