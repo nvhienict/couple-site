@@ -1166,3 +1166,182 @@ a.btn:focus{
 	background: #3399ff; 
 	color: #fff;
 }
+
+/*--Details-vendor*/
+
+.container
+{
+	margin-top: 30px;
+}
+
+#vendor-menu{
+	
+	border-radius: 8px;
+}
+
+.contact-me
+{
+	margin-left: 20px;
+
+}
+
+#check-call .row .checkbox label
+{
+display: block;
+}
+#check-call
+{
+	margin-left:-50px;
+}
+.boder-style{
+	border-left: 2px dashed white;
+}
+#right-contact
+{
+
+	border: 1px solid #ddd;
+	border-bottom: none;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+}
+#body-left
+{
+	border: 1px solid #ddd;
+	border-left: none;
+	border-bottom: none;
+	border-top: none;
+	
+}
+
+#top-left
+{
+	border: 1px solid #ddd;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+}
+.container
+{
+	border: 1px solid #ddd;
+	margin-bottom: 30px;
+}
+
+#content-photo
+{
+	margin-top: 20px;
+}
+
+#content-vendor
+{
+	border: 1px solid #ddd;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	margin-top: 20px;
+}
+
+#content-video
+{
+	border: 1px solid #ddd;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+	margin-bottom: 20px;
+}
+#content-photo
+{
+	margin-bottom: 20px;
+}
+
+#video
+{
+	margin-bottom: 20px;
+}
+
+#review
+{
+	margin-bottom: 20px;
+}
+#FAQ
+{
+	margin-bottom: 20px;
+}
+
+#map
+{
+	margin-bottom: 20px;
+}
+.tab-content
+{
+	margin-top: 20px;
+}
+/*--slide*/
+
+#bigPic{
+	width:700px;
+	height:300px;
+	padding:1px;
+	border:1px solid #CCC;
+	background-color:#FFF;
+	margin-bottom:10px;
+}
+#bigPic img{
+	position:absolute;
+	display:none;
+}
+ul#thumbs li.active{
+	border:2px solid #000;	
+	background:#fff;
+	padding:2px;
+}
+ul#thumbs, ul#thumbs li{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+	
+ul#thumbs li{
+	float:left;
+	margin-right:7px;
+	margin-bottom:5px;
+	border:1px solid #CCC;	
+	padding:3px;
+	cursor:pointer;
+	list-style:none;
+}
+ul#thumbs img{
+	float:left;
+	width:80px;
+	height:80px;
+	line-height:80px;
+	overflow:hidden;
+	position:relative;
+	z-index:1;		
+}
+
+#bigPic img{
+	width:700px;
+	height:300px;
+	padding:1px;
+
+}
+
+
+#thumbs-main
+{
+	margin:0;
+	padding:0;
+	list-style:none;
+
+}
+
+ul#thumbs-main li{
+	float:left;
+	margin-right:7px;
+	margin-bottom:5px;
+	border:1px solid #CCC;	
+	padding:3px;
+	cursor:pointer;
+	list-style:none;
+}
