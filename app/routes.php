@@ -34,9 +34,14 @@ Route::get('detail-vendor/{id}',array('as'=>'detail-vendor',"uses"=>"VendorContr
 
 Route::post('compare',array("as"=>"compare", function(){
 	foreach(Vendor::get() as $vendor){
-		if(Input::get('checkbox-'.$vendor->id)==$vendor->id){
+		if(Input::get('checkbox-'.$vendor->id)==$vendor->id)
+		{
 			 $compare[]=Input::get('checkbox-'.$vendor->id);
 		}
 	}
 	return View::make('compare')->with('results',$compare);
+}));
+/*Cuong*/
+Route::get('user-checklist',array('as'=>'user-checklist', function(){
+	 return View::make('user-checklist');
 }));

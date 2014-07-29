@@ -7,7 +7,7 @@ Trang chủ
 <div id="nav-bar" class="row">
 	<div class="col-xs-12">
 	<div class="navbar navbar-default">
-	  <div class="navbar-header">
+	  <div class="">
 	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
@@ -23,7 +23,7 @@ Trang chủ
 	        <ul class="dropdown-menu">
 	          <li role="presentation" class="dropdown-header"><span>Dịch vụ</span>
 	          <div class="row">
-	            <div class="col-xs-6">
+	            <div class="col-md-6 col-xs-12">
 	              <ul class="list-unstyled">
 	                <li><a href="#">Áo cưới cô dâu</a></li>
 	                <li><a href="#">Ban nhạc</a></li>
@@ -33,7 +33,7 @@ Trang chủ
 	                <li><a href="#">Wedding Planner</a></li>
 	              </ul>
 	            </div>
-	            <div class="col-xs-6">
+	            <div class="col-md-6 col-xs-12">
 	              <ul class="list-unstyled">
 	                <li><a href="#">Nhà hàng tiệc cưới</a></li>
 	                <li><a href="#">Quay phim chụp ảnh</a></li>
@@ -78,6 +78,7 @@ Trang chủ
 	      </li>
 	      <li><a href="#about">Giới thiệu</a></li>
 	      <li><a href="#service">Dịch vụ</a></li>
+	      <li><a href="">Đăng kí</a></li>
 	      <li><a href="#search">Tìm kiếm nhà cung cấp</a></li>
 	      <li><a href="#contact">Liên hệ</a></li>
 	      
@@ -85,6 +86,7 @@ Trang chủ
 	  </div>
 	</div>
 	  </div>
+	  
 	</div>
 @endsection
 @section('content')

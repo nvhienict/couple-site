@@ -1345,3 +1345,38 @@ ul#thumbs-main li{
 	cursor:pointer;
 	list-style:none;
 }
+/*Cuong*/
+.user-header{
+	background: #404040;
+}
+.wedding-user-logged li{
+	float: left;
+	margin-right: 20px;
+	list-style: none;
+}
+.wedding-user-logged li a{
+	color: white;
+}
+#form-search button{
+	margin-top: 20px;
+}
+#form-search ul.dropdown-menu{
+	min-width: 100%;
+	clear: both;
+}
+#nav-bar .dropdown-menu{
+	width: 300%;
+}
+#nav-bar .dropdown-menu a{
+	font-size: 20px;
+}
+#nav-bar .navbar-nav .active a{
+	background: #3399ff; 
+	color: #fff;
+}
+.user-checklist{
+	margin-top: 30px;
+}
+.notice-checklist{
+	margin-bottom: 20px;
+}

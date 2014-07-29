@@ -38,6 +38,20 @@
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+	<!--Header login-->
+	<div class="row user-header">
+		<div class="col-lg-3 col-xs-12 pull-right wedding-user-logged">	
+		  	<ul class="" role="tablist">
+		  		@if(Session::has('login')) 
+		  		<li><a href="#">Hi! Thuna Company</a></li>
+		  		<li><a href="#">Logout</a></li>
+		  		@else
+		  		<li><a href="#">Hi! Guest</a></li>
+		  		<li><a href="#">Login</a></li>
+		  		@endif
+		  	</ul>
+		</div>
+	</div>
 	@yield('nav-bar')
 	<section id="intro" class="home-slide text-light">
 
