@@ -9,7 +9,9 @@ Compare
 			<tr>
 				<th>
 				</th>
-
+				<?
+					$i=0;
+				?>
 				@foreach ($results as $result=>$key)
 				@foreach (Vendor::get() as $vendor)
 				@if($vendor->id==$key)
@@ -28,6 +30,7 @@ Compare
 				</td>
 				@endif
 				@endforeach
+				$i++;
 				@endforeach
 			</tr>
 			<tr>
@@ -97,12 +100,12 @@ Compare
 				@if($vendor->id==$key)
 				<td> 
 					<div class="icon-ok "> <i class="glyphicon glyphicon-ok"></i></div>
-					<div class="button-contact"><button type="button"  class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Liên Hệ</button>
+					<div class="button-contact"><button type="button"  class="btn btn-skin btn-theme btn-lg" data-toggle="modal" data-target="#myModal">Liên Hệ</button>
 						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						  <div class="modal-dialog">
 						    <div class="modal-content">
 						      <div class="modal-header">
-						        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						        <button type="button" class="btn btn-skin" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 						        <h4 class="modal-title align">Liên hệ</h4>
 						      </div>
 						      <form class="form-horizontal" role="form">
@@ -158,7 +161,7 @@ Compare
 						  </div><!-- /.modal-dialog -->
 						</div><!-- /.modal -->
 					</div>
-					<div><button type="button" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-heart heart"></i> Lưu</button></div>
+					<div><button type="button" class="btn btn-skin btn-theme btn-lg"><i class="glyphicon glyphicon-heart heart"></i> Lưu</button></div>
 				</td>
 				@endif
 				@endforeach

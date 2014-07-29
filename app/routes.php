@@ -15,6 +15,14 @@ Route::get('/',array("as"=>"index", function()
 {
 	return View::make('index');
 }));
+
+Route::filter("check_login", function(){
+		if(!Session::has("email"))
+			return Redirect::to("login");
+	});
+
+Route::get("main",array("before"=>"check_login", "as"=>"main","uses"=>"UserContronller@index"));
+
 Route::get('/video/{id}',function($id){
 	return View::make('video')->with('vendor', Vendor::find($id));
 });
@@ -45,3 +53,10 @@ Route::post('compare',array("as"=>"compare", function(){
 Route::get('user-checklist',array('as'=>'user-checklist', function(){
 	 return View::make('user-checklist');
 }));
+
+// Thuy
+// user login
+Route::get("logout",array("as"=>"logout","uses"=>"UserContronller@get_logout"));
+
+Route::get('login', array("as"=>"login","uses"=>"UserContronller@get_login"));
+Route::post('user_login',array("as"=>"user_login","uses"=>"UserContronller@post_login"));

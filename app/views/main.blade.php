@@ -32,7 +32,7 @@
 	<script src="{{Asset("assets/js/owl.carousel.min.js")}}"></script>
 	<script src="{{Asset("assets/js/nivo-lightbox.min.js")}}"></script>
 	    <script src="{{Asset("assets/js/custom.js")}}"></script>
-
+	<script src="{{Asset('assets/js/jquery-validate/jquery.validate.js')}}"></script>
 
 
 </head>
@@ -42,12 +42,13 @@
 	<div class="row user-header">
 		<div class="col-lg-3 col-xs-12 pull-right wedding-user-logged">	
 		  	<ul class="" role="tablist">
-		  		@if(Session::has('login')) 
-		  		<li><a href="#">Hi! Thuna Company</a></li>
-		  		<li><a href="#">Logout</a></li>
+		  		@if(Session::has('email')) 
+		  		<li><a href="#">Hi! {{Session::get('email')}}</a></li>
+		  		<li><a href="{{URL::route('logout')}}">Logout</a></li>
 		  		@else
 		  		<li><a href="#">Hi! Guest</a></li>
-		  		<li><a href="#">Login</a></li>
+		  		<li><a href="{{URL::route('login')}}">Login</a></li>
+		  		<li><a href="#">Sign up</a></li>
 		  		@endif
 		  	</ul>
 		</div>
