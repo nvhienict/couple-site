@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-Login
+Register
 @endsection
 @section('content')
 
@@ -14,10 +14,6 @@ Login
   <div class="form-group">
     <label for="txPass">Password</label>
     <input type="password" class="form-control" name="txPass" id="txPass" placeholder="Password">
-  </div>
-  <div class="form-group">
-    <label >User: admin4@thuna.vn</label>
-    <label >Password: 123</label>
   </div>
   <div>
     <label>
