@@ -71,11 +71,11 @@ Checklist
 					    </div>
 					  </div>
 					</div>
-			  		<div class="col-md-2"><a href="#" data-toggle="modal" data-target="#print"><span class="fa fa-print"></span> Print report</a>
+			  		<div class="col-md-2"><a href="#" id="export" data-toggle="modal" data-target="#print"><span class="fa fa-print"></span> Print report</a>
 			  		</div>
 			  		<div class="col-md-8 pull-right text-right"> <a href="">Jan</a> - <a href="">Feb</a>- <a href="">Mar</a>- <a href="">Apr</a>- <a href="">May</a>- <a href="">Jun</a>- <a href="">Jul</a>- <a href=""><strong>Aug</strong></a>- <a href="">Sep</a>- <a href="">Oct</a>- <a href="">Nov</a>- <a href="">Dec</a></div>
 			  	</div>
-			  		<table class="table table-hover">
+			  		<table class="table table-hover" id="export-table">
 	  					<thead>
 	  						<tr>
 	  							<th>August 2014</th>
@@ -410,5 +410,16 @@ Checklist
 			</div><!-- /.row -->			
 		</div>
 	</div>
+	<script <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{{Asset('assets/js/jquery.battatech.excelexport.js')}}"></script>
+                <script type="text/javascript">
+			    $(document).ready(function () {
+			        $("#export").click(function () {
+			            $("#export-table").btechco_excelexport({
+			                containerid: "export-table", datatype: $datatype.Table
+			            });
+			        });
+			    });
+			    </script>
 </div><!--container-->
 @endsection
