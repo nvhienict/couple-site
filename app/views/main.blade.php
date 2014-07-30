@@ -55,7 +55,7 @@
 		  		@else
 		  		<li><a href="#">Hi! Guest</a></li>
 		  		<li><a href="{{URL::route('login')}}">Login</a></li>
-		  		<li><a href="#">Sign up</a></li>
+		  		<li><a href="{{URL::route('register')}}">Register</a></li>
 		  		@endif
 		  	</ul>
 		</div>

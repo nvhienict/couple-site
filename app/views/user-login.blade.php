@@ -27,7 +27,7 @@ Login
       <input type="checkbox"> Check me out
     </label>
   </div>
-  <button type="submit" class="btn btn-large btn-primary">Sing in</button>
+  <button type="submit" class="btn btn-large btn-primary">Sign-in</button>
   <a href=""> Register</a>
 </form>
 
