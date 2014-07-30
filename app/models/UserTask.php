@@ -16,6 +16,10 @@ class UserTask extends Eloquent {
 	 * @var array
 	 */
 
-	
+	public function user()
+	{
+		return $this->belongsTo("User","id");
+	}
+
 
 }
