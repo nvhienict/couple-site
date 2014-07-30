@@ -39,41 +39,86 @@ Checklist
 			  			<div>
 							<ul class="nav nav-pills text-right" role="tablist">
 								<li class="active">
-									<a href="#time" role="tab" data-toggle="tab"><span class="fa fa-calendar"></span> By Month</a>
+									<a href="#bymonth" role="tab" data-toggle="tab"><span class="fa fa-calendar"></span> By Month</a>
 								</li>
 								<li>
-									<a href="#category" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-list"></span> By Category</a>
+									<a href="#bycategory" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-list"></span> By Category</a>
 								</li>
 							</ul>
 						</div>
 			  		</div>
 			  	</div>
 			  	<div class="tab-content">
-			  	<div class="tab-pane fade in active" id="time">
+			  	<div class="tab-pane fade in active" id="bymonth">
 			  		<div class="row">
-			  		<div class="col-md-2"><a href="#" data-toggle="modal" data-target="#add"><span class="fa fa-plus"></span> Add an item</a>
+			  		<div class="col-md-3">
+			  			<a href="#" style="cursor:pointer;" data-toggle="modal" data-target="#myModalAddChecklist">
+							<i class="glyphicon glyphicon-plus"></i>
+							&nbsp Thêm công việc
+						</a>
 			  		</div>
-			  		<!-- Modal -->
-					<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+					<!-- Modal Add checklist - Giang -->
+					<div class="modal fade" id="myModalAddChecklist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					  <div class="modal-dialog">
 					    <div class="modal-content">
 					      <div class="modal-header">
 					        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					        <h4 class="modal-title" id="myModalLabel">Add an item</h4>
+					        <h3 class="modal-title" id="myModalLabel">Thêm công việc</h3>
 					      </div>
 					      <div class="modal-body">
-					        ...
-					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-					        <button type="button" class="btn btn-primary">Save changes</button>
-					      </div>
-					    </div>
-					  </div>
-					</div>
+					        <form id="form_addChecklist" action="{{Asset('checklist/add')}}" method="post">
+							    <div class="row form-group">
+									<label for="task" class="col-xs-3 control-label">Tên công việc</label>
+									<div class="col-xs-9">
+									   	<input type="text" class="form-control" name="task" id="task" placeholder="Tên công việc">
+									</div>
+								</div>
+								<div class="row form-group">
+									<label for="startdate" class="col-xs-3 control-label">Ngày bắt đầu</label>
+								        <div class='col-sm-6'>
+								            <div class="form-group">
+								            	<input type='text' class="form-control" id="startdate" name="startdate" />
+								            </div>
+								        </div>
+							    </div>
+							    <div class="row form-group">
+							    	<label for="category" class="col-xs-3 control-label"> Danh mục </label>
+							        <div class='col-sm-9'>
+									   	<select name="category" class="form-control input-lg" id="category">
+						                	<option value="{{Input::get('category')}}">{{Input::get('category')}}</option>
+								    		@foreach (Category::get() as $index=> $category)
+									    	<option value="{{$category['id']}}">{{$category['name']}}</option>
+									    	@endforeach
+					    				</select>
+							        </div>
+							    </div>
+							    <div class="row form-group">
+									<label for="note" class="col-xs-3 control-label"> Mô tả </label>
+							        <div class='col-sm-9'>
+							            <textarea class="form-control" id="description" name="description" cols="20" rows="5"></textarea>
+							        </div>
+							    </div>
+							  	
+							  	<div class="row form-group">
+							  		<div class="col-xs-4"></div>
+							  		<div class="col-xs-4">
+								    	<button type="submit" class="btn btn-primary" id="submit_add"> Thêm </button>
+								    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
+							  		</div>
+							  		<div class="col-xs-4"></div>
+							  	</div>
+
+								</form>
+						    </div> <!-- end modal body -->
+						</div> <!-- end modal content -->
+						</div> <!-- end modal dialog -->
+						</div> <!-- end modal fade -->
+						<!-- end modal -->
+
 			  		<div class="col-md-2"><a href="#" id="export" data-toggle="modal" data-target="#print"><span class="fa fa-print"></span> Print report</a>
 			  		</div>
-			  		<div class="col-md-8 pull-right text-right"> <a href="">Jan</a> - <a href="">Feb</a>- <a href="">Mar</a>- <a href="">Apr</a>- <a href="">May</a>- <a href="">Jun</a>- <a href="">Jul</a>- <a href=""><strong>Aug</strong></a>- <a href="">Sep</a>- <a href="">Oct</a>- <a href="">Nov</a>- <a href="">Dec</a></div>
+			  		<div class="col-md-7 pull-right text-right"> <a href="">Jan</a> - <a href="">Feb</a>- <a href="">Mar</a>- <a href="">Apr</a>- <a href="">May</a>- <a href="">Jun</a>- <a href="">Jul</a>- <a href=""><strong>Aug</strong></a>- <a href="">Sep</a>- <a href="">Oct</a>- <a href="">Nov</a>- <a href="">Dec</a></div>
 			  	</div>
 			  		<table class="table table-hover" id="export-table">
 	  					<thead>
@@ -82,161 +127,184 @@ Checklist
 	  						</tr>
 	  					</thead>
 	  					<tbody>
+	  						@foreach($checklist as $index=>$ch_list)
 	  						<tr>
 	  							<td>
 	  								<div class="checkbox">
 	  									<input type="checkbox" name="">
 	  								</div>
 	  							</td>
-	  							<td>Congratulations, you're engaged! Announce your engagement to family and friends. Consider making the announcement in local newspapers.
-	  							</td>
+	  							<td>{{$ch_list->title}}</td>
 	  							<td>
-	  								<a href=""><span class="fa fa-edit"></span></a>
-	  							</td>
-	  							<td>
-	  								<a href=""><span class="fa fa-trash-o"></span></a>
-	  							</td>
-	  						</tr>
+	  								<a href="#" id="drop{{$index}}" data-toggle="modal" data-target="#myModalEditChecklist{{$index}}">
+										<i class="fa fa-edit"></i>
+									</a>
+									<!-- Modal Edit checklist -->
+									<div class="modal fade" id="myModalEditChecklist{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+									        <h3 class="modal-title" id="myModalLabel">Sửa công việc</h3>
+									      </div>
+									      <div class="modal-body">
+									        <form id="form_editChecklist{{$index}}" action="{{Asset('checklist/edit')}}" method="post">
+									        	<input type="hidden" name="id" value="{{$ch_list->id}}" />
+											    <div class="row form-group">
+													<label for="task" class="col-xs-3 control-label">Tên công việc</label>
+													<div class="col-xs-9">
+													   	<input type="text" class="form-control" name="task" id="task" value="{{$ch_list->title}}" />
+													</div>
+												</div>
+												<div class="row form-group">
+													<label for="startdate" class="col-xs-3 control-label">Ngày bắt đầu</label>
+												        <div class='col-sm-6'>
+												            <div class="form-group">
+												            	<input type='text' class="form-control" id="startdate{{$index}}" name="startdate" value="........." />
+												            	<script>
+															       	jQuery('#startdate{{$index}}').datetimepicker({
+																	lang:'en',
+																	i18n:{
+																	en:{
+																		months:[
+																		    'January','February','March','April',
+																		    'May','June','July','August',
+																		    'September','October','November','December',
+																		   ],
+																		dayOfWeek:[
+																		    "Su", "Mo", "Tu", "We", 
+																		    "Th", "Fr", "Sa",
+																		   ]
+																		}
+																	},
+																	timepicker:false,
+																	format:'Y-m-d'
+																	});
+															    </script>
+												            </div>
+												        </div>
+											    </div>
+											    <div class="row form-group">
+											    	<label for="category" class="col-xs-3 control-label"> Danh mục </label>
+											        <div class='col-sm-9'>
+													   	<select name="category" class="form-control" id="category" />
+									                    	@foreach(Category::get() as $category)
+									                        <option value="{{$category->id}}" 
+									                            @if($category->id==$ch_list->category) {{"selected"}}
+									                            @endif
+									                        >{{$category->name}}</option>
+									                        @endforeach
+									                    </select>
+											        </div>
+											    </div>
+											    <div class="row form-group">
+													<label for="note" class="col-xs-3 control-label"> Mô tả </label>
+											        <div class='col-sm-9'>
+											            <textarea class="form-control" id="description" name="description" cols="20" rows="5"></textarea>
+											        </div>
+											    </div>
+											  	
+											  	<div class="row form-group">
+											  		<div class="col-xs-3"></div>
+											  		<div class="col-xs-6">
+												    	<button type="submit" class="btn btn-primary" id="submit_add"> Cập nhật </button>
+												    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
+											  		</div>
+											  		<div class="col-xs-3"></div>
+											  	</div>
 
-	  						<tr>
-	  							<td>
-	  								<div class="checkbox">
-	  									<input type="checkbox" name="">
-	  								</div>
-	  							</td>
-	  							<td>Congratulations, you're engaged! Announce your engagement to family and friends. Consider making the announcement in local newspapers.
-	  							</td>
-	  							<td>
-	  								<a href=""><span class="fa fa-edit"></span></a>
-	  							</td>
-	  							<td>
-	  								<a href=""><span class="fa fa-trash-o"></span></a>
-	  							</td>
-	  						</tr>
+											</form>
+											<script type="text/javascript">
 
-	  						<tr>
-	  							<td>
-	  								<div class="checkbox">
-	  									<input type="checkbox" name="">
-	  								</div>
+												$(document).ready(function(){
+													$("#form_editChecklist{{$index}}").validate({
+														rules:{
+															task:{
+																required:true,
+																remote:{
+																	url:"{{URL::route('check_task_edit',array($ch_list->id))}}",
+																	type:"post"
+																}
+															},
+															startdate{{$index}}:{
+																required:true
+															},
+															category:{
+																required:true
+															}
+														},
+														messages:{
+															task:{
+																required:"Bạn phải nhập tên công việc",
+																remote:"Công việc đã tồn tại"
+															},
+															startdate{{$index}}:{
+																required:"Bạn phải chọn ngày làm"
+																
+															},
+															category:{
+																required:"Bạn phải chọn danh mục"
+															}
+														},
+														errorPlacement: function (error, element) {
+            												error.insertAfter(element);
+            											}
+													});
+												});
+											</script>
+									    </div> <!-- end modal body -->
+									</div> <!-- end modal content -->
+									</div> <!-- end modal dialog -->
+									</div> <!-- end modal fade -->
+									<!-- end modal -->
+									<!-- script of validate for edit checklist -->
+											
 	  							</td>
-	  							<td>Congratulations, you're engaged! Announce your engagement to family and friends. Consider making the announcement in local newspapers.
-	  							</td>
 	  							<td>
-	  								<a href=""><span class="fa fa-edit"></span></a>
-	  							</td>
-	  							<td>
-	  								<a href=""><span class="fa fa-trash-o"></span></a>
+	  								<a href="#" data-toggle="modal" data-target="#myModalDelTask{{$index}}"><span class="fa fa-trash-o"></span></a>
+	  								<!-- Modal Delete Task -->
+									<div class="modal fade" id="myModalDelTask{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+									        <h3 class="modal-title" id="myModalLabel"> Xoá công việc</h3>
+									      </div>
+									      <div class="modal-body">
+									      	<div class="row">
+									      		<div class="col-xs-8">{{$ch_list->title}}</div>
+									      		<div class="col-xs-4"> Ngày thực hiện: ........ </div>
+									      	</div>
+									      	
+									      </div>
+									      <div class="modal-footer">
+									      	<a href="{{URL::to('check_task_del', array('id'=>$ch_list->id))}}">
+									      		<button type="button" class="btn btn-primary">OK</button>
+									      	</a>
+									        <a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+									<!-- end modal Delete Task  -->
 	  							</td>
 	  						</tr>
-
-	  						<tr>
-	  							<td>
-	  								<div class="checkbox">
-	  									<input type="checkbox" name="">
-	  								</div>
-	  							</td>
-	  							<td>Congratulations, you're engaged! Announce your engagement to family and friends. Consider making the announcement in local newspapers.
-	  							</td>
-	  							<td>
-	  								<a href=""><span class="fa fa-edit"></span></a>
-	  							</td>
-	  							<td>
-	  								<a href=""><span class="fa fa-trash-o"></span></a>
-	  							</td>
-	  						</tr>
-
-	  						<tr>
-	  							<td>
-	  								<div class="checkbox">
-	  									<input type="checkbox" name="">
-	  								</div>
-	  							</td>
-	  							<td>Congratulations, you're engaged! Announce your engagement to family and friends. Consider making the announcement in local newspapers.
-	  							</td>
-	  							<td>
-	  								<a href=""><span class="fa fa-edit"></span></a>
-	  							</td>
-	  							<td>
-	  								<a href=""><span class="fa fa-trash-o"></span></a>
-	  							</td>
-	  						</tr>
-
-	  						<tr>
-	  							<td>
-	  								<div class="checkbox">
-	  									<input type="checkbox" name="">
-	  								</div>
-	  							</td>
-	  							<td>Congratulations, you're engaged! Announce your engagement to family and friends. Consider making the announcement in local newspapers.
-	  							</td>
-	  							<td>
-	  								<a href=""><span class="fa fa-edit"></span></a>
-	  							</td>
-	  							<td>
-	  								<a href=""><span class="fa fa-trash-o"></span></a>
-	  							</td>
-	  						</tr>
-
-	  						<tr>
-	  							<td>
-	  								<div class="checkbox">
-	  									<input type="checkbox" name="">
-	  								</div>
-	  							</td>
-	  							<td>Congratulations, you're engaged! Announce your engagement to family and friends. Consider making the announcement in local newspapers.
-	  							</td>
-	  							<td>
-	  								<a href=""><span class="fa fa-edit"></span></a>
-	  							</td>
-	  							<td>
-	  								<a href=""><span class="fa fa-trash-o"></span></a>
-	  							</td>
-	  						</tr>
-
-	  						<tr>
-	  							<td>
-	  								<div class="checkbox">
-	  									<input type="checkbox" name="">
-	  								</div>
-	  							</td>
-	  							<td>Determine a time frame for your wedding date. Narrow down your wedding date to a few weekends that don't conflict with other family events.
-	  							</td>
-	  							<td>
-	  								<a href=""><span class="fa fa-edit"></span></a>
-	  							</td>
-	  							<td>
-	  								<a href=""><span class="fa fa-trash-o"></span></a>
-	  							</td>
-	  						</tr>
+	  						@endforeach()
 	  					</tbody>
+
 	  				</table>
-	  			</div><!--time-->
-	  			<div class="tab-pane fade" id="category">
+
+	  				
+
+	  			</div><!--bymonth-->
+	  			<div class="tab-pane fade" id="bycategory">
 	  				<div class="row">
-			  		<div class="col-md-2"><a href="#" data-toggle="modal" data-target="#add"><span class="fa fa-plus"></span> Add an item</a>
+				  		<div class="col-md-2"><a href="#" data-toggle="modal" data-target="#add"><span class="fa fa-plus"></span> Add an item</a>
+				  		</div>
+
+				  		<div class="col-md-2"><a href="#" data-toggle="modal" data-target="#print"><span class="fa fa-print"></span> Print report</a>
+				  		</div>
 			  		</div>
-			  		<!-- Modal -->
-					<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					  <div class="modal-dialog">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					        <h4 class="modal-title" id="myModalLabel">Add an item</h4>
-					      </div>
-					      <div class="modal-body">
-					        ...
-					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-					        <button type="button" class="btn btn-primary">Save changes</button>
-					      </div>
-					    </div>
-					  </div>
-					</div>
-			  		<div class="col-md-2"><a href="#" data-toggle="modal" data-target="#print"><span class="fa fa-print"></span> Print report</a>
-			  		</div>
-			  	</div>
 	  				<table class="table table-hover">
 	  					<thead>
 	  						<tr>
@@ -391,8 +459,8 @@ Checklist
 	  						</tr>
 	  					</tbody>
 	  				</table>
-	  			</div>	
-			  	</div><!--tab-content-->
+	  			</div>	<!-- tab-bycategory -->
+				</div><!--tab-content-->
 
 			
 		</div><!--col-md-9-->
@@ -410,16 +478,76 @@ Checklist
 			</div><!-- /.row -->			
 		</div>
 	</div>
+
+
+<!-- Giang -->
+<!-- script of validate for add checklist -->
+	<script type="text/javascript">
+		$("#form_addChecklist").validate({
+			rules:{
+				task:{
+					required:true,
+					remote:{
+						url:"{{URL::route('check_task_add')}}",
+						type:"post"
+					}
+				},
+				startdate:{
+					required:true
+				},
+				category:{
+					required:true
+				}
+			},
+			messages:{
+				task:{
+					required:"Bạn phải nhập tên công việc",
+					remote:"Công việc đã tồn tại"
+				},
+				startdate:{
+					required:"Bạn phải chọn ngày làm"
+				},
+				category:{
+					required:"Bạn phải chọn danh mục"
+				}
+			}
+		});
+	</script>
+	
+    <script>
+       	jQuery('#startdate').datetimepicker({
+		lang:'en',
+		i18n:{
+		en:{
+			months:[
+			    'January','February','March','April',
+			    'May','June','July','August',
+			    'September','October','November','December',
+			   ],
+			dayOfWeek:[
+			    "Su", "Mo", "Tu", "We", 
+			    "Th", "Fr", "Sa",
+			   ]
+			}
+		},
+		timepicker:false,
+		format:'Y-m-d'
+		});
+    </script>
+
+    <!-- Tứ export file excel -->
 	<script <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="{{Asset('assets/js/jquery.battatech.excelexport.js')}}"></script>
-                <script type="text/javascript">
-			    $(document).ready(function () {
-			        $("#export").click(function () {
-			            $("#export-table").btechco_excelexport({
-			                containerid: "export-table", datatype: $datatype.Table
-			            });
-			        });
-			    });
-			    </script>
+	    <script type="text/javascript">
+	    $(document).ready(function () {
+	        $("#export").click(function () {
+	            $("#export-table").btechco_excelexport({
+	                containerid: "export-table", datatype: $datatype.Table
+	            });
+	        });
+	    });
+	    </script>
+    
+
 </div><!--container-->
 @endsection

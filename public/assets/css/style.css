@@ -1155,6 +1155,11 @@ a.btn:focus{
     margin-left: 80%;
     width: 20%;
 }
+/*Giang ---> checklist--*/
+label.error{
+	color: #d8142b;
+}
+
 =======
 #nav-bar .dropdown-menu{
 	width: 560px;

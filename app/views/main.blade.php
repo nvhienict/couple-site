@@ -34,6 +34,13 @@
 	    <script src="{{Asset("assets/js/custom.js")}}"></script>
 	<script src="{{Asset('assets/js/jquery-validate/jquery.validate.js')}}"></script>
 
+	<!-- checklist -->
+	<link href="{{Asset("assets/css/jquery.datetimepicker.css")}}" rel="stylesheet">
+	<script src="{{Asset('assets/js/jquery.js')}}"></script>
+	<script src="{{Asset('assets/js/jquery.datetimepicker.js')}}"></script>
+
+	<script src="{{Asset("assets/js/jquery-validate/jquery.validate.js")}}"></script>
+
 
 </head>
 

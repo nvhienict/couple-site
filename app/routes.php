@@ -50,7 +50,7 @@ Route::post('compare',array("as"=>"compare", function(){
 	return View::make('compare')->with('results',$compare);
 }));
 /*Cuong*/
-Route::get('user-checklist',array('as'=>'user-checklist', function(){
+Route::get('user-checklist',array('before'=>'check_login','as'=>'user-checklist', function(){
 	 return View::make('user-checklist');
 }));
 
@@ -60,3 +60,17 @@ Route::get("logout",array("as"=>"logout","uses"=>"UserContronller@get_logout"));
 
 Route::get('login', array("as"=>"login","uses"=>"UserContronller@get_login"));
 Route::post('user_login',array("as"=>"user_login","uses"=>"UserContronller@post_login"));
+
+// Checklist --- Giang
+
+Route::post("checklist/add", array("as"=>"add-checklist", "uses"=>"ChecklistController@post_Add_Checklist"));
+
+Route::post("checklist/edit", array("as"=>"edit-checklist", "uses"=>"ChecklistController@post_Edit_Checklist"));
+
+Route::post("check_task_add", array("as"=>"check_task_add", "uses"=>"ChecklistController@post_CheckTaskAdd"));
+
+Route::post("check_task_edit/{id}", array("as"=>"check_task_edit", "uses"=>"ChecklistController@post_CheckTaskEdit"));
+
+Route::get("check_task_del/{id}", array("as"=>"check_task_del", "uses"=>"ChecklistController@post_CheckTaskDel"));
+
+Route::get("user-checklist", array("before"=>"check_login","as"=>"user-checklist", "uses"=>"ChecklistController@get_UserChecklist"));
