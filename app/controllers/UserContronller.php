@@ -95,15 +95,17 @@ class UserContronller extends \BaseController {
 					"password"=> Input::get('txPass'),
 					"role_id"=> 2
 					),$remember);
-			
+				$IdUser=User::where('email','=',Input::get('txMail'))->get()->first()->id;
 				if($auth)
 				{
+					$cookie=Cookie::make('id-user', $IdUser, 120);//set cookie
 					Session::put("email",Input::get('txMail'));
 					// return Redirect::to("user-checklist");
 					return View::make("index");
 				}	 
 				
-				else return View::make("user-login")->with("messages","Tên tài khoản hay mật khẩu không đúng hoặc bạn không phải là user");	
+				else return View::make("user-login")->with("messages","Tên tài khoản hay mật khẩu không đúng hoặc bạn không phải là user")
+													->withCookie($cookie);	
 
 		} catch (Exception $e) {
 			echo $e->getMessage();
@@ -114,4 +116,35 @@ class UserContronller extends \BaseController {
 		Session::flush();
 		return Redirect::route("login");
 	}
+
+	public function get_register()
+	{
+		return View::make('register');
+	}
+	public function post_users(){
+		$rules=array(
+			"email"=>"required|email",
+			"password"=>"required|min:3",
+			"password_confirm"=>"required|min:3",
+			"role"=>"required"
+			);
+
+		if(!Validator::make(Input::all(), $rules)->fails()){
+			$user=new User();
+			$user->firstname=Input::get('firstname');
+			$user->lastname=Input::get('lastname');
+			$user->email=Input::get('email');
+			$user->password=Hash::make(Input::get('password_confirm'));
+			$user->weddingdate=Input::get('weddingdate');
+			$user->role_id=Input::get('role');
+			$user->save();
+			
+			$msg="Creat User Success!";
+			return Redirect::route("users")->with('msg',$msg);
+		}else{
+			$msg="Creat User Fails!";
+			return Redirect::route("users")->with('msg',$msg);
+		}
+	}
+
 }

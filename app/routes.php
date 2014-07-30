@@ -60,6 +60,7 @@ Route::get("logout",array("as"=>"logout","uses"=>"UserContronller@get_logout"));
 
 Route::get('login', array("as"=>"login","uses"=>"UserContronller@get_login"));
 Route::post('user_login',array("as"=>"user_login","uses"=>"UserContronller@post_login"));
+Route::get("register",array('as'=>'register',"uses"=>"UserContronller@get_register"));
 
 // Checklist --- Giang
 
