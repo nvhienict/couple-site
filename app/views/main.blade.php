@@ -34,6 +34,13 @@
 	    <script src="{{Asset("assets/js/custom.js")}}"></script>
 	<script src="{{Asset('assets/js/jquery-validate/jquery.validate.js')}}"></script>
 
+	<!-- checklist -->
+	<link href="{{Asset("assets/css/jquery.datetimepicker.css")}}" rel="stylesheet">
+	<script src="{{Asset('assets/js/jquery.js')}}"></script>
+	<script src="{{Asset('assets/js/jquery.datetimepicker.js')}}"></script>
+
+	<script src="{{Asset("assets/js/jquery-validate/jquery.validate.js")}}"></script>
+
 
 </head>
 
@@ -53,85 +60,7 @@
 		  	</ul>
 		</div>
 	</div>
-	@yield('nav-bar')
-	<section id="intro" class="home-slide text-light">
-
-		<!-- Carousel -->
-    	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-			  	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-			    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-			    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-			</ol>
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner">
-			    <div class="item active">
-			    	<img src="{{Asset("assets/img/1.jpg")}}" alt="First slide">
-                    <!-- Static Header -->
-                    <div class="header-text hidden-xs">
-                        <div class="col-md-12 text-center">
-                            <h2>
-                            	<span>Chào mừng bạn đến với Thuna.vn</span>
-                            </h2>
-                            <br>
-                            <h3>
-                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                            </h3>
-                            <br>
-                            <div class="">
-                                 <a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#search">Tìm nhà cung cấp</a></div>
-                        </div>
-                    </div><!-- /header-text -->
-			    </div>
-			    <div class="item">
-			    	<img src="{{Asset("assets/img/2.jpg")}}" alt="Second slide">
-			    	<!-- Static Header -->
-                    <div class="header-text hidden-xs">
-                        <div class="col-md-12 text-center">
-                            <h2>
-                                <span>Awesome Bootstrap template</span>
-                            </h2>
-                            <br>
-                            <h3>
-                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                            </h3>
-                            <br>
-                            <div class="">
-                                 <a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#search">Tìm kiếm nhà cung cấp</a></div>
-                        </div>
-                    </div><!-- /header-text -->
-			    </div>
-			    <div class="item">
-			    	<img src="{{Asset("assets/img/3.jpg")}}" alt="Third slide">
-			    	<!-- Static Header -->
-                    <div class="header-text hidden-xs">
-                        <div class="col-md-12 text-center">
-                            <h2>
-                                <span>Use without any charge</span>
-                            </h2>
-                            <br>
-                            <h3>
-                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                            </h3>
-                            <br>
-                            <div class="">
-                                <a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#search">Tìm kiếm nhà cung cấp</a></div>
-                        </div>
-                    </div><!-- /header-text -->
-			    </div>
-			</div>
-			<!-- Controls -->
-			<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-		    	<span class="glyphicon glyphicon-chevron-left"></span>
-			</a>
-			<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-		    	<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
-		</div><!-- /carousel -->
-
-	</section>
-	<!-- /Section: intro -->
+@yield('nav-bar')
 @yield('content')
 	<footer>
 		<div class="container">

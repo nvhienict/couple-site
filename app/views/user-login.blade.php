@@ -2,6 +2,9 @@
 @section('title')
 Login
 @endsection
+@section('nav-bar')
+@include('nav')
+@endsection
 @section('content')
 
 @if(isset($messages)) <p class="text-center alert alert-danger">{{$messages}}</p>
