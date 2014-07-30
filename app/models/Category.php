@@ -19,5 +19,14 @@ class Category extends Eloquent {
 	{
 		return $this->belongsTo("Vendor","id");
 	}
+	public function task()
+	{
+		return $this->hasMany("Task",'category');
+
+	}
+	public function usertask()
+	{
+		return $this->hasMany('User-Task','category');
+	}
 
 }

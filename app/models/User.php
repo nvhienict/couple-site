@@ -22,5 +22,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var array
 	 */
 	protected $hidden = array('password', 'remember_token');
+	public funtion taskuser()
+	{
+		return this hasOne('User-Task','user');
+	}
 
 }
