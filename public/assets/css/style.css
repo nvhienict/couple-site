@@ -1226,12 +1226,6 @@ display: block;
 	border-right: none;
 	border-top: none;
 }
-.container
-{
-	border: 1px solid #ddd;
-	margin-bottom: 30px;
-}
-
 #content-photo
 {
 	margin-top: 20px;
