@@ -83,12 +83,12 @@ class ChecklistController extends \BaseController {
 	}
 	public function get_UserChecklist()
 	{
-		$date=new DateTime(User::find(95)->weddingdate);
+		$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
 		return ChecklistController::sortBy($date->format("m-Y"));
 	}
 
 	public static function byMonth(){
-		$date=new DateTime(User::find(95)->weddingdate);
+		$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
 		$month[]=$date->format('m-Y');
 		for($i=0;$i<12;$i++){
 			//$month[]=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
@@ -98,9 +98,9 @@ class ChecklistController extends \BaseController {
 	}
 	public static function sortBy($month){
 		$tasks_month=array();
-		foreach(User::find(95)->user_task()->get() as $task)
+		foreach(User::find(Cookie::get('id-user'))->user_task()->get() as $task)
 		{
-			$date=new DateTime(User::find(95)->weddingdate);
+			$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
 			if($date->sub(new DateInterVal('P'.$task->startdate.'D'))->format("m-Y")==$month)
 				$tasks_month[]=$task;
 		} 

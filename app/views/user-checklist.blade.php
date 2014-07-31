@@ -13,11 +13,11 @@ Checklist
 		<div class="col-md-1"></div>
 		<div class="col-md-2">
 		WEDDINGDATE <br>
-		2014/07/07
+		{{User::find(Cookie::get('id-user'))->weddingdate}}
 		</div>
 		<div class="col-md-2">
 		TO-DOS <br>
-		100
+		{{UserTask::where("user",Cookie::get('id-user'))->count()}}
 		</div>
 		<div class="col-md-2">
 		OVERDUE <br>
@@ -33,7 +33,8 @@ Checklist
 <div class="col-xs-12 col-md-9">
 	<div class="row sort-by">
 		<div class="col-md-6">
-			<h2>Check list</h2>
+			<h2>Check list
+			</h2>
 		</div>
 		<div class="col-md-4 pull-right">
 			<div>
@@ -172,7 +173,8 @@ Checklist
 									<label for="startdate" class="col-xs-3 control-label">Ngày bắt đầu</label>
 								        <div class='col-sm-6'>
 								            <div class="form-group">
-								            	<input type='text' class="form-control" id="startdate{{$index}}" name="startdate" value="........." />
+								            	<input type='text' class="form-control" id="startdate{{$index}}" name="startdate" 
+								            	value="{{$month}}" />
 								            	<script>
 											       	jQuery('#startdate{{$index}}').datetimepicker({
 													lang:'en',

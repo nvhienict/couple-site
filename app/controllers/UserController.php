@@ -102,9 +102,12 @@ class UserController extends \BaseController {
 					$cookie=Cookie::make('id-user', $IdUser, 120);//set cookie
 					Session::put("email",Input::get('txMail'));
 					// return Redirect::to("user-checklist");
-					return View::make("index")->withCookie($cookie);
+					
+					$view = View::make('index');
+
+					return Response::make($view)->withCookie($cookie);
 				}	 
-				else return View::make("user-login")->with("messages","Tên tài khoản hay mật khẩu không đúng hoặc bạn không phải là user");	
+				else return View::make("login")->with("messages","Tên tài khoản hay mật khẩu không đúng hoặc bạn không phải là user");	
 
 		} catch (Exception $e) {
 			echo $e->getMessage();
