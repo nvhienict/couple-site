@@ -7,7 +7,7 @@
 @endsection
 @section('content')
 		<div class="row" id="infor-vendor">
-			<div class="container">
+			<div class="container body">
 			<div class="col-xs-12 col-sm-6 col-md-9" id="body-left">
 				<div class="row" id="top-left">
 						<div class="col-xs-6 col-sm-4" id="left-infor">
