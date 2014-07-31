@@ -242,5 +242,12 @@ class ChecklistController extends \BaseController {
 			else{return "true";}
 		} 
 	}
-
+	public function search($month)
+	{
+		$title=Input::get('input-search');
+		$user_task=UserTask::where("user",Cookie::get('id-user'))->where('title', 'LIKE', "%$title%")->get();
+		return View::make('user-checklist')->with('title',$title)
+		->with('tasks',$user_task)
+		->with('month',$month);
+	}
 }

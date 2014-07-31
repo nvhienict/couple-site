@@ -482,12 +482,15 @@ Checklist
 			<div class="row">
 			<div class="col-lg-12"><h3 class="text-center">Search Task</h3></div>
 			  <div class="col-lg-12">
-			    <div class="input-group">
-			      <input type="text" name="input-search" placeholder="Search Task" class="form-control">
-			      <span class="input-group-btn">
-			        <button class="btn btn-primary" type="button">Go!</button>
+			  	<form action="{{URL::route('search',array($month))}}" method="POST" role="form">		  	
+			  		<div class="form-group">
+			  			<input type="text" name="input-search" id="input-search"placeholder="Search Task" class="form-control">
+			  		</div>		  		
+			  		<span class="input-group-btn">
+			        <button class="btn btn-primary" type="submit">Go!</button>
 			      </span>
-			    </div><!-- /input-group -->
+			  	</form>
+			    	<!-- /input-group -->
 			  </div><!-- /.col-lg-6 -->
 			</div><!-- /.row -->			
 		</div>
