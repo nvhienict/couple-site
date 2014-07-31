@@ -8,7 +8,7 @@ class UserTask extends Eloquent {
 	 *
 	 * @var string
 	 */
-	protected $table = 'user-task';
+	protected $table = 'usertask';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -16,9 +16,13 @@ class UserTask extends Eloquent {
 	 * @var array
 	 */
 
+	public function categoty()
+	{
+		return $this->belongsTo("Category","categoty");
+	}
 	public function user()
 	{
-		return $this->belongsTo("User","id");
+		return $this->belongsTo('User','user');
 	}
 
 

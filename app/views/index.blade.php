@@ -89,6 +89,8 @@ Trang chủ
 	  
 	</div>
 @endsection
+	
+
 @section('content')
     <!-- /Navigation -->
     <section id="intro" class="home-slide text-light">
@@ -169,6 +171,7 @@ Trang chủ
 
 	</section>
 	<!-- /Section: intro -->  
+	
 <!-- Section: about -->
     <section id="about" class="home-section color-dark bg-white">
 		<div class="container marginbot-50">

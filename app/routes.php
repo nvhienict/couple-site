@@ -21,7 +21,7 @@ Route::filter("check_login", function(){
 			return Redirect::to("login");
 	});
 
-Route::get("main",array("before"=>"check_login", "as"=>"main","uses"=>"UserContronller@index"));
+Route::get("main",array("before"=>"check_login", "as"=>"main","uses"=>"UserController@index"));
 
 Route::get('/video/{id}',function($id){
 	return View::make('video')->with('vendor', Vendor::find($id));
@@ -56,11 +56,13 @@ Route::get('user-checklist',array('before'=>'check_login','as'=>'user-checklist'
 
 // Thuy
 // user login
-Route::get("logout",array("as"=>"logout","uses"=>"UserContronller@get_logout"));
+Route::get("logout",array("as"=>"logout","uses"=>"UserController@get_logout"));
 
-Route::get('login', array("as"=>"login","uses"=>"UserContronller@get_login"));
-Route::post('user_login',array("as"=>"user_login","uses"=>"UserContronller@post_login"));
-Route::get("register",array('as'=>'register',"uses"=>"UserContronller@get_register"));
+Route::get('login', array("as"=>"login","uses"=>"UserController@get_login"));
+Route::post('user_login',array("as"=>"user_login","uses"=>"UserController@post_login"));
+Route::get("register",array('as'=>'register',"uses"=>"UserController@get_register"));
+Route::post('create_acount',array("as"=>"create_acount","uses"=>"UserController@post_users"));
+Route::post('check_user_email',array("as"=>"check_user_email","uses"=>"UserController@check_user_email"));
 
 // Checklist --- Giang
 

@@ -26,7 +26,7 @@ class Category extends Eloquent {
 	}
 	public function usertask()
 	{
-		return $this->hasMany('User-Task','category');
+		return $this->hasMany('UserTask','category');
 	}
 
 }

@@ -6,9 +6,15 @@ Login
 @include('nav')
 @endsection
 @section('content')
+<div class="row">
+  <div class="col-xs-8 col-md-offset-2">
+    @if(isset($messages)) <p class="text-center alert alert-danger">{{$messages}}</p>
+    @endif	
 
-@if(isset($messages)) <p class="text-center alert alert-danger">{{$messages}}</p>
-		@endif	
+      @if(isset($msg)) <p class="alert text-center alert-success">{{$msg}}</p>
+      @endif  
+  </div>
+</div>
 <form role="form" action="user_login" method="post" id="user_login">
   <div class="form-group">
     <label for="txMail">Email address</label>
@@ -17,10 +23,6 @@ Login
   <div class="form-group">
     <label for="txPass">Password</label>
     <input type="password" class="form-control" name="txPass" id="txPass" placeholder="Password">
-  </div>
-  <div class="form-group">
-    <label >User: admin4@thuna.vn</label>
-    <label >Password: 123</label>
   </div>
   <div>
     <label>
