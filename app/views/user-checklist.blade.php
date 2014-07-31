@@ -320,21 +320,24 @@ Checklist
 		  		</div>
 	  		</div>
 				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>Band</th>
-							<th></th>
-							<th></th>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
+					@foreach(Category::get() as $category)				
+						<thead>
+							<tr>
+								<th>{{$category->name}}</th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+						</thead>
+						@foreach(User::find(Cookie::get('id-user'))->user_task()->get() as $usertask)
+						@if($category->id==$usertask->category)
 					<tbody>
 						<tr>
 							<td>
 								<input type="checkbox" name="">
 							</td>
-							<td>Search for a band</td>
+							<td>{{$usertask->title}}</td>
 							<td>Aug</td>
 							<td>
 								<a href=""><span class="fa fa-edit"></span></a>
@@ -343,135 +346,11 @@ Checklist
 								<a href=""><span class="fa fa-trash-o"></span></a>
 							</td>
 						</tr>
-						<tr>
-							<td>
-								<input type="checkbox" name="">
-							</td>
-							<td>Book your band. Record deposits and payments in your Budget Tool.</td>
-							<td>Ocb</td>
-							<td>
-								<a href=""><span class="fa fa-edit"></span></a>
-							</td>
-							<td>
-								<a href=""><span class="fa fa-trash-o"></span></a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<input type="checkbox" name="">
-							</td>
-							<td>If you have a band, work on a list of 'must-play' and 'do-not play' songs. Be sure you also send them selections for your introductions, first dance, cake cutting, father/daughter dance, anniversary dance, and last dance.</td>
-							<td>Feb</td>
-							<td>
-								<a href=""><span class="fa fa-edit"></span></a>
-							</td>
-							<td>
-								<a href=""><span class="fa fa-trash-o"></span></a>
-							</td>
-						</tr>
+						
 					</tbody>
-					
-					<thead>
-						<tr>
-							<th>Band</th>
-							<th></th>
-							<th></th>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<input type="checkbox" name="">
-							</td>
-							<td>Search for a band</td>
-							<td>Aug</td>
-							<td>
-								<a href=""><span class="fa fa-edit"></span></a>
-							</td>
-							<td>
-								<a href=""><span class="fa fa-trash-o"></span></a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<input type="checkbox" name="">
-							</td>
-							<td>Book your band. Record deposits and payments in your Budget Tool.</td>
-							<td>Ocb</td>
-							<td>
-								<a href=""><span class="fa fa-edit"></span></a>
-							</td>
-							<td>
-								<a href=""><span class="fa fa-trash-o"></span></a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<input type="checkbox" name="">
-							</td>
-							<td>If you have a band, work on a list of 'must-play' and 'do-not play' songs. Be sure you also send them selections for your introductions, first dance, cake cutting, father/daughter dance, anniversary dance, and last dance.</td>
-							<td>Feb</td>
-							<td>
-								<a href=""><span class="fa fa-edit"></span></a>
-							</td>
-							<td>
-								<a href=""><span class="fa fa-trash-o"></span></a>
-							</td>
-						</tr>
-					</tbody>
-
-					<thead>
-						<tr>
-							<th>Band</th>
-							<th></th>
-							<th></th>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<input type="checkbox" name="">
-							</td>
-							<td>Search for a band</td>
-							<td>Aug</td>
-							<td>
-								<a href=""><span class="fa fa-edit"></span></a>
-							</td>
-							<td>
-								<a href=""><span class="fa fa-trash-o"></span></a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<input type="checkbox" name="">
-							</td>
-							<td>Book your band. Record deposits and payments in your Budget Tool.</td>
-							<td>Ocb</td>
-							<td>
-								<a href=""><span class="fa fa-edit"></span></a>
-							</td>
-							<td>
-								<a href=""><span class="fa fa-trash-o"></span></a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<input type="checkbox" name="">
-							</td>
-							<td>If you have a band, work on a list of 'must-play' and 'do-not play' songs. Be sure you also send them selections for your introductions, first dance, cake cutting, father/daughter dance, anniversary dance, and last dance.</td>
-							<td>Feb</td>
-							<td>
-								<a href=""><span class="fa fa-edit"></span></a>
-							</td>
-							<td>
-								<a href=""><span class="fa fa-trash-o"></span></a>
-							</td>
-						</tr>
-					</tbody>
+					@endif
+					@endforeach
+				@endforeach
 				</table>
 			</div>	<!-- tab-bycategory -->
 		</div><!--tab-content-->

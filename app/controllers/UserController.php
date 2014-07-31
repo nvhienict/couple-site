@@ -164,9 +164,8 @@ class UserController extends \BaseController {
 
 					}
 
-			$msg="Bạn đã có tài khoản của mình, hãy đăng nhập để sử dụng website";
-			return View::make("user-login")->with('msg',$msg);
-
+			Session::put("email",Input::get('email'));
+			return View::make("index");
 
 		}else{
 			$errors=$validator->messages();
