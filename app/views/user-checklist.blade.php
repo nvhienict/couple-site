@@ -118,23 +118,35 @@ Checklist
 
 		<div class="col-md-2"><a href="#" id="export" data-toggle="modal" data-target="#print"><span class="fa fa-print"></span> Print report</a>
 		</div>
-		<div class="col-md-7 pull-right text-right"> <a href="">Jan</a> - <a href="">Feb</a>- <a href="">Mar</a>- <a href="">Apr</a>- <a href="">May</a>- <a href="">Jun</a>- <a href="">Jul</a>- <a href=""><strong>Aug</strong></a>- <a href="">Sep</a>- <a href="">Oct</a>- <a href="">Nov</a>- <a href="">Dec</a></div>
+		<div class="col-md-7 pull-right text-right">Tháng
+		@foreach(ChecklistController::byMonth() as $index=>$key)
+		 <a href="{{URL::route('sortby',array($key))}}">
+		 @if($key==$month) <strong>{{ChecklistController::changeMonth($key)}}</strong>
+		 @else {{ChecklistController::changeMonth($key)}}
+		 @endif
+		 </a> -
+		@endforeach
+		 </div>
 	</div>
 		<table class="table table-hover" id="export-table">
 			<thead>
 				<tr>
-					<th>August 2014</th>
+					<th>Tháng 
+					{{$month}}
+					</th>
 				</tr>
 			</thead>
 			<tbody>
-				@foreach(User::find(95)->user_task()->get() as $task)
+				@foreach($tasks as $task)
 				<tr>
-					<td>
-						<div class="checkbox">
+					<td class="text-center">
 							<input type="checkbox" name="">
-						</div>
 					</td>
 					<td>{{$task->title}}</td>
+					<td>@if($task->todo==2)
+					 <span class="fa fa-warning"></span>
+					@endif
+					</td>
 					<td>
 						<a href="#" id="drop{{$index}}" data-toggle="modal" data-target="#myModalEditChecklist{{$index}}">
 						<i class="fa fa-edit"></i>

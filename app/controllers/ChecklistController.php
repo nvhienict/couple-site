@@ -81,15 +81,33 @@ class ChecklistController extends \BaseController {
 	{
 		//
 	}
-
 	public function get_UserChecklist()
 	{
-		$email = Session::get('email');
-		$id_user = User::where('email','LIKE',$email)->get()->first()->id;
+		$date=new DateTime(User::find(95)->weddingdate);
+		return ChecklistController::sortBy($date->format("m-Y"));
+	}
 
-		$checklist = UserTask::where('user',$id_user)->get();
-
-		return View::make('user-checklist')->with('checklist', $checklist);
+	public static function byMonth(){
+		$date=new DateTime(User::find(95)->weddingdate);
+		$month[]=$date->format('m-Y');
+		for($i=0;$i<12;$i++){
+			//$month[]=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
+			$month[]= $date->modify("-1 month")->format('m-Y');
+		}
+		return $month;
+	}
+	public static function sortBy($month){
+		$tasks_month=array();
+		foreach(User::find(95)->user_task()->get() as $task)
+		{
+			$date=new DateTime(User::find(95)->weddingdate);
+			if($date->sub(new DateInterVal('P'.$task->startdate.'D'))->format("m-Y")==$month)
+				$tasks_month[]=$task;
+		} 
+		return View::make('user-checklist')->with('tasks',$tasks_month)->with('month',$month);
+	}
+	public static function changeMonth($key){
+		return substr($key,0,2);
 	}
 
 	public function post_Add_Checklist(){

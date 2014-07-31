@@ -50,9 +50,8 @@ Route::post('compare',array("as"=>"compare", function(){
 	return View::make('compare')->with('results',$compare);
 }));
 /*Cuong*/
-Route::get('user-checklist',array('before'=>'check_login','as'=>'user-checklist', function(){
-	 return View::make('user-checklist');
-}));
+Route::get('sortBy/{name}',array("as"=>"sortby","uses"=>"ChecklistController@sortBy"));
+Route::get("user-checklist", array("before"=>"check_login","as"=>"user-checklist", "uses"=>"ChecklistController@get_UserChecklist"));
 
 // Thuy
 // user login
@@ -76,4 +75,3 @@ Route::post("check_task_edit/{id}", array("as"=>"check_task_edit", "uses"=>"Chec
 
 Route::get("check_task_del/{id}", array("as"=>"check_task_del", "uses"=>"ChecklistController@post_CheckTaskDel"));
 
-Route::get("user-checklist", array("before"=>"check_login","as"=>"user-checklist", "uses"=>"ChecklistController@get_UserChecklist"));

@@ -72,6 +72,7 @@
       </li>
       <li><a href="{{URL::route('index')}}#about">Giới thiệu</a></li>
       <li><a href="{{URL::route('index')}}#service">Dịch vụ</a></li>
+      <li><a href="{{URL::route('user-checklist')}}">Dịch vụ</a></li>
       <li><a href="">Đăng kí</a></li>
       <li><a href="{{URL::route('index')}}#search">Tìm kiếm nhà cung cấp</a></li>
       <li><a href="{{URL::route('index')}}#contact">Liên hệ</a></li>
