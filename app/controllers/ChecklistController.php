@@ -86,6 +86,7 @@ class ChecklistController extends \BaseController {
 		$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
 		return ChecklistController::sortBy($date->format("m-Y"));
 	}
+	
 	public static function overdue(){
 		$date_now=new DateTime("now");
 		$overdue=0;
@@ -135,12 +136,19 @@ class ChecklistController extends \BaseController {
 		return substr($key,0,2);
 	}
 
-	public function post_Add_Checklist(){
+	public function search($month)
+	{
+		$title=Input::get('input-search');
+		$user_task=UserTask::where("user",Cookie::get('id-user'))->where('title', 'LIKE', "%$title%")->get();
+		return View::make('user-checklist')->with('title',$title)
+		->with('tasks',$user_task)
+		->with('month',$month);
+	}
 
-		$email = Session::get('email');
-		$weddingdate = User::where('email','LIKE',$email)->get()->first()->weddingdate;
-		$id_user = User::where('email','LIKE',$email)->get()->first()->id;
-
+	// ------
+	public function count_date(){
+		
+		$weddingdate = User::find(Cookie::get('id-user'))->weddingdate;
 		$startdate = Input::get('startdate'); // get date user enter
 
 		$date1 = $startdate;
@@ -157,6 +165,15 @@ class ChecklistController extends \BaseController {
 		      $dates_range[]=date('Y-m-d', $date1); 
 		      $songay++; 
 		    } 
+		    return $songay;
+		} else {return '<h1>Ngày cưới đã qua!</h1>';}
+	}
+
+	public function post_Add_Checklist(){
+
+			$id_user = User::find(Cookie::get('id-user'))->id;
+
+			$songay = $this->count_date();
 
 		    $rules=array(
 				"task"=>"required",
@@ -176,14 +193,10 @@ class ChecklistController extends \BaseController {
 				$msg="Đã tạo công việc thành công!";
 				return Redirect::route("user-checklist")->with('msg',$msg);
 			}else{
-				// $msg="Quá trình tạo bị lỗi!";
-				// return Redirect::route("checklist")->with('msg',$msg);
-				return 'Lỗi';
+				$msg="Quá trình tạo bị lỗi!";
+				return Redirect::route("user-checklist")->with('msg',$msg);
 			}
 
-		} else{
-			return "Ngày cưới của bạn qua rồi!";
-		}
 	} // function add_Check_List
 
 	public function post_Edit_Checklist(){
@@ -193,50 +206,31 @@ class ChecklistController extends \BaseController {
 		$category = Input::get('category');
 		$description = Input::get('description');
 
-		$email = Session::get('email');
-		$weddingdate = User::where('email','LIKE',$email)->get()->first()->weddingdate;
-		$id_user = User::where('email','LIKE',$email)->get()->first()->id;
+		$weddingdate = User::find(Cookie::get('id-user'))->weddingdate;
+		$id_user = User::find(Cookie::get('id-user'))->id;
 
-		$startdate = Input::get('startdate_edit'); // get date user enter
-
-		$date1 = $startdate;
-		$date2 = $weddingdate;
-
-		// count number date
-		if ($date1<$date2){ 
-		    $dates_range[]=$date1; 
-		    $date1=strtotime($date1); 
-		    $date2=strtotime($date2); 
-		    $songay=0; 
-		    while ($date1!=$date2){ 
-		      $date1=mktime(0, 0, 0, date("m", $date1), date("d", $date1)+1, date("Y", $date1)); 
-		      $dates_range[]=date('Y-m-d', $date1); 
-		      $songay++; 
-		    }
+		$songay = $this->count_date();
 		    
-		    $rules=array(
-				"task"=>"required",
-				"startdate"=>"required",
-				"category"=>"required"
-			);
-		    // check then insert to database
-			if(!Validator::make(Input::all(), $rules)->fails()){
-				$user_task = UserTask::where('id',$id)->update(
-					array("title"=>$title,
-						"category"=>$category,
-						"description"=>$description,
-						"startdate"=>$songay
-						));
-				
-				$msg="Đã sửa công việc thành công!";
-				return Redirect::route("user-checklist")->with('msg',$msg);
-			}else{
-				// $msg="Quá trình tạo bị lỗi!";
-				// return Redirect::route("checklist")->with('msg',$msg);
-				return 'Lỗi';
-			}
-
-		} else{return "Ngày cưới của bạn qua rồi!";}
+	    $rules=array(
+			"task"=>"required",
+			"startdate"=>"required",
+			"category"=>"required"
+		);
+	    // check then insert to database
+		if(!Validator::make(Input::all(), $rules)->fails()){
+			$user_task = UserTask::where('id',$id)->update(
+				array("title"=>$title,
+					"category"=>$category,
+					"description"=>$description,
+					"startdate"=>$songay
+					));
+			
+			$msg="Đã sửa công việc thành công!";
+			return Redirect::route("user-checklist")->with('msg',$msg);
+		}else{
+			$msg="Quá trình sửa bị lỗi!";
+			return Redirect::route("user-checklist")->with('msg',$msg);
+		}
 		
 	} // function edit_Check_List
 
@@ -246,6 +240,7 @@ class ChecklistController extends \BaseController {
 		return Redirect::route("user-checklist");
 	}
 
+	// check in validate
 	public function post_CheckTaskAdd($value='')
 	{
 		$task=Input::get('task');
@@ -267,12 +262,50 @@ class ChecklistController extends \BaseController {
 			else{return "true";}
 		} 
 	}
-	public function search($month)
-	{
-		$title=Input::get('input-search');
-		$user_task=UserTask::where("user",Cookie::get('id-user'))->where('title', 'LIKE', "%$title%")->get();
-		return View::make('user-checklist')->with('title',$title)
-		->with('tasks',$user_task)
-		->with('month',$month);
+
+	// display task for user
+	public function get_Task_Overdue(){
+		$checklist = UserTask::where('todo','=',0)->paginate(10);
+
+		return View::make('user-checklist')->with('checklist', $checklist);
+	}
+	public function get_Task_Complete(){
+		$checklist = UserTask::where('todo','=',1)->paginate(10);
+
+		return View::make('user-checklist')->with('checklist', $checklist);
+	}
+
+	public function post_CheckTaskComplete($ac){
+		$id = Input::get('id');
+		if($ac==1){
+			$user_task = UserTask::where('id',$id)->update(
+			array(
+				"todo"=>1
+				));
+		}else{
+			$user_task = UserTask::where('id',$id)->update(
+			array(
+				"todo"=>0
+				));
+		}
+		
+	}
+
+	public function exportfile(){
+
+		$table = UserTask::all();
+
+		$output='';
+ 
+	    foreach ($table as $row) {
+	        $output .=  implode(",",$row->toArray());
+	    }
+	    $headers = array(
+	        'Content-Type' => 'text/csv',
+        	'Content-Disposition' => 'attachment; filename="ExportFileName.csv"',
+	    );
+	 
+	    return Response::make(rtrim($output, "\n"), 200, $headers);
+
 	}
 }

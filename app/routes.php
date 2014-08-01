@@ -59,20 +59,29 @@ Route::post('search/{month}',array('as'=>'search','uses'=>'ChecklistController@s
 Route::get("logout",array("as"=>"logout","uses"=>"UserController@get_logout"));
 
 Route::get('login', array("as"=>"login","uses"=>"UserController@get_login"));
-Route::post('user_login',array("as"=>"user_login","uses"=>"UserController@post_login"));
+Route::post('login',array("as"=>"login","uses"=>"UserController@post_login"));
 Route::get("register",array('as'=>'register',"uses"=>"UserController@get_register"));
-Route::post('create_acount',array("as"=>"create_acount","uses"=>"UserController@post_users"));
+Route::post('register',array("as"=>"register","uses"=>"UserController@post_users"));
 Route::post('check_user_email',array("as"=>"check_user_email","uses"=>"UserController@check_user_email"));
 
 // Checklist --- Giang
 
-Route::post("checklist/add", array("as"=>"add-checklist", "uses"=>"ChecklistController@post_Add_Checklist"));
+Route::post("checklist/add", array("before"=>"check_login","as"=>"add-checklist", "uses"=>"ChecklistController@post_Add_Checklist"));
 
-Route::post("checklist/edit", array("as"=>"edit-checklist", "uses"=>"ChecklistController@post_Edit_Checklist"));
+Route::post("checklist/edit", array("before"=>"check_login","as"=>"edit-checklist", "uses"=>"ChecklistController@post_Edit_Checklist"));
 
-Route::post("check_task_add", array("as"=>"check_task_add", "uses"=>"ChecklistController@post_CheckTaskAdd"));
+Route::post("check_task_add", array("before"=>"check_login","as"=>"check_task_add", "uses"=>"ChecklistController@post_CheckTaskAdd"));
 
-Route::post("check_task_edit/{id}", array("as"=>"check_task_edit", "uses"=>"ChecklistController@post_CheckTaskEdit"));
+Route::post("check_task_edit/{id}", array("before"=>"check_login","as"=>"check_task_edit", "uses"=>"ChecklistController@post_CheckTaskEdit"));
 
-Route::get("check_task_del/{id}", array("as"=>"check_task_del", "uses"=>"ChecklistController@post_CheckTaskDel"));
+Route::get("check_task_del/{id}", array("before"=>"check_login","as"=>"check_task_del", "uses"=>"ChecklistController@post_CheckTaskDel"));
 
+Route::get("user-checklist", array("before"=>"check_login","as"=>"user-checklist", "uses"=>"ChecklistController@get_UserChecklist"));
+
+Route::get('task_overdue', array("before"=>"check_login","as"=>"task_overdue","uses"=>"ChecklistController@get_Task_Overdue"));
+
+Route::get('task_complete', array("before"=>"check_login","as"=>"task_complete","uses"=>"ChecklistController@get_Task_Complete"));
+
+Route::post('check_task_complete/{ac}', array("before"=>"check_login","as"=>"check_task_complete", "uses"=>"ChecklistController@post_CheckTaskComplete"));
+
+Route::get('export_checklist', array("before"=>"check_login","as"=>"export_checklist","uses"=>"ChecklistController@exportfile"));

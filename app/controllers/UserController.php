@@ -107,7 +107,7 @@ class UserController extends \BaseController {
 
 					return Response::make($view)->withCookie($cookie);
 				}	 
-				else return View::make("login")->with("messages","Tên tài khoản hay mật khẩu không đúng hoặc bạn không phải là user");	
+				else return View::make("user-login")->with("messages","Tên tài khoản hay mật khẩu không đúng hoặc bạn không phải là user");	
 
 		} catch (Exception $e) {
 			echo $e->getMessage();
@@ -116,7 +116,11 @@ class UserController extends \BaseController {
 	public function get_logout()
 	{
 		Session::flush();
-		return Redirect::route("index")->withCookie(Cookie::forget('id-user'));
+		$DelCookie=Cookie::forget('id-user');
+		$view=View::make('index');
+		return Response::make($view)->withCookie($DelCookie);
+		
+		
 	}
 
 	public function get_register()
@@ -162,10 +166,11 @@ class UserController extends \BaseController {
 						$usertask->save();
 
 					}
-
+			$IdUser=User::where('email','=',Input::get('email'))->get()->first()->id;
+					$cookie=Cookie::make('id-user', $IdUser, 120);//set cookie		
 			Session::put("email",Input::get('email'));
-			return View::make("index");
-
+			$view = View::make("index");
+			return Response::make($view)->withCookie($cookie);
 		}else{
 			$errors=$validator->messages();
 			return Redirect::route("register")->with("errors",$errors);

@@ -15,7 +15,7 @@ Login
       @endif  
   </div>
 </div>
-<form role="form" action="user_login" method="post" id="user_login">
+<form role="form" action="{{Asset('login')}}" method="post" id="user_login">
   <div class="form-group">
     <label for="txMail">Email address</label>
     <input type="email" class="form-control" name="txMail"id="txMail" placeholder="Enter email"> 	
