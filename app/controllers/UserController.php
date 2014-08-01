@@ -116,8 +116,7 @@ class UserController extends \BaseController {
 	public function get_logout()
 	{
 		Session::flush();
-		Cookie::forget('id-user');
-		return Redirect::route("index");
+		return Redirect::route("index")->withCookie(Cookie::forget('id-user'));
 	}
 
 	public function get_register()

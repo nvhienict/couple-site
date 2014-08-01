@@ -79,6 +79,9 @@ Trang chủ
 	      <li><a href="#about">Giới thiệu</a></li>
 	      <li><a href="#service">Dịch vụ</a></li>
 	      <li><a href="">Đăng kí</a></li>
+	      @if(Cookie::has('id-user'))
+	      <li><a href="{{URL::route('user-checklist')}}">Check-list</a></li>
+	      @endif 
 	      <li><a href="#search">Tìm kiếm nhà cung cấp</a></li>
 	      <li><a href="#contact">Liên hệ</a></li>
 	      

@@ -86,6 +86,29 @@ class ChecklistController extends \BaseController {
 		$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
 		return ChecklistController::sortBy($date->format("m-Y"));
 	}
+	public static function overdue(){
+		$date_now=new DateTime("now");
+		$overdue=0;
+		foreach(User::find(Cookie::get('id-user'))->user_task()->get() as $task)
+		{
+			$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
+			$date_task=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
+				if(date_timestamp_get($date_now)>date_timestamp_get($date_task)) $overdue++;
+		}
+		return $overdue; 
+	}
+	public static function comparedate($month){
+		$new_date=date_create_from_format("d-m-Y","31-".$month);
+		$date_now=new DateTime("now");
+		if(date_timestamp_get($date_now)>date_timestamp_get($new_date)) return true;
+
+	}
+	public static function comparedate2($startdate){
+		$date_now=new DateTime("now");
+		$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
+		$date_task=$date->sub(new DateInterVal('P'.$startdate.'D'));
+		if(date_timestamp_get($date_now)>date_timestamp_get($date_task)) return true;
+	}
 
 	public static function byMonth(){
 		$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
@@ -101,10 +124,12 @@ class ChecklistController extends \BaseController {
 		foreach(User::find(Cookie::get('id-user'))->user_task()->get() as $task)
 		{
 			$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
-			if($date->sub(new DateInterVal('P'.$task->startdate.'D'))->format("m-Y")==$month)
+			$date_task=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
+			if($date_task->format("m-Y")==$month)
 				$tasks_month[]=$task;
 		} 
-		return View::make('user-checklist')->with('tasks',$tasks_month)->with('month',$month);
+		return View::make('user-checklist')->with('tasks',$tasks_month)
+		->with('month',$month);
 	}
 	public static function changeMonth($key){
 		return substr($key,0,2);

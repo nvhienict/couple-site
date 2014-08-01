@@ -38,7 +38,7 @@ Route::get('list-vendor',array('as'=>'list-vendor', function(){
 
 Route::post('list-vendor', array('as'=>'home-page',"uses"=>"VendorController@search"));
 
-Route::get('vendor/{id}',array('as'=>'vendor',"uses"=>"VendorController@show"));
+Route::get('detail-vendor/{id}',array('as'=>'detail-vendor',"uses"=>"VendorController@show"));
 
 Route::post('compare',array("as"=>"compare", function(){
 	foreach(Vendor::get() as $vendor){
@@ -53,6 +53,7 @@ Route::post('compare',array("as"=>"compare", function(){
 Route::get('sortBy/{name}',array("before"=>"check_login","as"=>"sortby","uses"=>"ChecklistController@sortBy"));
 Route::get("user-checklist", array("before"=>"check_login","as"=>"user-checklist", "uses"=>"ChecklistController@get_UserChecklist"));
 Route::post('search/{month}',array('as'=>'search','uses'=>'ChecklistController@search'));
+
 // Thuy
 // user login
 Route::get("logout",array("as"=>"logout","uses"=>"UserController@get_logout"));

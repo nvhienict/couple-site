@@ -21,11 +21,11 @@ Checklist
 		</div>
 		<div class="col-md-2">
 		OVERDUE <br>
-		50
+		{{ChecklistController::overdue()}}
 		</div>
 		<div class="col-md-2">
 		COMPLETED <br>
-		10
+		{{UserTask::where("user",Cookie::get('id-user'))->where('todo',1)->count()}}
 		</div>
 		<div class="col-md-2"></div>
 	</div>
@@ -117,16 +117,19 @@ Checklist
 		</div> <!-- end modal fade -->
 		<!-- end modal -->
 
-		<div class="col-md-2"><a href="#" id="export" data-toggle="modal" data-target="#print"><span class="fa fa-print"></span> Print report</a>
+		<div class="col-md-2"><a href="#" id="export" data-toggle="modal" data-target="#print"><i class="fa fa-print"></i>&nbspPrint report</a>
 		</div>
-		<div class="col-md-7 pull-right text-right">Tháng
-		@foreach(ChecklistController::byMonth() as $index=>$key)
-		 <a href="{{URL::route('sortby',array($key))}}">
-		 @if($key==$month) <strong>{{ChecklistController::changeMonth($key)}}</strong>
-		 @else {{ChecklistController::changeMonth($key)}}
-		 @endif
-		 </a> -
-		@endforeach
+
+		<div class="col-xs-12 col-md-7">
+		<ul class="month" style="overflow: hidden;">
+			@foreach(ChecklistController::byMonth() as $index=>$key)
+			 <li><a href="{{URL::route('sortby',array($key))}}">
+			 @if($key==$month) <strong>{{ChecklistController::changeMonth($key)}}</strong>
+			 @else {{ChecklistController::changeMonth($key)}}
+			 @endif
+			 -</a></li>
+			@endforeach
+		</ul>
 		 </div>
 	</div>
 		<table class="table table-hover" id="export-table">
@@ -144,8 +147,8 @@ Checklist
 							<input type="checkbox" name="">
 					</td>
 					<td>{{$task->title}}</td>
-					<td>@if($task->todo==2)
-					 <span class="fa fa-warning"></span>
+					<td>@if(ChecklistController::comparedate($month))
+					<span class="fa fa-warning" style="color:#E9621A;"></span>
 					@endif
 					</td>
 					<td>
@@ -287,7 +290,7 @@ Checklist
 					      <div class="modal-body">
 					      	<div class="row">
 					      		<div class="col-xs-8">{{$task->title}}</div>
-					      		<div class="col-xs-4"> Ngày thực hiện: ........ </div>
+					      		<div class="col-xs-4"> Ngày thực hiện: {{$month}} </div>
 					      	</div>
 					      	
 					      </div>
@@ -330,7 +333,7 @@ Checklist
 								<th></th>
 							</tr>
 						</thead>
-						@foreach(User::find(Cookie::get('id-user'))->user_task()->get() as $usertask)
+						@foreach(User::find(Cookie::get('id-user'))->user_task()->get() as $index=>$usertask)
 						@if($category->id==$usertask->category)
 					<tbody>
 						<tr>
@@ -338,12 +341,162 @@ Checklist
 								<input type="checkbox" name="">
 							</td>
 							<td>{{$usertask->title}}</td>
-							<td>Aug</td>
-							<td>
-								<a href=""><span class="fa fa-edit"></span></a>
+							<td>@if(ChecklistController::comparedate2($usertask->startdate))
+							<span class="fa fa-warning" style="color:#E9621A;"></span>
+							@endif
 							</td>
 							<td>
-								<a href=""><span class="fa fa-trash-o"></span></a>
+								<a href="#" id="drop{{$index}}" data-toggle="modal" data-target="#myModalEditChecklist-cat{{$index}}">
+						<i class="fa fa-edit"></i>
+					</a>
+					<!-- Modal Edit checklist -->
+					<div class="modal fade" id="myModalEditChecklist-cat{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					        <h3 class="modal-title" id="myModalLabel">Sửa công việc</h3>
+					      </div>
+					      <div class="modal-body">
+					        <form id="form_editChecklist{{$index}}" action="{{Asset('checklist/edit')}}" method="post">
+					        	<input type="hidden" name="id" value="{{$usertask->id}}" />
+							    <div class="row form-group">
+									<label for="task" class="col-xs-3 control-label">Tên công việc</label>
+									<div class="col-xs-9">
+									   	<input type="text" class="form-control" name="task" id="task" value="{{$usertask->title}}" />
+									</div>
+								</div>
+								<div class="row form-group">
+									<label for="startdate" class="col-xs-3 control-label">Ngày bắt đầu</label>
+								        <div class='col-sm-6'>
+								            <div class="form-group">
+								            	<input type='text' class="form-control" id="startdate{{$index}}" name="startdate" 
+								            	value="" />
+								            	<script>
+											       	jQuery('#startdate{{$index}}').datetimepicker({
+													lang:'en',
+													i18n:{
+													en:{
+														months:[
+														    'January','February','March','April',
+														    'May','June','July','August',
+														    'September','October','November','December',
+														   ],
+														dayOfWeek:[
+														    "Su", "Mo", "Tu", "We", 
+														    "Th", "Fr", "Sa",
+														   ]
+														}
+													},
+													timepicker:false,
+													format:'Y-m-d'
+													});
+											    </script>
+								            </div>
+								        </div>
+							    </div>
+							    <div class="row form-group">
+							    	<label for="category" class="col-xs-3 control-label"> Danh mục </label>
+							        <div class='col-sm-9'>
+									   	<select name="category" class="form-control" id="category" />
+					                    	@foreach(Category::get() as $category_cat)
+					                        <option value="{{$category_cat->id}}" 
+					                            @if($category_cat->id==$category->id) {{" selected"}}
+					                            @endif
+					                        >{{$category_cat->name}}</option>
+					                        @endforeach
+					                    </select>
+							        </div>
+							    </div>
+							    <div class="row form-group">
+									<label for="note" class="col-xs-3 control-label"> Mô tả </label>
+							        <div class='col-sm-9'>
+							            <textarea class="form-control" id="description" name="description" cols="20" rows="5"></textarea>
+							        </div>
+							    </div>
+							  	
+							  	<div class="row form-group">
+							  		<div class="col-xs-3"></div>
+							  		<div class="col-xs-6">
+								    	<button type="submit" class="btn btn-primary" id="submit_add"> Cập nhật </button>
+								    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
+							  		</div>
+							  		<div class="col-xs-3"></div>
+							  	</div>
+
+							</form>
+							<script type="text/javascript">
+
+								$(document).ready(function(){
+									$("#form_editChecklist{{$index}}").validate({
+										rules:{
+											task:{
+												required:true,
+												remote:{
+													url:"{{URL::route('check_task_edit',array($task->id))}}",
+													type:"post"
+												}
+											},
+											startdate{{$index}}:{
+												required:true
+											},
+											category:{
+												required:true
+											}
+										},
+										messages:{
+											task:{
+												required:"Bạn phải nhập tên công việc",
+												remote:"Công việc đã tồn tại"
+											},
+											startdate{{$index}}:{
+												required:"Bạn phải chọn ngày làm"
+												
+											},
+											category:{
+												required:"Bạn phải chọn danh mục"
+											}
+										},
+										errorPlacement: function (error, element) {
+											error.insertAfter(element);
+										}
+									});
+								});
+							</script>
+					    </div> <!-- end modal body -->
+					</div> <!-- end modal content -->
+					</div> <!-- end modal dialog -->
+					</div> <!-- end modal fade -->
+					<!-- end modal -->
+					<!-- script of validate for edit checklist -->
+							</td>
+							<td>
+								<a href="#" data-toggle="modal" data-target="#myModalDelTask-cat{{$index}}"><span class="fa fa-trash-o"></span></a>
+						<!-- Modal Delete Task -->
+							<div class="modal fade" id="myModalDelTask-cat{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							  <div class="modal-dialog">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							        <h3 class="modal-title" id="myModalLabel"> Xoá công việc</h3>
+							      </div>
+							      <div class="modal-body">
+							      	<div class="row">
+							      		<div class="col-xs-8">{{$usertask->title}}</div>
+							      		<div class="col-xs-4"> Ngày thực hiện: {{$month}} </div>
+							      	</div>
+							      	
+							      </div>
+							      <div class="modal-footer">
+							      	<a href="{{URL::to('check_task_del', array('id'=>$task->id))}}">
+							      		<button type="button" class="btn btn-primary">OK</button>
+							      	</a>
+							        <a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+							<!-- end modal Delete Task  -->
 							</td>
 						</tr>
 						
@@ -363,7 +516,7 @@ Checklist
 			  <div class="col-lg-12">
 			  	<form action="{{URL::route('search',array($month))}}" method="POST" role="form">		  	
 			  		<div class="form-group">
-			  			<input type="text" name="input-search" id="input-search"placeholder="Search Task" class="form-control">
+			  			<input type="text" name="input-search" id="input-search"placeholder="Search Task" class="form-control col-lg-3">
 			  		</div>		  		
 			  		<span class="input-group-btn">
 			        <button class="btn btn-primary" type="submit">Go!</button>

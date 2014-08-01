@@ -981,7 +981,6 @@ a.btn:focus{
 
 	}
 	.navbar-header {
-		margin-top:-40px;
 		padding:0;
 	}
 	.navbar-header button {
@@ -1379,6 +1378,17 @@ ul#thumbs-main li{
 .notice-checklist{
 	margin-top: 30px;
 	margin-bottom: 20px;
+}
+.month{
+
+}
+.month li{
+	list-style: none;
+}
+.month li a{
+	display: block;
+		float:right;
+	margin-right: 5px;
 }
 /*Start - thuy*/
 .icon-button{
