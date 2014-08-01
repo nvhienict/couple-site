@@ -144,31 +144,6 @@ class ChecklistController extends \BaseController {
 		->with('tasks',$user_task)
 		->with('month',$month);
 	}
-
-	// ------
-	public function count_date(){
-		
-		$weddingdate = User::find(Cookie::get('id-user'))->weddingdate;
-		$startdate = Input::get('startdate'); // get date user enter
-
-		$date1 = $startdate;
-		$date2 = $weddingdate;
-
-		// count number date
-		if ($date1<$date2){ 
-		    $dates_range[]=$date1; 
-		    $date1=strtotime($date1); 
-		    $date2=strtotime($date2); 
-		    $songay=0; 
-		    while ($date1!=$date2){ 
-		      $date1=mktime(0, 0, 0, date("m", $date1), date("d", $date1)+1, date("Y", $date1)); 
-		      $dates_range[]=date('Y-m-d', $date1); 
-		      $songay++; 
-		    } 
-		    return $songay;
-		} else {return '<h1>Ngày cưới đã qua!</h1>';}
-	}
-
 	public function post_Add_Checklist(){
 
 			$id_user = User::find(Cookie::get('id-user'))->id;
@@ -205,11 +180,19 @@ class ChecklistController extends \BaseController {
 		$title = Input::get('task');
 		$category = Input::get('category');
 		$description = Input::get('description');
+		$date_task= Input::get('startdate');
+		$new_date= new DateTime($date_task);
 
-		$weddingdate = User::find(Cookie::get('id-user'))->weddingdate;
+		$date_wedding=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
+		if(date_timestamp_get($date_wedding)>date_timestamp_get($new_date))
+		{
+			$startdate=(date_timestamp_get($date_wedding)-date_timestamp_get($new_date))/(3600*24);
+		}
+		else
+		{
+			$startdate=(date_timestamp_get($new_date)-date_timestamp_get($date_wedding))/(3600*24);
+		}
 		$id_user = User::find(Cookie::get('id-user'))->id;
-
-		$songay = $this->count_date();
 		    
 	    $rules=array(
 			"task"=>"required",
@@ -222,7 +205,7 @@ class ChecklistController extends \BaseController {
 				array("title"=>$title,
 					"category"=>$category,
 					"description"=>$description,
-					"startdate"=>$songay
+					"startdate"=>$startdate
 					));
 			
 			$msg="Đã sửa công việc thành công!";
