@@ -310,10 +310,10 @@ Checklist
 			</tbody>
 
 		</table>
-
-	  				
-
 			</div><!--bymonth-->
+
+
+
 			<div class="tab-pane fade" id="bycategory">
 				<div class="row">
 		  		<div class="col-md-2"><a href="#" data-toggle="modal" data-target="#add"><span class="fa fa-plus"></span> Add an item</a>

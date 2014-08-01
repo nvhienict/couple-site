@@ -11,7 +11,7 @@ Register
     <div id="user_register">
       @if(isset($msg)) <p class="alert alert-danger">{{$msg}}</p>
       @endif
-    <form role="form" action="create_acount" method="post" id="create_acount">
+    <form role="form" action="{{Asset('register')}}" method="post" id="create_acount">
       <h2>Please Sign Up <small>It's free and always will be.</small></h2>
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6">

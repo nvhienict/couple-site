@@ -59,9 +59,9 @@ Route::post('search/{month}',array('as'=>'search','uses'=>'ChecklistController@s
 Route::get("logout",array("as"=>"logout","uses"=>"UserController@get_logout"));
 
 Route::get('login', array("as"=>"login","uses"=>"UserController@get_login"));
-Route::post('user_login',array("as"=>"user_login","uses"=>"UserController@post_login"));
+Route::post('login',array("as"=>"login","uses"=>"UserController@post_login"));
 Route::get("register",array('as'=>'register',"uses"=>"UserController@get_register"));
-Route::post('create_acount',array("as"=>"create_acount","uses"=>"UserController@post_users"));
+Route::post('register',array("as"=>"register","uses"=>"UserController@post_users"));
 Route::post('check_user_email',array("as"=>"check_user_email","uses"=>"UserController@check_user_email"));
 
 // Checklist --- Giang
