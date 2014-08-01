@@ -12,20 +12,20 @@ Checklist
 	<div class="row">
 		<div class="col-md-1"></div>
 		<div class="col-md-2">
-		WEDDINGDATE <br>
+		NGÀY CƯỚI <br>
 		{{User::find(Cookie::get('id-user'))->weddingdate}}
 		</div>
 		<div class="col-md-2">
-		TO-DOS <br>
+		VIỆC CẦN LÀM <br>
 		{{UserTask::where("user",Cookie::get('id-user'))->count()}}
 		</div>
 		<div class="col-md-2">
-		OVERDUE <br>
-		{{ChecklistController::overdue()}}
+		VIỆC QUÁ HẠN<br>
+		<span id="count_overdue">{{ChecklistController::overdue()}}</span>
 		</div>
 		<div class="col-md-2">
-		COMPLETED <br>
-		{{UserTask::where("user",Cookie::get('id-user'))->where('todo',1)->count()}}
+		VIỆC HOÀN THÀNH <br>
+			<span id="count_complete">{{UserTask::where("user",Cookie::get('id-user'))->where('todo',1)->count()}}</span>
 		</div>
 		<div class="col-md-2"></div>
 	</div>
@@ -141,10 +141,54 @@ Checklist
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($tasks as $task)
+				@foreach($tasks as $index=>$task)
 				<tr>
 					<td class="text-center">
-							<input type="checkbox" name="">
+							<div class="checkbox">
+								@if($task->todo==0)
+									<input type="checkbox" id="chk_{{$task->id}}" name="chk_checklist" value="{{$task->id}}"  />
+									<input type="hidden" name="checkbox-{{$task->id}}" value="">
+									@else
+									<input type="checkbox" id="chk_{{$task->id}}" name="chk_checklist" value="{{$task->id}}" checked />
+									<input type="hidden" name="checkbox-{{$task->id}}" value="{{$task->id}}">
+								@endif
+
+								<script type="text/javascript">
+								$(document).ready(function(){
+									$('input[type="checkbox"]#chk_{{$task->id}}').click(function(){
+										if($(this).is(':checked')) {
+										var id= $(this).val();
+										$(this).next().val(id);
+										var $i= parseInt($("#count_complete").text())+1;
+										var $j= parseInt($("#count_overdue").text())-1;
+										$("#count_overdue").text($j);
+										$("#count_complete").text($i);
+
+										$.ajax({
+											type: "post",
+											url: "{{URL::route('check_task_complete', array('ac'=>1))}}",
+												data: {id:$(this).val()}
+
+											});
+
+									}else{
+										$(this).next().val("");
+										var $i= parseInt($("#count_complete").text())-1;
+										var $j= parseInt($("#count_overdue").text())+1;
+										$("#count_overdue").text($j);
+										$("#count_complete").text($i);
+
+										$.ajax({
+											type: "post",
+											url: "{{URL::route('check_task_complete', array('ac'=>0))}}",
+												data: {id:$(this).val()}
+
+											});
+									}
+									});
+								});
+								</script>
+							</div>
 					</td>
 					<td>{{$task->title}}</td>
 					<td>@if(ChecklistController::comparedate($month))
@@ -233,7 +277,6 @@ Checklist
 							</form>
 							<script type="text/javascript">
 
-								$(document).ready(function(){
 									$("#form_editChecklist{{$index}}").validate({
 										rules:{
 											task:{
@@ -267,7 +310,6 @@ Checklist
 											error.insertAfter(element);
 										}
 									});
-								});
 							</script>
 					    </div> <!-- end modal body -->
 					</div> <!-- end modal content -->
@@ -311,13 +353,67 @@ Checklist
 
 		</table>
 			</div><!--bymonth-->
-
-
-
 			<div class="tab-pane fade" id="bycategory">
 				<div class="row">
-		  		<div class="col-md-2"><a href="#" data-toggle="modal" data-target="#add"><span class="fa fa-plus"></span> Add an item</a>
+		  		<div class="col-md-3"><a href="#" data-toggle="modal" data-target="#myModalAddChecklist-cat"><span class="fa fa-plus"></span> Thêm công việc </a>
 		  		</div>
+		  		<!-- Modal Add checklist - Giang -->
+				<div class="modal fade" id="myModalAddChecklist-cat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				        <h3 class="modal-title" id="myModalLabel">Thêm công việc</h3>
+				      </div>
+				      <div class="modal-body">
+				        <form id="form_addChecklist-cat" action="{{Asset('checklist/add')}}" method="post">
+						    <div class="row form-group">
+								<label for="task" class="col-xs-3 control-label">Tên công việc</label>
+								<div class="col-xs-9">
+								   	<input type="text" class="form-control" name="task" id="task" placeholder="Tên công việc">
+								</div>
+							</div>
+							<div class="row form-group">
+								<label for="startdate" class="col-xs-3 control-label">Ngày bắt đầu</label>
+							        <div class='col-sm-6'>
+							            <div class="form-group">
+							            	<input type='text' class="form-control" id="startdate" name="startdate" />
+							            </div>
+							        </div>
+						    </div>
+						    <div class="row form-group">
+						    	<label for="category" class="col-xs-3 control-label"> Danh mục </label>
+						        <div class='col-sm-9'>
+								   	<select name="category" class="form-control input-lg" id="category">
+					                	<option value="{{Input::get('category')}}">{{Input::get('category')}}</option>
+							    		@foreach (Category::get() as $index=> $category)
+								    	<option value="{{$category['id']}}">{{$category['name']}}</option>
+								    	@endforeach
+				    				</select>
+						        </div>
+						    </div>
+						    <div class="row form-group">
+								<label for="note" class="col-xs-3 control-label"> Mô tả </label>
+						        <div class='col-sm-9'>
+						            <textarea class="form-control" id="description" name="description" cols="20" rows="5"></textarea>
+						        </div>
+						    </div>
+						  	
+						  	<div class="row form-group">
+						  		<div class="col-xs-4"></div>
+						  		<div class="col-xs-4">
+							    	<button type="submit" class="btn btn-primary" id="submit_add"> Thêm </button>
+							    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
+						  		</div>
+						  		<div class="col-xs-4"></div>
+						  	</div>
+
+							</form>
+					    </div> <!-- end modal body -->
+					</div> <!-- end modal content -->
+					</div> <!-- end modal dialog -->
+					</div> <!-- end modal fade -->
+					<!-- end modal -->
 
 		  		<div class="col-md-2"><a href="#" data-toggle="modal" data-target="#print"><span class="fa fa-print"></span> Print report</a>
 		  		</div>
@@ -338,9 +434,61 @@ Checklist
 					<tbody>
 						<tr>
 							<td>
-								<input type="checkbox" name="">
+								<div class="checkbox">
+	  									@if($usertask->todo==0)
+	  										<input type="checkbox" id="chk_cat_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}"  />
+	  										<input type="hidden" name="checkbox-{{$usertask->id}}" value="">
+	  										@else
+	  										<input type="checkbox" id="chk_cat_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}" checked />
+	  										<input type="hidden" name="checkbox-{{$usertask->id}}" value="{{$usertask->id}}">
+	  									@endif
+
+	  									<script type="text/javascript">
+	  									$(document).ready(function(){
+
+	  										var $i=$('#count_complete').text();
+	  										$('input[type="checkbox"]#chk_cat_{{$usertask->id}}').click(function(){
+	  											if($(this).is(':checked')) {
+													var id= $(this).val();
+													$(this).next().val(id);
+													var $i= parseInt($("#count_complete").text())+1;
+													var $j= parseInt($("#count_overdue").text())-1;
+													$("#count_overdue").text($j);
+													$("#count_complete").text($i);
+
+													$.ajax({
+														type: "post",
+														url: "{{URL::route('check_task_complete', array('ac'=>1))}}",
+															data: {id:$(this).val()}
+
+														});
+
+												}else{
+													$(this).next().val("");
+													var $i= parseInt($("#count_complete").text())-1;
+													var $j= parseInt($("#count_overdue").text())+1;
+													$("#count_overdue").text($j);
+													$("#count_complete").text($i);
+
+													$.ajax({
+														type: "post",
+														url: "{{URL::route('check_task_complete', array('ac'=>0))}}",
+															data: {id:$(this).val()}
+
+														});
+												}
+	  										});
+	  									});
+	  									</script>
+	  								</div>
 							</td>
 							<td>{{$usertask->title}}</td>
+							<td>
+							<?php 
+								$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
+								echo $date->sub(new DateInterVal('P'.$usertask->startdate.'D'))->format("m-Y");
+							?>
+							</td>
 							<td>@if(ChecklistController::comparedate2($usertask->startdate))
 							<span class="fa fa-warning" style="color:#E9621A;"></span>
 							@endif
@@ -426,8 +574,6 @@ Checklist
 
 							</form>
 							<script type="text/javascript">
-
-								$(document).ready(function(){
 									$("#form_editChecklist{{$index}}").validate({
 										rules:{
 											task:{
@@ -461,7 +607,6 @@ Checklist
 											error.insertAfter(element);
 										}
 									});
-								});
 							</script>
 					    </div> <!-- end modal body -->
 					</div> <!-- end modal content -->
@@ -533,6 +678,38 @@ Checklist
 <!-- script of validate for add checklist -->
 	<script type="text/javascript">
 		$("#form_addChecklist").validate({
+			rules:{
+				task:{
+					required:true,
+					remote:{
+						url:"{{URL::route('check_task_add')}}",
+						type:"post"
+					}
+				},
+				startdate:{
+					required:true
+				},
+				category:{
+					required:true
+				}
+			},
+			messages:{
+				task:{
+					required:"Bạn phải nhập tên công việc",
+					remote:"Công việc đã tồn tại"
+				},
+				startdate:{
+					required:"Bạn phải chọn ngày làm"
+				},
+				category:{
+					required:"Bạn phải chọn danh mục"
+				}
+			}
+		});
+	</script>
+
+	<script type="text/javascript">
+		$("#form_addChecklist-cat").validate({
 			rules:{
 				task:{
 					required:true,
