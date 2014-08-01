@@ -12,11 +12,11 @@ Register
       @if(isset($msg)) <p class="alert alert-danger">{{$msg}}</p>
       @endif
     <form role="form" action="{{Asset('register')}}" method="post" id="create_acount">
-      <h2>Please Sign Up <small>It's free and always will be.</small></h2>
+      <h2>Vui lòng Đăng ký <small>Hoàn toàn miễn phí và dễ dàng.</small></h2>
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6">
           <div class="form-group">
-            <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
+            <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="Họ" tabindex="1">
             @foreach ($errors->get('first_name') as $message)
               <p class="text-left alert alert-danger">{{$message}}</p>
             @endforeach
@@ -24,7 +24,7 @@ Register
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6">
           <div class="form-group">
-            <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2">
+            <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Tên" tabindex="2">
             @foreach ($errors->get('last_name') as $message)
               <p class="text-left alert alert-danger">{{$message}}</p>
             @endforeach
@@ -35,7 +35,7 @@ Register
         <div class="col-xs-12 col-sm-6 col-md-6">
           
             <div  class="input-append input-group">
-              <input data-format="yyyy-MM-dd" type="text" readonly name="weddingdate" id="weddingdate" class="form-control input-lg " placeholder="Wedding date" tabindex="3">
+              <input data-format="yyyy-MM-dd" type="text" readonly name="weddingdate" id="weddingdate" class="form-control input-lg " placeholder="Ngày cưới" tabindex="3">
               <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span> -->
               @foreach ($errors->get('weddingdate') as $message)
                 <p class="text-left alert alert-danger">{{$message}}</p>
@@ -52,7 +52,7 @@ Register
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6">
           <div class="form-group">
-            <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
+            <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Địa chỉ email" tabindex="4">
             @foreach ($errors->get('email') as $message)
               <p class="text-left alert alert-danger">{{$message}}</p>
             @endforeach
@@ -62,7 +62,7 @@ Register
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6">
           <div class="form-group">
-            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
+            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Mật khẩu" tabindex="5">
             @foreach ($errors->get('password') as $message)
               <p class="text-left alert alert-danger">{{$message}}</p>
             @endforeach
@@ -70,7 +70,7 @@ Register
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6">
           <div class="form-group">
-            <input type="password" name="password_confirm" id="password_confirm" class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
+            <input type="password" name="password_confirm" id="password_confirm" class="form-control input-lg" placeholder="Xác nhận mật khẩu" tabindex="6">
             @foreach ($errors->get('password_confirm') as $message)
               <p class="text-left alert alert-danger">{{$message}}</p>
             @endforeach
@@ -79,7 +79,7 @@ Register
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12 col-md-6 col-md-offset-3"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+        <div class="col-xs-12 col-md-6 col-md-offset-3"><input type="submit" value="Đăng ký" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
       </div>
     </form>
   </div>
@@ -95,14 +95,14 @@ Register
             },
             last_name:{
               required:true,
-              minlength:1,
+              minlength:2,
             },
             weddingdate:{
             required:true,
             },
             email:{
             required:true,
-            minlength:5,
+            email: true,
             remote:{
                       url:'{{URL::route('check_user_email')}}',
                       type:"POST"
@@ -118,12 +118,12 @@ Register
         },
         messages:{
             first_name:{
-            required:'Bạn chưa điền first name ',
-            minlength:'first name ít nhất phải 2 kí tự trở lên',
+            required:'Bạn chưa điền Họ',
+            minlength:'Firstname ít nhất phải 2 kí tự trở lên',
             
             },
             last_name:{
-              required:'Bạn chưa điền last name',
+              required:'Bạn chưa điền Tên',
               minlength:'Last name ít nhất phải có 1 kí tự',
             },
             weddingdate:{
@@ -132,8 +132,8 @@ Register
             },
             email:{
             required:'Bạn chưa điền email của bạn',
-            minlength:'email ít nhất phải có 5kis tự trở lên',
-            remote:'email này đã tồn tại',
+            email:'Định dạng email không đúng',
+            remote:'Email này đã tồn tại',
             },
             password:{
             required:'Bạn chưa nhập mật khẩu',

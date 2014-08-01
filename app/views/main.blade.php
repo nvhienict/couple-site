@@ -54,9 +54,9 @@
 		  		<li><a href="{{URL::route('logout')}}">Logout</a></li>
 		  		@else
 		  		
-		  		<li><a href="#">Hi! Guest</a></li>
-		  		<li><a href="{{URL::route('login')}}">Login</a></li>
-		  		<li><a href="{{URL::route('register')}}">Register</a></li>
+		  		<li><a href="#">Hi! Khách</a></li>
+		  		<li><a href="{{URL::route('login')}}">Đăng nhập</a></li>
+		  		<li><a href="{{URL::route('register')}}">Đăng ký</a></li>
 		  		@endif
 		  	</ul>
 		</div>

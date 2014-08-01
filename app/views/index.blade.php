@@ -48,28 +48,24 @@ Trang chủ
 	        </ul>
 	      </li>
 	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Công cụ lập kế hoạch <b class="caret"></b></a>
 	        <ul class="dropdown-menu">
-	          <li role="presentation" class="dropdown-header"><span>Dịch vụ</span>
+	          <li role="presentation" class="dropdown-header"><span>Công cụ</span>
 	          <div class="row">
 	            <div class="col-xs-6">
 	              <ul class="list-unstyled">
-	                <li><a href="#">Áo cưới cô dâu</a></li>
-	                <li><a href="#">Ban nhạc</a></li>
-	                <li><a href="#">Bánh cưới</a></li>
-	                <li><a href="#">Dịch vụ vận chuyển</a></li>
-	                <li><a href="#">Trang điểm</a></li>
-	                <li><a href="#">Wedding Planner</a></li>
+	                <li><a href="#">Website cưới</a></li>
+	                <li><a href="#">Danh sách khách mời</a></li>
+	                <li><a href="#">Sơ đồ ghế ngồi</a></li>
+	                <li><a href="{{URL::route('user-checklist')}}">Danh sách công việc</a></li>
+	                <li><a href="#">Quản lý vendor</a></li>
+	                <li><a href="#">Làm video</a></li>
 	              </ul>
 	            </div>
 	            <div class="col-xs-6">
 	              <ul class="list-unstyled">
-	                <li><a href="#">Nhà hàng tiệc cưới</a></li>
-	                <li><a href="#">Quay phim chụp ảnh</a></li>
-	                <li><a href="#">Thiệp cưới</a></li>
-	                <li><a href="#">Trang phục chú rể</a></li>
-	                <li><a href="#">Trang sức cưới hỏi</a></li>
-	                <li><a href="#">Trang trí hoa</a></li>
+	                <li><a href="#">Viết nhật ký</a></li>
+	                <li><a href="#">Thiết kế thiệp cưới</a></li>
 	              </ul>
 	            </div>
 	          </div>
@@ -78,10 +74,6 @@ Trang chủ
 	      </li>
 	      <li><a href="#about">Giới thiệu</a></li>
 	      <li><a href="#service">Dịch vụ</a></li>
-	      <li><a href="">Đăng kí</a></li>
-	      @if(Cookie::has('id-user'))
-	      <li><a href="{{URL::route('user-checklist')}}">Check-list</a></li>
-	      @endif 
 	      <li><a href="#search">Tìm kiếm nhà cung cấp</a></li>
 	      <li><a href="#contact">Liên hệ</a></li>
 	      

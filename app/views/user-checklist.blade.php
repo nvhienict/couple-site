@@ -141,6 +141,7 @@ Checklist
 				</tr>
 			</thead>
 			<tbody>
+			@if(!empty($tasks))
 				@foreach($tasks as $index=>$task)
 				<tr>
 					<td class="text-center">
@@ -349,6 +350,7 @@ Checklist
 					</td>
 				</tr>
 				@endforeach()
+				@endif
 			</tbody>
 
 		</table>

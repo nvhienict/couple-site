@@ -107,7 +107,7 @@ class UserController extends \BaseController {
 
 					return Response::make($view)->withCookie($cookie);
 				}	 
-				else return View::make("user-login")->with("messages","Tên tài khoản hay mật khẩu không đúng hoặc bạn không phải là user");	
+				else return View::make("user-login")->with("messages","Email hoặc mật khẩu không đúng!");	
 
 		} catch (Exception $e) {
 			echo $e->getMessage();
