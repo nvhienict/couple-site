@@ -506,7 +506,7 @@ Checklist
 					        <h3 class="modal-title" id="myModalLabel">Sửa công việc</h3>
 					      </div>
 					      <div class="modal-body">
-					        <form id="form_editChecklist{{$index}}" action="{{Asset('checklist/edit')}}" method="post">
+					        <form id="form_editChecklist-cat{{$usertask->id}}" action="{{Asset('checklist/edit')}}" method="post">
 					        	<input type="hidden" name="id" value="{{$usertask->id}}" />
 							    <div class="row form-group">
 									<label for="task" class="col-xs-3 control-label">Tên công việc</label>
@@ -518,10 +518,10 @@ Checklist
 									<label for="startdate" class="col-xs-3 control-label">Ngày bắt đầu</label>
 								        <div class='col-sm-6'>
 								            <div class="form-group">
-								            	<input type='text' class="form-control" id="startdate{{$index}}" name="startdate" 
+								            	<input type='text' class="form-control" id="startdate{{$usertask->id}}" name="startdate" 
 								            	value="" />
 								            	<script>
-											       	jQuery('#startdate{{$index}}').datetimepicker({
+											       	jQuery('#startdate{{$usertask->id}}').datetimepicker({
 													lang:'en',
 													i18n:{
 													en:{
@@ -574,16 +574,16 @@ Checklist
 
 							</form>
 							<script type="text/javascript">
-									$("#form_editChecklist{{$index}}").validate({
+									$("#form_editChecklist-cat{{$usertask->id}}").validate({
 										rules:{
 											task:{
 												required:true,
 												remote:{
-													url:"{{URL::route('check_task_edit',array($task->id))}}",
+													url:"{{URL::route('check_task_edit',array($usertask->id))}}",
 													type:"post"
 												}
 											},
-											startdate{{$index}}:{
+											startdate{{$usertask->id}}:{
 												required:true
 											},
 											category:{
@@ -595,9 +595,8 @@ Checklist
 												required:"Bạn phải nhập tên công việc",
 												remote:"Công việc đã tồn tại"
 											},
-											startdate{{$index}}:{
+											startdate{{$usertask->id}}:{
 												required:"Bạn phải chọn ngày làm"
-												
 											},
 											category:{
 												required:"Bạn phải chọn danh mục"
