@@ -310,9 +310,6 @@ Checklist
 			</tbody>
 
 		</table>
-
-	  				
-
 			</div><!--bymonth-->
 			<div class="tab-pane fade" id="bycategory">
 				<div class="row">
@@ -341,6 +338,12 @@ Checklist
 								<input type="checkbox" name="">
 							</td>
 							<td>{{$usertask->title}}</td>
+							<td>
+							<?php 
+								$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
+								echo $date->sub(new DateInterVal('P'.$usertask->startdate.'D'))->format("m-Y");
+							?>
+							</td>
 							<td>@if(ChecklistController::comparedate2($usertask->startdate))
 							<span class="fa fa-warning" style="color:#E9621A;"></span>
 							@endif
