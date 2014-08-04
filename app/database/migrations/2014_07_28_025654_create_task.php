@@ -32,7 +32,7 @@ class CreateTask extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('task');
 	}
 
 }

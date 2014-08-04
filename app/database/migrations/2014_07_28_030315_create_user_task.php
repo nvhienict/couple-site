@@ -13,7 +13,7 @@ class CreateUserTask extends Migration {
 	public function up()
 	{
 		//
-		Schema::create('user-task',function($table){
+		Schema::create('usertask',function($table){
 			$table->increments('id');
 			$table->integer('user');
 			$table->string('title');
@@ -21,6 +21,7 @@ class CreateUserTask extends Migration {
 			$table->integer('category');
 			$table->integer('startdate');
 			$table->string('link');
+			$table->integer('todo');
 			$table->timestamps();
 		});
 	}
@@ -32,7 +33,7 @@ class CreateUserTask extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('usertask');
 	}
 
 }
