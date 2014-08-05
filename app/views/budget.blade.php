@@ -57,7 +57,7 @@ Budget
 					 				{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range1)*1000000, 0, ',', ' ')}}
 					 			@elseif(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==2)
 					 			{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range2)*1000000, 0, ',', ' ')}}
-					 			@elseif(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==1)
+					 			@elseif(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==3)
 					 			{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range3)*1000000, 0, ',', ' ')}}
 					 			@endif
 					 			  VND</td>
