@@ -17,12 +17,7 @@ Budget
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-2">
-					<a href="#" style="cursor:pointer;">
-						<i class="glyphicon glyphicon-plus"></i>&nbsp Thêm chi tiêu
-					</a>
-				</div>
-				<div class="col-xs-2">
+				<div class="col-xs-4">
 					<a href="#" style="cursor:pointer;">
 						<i class="fa fa-print"></i>&nbsp In báo cáo
 					</a>
@@ -93,7 +88,15 @@ Budget
 			 					<tr class="budget_item_cat{{$category->id}}" id="budget_item_cat">
 						 			<td><a href="#" class="budget_icon_note"><i class="glyphicon glyphicon-comment"></i></a></td>
 						 			<td>{{$budget->item}}</td>
-						 			<td>0 VND</td>
+						 			<td>
+						 				@if(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==1)
+							 				{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range1*$budget->range)*1000000, 0, ',', ' ')}}
+							 			@elseif(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==2)
+							 			{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range2*$budget->range)*1000000, 0, ',', ' ')}}
+							 			@elseif(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==1)
+							 			{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range3*$budget->range)*1000000, 0, ',', ' ')}}
+							 			@endif
+						 			 VND</td>
 						 			<td>0 VND</td>
 						 			<td>0 VND</td>
 						 			<td>{{(($budget->actual)-($budget->pay))}} VND</td>

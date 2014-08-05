@@ -99,7 +99,7 @@ class UserController extends \BaseController {
 				if($auth)
 				{
 					$IdUser=User::where('email','=',Input::get('txMail'))->get()->first()->id;
-					$cookie=Cookie::make('id-user', $IdUser, 120);//set cookie
+					$cookie=Cookie::forever('id-user', $IdUser);//set cookie
 					Session::put("email",Input::get('txMail'));
 					// return Redirect::to("user-checklist");
 					
@@ -165,20 +165,6 @@ class UserController extends \BaseController {
 						$usertask->description = $task->description;
 						$usertask->todo = 0;
 						$usertask->save();
-
-					}
-
-				// truyền dữ liệu sang bảng userbudget
-					$id_user = User::where('email','=',Input::get('email'))->get()->first()->id; //lấy id_user từ cookie chi đó hi
-
-					$budgets = Budget::get();
-					foreach($budgets as $budget){
-
-						$userbudget = new UserBudget();
-						$userbudget->user = $id_user;
-						$userbudget->category = $budget->category;
-						$userbudget->item = $budget->item;
-						$userbudget->save();
 
 					}
 
