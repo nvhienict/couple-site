@@ -1473,3 +1473,56 @@ ul#thumbs-main li{
 	padding: 30px;
 }
 /*thuy*/
+
+
+/***** BUTGET *****/
+/*----Giang */
+.clr{clear: both;}
+
+.table-budget{
+	width: 100%;
+	margin: 10px 0px 20px 0px;
+}
+.table-budget tr{
+	line-height: 40px;
+}
+.table-budget tr td{
+	padding: 0px 0px 0px 10px;
+}
+.table-budget th{
+	background: #555555;
+	color: #fff;
+	text-align: left;
+	padding: 5px;
+}
+.table-budget tr:hover > td a.budget_icon_trash{
+	display: inline-block;
+}
+.table-budget tr:hover > td a.budget_icon_note{
+	display: inline-block;
+	color: #ff9022;
+}
+.table-budget tr.budget_item_cat{
+	color: #19b5bc;
+}
+.table-budget tr.budget_cat{
+	background-color: #fff6ee;
+}
+
+i#budget_category_icon{
+	color: #19b5bc;
+}
+a.budget_icon_trash{
+	display: none;
+}
+a.budget_icon_note{
+	display: none;
+}
+
+#budget_summary{
+	background: #f2f0ee;
+	margin-bottom: 20px;
+}
+.budget_vendor{
+	margin: 10px 0px 10px 0px;
+}

@@ -146,11 +146,12 @@ class UserController extends \BaseController {
 			$user->password=Hash::make(Input::get('password_confirm'));
 			$user->weddingdate=Input::get('weddingdate');
 			$user->role_id=Input::get('role');
+			$user->budget=0;
 			$user->save();
 
 			
 
-				//truyền dữ liệu sang bảng user-task
+				//truyền dữ liệu sang bảng usertask
 					
 					$id_user = User::where('email','=',Input::get('email'))->get()->first()->id; //lấy id_user từ cookie chi đó hi
 
@@ -166,6 +167,21 @@ class UserController extends \BaseController {
 						$usertask->save();
 
 					}
+
+				// truyền dữ liệu sang bảng userbudget
+					$id_user = User::where('email','=',Input::get('email'))->get()->first()->id; //lấy id_user từ cookie chi đó hi
+
+					$budgets = Budget::get();
+					foreach($budgets as $budget){
+
+						$userbudget = new UserBudget();
+						$userbudget->user = $id_user;
+						$userbudget->category = $budget->category;
+						$userbudget->item = $budget->item;
+						$userbudget->save();
+
+					}
+
 			$IdUser=User::where('email','=',Input::get('email'))->get()->first()->id;
 					$cookie=Cookie::make('id-user', $IdUser, 120);//set cookie		
 			Session::put("email",Input::get('email'));

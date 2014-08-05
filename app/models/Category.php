@@ -28,5 +28,9 @@ class Category extends Eloquent {
 	{
 		return $this->hasMany('UserTask','category');
 	}
+	public function userbudget()
+	{
+		return $this->hasMany('UserBudget','category');
+	}
 
 }

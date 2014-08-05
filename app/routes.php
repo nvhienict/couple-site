@@ -85,3 +85,12 @@ Route::get('task_complete', array("before"=>"check_login","as"=>"task_complete",
 Route::post('check_task_complete/{ac}', array("before"=>"check_login","as"=>"check_task_complete", "uses"=>"ChecklistController@post_CheckTaskComplete"));
 
 Route::get('export_checklist', array("before"=>"check_login","as"=>"export_checklist","uses"=>"ChecklistController@exportfile"));
+
+
+// ------ BUDGET -----Giang
+Route::get('budget', array("before"=>"check_login","as"=>"budget","uses"=>"BudgetController@index"));
+
+Route::get('creat_budget', function(){
+	return View::make('creat_budget');
+});
+Route::post('money_budget', array('as'=>"money_budget", "uses"=>"BudgetController@post_MoneyBudget"));
