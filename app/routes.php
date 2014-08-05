@@ -94,3 +94,5 @@ Route::get('creat_budget', function(){
 	return View::make('creat_budget');
 });
 Route::post('money_budget', array('as'=>"money_budget", "uses"=>"BudgetController@post_MoneyBudget"));
+//-------Budget CUong-----
+Route::get('reset-budget', array("before"=>"check_login","as"=>"reset-budget","uses"=>"BudgetController@resetBudget"));

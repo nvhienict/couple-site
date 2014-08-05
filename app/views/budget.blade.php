@@ -12,9 +12,8 @@ Budget
 			<div class="row">
 				<div class="col-xs-10"><h1>Quản lý ngân sách</h1></div>
 				<div class="col-xs-2">
-					<a href="#">
-						<button type="button" class="btn btn-warning">Số tiền khác</button>
-					</a>
+					<a class="btn btn-warning" href="{{URL::route('reset-budget')}}">
+					Số tiền khác</a>
 				</div>
 			</div>
 			<div class="row">
@@ -58,7 +57,15 @@ Budget
 					 		<tr class="budget_cat">
 					 			<td><i class="glyphicon glyphicon-hand-right" id="budget_category_icon"></i></td>
 					 			<td><strong>{{$category->name}}</strong></td>
-					 			<td><?php echo number_format(($money_budget*$range_cat), 2, ',', '.');?> VND</td>
+					 			<td>
+					 			@if(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==1)
+					 				{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range1)*1000000, 0, ',', ' ')}}
+					 			@elseif(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==2)
+					 			{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range2)*1000000, 0, ',', ' ')}}
+					 			@elseif(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==1)
+					 			{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range3)*1000000, 0, ',', ' ')}}
+					 			@endif
+					 			  VND</td>
 					 			<td>0 VND</td>
 					 			<td>0 VND</td>
 					 			<td>0 VND</td>
@@ -82,7 +89,7 @@ Budget
 									</script>
 					 			</td>
 					 		</tr>
-					 			@foreach(UserBudget::where('category',$category->id)->get() as $budget)
+					 			@foreach(UserBudget::where("user",Cookie::get("id-user"))->where('category',$category->id)->get() as $budget)
 			 					<tr class="budget_item_cat{{$category->id}}" id="budget_item_cat">
 						 			<td><a href="#" class="budget_icon_note"><i class="glyphicon glyphicon-comment"></i></a></td>
 						 			<td>{{$budget->item}}</td>
@@ -107,7 +114,7 @@ Budget
 					 	</tbody>
 					 	<thead>
 					 		<th colspan="2">Tổng cộng chi phí</th>
-					 		<th>1.000.000 VND</th>
+					 		<th>{{number_format((User::find(Cookie::get('id-user'))->budget)*1000000, 2, ',', ' ')}}</th>
 					 		<th>1.000.000 VND</th>
 					 		<th>1.000.000 VND</th>
 					 		<th colspan="2">1.000.000 VND</th>
@@ -120,7 +127,7 @@ Budget
 		<div class="col-xs-2" id="budget_summary">
 			<h3>Tóm tắt:</h3>
 			<p>
-				<strong><?php echo number_format($money_budget, 2, ',', '.');?> VN</strong> dự kiến<br />
+				<strong>{{number_format((User::find(Cookie::get('id-user'))->budget)*1000000, 2, ',', ' ')}} VN</strong> dự kiến<br />
 				<strong>0 VND</strong> thực tế<br />
 				<strong>0 VND</strong> đặt cọc<br />
 				<strong>0 VND</strong> còn nợ
