@@ -96,3 +96,11 @@ Route::get('creat_budget', function(){
 Route::post('money_budget', array('as'=>"money_budget", "uses"=>"BudgetController@post_MoneyBudget"));
 //-------Budget CUong-----
 Route::get('reset-budget', array("before"=>"check_login","as"=>"reset-budget","uses"=>"BudgetController@resetBudget"));
+Route::post('budget/create',array('before'=>'check_login','as'=>'create','uses'=>'ItemController@create'));
+Route::get('budget/delete/{id}',array('as'=>'delete','uses'=>'ItemController@delete'));
+Route::post('budget/update',array('as'=>'update','uses'=>'ItemController@update'));
+Route::post('budget/update1',array('as'=>'update1','uses'=>'ItemController@update1'));
+Route::post('budget/update2',array('as'=>'update2','uses'=>'ItemController@update2'));
+
+
+

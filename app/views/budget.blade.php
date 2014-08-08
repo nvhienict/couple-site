@@ -49,7 +49,7 @@ Budget
 					 	</thead>
 					 	<tbody>
 					 	@foreach(Category::get() as $key=>$category)
-					 		<tr class="budget_cat">
+					 		<tr class="budget_cat" id="cate{{$category->id}}">
 					 			<td><i class="glyphicon glyphicon-hand-right" id="budget_category_icon"></i></td>
 					 			<td><strong>{{$category->name}}</strong></td>
 					 			<td>
@@ -85,33 +85,242 @@ Budget
 					 			</td>
 					 		</tr>
 					 			@foreach(UserBudget::where("user",Cookie::get("id-user"))->where('category',$category->id)->get() as $budget)
-			 					<tr class="budget_item_cat{{$category->id}}" id="budget_item_cat">
+			 					<tr class="budget_item_cat{{$category->id}}" id="budget_item_cat{{$budget->id}}">
 						 			<td><a href="#" class="budget_icon_note"><i class="glyphicon glyphicon-comment"></i></a></td>
-						 			<td>{{$budget->item}}</td>
 						 			<td>
-						 				@if(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==1)
+						 				<div>
+										 <a  class="{{$budget->id}}_show_hide">{{$budget->item}}</a> 
+										 	
+										    <input type="text" style="width:150px;display:none;" class="{{$budget->id}}_slidingDiv" name="item" value="{{$budget->item}}">
+											<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
+										 </div>
+						 			</td>
+						 			<td>
+						 				<div>
+										 <a  class="{{$budget->id}}_show_hide1">
+                                                 @if(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==1)
 							 				{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range1*$budget->range)*1000000, 0, ',', ' ')}}
 							 			@elseif(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==2)
 							 			{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range2*$budget->range)*1000000, 0, ',', ' ')}}
 							 			@elseif(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==3)
 							 			{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range3*$budget->range)*1000000, 0, ',', ' ')}}
 							 			@endif
-						 			 VND</td>
-						 			<td>0 VND</td>
+										 </a> 
+										 	
+										    <input type="text" style="width:150px;display:none;" class="{{$budget->id}}_slidingDiv1" name="estimate" value="{{$budget->estimate}}">
+											<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
+										 </div>
+						 				
+						 			</td>
+						 			<td>
+						 				<div>
+										 <a  class="{{$budget->id}}_show_hide2">{{$budget->estimate}}</a> 
+										 	
+										    <input type="text" style="width:150px;display:none;" class="{{$budget->id}}_slidingDiv2" name="actual" value="{{$budget->actual}}">
+											<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
+										 </div>
+						 			</td>
 						 			<td>0 VND</td>
 						 			<td>{{(($budget->actual)-($budget->pay))}} VND</td>
 						 			<td>
 						 				<a href="#" class="budget_icon_trash"><i class="glyphicon glyphicon-trash"></i></a>
 						 			</td>
 						 		</tr>
+                                             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js" type="text/javascript">
+																</script> 
+																<script type="text/javascript">
+																 $(document).ready(function(){ 
+																	$(".{{$budget->id}}_slidingDiv").hide(); 
+																	$(".{{$budget->id}}_show_hide").show();
+
+																	 $('.{{$budget->id}}_show_hide').click(function(){
+																	 $(".{{$budget->id}}_slidingDiv").show(); 
+																	$(".{{$budget->id}}_show_hide").hide(); }); 
+
+																	$('.{{$budget->id}}_slidingDiv').dblclick(function(){
+																	 $(".{{$budget->id}}_slidingDiv").hide(); 
+																	$(".{{$budget->id}}_show_hide").show();
+																	 });
+																	$(".{{$budget->id}}_slidingDiv1").hide(); 
+																	$(".{{$budget->id}}_show_hide1").show();
+
+																	 $('.{{$budget->id}}_show_hide1').click(function(){
+																	 $(".{{$budget->id}}_slidingDiv1").show(); 
+																	$(".{{$budget->id}}_show_hide1").hide(); }); 
+
+																	$('.{{$budget->id}}_slidingDiv1').dblclick(function(){
+																	 $(".{{$budget->id}}_slidingDiv1").hide(); 
+																	$(".{{$budget->id}}_show_hide1").show();
+																	 });
+																	$(".{{$budget->id}}_slidingDiv2").hide(); 
+																	$(".{{$budget->id}}_show_hide2").show();
+
+																	 $('.{{$budget->id}}_show_hide2').click(function(){
+																	 $(".{{$budget->id}}_slidingDiv2").show(); 
+																	$(".{{$budget->id}}_show_hide2").hide(); }); 
+
+																	$('.{{$budget->id}}_slidingDiv2').dblclick(function(){
+																	 $(".{{$budget->id}}_slidingDiv2").hide(); 
+																	$(".{{$budget->id}}_show_hide2").show();
+																	 });
+
+
+
+																 });
+											  </script>
+											  <script type="text/javascript">
+											  	function cl(the_i_BudetId){
+													$("."+the_i_BudetId+"_slidingDiv").show(); 
+													$("."+the_i_BudetId+"_show_hide").hide();
+												};
+												function db(the_i_BudetId)
+												{
+													$("."+the_i_BudetId+"_slidingDiv").hide(); 
+													$("."+the_i_BudetId+"_show_hide").show();
+
+												};
+
+												function v_fChange(obj){
+													$.ajax({
+														type: "post",
+														url: "{{URL::route('update')}}",
+														data: {item:obj.value,
+																id:obj.id
+														}
+														
+														});
+												$("."+obj.id+"_show_hide").text(obj.value);
+												$(obj).hide();
+												$("."+obj.id+"_show_hide").show();
+
+												};
+												
+												function cl1(the_i_BudetId){
+													$("."+the_i_BudetId+"_slidingDiv1").show(); 
+													$("."+the_i_BudetId+"_show_hide1").hide();
+												};
+												function db1(the_i_BudetId)
+												{
+													$("."+the_i_BudetId+"_slidingDiv1").hide(); 
+													$("."+the_i_BudetId+"_show_hide1").show();
+												};
+												function v_fChange1(obj){
+													$.ajax({
+														type: "post",
+														url: "{{URL::route('update1')}}",
+														data: {estimate:obj.value,
+																id:obj.id
+														}
+														
+														});
+												$("."+obj.id+"_show_hide1").text(obj.value);
+												$(obj).hide();
+												$("."+obj.id+"_show_hide1").show();
+
+												};
+												
+												function cl2(the_i_BudetId){
+													$("."+the_i_BudetId+"_slidingDiv2").show(); 
+													$("."+the_i_BudetId+"_show_hide2").hide();
+												};
+												function db2(the_i_BudetId)
+												{
+													$("."+the_i_BudetId+"_slidingDiv2").hide(); 
+													$("."+the_i_BudetId+"_show_hide2").show();
+												};
+												function v_fChange2(obj){
+													$.ajax({
+														type: "post",
+														url: "{{URL::route('update2')}}",
+														data: {actual:obj.value,
+																id:obj.id
+														}
+														
+														});
+												$("."+obj.id+"_show_hide2").text(obj.value);
+												$(obj).hide();
+												$("."+obj.id+"_show_hide2").show();
+
+												};
+
+											  </script>
+											   <script type="text/javascript">
+														        
+														        	$(".{{$budget->id}}_slidingDiv").change(function(){
+														        		//$("#item{{$budget->id}}").submit();
+																		$.ajax({
+																		type: "post",
+																		url: "{{URL::route('update')}}",
+																		data: {item:$(this).val(),
+																				id:$(this).next().val()
+																		}
+																		
+																		});
+																		$(".{{$budget->id}}_show_hide").text($(this).val());
+																		$(this).hide();
+																		$(".{{$budget->id}}_show_hide").show();
+														        	});
+														        	$(".{{$budget->id}}_slidingDiv1").change(function(){
+														        		//$("#item{{$budget->id}}").submit();
+																		$.ajax({
+																		type: "post",
+																		url: "{{URL::route('update1')}}",
+																		data: {estimate:$(this).val(),
+																				id:$(this).next().val()
+																		}
+																		
+																		});
+																		$(".{{$budget->id}}_show_hide1").text($(this).val());
+																		$(this).hide();
+																		$(".{{$budget->id}}_show_hide1").show();
+														        	});
+														        	$(".{{$budget->id}}_slidingDiv2").change(function(){
+														        		//$("#item{{$budget->id}}").submit();
+																		$.ajax({
+																		type: "post",
+																		url: "{{URL::route('update2')}}",
+																		data: {actual:$(this).val(),
+																				id:$(this).next().val()
+																		}
+																		
+																		});
+																		$(".{{$budget->id}}_show_hide2").text($(this).val());
+																		$(this).hide();
+																		$(".{{$budget->id}}_show_hide2").show();
+														        	});
+														        
+											     </script>
+
 						 		@endforeach
 						 		<tr class="budget_item_cat{{$category->id}}" id="budget_item_cat">
 						 			<td></td>
-						 			<td colspan="7"><a href="#" style="cursor:pointer;">
+						 			<td colspan="7"><a id="add_item{{$category->id}}" style="cursor:pointer;">
 											<i class="glyphicon glyphicon-plus"></i>&nbsp Thêm chi tiêu
 										</a>
+										<input type="hidden" value="{{$category->id}}" name="{{$category->id}}">
 									</td>
 						 		</tr>
+
+						 		     <script type="text/javascript">
+										 		           $("#add_item{{$category->id}}").click(function(){
+										 		           	$.ajax({
+																		type: "post",
+																		url: "{{URL::route('create')}}",
+																		data: {
+																				id:$(this).next().val()
+
+																		},
+																		success: function(data){
+																			var obj = JSON.parse(data);
+																			jQuery('#cate'+obj.catid).after(obj.html);
+																				
+																		}
+																		
+
+																	});
+										 		           	  });
+
+										</script>
 
 						@endforeach
 					 	</tbody>
