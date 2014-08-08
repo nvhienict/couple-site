@@ -130,8 +130,8 @@ Budget
 																</script> 
 																<script type="text/javascript">
 																 $(document).ready(function(){ 
-																	$(".{{$budget->id}}_slidingDiv").hide(); 
-																	$(".{{$budget->id}}_show_hide").show();
+																	// $(".{{$budget->id}}_slidingDiv").hide(); 
+																	// $(".{{$budget->id}}_show_hide").show();
 
 																	 $('.{{$budget->id}}_show_hide').click(function(){
 																	 $(".{{$budget->id}}_slidingDiv").show(); 
@@ -204,20 +204,20 @@ Budget
 													$("."+the_i_BudetId+"_slidingDiv1").hide(); 
 													$("."+the_i_BudetId+"_show_hide1").show();
 												};
-												function v_fChange1(obj){
-													$.ajax({
-														type: "post",
-														url: "{{URL::route('update1')}}",
-														data: {estimate:obj.value,
-																id:obj.id
-														}
+												// function v_fChange1(obj){
+												// 	$.ajax({
+												// 		type: "post",
+												// 		url: "{{URL::route('update1')}}",
+												// 		data: {estimate:obj.value,
+												// 				id:obj.id
+												// 		}
 														
-														});
-												$("."+obj.id+"_show_hide1").text(obj.value);
-												$(obj).hide();
-												$("."+obj.id+"_show_hide1").show();
+												// 		});
+												// $("."+obj.id+"_show_hide1").text(obj.value);
+												// $(obj).hide();
+												// $("."+obj.id+"_show_hide1").show();
 
-												};
+												// };
 												
 												function cl2(the_i_BudetId){
 													$("."+the_i_BudetId+"_slidingDiv2").show(); 
@@ -228,20 +228,20 @@ Budget
 													$("."+the_i_BudetId+"_slidingDiv2").hide(); 
 													$("."+the_i_BudetId+"_show_hide2").show();
 												};
-												function v_fChange2(obj){
-													$.ajax({
-														type: "post",
-														url: "{{URL::route('update2')}}",
-														data: {actual:obj.value,
-																id:obj.id
-														}
+												// function v_fChange2(obj){
+												// 	$.ajax({
+												// 		type: "post",
+												// 		url: "{{URL::route('update2')}}",
+												// 		data: {actual:obj.value,
+												// 				id:obj.id
+												// 		}
 														
-														});
-												$("."+obj.id+"_show_hide2").text(obj.value);
-												$(obj).hide();
-												$("."+obj.id+"_show_hide2").show();
+												// 		});
+												// $("."+obj.id+"_show_hide2").text(obj.value);
+												// $(obj).hide();
+												// $("."+obj.id+"_show_hide2").show();
 
-												};
+												// };
 
 											  </script>
 											   <script type="text/javascript">
@@ -260,34 +260,34 @@ Budget
 																		$(this).hide();
 																		$(".{{$budget->id}}_show_hide").show();
 														        	});
-														        	$(".{{$budget->id}}_slidingDiv1").change(function(){
-														        		//$("#item{{$budget->id}}").submit();
-																		$.ajax({
-																		type: "post",
-																		url: "{{URL::route('update1')}}",
-																		data: {estimate:$(this).val(),
-																				id:$(this).next().val()
-																		}
+														    //     	$(".{{$budget->id}}_slidingDiv1").change(function(){
+														    //     		//$("#item{{$budget->id}}").submit();
+																		// $.ajax({
+																		// type: "post",
+																		// url: "{{URL::route('update1')}}",
+																		// data: {estimate:$(this).val(),
+																		// 		id:$(this).next().val()
+																		// }
 																		
-																		});
-																		$(".{{$budget->id}}_show_hide1").text($(this).val());
-																		$(this).hide();
-																		$(".{{$budget->id}}_show_hide1").show();
-														        	});
-														        	$(".{{$budget->id}}_slidingDiv2").change(function(){
-														        		//$("#item{{$budget->id}}").submit();
-																		$.ajax({
-																		type: "post",
-																		url: "{{URL::route('update2')}}",
-																		data: {actual:$(this).val(),
-																				id:$(this).next().val()
-																		}
+																		// });
+																		// $(".{{$budget->id}}_show_hide1").text($(this).val());
+																		// $(this).hide();
+																		// $(".{{$budget->id}}_show_hide1").show();
+														    //     	});
+														    //     	$(".{{$budget->id}}_slidingDiv2").change(function(){
+														    //     		//$("#item{{$budget->id}}").submit();
+																		// $.ajax({
+																		// type: "post",
+																		// url: "{{URL::route('update2')}}",
+																		// data: {actual:$(this).val(),
+																		// 		id:$(this).next().val()
+																		// }
 																		
-																		});
-																		$(".{{$budget->id}}_show_hide2").text($(this).val());
-																		$(this).hide();
-																		$(".{{$budget->id}}_show_hide2").show();
-														        	});
+																		// });
+																		// $(".{{$budget->id}}_show_hide2").text($(this).val());
+																		// $(this).hide();
+																		// $(".{{$budget->id}}_show_hide2").show();
+														    //     	});
 														        
 											     </script>
 
