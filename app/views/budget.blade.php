@@ -190,6 +190,7 @@ Budget
 									    <input onchange="item_change({{$budget->id}})" ondblclick="item_dblclick({{$budget->id}})" type="text" style="width:150px;display:none;" class="{{$budget->id}}item" name="item" value="{{$budget->item}}">   
 										<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
 									 </div>
+									 <p style="display:none;color:red;" class="item_error{{$budget->id}}">Item không được trống</p>
 					 			</td>
 						 			<td>
 						 				<div><!-- Estimate -->
@@ -226,57 +227,10 @@ Budget
 										</div>
 					 				</td><!-- pay -->
 						 			<td class="Due{{$budget->id}} TienVND">{{number_format((($budget->actual)-($budget->pay)),0, ',', ' ')}} VND</td><!-- Due -->
-						 			<td><!-- Delete -->
-						 				<a href="#" data-toggle="modal" data-target="#myModalDeleteItemBudget{{$budget->id}}" class="budget_icon_trash"><i class="glyphicon glyphicon-trash"></i></a>
-						 				<input type="hidden" id="{{$budget->id}}" name="{{$budget->id}}" value="{{$budget->id}}" >
+						 			<td>
+						 				<a href="" onclick="item_del({{$budget->id}})" class="confirm budget_icon_trash item_del{{$budget->id}}"><i class="glyphicon glyphicon-trash"></i></a>
+						 				     <input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}" >
 						 			</td>
-						 		  <!-- Modal Delete -->
-										<div class="modal fade" id="myModalDeleteItemBudget{{$budget->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-										  <div class="modal-dialog">
-										    <div class="modal-content">
-										      <div class="modal-header">
-										        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-										        <h3 class="modal-title" id="myModalLabel">Delete Item</h3>
-										      </div>
-										      <div class="modal-body">
-										      	Bạn muốn xóa {{$budget->item}}
-										      	<div><input type="radio" name="select_radio" value="" ><span>Chia đều cho các sự kiện khác </span></div>
-										      	<div><input type="radio" name="select_radio" value="" ><span>Cộng vào sư kiện </span></div>
-										      	<div>
-										      		<div>Chọn các sự kiện cần thêm vào</div>
-										      		<div style="border:1px solid black;height:200px;width:500px;overflow:scroll;">										      					                                                       
-		                                       	     @foreach(Category::get() as $select_category)
-	                                                <div style="margin-left:30px;border-top: 1px solid black;">
-	                                                	<input type="checkbox" name="select_cat" value="{{$select_category->id}}"><span>{{$select_category->name}}</span><br>
-	                                                	@foreach(UserBudget::get() as $select_item)
-	                                                	   <div style="display:none;margin-left:40px;border-top: 1px solid black;">	                                                	   	 
-	                                                	   </div>
-	                                                	@endforeach()
-	                                                </div>
-		                                       	     @endforeach                                                                      												      			
-										      		</div>
-										      	</div>
-										      </div>
-										      <div class="modal-footer">
-										      	<a  class="select_item{{$budget->id}} btn btn-primary" href="">OK</a>
-										      	<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
-										        <a style="cursor:pointer;" data-dismiss="modal">Cancel</a>
-										      </div>
-										    </div>
-										  </div>
-										  <script type="text/javascript">
-		                                     $(".select_item{{$budget->id}}").click(function(){
-		                                     	$.ajax({
-													type: "post",
-													url: "{{URL::route('delete')}}",
-													data: {
-													       id:$(this).next().val()
-														}															
-												     });
-		                                         });
-										  </script>
-										</div>
-								<!-- end modal delete -->
 						 		</tr>
 						 		<!-- Script thuỷ viết -->
 						 		<script type="text/javascript">
@@ -366,16 +320,19 @@ Budget
 				function item_dblclick(id){
 					if ($("."+id+"item").val()=="") {
 						$("."+id+"item").show();
+						$(".item_error"+id).show();
 					} 
 					else{
 						$("."+id+"show_item").show();
 				        $("."+id+"item").hide();
+				        $(".item_error"+id).hide();
 					};							                            
 				};
 				function item_change(id){	
 				    if ($("."+id+"item").val()=="") {
 				    	$("."+id+"item").show();
-				    	$(".item_error"+id+"").show();
+				    	$(".item_error"+id).show();
+				    	
 				    }
 				     else{
 				     	$.ajax({
@@ -389,8 +346,8 @@ Budget
 				     	$("."+id+"show_item").text($("."+id+"item").val())	;
 						$("."+id+"item").hide();
 						$("."+id+"show_item").show();
-						$(".item_error"+id+"").hide();
-
+						$(".item_error"+id).hide();
+						
 				     };																    
 				};		
 				function item_add(id){
@@ -405,7 +362,22 @@ Budget
 						jQuery('#budget_item_cat'+obj.item_last).after(obj.html);													
 						}											
 					});
-			 	};		
+			 	};	
+			 	function item_del(id){
+ 			     	if(confirm("Are you sure you want to delete this?")){
+ 			     		$.ajax({
+							type: "post",
+							url: "{{URL::route('delete')}}",
+							data: {
+							       id:$(".item_del"+id).next().val()
+							}							
+							});
+                             return true;
+                        }
+                     else{
+                            return false;
+                        }
+			 			     };		
 		</script>
 		<div class="col-xs-2" id="budget_summary">
 			<h3>Tóm tắt:</h3>
