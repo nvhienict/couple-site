@@ -55,6 +55,14 @@ Route::get("user-checklist", array("before"=>"check_login","as"=>"user-checklist
 Route::post('search/{month}',array('as'=>'search','uses'=>'ChecklistController@search'));
 
 // Thuy
+Route::post("notes", array("as"=>"notes", "uses"=>"UserBudgetController@updateNote"));
+Route::post('editActual',array('as'=>'editActual', 'uses'=>'UserBudgetController@editActual'));
+Route::post('summaryActual',array('as'=>'summaryActual', 'uses'=>'UserBudgetController@summaryActual'));
+Route::post('editPay',array('as'=>'editPay', 'uses'=>'UserBudgetController@editPay'));
+Route::post('getData',array('as'=>'getData', 'uses'=>'UserBudgetController@getData'));
+Route::post('totalCatPay',array('as'=>'totalCatPay', 'uses'=>'UserBudgetController@totalCatPay'));
+Route::post('totalPay',array('as'=>'totalPay', 'uses'=>'UserBudgetController@totalPay'));
+
 // user login
 Route::get("logout",array("as"=>"logout","uses"=>"UserController@get_logout"));
 

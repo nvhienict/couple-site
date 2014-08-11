@@ -19,5 +19,8 @@ class UserBudget extends Eloquent {
 	{
 		return $this->belongsTo("Category","categoty");
 	}
-
+	public function user()
+	{
+		return $this->belongsTo('User','user');
+	}
 }

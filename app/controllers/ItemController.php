@@ -41,9 +41,9 @@ class ItemController extends \BaseController {
 			<td><a class="budget_icon_note" href="#"><i class="glyphicon glyphicon-comment"></i></a></td>
 			<td>
 				<div>
-			 <a onclick="item_click('.$item->id.')" class="'.$item->id.'_show_hide">'.$item->item.'</a> 
+			 <a onclick="item_click('.$item->id.')" class="'.$item->id.'show_item">'.$item->item.'</a> 
 			 	
-			    <input  onchange="item_change('.$item->id.')"  ondblclick="item_dblclick('.$item->id.')"  type="text" value="'.$item->item.'" name="item" class="'.$item->id.'_slidingDiv" style="width:150px;display:none;" >
+			    <input  onchange="item_change('.$item->id.')"  ondblclick="item_dblclick('.$item->id.')"  type="text" value="'.$item->item.'" name="item" class="'.$item->id.'item" style="width:150px;display:none;" >
 				<input type="hidden" value="'.$item->id.'" name="'.$item->id.'">
 			 </div>
 			</td>
@@ -84,8 +84,6 @@ class ItemController extends \BaseController {
 		$id=Input::get('id');
 		UserBudget::find($id)->delete();
 		
-
-
 	}
 
 

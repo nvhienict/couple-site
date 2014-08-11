@@ -1518,11 +1518,25 @@ a.budget_icon_trash{
 a.budget_icon_note{
 	display: none;
 }
+/*thuy*/
+.input-edit-money{
+	width: 120px;
+	text-align: right;
+	display: inline-block;
+}
+a.budget_icon_notes{
+	display: inline-block;
+	color: #ff9022;
+}
 
 #budget_summary{
 	background: #f2f0ee;
 	margin-bottom: 20px;
+	padding: 15px;
+	text-align: right;
 }
+#budget_summary div, #budget_summary h3{text-align: left;}
+.TienVND{text-align: right !important;}
 .budget_vendor{
 	margin: 10px 0px 10px 0px;
 }
