@@ -24,7 +24,7 @@ class ItemController extends \BaseController {
 	{
 		$id=Input::get('id');
 		$id_user = Cookie::get('id-user');
-
+        $item_last=UserBudget::where('category',$id)->get()->last();
 		$budget=new UserBudget();
 		$budget->item="New Item";
 		$budget->user=$id_user;
@@ -41,35 +41,35 @@ class ItemController extends \BaseController {
 			<td><a class="budget_icon_note" href="#"><i class="glyphicon glyphicon-comment"></i></a></td>
 			<td>
 				<div>
-			 <a onclick="cl('.$item->id.')" class="'.$item->id.'_show_hide">'.$item->item.'</a> 
+			 <a onclick="item_click('.$item->id.')" class="'.$item->id.'_show_hide">'.$item->item.'</a> 
 			 	
-			    <input id="'.$item->id.'" onchange="v_fChange(this)"  ondblclick="db('.$item->id.')"  type="text" value="'.$item->item.'" name="item" class="'.$item->id.'_slidingDiv" style="width:150px;display:none;" >
+			    <input  onchange="item_change('.$item->id.')"  ondblclick="item_dblclick('.$item->id.')"  type="text" value="'.$item->item.'" name="item" class="'.$item->id.'_slidingDiv" style="width:150px;display:none;" >
 				<input type="hidden" value="'.$item->id.'" name="'.$item->id.'">
 			 </div>
 			</td>
 			<td>
 			     <div>
-			 <a onclick="cl1('.$item->id.')" class="'.$item->id.'_show_hide1">'.$item->estimate.'</a> 
+			 <a  class="'.$item->id.'_show_hide1">'.$item->estimate.'</a> 
 			 	
-			    <input id="'.$item->id.'" onchange="v_fChange1(this)" ondblclick="db1('.$item->id.')"  type="text" value="'.$item->estimate.'" name="estimate" class="'.$item->id.'_slidingDiv1" style="width:150px;display:none;" >
+			    <input   type="text" value="'.$item->estimate.'" name="estimate" class="'.$item->id.'_slidingDiv1" style="width:150px;display:none;" >
 				<input type="hidden" value="'.$item->id.'" name="'.$item->id.'">
 			 </div>
 			</td>
 			<td>
 			    <div>
-			 <a onclick="cl2('.$item->id.')" class="'.$item->id.'_show_hide2">'.$item->actual.'</a> 
+			 <a  class="'.$item->id.'_show_hide2">'.$item->actual.'</a> 
 			 	
-			    <input  id="'.$item->id.'" onchange="v_fChange2(this)" ondblclick="db2('.$item->id.')"  type="text" value="'.$item->actual.'" name="actual" class="'.$item->id.'_slidingDiv2" style="width:150px;display:none;">
+			    <input type="text" value="'.$item->actual.'" name="actual" class="'.$item->id.'_slidingDiv2" style="width:150px;display:none;">
 				<input type="hidden" value="'.$item->id.'" name="'.$item->id.'">
 			 </div>
 			</td>
 			<td>0 VND</td>
 			<td>0 VND</td>
 			<td>
-				<a class="budget_icon_trash" href="#"><i class="glyphicon glyphicon-trash"></i></a>
+				<a  class="select_item'.$budget->id.'" budget_icon_trash" href=""><i class="glyphicon glyphicon-trash"></i></a>
 			</td>
 		</tr>';
-		echo json_encode(array('catid'=>$item->category,'iditem'=>$item->id,'html'=>$html));die();
+		echo json_encode(array('item_last'=>$item_last->id,'item'=>$item->id,'html'=>$html));die();
 	}
 
 
@@ -78,11 +78,12 @@ class ItemController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function delete($id)
+	public function delete()
 	{
-		//
+		// 
+		$id=Input::get('id');
 		UserBudget::find($id)->delete();
-		return Redirect::to('budget');
+		
 
 
 	}

@@ -85,13 +85,12 @@ Budget
 					 			</td>
 					 		</tr>
 					 			@foreach(UserBudget::where("user",Cookie::get("id-user"))->where('category',$category->id)->get() as $budget)
-			 					<tr class="budget_item_cat{{$category->id}}" id="budget_item_cat{{$budget->id}}">
+			 					<tr class="budget_item_cat" id="budget_item_cat{{$budget->id}}">
 						 			<td><a href="#" class="budget_icon_note"><i class="glyphicon glyphicon-comment"></i></a></td>
 						 			<td>
 						 				<div>
-										 <a  class="{{$budget->id}}_show_hide">{{$budget->item}}</a> 
-										 	
-										    <input type="text" style="width:150px;display:none;" class="{{$budget->id}}_slidingDiv" name="item" value="{{$budget->item}}">
+										 <a  onclick="item_click({{$budget->id}})" class="{{$budget->id}}_show_hide">{{$budget->item}}</a> 										 	
+										    <input onchange="item_change({{$budget->id}})" ondblclick="item_dblclick({{$budget->id}})" type="text" style="width:150px;display:none;" class="{{$budget->id}}_slidingDiv" name="item" value="{{$budget->item}}">   
 											<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
 										 </div>
 						 			</td>
@@ -123,205 +122,66 @@ Budget
 						 			<td>0 VND</td>
 						 			<td>{{(($budget->actual)-($budget->pay))}} VND</td>
 						 			<td>
-						 				<a href="#" class="budget_icon_trash"><i class="glyphicon glyphicon-trash"></i></a>
+						 				<a href="#" data-toggle="modal" data-target="#myModalDeleteItemBudget{{$budget->id}}" class="budget_icon_trash"><i class="glyphicon glyphicon-trash"></i></a>
+						 				     <input type="hidden" id="{{$budget->id}}" name="{{$budget->id}}" value="{{$budget->id}}" >
 						 			</td>
-						 		</tr>
-                                             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js" type="text/javascript">
-																</script> 
-																<script type="text/javascript">
-																 $(document).ready(function(){ 
-																	// $(".{{$budget->id}}_slidingDiv").hide(); 
-																	// $(".{{$budget->id}}_show_hide").show();
-
-																	 $('.{{$budget->id}}_show_hide').click(function(){
-																	 $(".{{$budget->id}}_slidingDiv").show(); 
-																	$(".{{$budget->id}}_show_hide").hide(); }); 
-
-																	$('.{{$budget->id}}_slidingDiv').dblclick(function(){
-																	 $(".{{$budget->id}}_slidingDiv").hide(); 
-																	$(".{{$budget->id}}_show_hide").show();
-																	 });
-																	$(".{{$budget->id}}_slidingDiv1").hide(); 
-																	$(".{{$budget->id}}_show_hide1").show();
-
-																	 $('.{{$budget->id}}_show_hide1').click(function(){
-																	 $(".{{$budget->id}}_slidingDiv1").show(); 
-																	$(".{{$budget->id}}_show_hide1").hide(); }); 
-
-																	$('.{{$budget->id}}_slidingDiv1').dblclick(function(){
-																	 $(".{{$budget->id}}_slidingDiv1").hide(); 
-																	$(".{{$budget->id}}_show_hide1").show();
-																	 });
-																	$(".{{$budget->id}}_slidingDiv2").hide(); 
-																	$(".{{$budget->id}}_show_hide2").show();
-
-																	 $('.{{$budget->id}}_show_hide2').click(function(){
-																	 $(".{{$budget->id}}_slidingDiv2").show(); 
-																	$(".{{$budget->id}}_show_hide2").hide(); }); 
-
-																	$('.{{$budget->id}}_slidingDiv2').dblclick(function(){
-																	 $(".{{$budget->id}}_slidingDiv2").hide(); 
-																	$(".{{$budget->id}}_show_hide2").show();
-																	 });
-
-
-
-																 });
-											  </script>
-											  <script type="text/javascript">
-											  	function cl(the_i_BudetId){
-													$("."+the_i_BudetId+"_slidingDiv").show(); 
-													$("."+the_i_BudetId+"_show_hide").hide();
-												};
-												function db(the_i_BudetId)
-												{
-													$("."+the_i_BudetId+"_slidingDiv").hide(); 
-													$("."+the_i_BudetId+"_show_hide").show();
-
-												};
-
-												function v_fChange(obj){
-													$.ajax({
-														type: "post",
-														url: "{{URL::route('update')}}",
-														data: {item:obj.value,
-																id:obj.id
-														}
-														
-														});
-												$("."+obj.id+"_show_hide").text(obj.value);
-												$(obj).hide();
-												$("."+obj.id+"_show_hide").show();
-
-												};
-												
-												function cl1(the_i_BudetId){
-													$("."+the_i_BudetId+"_slidingDiv1").show(); 
-													$("."+the_i_BudetId+"_show_hide1").hide();
-												};
-												function db1(the_i_BudetId)
-												{
-													$("."+the_i_BudetId+"_slidingDiv1").hide(); 
-													$("."+the_i_BudetId+"_show_hide1").show();
-												};
-												// function v_fChange1(obj){
-												// 	$.ajax({
-												// 		type: "post",
-												// 		url: "{{URL::route('update1')}}",
-												// 		data: {estimate:obj.value,
-												// 				id:obj.id
-												// 		}
-														
-												// 		});
-												// $("."+obj.id+"_show_hide1").text(obj.value);
-												// $(obj).hide();
-												// $("."+obj.id+"_show_hide1").show();
-
-												// };
-												
-												function cl2(the_i_BudetId){
-													$("."+the_i_BudetId+"_slidingDiv2").show(); 
-													$("."+the_i_BudetId+"_show_hide2").hide();
-												};
-												function db2(the_i_BudetId)
-												{
-													$("."+the_i_BudetId+"_slidingDiv2").hide(); 
-													$("."+the_i_BudetId+"_show_hide2").show();
-												};
-												// function v_fChange2(obj){
-												// 	$.ajax({
-												// 		type: "post",
-												// 		url: "{{URL::route('update2')}}",
-												// 		data: {actual:obj.value,
-												// 				id:obj.id
-												// 		}
-														
-												// 		});
-												// $("."+obj.id+"_show_hide2").text(obj.value);
-												// $(obj).hide();
-												// $("."+obj.id+"_show_hide2").show();
-
-												// };
-
-											  </script>
-											   <script type="text/javascript">
-														        
-														        	$(".{{$budget->id}}_slidingDiv").change(function(){
-														        		//$("#item{{$budget->id}}").submit();
-																		$.ajax({
-																		type: "post",
-																		url: "{{URL::route('update')}}",
-																		data: {item:$(this).val(),
-																				id:$(this).next().val()
-																		}
-																		
-																		});
-																		$(".{{$budget->id}}_show_hide").text($(this).val());
-																		$(this).hide();
-																		$(".{{$budget->id}}_show_hide").show();
-														        	});
-														    //     	$(".{{$budget->id}}_slidingDiv1").change(function(){
-														    //     		//$("#item{{$budget->id}}").submit();
-																		// $.ajax({
-																		// type: "post",
-																		// url: "{{URL::route('update1')}}",
-																		// data: {estimate:$(this).val(),
-																		// 		id:$(this).next().val()
-																		// }
-																		
-																		// });
-																		// $(".{{$budget->id}}_show_hide1").text($(this).val());
-																		// $(this).hide();
-																		// $(".{{$budget->id}}_show_hide1").show();
-														    //     	});
-														    //     	$(".{{$budget->id}}_slidingDiv2").change(function(){
-														    //     		//$("#item{{$budget->id}}").submit();
-																		// $.ajax({
-																		// type: "post",
-																		// url: "{{URL::route('update2')}}",
-																		// data: {actual:$(this).val(),
-																		// 		id:$(this).next().val()
-																		// }
-																		
-																		// });
-																		// $(".{{$budget->id}}_show_hide2").text($(this).val());
-																		// $(this).hide();
-																		// $(".{{$budget->id}}_show_hide2").show();
-														    //     	});
-														        
-											     </script>
-
+						 		  <!-- Modal Delete -->
+										<div class="modal fade" id="myModalDeleteItemBudget{{$budget->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										  <div class="modal-dialog">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+										        <h3 class="modal-title" id="myModalLabel">Delete Item</h3>
+										      </div>
+										      <div class="modal-body">
+										      	Bạn muốn xóa {{$budget->item}}
+										      	<div><input type="radio" name="select_radio" value="" ><span>Chia đều cho các sự kiện khác </span></div>
+										      	<div><input type="radio" name="select_radio" value="" ><span>Cộng vào sư kiện </span></div>
+										      	<div>
+										      		<div>Chọn các sự kiện cần thêm vào</div>
+										      		<div style="border:1px solid black;height:200px;width:500px;overflow:scroll;">										      					                                                       
+		                                       	     @foreach(Category::get() as $select_category)
+	                                                <div style="margin-left:30px;border-top: 1px solid black;">
+	                                                	<input type="checkbox" name="select_cat" value="{{$select_category->id}}"><span>{{$select_category->name}}</span><br>
+	                                                	@foreach(UserBudget::get() as $select_item)
+	                                                	   <div style="display:none;margin-left:40px;border-top: 1px solid black;">	                                                	   	 
+	                                                	   </div>
+	                                                	@endforeach()
+	                                                </div>
+		                                       	     @endforeach                                                                      												      			
+										      		</div>
+										      	</div>
+										      </div>
+										      <div class="modal-footer">
+										      	<a  class="select_item{{$budget->id}} btn btn-primary" href="">OK</a>
+										      	<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
+										        <a style="cursor:pointer;" data-dismiss="modal">Cancel</a>
+										      </div>
+										    </div>
+										  </div>
+										  <script type="text/javascript">
+		                                     $(".select_item{{$budget->id}}").click(function(){
+		                                     	$.ajax({
+													type: "post",
+													url: "{{URL::route('delete')}}",
+													data: {
+													       id:$(this).next().val()
+														}															
+												     });
+		                                         });
+										  </script>
+										</div>
+								<!-- end modal delete -->
+						 		</tr>                                            											  						     
 						 		@endforeach
 						 		<tr class="budget_item_cat{{$category->id}}" id="budget_item_cat">
 						 			<td></td>
-						 			<td colspan="7"><a id="add_item{{$category->id}}" style="cursor:pointer;">
+						 			<td colspan="7"><a onclick="item_add({{$category->id}})" class="item-add{{$category->id}}" style="cursor:pointer;">
 											<i class="glyphicon glyphicon-plus"></i>&nbsp Thêm chi tiêu
 										</a>
 										<input type="hidden" value="{{$category->id}}" name="{{$category->id}}">
 									</td>
 						 		</tr>
-
-						 		     <script type="text/javascript">
-										 		           $("#add_item{{$category->id}}").click(function(){
-										 		           	$.ajax({
-																		type: "post",
-																		url: "{{URL::route('create')}}",
-																		data: {
-																				id:$(this).next().val()
-
-																		},
-																		success: function(data){
-																			var obj = JSON.parse(data);
-																			jQuery('#cate'+obj.catid).after(obj.html);
-																				
-																		}
-																		
-
-																	});
-										 		           	  });
-
-										</script>
-
 						@endforeach
 					 	</tbody>
 					 	<thead>
@@ -335,7 +195,62 @@ Budget
 				</div>
 			</div>
 		</div> <!-- col-xs-10 -->
+		<script type="text/javascript">
+				function item_click(id){
+					if ($("."+id+"_slidingDiv").val()=="New Item") {
+						$("."+id+"_show_hide").hide();
+						$("."+id+"_slidingDiv").val("");
+						$("."+id+"_slidingDiv").show();
+					} 
+					else{
+						$("."+id+"_show_hide").hide();
+						$("."+id+"_slidingDiv").show();
+					};
+					};																										
+				function item_dblclick(id){
+					if ($("."+id+"_slidingDiv").val()=="") {
+						$("."+id+"_slidingDiv").show();
+					} 
+					else{
+						$("."+id+"_show_hide").show();
+				        $("."+id+"_slidingDiv").hide();
+					};							                            
+				};
+				function item_change(id){	
+				    if ($("."+id+"_slidingDiv").val()=="") {
+				    	$("."+id+"_slidingDiv").show();
+				    	$(".item_error"+id+"").show();
+				    }
+				     else{
+				     	$.ajax({
+							type: "post",
+							url: "{{URL::route('update')}}",
+							data: {
+							item:$("."+id+"_slidingDiv").val(),	
+							id:$("."+id+"_slidingDiv").next().val()
+							}							
+							});
+				     	$("."+id+"_show_hide").text($("."+id+"_slidingDiv").val())	;
+						$("."+id+"_slidingDiv").hide();
+						$("."+id+"_show_hide").show();
+						$(".item_error"+id+"").hide();
 
+				     };																    
+				};		
+				function item_add(id){
+			 			$.ajax({
+							type: "post",
+							url: "{{URL::route('create')}}",
+							data: {
+							id:$(".item-add"+id).next().val()
+							},
+							success: function(data){
+							var obj = JSON.parse(data);
+							jQuery('#budget_item_cat'+obj.item_last).after(obj.html);													
+							}											
+						});
+			 	};		
+		</script>
 		<div class="col-xs-2" id="budget_summary">
 			<h3>Tóm tắt:</h3>
 			<p>
