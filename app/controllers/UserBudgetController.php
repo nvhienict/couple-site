@@ -198,8 +198,11 @@ class UserBudgetController extends \BaseController {
 		return Redirect::route('budget');
 	}
 
-	public function editExpected(){//chi phi du kien
-
+	public function editEstimate(){
+		$estimate = Input::get('estimate');
+		$id=Input::get('id');
+		UserBudget::where('id',$id)->update(array("estimate"=>$estimate));
+		UserBudgetController::getSummaryUserBudget($id);
 	}
 
 	public function editActual(){
@@ -221,24 +224,27 @@ class UserBudgetController extends \BaseController {
 		//current Budget
 		$userBudget = UserBudget::find($budgetID);
 		$categoryID = $userBudget->category;
+		$budgetEstimate = $userBudget->estimate;		
 		$budgetActual = $userBudget->actual;
 		$budgetPay = $userBudget->pay;
 		$budgetDue = $budgetActual - $budgetPay;
 
 		//current Category
 		$budgetDK = array('user'=>$userID, 'category'=>$categoryID);
+		$totalEstimate = UserBudget::where($budgetDK)->sum('estimate');
 		$totalActual = UserBudget::where($budgetDK)->sum('actual');
 		$totalPay = UserBudget::where($budgetDK)->sum('pay');
 		$totalDue = $totalActual - $totalPay;
 
 		//all summary
-		$sumExpected = (User::find($userID)->budget) * 1000000;
+		$sumExpected = UserBudget::where('user',$userID)->sum('estimate');
 		$sumActual = UserBudget::where('user',$userID)->sum('actual');
 		$sumPay = UserBudget::where('user',$userID)->sum('pay');
 		$sumDue = $sumActual - $sumPay;
 
 		$task=array(
-			'budgetID'=>$budgetID, 'categoryID'=>$categoryID, 'budgetDue'=>$budgetDue,
+			'budgetID'=>$budgetID, 'categoryID'=>$categoryID, 'budgetDue'=>$budgetDue, 
+			'totalEstimate'=>$totalEstimate,
 			'totalActual'=>$totalActual, 'totalPay'=>$totalPay, 'totalDue'=>$totalDue,
 			'sumExpected'=>$sumExpected, 'sumActual'=>$sumActual, 'sumPay'=>$sumPay, 'sumDue'=>$sumDue
 		);

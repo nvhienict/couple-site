@@ -1455,7 +1455,6 @@ ul#thumbs-main li{
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
 	box-shadow: 0 1px 2px 
 }
-*register*/
 /* Credit to bootsnipp.com for the css for the color graph */
 .colorgraph {
   height: 5px;
@@ -1522,7 +1521,7 @@ a.budget_icon_note{
 .input-edit-money{
 	width: 120px;
 	text-align: right;
-	display: inline-block;
+	display: none;
 }
 a.budget_icon_notes{
 	display: inline-block;

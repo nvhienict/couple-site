@@ -62,6 +62,8 @@ Route::post('editPay',array('as'=>'editPay', 'uses'=>'UserBudgetController@editP
 Route::post('getData',array('as'=>'getData', 'uses'=>'UserBudgetController@getData'));
 Route::post('totalCatPay',array('as'=>'totalCatPay', 'uses'=>'UserBudgetController@totalCatPay'));
 Route::post('totalPay',array('as'=>'totalPay', 'uses'=>'UserBudgetController@totalPay'));
+Route::post('editEstimate',array('as'=>'editEstimate', 'uses'=>'UserBudgetController@editEstimate'));
+
 
 // user login
 Route::get("logout",array("as"=>"logout","uses"=>"UserController@get_logout"));

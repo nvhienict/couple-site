@@ -101,6 +101,7 @@ class BudgetController extends \BaseController {
 			foreach($budgets as $budget){
 				$userbudget = new UserBudget();
 				$userbudget->user = Cookie::get('id-user');
+				$userbudget->estimate = ($money_budget*($budget->range1)*(Category::find($budget->category)->range1))*1000000;
 				$userbudget->category = $budget->category;
 				$userbudget->item = $budget->item;
 				$userbudget->range=$budget->range1;
@@ -114,6 +115,7 @@ class BudgetController extends \BaseController {
 			foreach($budgets as $budget){
 				$userbudget = new UserBudget();
 				$userbudget->user = Cookie::get('id-user');
+				$userbudget->estimate = ($money_budget*($budget->range2)*(Category::find($budget->category)->range2))*1000000;
 				$userbudget->category = $budget->category;
 				$userbudget->item = $budget->item;
 				$userbudget->range=$budget->range3;
@@ -127,6 +129,7 @@ class BudgetController extends \BaseController {
 			foreach($budgets as $budget){
 				$userbudget = new UserBudget();
 				$userbudget->user = Cookie::get('id-user');
+				$userbudget->estimate = ($money_budget*($budget->range3)*(Category::find($budget->category)->range3))*1000000;
 				$userbudget->category = $budget->category;
 				$userbudget->item = $budget->item;
 				$userbudget->range=$budget->range3;

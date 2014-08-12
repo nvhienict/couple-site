@@ -29,10 +29,11 @@ Budget
 			var bID = result['budgetID'];
 			var cID = result['categoryID'];
 			$(".Due" + bID).text(result['budgetDue'].format(0,3,' ') + " VND");
+			$("#totalEstimate" + cID).text(result['totalEstimate'].format(0,3,' ') + " VND");
     		$("#totalCat" + cID).text(result['totalActual'].format(0,3,' ') + " VND");
     		$("#totalCatPay" + cID).text(result['totalPay'].format(0,3,' ') + " VND");
     		$("#totalCatDue" + cID).text(result['totalDue'].format(0,3,' ') + " VND");
-    		//$("#rowSumExpected").text(result['sumExpected'].format(0,3,' ') + " VND");
+    		$("#rowSumExpected").text(result['sumExpected'].format(0,3,' ') + " VND");
     		$("#rowSumActual").text(result['sumActual'].format(0,3,' ') + " VND");
     		$("#rowSumPay").text(result['sumPay'].format(0,3,' ') + " VND");
     		$("#rowSumDue").text(result['sumDue'].format(0,3,' ') + " VND");
@@ -88,15 +89,13 @@ Budget
 					 		<tr class="budget_cat" id="cate{{$category->id}}">
 					 			<td><i class="glyphicon glyphicon-hand-right" id="budget_category_icon"></i></td>
 					 			<td><strong>{{$category->name}}</strong></td>
-					 			<td>
-					 			@if(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==1)
-					 				{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range1)*1000000, 0, ',', ' ')}}
-					 			@elseif(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==2)
-					 			{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range2)*1000000, 0, ',', ' ')}}
-					 			@elseif(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==3)
-					 			{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range3)*1000000, 0, ',', ' ')}}
-					 			@endif
-					 			  VND</td>
+					 			<td class="TienVND">
+					 				<span  id="totalEstimate{{$category->id}}" >
+					 				{{number_format(UserBudget::where('category',$category->id)
+					 				->where('user',User::find(Cookie::get('id-user'))->id)
+					 				->sum('estimate'), 0, ',', ' ')}} VND
+					 				</span>
+					 			</td>
 					 			<td class="TienVND">
 					 				<span  id="totalCat{{$category->id}}" >
 					 				{{number_format(UserBudget::where('category',$category->id)
@@ -192,21 +191,14 @@ Budget
 									 </div>
 									 <p style="display:none;color:red;" class="item_error{{$budget->id}}">Item không được trống</p>
 					 			</td>
-						 			<td>
+						 			<td class="TienVND">
 						 				<div><!-- Estimate -->
-										 <a  class="{{$budget->id}}_show_hide1">
-	                                        @if(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==1)
-								 			{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range1*$budget->range)*1000000, 0, ',', ' ')}}
-								 			@elseif(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==2)
-								 			{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range2*$budget->range)*1000000, 0, ',', ' ')}}
-								 			@elseif(BudgetController::rangeBudget(User::find(Cookie::get('id-user'))->budget)==3)
-								 			{{number_format((User::find(Cookie::get('id-user'))->budget*$category->range3*$budget->range)*1000000, 0, ',', ' ')}}
-								 			@endif
+										 <a  class="{{$budget->id}}showEstimate">
+	                                        {{number_format(($budget->estimate),0, ',', ' ')}} VND
 										 </a> 
-										    <input type="text" style="width:150px;display:none;" class="{{$budget->id}}_slidingDiv1" name="estimate" value="{{$budget->estimate}}">
+										    <input type="text" class="{{$budget->id}}InputEstimate form-control input-edit-money" name="estimate" value="{{$budget->estimate}}">
 											<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
 										 </div>
-						 				
 						 			</td>
 						 			<td class="TienVND"><!-- Actual -->
 										<div id="edit-money" > 
@@ -235,29 +227,42 @@ Budget
 						 		<!-- Script thuỷ viết -->
 						 		<script type="text/javascript">
 								$(document).ready(function(){ 
+									//etimate
+									$(".{{$budget->id}}InputEstimate").hide(); 
+								    $(".{{$budget->id}}showEstimate").show(); 
+								    $('.{{$budget->id}}showEstimate').click(function(){ 
+								        $(".{{$budget->id}}InputEstimate").show();
+								        $(".{{$budget->id}}showEstimate").hide();
+								    });
+								    $('.{{$budget->id}}InputEstimate')
+								    	.dblclick(function(){SaveEstimate($(this));})
+								    	.onEnter(function(){SaveEstimate($(this));
+						           	});
+									//actual
 								    $(".{{$budget->id}}_slidingDiv").hide(); 
 								    $(".{{$budget->id}}_show_hide").show(); 
-								    //estimate
+								    $('.{{$budget->id}}_show_hide').click(function(){ 
+								        $(".{{$budget->id}}_slidingDiv").show();
+								        $(".{{$budget->id}}_show_hide").hide();
+								    });
+								    $('.{{$budget->id}}Estimate')
+								    	.dblclick(function(){savePay($(this));})
+								    	.onEnter(function(){savePay($(this));
+						           	});
+								    //pay
 								    $(".{{$budget->id}}Estimate").hide(); 
 								    $(".{{$budget->id}}Pay").show(); 
 								    $('.{{$budget->id}}Pay').click(function(){ 
 								        $(".{{$budget->id}}Estimate").show();
 								        $(".{{$budget->id}}Pay").hide();
 								    });
-								    $('.{{$budget->id}}_show_hide').click(function(){ 
-								        $(".{{$budget->id}}_slidingDiv").show();
-								        $(".{{$budget->id}}_show_hide").hide();
-								    });
-								    $('.{{$budget->id}}Estimate')
-								    	.dblclick(function(){saveEstimate($(this));})
-								    	.onEnter(function(){saveEstimate($(this));
-						           	});
+								    
 								    $('.{{$budget->id}}_slidingDiv')
 									    .dblclick(function(){ SaveExpense($(this)); })
 							           	.onEnter(function(){ SaveExpense($(this));
 									});
 							        
-								    function saveEstimate(estimate){
+								    function savePay(estimate){
 								    	$('.{{$budget->id}}Estimate').hide();
 								    	$.ajax({
 								    		type: "POST", url: "{{URL::route('editPay')}}",
@@ -281,6 +286,40 @@ Budget
 								        $(".{{$budget->id}}_show_hide").show();
 								        $(".{{$budget->id}}_show_hide").text(parseInt($(textbox).val()).format(0, 3, ' ') + " VND");
 									}
+									function SaveEstimate(textbox){
+										$(".{{$budget->id}}InputEstimate").hide();
+								        $.ajax({
+							            	type: "POST", url: "{{URL::route('editEstimate')}}",
+							            	data: {estimate:$(".{{$budget->id}}InputEstimate").val(), id:$(".{{$budget->id}}InputEstimate").next().val() },
+							            	success: function (result) { ShowSummary(result); 
+							            	}	
+							             });
+								        
+								        $(".{{$budget->id}}showEstimate").show();
+								        $(".{{$budget->id}}showEstimate").text(parseInt($(textbox).val()).format(0, 3, ' ') + " VND");
+									}
+									// function item_change(id){	
+									//     if ($("."+id+"item").val()=="") {
+									//     	$("."+id+"item").show();
+									//     	$(".item_error"+id).show();
+									    	
+									//     }
+									//      else{
+									//      	$.ajax({
+									// 			type: "post",
+									// 			url: "{{URL::route('update')}}",
+									// 			data: {
+									// 			item:$("."+id+"item").val(),	
+									// 			id:$("."+id+"item").next().val()
+									// 			}							
+									// 			});
+									//      	$("."+id+"show_item").text($("."+id+"item").val())	;
+									// 		$("."+id+"item").hide();
+									// 		$("."+id+"show_item").show();
+									// 		$(".item_error"+id).hide();
+											
+									//      };																    
+									// };		
 								 }); 	
 							</script>                                            											  						     
 						 		@endforeach
@@ -307,7 +346,8 @@ Budget
 		</div> <!-- col-xs-10 -->
 		<script type="text/javascript">
 				function item_click(id){
-					if ($("."+id+"item").val()=="New Item") {
+					if ($("."+id+"item").val()=="New Item") 
+					{
 						$("."+id+"show_item").hide();
 						$("."+id+"item").val("");
 						$("."+id+"item").show();
@@ -383,7 +423,7 @@ Budget
 			<h3>Tóm tắt:</h3>
 			<p>
 				<div>Dự kiến</div>
-				<strong id="ubsDuKien">{{number_format((User::find(Cookie::get('id-user'))->budget)*1000000, 0, ',', ' ')}} VND</strong>
+				<strong id="ubsDuKien">{{number_format(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('estimate'), 0, ',', ' ')}} VND</strong>
 				<div>Thực tế</div>
 				<strong id="ubsThucTe">{{number_format(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('actual'), 0, ',', ' ')}} VND</strong>
 				<div title="Đã thanh toán">Thanh toán</div>
