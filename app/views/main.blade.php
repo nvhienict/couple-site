@@ -39,6 +39,10 @@
 	<script src="{{Asset('assets/js/jquery.js')}}"></script>
 	<script src="{{Asset('assets/js/jquery.datetimepicker.js')}}"></script>
 	<script src="{{Asset('assets/js/jquery-validate/jquery.validate.min.js')}}"></script>
+	<script src="{{Asset('assets/js/jquery.number.js')}}"></script>
+	<script src="{{Asset('assets/js/jquery.number.min.js')}}"></script>
+
+
 
 	
 

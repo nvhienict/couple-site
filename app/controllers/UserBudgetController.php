@@ -77,10 +77,19 @@ class UserBudgetController extends \BaseController {
 			<td>
 				<div>
 			 		<a onclick="item_click('.$item->id.')" class="'.$item->id.'show_item">'.$item->item.'</a>
-				    <input  onchange="item_change('.$item->id.')"  ondblclick="item_dblclick('.$item->id.')"  type="text" value="'.$item->item.'" name="item" class="'.$item->id.'item" style="width:150px;display:none;" >
+				    <input  onchange="item_change('.$item->id.')"  ondblclick="item_dblclick('.$item->id.')"  type="text" value="'.$item->item.'" name="item" class="'.$item->id.'item form-control input-edit-money" >
 					<input type="hidden" value="'.$item->id.'" name="'.$item->id.'">
 					<p style="display:none;color:red;" class="item_error'.$budget->id.'">Item không được trống</p>
 			 	</div>
+			</td>
+			<td class="TienVND">
+				<div id="edit-money" > 
+					<a hreft="" class="'.$item->id.'_show_hide">
+						'.number_format(($item->estimate),0, ',', ' ').' VND
+					</a>
+					<input type="number" class="'.$item->id.'_slidingDiv form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->estimate.'">
+					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
+				</div>
 			</td>
 			<td class="TienVND">
 				<div id="edit-money" > 
@@ -100,12 +109,36 @@ class UserBudgetController extends \BaseController {
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
 				</div>
  			</td>
-			<td class="Due'.$item->id.' TienVND">'.number_format((($budget->actual)-($budget->pay)),0, ',', ' ') .' VND</td>
+			<td class="TienVND">
+			<div>
+				<a class="Due'.$item->id.'">'.number_format((($budget->actual)-($budget->pay)),0, ',', ' ') .' VND
+				</a>
+			</div>	
+			</td>
 			
 			<td>
-				<a href="" onclick="item_del('.$item->id.')" class="confirm budget_icon_trash item_del'.$item->id.'"><i class="glyphicon glyphicon-trash"></i></a>
-				<input type="hidden" name="'.$item->id.'" value="'.$item->id.'" >
-			</td>
+ 				<a href="" data-toggle="modal" data-target="#myModalDeleteItemBudget'.$budget->id.'" class="budget_icon_trash"><i class="glyphicon glyphicon-trash"></i></a>
+ 				     <input type="hidden"  name="'.$budget->id.'" value="'.$budget->id.'" >
+ 			</td>
+ 			
+				<div class="modal fade" id="myModalDeleteItemBudget'.$budget->id.'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+					    <div class="modal-content">
+					        <div class="modal-header">
+					            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					             <div>Bạn muốn xóa '.$budget->item.'</div>
+					      	</div>
+					        
+						    <div class="modal-footer">
+						    	<a href="" onclick="item_del('.$budget->id.')" class="btn btn-primary item_del'.$budget->id.'">OK</a>
+						    	<input type="hidden" name="'.$budget->id.'" value="'.$budget->id.'">
+					            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+					                
+					        </div>
+						</div> 
+					</div> 
+				</div> 
+								
 		</tr>';
 		echo json_encode(array('item_last'=>$item_last->id,'item'=>$item->id,'html'=>$html));die();
 	}
@@ -166,18 +199,11 @@ class UserBudgetController extends \BaseController {
 	{
 	    $id_user = Cookie::get('id-user');
 		$id=Input::get('id');
-		$estimate_input=Input::get('estimate');
-		$item=UserBudget::find($id);
-		$catid=$item->category;
-		$item->delete();
-		$re_estimate=(User::find($id_user)->budget) - $estimate_input;
-	      $user=User::find($id);
-	       $user->budget=$$re_estimate;
-	       $user->save();
-          echo json_encode(array('catid'=>'$catid','re_estimate'=>$re_estimate));die();
-
-
+		$item=UserBudget::find($id)->delete();
 		
+		$sumEstimate= UserBudget::where('user',$id_user)->sum('estimate');
+          echo json_encode(array('re_estimate'=>$sumEstimate));
+          exit();
 	}
 
 	/**

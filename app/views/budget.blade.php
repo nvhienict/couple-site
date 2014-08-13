@@ -39,7 +39,7 @@ Budget
     		$("#rowSumDue").text(result['sumDue'].format(0,3,' ') + " VND");
 
     		//tom tat
-    		$("#ubsThucTe").text(result['sumActual'].format(0,3,' ') + " VND");
+    		$("#ubsThucTe").text(result['sumActual'].format(0,3,',') + " VND");
     		$("#ubsThanhToan").text(result['sumPay'].format(0,3,' ') + " VND");
     		$("#ubsConNo").text(result['sumDue'].format(0,3,' ') + " VND");
 		} 		
@@ -186,7 +186,7 @@ Budget
 					 			<td>
 					 				<div>
 									 <a  onclick="item_click({{$budget->id}})" class="{{$budget->id}}show_item">{{$budget->item}}</a> 										 	
-									    <input onchange="item_change({{$budget->id}})" ondblclick="item_dblclick({{$budget->id}})" type="text" style="width:150px;display:none;" class="{{$budget->id}}item" name="item" value="{{$budget->item}}">   
+									    <input onchange="item_change({{$budget->id}})" ondblclick="item_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}item form-control input-edit-money" name="item" value="{{$budget->item}}">   
 										<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
 									 </div>
 									 <p style="display:none;color:red;" class="item_error{{$budget->id}}">Item không được trống</p>
@@ -199,30 +199,58 @@ Budget
 										    <input type="text" class="{{$budget->id}}InputEstimate form-control input-edit-money" name="estimate" value="{{$budget->estimate}}">
 											<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
 										 </div>
+										 <p style="display:none;color:red;" class="estimate_error{{$budget->id}}">please,nhập số</p>
 						 			</td>
 						 			<td class="TienVND"><!-- Actual -->
 										<div id="edit-money" > 
 											<a hreft="" class="{{$budget->id}}_show_hide">
 												{{number_format(($budget->actual),0, ',', ' ')}} VND
 											</a>
-											<input type="number" class="{{$budget->id}}_slidingDiv form-control input-edit-money" id="{{$budget->id}}money" name="money" value="{{$budget->actual}}">
+											<input type="text" class="{{$budget->id}}_slidingDiv form-control input-edit-money" id="{{$budget->id}}money" name="money" value="{{$budget->actual}}">
 											<input type="text" hidden name="{{$budget->id}}" value="{{$budget->id}}">
 										</div>
+										<p style="display:none;color:red;" class="actual_error{{$budget->id}}">please,nhập số</p>
+
 									</td>
 						 			<td class="TienVND">
 						 				<div  > 
 											<a hreft="" class="{{$budget->id}}Pay" >
 												{{number_format(($budget->pay),0, ',', ' ')}} VND
 											</a>
-											<input type="number" class="{{$budget->id}}Estimate form-control input-edit-money" id="{{$budget->id}}estimate" name="estimate" value="{{$budget->pay}}">
+											<input type="text" class="{{$budget->id}}Estimate form-control input-edit-money" id="{{$budget->id}}estimate" name="estimate" value="{{$budget->pay}}">
 											<input type="text" hidden name="{{$budget->id}}" value="{{$budget->id}}">
 										</div>
+										<p style="display:none;color:red;" class="pay_error{{$budget->id}}">please,nhập số</p>
 					 				</td><!-- pay -->
-						 			<td class="Due{{$budget->id}} TienVND">{{number_format((($budget->actual)-($budget->pay)),0, ',', ' ')}} VND</td><!-- Due -->
+						 			<td class="TienVND">
+						 				<div>
+							 				<a class="Due{{$budget->id}}"> {{number_format((($budget->actual)-($budget->pay)),0, ',', ' ')}} VND
+							 				</a>
+						 				</div>
+						 			</td><!-- Due -->
 						 			<td>
-						 				<a href="" onclick="item_del({{$budget->id}})" class="confirm budget_icon_trash item_del{{$budget->id}}"><i class="glyphicon glyphicon-trash"></i></a>
-						 				     <input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}" >
+						 				<a href="" data-toggle="modal" data-target="#myModalDeleteItemBudget{{$budget->id}}" class="budget_icon_trash"><i class="glyphicon glyphicon-trash"></i></a>
+						 				     <input type="hidden"  name="{{$budget->id}}" value="{{$budget->id}}" >
 						 			</td>
+						 		<!-- Modal delete -->
+									<div class="modal fade" id="myModalDeleteItemBudget{{$budget->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+										    <div class="modal-content">
+										        <div class="modal-header">
+										            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+										             <div>Bạn muốn xóa {{$budget->item}}</div>
+										      	</div>
+										        
+											    <div class="modal-footer">
+											    	<a href="" onclick="item_del({{$budget->id}})" class="btn btn-primary item_del{{$budget->id}}">OK</a>
+											    	<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
+										            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+										                
+										        </div>
+											</div> 
+										</div> 
+									</div> 
+								<!-- end modal -->
 						 		</tr>
 						 		<!-- Script thuỷ viết -->
 						 		<script type="text/javascript">
@@ -261,9 +289,43 @@ Budget
 									    .dblclick(function(){ SaveExpense($(this)); })
 							           	.onEnter(function(){ SaveExpense($(this));
 									});
+							       //$(".{{$budget->id}}InputEstimate").keypress(validateNumber); 
+							        
+							         //kiem tra ki tu la so 
+							         $(".{{$budget->id}}InputEstimate").keypress(function(event){
+										     var key = window.event ? event.keyCode : event.which;
+
+										    if (event.keyCode == 8 || event.keyCode == 46
+										     || event.keyCode == 37 || event.keyCode == 39) {
+				                             
+
+										        return true;
+										    }
+										    else if ( key < 48 || key > 57 ) {
+
+										        return false;
+										    }
+										    else{
+										     $(this).number(true);
+										     return true;
+
+										    }
+										     
+										     
+
+
+
+										  });
+				
+
 							        
 								    function savePay(estimate){
-								    	$('.{{$budget->id}}Estimate').hide();
+								    	if ($('.{{$budget->id}}Estimate').val()=="") {
+                                           $('.{{$budget->id}}Estimate').show();
+                                           $(".pay_error{{$budget->id}}").show();
+								    	} 
+								    	else{
+								    		$('.{{$budget->id}}Estimate').hide();
 								    	$.ajax({
 								    		type: "POST", url: "{{URL::route('editPay')}}",
 							            	data: {
@@ -274,9 +336,19 @@ Budget
 								    	});
 										$(".{{$budget->id}}Pay").show();
 										$('.{{$budget->id}}Pay').text(parseInt($(estimate).val()).format(0, 3, ' ')+" VND");
+										$(".pay_error{{$budget->id}}").hide();
+
+								    	};
+								    	
 									}
 
 									function SaveExpense(textbox){
+										if ($(".{{$budget->id}}_slidingDiv").val()=="") {
+											$(".{{$budget->id}}_slidingDiv").show();
+											$(".actual_error{{$budget->id}}").show();
+										} 
+										else
+										{ 
 										$(".{{$budget->id}}_slidingDiv").hide();
 								        $.ajax({
 							            	type: "POST", url: "{{URL::route('editActual')}}",
@@ -285,9 +357,19 @@ Budget
 							             });
 								        $(".{{$budget->id}}_show_hide").show();
 								        $(".{{$budget->id}}_show_hide").text(parseInt($(textbox).val()).format(0, 3, ' ') + " VND");
+								        $(".actual_error{{$budget->id}}").hide();
+
+										};
+										
 									}
 									function SaveEstimate(textbox){
-										$(".{{$budget->id}}InputEstimate").hide();
+										if ($(".{{$budget->id}}InputEstimate").val()=="") {
+											$(".{{$budget->id}}InputEstimate").show();
+											$(".estimate_error{{$budget->id}}").show();
+										} 
+										else
+										{
+                                        $(".{{$budget->id}}InputEstimate").hide();
 								        $.ajax({
 							            	type: "POST", url: "{{URL::route('editEstimate')}}",
 							            	data: {estimate:$(".{{$budget->id}}InputEstimate").val(), id:$(".{{$budget->id}}InputEstimate").next().val() },
@@ -297,6 +379,9 @@ Budget
 								        
 								        $(".{{$budget->id}}showEstimate").show();
 								        $(".{{$budget->id}}showEstimate").text(parseInt($(textbox).val()).format(0, 3, ' ') + " VND");
+								        $(".estimate_error{{$budget->id}}").hide();
+										};
+										
 									}
 									// function item_change(id){	
 									//     if ($("."+id+"item").val()=="") {
@@ -319,7 +404,8 @@ Budget
 									// 		$(".item_error"+id).hide();
 											
 									//      };																    
-									// };		
+									// };	
+
 								 }); 	
 							</script>                                            											  						     
 						 		@endforeach
@@ -335,7 +421,7 @@ Budget
 					 	</tbody>
 					 	<thead>
 					 		<th colspan="2">Tổng cộng chi phí</th>
-					 		<th class="TienVND" id="rowSumExpected">{{number_format((User::find(Cookie::get('id-user'))->budget)*1000000, 2, ',', ' ')}}</th>
+					 		<th class="TienVND" id="rowSumExpected">{{number_format(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('estimate'), 0, ',', ' ')}}</th>
 					 		<th class="TienVND" id="rowSumActual">{{number_format(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('actual'), 0, ',', ' ')}}</th>
 					 		<th class="TienVND" id="rowSumPay">{{number_format(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('pay'), 0, ',', ' ')}}</th>
 					 		<th class="TienVND" id="rowSumDue" colspan="2">1.000.000 VND</th>
@@ -383,6 +469,7 @@ Budget
 							id:$("."+id+"item").next().val()
 							}							
 							});
+
 				     	$("."+id+"show_item").text($("."+id+"item").val())	;
 						$("."+id+"item").hide();
 						$("."+id+"show_item").show();
@@ -404,20 +491,37 @@ Budget
 					});
 			 	};	
 			 	function item_del(id){
- 			     	if(confirm("Are you sure you want to delete this?")){
- 			     		$.ajax({
+ 			     	$.ajax({
 							type: "post",
 							url: "{{URL::route('delete')}}",
-							data: {
+							data: { 
+								    
 							       id:$(".item_del"+id).next().val()
-							}							
+							},
+							success: function(data){
+								     var obj = JSON.parse(data);
+                                   $("#rowSumExpected").text(obj.re_estimate.format(0,3,',') + " VND");
+                                    $("#rowSumExpected").show();     
+							}
+												
 							});
-                             return true;
-                        }
-                     else{
-                            return false;
-                        }
 			 			     };		
+			 	// 		     //kiem tra ki tu la so
+			 	// function validateNumber(event) {
+					// 	    var key = window.event ? event.keyCode : event.which;
+
+					// 	    if (event.keyCode == 8 || event.keyCode == 46
+					// 	     || event.keyCode == 37 || event.keyCode == 39) {
+                             
+
+					// 	        return true;
+					// 	    }
+					// 	    else if ( key < 48 || key > 57 ) {
+
+					// 	        return false;
+					// 	    }
+					// 	    else return true;
+					// 	};     
 		</script>
 		<div class="col-xs-2" id="budget_summary">
 			<h3>Tóm tắt:</h3>
