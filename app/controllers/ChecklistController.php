@@ -83,28 +83,29 @@ class ChecklistController extends \BaseController {
 	}
 	public function get_UserChecklist()
 	{
-		$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
-		return ChecklistController::sortBy($date->format("m-Y"));
+		
+		return View::make('user-checklist');
+	}
+
+	public function get_UserChecklist_category()
+	{
+		
+		return View::make('user-checklist-category');
 	}
 	
 	public static function overdue(){
 		$date_now=new DateTime("now");
 		$overdue=0;
+
 		foreach(User::find(Cookie::get('id-user'))->user_task()->get() as $task)
 		{
 			$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
 			$date_task=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
-				if(date_timestamp_get($date_now)>date_timestamp_get($date_task)) $overdue++;
+				if(date_timestamp_get($date_now)>date_timestamp_get($date_task) && $task->todo!=1) $overdue++;
 		}
 		return $overdue; 
 	}
-	public static function comparedate($month){
-		$new_date=date_create_from_format("d-m-Y","31-".$month);
-		$date_now=new DateTime("now");
-		if(date_timestamp_get($date_now)>date_timestamp_get($new_date)) return true;
-
-	}
-	public static function comparedate2($startdate){
+	public static function comparedate($startdate){
 		$date_now=new DateTime("now");
 		$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
 		$date_task=$date->sub(new DateInterVal('P'.$startdate.'D'));
@@ -113,10 +114,11 @@ class ChecklistController extends \BaseController {
 
 	public static function byMonth(){
 		$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
-		$month[]=$date->format('m-Y');
+		$month=array($date->format('m-Y'));
 		for($i=0;$i<12;$i++){
 			//$month[]=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
-			$month[]= $date->modify("-1 month")->format('m-Y');
+			// $month[]= $date->modify("-1 month")->format('m-Y');
+			array_unshift($month,$date->modify("-1 month")->format('m-Y'));
 		}
 		return $month;
 	}
@@ -129,11 +131,34 @@ class ChecklistController extends \BaseController {
 			if($date_task->format("m-Y")==$month)
 				$tasks_month[]=$task;
 		} 
-		return View::make('user-checklist')->with('tasks',$tasks_month)
-		->with('month',$month);
+		return $tasks_month;
+	}
+	public function getId()
+	{
+		$usertask= UserTask::find(Input::get('id'));
+		$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
+		$date_task=$date->sub(new DateInterVal('P'.$usertask->startdate.'D'));
+		$task=array(
+		"id"=>$usertask->id,
+		"title"=>$usertask->title,
+		"startdate"=>$date_task->format("d-m-Y"),
+		"description"=>$usertask->description,
+		"category_id"=>$usertask->category
+		);
+		return $task;
+	}
+	public function deleteId()
+	{
+		$usertask= UserTask::find(Input::get('id'))->delete();
+
 	}
 	public static function changeMonth($key){
-		return substr($key,0,2);
+		$date_now=new DateTime("now");
+		$date_wedding=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
+		
+		if($date_now->format("m-Y")==$key) return $key."<span class='status-month'>Tháng hiện tại</span>";
+		else if($date_wedding->format("m-Y")==$key) return $key."<span class='status-month'>Tháng vu quy</span>";
+		return $key; 
 	}
 
 	public function search($month)
@@ -148,7 +173,17 @@ class ChecklistController extends \BaseController {
 
 			$id_user = User::find(Cookie::get('id-user'))->id;
 
-			$songay = $this->count_date();
+			$new_date= new DateTime(Input::get('startdate'));
+
+			$date_wedding=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
+			if(date_timestamp_get($date_wedding)>date_timestamp_get($new_date))
+			{
+				$startdate=(date_timestamp_get($date_wedding)-date_timestamp_get($new_date))/(3600*24);
+			}
+			else
+			{
+			$startdate=(date_timestamp_get($new_date)-date_timestamp_get($date_wedding))/(3600*24);
+			} 
 
 		    $rules=array(
 				"task"=>"required",
@@ -160,7 +195,7 @@ class ChecklistController extends \BaseController {
 				$user_task = new UserTask();
 				$user_task->title = Input::get('task');
 				$user_task->user = $id_user;
-				$user_task->startdate = $songay;
+				$user_task->startdate = $startdate;
 				$user_task->category = Input::get('category');
 				$user_task->description = Input::get('description');
 				$user_task->save();
@@ -175,14 +210,11 @@ class ChecklistController extends \BaseController {
 	} // function add_Check_List
 
 	public function post_Edit_Checklist(){
-
 		$id = Input::get('id');
 		$title = Input::get('task');
 		$category = Input::get('category');
 		$description = Input::get('description');
-		$date_task= Input::get('startdate');
-		$new_date= new DateTime($date_task);
-
+		$new_date= new DateTime(Input::get('startdate'));
 		$date_wedding=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
 		if(date_timestamp_get($date_wedding)>date_timestamp_get($new_date))
 		{
@@ -192,6 +224,7 @@ class ChecklistController extends \BaseController {
 		{
 			$startdate=(date_timestamp_get($new_date)-date_timestamp_get($date_wedding))/(3600*24);
 		}
+		
 		$id_user = User::find(Cookie::get('id-user'))->id;
 		    
 	    $rules=array(
@@ -201,18 +234,13 @@ class ChecklistController extends \BaseController {
 		);
 	    // check then insert to database
 		if(!Validator::make(Input::all(), $rules)->fails()){
-			$user_task = UserTask::where('id',$id)->update(
-				array("title"=>$title,
-					"category"=>$category,
-					"description"=>$description,
-					"startdate"=>$startdate
-					));
+			$user_task = UserTask::find($id);
+			$user_task->title=$title;
+			$user_task->category=$category;
+			$user_task->description=$description;
+			$user_task->startdate=$startdate;
+			$user_task->save();
 			
-			$msg="Đã sửa công việc thành công!";
-			return Redirect::route("user-checklist")->with('msg',$msg);
-		}else{
-			$msg="Quá trình sửa bị lỗi!";
-			return Redirect::route("user-checklist")->with('msg',$msg);
 		}
 		
 	} // function edit_Check_List

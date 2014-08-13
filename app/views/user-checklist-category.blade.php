@@ -39,10 +39,10 @@ Checklist
 		<div class="col-md-5 pull-right">
 			<div>
 			<ul class="nav nav-pills text-right" role="tablist">
-				<li class="active">
-					<a href="{{URL::route('user-checklist')}}" ><span class="fa fa-calendar"></span> Theo tháng</a>
-				</li>
 				<li>
+					<a href="{{URL::route('user-checklist')}}"><span class="fa fa-calendar"></span> Theo tháng</a>
+				</li>
+				<li class="active">
 					<a href="{{URL::route('user-checklist-category')}}" ><span class="glyphicon glyphicon-list"></span> Theo danh mục</a>
 				</li>
 			</ul>
@@ -66,24 +66,24 @@ Checklist
 	</div>
 	<div class="checklist-content">
 		<div class="panel-group" id="accordion">
-  		@foreach(ChecklistController::byMonth() as $index=> $checklist_month)
+  		@foreach(Category::get() as $index=> $category)
 		  <div class="panel panel-default">
 		    <div class="panel-heading">
 		      <h4 class="panel-title">
-		        <a class="collapse-month" id="collapse-month{{$index}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
-		         <i class="fa fa-plus-square-o"></i> Tháng {{ChecklistController::changeMonth($checklist_month)}}
+		        <a class="collapse-category" id="collapse-category{{$index}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
+		         <i class="fa fa-plus-square-o"></i> {{$category->name}}
 		        </a>
 		      </h4>
 		      <script type="text/javascript">
-		      $("#collapse-month{{$index}}").click(function(){
-		      	if($("#collapse-month{{$index}} i").hasClass("fa fa-plus-square-o"))
-		      	{	
-		      		$("#collapse-month{{$index}} i").removeClass("fa-plus-square-o").addClass("fa-minus-square-o");
-		      	}
-		      	else
-		      	{
-		      		$("#collapse-month{{$index}} i").removeClass("fa-minus-square-o").addClass("fa-plus-square-o");	
-		      	}
+			      $("#collapse-category{{$index}}").click(function(){
+			      	if($("#collapse-category{{$index}} i").hasClass("fa fa-plus-square-o"))
+			      	{	
+			      		$("#collapse-category{{$index}} i").removeClass("fa-plus-square-o").addClass("fa-minus-square-o");
+			      	}
+			      	else
+			      	{
+			      		$("#collapse-category{{$index}} i").removeClass("fa-minus-square-o").addClass("fa-plus-square-o");	
+			      	}
 		      });
 		      </script>
 		    </div>
@@ -93,22 +93,23 @@ Checklist
 					<thead>
 						<tr>
 							<th></th>
-							<th>Các việc cần làm trong Tháng {{$checklist_month}}</th>
+							<th>Các việc cần làm trong mục {{$category->name}}</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach(@ChecklistController::sortBy($checklist_month) as $usertask)
-						<tr id="{{$usertask->id}}">
-							<td class="text-center">
-								@if($usertask->todo==0)
-									<input type="checkbox" id="chk_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}"  />
-									<input type="hidden" name="checkbox-{{$usertask->id}}" value="">
-								@else
-									<input type="checkbox" id="chk_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}" checked />
-									<input type="hidden" name="checkbox-{{$usertask->id}}" value="{{$usertask->id}}">
-								@endif
-								<script type="text/javascript">
-									$('input[type="checkbox"]#chk_{{$usertask->id}}').click(function(){
+					@foreach(User::find(Cookie::get('id-user'))->user_task()->get() as $index=>$usertask)
+					@if($category->id==$usertask->category)
+						<tr>
+							<td>
+	  							@if($usertask->todo==0)
+	  							<input type="checkbox" id="chk_cat_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}"  />
+								<input type="hidden" name="checkbox-{{$usertask->id}}" value="">
+	  							@else
+	  							<input type="checkbox" id="chk_cat_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}" checked />
+	  							<input type="hidden" name="checkbox-{{$usertask->id}}" value="{{$usertask->id}}">
+	  							@endif
+	  							<script type="text/javascript">
+									$('input[type="checkbox"]#chk_cat_{{$usertask->id}}').click(function(){
 										if($(this).is(':checked')) {
 										var id= $(this).val();
 										$(this).next().val(id);
@@ -151,14 +152,18 @@ Checklist
 									});
 								</script>
 							</td>
-							<td><a href="{{$usertask->link}}" id="title-{{$usertask->id}}">{{$usertask->title}}</a>
-							<p id="description-{{$usertask->id}}">{{$usertask->description}}</p>
+							<td>{{$usertask->title}}</td>
+							<td>
+							<?php 
+								$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
+								echo $date->sub(new DateInterVal('P'.$usertask->startdate.'D'))->format("m-Y");
+							?>
 							</td>
 							<td>
-								<input type="text" hidden id="usertask-id-{{$usertask->id}}" value="{{$usertask->id}}">
-								@if(ChecklistController::comparedate($usertask->startdate))
-								<span class="fa fa-warning" style="color:#E9621A;"></span>
-								@endif
+							<input type="text" hidden id="usertask-id-{{$usertask->id}}" value="{{$usertask->id}}">
+							@if(ChecklistController::comparedate($usertask->startdate))
+							<span class="fa fa-warning" style="color:#E9621A;"></span>
+							@endif
 							</td>
 							<td>
 								<a href="#" id="edit{{$usertask->id}}" data-toggle="modal" data-target="#myModalEditChecklist">
@@ -203,9 +208,9 @@ Checklist
 								</script>
 							</td>
 						</tr>
-						@endforeach
+						@endif
+					@endforeach
 					</tbody>
-
 				</table>
 		      </div><!--panel body-->
 		    </div><!--collapse number-->
@@ -326,7 +331,7 @@ Checklist
 									      			data:{id:$('#form_editChecklist #id').val(),task:$('#form_editChecklist #task').val(),category:$('#form_editChecklist #category').val(),startdate:$('#form_editChecklist #startdate-edit').val(),description:$('#form_editChecklist #description').val()
 									      			},
 									      			success:function(){
-									      				 window.location.href = "{{URL::route('user-checklist')}}";
+									      				 window.location.href = "{{URL::route('user-checklist-category')}}";
 									      			}
 									      			
 									      		});
@@ -369,7 +374,7 @@ Checklist
 					      			},
 					      			cache:false,
 					      			success:function(){
-					      				window.location.href = "{{URL::route('user-checklist')}}";
+					      				window.location.href = "{{URL::route('user-checklist-category')}}";
 					      			}
 					      			
 					      		});

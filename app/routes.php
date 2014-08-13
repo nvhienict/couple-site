@@ -17,7 +17,8 @@ Route::get('/',array("as"=>"index", function()
 }));
 
 Route::filter("check_login", function(){
-		if(!Session::has("email"))
+		$cookie=Cookie::get('id-user');
+		if(!Session::has("email")||!isset($cookie))
 			return Redirect::to("login");
 	});
 
@@ -50,9 +51,15 @@ Route::post('compare',array("as"=>"compare", function(){
 	return View::make('compare')->with('results',$compare);
 }));
 /*Cuong*/
-Route::get('sortBy/{name}',array("before"=>"check_login","as"=>"sortby","uses"=>"ChecklistController@sortBy"));
 Route::get("user-checklist", array("before"=>"check_login","as"=>"user-checklist", "uses"=>"ChecklistController@get_UserChecklist"));
+
+Route::get("user-checklist/category", array("before"=>"check_login","as"=>"user-checklist-category", "uses"=>"ChecklistController@get_UserChecklist_category"));
+
 Route::post('search/{month}',array('as'=>'search','uses'=>'ChecklistController@search'));
+
+Route::post('get-id',array("as"=>"get-id","uses"=>"ChecklistController@getId"));
+
+Route::post('delete-id',array("as"=>"delete-id","uses"=>"ChecklistController@deleteId"));
 
 // Thuy
 Route::post("notes", array("as"=>"notes", "uses"=>"UserBudgetController@updateNote"));

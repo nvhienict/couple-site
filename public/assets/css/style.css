@@ -1379,16 +1379,14 @@ ul#thumbs-main li{
 	margin-top: 30px;
 	margin-bottom: 20px;
 }
-.month{
-
+.now{
+	color: #EF8DB7;
 }
-.month li{
-	list-style: none;
-}
-.month li a{
+.collapse-month,.collapse-category{
 	display: block;
-		float:right;
-	margin-right: 5px;
+}
+.status-month{
+	float: right;
 }
 /*Start - thuy*/
 .icon-button{
