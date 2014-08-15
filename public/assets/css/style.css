@@ -36,7 +36,7 @@ h5 {
 	font-size: 24px;
 }
 h6 {
-	font-size: 20px;
+	font-size: 18px;
 }
 
 h1,
@@ -136,7 +136,10 @@ blockquote strong {
   font-weight: 700;
 }
 
-
+.icon-service
+{
+	width:30px;height:30px;
+}
 
 
 .light {
@@ -1536,4 +1539,17 @@ a.budget_icon_notes{
 .TienVND{text-align: right !important;}
 .budget_vendor{
 	margin: 10px 0px 10px 0px;
+}
+
+.work-detail
+{
+	margin-left: 30px;
+}
+.wedding-detail
+{
+	margin-left: 30px;
+}
+.event-detail
+{
+	margin-left: 30px;
 }

@@ -75,7 +75,7 @@ Trang chủ
 	      </li>
 	      <li><a href="#about">Giới thiệu</a></li>
 	      <li><a href="#service">Dịch vụ</a></li>
-	      <li><a href="#search">Tìm kiếm nhà cung cấp</a></li>
+	      <li><a href="#search">Tìm nhà cung cấp</a></li>
 	      <li><a href="#contact">Liên hệ</a></li>
 	      
 	    </ul>
@@ -111,7 +111,7 @@ Trang chủ
                             </h2>
                             <br>
                             <h3>
-                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                            	<span>Dịch vụ cưới hỏi chuyên nghiệp</span>
                             </h3>
                             <br>
                             <div class="">
@@ -125,15 +125,15 @@ Trang chủ
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
                             <h2>
-                                <span>Awesome Bootstrap template</span>
+                                <span>Chào mừng bạn đến với Thuna.vn</span>
                             </h2>
                             <br>
                             <h3>
-                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                            	<span>Dịch vụ cưới hỏi chuyên nghiệp</span>
                             </h3>
                             <br>
                             <div class="">
-                                 <a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#search">Tìm kiếm nhà cung cấp</a></div>
+                                 <a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#search">Tìm nhà cung cấp</a></div>
                         </div>
                     </div><!-- /header-text -->
 			    </div>
@@ -143,15 +143,15 @@ Trang chủ
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
                             <h2>
-                                <span>Use without any charge</span>
+                                <span>Chào mừng bạn đến với Thuna.vn</span>
                             </h2>
                             <br>
                             <h3>
-                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                            	<span>Dịch vụ cưới hỏi chuyên nghiệp</span>
                             </h3>
                             <br>
                             <div class="">
-                                <a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#search">Tìm kiếm nhà cung cấp</a></div>
+                                <a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#search">Tìm nhà cung cấp</a></div>
                         </div>
                     </div><!-- /header-text -->
 			    </div>
@@ -177,7 +177,7 @@ Trang chủ
 					<div class="section-heading text-center">
 					<h2 class="h-bold">Thông tin về chúng tôi</h2>
 					<div class="divider-header"></div>
-					<p>Lorem ipsum dolor sit amet, agam perfecto sensibus usu at duo ut iriure.</p>
+					
 					</div>
 					</div>
 				</div>
@@ -195,14 +195,14 @@ Trang chủ
 				<div class="wow fadeInLeft" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<span class="fa fa-users fa-5x"></span> 
+						<img class="icon-service"src="{{Asset('assets/glyphicons/glyphicons_043_group.png')}}">
 					</div>
 					<div class="service-desc">						
-						<h5>Chúng tôi là ai?</h5>
+						<h6>Chúng tôi là ai?</h6>
 						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
+						 Thuna là một trong những công ty cung cấp dịch vụ cưới và các sự kiện đặc biệt đầu tiên tại Huế.
 						</p>
-						<a href="#" class="btn btn-skin">Chi tiết</a>
+						<a href="{{URL::route("about")}}" class="btn btn-skin">Chi tiết</a>
 					</div>
                 </div>
 				</div>
@@ -211,14 +211,14 @@ Trang chủ
 				<div class="wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<span class="fa fa-cog fa-5x"></span> 
+						<img class="icon-service"src="{{Asset('assets/glyphicons/glyphicons_136_cogwheel.png')}}">
 					</div>
 					<div class="service-desc">
-						<h5>Cách thức làm việc</h5>
+						<h6>Cách thức làm việc</h6>
 						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
+						Song hành cùng Thuna Wedding & Events để giúp chúng tôi tổ chức sự kiện của bạn thành công và hoàn hảo nhất.
 						</p>
-						<a href="#" class="btn btn-skin">Chi tiết</a>
+						<a href="{{URL::route("work")}}" class="btn btn-skin">Chi tiết</a>
 					</div>
                 </div>
 				</div>
@@ -227,14 +227,17 @@ Trang chủ
 				<div class="wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<span class="fa fa-question fa-5x"></span> 
+						<img class="icon-service"src="{{Asset('assets/glyphicons/glyphicons_194_circle_question_mark.png')}}">
 					</div>
 					<div class="service-desc">
-						<h5>Thắc mắc</h5>
+						<h6>Thắc mắc</h6>
 						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
+						X – FAQ – Các câu hỏi thường gặp.
 						</p>
-						<a href="#" class="btn btn-skin">Chi tiết</a>
+						<br>
+						<br>
+
+						<a href="{{URL::route("question")}}" class="btn btn-skin">Chi tiết</a>
 					</div>
                 </div>
 				</div>
@@ -260,7 +263,6 @@ Trang chủ
 					<div class="section-heading text-center">
 					<h2 class="h-bold">Dịch vụ</h2>
 					<div class="divider-header"></div>
-					<p>Lorem ipsum dolor sit amet, agam perfecto sensibus usu at duo ut iriure.</p>
 					</div>
 					</div>
 				</div>
@@ -274,64 +276,64 @@ Trang chủ
         <div class="row">
             <div class="col-xs-6 col-sm-3 col-md-3">
 				<div class="wow fadeInLeft" data-wow-delay="0.2s">
-                <div class="service-box">
+                <div class="service-marry">
 					<div class="service-icon">
-						<span class="fa fa-cogs fa-5x"></span> 
+						<img class="icon-service"src="{{Asset('assets/glyphicons/glyphicons_012_heart.png')}}">
 					</div>
 					<div class="service-desc">						
-						<h5>Web Design</h5>
+						<h6>Dịch vụ cưới hỏi</h6>
 						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
+						
 						</p>
-						<a href="#" class="btn btn-skin">Chi tiết</a>
+						<a href="{{URL::route('wedding')}}" class="btn btn-skin">Chi tiết</a>
 					</div>
                 </div>
 				</div>
             </div>
 			<div class="col-xs-6 col-sm-3 col-md-3">
 				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
+                <div class="service-birthday">
 					<div class="service-icon">
-						<span class="fa fa-camera fa-5x"></span> 
+						<img class="icon-service" src="{{Asset('assets/glyphicons/glyphicons_278_birthday_cake.png')}}">
 					</div>
 					<div class="service-desc">
-						<h5>Photography</h5>
+						<h6>Dịch vụ thôi nôi, sinh nhật</h6>
 						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
+						
 						</p>
-						<a href="#" class="btn btn-skin">Chi tiết</a>
+						<a href="{{URL::route('birthday')}}" class="btn btn-skin">Chi tiết</a>
 					</div>
                 </div>
 				</div>
             </div>
 			<div class="col-xs-6 col-sm-3 col-md-3">
 				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
+                <div class="service-event">
 					<div class="service-icon">
-						<span class="fa fa-laptop fa-5x"></span> 
+						<img class="icon-service" src="{{Asset('assets/glyphicons/glyphicons_277_pizza.png')}}"> 
 					</div>
 					<div class="service-desc">
-						<h5>Graphic design</h5>
+						<h6>Dịch vụ sự kiện</h6>
 						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
+						
 						</p>
-						<a href="#" class="btn btn-skin">Chi tiết</a>
+						<a href="{{URL::route('event')}}" class="btn btn-skin">Chi tiết</a>
 					</div>
                 </div>
 				</div>
             </div>
 			<div class="col-xs-6 col-sm-3 col-md-3">
 				<div class="wow fadeInRight" data-wow-delay="0.2s">
-                <div class="service-box">
+                <div class="service-product">
 					<div class="service-icon">
-						<span class="fa fa-mobile-phone fa-5x"></span> 
+						<img class="icon-service" src="{{Asset('assets/glyphicons/glyphicons_202_shopping_cart.png')}}">
 					</div>
 					<div class="service-desc">
-						<h5>Mobile apps</h5>
+						<h6>Sản phẩm bán lẻ</h6>
 						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
+						
 						</p>
-						<a href="#" class="btn btn-skin">Chi tiết</a>
+						<a href="{{URL::route('product')}}" class="btn btn-skin">Chi tiết</a>
 					</div>
                 </div>
 				</div>
