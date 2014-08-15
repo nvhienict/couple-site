@@ -79,65 +79,52 @@ class UserBudgetController extends \BaseController {
 			 		<a onclick="item_click('.$item->id.')" class="'.$item->id.'show_item">'.$item->item.'</a>
 				    <input  onchange="item_change('.$item->id.')"  ondblclick="item_dblclick('.$item->id.')"  type="text" value="'.$item->item.'" name="item" class="'.$item->id.'item form-control input-edit-money" >
 					<input type="hidden" value="'.$item->id.'" name="'.$item->id.'">
-					<p style="display:none;color:red;" class="item_error'.$budget->id.'">Item không được trống</p>
+					<p style="display:none;color:red;" class="item_error'.$item->id.'">Item không được trống</p>
 			 	</div>
 			</td>
 			<td class="TienVND">
-				<div id="edit-money" > 
-					<a hreft="" class="'.$item->id.'_show_hide">
+				<div class="estimate'.$item->id.'" > 
+					<a onclick="estimate_click('.$item->id.')" hreft="" class="'.$item->id.'showEstimate" >
 						'.number_format(($item->estimate),0, ',', ' ').' VND
 					</a>
-					<input type="number" class="'.$item->id.'_slidingDiv form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->estimate.'">
+					<input onkeypress="estimate_keypress(event,'.$item->id.')" onchange="estimate_dblclick('.$item->id.')" ondblclick="estimate_dblclick('.$item->id.')" type="text" class="'.$item->id.'InputEstimate form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->estimate.'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
+					<p style="display:none;color:red;" class="estimate_error'.$item->id.'">Please,nhập số</p>
 				</div>
 			</td>
 			<td class="TienVND">
 				<div id="edit-money" > 
-					<a hreft="" class="'.$item->id.'_show_hide">
+					<a onclick="actual_click('.$item->id.')" hreft="" class="'.$item->id.'_show_hide">
 						'.number_format(($item->actual),0, ',', ' ').' VND
 					</a>
-					<input type="number" class="'.$item->id.'_slidingDiv form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->actual.'">
+					<input onkeypress="actual_keypress(event,'.$item->id.')" onchange="actual_dblclick('.$item->id.')" ondblclick="actual_dblclick('.$item->id.')" type="text" class="'.$item->id.'_slidingDiv form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->actual.'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
+					<p style="display:none;color:red;" class="actual_error'.$item->id.'">Please,nhập số</p>
 				</div>
 			</td>
 			<td class="TienVND">
  				<div  > 
-					<a hreft="" class="'.$item->id.'Pay" >
+					<a onclick="pay_click('.$item->id.')" hreft="" class="'.$item->id.'Pay" >
 						'.number_format(($item->pay),0, ',', ' ').' VND
 					</a>
-					<input type="number" class="'.$item->id.'Estimate form-control input-edit-money" id="'.$item->id.'estimate" name="estimate" value="'.$item->pay .'">
+					<input onkeypress="pay_keypress(event,'.$item->id.')" onchange="pay_dblclick('.$item->id.')" ondblclick="pay_dblclick('.$item->id.')" type="text" class="'.$item->id.'Estimate form-control input-edit-money" id="'.$item->id.'estimate" name="estimate" value="'.$item->pay .'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
+					<p style="display:none;color:red;" class="pay_error'.$item->id.'">Please,nhập số</p>
 				</div>
  			</td>
 			<td class="TienVND">
 			<div>
-				<a class="Due'.$item->id.'">'.number_format((($budget->actual)-($budget->pay)),0, ',', ' ') .' VND
+				<a class="Due'.$item->id.'">'.number_format((($item->actual)-($item->pay)),0, ',', ' ') .' VND
 				</a>
 			</div>	
 			</td>
 			
 			<td>
- 				<a href="" data-toggle="modal" data-target="#myModalDeleteItemBudget'.$budget->id.'" class="budget_icon_trash"><i class="glyphicon glyphicon-trash"></i></a>
- 				     <input type="hidden"  name="'.$budget->id.'" value="'.$budget->id.'" >
+				<a href="" onclick="item_del('.$item->id.')" class="confirm budget_icon_trash item_del'.$item->id.'"><i class="glyphicon glyphicon-trash"></i></a>
+			    <input type="hidden"  name="'.$item->item.'" value="'.$item->id.'" >
  			</td>
  			
-				<div class="modal fade" id="myModalDeleteItemBudget'.$budget->id.'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-					    <div class="modal-content">
-					        <div class="modal-header">
-					            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					             <div>Bạn muốn xóa '.$budget->item.'</div>
-					      	</div>
-					        
-						    <div class="modal-footer">
-						    	<a href="" onclick="item_del('.$budget->id.')" class="btn btn-primary item_del'.$budget->id.'">OK</a>
-						    	<input type="hidden" name="'.$budget->id.'" value="'.$budget->id.'">
-					            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-					                
-					        </div>
-						</div> 
-					</div> 
-				</div> 
+				
 								
 		</tr>';
 		echo json_encode(array('item_last'=>$item_last->id,'item'=>$item->id,'html'=>$html));die();
@@ -161,8 +148,7 @@ class UserBudgetController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
+	public function show($id)	{
 		//
 	}
 

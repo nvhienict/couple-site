@@ -33,8 +33,7 @@ Checklist
 <div class="col-xs-12 col-md-10">
 	<div class="row sort-by">
 		<div class="col-md-6">
-			<h2>Check list
-			</h2>
+			<h2>Danh sách công việc</h2>
 		</div>
 		<div class="col-md-5 pull-right">
 			<div>
@@ -60,7 +59,7 @@ Checklist
 
 		
 			<div class="col-md-2">
-				<a href="" ><i class="fa fa-print"></i>&nbspXuất file</a>
+				<a href="{{Asset('exportfile')}}" ><i class="fa fa-print"></i>&nbspXuất file</a>
 			</div>
 		</div>
 	</div>
@@ -156,7 +155,7 @@ Checklist
 							</td>
 							<td>
 								<input type="text" hidden id="usertask-id-{{$usertask->id}}" value="{{$usertask->id}}">
-								@if(ChecklistController::comparedate($usertask->startdate))
+								@if(ChecklistController::comparedate($usertask->startdate,$usertask->todo))
 								<span class="fa fa-warning" style="color:#E9621A;"></span>
 								@endif
 							</td>

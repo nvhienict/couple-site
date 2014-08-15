@@ -304,19 +304,51 @@ class ChecklistController extends \BaseController {
 
 	public function exportfile(){
 
-		$table = UserTask::all();
+		$id_user = Cookie::get('id-user');
+		$datas = UserTask::where('user', $id_user)->get();
+		$email = User::where('id', $id_user)->get()->first()->email;
 
-		$output='';
- 
-	    foreach ($table as $row) {
-	        $output .=  implode(",",$row->toArray());
-	    }
-	    $headers = array(
-	        'Content-Type' => 'text/csv',
-        	'Content-Disposition' => 'attachment; filename="ExportFileName.csv"',
-	    );
-	 
-	    return Response::make(rtrim($output, "\n"), 200, $headers);
+		$date_wedding = new DateTime(User::find($id_user)->weddingdate);
+		
+		// -------------
+		$row = array(
+			array('Khách hàng', $email, ''),
+			array('In công việc từ', 'thuna.vn', ''),
+		    array('Danh mục','Ngày làm','Tình trạng','Tên công việc'),
+		);
 
+		foreach($datas as $data){
+			
+			$category = UserTask::find($data->id)->category()->get()->first()->name;
+			
+			$date_wedding = new DateTime(User::find($id_user)->weddingdate);
+			$startdate = $data->startdate;
+			$date_task = $date_wedding->sub(new DateInterVal('P'.$startdate.'D'));
+
+			$todo = $data->todo;
+			if($todo==0){
+				$print_todo="Chưa làm";
+			}else{ $print_todo="Đã hoàn thành"; }
+		    
+		    $row[] = array( $category, $date_task->format('d-m-Y'), $print_todo, $data->title );
+		}
+
+
+		Excel::create('Checklist', function($excel) use($row) {
+			
+		    $excel->sheet('Checklist', function($sheet) use($row) {
+		    	
+		    	$sheet->cells('A3:D3', function($row) {
+				    // set color for cell
+				    $row->setBackground('#95b3d7');
+
+				});
+
+		    	// cell A1 not null
+		        $sheet->fromArray($row, null, 'A1', false, false);
+		    });
+		})->export('xlsx');
+
+		return View::make('user-checklist');
 	}
 }

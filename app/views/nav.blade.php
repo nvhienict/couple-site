@@ -19,22 +19,20 @@
           <div class="row">
             <div class="col-xs-6">
               <ul class="list-unstyled">
-                <li><a href="#">Áo cưới cô dâu</a></li>
-                <li><a href="#">Ban nhạc</a></li>
-                <li><a href="#">Bánh cưới</a></li>
-                <li><a href="#">Dịch vụ vận chuyển</a></li>
-                <li><a href="#">Trang điểm</a></li>
-                <li><a href="#">Wedding Planner</a></li>
+                  @foreach (Category::get() as $index=> $category)
+                  @if($index < 6)
+                    <li><a href="{{URL::route('category', array($category->id))}}">{{$category['name']}}</a></li>
+                  @endif
+                  @endforeach
               </ul>
             </div>
             <div class="col-xs-6">
               <ul class="list-unstyled">
-                <li><a href="#">Nhà hàng tiệc cưới</a></li>
-                <li><a href="#">Quay phim chụp ảnh</a></li>
-                <li><a href="#">Thiệp cưới</a></li>
-                <li><a href="#">Trang phục chú rể</a></li>
-                <li><a href="#">Trang sức cưới hỏi</a></li>
-                <li><a href="#">Trang trí hoa</a></li>
+                  @foreach (Category::get() as $index=> $category)
+                  @if($index >= 6)
+                    <li><a href="{{URL::route('category', array($category->id))}}">{{$category['name']}}</a></li>
+                  @endif
+                  @endforeach
               </ul>
             </div>
           </div>
@@ -51,9 +49,9 @@
                 <li><a href="#">Website cưới</a></li>
                 <li><a href="#">Danh sách khách mời</a></li>
                 <li><a href="#">Sơ đồ ghế ngồi</a></li>
-                <li><a href="{{URL::route('user-checklist')}}">Danh sách công việc</a></li>
+                <li><a href="{{URL::route('user-checklist')}}">Danh sách công việc</a><span class="glyphicon glyphicon-ok"></span></li>
                 <li><a href="#">Quản lý vendor</a></li>
-                <li><a href="{{URL::route('budget')}}">Quản lý ngân sách</a></li>
+                <li><a href="{{URL::route('budget')}}">Quản lý ngân sách</a><span class="glyphicon glyphicon-ok"></span></li>
               </ul>
             </div>
             <div class="col-xs-6">

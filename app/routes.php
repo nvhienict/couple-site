@@ -11,13 +11,47 @@
 |
 */
 
-
-
 Route::get('/',array("as"=>"index", function()
 {
 	return View::make('index');
 }));
 
+Route::filter("check_login", function(){
+		$cookie=Cookie::get('id-user');
+		if(!Session::has("email")||!isset($cookie))
+			return Redirect::to("login");
+	});
+
+Route::get("main",array("before"=>"check_login", "as"=>"main","uses"=>"UserController@index"));
+
+Route::get('/video/{id}',function($id){
+	return View::make('video')->with('vendor', Vendor::find($id));
+});
+Route::get('/map/{id}',function($id){
+	return View::make('map')->with('vendor', Vendor::find($id));
+});
+
+Route::get('vendor/{id}', array('as'=>'vendor', 'uses'=>'VendorController@show'));
+
+Route::get('category-vendor',array('as'=>'category-vendor', "uses"=>"VendorController@index"));
+
+Route::get('category/{id}', array('as'=>'category', "uses"=>"VendorController@category"));
+Route::get('category-photo', array('as'=>'category_vendor', "uses"=>"VendorController@category_vendor"));
+Route::get('category-list', array('as'=>'category_vendor_list', "uses"=>"VendorController@category_vendor_list"));
+
+Route::get('list-vendor/search', array('as'=>'home-page',"uses"=>"VendorController@search"));
+
+Route::get('list-vendor/search_list', array('as'=>'home-page',"uses"=>"VendorController@search_list"));
+
+Route::get('compare',array("as"=>"compare", "uses"=>"VendorController@post_Compare"));
+
+Route::post('check_vendor_compare',array("as"=>"check_vendor_compare", "uses"=>"VendorController@post_AddCompare"));
+
+Route::post('remove_vendor_compare/{id}',array("as"=>"remove_vendor_compare", "uses"=>"VendorController@post_RemoveCompare"));
+
+
+
+/*Cuong*/
 
 Route::get('about',array('as'=>'about',function(){
 	return View::make('about');
@@ -42,41 +76,7 @@ Route::get('product',array('as'=>'product',function(){
 	return View::make('product');
 }));
 
-Route::filter("check_login", function(){
-		$cookie=Cookie::get('id-user');
-		if(!Session::has("email")||!isset($cookie))
-			return Redirect::to("login");
-	});
-
-Route::get("main",array("before"=>"check_login", "as"=>"main","uses"=>"UserController@index"));
-
-Route::get('/video/{id}',function($id){
-	return View::make('video')->with('vendor', Vendor::find($id));
-});
-Route::get('/map/{id}',function($id){
-	return View::make('map')->with('vendor', Vendor::find($id));
-});
-Route::get('compare', function(){
-	return View::make('compare');
-});
-Route::get('list-vendor',array('as'=>'list-vendor', function(){
-	 return View::make('list-vendor');
-}));
-
-Route::post('list-vendor', array('as'=>'home-page',"uses"=>"VendorController@search"));
-
-Route::get('detail-vendor/{id}',array('as'=>'detail-vendor',"uses"=>"VendorController@show"));
-
-Route::post('compare',array("as"=>"compare", function(){
-	foreach(Vendor::get() as $vendor){
-		if(Input::get('checkbox-'.$vendor->id)==$vendor->id)
-		{
-			 $compare[]=Input::get('checkbox-'.$vendor->id);
-		}
-	}
-	return View::make('compare')->with('results',$compare);
-}));
-/*Cuong*/
+Route::get('sortBy/{name}',array("before"=>"check_login","as"=>"sortby","uses"=>"ChecklistController@sortBy"));
 Route::get("user-checklist", array("before"=>"check_login","as"=>"user-checklist", "uses"=>"ChecklistController@get_UserChecklist"));
 
 Route::get("user-checklist/category", array("before"=>"check_login","as"=>"user-checklist-category", "uses"=>"ChecklistController@get_UserChecklist_category"));
@@ -87,14 +87,23 @@ Route::post('get-id',array("as"=>"get-id","uses"=>"ChecklistController@getId"));
 
 Route::post('delete-id',array("as"=>"delete-id","uses"=>"ChecklistController@deleteId"));
 
+Route::get('exportfile',array("as"=>"exportfile", "uses"=>"ChecklistController@exportfile"));
+
 // Thuy
 Route::post("notes", array("as"=>"notes", "uses"=>"UserBudgetController@updateNote"));
+
 Route::post('editActual',array('as'=>'editActual', 'uses'=>'UserBudgetController@editActual'));
+
 Route::post('summaryActual',array('as'=>'summaryActual', 'uses'=>'UserBudgetController@summaryActual'));
+
 Route::post('editPay',array('as'=>'editPay', 'uses'=>'UserBudgetController@editPay'));
+
 Route::post('getData',array('as'=>'getData', 'uses'=>'UserBudgetController@getData'));
+
 Route::post('totalCatPay',array('as'=>'totalCatPay', 'uses'=>'UserBudgetController@totalCatPay'));
+
 Route::post('totalPay',array('as'=>'totalPay', 'uses'=>'UserBudgetController@totalPay'));
+
 Route::post('editEstimate',array('as'=>'editEstimate', 'uses'=>'UserBudgetController@editEstimate'));
 
 
@@ -108,26 +117,19 @@ Route::post('register',array("as"=>"register","uses"=>"UserController@post_users
 Route::post('check_user_email',array("as"=>"check_user_email","uses"=>"UserController@check_user_email"));
 
 // Checklist --- Giang
+Route::post("checklist/add", array("as"=>"add-checklist", "uses"=>"ChecklistController@post_Add_Checklist"));
 
-Route::post("checklist/add", array("before"=>"check_login","as"=>"add-checklist", "uses"=>"ChecklistController@post_Add_Checklist"));
+Route::post("checklist/edit", array("as"=>"edit-checklist", "uses"=>"ChecklistController@post_Edit_Checklist"));
 
-Route::post("checklist/edit", array("before"=>"check_login","as"=>"edit-checklist", "uses"=>"ChecklistController@post_Edit_Checklist"));
+Route::post("check_task_add", array("as"=>"check_task_add", "uses"=>"ChecklistController@post_CheckTaskAdd"));
 
-Route::post("check_task_add", array("before"=>"check_login","as"=>"check_task_add", "uses"=>"ChecklistController@post_CheckTaskAdd"));
+Route::post("check_task_edit/{id}", array("as"=>"check_task_edit", "uses"=>"ChecklistController@post_CheckTaskEdit"));
 
-Route::post("check_task_edit/{id}", array("before"=>"check_login","as"=>"check_task_edit", "uses"=>"ChecklistController@post_CheckTaskEdit"));
-
-Route::get("check_task_del/{id}", array("before"=>"check_login","as"=>"check_task_del", "uses"=>"ChecklistController@post_CheckTaskDel"));
+Route::get("check_task_del/{id}", array("as"=>"check_task_del", "uses"=>"ChecklistController@post_CheckTaskDel"));
 
 Route::get("user-checklist", array("before"=>"check_login","as"=>"user-checklist", "uses"=>"ChecklistController@get_UserChecklist"));
 
-Route::get('task_overdue', array("before"=>"check_login","as"=>"task_overdue","uses"=>"ChecklistController@get_Task_Overdue"));
-
-Route::get('task_complete', array("before"=>"check_login","as"=>"task_complete","uses"=>"ChecklistController@get_Task_Complete"));
-
-Route::post('check_task_complete/{ac}', array("before"=>"check_login","as"=>"check_task_complete", "uses"=>"ChecklistController@post_CheckTaskComplete"));
-
-Route::get('export_checklist', array("before"=>"check_login","as"=>"export_checklist","uses"=>"ChecklistController@exportfile"));
+Route::post('check_task_complete/{ac}', array("as"=>"check_task_complete", "uses"=>"ChecklistController@post_CheckTaskComplete"));
 
 
 // ------ BUDGET -----Giang
@@ -146,4 +148,14 @@ Route::post('budget/update',array('as'=>'update','uses'=>'UserBudgetController@u
 // Route::post('budget/update2',array('as'=>'update2','uses'=>'ItemController@update2'));
 
 
+Route::post('get_url/{url}', array('as'=>'get_url', 'uses'=>'UserController@post_url'));
 
+Route::get('gh', function(){
+	$gh = Session::get('get_url');
+
+	if(!empty($gh)){
+		echo $gh;
+	}else{
+		echo 'ko co';
+	}
+});

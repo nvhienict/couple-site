@@ -17,42 +17,69 @@ Budget
 				<form id="form-create-money" action="{{URL::route('money_budget')}}" method="post">
 					<div class="row form-group">
 						<label for="money_budget" class="col-xs-2 control-label">Số tiền</label>
-						<div class="col-xs-7">
-						   	<input type="text" class="form-control" name="money_budget" id="money_budget" placeholder="Nhập số tiền" />
+						<div class="col-xs-5">
+							<input type="text"  class="form-control" id="money_budget1" name="money_budget1" placeholder="Nhập số tiền"  />
+						   	<input type="text" hidden name="money_budget" id="money_budget"/>
 						</div>
-						<small> Đơn vị: triệu VND</small>
+						<small>VND</small>
 					</div>
 					<div class="row form-group">
-						<div class="col-xs-4">
+						<div class="col-xs-3">
 							
 						</div>
 						<div class="col-xs-4">
-						   	<button type="submit" class="btn btn-success">Tính tổng chi phí</button>
+						   	<button type="submit" id="submit_money" class="btn btn-success">Tính tổng chi phí</button>
 						</div>
-						<div class="col-xs-4"></div>
+						<div class="col-xs-5"></div>
 					</div>
 				</form>
 				<script type="text/javascript">
+
+				$("#money_budget1").keypress(validateNumber);
+					function validateNumber(event) {
+					    var key = window.event ? event.keyCode : event.which;
+					    if (event.keyCode == 8 || event.keyCode == 46
+					     || event.keyCode == 37 || event.keyCode == 39) {
+					    	$(this).number(true);
+					        return true;
+					    }
+					    else if ( key < 48 || key > 57 ) {
+
+					        return false;
+					    }
+					    else{
+					     $(this).number(true);
+					     return true;
+
+					    } true;
+					} 
+
 				$("#form-create-money").validate({
 					rules:
 					{
-						money_budget:
+						money_budget1:
 						{
 							required:true,
-							number:true,
-							range:[50,1000]
+							range:[50000000,1000000000]
 						}
 					},
 					messages:
 					{
-						money_budget:
+						money_budget1:
 						{
 							required:"Chưa nhập số tiền",
-							number:"Nhập không đúng định dạng số",
 							range:" Hệ thống chỉ tính toán vs số tiền từ 50 triệu tới 1 tỷ"
 						}
 					}
 				})
+
+				$(function(){
+				    $("#money_budget1").keyup(function () {
+				        var value = $(this).val();
+				        $("#money_budget").val(value);
+				    }).keyup();
+				});
+				
 				</script>
 			</div>
 		</div>

@@ -16,9 +16,9 @@ class UserTask extends Eloquent {
 	 * @var array
 	 */
 
-	public function categoty()
+	public function category()
 	{
-		return $this->belongsTo("Category","categoty");
+		return $this->belongsTo("Category","category");
 	}
 	public function user()
 	{

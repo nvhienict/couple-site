@@ -81,6 +81,12 @@ class UserController extends \BaseController {
 	{
 		//
 	}
+
+	public function post_url($url){
+
+		Session::set('get_url', $url);
+	}
+
 	public function get_login()
 	{
 		return View::make('user-login');
@@ -104,7 +110,7 @@ class UserController extends \BaseController {
 					// return Redirect::to("user-checklist");
 					
 					$view = View::make('index');
-
+					
 					return Response::make($view)->withCookie($cookie);
 				}	 
 				else return View::make("user-login")->with("messages","Email hoặc mật khẩu không đúng!");	
