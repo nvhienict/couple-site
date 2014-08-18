@@ -33,6 +33,10 @@ Route::get('/map/{id}',function($id){
 
 Route::get('vendor/{id}', array('as'=>'vendor', 'uses'=>'VendorController@show'));
 
+Route::get('list-vendor',array('as'=>'list-vendor', function(){
+	 return View::make('list-vendor');
+}));
+
 Route::get('category-vendor',array('as'=>'category-vendor', "uses"=>"VendorController@index"));
 
 Route::get('category/{id}', array('as'=>'category', "uses"=>"VendorController@category"));
