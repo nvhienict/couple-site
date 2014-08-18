@@ -7,30 +7,9 @@ Checklist
 @endsection
 @section('content')
 <div class="container user-checklist">
-	<div class="row">
-	<div class="notice-checklist text-center">
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-2">
-		NGÀY CƯỚI <br>
-		{{User::find(Cookie::get('id-user'))->weddingdate}}
-		</div>
-		<div class="col-md-2">
-		VIỆC CẦN LÀM <br>
-		{{UserTask::where("user",Cookie::get('id-user'))->count()}}
-		</div>
-		<div class="col-md-2">
-		VIỆC QUÁ HẠN<br>
-		<span id="count_overdue">{{ChecklistController::overdue()}}</span>
-		</div>
-		<div class="col-md-2">
-		VIỆC HOÀN THÀNH <br>
-			<span id="count_complete">{{UserTask::where("user",Cookie::get('id-user'))->where('todo',1)->count()}}</span>
-		</div>
-		<div class="col-md-2"></div>
-	</div>
-</div><!--notice-checklist-->
-<div class="col-xs-12 col-md-10">
+<div class="row">
+	
+<div class="col-xs-10">
 	<div class="row sort-by">
 		<div class="col-md-6">
 			<h2>Danh sách công việc</h2>
@@ -63,11 +42,41 @@ Checklist
 			</div>
 		</div>
 	</div>
+
+	<div class="checklist-statis-formonth">
+		<div class="row">
+			<div class="col-xs-5"><span>Tháng</span></div>
+			<div class="col-xs-2"><span >Số việc cần làm</span></div>
+			<div class="col-xs-2"><span >Số việc quá hạn</span></div>
+			<div class="col-xs-3"><span >Số việc hoàn thành</span></div>
+		</div>
+	</div>
+	<!-- hide for scroll will show -->
+	<div class="checklist-statis-formonth-hide" >
+		<div class="row">
+			<div class="col-xs-5"><span>Tháng</span></div>
+			<div class="col-xs-2"><span >Số việc cần làm</span></div>
+			<div class="col-xs-2"><span >Số việc quá hạn</span></div>
+			<div class="col-xs-3"><span >Số việc hoàn thành</span></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+
+		$(window).scroll(function(){
+			if ($(this).scrollTop() > 230) {
+		        $('.checklist-statis-formonth-hide').show();
+		    } else {
+		        $('.checklist-statis-formonth-hide').hide();
+		    }
+		});
+
+	</script>
+
 	<div class="checklist-content">
 		<div class="panel-group" id="accordion">
   		@foreach(Category::get() as $index=> $category)
-		  <div class="panel panel-default">
-		    <div class="panel-heading">
+		  <div class="panel panel-default" >
+		    <div class="panel-heading" style="background: #fff6ee;">
 		      <h4 class="panel-title">
 		        <a class="collapse-category" id="collapse-category{{$index}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
 		         <i class="fa fa-plus-square-o"></i> {{$category->name}}
@@ -390,114 +399,46 @@ Checklist
 		</div>
 		
 	</div><!--checklist-->
-		</div><!--col-md-9-->
+		<script type="text/javascript" src="{{Asset('assets/js/script-giang.js')}}"></script>
+	</div><!--col-xs-10-->
+
+	<div class="col-xs-2" style="background: #f2f0ee; padding: 5px;">
+
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>Thống kê</h2>
+				NGÀY CƯỚI: 
+				<span style="color: #ff2680;">{{User::find(Cookie::get('id-user'))->weddingdate}}</span>
+
+				<br />VIỆC CẦN LÀM: 
+				<span style="color: #f0ad4e;">{{UserTask::where("user",Cookie::get('id-user'))->count()}}</span>
+
+				<br />VIỆC QUÁ HẠN: 
+				<span id="count_overdue" style="color: #f0ad4e;">{{ChecklistController::overdue()}}</span>
+
+				<br />VIỆC HOÀN THÀNH: 
+				<span id="count_complete" style="color: #f0ad4e;">{{UserTask::where("user",Cookie::get('id-user'))->where('todo',1)->count()}}</span>
+				<br />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				{{'<img width="185px" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',1)->get()->first()->avatar) . '" />'}}
+				<span style="color: #68ceee">{{Vendor::where('id',1)->get()->first()->name}}</span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				{{'<img width="185px" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',2)->get()->first()->avatar) . '" />'}}
+				<span style="color: #68ceee">{{Vendor::where('id',1)->get()->first()->name}}</span>
+			</div>
+		</div>
+
 	</div>
-<script type="text/javascript">
-$("#add-checklist").click(function(){
-	var $validator=$("#form_addChecklist").validate().resetForm();
-});
 
-$("#form_addChecklist").validate({
-	rules:{
-		task:{
-			required:true,
-			remote:{
-				url:"{{URL::route('check_task_add')}}",
-				type:"post"
-			}
-		},
-		startdate:{
-			required:true
-		},
-		category:{
-			required:true
-		}
-	},
-	messages:{
-		task:{
-			required:"Bạn phải nhập tên công việc",
-			remote:"Công việc đã tồn tại"
-		},
-		startdate:{
-			required:"Bạn phải chọn ngày làm"
-		},
-		category:{
-			required:"Bạn phải chọn danh mục"
-		}
-	}
-});
+</div> <!-- end row -->
 
-$("#form_editChecklist").validate({
-	rules:{
-		task:{
-			required:true,
-			remote:{
-				url:"",
-				type:"post"
-			}
-		},
-		startdate:{
-			required:true
-		},
-		category:{
-			required:true
-		}
-	},
-	messages:{
-		task:{
-			required:"Bạn phải nhập tên công việc",
-			remote:"Công việc đã tồn tại"
-		},
-		startdate:{
-			required:"Bạn phải chọn ngày làm"
-			
-		},
-		category:{
-			required:"Bạn phải chọn danh mục"
-		}
-	},
-	errorPlacement: function (error, element) {
-		error.insertAfter(element);
-	}
-});
-
-jQuery('#startdate-edit').datetimepicker({
-	lang:'en',
-	i18n:{
-	en:{
-		months:[
-		    'January','February','March','April',
-		    'May','June','July','August',
-		    'September','October','November','December',
-		   ],
-		dayOfWeek:[
-		    "Su", "Mo", "Tu", "We", 
-		    "Th", "Fr", "Sa",
-		   ]
-		}
-	},
-	timepicker:false,
-	format:'Y-m-d'
-	});
-jQuery('#startdate').datetimepicker({
-	lang:'en',
-	i18n:{
-	en:{
-		months:[
-		    'January','February','March','April',
-		    'May','June','July','August',
-		    'September','October','November','December',
-		   ],
-		dayOfWeek:[
-		    "Su", "Mo", "Tu", "We", 
-		    "Th", "Fr", "Sa",
-		   ]
-		}
-	},
-	timepicker:false,
-	format:'Y-m-d'
-	});
-
-</script>
 </div><!--container-->
 @endsection

@@ -1707,3 +1707,32 @@ a.budget_icon_notes{
 	width: 170px;
 	margin: 0px 13px 0px 0px;
 }
+
+/* checklist */
+.checklist-statis-formonth{
+	padding: 10px;
+	background: #555555;
+	color: #fff;
+}
+.checklist-statis-formonth span{
+	padding: 5px;
+	margin: 5px 110px 0px 0px;
+	font-weight: bold;
+}
+
+.checklist-statis-formonth-hide{
+	width: 70%;
+	padding: 10px;
+	background: #555555;
+	color: #fff;
+	display: none;
+	position: fixed;
+	z-index: 99999;
+	top: 0;
+}
+.checklist-statis-formonth-hide span{
+	padding: 5px;
+	margin: 5px 110px 0px 0px;
+	font-weight: bold;
+}
+
