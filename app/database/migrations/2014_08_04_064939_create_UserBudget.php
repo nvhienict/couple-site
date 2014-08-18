@@ -12,7 +12,7 @@ class CreateUserBudget extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('UserBudget',function($table)
+		Schema::create('userbudget',function($table)
 			{
 				$table->increments("id");
 				$table->integer('user');
@@ -22,6 +22,7 @@ class CreateUserBudget extends Migration {
 				$table->float('actual');
 				$table->float('pay');
 				$table->longText('note');
+				$table->float("range");
 				$table->timestamps();
 			});
 	}
@@ -33,7 +34,7 @@ class CreateUserBudget extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop("userbudget");
 	}
 
 }

@@ -12,7 +12,7 @@ class CreateBudget extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Budget',function($table)
+		Schema::create('budget',function($table)
 			{
 				$table->increments("id");
 				$table->integer('category');
@@ -31,7 +31,7 @@ class CreateBudget extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('budget');
 	}
 
 }
