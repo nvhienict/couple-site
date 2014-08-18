@@ -12,7 +12,7 @@ class CreateBudgetRange extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('BudgetRange',function($table)
+		Schema::create('budgetrange',function($table)
 			{
 				$table->increments("id");
 				$table->integer('min');
@@ -28,7 +28,7 @@ class CreateBudgetRange extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop("budgetrange");
 	}
 
 }
