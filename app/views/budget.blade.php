@@ -101,13 +101,33 @@ Budget
 			<div class="row">
 				<div class="col-xs-12">
 					<table class="table-budget">
+
+						<tr class="table-budget-thead-fixed">
+							<th><i class="glyphicon glyphicon-th-large"></i></th>
+					 		<th style="width:300px;"  >Danh mục</th>
+					 		<th style="width:160px;" >Chi phí dự kiến</th>
+					 		<th style="width:160px;" >Chi phí thực tế</th>
+					 		<th style="width:160px;" >Số tiền thanh toán</th>
+					 		<th colspan="2" style="width:140px;" >Số tiền còn nợ</th>
+					 	</tr>
+					 	<script type="text/javascript">
+						 	$(window).scroll(function(){
+								if ($(this).scrollTop() > 230) {
+							        $('.table-budget-thead-fixed').show();
+							    } else {
+							        $('.table-budget-thead-fixed').hide();
+							    }
+							});
+						</script>
 					 	<thead>
-					 		<th colspan="2">Danh mục</th>
+					 		<th><i class="glyphicon glyphicon-th-large"></i></th>
+					 		<th>Danh mục</th>
 					 		<th>Chi phí dự kiến</th>
 					 		<th>Chi phí thực tế</th>
 					 		<th>Số tiền thanh toán</th>
 					 		<th colspan="2">Số tiền còn nợ</th>
 					 	</thead>
+
 					 	<tbody>
 					 	@foreach(Category::get() as $key=>$category)
 					 		<tr class="budget_cat" id="cate{{$category->id}}">
@@ -275,13 +295,14 @@ Budget
 						 	</tbody>
 						@endforeach
 					 	</tbody>
-					 	<thead>
-					 		<th colspan="2">Tổng cộng chi phí</th>
+					 	<tr>
+					 		<th><i class="glyphicon glyphicon-gbp"></i></th>
+					 		<th>Tổng cộng chi phí</th>
 					 		<th class="TienVND" id="rowSumExpected">{{number_format(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('estimate'), 0, '.', ',')}} VND</th>
 					 		<th class="TienVND" id="rowSumActual">{{number_format(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('actual'), 0, '.', ',')}} VND</th>
 					 		<th class="TienVND" id="rowSumPay">{{number_format(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('pay'), 0, '.', ',')}} VND</th>
 					 		<th class="TienVND" id="rowSumDue" colspan="2">{{number_format((UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('actual'))-(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('pay')), 0, '.', ',')}} VND</th>
-					 	</thead>
+					 	</tr>
 					</table>
 				</div>
 			</div>

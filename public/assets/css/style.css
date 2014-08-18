@@ -1482,6 +1482,17 @@ ul#thumbs-main li{
 	width: 100%;
 	margin: 10px 0px 20px 0px;
 }
+.table-budget-thead-fixed{
+	width: 945px;
+	display: none;
+	position: fixed;
+	top: 0px;
+	z-index: 99999;
+}
+.table-budget-thead-fixed th{
+
+}
+
 .table-budget tr{
 	line-height: 40px;
 }
