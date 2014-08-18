@@ -5,8 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"maatwebsite/excel": "1.*",
-		"laravel/framework": "4.3.*@dev"
+		"maatwebsite/excel": "1.*"
 	},
 	"autoload": {
 		"classmap": [
