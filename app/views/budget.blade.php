@@ -243,7 +243,7 @@ Budget
 									 <a onclick="estimate_click({{$budget->id}})" class="{{$budget->id}}showEstimate">
                                         {{number_format(($budget->estimate),0, '.', ',')}} VND
 									 </a> 
-									    <input onkeypress="estimate_keypress(event,{{$budget->id}})" onchange="estimate_dblclick({{$budget->id}})" ondblclick="estimate_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}InputEstimate form-control input-edit-money" name="estimate" value=" {{number_format(($budget->estimate),0, '.', ',')}}">
+									    <input onkeyup="key_estimate(event,{{$budget->id}})" onchange="estimate_dblclick({{$budget->id}})" ondblclick="estimate_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}InputEstimate form-control input-edit-money" name="estimate" value=" {{number_format(($budget->estimate),0, '.', ',')}}">
 										<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
 									 </div>
 									 <p style="display:none;color:red;" class="estimate_error{{$budget->id}}">please,nhập số</p>
@@ -253,7 +253,7 @@ Budget
 										<a onclick="actual_click({{$budget->id}})" hreft="" class="{{$budget->id}}_show_hide">
 											{{number_format(($budget->actual),0, '.', ',')}} VND
 										</a>
-										<input onkeypress="actual_keypress(event,{{$budget->id}})" onchange="actual_dblclick({{$budget->id}})" ondblclick="actual_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}_slidingDiv form-control input-edit-money" id="{{$budget->id}}money" name="money" value="{{number_format(($budget->actual),0, '.', ',')}}">
+										<input onkeyup="key_actual(event,{{$budget->id}})" onchange="actual_dblclick({{$budget->id}})" ondblclick="actual_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}_slidingDiv form-control input-edit-money" id="{{$budget->id}}money" name="money" value="{{number_format(($budget->actual),0, '.', ',')}}">
 										<input type="text" hidden name="{{$budget->id}}" value="{{$budget->id}}">
 									</div>
 									<p style="display:none;color:red;" class="actual_error{{$budget->id}}">please,nhập số</p>
@@ -264,7 +264,7 @@ Budget
 										<a onclick="pay_click({{$budget->id}})" hreft="" class="{{$budget->id}}Pay" >
 											{{number_format(($budget->pay),0, '.', ',')}} VND
 										</a>
-										<input onkeypress="pay_keypress(event,{{$budget->id}})" onchange="pay_dblclick({{$budget->id}})" ondblclick="pay_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}Estimate form-control input-edit-money" id="{{$budget->id}}estimate" name="estimate" value="{{number_format(($budget->pay),0, '.', ',')}}">
+										<input onkeyup="key_pay(event,{{$budget->id}})" onchange="pay_dblclick({{$budget->id}})" ondblclick="pay_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}Estimate form-control input-edit-money" id="{{$budget->id}}estimate" name="estimate" value="{{number_format(($budget->pay),0, '.', ',')}}">
 										<input type="text" hidden name="{{$budget->id}}" value="{{$budget->id}}">
 									</div>
 									<p style="display:none;color:red;" class="pay_error{{$budget->id}}">please,nhập số</p>
@@ -276,7 +276,7 @@ Budget
 					 				</div>
 					 			</td><!-- Due -->
 					 			<td>
-					 				<a href="" onclick="item_del({{$budget->id}})" class="confirm budget_icon_trash item_del{{$budget->id}}"><i class="glyphicon glyphicon-trash"></i></a>
+					 				<a href="javascript:void(0);" onclick="item_del({{$budget->id}})" class="confirm budget_icon_trash item_del{{$budget->id}}"><i class="glyphicon glyphicon-trash"></i></a>
 					 				<input type="hidden"  name="{{$budget->item}}" value="{{$budget->id}}" >
 					 			</td>
 									
@@ -286,7 +286,7 @@ Budget
 						 		@endforeach
 						 		<tr class="budget_item_cat" id="budget_item_cat">
 						 			<td></td>
-						 			<td colspan="7"><a onclick="item_add({{$category->id}})" class="item-add{{$category->id}}" style="cursor:pointer;">
+						 			<td colspan="7"><a href="javascript:void(0);" onclick="item_add({{$category->id}})" class="item-add{{$category->id}}" style="cursor:pointer;">
 											<i class="glyphicon glyphicon-plus"></i>&nbsp Thêm chi tiêu
 										</a>
 										<input type="hidden" value="{{$category->id}}" name="{{$category->id}}">
@@ -381,8 +381,8 @@ Budget
 						id:$(".item-add"+id).next().val()
 						},
 						success: function(data){
-						var obj = JSON.parse(data);
-						jQuery('#budget_item_cat'+obj.item_last).after(obj.html);													
+						//var obj = JSON.parse(data);
+						jQuery('#budget_item_cat'+data.item_last).after(data.html);													
 						}											
 					});
 			 	};	
@@ -396,6 +396,7 @@ Budget
 											       id:$(".item_del"+id).next().val()
 											},
 											success: function(data){
+												$("#budget_item_cat"+id).remove();
 												     var obj = JSON.parse(data);
 				                                   $("#rowSumExpected").text(obj.re_estimate.format(0,3,',') + " VND");
 				                                    $("#rowSumExpected").show();     
@@ -432,23 +433,16 @@ Budget
 				        $(".estimate_error"+id).hide();
 						};							
 			 	};
-			 	function estimate_keypress(event,id){
-		         	var key = window.event ? event.keyCode : event.which;
-					    if (event.keyCode == 8 || event.keyCode == 46
-					     || event.keyCode == 37 || event.keyCode == 39) {     
-					         $("."+id+"InputEstimate").number(true);                
-					        return true;
-
-					    }
-					    else if ( key < 48 || key > 57 ) {
-
-					        return false;
-					    }
-					    else{
-					      $("."+id+"InputEstimate").number(true);
-					     return true;
-					    }
-		         };
+			 	function key_estimate(event,id)
+			 	      {  	
+		             if(event.which >= 37 && event.which <= 40) return;
+		                 $("."+id+"InputEstimate").val(function(index, value) {
+						        return value
+						            .replace(/\D/g, '')
+						            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+						        ;
+						    });
+			        };
 			 	//actual
 			 	function actual_click(id){
                     $("."+id+"_slidingDiv").show();
@@ -472,22 +466,16 @@ Budget
 			        $(".actual_error"+id).hide();
 					};
 			 	};
-			 	function actual_keypress(event,id){
-		         	var key = window.event ? event.keyCode : event.which;
-					    if (event.keyCode == 8 || event.keyCode == 46
-					     || event.keyCode == 37 || event.keyCode == 39) { 
-					        $("."+id+"_slidingDiv").number(true);                      
-					        return true;
-					    }
-					    else if ( key < 48 || key > 57 ) {
-
-					        return false;
-					    }
-					    else{
-					      $("."+id+"_slidingDiv").number(true);
-					     return true;
-					    }
-		         };			 	
+			 	function key_actual(event,id)
+			 	      {  	
+		             if(event.which >= 37 && event.which <= 40) return;
+		                 $("."+id+"_slidingDiv").val(function(index, value) {
+						        return value
+						            .replace(/\D/g, '')
+						            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+						        ;
+						    });
+			        };	
 			 	//pay
 			 	function pay_click(id){
 			 		$("."+id+"Estimate").show();
@@ -513,21 +501,16 @@ Budget
 					$(".pay_error"+id).hide();
 			    	};
 				};
-				function pay_keypress(event,id){
-		         	var key = window.event ? event.keyCode : event.which;
-					    if (event.keyCode == 8 || event.keyCode == 46
-					     || event.keyCode == 37 || event.keyCode == 39) {  
-					     	$("."+id+"Estimate").number(true);                       
-					        return true;
-					    }
-					    else if ( key < 48 || key > 57 ) {
-					        return false;
-					    }
-					    else{
-					      $("."+id+"Estimate").number(true);
-					     return true;
-					    }
-		         };			 				 				 			     
+				function key_pay(event,id)
+	 	      {  	
+	             if(event.which >= 37 && event.which <= 40) return;
+	                 $("."+id+"Estimate").val(function(index, value) {
+					        return value
+					            .replace(/\D/g, '')
+					            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+					        ;
+					    });
+		        };  	 				 				 			     
 		</script>
 	</div> <!-- row -->
 </div><!--container-->

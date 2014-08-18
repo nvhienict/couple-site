@@ -87,7 +87,7 @@ class UserBudgetController extends \BaseController {
 					<a onclick="estimate_click('.$item->id.')" hreft="" class="'.$item->id.'showEstimate" >
 						'.number_format(($item->estimate),0, ',', ' ').' VND
 					</a>
-					<input onkeypress="estimate_keypress(event,'.$item->id.')" onchange="estimate_dblclick('.$item->id.')" ondblclick="estimate_dblclick('.$item->id.')" type="text" class="'.$item->id.'InputEstimate form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->estimate.'">
+					<input onkeyup="key_estimate(event,'.$item->id.')" onchange="estimate_dblclick('.$item->id.')" ondblclick="estimate_dblclick('.$item->id.')" type="text" class="'.$item->id.'InputEstimate form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->estimate.'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
 					<p style="display:none;color:red;" class="estimate_error'.$item->id.'">Please,nhập số</p>
 				</div>
@@ -97,7 +97,7 @@ class UserBudgetController extends \BaseController {
 					<a onclick="actual_click('.$item->id.')" hreft="" class="'.$item->id.'_show_hide">
 						'.number_format(($item->actual),0, ',', ' ').' VND
 					</a>
-					<input onkeypress="actual_keypress(event,'.$item->id.')" onchange="actual_dblclick('.$item->id.')" ondblclick="actual_dblclick('.$item->id.')" type="text" class="'.$item->id.'_slidingDiv form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->actual.'">
+					<input onkeyup="key_actual(event,'.$item->id.')" onchange="actual_dblclick('.$item->id.')" ondblclick="actual_dblclick('.$item->id.')" type="text" class="'.$item->id.'_slidingDiv form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->actual.'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
 					<p style="display:none;color:red;" class="actual_error'.$item->id.'">Please,nhập số</p>
 				</div>
@@ -107,7 +107,7 @@ class UserBudgetController extends \BaseController {
 					<a onclick="pay_click('.$item->id.')" hreft="" class="'.$item->id.'Pay" >
 						'.number_format(($item->pay),0, ',', ' ').' VND
 					</a>
-					<input onkeypress="pay_keypress(event,'.$item->id.')" onchange="pay_dblclick('.$item->id.')" ondblclick="pay_dblclick('.$item->id.')" type="text" class="'.$item->id.'Estimate form-control input-edit-money" id="'.$item->id.'estimate" name="estimate" value="'.$item->pay .'">
+					<input onkeyup="key_pay(event,'.$item->id.')" onchange="pay_dblclick('.$item->id.')" ondblclick="pay_dblclick('.$item->id.')" type="text" class="'.$item->id.'Estimate form-control input-edit-money" id="'.$item->id.'estimate" name="estimate" value="'.$item->pay .'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
 					<p style="display:none;color:red;" class="pay_error'.$item->id.'">Please,nhập số</p>
 				</div>
@@ -120,14 +120,15 @@ class UserBudgetController extends \BaseController {
 			</td>
 			
 			<td>
-				<a href="" onclick="item_del('.$item->id.')" class="confirm budget_icon_trash item_del'.$item->id.'"><i class="glyphicon glyphicon-trash"></i></a>
+				<a href="javascript:void(0);" onclick="item_del('.$item->id.')" class="confirm budget_icon_trash item_del'.$item->id.'"><i class="glyphicon glyphicon-trash"></i></a>
 			    <input type="hidden"  name="'.$item->item.'" value="'.$item->id.'" >
  			</td>
  			
 				
 								
 		</tr>';
-		echo json_encode(array('item_last'=>$item_last->id,'item'=>$item->id,'html'=>$html));die();
+		return array('item_last'=>$item_last->id,'item'=>$item->id,'html'=>$html);
+		exit();
 	}
 
 
