@@ -111,10 +111,10 @@ class VendorController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
-	{
+	//public function destroy($id)
+	//{
 		//
-	}
+	//}
 	public function search()
 	{
 		$compares = Session::get('compare');
