@@ -13,6 +13,11 @@ class VendorController extends \BaseController {
 		return View::make('category-vendor')->with('results', $results);
 	}
 
+	public static function id_user(){
+		$id_user = User::where( 'email', Session::get('email') )->get()->first()->id;
+		return $id_user;
+	}
+
 	public function category($id){
 
 		$compares = Session::get('compare');
@@ -76,9 +81,26 @@ class VendorController extends \BaseController {
 	 */
 	public function show($id)
 	{
+		$email=Session::get('email');
+
+		if (empty($email)) {
+			$firstname ="";
+			$lastname ="";
+			$email ="";
+		}else{
+			$id_user=User::where('email',$email)->get()->first()->id;
+
+			$firstname = User::where('id',$id_user)->get()->first()->firstname;
+			$lastname = User::where('id',$id_user)->get()->first()->lastname;
+			$email = User::where('id',$id_user)->get()->first()->email;
+		}
+
 		
 		$vendor=Vendor::where('id',$id)->get()->first();
-		return View::make("detail-vendor")->with("vendor",$vendor);
+		return View::make("detail-vendor")->with("vendor",$vendor)
+										->with('firstname',$firstname)
+										->with('lastname',$lastname)
+										->with('email',$email);
 
 	}
 	/**

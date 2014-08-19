@@ -199,17 +199,36 @@
 							<form class="form-horizontal" role="form">
 							  <div class="form-group">
 							    <div class="">
-							      <input type="text" class="form-control" id="input-firstname" placeholder="Họ" value="{{User::where('id',Cookie::get('id-user'))->get()->first()->firstname}}">
+							    	@if(!empty($firstname))
+							    	
+							    		<input type="text" class="form-control" id="input-firstname"  value="{{$firstname}}">
+							    	
+							    	@else
+							    	
+							    		<input type="text" class="form-control" id="input-firstname"  value="">
+							    	@endif
+							      
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <div class="">
-							      <input type="text" class="form-control" id="input-lastname" placeholder="Tên" value="{{User::where('id',Cookie::get('id-user'))->get()->first()->lastname}}">
+							      @if(!empty($lastname))
+							    		<input type="text" class="form-control" id="input-lastname"  value="{{$lastname}}">
+							    	@else
+							    	
+							    		<input type="text" class="form-control" id="input-lastname"  value="">
+							    	@endif
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <div class="">
-							      <input type="email" class="form-control" id="input-email" placeholder="Email" value="{{User::where('id',Cookie::get('id-user'))->get()->first()->email}}">
+							      @if(!empty($firstname))
+							    		<input type="text" class="form-control" id="input-email"  value="{{$email}}">
+							    	
+							    	@else
+							    	
+							    		<input type="text" class="form-control" id="input-email"  value="">
+							    	@endif
 							    </div>
 							  </div>
 							  <div class="form-group">
