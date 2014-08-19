@@ -90,17 +90,17 @@ class BudgetController extends \BaseController {
 	//Cuong
 	public function post_MoneyBudget()
 	{
-		$money_budget=(Input::get('money_budget'))/1000000;
+		$money_budget=Input::get('money_budget');
 		$user=User::find(Cookie::get('id-user'));
 		$user->budget=$money_budget;
 		$user->save();
 		$budgets = Budget::get();
-		if(($money_budget>0)&&($money_budget<150)){
+		if(($money_budget>0)&&($money_budget<150000000)){
 			// truyền dữ liệu sang bảng userbudget
 			foreach($budgets as $budget){
 				$userbudget = new UserBudget();
 				$userbudget->user = Cookie::get('id-user');
-				$userbudget->estimate = round(($money_budget*($budget->range1)*(Category::find($budget->category)->range1))*1000000,-5);
+				$userbudget->estimate = ($money_budget*($budget->range1)*(Category::find($budget->category)->range1));
 				$userbudget->category = $budget->category;
 				$userbudget->item = $budget->item;
 				$userbudget->range=$budget->range1;
@@ -109,12 +109,12 @@ class BudgetController extends \BaseController {
 			}
 			
 		}
-		elseif(($money_budget>=150)&&($money_budget<300)){
+		elseif(($money_budget>=150000000)&&($money_budget<300000000)){
 			// truyền dữ liệu sang bảng userbudget
 			foreach($budgets as $budget){
 				$userbudget = new UserBudget();
 				$userbudget->user = Cookie::get('id-user');
-				$userbudget->estimate = round(($money_budget*($budget->range2)*(Category::find($budget->category)->range2))*1000000,-5);
+				$userbudget->estimate = ($money_budget*($budget->range2)*(Category::find($budget->category)->range2));
 				$userbudget->category = $budget->category;
 				$userbudget->item = $budget->item;
 				$userbudget->range=$budget->range2;
@@ -123,12 +123,12 @@ class BudgetController extends \BaseController {
 			}
 			
 		}
-		elseif($money_budget>=300){
+		elseif($money_budget>=300000000){
 			// truyền dữ liệu sang bảng userbudget
 			foreach($budgets as $budget){
 				$userbudget = new UserBudget();
 				$userbudget->user = Cookie::get('id-user');
-				$userbudget->estimate =round(($money_budget*($budget->range3)*(Category::find($budget->category)->range3))*1000000,-5);
+				$userbudget->estimate =($money_budget*($budget->range3)*(Category::find($budget->category)->range3));
 				$userbudget->category = $budget->category;
 				$userbudget->item = $budget->item;
 				$userbudget->range=$budget->range3;
@@ -148,11 +148,11 @@ class BudgetController extends \BaseController {
 		return Redirect::to("creat_budget");
 	}
 	public static function rangeBudget($range){
-		 if($range>0&&$range<150)
+		 if($range>0&&$range<150000000)
 		 	return 1;
-		 elseif($range<300)
+		 elseif($range<300000000)
 		 	return 2;
-		 elseif($range>=300)
+		 elseif($range>=300000000)
 		 	return 3;
 	}
 
