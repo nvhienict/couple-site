@@ -7,17 +7,19 @@
 @endsection
 @section('content')
 		<div class="row" id="infor-vendor">
-			<div class="container body">
+			<div class="container body-detailvendor">
 			<div class="col-xs-12 col-sm-6 col-md-9" id="body-left">
 				<div class="row" id="top-left">
 						<div class="col-xs-6 col-sm-4" id="left-infor">
-							<a href="#" onclick="window.location('{{URL::route('list-vendor')}}')" id="left-infor title-infor">Địa điểm đám cưới {{Vendor::find($vendor->id)->location()->get()->first()->name}}</a>
+							<a href="" onclick="history.go(-1);return false" id="left-infor title-infor">Địa điểm đám cưới {{Vendor::find($vendor->id)->location()->get()->first()->name}}</a>
 							<div id="left-infor avata-vendor" >
 								{{'<img class="img-responsive" style="width:250px;height:600 "src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}
 								<div class="fb-like" data-href="https://www.facebook.com/thuna.1987" data-width="150px" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
 								
 							</div>
 							<div id="fb-root"></div>
+							
+							<!-- facebook script -->
 							<script>(function(d, s, id) {
 								  var js, fjs = d.getElementsByTagName(s)[0];
 								  if (d.getElementById(id)) return;
@@ -29,7 +31,7 @@
 						</div>
 						<div calss="col-xs-6 col-sm-4" id="right-infor">
 							<h3 id="right-infor name">{{$vendor->name}}</h3>
-							<p id="right-infor address">{{$vendor->address}} {{Vendor::find($vendor->id)->location()->get()->first()->name}}<a href="#map" id="right-infor map"> |Map.</a></p>
+							<p id="right-infor address">{{$vendor->address}} {{Vendor::find($vendor->id)->location()->get()->first()->name}}<a href="#map" data-toggle="tab" class="outside-link"> |Map.</a></p>
 							<p id="right-infor web"><b>Website</b>:<a href="http://{{$vendor->website}}"id="right-infor link"> Ghé thăm Website của tôi</a></p>
 							<p id="right-infor service"><b>Dịch vụ</b>:
 								{{Vendor::find($vendor->id)->category()->get()->first()->name}}
@@ -46,11 +48,11 @@
 								<!-- Nav tabs -->
 							<ul  class="nav nav-tabs" id="vendor-menu" role="tablist"  >
 								  <li class="active"><a data-toggle="tab" href="#aboutme">Hồ sơ</a></li>
-								  <li class="boder-style"><a data-toggle="tab" href="#review" >Nhận xét</a></li>
-								  <li class="boder-style"><a data-toggle="tab" href="#photos" >Ảnh</a></li>
+								  <li class="boder-style"><a data-toggle="tab" href="#review" >{{Lang::get('messages.Review')}}</a></li>
+								  <li class="boder-style"><a data-toggle="tab" href="#photos" >{{Lang::get('messages.Photo')}}</a></li>
 								  <li class="boder-style"><a data-toggle="tab" href="#video" >Video</a></li>
 								  <li class="boder-style"><a data-toggle="tab" href="#FAQ">FAQ</a></li>
-								  <li class="boder-style"><a data-toggle="tab" href="#map">Map</a></li>
+								  <li class="boder-style"><a data-toggle="tab" href="#map">{{Lang::get('messages.Map')}}</a></li>
 							</ul>
 
 							
@@ -73,38 +75,16 @@
 												   
 										</ul>
 										   
-									<a href="#photos"class="read-more">Xem thêm</a>
+									<a href="#photos" class="outside-link"data-toggle="tab">Xem thêm</a>
+										<script type="text/javascript">
+										   $(".outside-link").click(function() {
+											    $(".nav li").removeClass("active");
+											    $($(this).attr("data-toggle-tab")).parent("li").addClass("active");
+											});
+										</script>
 
-
-															<!-- --Script click to image -->
-														<script type="text/javascript">
-															(function($) {
-																    $.fn.tabremote = function(options) {
-
-																          var settings = $.extend({
-																           panel: "#tabs",
-																           to: "data-to",
-																        }, options );
-
-																        $this=$(this);
-																        $panel=$(settings.panel);
-
-																    $this.click(function(){
-																                if($(this).attr("href"))
-																                    {var tos=$(this).attr("href");}
-																                else
-																                    {var tos=$(this).attr(settings.to);}
-
-																                to=tos.match(/\d/g);
-																    $panel.tabs({active: to-1});        
-																    return false;   
-																    });
-
-
-																        return this;
-																    }
-																})(jQuery);
-														</script>
+															<!-- Script click to sub Tab -->
+														
 
 								</div>
 								<div style="clear:both"></div>
@@ -116,9 +96,10 @@
 						  </div>
 						  <div class="tab-pane" id="review">
 						  		
-						  			<h4>Review</h4>
+						  			<h4>{{Lang::get('messages.Review')}}</h4>
 						  </div>
 						  <div class="tab-pane" id="photos">
+						  			<h4>{{Lang::get('messages.Photo')}}</h4>
 						  			  <!-- Wrapper for slides -->
 								<div id="bigPic">
 									<img alt="" src="{{Asset("images/slide/1.jpg")}}">
@@ -141,8 +122,8 @@
 									<li rel="7"><img alt="" src="{{Asset("images/slide/7_thumb.jpg")}}"> </li>
 												   
 								</ul>
-												
-								<script type="text/javascript">
+								<!-- script slides		 -->		
+								<script type="text/javascript"> 
 									var currentImage;
 									var currentIndex = -1;
 									var interval;
@@ -190,24 +171,20 @@
 						  </div>
 						  <div class="tab-pane" id="video">
 						  		
-						  			<h4>video</h4>
+						  			<h4>Video</h4>
 						  			{{$vendor->video}}	
 						  </div>
 						  <div class="tab-pane" id="FAQ">
 						  		@yield('tab-FAQ')
-						  			<h4>FAQ</h4>
+						  			<h4>{{Lang::get('messages.FAQ')}}</h4>
 
 						  </div>
 						  <div class="tab-pane" id="map">	  		
-						  			<h4>Map</h4>
+						  			<h4>{{Lang::get('messages.Map')}}</h4>
 						  			{{$vendor->map}}
 						  </div>
 
-						  <script type="text/javascript">
-							$(function () {
-	    						$('#vendor-menu a:last').tab('show');
-	 						 });
-						</script>
+						 
 						</div>
 					</div>
 					
@@ -222,22 +199,33 @@
 							<form class="form-horizontal" role="form">
 							  <div class="form-group">
 							    <div class="">
-							      <input type="text" class="form-control" id="input-firstname" placeholder="Họ">
+							      <input type="text" class="form-control" id="input-firstname" placeholder="Họ" value="{{User::where('id',Cookie::get('id-user'))->get()->first()->firstname}}">
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <div class="">
-							      <input type="text" class="form-control" id="Input-lastname" placeholder="Tên">
+							      <input type="text" class="form-control" id="input-lastname" placeholder="Tên" value="{{User::where('id',Cookie::get('id-user'))->get()->first()->lastname}}">
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <div class="">
-							      <input type="email" class="form-control" id="input-email" placeholder="thuna@gmail.vn">
+							      <input type="email" class="form-control" id="input-email" placeholder="Email" value="{{User::where('id',Cookie::get('id-user'))->get()->first()->email}}">
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <div class="">
-							      <input type="date" class="form-control" id="date-wedding" placeholder="25/07/2014">
+							      <input data-format="yyyy-MM-dd" type="text"   id="input-date" class="form-control  " placeholder="Ngày-tháng-năm" tabindex="3">
+							      	<!-- datetime-picker -->
+							      <script type="text/javascript">
+						                $(function() {
+						                  $('#input-date').datetimepicker({
+						                    format: 'd-m-Y',
+						                    timepicker:false
+						                  });
+						                  
+										  
+						                });
+						              </script>
 							    </div>
 							  </div>
 							  <div class="form-group">
@@ -302,8 +290,8 @@
 								    </div></li>
 								 </ul>
 
-								    <!-- -script show call-div -->
-							
+								    <!-- -script show select -->
+									
 								  <script >
 
 									$("#selection-contact").change(function(){
