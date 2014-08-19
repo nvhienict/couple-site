@@ -82,8 +82,8 @@ class UserController extends \BaseController {
 		//
 	}
 
-	public function post_url($url){
-
+	public function post_url(){
+		$url = Input::get('aurl');
 		Session::set('get_url', $url);
 	}
 
@@ -107,13 +107,36 @@ class UserController extends \BaseController {
 					$IdUser=User::where('email','=',Input::get('txMail'))->get()->first()->id;
 					$cookie=Cookie::forever('id-user', $IdUser);//set cookie
 					Session::put("email",Input::get('txMail'));
-					// return Redirect::to("user-checklist");
+
+					// return view
+					$get_url = Session::get('get_url');
+					if( !empty($get_url) ){
+						switch ($get_url) {
+							case 1:
+								Session::forget('get_url');
+								$view = View::make('user-checklist');
+								return Response::make($view)->withCookie($cookie);
+								break;
+
+							case 2:
+								Session::forget('get_url');
+								$view = View::make('budget');
+								return Response::make($view)->withCookie($cookie);
+								break;
+							
+							default:
+								$view = View::make('index');
+								return Response::make($view)->withCookie($cookie);
+								break;
+						}
+					}else{
+						$view = View::make('index');
+						return Response::make($view)->withCookie($cookie);
+					}
 					
-					$view = View::make('index');
-					
-					return Response::make($view)->withCookie($cookie);
-				}	 
-				else return View::make("user-login")->with("messages","Email hoặc mật khẩu không đúng!");	
+				}else{
+					return View::make("user-login")->with("messages","Email hoặc mật khẩu không đúng!");
+				}
 
 		} catch (Exception $e) {
 			echo $e->getMessage();
