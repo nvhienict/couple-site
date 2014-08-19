@@ -135,32 +135,32 @@ Budget
 					 			<td><strong>{{$category->name}}</strong></td>
 					 			<td class="TienVND">
 					 				<span  id="totalEstimate{{$category->id}}" >
-					 				{{number_format(UserBudget::where('category',$category->id)
+					 				{{number_format(round(UserBudget::where('category',$category->id)
 					 				->where('user',User::find(Cookie::get('id-user'))->id)
-					 				->sum('estimate'), 0, '.', ',')}} VND
+					 				->sum('estimate'),-5), 0, '.', ',')}} VND
 					 				</span>
 					 			</td>
 					 			<td class="TienVND">
 					 				<span  id="totalCat{{$category->id}}" >
-					 				{{number_format(UserBudget::where('category',$category->id)
+					 				{{number_format(round(UserBudget::where('category',$category->id)
 					 				->where('user',User::find(Cookie::get('id-user'))->id)
-					 				->sum('actual'), 0, '.', ',')}} VND
+					 				->sum('actual'),-5), 0, '.', ',')}} VND
 					 				</span>
 								</td>
 					 			<td class="TienVND">
 					 				<span  id="totalCatPay{{$category->id}}" >
-					 				{{number_format(UserBudget::where('category',$category->id)
+					 				{{number_format(round(UserBudget::where('category',$category->id)
 					 				->where('user',User::find(Cookie::get('id-user'))->id)
-					 				->sum('pay'), 0, '.', ',')}} VND
+					 				->sum('pay'),-5), 0, '.', ',')}} VND
 					 				</span>
 					 			</td>
 					 			<td class="TienVND">
 					 				<span  id="totalCatDue{{$category->id}}" >
-					 				{{number_format((UserBudget::where('category',$category->id)
+					 				{{number_format(round((UserBudget::where('category',$category->id)
 					 				->where('user',User::find(Cookie::get('id-user'))->id)
 					 				->sum('actual')-UserBudget::where('category',$category->id)
 					 				->where('user',User::find(Cookie::get('id-user'))->id)
-					 				->sum('pay')), 0, '.', ',')}} VND
+					 				->sum('pay')),-5), 0, '.', ',')}} VND
 					 				</span>
 					 			</td>
 					 			<td>
@@ -241,7 +241,7 @@ Budget
 						 		<td class="TienVND">
 					 				<div class="estimate{{$budget->id}}"><!-- Estimate -->
 									 <a onclick="estimate_click({{$budget->id}})" class="{{$budget->id}}showEstimate">
-                                        {{number_format(($budget->estimate),0, '.', ',')}} VND
+                                        {{number_format(round(($budget->estimate),-5),0, '.', ',')}} VND
 									 </a> 
 									    <input onkeyup="key_estimate(event,{{$budget->id}})" onchange="estimate_dblclick({{$budget->id}})" ondblclick="estimate_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}InputEstimate form-control input-edit-money" name="estimate" value=" {{number_format(($budget->estimate),0, '.', ',')}}">
 										<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
@@ -251,7 +251,7 @@ Budget
 						 		<td class="TienVND"><!-- Actual -->
 									<div id="edit-money" > 
 										<a onclick="actual_click({{$budget->id}})" hreft="" class="{{$budget->id}}_show_hide">
-											{{number_format(($budget->actual),0, '.', ',')}} VND
+											{{number_format(round(($budget->actual),-5),0, '.', ',')}} VND
 										</a>
 										<input onkeyup="key_actual(event,{{$budget->id}})" onchange="actual_dblclick({{$budget->id}})" ondblclick="actual_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}_slidingDiv form-control input-edit-money" id="{{$budget->id}}money" name="money" value="{{number_format(($budget->actual),0, '.', ',')}}">
 										<input type="text" hidden name="{{$budget->id}}" value="{{$budget->id}}">
@@ -262,7 +262,7 @@ Budget
 					 			<td class="TienVND">
 					 				<div  > 
 										<a onclick="pay_click({{$budget->id}})" hreft="" class="{{$budget->id}}Pay" >
-											{{number_format(($budget->pay),0, '.', ',')}} VND
+											{{number_format(round(($budget->pay),-5),0, '.', ',')}} VND
 										</a>
 										<input onkeyup="key_pay(event,{{$budget->id}})" onchange="pay_dblclick({{$budget->id}})" ondblclick="pay_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}Estimate form-control input-edit-money" id="{{$budget->id}}estimate" name="estimate" value="{{number_format(($budget->pay),0, '.', ',')}}">
 										<input type="text" hidden name="{{$budget->id}}" value="{{$budget->id}}">
@@ -298,9 +298,9 @@ Budget
 					 	<tr>
 					 		<th><i class="glyphicon glyphicon-gbp"></i></th>
 					 		<th>Tổng cộng chi phí</th>
-					 		<th class="TienVND" id="rowSumExpected">{{number_format(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('estimate'), 0, '.', ',')}} VND</th>
-					 		<th class="TienVND" id="rowSumActual">{{number_format(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('actual'), 0, '.', ',')}} VND</th>
-					 		<th class="TienVND" id="rowSumPay">{{number_format(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('pay'), 0, '.', ',')}} VND</th>
+					 		<th class="TienVND" id="rowSumExpected">{{number_format(round(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('estimate'),-5), 0, '.', ',')}} VND</th>
+					 		<th class="TienVND" id="rowSumActual">{{number_format(round(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('actual'),-5), 0, '.', ',')}} VND</th>
+					 		<th class="TienVND" id="rowSumPay">{{number_format(round(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('pay'),-5), 0, '.', ',')}} VND</th>
 					 		<th class="TienVND" id="rowSumDue" colspan="2">{{number_format((UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('actual'))-(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('pay')), 0, '.', ',')}} VND</th>
 					 	</tr>
 					</table>
@@ -311,7 +311,7 @@ Budget
 			<h3>Tóm tắt:</h3>
 			<p>
 				<div>Dự kiến</div>
-				<strong id="ubsDuKien">{{number_format(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('estimate'), 0, '.', ',')}} VND</strong>
+				<strong id="ubsDuKien">{{number_format(round(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('estimate'),-5), 0, '.', ',')}} VND</strong>
 				<div>Thực tế</div>
 				<strong id="ubsThucTe">{{number_format(UserBudget::where('user',User::find(Cookie::get('id-user'))->id)->sum('actual'), 0, '.', ',')}} VND</strong>
 				<div title="Đã thanh toán">Thanh toán</div>

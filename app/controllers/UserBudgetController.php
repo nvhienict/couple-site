@@ -189,13 +189,13 @@ class UserBudgetController extends \BaseController {
 		$item=UserBudget::find($id);
 		$id_cate=$item->category;
 		$item->delete();
-		$sumEstimate_cate= UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('estimate');
-		$sumActual_cate= UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('actual');
-		$sumPay_cate= UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('pay');
+		$sumEstimate_cate= round(UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('estimate'),-5);
+		$sumActual_cate= round(UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('actual'),-5);
+		$sumPay_cate= round(UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('pay'),-5);
 		$sumDue_cate=$sumActual_cate-$sumPay_cate;
-		$sumEstimate= UserBudget::where('user',$id_user)->sum('estimate');
-		$sumActual= UserBudget::where('user',$id_user)->sum('actual');
-		$sumPay= UserBudget::where('user',$id_user)->sum('pay');
+		$sumEstimate=round(UserBudget::where('user',$id_user)->sum('estimate'),-5);
+		$sumActual=round(UserBudget::where('user',$id_user)->sum('actual'),-5);
+		$sumPay=round(UserBudget::where('user',$id_user)->sum('pay'),-5);
 		$sumDue=$sumActual-$sumPay;
 
 
