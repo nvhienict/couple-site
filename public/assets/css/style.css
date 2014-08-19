@@ -556,6 +556,17 @@ section#intro {
     border-color: #fff;
 }
 
+
+/*==========================
+-----Form search on slider
+=============================*/
+#form-search-index{
+	position: absolute;
+	top: 50%;
+	left: 6%;
+	z-index: 10000;
+}
+
 /* ===========================
 --- About
 ============================ */
@@ -1073,7 +1084,11 @@ a.btn:focus{
 }
 
 .caption {
-    height: 130px;
+    height: 70px;
+    overflow: hidden;
+}
+.caption-list {
+    height: auto;
     overflow: hidden;
 }
 .caption p{
@@ -1112,6 +1127,7 @@ a.btn:focus{
     color: #d17581;
 }
 .thumbnail {
+	border: 1px solid #3cb6bc;
     padding: 0;
 }
 .thumbnail .caption-full {
@@ -1119,12 +1135,13 @@ a.btn:focus{
     color: #333;
 }
 
-.checkbox{
-	height: 10px;
-	margin-left: 62%;
-}
-.compare-checkbox{
-	display: inline-block;
+.compare-photo{
+	background-color: #edb97b;
+    border: 1px solid #3cb6bc;
+    border-radius: 6px;
+    padding: 5px 0 0 10px;
+    margin: 0% 0% 2% 53%;
+    width: 45%;
 }
 .compare-title{
 	text-transform: uppercase;
@@ -1132,7 +1149,7 @@ a.btn:focus{
 
 /*-----*/
 #show-list{
-	border: 1px solid #ccc;
+	border: 1px solid #3cb6bc;
 	border-radius: 5px;
 	padding: 10px 10px 10px 0px;
 	margin: 0px 0px 20px 0px; 
@@ -1147,8 +1164,8 @@ a.btn:focus{
 	text-align: center;
 }
 .compare-list{
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #edb97b;
+    border: 1px solid #3cb6bc;
     border-radius: 6px;
     padding: 1% 0 0 1%;
     margin-left: 80%;

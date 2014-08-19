@@ -6,7 +6,7 @@ Trang chủ
 <!-- Navigation -->
 <div id="nav-bar" class="row">
 	<div class="col-xs-12">
-	<div class="navbar navbar-default">
+	<div class="navbar navbar-default" style="z-index: 99999;">
 	  <div class="">
 	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 	      <span class="icon-bar"></span>
@@ -26,7 +26,7 @@ Trang chủ
 	            <div class="col-md-6 col-xs-12">
 	              <ul class="list-unstyled">
 	                  @foreach (Category::get() as $index=> $category)
-	                  @if($index < 6)
+	                  @if($index < 7)
 	                    <li><a href="{{URL::route('category', array($category->id))}}">{{$category['name']}}</a></li>
 	                  @endif
 	                  @endforeach
@@ -35,7 +35,7 @@ Trang chủ
 	            <div class="col-xs-6">
 	              <ul class="list-unstyled">
 	                  @foreach (Category::get() as $index=> $category)
-	                  @if($index >= 6)
+	                  @if($index >= 7)
 	                    <li><a href="{{URL::route('category', array($category->id))}}">{{$category['name']}}</a></li>
 	                  @endif
 	                  @endforeach
@@ -57,22 +57,24 @@ Trang chủ
 	                <li><a href="#">Sơ đồ ghế ngồi</a></li>
 	                
 	                <li>
-	                	<a id="menu_checklist" href="{{URL::route('user-checklist')}}"  >Danh sách công việc</a><span class="glyphicon glyphicon-ok"></span>
-
-	                	<script type="text/javascript">
-	                		$('#menu_checklist').click(function(){
-								$.ajax({
-									type: "post",
-									url: "{{URL::to('get_url', array('url'=>1))}}"
-
-								});
-								
-							});
-	                	</script>
-	                </li>
-	               	
+	                	<a href="{{URL::route('user-checklist')}}" onclick="get_url(1);" >Danh sách công việc</a><span class="glyphicon glyphicon-ok"></span>
+					</li>
 	               	<li><a href="#">Quản lý vendor</a></li>
-	                <li><a href="{{URL::route('budget')}}">Quản lý ngân sách</a><span class="glyphicon glyphicon-ok"></span></li>
+	                <li>
+	                	<a href="{{URL::route('budget')}}" onclick="get_url(2);" >Quản lý ngân sách</a><span class="glyphicon glyphicon-ok"></span>
+					</li>
+					<script type="text/javascript">
+
+                		function get_url(id){
+
+							$.ajax({
+								type: "post",
+								url: "{{URL::to('get_url')}}",
+								data: {aurl:id}
+							});
+
+						};
+                	</script>
 	              </ul>
 	            </div>
 	            <div class="col-xs-6">
@@ -88,15 +90,14 @@ Trang chủ
 	      </li>
 	      <li><a href="#about">Giới thiệu</a></li>
 	      <li><a href="#service">Dịch vụ</a></li>
-	      <li><a href="#search">Tìm kiếm nhà cung cấp</a></li>
 	      <li><a href="#contact">Liên hệ</a></li>
 	      
 	    </ul>
 	  </div>
 	</div>
-	  </div>
-	  
 	</div>
+	  
+</div>
 @endsection
 	
 
@@ -119,16 +120,8 @@ Trang chủ
                     <!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
-                            <h2>
-                            	<span>Chào mừng bạn đến với Thuna.vn</span>
-                            </h2>
-                            <br>
-                            <h3>
-                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                            </h3>
-                            <br>
-                            <div class="">
-                                 <a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#search">Tìm nhà cung cấp</a></div>
+                            <h2><span>Chào mừng bạn đến với Thuna.vn</span></h2>
+                            
                         </div>
                     </div><!-- /header-text -->
 			    </div>
@@ -137,16 +130,7 @@ Trang chủ
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
-                            <h2>
-                                <span>Awesome Bootstrap template</span>
-                            </h2>
-                            <br>
-                            <h3>
-                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                            </h3>
-                            <br>
-                            <div class="">
-                                 <a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#search">Tìm kiếm nhà cung cấp</a></div>
+                            <h2><span>Dịch vụ đa dạng, phong phú</span></h2>
                         </div>
                     </div><!-- /header-text -->
 			    </div>
@@ -155,16 +139,8 @@ Trang chủ
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
-                            <h2>
-                                <span>Use without any charge</span>
-                            </h2>
-                            <br>
-                            <h3>
-                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                            </h3>
-                            <br>
-                            <div class="">
-                                <a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#about">Giới thiệu</a><a class="btn btn-theme btn-sm btn-min-block" href="{{URL::route('index')}}#search">Tìm kiếm nhà cung cấp</a></div>
+                            <h2><span>Cộng đồng sử dụng rộng rãi</span></h2>
+
                         </div>
                     </div><!-- /header-text -->
 			    </div>
@@ -177,9 +153,80 @@ Trang chủ
 		    	<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>
 		</div><!-- /carousel -->
-
 	</section>
 	<!-- /Section: intro -->  
+
+	<!-- form search -->
+		<div id="form-search-index" class="container">
+			<div class="row marginbot-80">
+				<div class="col-md-8 col-md-offset-2">
+						<form id="form-search" class="wow bounceInUp form-homepage" data-wow-offset="10" data-wow-delay="0.2s" action="{{Asset('list-vendor/search')}}" method="get">
+						<div class="row marginbot-20">
+							<div class="col-md-6 xs-marginbot-20">
+								<input type="text" name="name" class="form-control input-lg" placeholder="Từ tìm kiếm" />
+							</div>
+							<div class="col-md-6">
+								<select name="location" class="form-control input-lg">
+						    		@foreach(Location::get() as $location)
+							    	<option value="{{$location->id}}">{{$location->name}}</option>
+							    	@endforeach
+						    	</select>
+							</div>
+						</div>
+						<div class="row xs-marginbot-20">
+							<div class="col-md-12">
+								<input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Danh mục" readonly style="cursor:pointer;">
+						    	<input id="searchId" name="category_id" type="hidden">
+						    	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+								    <li role="presentation">
+								    	<div class="row" id="menu">
+									    	<div class="col-xs-6">
+									      		<ul class="list-unstyled">
+										      		@foreach (Category::get() as $index=> $category)
+						    						@if($index<7)
+									      			<li><span style="cursor:pointer; margin-left:20px">{{$category['name']}}</span>
+									      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
+									      			</li>
+									      			@endif
+					      							@endforeach
+									      		</ul>
+									      	</div>
+									      	<div class="col-xs-6">
+									      		<ul class="list-unstyled">
+									      			@foreach (Category::get() as $index=> $category)
+					    							@if($index>=7)
+									      			<li><span style="cursor:pointer;">{{$category['name']}}</span>
+									      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
+									      			</li>
+									      			@endif
+					      							@endforeach
+									      		</ul>
+									      	</div>
+								      	</div>
+								    </li>
+								    <script>
+									    $(document).ready(function(){
+											$('#menu li span').click(function(){
+											  var text= $(this).text();
+											  var id= $(this).next().val();
+												$( "#searchTxt" ).val(text);
+												$( "#searchId").val(id);
+											});
+										});
+									</script>	
+							    </ul>					
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<button type="submit" class="btn btn-skin btn-lg btn-block">Tìm kiếm</button>
+							</div>
+						</div>
+						</form>
+				</div>
+			</div>	
+		</div>
+	<!-- form search -->
 	
 <!-- Section: about -->
     <section id="about" class="home-section color-dark bg-white">
@@ -262,8 +309,7 @@ Trang chủ
 
 	</section>
 	<!-- /Section: about -->
-	
-	
+
 	<!-- Section: services -->
     <section id="service" class="home-section color-dark bg-gray">
 		<div class="container marginbot-50">
@@ -354,114 +400,7 @@ Trang chủ
 		</div>
 	</section>
 	<!-- /Section: services -->
-	
 
-	<!-- Section: search -->
-    <section id="search" class="home-section color-dark text-center bg-white">
-    <div class="container marginbot-50">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
-					<div class="section-heading text-center">
-					<h2 class="h-bold">Tìm nhà cung cấp</h2>
-					<div class="divider-header"></div>
-					<p>Với các nguồn thông tin đáng tin cậy nhất cho đám cưới của bạn </p>
-					</div>
-					</div>
-				</div>
-			</div>
-
-		</div>	
-		<div class="container">
-			<div class="row marginbot-80">
-				<div class="col-md-8 col-md-offset-2">
-						<form id="form-search" class="wow bounceInUp form-homepage" data-wow-offset="10" data-wow-delay="0.2s" action="{{Asset('list-vendor/search')}}" method="get">
-						<div class="row marginbot-20">
-							<div class="col-md-6 xs-marginbot-20">
-								<input type="text" name="name" class="form-control input-lg" placeholder="Enter Name" />
-							</div>
-							<div class="col-md-6">
-								<select name="location" class="form-control input-lg">
-						    		@foreach(Location::get() as $location)
-							    	<option value="{{$location->id}}">{{$location->name}}</option>
-							    	@endforeach
-						    	</select>
-							</div>
-						</div>
-						<div class="row xs-marginbot-20">
-							<div class="col-md-12">
-								<input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Click choose Categories">
-						    	<input id="searchId" name="category_id" type="hidden">
-						    	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-								    <li role="presentation">
-								    	<div class="row" id="menu">
-									    	<div class="col-xs-6">
-									      		<ul class="list-unstyled">
-										      		@foreach (Category::get() as $index=> $category)
-						    						@if($index<6)
-									      			<li><span>{{$category['name']}}</span>
-									      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
-									      			</li>
-									      			@endif
-					      							@endforeach
-									      		</ul>
-									      	</div>
-									      	<div class="col-xs-6">
-									      		<ul class="list-unstyled">
-									      			@foreach (Category::get() as $index=> $category)
-					    							@if($index>=6)
-									      			<li><span>{{$category['name']}}</span>
-									      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
-									      			</li>
-									      			@endif
-					      							@endforeach
-									      		</ul>
-									      	</div>
-								      	</div>
-								    </li>
-								    <script>
-									    $(document).ready(function(){
-											$('#menu li span').click(function(){
-											  var text= $(this).text();
-											  var id= $(this).next().val();
-												$( "#searchTxt" ).val(text);
-												$( "#searchId").val(id);
-											});
-										});
-									</script>	
-							    </ul>					
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<button type="submit" class="btn btn-skin btn-lg btn-block">Tìm kiếm</button>
-							</div>
-						</div>
-						</form>
-				</div>
-			</div>	
-		</div>
-		<div class="container">
-			<div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12" >
-					<div class="wow bounceInUp" data-wow-delay="0.4s">
-                    <div id="owl-works" class="owl-carousel">
-                        <div class="item"><a href="{{Asset("assets/img/works/1.jpg")}}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg"><img src="{{Asset("assets/img/works/1.jpg")}}" class="img-responsive" alt="img"></a></div>
-                        <div class="item"><a href="{{Asset("assets/img/works/2.jpg")}}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/2@2x.jpg"><img src="{{Asset("assets/img/works/2.jpg")}}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{{Asset("assets/img/works/3.jpg")}}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/3@2x.jpg"><img src="i{{Asset("assets/img/works/3.jpg")}}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{{Asset("assets/img/works/4.jpg")}}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/4@2x.jpg"><img src="{{Asset("assets/img/works/4.jpg")}}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{{Asset("assets/img/works/5.jpg")}}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/5@2x.jpg"><img src="{{Asset("assets/img/works/5.jpg")}}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{{Asset("assets/img/works/6.jpg")}}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/6@2x.jpg"><img src="{{Asset("assets/img/works/6.jpg")}}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{{Asset("assets/img/works/7.jpg")}}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/7@2x.jpg"><img src="{{Asset("assets/img/works/7.jpg")}}" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="{{Asset("assets/img/works/8.jpg")}}" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/8@2x.jpg"><img src="{{Asset("assets/img/works/8.jpg")}}" class="img-responsive " alt="img"></a></div>
-                    </div>
-					</div>
-                </div>
-            </div>
-		</div>
-
-	</section>
-	<!-- /Section: search -->
 
 	<!-- Section: contact -->
     <section id="contact" class="home-section nopadd-bot color-dark bg-gray text-center">

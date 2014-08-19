@@ -46,13 +46,13 @@ Danh sách Dịch vụ
             <div class="list-group">
             	<form id="form-search" class="wow bounceInUp form-homepage" action="{{Asset('list-vendor/search')}}" method="get">
 	                <input type="text" name="name" class="form-control input-lg"
-	                		value="{{Input::get('name')}}" placeholder="" />
+	                		value="{{Input::get('name')}}" placeholder="Từ tìm kiếm" />
 	                <select name="location" class="form-control input-lg">
 	                	@foreach(Location::get() as $location)
 				    	<option value="{{$location->id}}">{{$location->name}}</option>
 				    	@endforeach
 			    	</select>
-	                <input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="" value="{{Input::get('category')}}">
+	                <input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Danh mục" value="{{Input::get('category')}}" readonly style="cursor:pointer;" >
 			    	<input id="searchId" name="category_id" type="hidden">
 			    	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 					    <li role="presentation">
@@ -60,8 +60,8 @@ Danh sách Dịch vụ
 						    	<div class="col-xs-6">
 						      		<ul class="list-unstyled">
 							      		@foreach (Category::get() as $index=> $category)
-			    						@if($index<6)
-						      			<li><span>{{$category['name']}}</span>
+			    						@if($index<7)
+						      			<li><span style="cursor:pointer;" >{{$category['name']}}</span>
 						      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
 						      			</li>
 						      			@endif
@@ -71,8 +71,8 @@ Danh sách Dịch vụ
 						      	<div class="col-xs-6">
 						      		<ul class="list-unstyled">
 						      			@foreach (Category::get() as $index=> $category)
-		    							@if($index>=6)
-						      			<li><span>{{$category['name']}}</span>
+		    							@if($index>=7)
+						      			<li><span style="cursor:pointer;" >{{$category['name']}}</span>
 						      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
 						      			</li>
 						      			@endif
@@ -113,8 +113,7 @@ Danh sách Dịch vụ
 			                        <div class="category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
 			                        <div class="caption">
 			                            <div class="name"><a href="{{URL::to('vendor',array($vendor->id))}}">{{$vendor->name}}</a></div>
-			                            <?php $about=$vendor->about ?>
-			                            <p>{{str_limit($about, 30, "....")}}</p>
+			                            
 			                        </div>
 			                        <div class="ratings">
 			                            <p class="pull-right">6 reviews</p>
@@ -129,7 +128,7 @@ Danh sách Dịch vụ
 
 			                        <!-- case vendor had in session compare -->
 			                        @if( in_array($vendor->id, $compares) )
-			                        <div class="checkbox compare">
+			                        <div class="compare-photo">
 	                        			<label>
 									        <input checked type="checkbox" name="chk[]" value="{{$vendor->id}}" class='compare-title'> Compare
 									        <input type="hidden" name="checkbox-{{$vendor->id}}" value="{{$vendor->id}}" >
@@ -138,7 +137,7 @@ Danh sách Dịch vụ
 									        
 									</div>
 									@else
-									<div class="checkbox compare">
+									<div class="compare-photo">
 		                        			<label>
 										        <input type="checkbox" name="chk[]" value="{{$vendor->id}}" class='compare-title'> Compare
 										        <input type="hidden" name="checkbox-{{$vendor->id}}" value="" >
@@ -162,8 +161,7 @@ Danh sách Dịch vụ
 			                        <div class="category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
 			                        <div class="caption">
 			                            <div class="name"><a href="{{URL::to('vendor',array($vendor->id))}}">{{$vendor->name}}</a></div>
-			                            <?php $about=$vendor->about ?>
-			                            <p>{{str_limit($about, 30, "....")}}</p>
+			                            
 			                        </div>
 			                        <div class="ratings">
 			                            <p class="pull-right">6 reviews</p>
@@ -175,7 +173,7 @@ Danh sách Dịch vụ
 			                                <span class="glyphicon glyphicon-star-empty"></span>
 			                            </p>
 			                        </div>
-			                        <div class="checkbox compare">
+			                        <div class="compare-photo">
 								        <label>
 									        <input type="checkbox" name="chk[]" value="{{$vendor->id}}" class='compare-title'> Compare
 									        <input type="hidden" name="checkbox-{{$vendor->id}}" value="" >

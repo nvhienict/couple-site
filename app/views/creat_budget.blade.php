@@ -42,6 +42,7 @@ Budget
 						money_budget1:
 						{
 							required:true
+							
 						
 						}
 					},
@@ -51,10 +52,10 @@ Budget
 						{
 							required:"Chưa nhập số tiền"
 							
+							
 						}
 					}
 				})
-
 				
                   function key_money(event){
 	                 if(event.which >= 37 && event.which <= 40) return;
@@ -65,7 +66,7 @@ Budget
 						            $('#money_budget').val($("#money_budget1").val().replace(/,/gi,''));
 						    });
 		                 $('#money_budget').val($("#money_budget1").val().replace(/,/gi,''));
-		                 
+		        //alert($("#money_budget1").val().replace(/,/gi,''));      
 		                
 				};
 				

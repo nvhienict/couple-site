@@ -43,13 +43,13 @@ Danh sách Dịch vụ
             <div class="list-group">
             	<form id="form-search" class="wow bounceInUp form-homepage" action="{{Asset('list-vendor/search')}}" method="get">
 	                <input type="text" name="name" class="form-control input-lg"
-	                		value="" placeholder="Từ tìm kiếm" />
+	                		value="{{Input::get('name')}}" placeholder="Từ tìm kiếm" />
 	                <select name="location" class="form-control input-lg">
 	                	@foreach(Location::get() as $location)
 				    	<option value="{{$location->id}}">{{$location->name}}</option>
 				    	@endforeach
 			    	</select>
-	                <input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Danh mục">
+	                <input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" value="{{Input::get('category')}}" placeholder="Danh mục"  readonly style="cursor:pointer;" >
 			    	<input id="searchId" name="category_id" type="hidden">
 			    	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 					    <li role="presentation">
@@ -57,8 +57,8 @@ Danh sách Dịch vụ
 						    	<div class="col-xs-6">
 						      		<ul class="list-unstyled">
 							      		@foreach (Category::get() as $index=> $category)
-			    						@if($index<6)
-						      			<li><span>{{$category['name']}}</span>
+			    						@if($index<7)
+						      			<li><span style="cursor:pointer;" >{{$category['name']}}</span>
 						      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
 						      			</li>
 						      			@endif
@@ -68,8 +68,8 @@ Danh sách Dịch vụ
 						      	<div class="col-xs-6">
 						      		<ul class="list-unstyled">
 						      			@foreach (Category::get() as $index=> $category)
-		    							@if($index>=6)
-						      			<li><span>{{$category['name']}}</span>
+		    							@if($index>=7)
+						      			<li><span style="cursor:pointer;" >{{$category['name']}}</span>
 						      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
 						      			</li>
 						      			@endif
@@ -107,10 +107,15 @@ Danh sách Dịch vụ
 								<div class="list-category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
 							</div>
 							<div class="col-sm-8 col-lg-8 col-md-8">
-								<div class="caption">
+								<div class="caption-list">
 		                            <div class="name"><a href="{{URL::to('vendor',array($vendor->id))}}">{{$vendor->name}}</a></div>
-		                            <?php $about=$vendor->about ?>
-		                            <p>{{str_limit($about, 30, "....")}}</p>
+		                            <?php
+		                            	$about=$vendor->about;
+		                            	$arrayContent = explode('.', $about);
+										$shortContent = $arrayContent[0] . '.'; // 1 cau dau`
+										$shortContent = $shortContent.$arrayContent[1] . '.'; // 1 cau dau`
+		                            ?>
+		                            <p>{{ $shortContent }}</p>
 		                            <div class="website">http://{{$vendor->website}}</div>
 		                        </div>
 								<div class="ratings">
@@ -158,10 +163,15 @@ Danh sách Dịch vụ
 								<div class="list-category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
 							</div>
 							<div class="col-sm-8 col-lg-8 col-md-8">
-								<div class="caption">
+								<div class="caption-list">
 		                            <div class="name"><a href="{{URL::to('vendor',array($vendor->id))}}">{{$vendor->name}}</a></div>
-		                            <?php $about=$vendor->about ?>
-		                            <p>{{str_limit($about, 30, "....")}}</p>
+		                            <?php
+		                            	$about=$vendor->about;
+		                            	$arrayContent = explode('.', $about);
+										$shortContent = $arrayContent[0] . '.'; // 1 cau dau`
+										$shortContent = $shortContent.$arrayContent[1] . '.'; // 1 cau dau`
+		                            ?>
+		                            <p>{{ $shortContent }}</p>
 		                            <div class="website">http://{{$vendor->website}}</div>
 		                        </div>
 								<div class="ratings">
