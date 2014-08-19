@@ -170,8 +170,10 @@ Checklist
 							<td>
 							<input type="text" hidden id="usertask-id-{{$usertask->id}}" value="{{$usertask->id}}">
 							
-							@if(ChecklistController::comparedate($usertask->startdate,$usertask->todo))
-							<span class="fa fa-warning" style="color:#E9621A;"></span>
+							@if((ChecklistController::comparedate($usertask->startdate,$usertask->todo))&&($usertask->todo==0))
+							<span  class="fa fa-warning" style="color:#E9621A;"></span>
+							@elseif($usertask->todo==1)
+							<span  ></span>
 							@endif
 							</td>
 							<td>

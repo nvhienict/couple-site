@@ -35,52 +35,29 @@ Budget
 				</form>
 				<script type="text/javascript">
 
-				// $("#money_budget1").keypress(validateNumber);
-				// 	function validateNumber(event) {
-				// 	    var key = window.event ? event.keyCode : event.which;
-				// 	    if (event.keyCode == 8 || event.keyCode == 46
-				// 	     || event.keyCode == 37 || event.keyCode == 39) {
-				// 	    	$(this).number(true);
-				// 	        return true;
-				// 	    }
-				// 	    else if ( key < 48 || key > 57 ) {
 
-				// 	        return false;
-				// 	    }
-				// 	    else{
-				// 	     $(this).number(true);
-				// 	     return true;
+				$("#form-create-money").validate({
+					rules:
+					{
+						money_budget1:
+						{
+							required:true
+						
+						}
+					},
+					messages:
+					{
+						money_budget1:
+						{
+							required:"Chưa nhập số tiền"
+							
+						}
+					}
+				})
 
-				// 	    } true;
-				// 	} 
-
-				// $("#form-create-money").validate({
-				// 	rules:
-				// 	{
-				// 		money_budget1:
-				// 		{
-				// 			required:true,
-				// 			range:[50000000,1000000000]
-				// 		}
-				// 	},
-				// 	messages:
-				// 	{
-				// 		money_budget1:
-				// 		{
-				// 			required:"Chưa nhập số tiền",
-				// 			range:" Hệ thống chỉ tính toán vs số tiền từ 50 triệu tới 1 tỷ"
-				// 		}
-				// 	}
-				// })
-
-				// $(function(){
-				//     $("#money_budget1").keyup(function () {
-				//         var value = $(this).val();
-				//         $("#money_budget").val(value);
-				//     }).keyup();
-				// });
+				
                   function key_money(event){
-                     if(event.which >= 37 && event.which <= 40) return;
+	                 if(event.which >= 37 && event.which <= 40) return;
 		                 $("#money_budget1").val(function(index, value) {
 						        return value
 						            .replace(/\D/g, '')
@@ -89,9 +66,7 @@ Budget
 						    });
 		                 $('#money_budget').val($("#money_budget1").val().replace(/,/gi,''));
 		                 
-		                 //alert(($("#money_budget1").val().replace(/,/gi,'')));
-		                 //alert($("money_budget").val());
-                   
+		                
 				};
 				
 				</script>
