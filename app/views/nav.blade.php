@@ -20,7 +20,7 @@
             <div class="col-xs-6">
               <ul class="list-unstyled">
                   @foreach (Category::get() as $index=> $category)
-                  @if($index < 6)
+                  @if($index < 7)
                     <li><a href="{{URL::route('category', array($category->id))}}">{{$category['name']}}</a></li>
                   @endif
                   @endforeach
@@ -29,7 +29,7 @@
             <div class="col-xs-6">
               <ul class="list-unstyled">
                   @foreach (Category::get() as $index=> $category)
-                  @if($index >= 6)
+                  @if($index >= 7)
                     <li><a href="{{URL::route('category', array($category->id))}}">{{$category['name']}}</a></li>
                   @endif
                   @endforeach
@@ -67,7 +67,6 @@
       </li>
       <li><a href="{{URL::route('index')}}#about">Giới thiệu</a></li>
       <li><a href="{{URL::route('index')}}#service">Dịch vụ</a></li>
-      <li><a href="{{URL::route('index')}}#search">Tìm kiếm nhà cung cấp</a></li>
       <li><a href="{{URL::route('index')}}#contact">Liên hệ</a></li>
       
     </ul>

@@ -81,6 +81,23 @@ class ChecklistController extends \BaseController {
 	{
 		//
 	}
+
+	public static function gh(){
+		$gh=Session::get('email');
+		echo "email: ".$gh;
+	}
+	public static function gh2(){
+		$gh=Cookie::get('id-user');
+		echo "id: ".$gh;
+	}
+
+	// format date ('d-m-Y')
+	public static function getDates(){
+		$weddingdate = User::find(Cookie::get('id-user'))->weddingdate;
+
+		return Carbon::parse($weddingdate)->format('d-m-Y');
+	}
+
 	public function get_UserChecklist()
 	{
 		
@@ -153,6 +170,7 @@ class ChecklistController extends \BaseController {
 
 	}
 	public static function changeMonth($key){
+		
 		$date_now=new DateTime("now");
 		$date_wedding=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
 		

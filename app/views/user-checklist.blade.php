@@ -407,7 +407,7 @@ Checklist
 			<div class="col-xs-12">
 				<h2>Thống kê</h2>
 				NGÀY CƯỚI: 
-				<span style="color: #ff2680;">{{User::find(Cookie::get('id-user'))->weddingdate}}</span>
+				<span style="color: #ff2680;">{{ChecklistController::getDates()}}</span>
 
 				<br />VIỆC CẦN LÀM: 
 				<span style="color: #f0ad4e;">{{UserTask::where("user",Cookie::get('id-user'))->count()}}</span>
