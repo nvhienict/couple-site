@@ -172,6 +172,8 @@ Checklist
 							
 							@if(ChecklistController::comparedate($usertask->startdate,$usertask->todo))
 								<span  id="warning{{$usertask->id}}" class="fa fa-warning" style="color:#E9621A;"></span>
+							@else
+								<span  id="warning{{$usertask->id}}" class="fa fa-warning" style="color:#E9621A; display: none;"></span>
 							@endif
 							</td>
 							<td>

@@ -164,8 +164,9 @@ Checklist
 								<td>
 									<input type="text" hidden id="usertask-id-{{$usertask->id}}" value="{{$usertask->id}}">
 									@if(ChecklistController::comparedate($usertask->startdate,$usertask->todo))
-									<span  id="warning{{$usertask->id}}" class="fa fa-warning" style="color:#E9621A;"></span>
-									
+										<span  id="warning{{$usertask->id}}" class="fa fa-warning" style="color:#E9621A;"></span>
+									@else
+										<span  id="warning{{$usertask->id}}" class="fa fa-warning" style="color:#E9621A; display: none;"></span>
 									@endif
 								</td>
 								<td>
