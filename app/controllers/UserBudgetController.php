@@ -186,10 +186,21 @@ class UserBudgetController extends \BaseController {
 	{
 	    $id_user = Cookie::get('id-user');
 		$id=Input::get('id');
-		$item=UserBudget::find($id)->delete();
-		
+		$item=UserBudget::find($id);
+		$id_cate=$item->category;
+		$item->delete();
+		$sumEstimate_cate= UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('estimate');
+		$sumActual_cate= UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('actual');
+		$sumPay_cate= UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('pay');
+		$sumDue_cate=$sumActual_cate-$sumPay_cate;
 		$sumEstimate= UserBudget::where('user',$id_user)->sum('estimate');
-          echo json_encode(array('re_estimate'=>$sumEstimate));
+		$sumActual= UserBudget::where('user',$id_user)->sum('actual');
+		$sumPay= UserBudget::where('user',$id_user)->sum('pay');
+		$sumDue=$sumActual-$sumPay;
+
+
+
+          echo json_encode(array('sumDue'=>$sumDue,'sumActual'=>$sumActual,'sumPay'=>$sumPay,'re_estimate'=>$sumEstimate,'id_cate'=>$id_cate,'sumEstimate_cate'=>$sumEstimate_cate,'sumActual_cate'=>$sumActual_cate,'sumPay_cate'=>$sumPay_cate,'sumDue_cate'=>$sumDue_cate));
           exit();
 	}
 

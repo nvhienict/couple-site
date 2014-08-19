@@ -398,8 +398,43 @@ Budget
 											success: function(data){
 												$("#budget_item_cat"+id).remove();
 												     var obj = JSON.parse(data);
-				                                   $("#rowSumExpected").text(obj.re_estimate.format(0,3,',') + " VND");
-				                                    $("#rowSumExpected").show();     
+				                                   
+				                                    $("#totalEstimate"+obj.id_cate).text(obj.sumEstimate_cate.format(0,3,',') + " VND");
+				                                    $("#totalEstimate"+obj.id_cate).show();
+				                                    $("#totalCat"+obj.id_cate).text(obj.sumActual_cate.format(0,3,',') + " VND");
+				                                    $("#totalCat"+obj.id_cate).show();
+				                                    $("#totalCatPay"+obj.id_cate).text(obj.sumPay_cate.format(0,3,',') + " VND");
+				                                    $("#totalCatPay"+obj.id_cate).show();
+				                                    $("#totalCatDue"+obj.id_cate).text(obj.sumDue_cate.format(0,3,',') + " VND");
+				                                    $("#totalCatDue"+obj.id_cate).show();
+				                                    $("#rowSumExpected").text(obj.re_estimate.format(0,3,',') + " VND");
+				                                    $("#rowSumExpected").show(); 
+				                                    $("#rowSumActual").text(obj.sumActual.format(0,3,',') + " VND");
+				                                    $("#rowSumActual").show();
+				                                    $("#rowSumPay").text(obj.sumPay.format(0,3,',') + " VND");
+				                                    $("#rowSumPay").show();
+				                                    $("#rowSumDue").text(obj.sumDue.format(0,3,',') + " VND");
+				                                    $("#rowSumDue").show();
+				                                    
+				                                    $("#ubsDuKien").text(obj.re_estimate.format(0,3,',') + " VND");
+				                                    $("#ubsDuKien").show();
+				                                    $("#ubsThucTe").text(obj.sumActual.format(0,3,',') + " VND");
+				                                    $("#ubsThucTe").show();
+				                                    $("#ubsThanhToan").text(obj.sumPay.format(0,3,',') + " VND");
+				                                    $("#ubsThanhToan").show();
+				                                    $("#ubsConNo").text(obj.sumDue.format(0,3,',') + " VND");
+				                                    $("#ubsConNo").show();
+
+
+
+
+				                                    
+
+				                                    
+
+
+
+
 											}												
 											});
                                         return true;
