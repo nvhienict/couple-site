@@ -128,7 +128,7 @@ Checklist
 
 											$("#count_overdue").text($j);
 											$("#count_complete").text($i);
-
+											$("#warning{{$usertask->id}}").hide();
 											$.ajax({
 												type: "post",
 												url: "{{URL::route('check_task_complete', array('ac'=>1))}}",
@@ -147,7 +147,7 @@ Checklist
 
 											$("#count_overdue").text($j);
 											$("#count_complete").text($i);
-
+											$("#warning{{$usertask->id}}").show();
 											$.ajax({
 												type: "post",
 												url: "{{URL::route('check_task_complete', array('ac'=>0))}}",
@@ -163,10 +163,9 @@ Checklist
 								</td>
 								<td>
 									<input type="text" hidden id="usertask-id-{{$usertask->id}}" value="{{$usertask->id}}">
-									@if((ChecklistController::comparedate($usertask->startdate,$usertask->todo))&&($usertask->todo==0))
-									<span  class="fa fa-warning" style="color:#E9621A;"></span>
-									@elseif($usertask->todo==1)
-									<span  ></span>
+									@if(ChecklistController::comparedate($usertask->startdate,$usertask->todo))
+									<span  id="warning{{$usertask->id}}" class="fa fa-warning" style="color:#E9621A;"></span>
+									
 									@endif
 								</td>
 								<td>
