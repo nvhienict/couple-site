@@ -105,7 +105,7 @@ Checklist
 						</tr>
 					</thead>
 					<tbody>
-					@foreach(User::find(Cookie::get('id-user'))->user_task()->get() as $index=>$usertask)
+					@foreach(User::find(ChecklistController::id_user())->user_task()->get() as $index=>$usertask)
 					@if($category->id==$usertask->category)
 						<tr>
 							<td>
@@ -163,7 +163,7 @@ Checklist
 							<td>{{$usertask->title}}</td>
 							<td>
 							<?php 
-								$date=new DateTime(User::find(Cookie::get('id-user'))->weddingdate);
+								$date=new DateTime(User::find(ChecklistController::id_user())->weddingdate);
 								echo $date->sub(new DateInterVal('P'.$usertask->startdate.'D'))->format("m-Y");
 							?>
 							</td>
@@ -413,13 +413,13 @@ Checklist
 				<span style="color: #ff2680;">{{ChecklistController::getDates()}}</span>
 
 				<br />VIỆC CẦN LÀM: 
-				<span style="color: #f0ad4e;">{{UserTask::where("user",Cookie::get('id-user'))->count()}}</span>
+				<span style="color: #f0ad4e;">{{UserTask::where("user", ChecklistController::id_user())->count()}}</span>
 
 				<br />VIỆC QUÁ HẠN: 
 				<span id="count_overdue" style="color: #f0ad4e;">{{ChecklistController::overdue()}}</span>
 
 				<br />VIỆC HOÀN THÀNH: 
-				<span id="count_complete" style="color: #f0ad4e;">{{UserTask::where("user",Cookie::get('id-user'))->where('todo',1)->count()}}</span>
+				<span id="count_complete" style="color: #f0ad4e;">{{UserTask::where("user", ChecklistController::id_user())->where('todo',1)->count()}}</span>
 				<br />
 			</div>
 		</div>

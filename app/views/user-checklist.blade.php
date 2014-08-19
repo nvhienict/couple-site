@@ -36,7 +36,6 @@ Checklist
 				</a>
 				</div>
 
-			
 				<div class="col-md-2">
 					<a href="{{Asset('exportfile')}}" ><i class="fa fa-print"></i>&nbspXuất file</a>
 				</div>
@@ -410,13 +409,13 @@ Checklist
 				<span style="color: #ff2680;">{{ChecklistController::getDates()}}</span>
 
 				<br />VIỆC CẦN LÀM: 
-				<span style="color: #f0ad4e;">{{UserTask::where("user",Cookie::get('id-user'))->count()}}</span>
+				<span style="color: #f0ad4e;">{{ChecklistController::countTasksToDo()}}</span>
 
 				<br />VIỆC QUÁ HẠN: 
 				<span id="count_overdue" style="color: #f0ad4e;">{{ChecklistController::overdue()}}</span>
 
 				<br />VIỆC HOÀN THÀNH: 
-				<span id="count_complete" style="color: #f0ad4e;">{{UserTask::where("user",Cookie::get('id-user'))->where('todo',1)->count()}}</span>
+				<span id="count_complete" style="color: #f0ad4e;">{{ChecklistController::countTasksComplete()}}</span>
 				<br />
 			</div>
 		</div>
