@@ -381,8 +381,13 @@ Budget
 						id:$(".item-add"+id).next().val()
 						},
 						success: function(data){
-						//var obj = JSON.parse(data);
-						jQuery('#budget_item_cat'+data.item_last).after(data.html);													
+						var obj = JSON.parse(data);
+						if (obj.item_last) {
+							$('#budget_item_cat'+obj.item_last).after(obj.html);
+						} else{
+							$('#cate'+id).after(obj.html);
+						};
+						$('#budget_item_cat'+obj.item).show();												
 						}											
 					});
 			 	};	

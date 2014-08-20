@@ -22,7 +22,13 @@ class UserBudgetController extends \BaseController {
 	{
 		$id=Input::get('id');
 		$id_user = Cookie::get('id-user');
-        $item_last=UserBudget::where('category',$id)->get()->last();
+		$count=UserBudget::where('user',$id_user)->where('category',$id)->count();
+		if ($count) {
+			$item_last=UserBudget::where('user',$id_user)->where('category',$id)->get()->last()->id;
+		} else {
+			$item_last=0;
+               
+		}
 		$budget=new UserBudget();
 		$budget->item="New Item";
 		$budget->user=$id_user;
@@ -127,7 +133,7 @@ class UserBudgetController extends \BaseController {
 				
 								
 		</tr>';
-		return array('item_last'=>$item_last->id,'item'=>$item->id,'html'=>$html);
+		echo json_encode(array('item_last'=>$item_last,'item'=>$item->id,'html'=>$html));
 		exit();
 	}
 
