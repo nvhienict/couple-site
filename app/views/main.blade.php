@@ -69,14 +69,38 @@
 	<footer>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
-					
+				<div class="col-md-9 ">
 					<div class="text-center">
 						<a href="#intro" class="totop"><i class="fa fa-angle-up fa-3x"></i></a>
 
 						<p>119 Đặng Công Trứ, Thành phố Huế<br />
 						&copy;Copyright 2014 - Shuffle. Designed by <a href="http://bootstraptaste.com">Bootstraptaste</a></p>
 					</div>
+					
+				</div>
+				<div class="col-md-3">
+					<a href="javascript:void(0);" class="btn btn-top" id="go_top">
+						<!-- <img src="{{Asset('icon/top3.png')}}" id="back-top" > -->
+						<i class="fa fa-angle-up fa-3x text-center"></i>
+					</a>
+					<script type="text/javascript">
+					(function(){
+					    // Cuộn trang lên với scrollTop
+					    $('#go_top').click(function(){
+					        $('body,html').animate({scrollTop:0},400);
+					        return false;
+					    })
+					})(jQuery)
+		            $(window).scroll(function(){
+					    if( $(window).scrollTop() == 0 ) {
+					        $('#go_top').stop(false,true).fadeOut(600);
+					    }else{
+					        $('#go_top').stop(false,true).fadeIn(600);
+					    }
+					});
+
+					</script>
+					
 				</div>
 			</div>	
 		</div>
