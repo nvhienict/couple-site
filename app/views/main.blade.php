@@ -42,39 +42,47 @@
 	<script src="{{Asset('assets/js/jquery.number.js')}}"></script>
 	<script src="{{Asset('assets/js/jquery.number.min.js')}}"></script>
 
-
-
-	
-
-
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 	<!--Header login-->
 	<div class="row user-header">
-		<div class="col-lg-3 col-xs-12 pull-right wedding-user-logged">	
-		  	<ul class="" role="tablist">
-		  		@if(Session::has('email')) 
-		  		<li><a href="#">Hi! {{Session::get('email')}}</a></li>
-		  		<li><a href="{{URL::route('logout')}}">Thoát</a></li>
+		<div class="col-lg-3 col-xs-12 pull-right wedding-user-logged">
+				@if(Session::has('email'))
+				<ul class="user_profile">
+					<li >
+						<a href="{{Asset('profile')}}">
+							<i class="fa fa-user"></i> {{Session::get('email')}}
+						</a>
+						<!-- <ul class="list-unstyled">
+							<li><a href="#">Quản lý nội dung</a></li>
+							<li><a href="{{Asset('profile')}}">Thông tin cá nhân</a></li>
+							<li><a href="#">Cài đặt tài khoản</a></li>
+						</ul> -->
+					</li>  
+
+			  		<li><a href="{{URL::route('logout')}}">Thoát</a></li>
+					
+				</ul>
 		  		@else
 		  		<li><a href="{{URL::route('login')}}">Đăng nhập</a></li>
 		  		<li><a href="{{URL::route('register')}}">Đăng ký</a></li>
 		  		@endif
-		  	</ul>
 		</div>
 	</div>
+
 @yield('nav-bar')
 @yield('content')
 	<footer>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-9 ">
+				<div class="col-md-6 col-md-offset-3">
+					
 					<div class="text-center">
 						<a href="#intro" class="totop"><i class="fa fa-angle-up fa-3x"></i></a>
 
-						<p>119 Đặng Công Trứ, Thành phố Huế<br />
-						&copy;Copyright 2014 - Shuffle. Designed by <a href="http://bootstraptaste.com">Bootstraptaste</a></p>
+						<p>47 Đỗ Huy Uyển, Đà Nẵng<br />
+						&copy; Copyright 2014 - <a href="http://thuna.vn">thuna.vn</a></p>
 					</div>
 					
 				</div>

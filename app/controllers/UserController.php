@@ -82,6 +82,64 @@ class UserController extends \BaseController {
 		//
 	}
 
+	// get id user after user login
+	public static function id_user(){
+		$id_user = User::where( 'email', Session::get('email') )->get()->first()->id;
+		return $id_user;
+	}
+
+	// format weddingdate
+	public static function getDates(){
+		$id_user = ChecklistController::id_user();
+		$weddingdate = User::find($id_user)->weddingdate;
+
+		return Carbon::parse($weddingdate)->format('d-m-Y');
+	}
+
+	// PROFILE OF USER
+	// get profile
+	public function get_profile(){
+
+		$user=User::where('id',UserController::id_user())->get();
+		return View::make('user.profile')->with('user',$user);
+	}
+	// check email edit
+	public function checkEmail($id){
+		$email=Input::get('email');
+		if($email==User::where("id",$id)->get()->first()->email){
+			return "true";
+		}
+		else{
+			if(User::where("email", "=", $email)->count()>0){
+			return "false";
+			}
+			else{return "true";}
+		}
+	} 
+	// edit profile
+	public function post_profile(){
+
+		$firstname = Input::get('firstname');
+		$lastname = Input::get('lastname');
+		$email = Input::get('email');
+		$weddingdate = Input::get('weddingdate');
+		$new_password = Hash::make(Input::get('confim_new_password'));
+
+		// update to database
+		User::where("id", UserController::id_user())->update(
+				array("email"=>$email,
+					"weddingdate"=>$weddingdate,
+					"firstname"=>$firstname,
+					"lastname"=>$lastname,
+					"password"=>$new_password));
+
+		$user=User::where('id',UserController::id_user())->get();
+		return View::make('user.profile')->with('user',$user);
+	}
+
+	
+
+	// get url when user click on menu
 	public function post_url(){
 		$url = Input::get('aurl');
 		Session::set('get_url', $url);
@@ -91,6 +149,8 @@ class UserController extends \BaseController {
 	{
 		return View::make('user-login');
 	}
+
+	// after user login
 	public function post_login()
 	{
 		try {
