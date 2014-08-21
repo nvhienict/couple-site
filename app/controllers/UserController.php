@@ -165,7 +165,7 @@ class UserController extends \BaseController {
 				if($auth)
 				{
 					$IdUser=User::where('email','=',Input::get('txMail'))->get()->first()->id;
-					$cookie=Cookie::forever('id-user', $IdUser);//set cookie
+					
 					Session::put("email",Input::get('txMail'));
 
 					// return view
@@ -175,23 +175,23 @@ class UserController extends \BaseController {
 							case 1:
 								Session::forget('get_url');
 								$view = View::make('user-checklist');
-								return Response::make($view)->withCookie($cookie);
+								return Response::make($view);
 								break;
 
 							case 2:
 								Session::forget('get_url');
 								$view = View::make('budget');
-								return Response::make($view)->withCookie($cookie);
+								return Response::make($view);
 								break;
 							
 							default:
 								$view = View::make('index');
-								return Response::make($view)->withCookie($cookie);
+								return Response::make($view);
 								break;
 						}
 					}else{
 						$view = View::make('index');
-						return Response::make($view)->withCookie($cookie);
+						return Response::make($view);
 					}
 					
 				}else{
@@ -205,9 +205,9 @@ class UserController extends \BaseController {
 	public function get_logout()
 	{
 		Session::flush();
-		$DelCookie=Cookie::forget('id-user');
+		
 		$view=View::make('index');
-		return Response::make($view)->withCookie($DelCookie);
+		return Response::make($view);
 		
 		
 	}
