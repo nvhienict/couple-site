@@ -183,11 +183,11 @@ class UserController extends \BaseController {
 								break;
 							
 							default:
-								return Redirect::to('index');
+								return View::make('index');
 								break;
 						}
 					}else{
-						return Redirect::to('index');
+						return View::make('index');
 					}
 					
 				}else{
