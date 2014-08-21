@@ -173,25 +173,21 @@ class UserController extends \BaseController {
 					if( !empty($get_url) ){
 						switch ($get_url) {
 							case 1:
-								Session::forget('get_url');
-								$view = View::make('user-checklist');
-								return Response::make($view);
+								// Session::forget('get_url');
+								return Redirect::to('user-checklist');
 								break;
 
 							case 2:
-								Session::forget('get_url');
-								$view = View::make('budget');
-								return Response::make($view);
+								// Session::forget('get_url');
+								return Redirect::to('budget');
 								break;
 							
 							default:
-								$view = View::make('index');
-								return Response::make($view);
+								return Redirect::to('index');
 								break;
 						}
 					}else{
-						$view = View::make('index');
-						return Response::make($view);
+						return Redirect::to('index');
 					}
 					
 				}else{
