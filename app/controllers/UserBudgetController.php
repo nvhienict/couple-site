@@ -11,7 +11,10 @@ class UserBudgetController extends \BaseController {
 	{
 		//
 	}
-
+    public static function id_user(){
+    	$id_user=User::where('email',Session::get('email'))->get()->first()->id;
+    	return $id_user;
+    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -21,7 +24,8 @@ class UserBudgetController extends \BaseController {
 	public function create()
 	{
 		$id=Input::get('id');
-		$id_user = Cookie::get('id-user');
+		$id_user=UserBudgetController::id_user();
+		//$id_user = Cookie::get('id-user');
 		$count=UserBudget::where('user',$id_user)->where('category',$id)->count();
 		if ($count) {
 			$item_last=UserBudget::where('user',$id_user)->where('category',$id)->get()->last()->id;
@@ -190,7 +194,7 @@ class UserBudgetController extends \BaseController {
 	}
 	public function delete()
 	{
-	    $id_user = Cookie::get('id-user');
+	    $id_user =UserBudgetController::id_user();
 		$id=Input::get('id');
 		$item=UserBudget::find($id);
 		$id_cate=$item->category;
@@ -249,7 +253,8 @@ class UserBudgetController extends \BaseController {
 	}
 
 	public function getSummaryUserBudget($budgetID){
-		$userID = User::find(Cookie::get('id-user'))->id;
+		//$userID = User::find(Cookie::get('id-user'))->id;
+		$userID=UserBudgetController::id_user();
 
 		//current Budget
 		$userBudget = UserBudget::find($budgetID);
@@ -277,6 +282,7 @@ class UserBudgetController extends \BaseController {
 			'totalEstimate'=>$totalEstimate,
 			'totalActual'=>$totalActual, 'totalPay'=>$totalPay, 'totalDue'=>$totalDue,
 			'sumExpected'=>$sumExpected, 'sumActual'=>$sumActual, 'sumPay'=>$sumPay, 'sumDue'=>$sumDue
+			
 		);
 		echo json_encode($task);
 		exit();

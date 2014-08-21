@@ -9,7 +9,7 @@ class BudgetController extends \BaseController {
 	 */
 	public function index()
 	{
-		$budget = User::find(Cookie::get('id-user'))->budget;
+		$budget = User::find(UserBudgetController::id_user())->budget;
 		if($budget == 0)
 		{
 			return View::make('creat_budget');
@@ -91,7 +91,7 @@ class BudgetController extends \BaseController {
 	public function post_MoneyBudget()
 	{
 		$money_budget=Input::get('money_budget');
-		$user=User::find(Cookie::get('id-user'));
+		$user=User::find(UserBudgetController::id_user());
 		$user->budget=$money_budget;
 		$user->save();
 		$budgets = Budget::get();
@@ -99,7 +99,7 @@ class BudgetController extends \BaseController {
 			// truyền dữ liệu sang bảng userbudget
 			foreach($budgets as $budget){
 				$userbudget = new UserBudget();
-				$userbudget->user = Cookie::get('id-user');
+				$userbudget->user = UserBudgetController::id_user();
 				$userbudget->estimate = ($money_budget*($budget->range1)*(Category::find($budget->category)->range1));
 				$userbudget->category = $budget->category;
 				$userbudget->item = $budget->item;
@@ -113,7 +113,7 @@ class BudgetController extends \BaseController {
 			// truyền dữ liệu sang bảng userbudget
 			foreach($budgets as $budget){
 				$userbudget = new UserBudget();
-				$userbudget->user = Cookie::get('id-user');
+				$userbudget->user = UserBudgetController::id_user();
 				$userbudget->estimate = ($money_budget*($budget->range2)*(Category::find($budget->category)->range2));
 				$userbudget->category = $budget->category;
 				$userbudget->item = $budget->item;
@@ -127,7 +127,7 @@ class BudgetController extends \BaseController {
 			// truyền dữ liệu sang bảng userbudget
 			foreach($budgets as $budget){
 				$userbudget = new UserBudget();
-				$userbudget->user = Cookie::get('id-user');
+				$userbudget->user = UserBudgetController::id_user();
 				$userbudget->estimate =($money_budget*($budget->range3)*(Category::find($budget->category)->range3));
 				$userbudget->category = $budget->category;
 				$userbudget->item = $budget->item;
@@ -143,7 +143,7 @@ class BudgetController extends \BaseController {
 	{
 		$user=User::find(Cookie::get('id-user'));
 		$user->budget=0;
-		UserBudget::where("user",Cookie::get('id-user'))->delete();
+		UserBudget::where("user",UserBudgetController::id_user())->delete();
 		$user->save();
 		return Redirect::to("creat_budget");
 	}
