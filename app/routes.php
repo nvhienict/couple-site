@@ -22,6 +22,9 @@ Route::filter("check_login", function(){
 			return Redirect::to("login");
 	});
 
+Route::post('get_url', array('as'=>'get_url', 'uses'=>'UserController@post_url'));
+
+
 Route::get("main",array("before"=>"check_login", "as"=>"main","uses"=>"UserController@index"));
 
 Route::get('/video/{id}',function($id){
@@ -152,14 +155,12 @@ Route::post('budget/update',array('as'=>'update','uses'=>'UserBudgetController@u
 // Route::post('budget/update2',array('as'=>'update2','uses'=>'ItemController@update2'));
 
 
-Route::post('get_url/{url}', array('as'=>'get_url', 'uses'=>'UserController@post_url'));
+// PROFILE OF USER
+Route::get('profile', array('as'=>'profile', 'uses'=>'UserController@get_profile'));
+Route::post('profile', array('as'=>'profile', 'uses'=>'UserController@post_profile'));
 
-Route::get('gh', function(){
-	$gh = Session::get('get_url');
+Route::post('check_email_edit/{id}', array('as'=>'check_email_edit', 'uses'=>'UserController@checkEmail'));
 
-	if(!empty($gh)){
-		echo $gh;
-	}else{
-		echo 'ko co';
-	}
-});
+Route::get('account', array('as'=>'account', 'uses'=>'UserController@get_account'));
+
+
