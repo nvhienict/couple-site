@@ -258,10 +258,10 @@ class UserController extends \BaseController {
 					}
 
 			$IdUser=User::where('email','=',Input::get('email'))->get()->first()->id;
-					$cookie=Cookie::make('id-user', $IdUser, 120);//set cookie		
+					//$cookie=Cookie::make('id-user', $IdUser,1);//set cookie		
 			Session::put("email",Input::get('email'));
 			$view = View::make("index");
-			return Response::make($view)->withCookie($cookie);
+			return Response::make($view);
 		}else{
 			$errors=$validator->messages();
 			return Redirect::route("register")->with("errors",$errors);
