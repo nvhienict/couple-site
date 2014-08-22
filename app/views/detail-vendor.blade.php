@@ -32,7 +32,7 @@
 						<div calss="col-xs-6 col-sm-4" id="right-infor">
 							<h3 id="right-infor name">{{$vendor->name}}</h3>
 							<p id="right-infor address">{{$vendor->address}} {{Vendor::find($vendor->id)->location()->get()->first()->name}}<a href="#map" data-toggle="tab" class="outside-link"> |Map.</a></p>
-							<p id="right-infor web"><b>Website</b>:<a href="http://{{$vendor->website}}"id="right-infor link"> Ghé thăm Website của tôi</a></p>
+							<p id="right-infor web"><b>Website</b>:<a href="http://{{$vendor->website}}"id="right-infor link" target="_blank"> Ghé thăm Website của tôi</a></p>
 							<p id="right-infor service"><b>Dịch vụ</b>:
 								{{Vendor::find($vendor->id)->category()->get()->first()->name}}
 							</p>
@@ -205,7 +205,7 @@
 							    	
 							    	@else
 							    	
-							    		<input type="text" class="form-control" id="input-firstname"  value="">
+							    		<input type="text" class="form-control" id="input-firstname" placeholder="Họ" value="">
 							    	@endif
 							      
 							    </div>
@@ -216,7 +216,7 @@
 							    		<input type="text" class="form-control" id="input-lastname"  value="{{$lastname}}">
 							    	@else
 							    	
-							    		<input type="text" class="form-control" id="input-lastname"  value="">
+							    		<input type="text" class="form-control" id="input-lastname" placeholder="Tên"  value="">
 							    	@endif
 							    </div>
 							  </div>
@@ -227,7 +227,7 @@
 							    	
 							    	@else
 							    	
-							    		<input type="text" class="form-control" id="input-email"  value="">
+							    		<input type="text" class="form-control" id="input-email" placeholder="Email"  value="">
 							    	@endif
 							    </div>
 							  </div>
