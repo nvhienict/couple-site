@@ -63,7 +63,7 @@ Trang chủ
 	                <li>
 	                	<a href="{{URL::route('budget')}}" onclick="get_url(2);" >Quản lý ngân sách</a><span class="glyphicon glyphicon-ok"></span>
 					</li>
-					@if(empty(Session::get('email')))
+					@if(Session::has('email'))
 					<script type="text/javascript">
                 		function get_url(id){
 							$.ajax({
@@ -235,7 +235,7 @@ Trang chủ
 									      		<ul class="list-unstyled">
 										      		@foreach (Category::get() as $index=> $category)
 						    						@if($index<7)
-									      			<li class="budget-column-icon" style="background-image:url({{Asset($category->images)}})"><span style="cursor:pointer;">{{$category['name']}}</span>
+									      			<li class="budget-column-icon images_li" style="background-image:url({{Asset($category->images)}})"><span style="cursor:pointer;">{{$category['name']}}</span>
 									      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
 									      			</li>
 									      			@endif
@@ -246,7 +246,7 @@ Trang chủ
 									      		<ul class="list-unstyled">
 									      			@foreach (Category::get() as $index=> $category)
 					    							@if($index>=7)
-									      			<li class="budget-column-icon" style="background-image:url({{Asset($category->images)}})"><span style="cursor:pointer;">{{$category['name']}}</span>
+									      			<li class="budget-column-icon images_li" style="background-image:url({{Asset($category->images)}})"><span style="cursor:pointer;">{{$category['name']}}</span>
 									      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
 									      			</li>
 									      			@endif
