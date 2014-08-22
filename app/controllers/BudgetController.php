@@ -141,7 +141,7 @@ class BudgetController extends \BaseController {
 	}
 	public function resetBudget()
 	{
-		$user=User::find(Cookie::get('id-user'));
+		$user=User::find(UserBudgetController::id_user());
 		$user->budget=0;
 		UserBudget::where("user",UserBudgetController::id_user())->delete();
 		$user->save();

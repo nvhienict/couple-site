@@ -52,7 +52,9 @@
 				<ul class="user_profile">
 					<li >
 						<a href="{{Asset('profile')}}">
-							<i class="fa fa-user"></i> {{Session::get('email')}}
+							<i class="fa fa-user"></i> 
+							{{User::where('email',Session::get('email'))->get()->first()->firstname}} 
+							{{User::where('email',Session::get('email'))->get()->first()->lastname}}
 						</a>
 						<!-- <ul class="list-unstyled">
 							<li><a href="#">Quản lý nội dung</a></li>

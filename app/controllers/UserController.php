@@ -140,9 +140,9 @@ class UserController extends \BaseController {
 	
 
 	// get url when user click on menu
-	public function post_url(){
-		$url = Input::get('aurl');
-		Session::set('get_url', $url);
+	public function get_url(){
+		
+		Session::put('url', Input::get('id'));
 	}
 
 	public function get_login()
@@ -153,8 +153,9 @@ class UserController extends \BaseController {
 	// after user login
 	public function post_login()
 	{
+		
 		try {
-			
+
 			($remember=Input::has('remember')) ? true: false;
 			$auth=Auth::attempt(array(
 					"email"=> Input::get('txMail'),
@@ -164,30 +165,30 @@ class UserController extends \BaseController {
 				
 				if($auth)
 				{
-					$IdUser=User::where('email','=',Input::get('txMail'))->get()->first()->id;
-					
 					Session::put("email",Input::get('txMail'));
 
 					// return view
-					$get_url = Session::get('get_url');
+					$get_url = Session::get('url');
 					if( !empty($get_url) ){
 						switch ($get_url) {
 							case 1:
-								// Session::forget('get_url');
+								Session::forget('url');
 								return Redirect::to('user-checklist');
 								break;
 
 							case 2:
-								// Session::forget('get_url');
+								Session::forget('url');
 								return Redirect::to('budget');
 								break;
 							
 							default:
-								return View::make('index');
+								$view = View::make('index');
+								return Response::make($view);
 								break;
 						}
 					}else{
-						return View::make('index');
+						$view = View::make('index');
+						return Response::make($view);
 					}
 					
 				}else{
@@ -205,13 +206,13 @@ class UserController extends \BaseController {
 		$view=View::make('index');
 		return Response::make($view);
 		
-		
 	}
 
 	public function get_register()
 	{
 		return View::make('register');
 	}
+
 	public function post_users(){
 		$rules=array(
 			"first_name"=>"required|min:3",
@@ -254,7 +255,7 @@ class UserController extends \BaseController {
 					}
 
 			$IdUser=User::where('email','=',Input::get('email'))->get()->first()->id;
-					//$cookie=Cookie::make('id-user', $IdUser,1);//set cookie		
+
 			Session::put("email",Input::get('email'));
 			$view = View::make("index");
 			return Response::make($view);

@@ -236,7 +236,7 @@ Budget
 									    <input onchange="item_change({{$budget->id}})" ondblclick="item_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}item form-control input-edit-money" name="item" value="{{$budget->item}}">   
 										<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
 									 </div>
-									 <p style="display:none;color:red;" class="item_error{{$budget->id}}">Item không được trống</p>
+									 <p style="display:none;color:red;" class="item_error{{$budget->id}}">Chi tiêu không được trống</p>
 					 			</td>
 						 		<td class="TienVND">
 					 				<div class="estimate{{$budget->id}}"><!-- Estimate -->
@@ -246,7 +246,7 @@ Budget
 									    <input onkeyup="key_estimate(event,{{$budget->id}})" onchange="estimate_dblclick({{$budget->id}})" ondblclick="estimate_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}InputEstimate form-control input-edit-money" name="estimate" value=" {{number_format(($budget->estimate),0, '.', ',')}}">
 										<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
 									 </div>
-									 <p style="display:none;color:red;" class="estimate_error{{$budget->id}}">please,nhập số</p>
+									 <p style="display:none;color:red;" class="estimate_error{{$budget->id}}">Vui lòng nhập số tiền</p>
 						 		</td>
 						 		<td class="TienVND"><!-- Actual -->
 									<div id="edit-money" > 
@@ -256,7 +256,7 @@ Budget
 										<input onkeyup="key_actual(event,{{$budget->id}})" onchange="actual_dblclick({{$budget->id}})" ondblclick="actual_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}_slidingDiv form-control input-edit-money" id="{{$budget->id}}money" name="money" value="{{number_format(($budget->actual),0, '.', ',')}}">
 										<input type="text" hidden name="{{$budget->id}}" value="{{$budget->id}}">
 									</div>
-									<p style="display:none;color:red;" class="actual_error{{$budget->id}}">please,nhập số</p>
+									<p style="display:none;color:red;" class="actual_error{{$budget->id}}">Vui lòng nhập số tiền</p>
 
 								</td>
 					 			<td class="TienVND">
@@ -267,7 +267,7 @@ Budget
 										<input onkeyup="key_pay(event,{{$budget->id}})" onchange="pay_dblclick({{$budget->id}})" ondblclick="pay_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}Estimate form-control input-edit-money" id="{{$budget->id}}estimate" name="estimate" value="{{number_format(($budget->pay),0, '.', ',')}}">
 										<input type="text" hidden name="{{$budget->id}}" value="{{$budget->id}}">
 									</div>
-									<p style="display:none;color:red;" class="pay_error{{$budget->id}}">please,nhập số</p>
+									<p style="display:none;color:red;" class="pay_error{{$budget->id}}">Vui lòng nhập số tiền</p>
 				 				</td><!-- pay -->
 					 			<td class="TienVND">
 					 				<div>
@@ -393,7 +393,7 @@ Budget
 			 	};	
 			 	function item_del(id){
 									
-                                    if(confirm("Are you sure you want to delete this?")){
+                                    if(confirm("Bạn chắc chắn muốn xoá chi tiêu này?")){
                                     	$.ajax({
 											type: "post",
 											url: "{{URL::route('delete')}}",

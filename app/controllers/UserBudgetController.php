@@ -89,7 +89,7 @@ class UserBudgetController extends \BaseController {
 			 		<a onclick="item_click('.$item->id.')" class="'.$item->id.'show_item">'.$item->item.'</a>
 				    <input  onchange="item_change('.$item->id.')"  ondblclick="item_dblclick('.$item->id.')"  type="text" value="'.$item->item.'" name="item" class="'.$item->id.'item form-control input-edit-money" >
 					<input type="hidden" value="'.$item->id.'" name="'.$item->id.'">
-					<p style="display:none;color:red;" class="item_error'.$item->id.'">Item không được trống</p>
+					<p style="display:none;color:red;" class="item_error'.$item->id.'">Chi tiêu không được trống</p>
 			 	</div>
 			</td>
 			<td class="TienVND">
@@ -99,7 +99,7 @@ class UserBudgetController extends \BaseController {
 					</a>
 					<input onkeyup="key_estimate(event,'.$item->id.')" onchange="estimate_dblclick('.$item->id.')" ondblclick="estimate_dblclick('.$item->id.')" type="text" class="'.$item->id.'InputEstimate form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->estimate.'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
-					<p style="display:none;color:red;" class="estimate_error'.$item->id.'">Please,nhập số</p>
+					<p style="display:none;color:red;" class="estimate_error'.$item->id.'">Vui lòng nhập số tiền</p>
 				</div>
 			</td>
 			<td class="TienVND">
@@ -109,7 +109,7 @@ class UserBudgetController extends \BaseController {
 					</a>
 					<input onkeyup="key_actual(event,'.$item->id.')" onchange="actual_dblclick('.$item->id.')" ondblclick="actual_dblclick('.$item->id.')" type="text" class="'.$item->id.'_slidingDiv form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->actual.'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
-					<p style="display:none;color:red;" class="actual_error'.$item->id.'">Please,nhập số</p>
+					<p style="display:none;color:red;" class="actual_error'.$item->id.'">Vui lòng nhập số tiền</p>
 				</div>
 			</td>
 			<td class="TienVND">
@@ -119,7 +119,7 @@ class UserBudgetController extends \BaseController {
 					</a>
 					<input onkeyup="key_pay(event,'.$item->id.')" onchange="pay_dblclick('.$item->id.')" ondblclick="pay_dblclick('.$item->id.')" type="text" class="'.$item->id.'Estimate form-control input-edit-money" id="'.$item->id.'estimate" name="estimate" value="'.$item->pay .'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
-					<p style="display:none;color:red;" class="pay_error'.$item->id.'">Please,nhập số</p>
+					<p style="display:none;color:red;" class="pay_error'.$item->id.'">Vui lòng nhập số tiền</p>
 				</div>
  			</td>
 			<td class="TienVND">
@@ -199,13 +199,13 @@ class UserBudgetController extends \BaseController {
 		$item=UserBudget::find($id);
 		$id_cate=$item->category;
 		$item->delete();
-		$sumEstimate_cate= round(UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('estimate'),-5);
-		$sumActual_cate= round(UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('actual'),-5);
-		$sumPay_cate= round(UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('pay'),-5);
+		$sumEstimate_cate= UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('estimate');
+		$sumActual_cate= UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('actual');
+		$sumPay_cate= UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('pay');
 		$sumDue_cate=$sumActual_cate-$sumPay_cate;
-		$sumEstimate=round(UserBudget::where('user',$id_user)->sum('estimate'),-5);
-		$sumActual=round(UserBudget::where('user',$id_user)->sum('actual'),-5);
-		$sumPay=round(UserBudget::where('user',$id_user)->sum('pay'),-5);
+		$sumEstimate=UserBudget::where('user',$id_user)->sum('estimate');
+		$sumActual=UserBudget::where('user',$id_user)->sum('actual');
+		$sumPay=UserBudget::where('user',$id_user)->sum('pay');
 		$sumDue=$sumActual-$sumPay;
 
 
