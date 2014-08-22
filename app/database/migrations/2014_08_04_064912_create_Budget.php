@@ -20,6 +20,8 @@ class CreateBudget extends Migration {
 				$table->float('range1');
 				$table->float('range2');
 				$table->float('range3');
+				$table->float('range4');
+				$table->float('range5');
 				$table->timestamps();
 			});
 	}
