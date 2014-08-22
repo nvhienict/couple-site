@@ -43,7 +43,7 @@
 	<script src="{{Asset('assets/js/jquery.number.min.js')}}"></script>
 
 </head>
-
+@include('social')
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 	<!--Header login-->
 	<div class="row user-header">
