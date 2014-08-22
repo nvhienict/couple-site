@@ -235,7 +235,7 @@ Trang chủ
 									      		<ul class="list-unstyled">
 										      		@foreach (Category::get() as $index=> $category)
 						    						@if($index<7)
-									      			<li><span style="cursor:pointer; margin-left:20px">{{$category['name']}}</span>
+									      			<li class="budget-column-icon" style="background-image:url({{Asset($category->images)}})"><span style="cursor:pointer;">{{$category['name']}}</span>
 									      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
 									      			</li>
 									      			@endif
@@ -246,7 +246,7 @@ Trang chủ
 									      		<ul class="list-unstyled">
 									      			@foreach (Category::get() as $index=> $category)
 					    							@if($index>=7)
-									      			<li><span style="cursor:pointer;">{{$category['name']}}</span>
+									      			<li class="budget-column-icon" style="background-image:url({{Asset($category->images)}})"><span style="cursor:pointer;">{{$category['name']}}</span>
 									      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
 									      			</li>
 									      			@endif

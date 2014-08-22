@@ -121,7 +121,8 @@ class CategoriesTableSeeder extends Seeder {
         	'range2'=>'',
         	'range3'=>'',
         	'range4'=>'',
-        	'range5'=>''
+        	'range5'=>'',
+            'images'=>'dress.svg'
 	    )
 	    );
 	    Category::create(array(
@@ -131,7 +132,8 @@ class CategoriesTableSeeder extends Seeder {
         	'range2'=>'',
         	'range3'=>'',
         	'range4'=>'',
-        	'range5'=>''
+        	'range5'=>'',
+            'images'=>'band.svg'
 	    )
 	    );
 	    Category::create(array(
@@ -141,7 +143,8 @@ class CategoriesTableSeeder extends Seeder {
         	'range2'=>'',
         	'range3'=>'',
         	'range4'=>'',
-        	'range5'=>''
+        	'range5'=>'',
+            'images'=>'cake.png'
 	    )
 	    );
 	    Category::create(array(
@@ -151,7 +154,8 @@ class CategoriesTableSeeder extends Seeder {
         	'range2'=>'',
         	'range3'=>'',
         	'range4'=>'',
-        	'range5'=>''
+        	'range5'=>'',
+            'images'=>'transportation.svg'
 	    )
 	    );
 	    Category::create(array(
@@ -161,7 +165,8 @@ class CategoriesTableSeeder extends Seeder {
         	'range2'=>'',
         	'range3'=>'',
         	'range4'=>'',
-        	'range5'=>''
+        	'range5'=>'',
+            'images'=>'makeup.png'
 	    )
 	    );
 	    Category::create(array(
@@ -171,7 +176,8 @@ class CategoriesTableSeeder extends Seeder {
         	'range2'=>'',
         	'range3'=>'',
         	'range4'=>'',
-        	'range5'=>''
+        	'range5'=>'',
+            'images'=>'weddingplanner.svg'
 	    )
 	    );
 	    Category::create(array(
@@ -181,7 +187,8 @@ class CategoriesTableSeeder extends Seeder {
         	'range2'=>'',
         	'range3'=>'',
         	'range4'=>'',
-        	'range5'=>''
+        	'range5'=>'',
+            'images'=>'venue.svg'
 	    )
 	    );
 	    Category::create(array(
@@ -191,7 +198,8 @@ class CategoriesTableSeeder extends Seeder {
         	'range2'=>'',
         	'range3'=>'',
         	'range4'=>'',
-        	'range5'=>''
+        	'range5'=>'',
+            'images'=>'photography.svg'
 	    )
 	    );
 	    Category::create(array(
@@ -201,7 +209,8 @@ class CategoriesTableSeeder extends Seeder {
         	'range2'=>'',
         	'range3'=>'',
         	'range4'=>'',
-        	'range5'=>''
+        	'range5'=>'',
+            'images'=>'invitations.svg'
 	    )
 	    );
 	    Category::create(array(
@@ -211,7 +220,8 @@ class CategoriesTableSeeder extends Seeder {
         	'range2'=>'',
         	'range3'=>'',
         	'range4'=>'',
-        	'range5'=>''
+        	'range5'=>'',
+            'images'=>'dress.svg'
 	    )
 	    );
 	    Category::create(array(
@@ -221,7 +231,8 @@ class CategoriesTableSeeder extends Seeder {
         	'range2'=>'',
         	'range3'=>'',
         	'range4'=>'',
-        	'range5'=>''
+        	'range5'=>'',
+            'images'=>'florist.svg'
 	    )
 	    );
 	    Category::create(array(
@@ -231,7 +242,8 @@ class CategoriesTableSeeder extends Seeder {
         	'range2'=>'',
         	'range3'=>'',
         	'range4'=>'',
-        	'range5'=>''
+        	'range5'=>'',
+            'images'=>'music.png'
 	    )
 	    );
 	    Category::create(array(
@@ -241,7 +253,8 @@ class CategoriesTableSeeder extends Seeder {
         	'range2'=>'',
         	'range3'=>'',
         	'range4'=>'',
-        	'range5'=>''
+        	'range5'=>'',
+            'images'=>'videography.svg'
 	    )
 	    );
 	    Category::create(array(
@@ -251,7 +264,8 @@ class CategoriesTableSeeder extends Seeder {
         	'range2'=>'',
         	'range3'=>'',
         	'range4'=>'',
-        	'range5'=>''
+        	'range5'=>'',
+            'images'=>'other.svg'
 	    )
 	    );
     }

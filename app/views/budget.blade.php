@@ -131,7 +131,7 @@ Budget
 					 	<tbody>
 					 	@foreach(Category::get() as $key=>$category)
 					 		<tr class="budget_cat" id="cate{{$category->id}}">
-					 			<td><i class="glyphicon glyphicon-hand-right" id="budget_category_icon"></i></td>
+					 			<td class="budget-column-icon" style="background-image:url({{Asset($category->images)}})"></td>
 					 			<td><strong>{{$category->name}}</strong></td>
 					 			<td class="TienVND">
 					 				<span  id="totalEstimate{{$category->id}}" >

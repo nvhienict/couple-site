@@ -1877,3 +1877,18 @@ div#edit_profile{
 	color: #235a81;
 }
 
+td.budget-column-icon {
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+li{
+	background-position: 9px center;
+	background-repeat: no-repeat;
+	background-size: 24px 24px;
+	cursor: pointer;
+	line-height: 32px;
+	padding-left: 41px;
+}
+
+
