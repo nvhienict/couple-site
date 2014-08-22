@@ -108,7 +108,6 @@
 					        $('#go_top').hide();
 					    }
 					});
-
 					</script>
 					
 				</div>

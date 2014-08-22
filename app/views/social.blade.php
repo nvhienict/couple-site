@@ -13,7 +13,8 @@
 		
 	}
 	.button_social{
-		margin-bottom: 5px;
+		margin-bottom: 4px;
+		margin-left: 9px;
 	}
 </style>
 <link rel="canonical" href="http://thunaplanner.com/" />
@@ -24,8 +25,8 @@
 		<!-- facebook -->
 			 <div class="button_social">
 				<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fthunaplanner.com%2F&amp;
-				width=60&amp;layout=box_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;ref=none&amp;
-				height=60" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:60px; height:60px;"
+				width=70&amp;layout=box_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;ref=none&amp;
+				height=65" scrolling="no" frameborder="0" style="border:none; margin-left: 6px; overflow:hidden; width:70px; height:65px;"
 				 allowTransparency="true">
 				</iframe>
 			</div>
@@ -68,14 +69,6 @@
 			
 		</div>
 	</div>
-	<script type="text/javascript">
-		$(window).scroll(function(){
-		    if( $(window).scrollTop() > 200 ) {
-		        $('#go_top').stop(false,true).fadeOut(600);
-		    }else{
-		        $('#go_top').stop(false,true).fadeIn(600);
-		    }
-		});
-	</script>
+	
 	<div class="col-sm-9"></div>
 </div>
