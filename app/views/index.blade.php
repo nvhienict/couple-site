@@ -63,7 +63,7 @@ Trang chủ
 	                <li>
 	                	<a href="{{URL::route('budget')}}" onclick="get_url(2);" >Quản lý ngân sách</a><span class="glyphicon glyphicon-ok"></span>
 					</li>
-					@if(Session::has('email'))
+					@if( empty(Session::has('email')) )
 					<script type="text/javascript">
                 		function get_url(id){
 							$.ajax({
