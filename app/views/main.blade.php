@@ -102,10 +102,10 @@
 					    })
 					})(jQuery)
 		            $(window).scroll(function(){
-					    if( $(window).scrollTop() == 0 ) {
-					        $('#go_top').stop(false,true).fadeOut(600);
+					    if( $(window).scrollTop() > 500 ) {
+					        $('#go_top').stop(false,true).fadeIn(300);
 					    }else{
-					        $('#go_top').stop(false,true).fadeIn(600);
+					        $('#go_top').hide();
 					    }
 					});
 
