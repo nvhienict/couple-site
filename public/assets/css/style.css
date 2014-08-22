@@ -1876,6 +1876,9 @@ div#edit_profile{
 	padding: 5px 10px;
 	color: #235a81;
 }
+.song_comment_container{
+	margin: 20px 0px;
+}
 
 td.budget-column-icon {
     background-color: transparent;
