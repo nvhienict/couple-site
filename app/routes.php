@@ -17,12 +17,12 @@ Route::get('/',array("as"=>"index", function()
 }));
 
 Route::filter("check_login", function(){
-		$cookie=Cookie::get('id-user');
-		if(!Session::has("email")||!isset($cookie))
+		$user = Session::get('email');
+		if(!isset($user))
 			return Redirect::to("login");
 	});
 
-Route::post('get_url', array('as'=>'get_url', 'uses'=>'UserController@post_url'));
+Route::post('get_url', array('as'=>'get_url', 'uses'=>'UserController@get_url'));
 
 
 Route::get("main",array("before"=>"check_login", "as"=>"main","uses"=>"UserController@index"));
@@ -163,4 +163,9 @@ Route::post('check_email_edit/{id}', array('as'=>'check_email_edit', 'uses'=>'Us
 
 Route::get('account', array('as'=>'account', 'uses'=>'UserController@get_account'));
 
+
+// SONGS
+Route::get('songs/{id}', array('as'=>'songs', 'uses'=>'SongController@index'));
+
+Route::get('songs/{id}/play-songs', array('as'=>'play_song', 'uses'=>'SongController@play'));
 

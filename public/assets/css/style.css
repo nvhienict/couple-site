@@ -1827,3 +1827,53 @@ div#edit_profile{
 }
 
 
+/*============= SONGS ==============*/
+
+.table-song{
+	width: 100%;
+	margin: 10px 0px 20px 0px;
+}
+.table-song th{
+	padding: 10px;
+	color: #fff;
+	background-color: #555555;
+}
+.table-song th.last{
+	text-align: right;
+}
+.table-song td{
+	padding: 10px;
+	margin: 10px 0px;
+}
+.table-song td.last{
+	text-align: right;
+}
+
+.title_comment{
+	width: 25%;
+	height: auto;
+	border: 1px solid #bbb;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	padding: 5px 10px;
+}
+.content_comment{
+	width: 100%;
+	height: auto;
+	border: 1px solid #bbb;
+	padding: 5px 10px;
+	background-color: #eeeeee;
+	color: #235a81;
+}
+.post_comment{
+	width: 100%;
+	height: 20%;
+	color: #235a81;
+}
+.post_comment input{
+	width: 100%;
+	height: 50px;
+	padding: 5px 10px;
+	color: #235a81;
+}
+
