@@ -169,3 +169,16 @@ Route::get('songs/{id}', array('as'=>'songs', 'uses'=>'SongController@index'));
 
 Route::get('songs/{id}/play-songs', array('as'=>'play_song', 'uses'=>'SongController@play'));
 
+Route::post('get_id_song', array('as'=>'get_id_song', 'uses'=>'SongController@get_id_song'));
+
+Route::post('song_comment/{id_song}',array('as'=>'song_comment', 'uses'=>'SongController@post_comment'));
+
+Route::get('gh', function(){
+	$gh=Session::get('get_song');
+	echo 'song: '.$gh;
+	
+});
+
+Route::get('th', function(){
+	Session::forget('get_song');
+});

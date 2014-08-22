@@ -180,6 +180,12 @@ class UserController extends \BaseController {
 								Session::forget('url');
 								return Redirect::to('budget');
 								break;
+
+							case 11:
+								Session::forget('url');
+								$get_song=Session::get('get_song');
+								return Redirect::to('songs/'.$get_song.'/play-songs');
+								break;
 							
 							default:
 								$view = View::make('index');
