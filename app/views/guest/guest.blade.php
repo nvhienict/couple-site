@@ -8,7 +8,7 @@ guest
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="col-xs-10">
+		<div class="col-xs-12">
 			<div class="row sort-by">
 			<div class="col-md-6">
 				<h2>Danh sách khách mời</h2>
@@ -46,7 +46,7 @@ guest
 				</div>
 			</div>
 		</div>
-				<div class="col-xs-8" align="right">
+				<div class="col-xs-10" align="right">
 					<span style="color: #19b5bc; cursor:pointer; margin-right: 5px;" id="guest_all_item_sign_down"><i class="glyphicon glyphicon-chevron-down"></i></span>
 					<span style="color: #19b5bc; cursor:pointer; " id="guest_all_item_sign_up"><i class="glyphicon glyphicon-chevron-up"></i></span>
 					<!-- display or hide all items -->
