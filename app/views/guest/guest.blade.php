@@ -29,10 +29,41 @@ guest
 		<div class="submenu">
 			<div class="row">
 				<div class="col-md-2">
-					<a href="" id="add-checklist" style="cursor:pointer;" data-toggle="modal" data-target="#myModalAddChecklist">
-					<i class="glyphicon glyphicon-plus"></i>
-					&nbsp Thêm Nhóm
-				</a>
+					<a href="" id="add-group-webding" style="cursor:pointer;" data-toggle="modal" data-target="#myGroup">
+						<i class="glyphicon glyphicon-plus"></i>
+						&nbsp Thêm Nhóm
+					</a>
+					<!-- Modal Add checklist -->
+						<div class="modal fade" id="myGroup" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						        <h3 class="modal-title" id="myGrouplable">Thêm nhóm mới</h3>
+						      </div>
+						      <div class="modal-body">
+						        <form id="form_add_group" action="{{Asset('guest-list/add_group')}}" method="post">
+								    <div class="row form-group">
+										<label for="name" class="col-xs-3 control-label">Tên nhóm </label>
+										<div class="col-xs-9">
+										   	<input type="text" class="form-control" name="name" id="name" placeholder="Tên nhóm mới">
+										</div>
+									</div>
+								  	<div class="row form-group">
+								  		<div class="col-xs-4"></div>
+								  		<div class="col-xs-4">
+									    	<button type="submit" class="btn btn-primary" id="submit_add"> Thêm </button>
+									    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
+								  		</div>
+								  		<div class="col-xs-4"></div>
+								  	</div>
+								</form>
+							   </div> <!-- end modal body -->
+							</div> <!-- end modal content -->
+							</div> <!-- end modal dialog -->
+							</div> <!-- end modal fade -->
+							<!-- end modal Add -->
+							<script type="text/javascript" src="{{Asset('assets/js/script_thuy.js')}}"></script>
 				</div>
 				<div class="col-md-2">
 					<a href="" id="add-checklist" style="cursor:pointer;" data-toggle="modal" data-target="#myModalAddChecklist">
