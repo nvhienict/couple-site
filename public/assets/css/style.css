@@ -1927,7 +1927,7 @@ td.budget-column-icon {
 	text-align: left;
 	padding: 5px;
 }
-.table-guest tr:hover > td a.guest_icon_trash{
+.table-guest tr:hover > td a.guest_list_icon_trash{
 	display: inline-block;
 }
 
@@ -1938,10 +1938,8 @@ td.budget-column-icon {
 	background-color: #fff6ee;
 }
 
-i#budget_category_icon{
-	color: #19b5bc;
-}
-a.budget_icon_trash{
+
+a.guest_list_icon_trash{
 	display: none;
 }
 
