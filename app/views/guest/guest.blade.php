@@ -8,7 +8,7 @@ guest
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12">
+		<div class="col-xs-10">
 			<div class="row sort-by">
 			<div class="col-md-6">
 				<h2>Danh sách khách mời</h2>
@@ -46,7 +46,7 @@ guest
 				</div>
 			</div>
 		</div>
-				<div class="col-xs-10" align="right">
+				<div class="col-xs-12" align="right">
 					<span style="color: #19b5bc; cursor:pointer; margin-right: 5px;" id="guest_all_item_sign_down"><i class="glyphicon glyphicon-chevron-down"></i></span>
 					<span style="color: #19b5bc; cursor:pointer; " id="guest_all_item_sign_up"><i class="glyphicon glyphicon-chevron-up"></i></span>
 					<!-- display or hide all items -->
@@ -68,21 +68,22 @@ guest
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-10">
+				<div class="col-xs-10">
 					<table class="table-guest">
 
 						<tr class="table-guest-thead-fixed">							
-					 		<th>Mời</th>
-					 		<th>Nhóm</th>
-					 		<th>Số điện thoại</th>
-					 		<th>Địa chỉ</th>
-					 		<th>Email</th>
-					 		<th >Số người tham dự</th>
-					 		<th></th>
+					 		<th style="width:50px;">Mời</th>
+					 		<th style="width:220px;">Nhóm</th>
+					 		<th style="width:250px;">Số điện thoại</th>
+					 		<th style="width:250px;">Địa chỉ</th>
+					 		<th style="width:240px;">Email</th>
+					 		<th style="width:200px;">Số người tham dự</th>
+					 		<th style="width:60px;"></th>
+
 					 	</tr>
 					 	<script type="text/javascript">
 						 	$(window).scroll(function(){
-								if ($(this).scrollTop() > 230) {
+								if ($(this).scrollTop() > 240) {
 							        $('.table-guest-thead-fixed').show();
 							    } else {
 							        $('.table-guest-thead-fixed').hide();
@@ -103,9 +104,7 @@ guest
 					 	@foreach(Groups::get() as $key=>$group)
 					 		<tr class="guest_cat" id="cate{{$group->id}}">
 					 			<td></td>					 			
-					 			<td><strong>{{$group->name}}</strong></td>
-					 			
-					 			</td>
+					 			<td><strong>{{$group->name}}</strong></td>					 								 		
 					 			<td></td>
 					 			<td></td>
 					 			<td></td>
@@ -208,7 +207,7 @@ guest
 				</div>
 			
 		 <!-- col-xs-10 -->
-		<div class="col-md-2" id="guest_summary">
+		<div class="col-xs-2" id="guest_summary">
 			<h3>Tóm tắt:</h3>
 			<p>
 				<div>Tổng số khách:</div>
@@ -219,7 +218,7 @@ guest
 				
 		</div>
 		
-		
+		</div>
 	</div> <!-- row -->
 </div><!--container-->
 @endsection
