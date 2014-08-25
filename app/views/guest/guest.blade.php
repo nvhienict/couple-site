@@ -10,25 +10,14 @@ guest
 	<div class="row">
 		<div class="col-xs-10">
 			<div class="row sort-by">
-			<div class="col-md-6">
+			<div class="col-xs-12">
 				<h2>Danh sách khách mời</h2>
 			</div>
-			<div class="col-md-5 pull-right">
-				<div>
-				<ul class="nav nav-pills text-right" role="tablist">
-					<li class="active">
-						<a href="{{URL::route('guest-list')}}" ></span>Đám hỏi</a>
-					</li>
-					<li>
-						<a href="{{URL::route('guest-list-wedding')}}" ></span>Đám cưới</a>
-					</li>
-				</ul>
-			</div>
-			</div>
+			
 		</div>
 		<div class="submenu">
 			<div class="row">
-				<div class="col-md-2">
+				<div class="col-xs-2">
 					<a href="" id="add-group-webding" style="cursor:pointer;" data-toggle="modal" data-target="#myGroup">
 						<i class="glyphicon glyphicon-plus"></i>
 						&nbsp Thêm Nhóm
@@ -65,14 +54,14 @@ guest
 							<!-- end modal Add -->
 							<script type="text/javascript" src="{{Asset('assets/js/script_thuy.js')}}"></script>
 				</div>
-				<div class="col-md-2">
+				<div class="col-xs-2">
 					<a href="" id="add-checklist" style="cursor:pointer;" data-toggle="modal" data-target="#myModalAddChecklist">
 					<i class="glyphicon glyphicon-plus"></i>
 					&nbsp Thêm Khách 
 				</a>
 				</div>
 
-				<div class="col-md-2">
+				<div class="col-xs-2">
 					<a href="" ><i class="fa fa-print"></i>&nbspXuất file</a>
 				</div>
 			</div>
@@ -105,7 +94,7 @@ guest
 						<tr class="table-guest-thead-fixed">							
 					 		<th style="width:50px;">Mời</th>
 					 		<th style="width:220px;">Nhóm</th>
-					 		<th style="width:250px;">Số điện thoại</th>
+					 		<th style="width:200px;">Số điện thoại</th>
 					 		<th style="width:250px;">Địa chỉ</th>
 					 		<th style="width:240px;">Email</th>
 					 		<th style="width:200px;">Số người tham dự</th>
@@ -162,7 +151,7 @@ guest
 									</script>
 					 			</td>
 					 		</tr>
-					 		<tbody id="guest_list_cat{{$group->id}}">
+					 		<tbody id="guest_list_item_cat{{$group->id}}">
 					 			@foreach(Guests::where('group',$group->id)->get() as $guest)
 			 					<tr class="guest_list_item_cat" id="guest_list_item_cat{{$guest->id}}">
 			 						

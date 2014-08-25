@@ -185,5 +185,4 @@ Route::get('th', function(){
 
 //Guest list
 Route::get('guest-list',array("before"=>"check_login",'as'=>'guest-list','uses'=>'GuestController@index'));
-Route::get('guest-list-wedding',array('as'=>'guest-list-wedding','uses'=>'GuestController@indexWedding'));
 Route::post("guest-list/add_group", array("as"=>"add_group", "uses"=>"GuestController@post_Add_Group"));
