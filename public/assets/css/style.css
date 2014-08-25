@@ -1895,3 +1895,72 @@ td.budget-column-icon {
 }
 
 
+/******Guest-list*****/
+.clr{clear: both;}
+
+.table-guest{
+	width: 100%;
+	margin: 10px 0px 20px 0px;
+	
+}
+.table-guest-thead-fixed{
+	width: 945px;
+	display: none;
+	position: fixed;
+	top: 0px;
+	z-index: 99999;
+}
+.table-guest-thead-fixed th{
+
+	
+}
+
+.table-guest tr{
+	line-height: 40px;
+}
+.table-guest tr td{
+	padding: 0px 0px 0px 10px;
+}
+.table-guest th{
+	background: #555555;
+	color: #fff;
+	text-align: left;
+	padding: 5px;
+}
+.table-guest tr:hover > td a.guest_icon_trash{
+	display: inline-block;
+}
+
+.table-guest tr.guest_list_cat{
+	color: #19b5bc;
+}
+.table-guest tr.guest_cat{
+	background-color: #fff6ee;
+}
+
+i#budget_category_icon{
+	color: #19b5bc;
+}
+a.budget_icon_trash{
+	display: none;
+}
+
+/*thuy*/
+.input-edit-guest{
+	width: 120px;
+	text-align: right;
+	display: none;
+}
+
+
+#guest_summary{
+	background: #f2f0ee;
+	margin-bottom: 20px;
+	padding: 15px;
+	text-align: right;
+}
+#guest_summary div, #guest_summary h3{text-align: left;}
+
+.guest_vendor{
+	margin: 10px 0px 10px 0px;
+}

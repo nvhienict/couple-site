@@ -182,3 +182,7 @@ Route::get('gh', function(){
 Route::get('th', function(){
 	Session::forget('get_song');
 });
+
+//Guest list
+Route::get('guest-list',array("before"=>"check_login",'as'=>'guest-list','uses'=>'GuestController@index'));
+Route::get('guest-list-wedding',array('as'=>'guest-list-wedding','uses'=>'GuestController@indexWedding'));

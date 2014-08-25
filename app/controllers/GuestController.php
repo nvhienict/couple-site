@@ -9,9 +9,12 @@ class GuestController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('guest.guest');
 	}
-
+	public function indexWedding()
+	{
+		return View::make('guest.guest-wedding');
+	}
 
 	/**
 	 * Show the form for creating a new resource.
