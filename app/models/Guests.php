@@ -1,6 +1,6 @@
 <?php
 
-class Guest extends Eloquent {
+class Guests extends Eloquent {
 
 
 	/**
@@ -8,16 +8,16 @@ class Guest extends Eloquent {
 	 *
 	 * @var string
 	 */
-	protected $table = 'guest';
+	protected $table = 'guests';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	public function group()
+	public function groups()
 	{
-		return $this->hasOne("Group","group");
+		return $this->hasOne("Groups","groups");
 	}
 
 }
