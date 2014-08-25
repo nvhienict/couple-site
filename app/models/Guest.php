@@ -17,7 +17,7 @@ class Guest extends Eloquent {
 	 */
 	public function group()
 	{
-		return $this->belongsTo("Group","group");
+		return $this->hasOne("Group","group");
 	}
 
 }
