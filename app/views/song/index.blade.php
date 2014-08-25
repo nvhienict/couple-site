@@ -23,7 +23,7 @@
 				<tr>
 					<td><a href="{{URL::route('play_song', array($song['id']))}}" onclick="get_song({{$song['id']}});">{{$song['name']}}</a></td>
 					<td><a href="{{URL::route('play_song', array($song['id']))}}" onclick="get_song({{$song['id']}});">{{$song['artist']}}</a></td>
-					<td class="last">Comments</td>
+					<td class="last">{{SongComment::where('song',$song['id'])->count()}} <i class="fa fa-comment"></i></td>
 					<script type="text/javascript">
 						function get_song (id_song) {
 							$.ajax({

@@ -1829,6 +1829,34 @@ div#edit_profile{
 
 /*============= SONGS ==============*/
 
+div.song_comment{
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	margin: 10px 0px;
+	display: inline-block;
+}
+div.song_avatar{
+	width: 48px;
+	height: 48px;
+	float: left;
+	margin: 0px 20px 0px 0px;
+}
+div.song_avatar img{
+	width: 48px;
+	height: 48px;
+}
+div.song_content{
+	margin: 0px 0px 0px 5px;
+}
+div.song_content input{
+	margin: 0px 0px 10px;
+	width: 90%;
+	height: 50px;
+}
+div.song_content button{
+	margin: 0px 0px 10px 63px;
+}
+
 .table-song{
 	width: 100%;
 	margin: 10px 0px 20px 0px;
@@ -1847,52 +1875,9 @@ div#edit_profile{
 }
 .table-song td.last{
 	text-align: right;
+	color: #51b5c4;
 }
 
-.title_comment{
-	width: 25%;
-	height: auto;
-	border: 1px solid #bbb;
-	border-bottom: none;
-	border-radius: 10px 10px 0px 0px;
-	padding: 5px 10px;
-}
-.content_comment{
-	width: 100%;
-	height: auto;
-	border: 1px solid #bbb;
-	padding: 5px 10px;
-	background-color: #eeeeee;
-	color: #235a81;
-}
-.post_comment{
-	width: 100%;
-	height: 20%;
-	color: #235a81;
-}
-.post_comment input{
-	width: 100%;
-	height: 50px;
-	padding: 5px 10px;
-	color: #235a81;
-}
-.song_comment_container{
-	margin: 20px 0px;
-}
-
-td.budget-column-icon {
-    background-color: transparent;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-.images_li{
-	background-position: 9px center;
-	background-repeat: no-repeat;
-	background-size: 24px 24px;
-	cursor: pointer;
-	line-height: 32px;
-	padding-left: 41px;
-}
 
 
 /******Guest-list*****/

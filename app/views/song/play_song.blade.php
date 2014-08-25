@@ -27,12 +27,12 @@
 					<div>{{$song['link']}}</div>
 				<hr>
 					<h6>Lời:</h6>
-					<p>{{$song['lyric']}}</p>
+					<p>{{SongController::lyric($song['lyric'])}}</p>
 				<hr>
 					<h6>Bình luận ({{SongComment::where('song',$song['id'])->count()}}):</h6>
 
 					@if(!Session::has('email'))
-						<span><a href="{{URL::route('login')}}" onclick="get_url(11);">Đăng nhập</a> hoặc <a href="{{URL::route('register')}}">Đăng ký</a> để bình luận</span>
+						<span><a href="{{URL::route('login')}}" onclick="get_url(11);">Đăng nhận xét!</a></span>
 					@endif
 					<script type="text/javascript">
                 		function get_url(id){
@@ -44,57 +44,59 @@
 							alert('Bạn phải đăng nhập!')
 						};
                 	</script>
+                	
 
-					<?php $arCmt=SongComment::where('song',$song['id'])->get(); ?>
-					@foreach($arCmt as $cmt)
-						
-							<div id="display_song_comment" class="song_comment_container">
-								<div class="title_comment"><i class="fa fa-user"></i> <span style="color: #428bca;">{{$cmt['user_name']}}</span> đã nói rằng:</div>
-								<div class="content_comment">
+						@foreach($arCmt=SongComment::where('song',$song['id'])->get() as $cmt)
+							
+							<div id="display-cmt{{$cmt->id}}" class="song_comment">
+								<div class="song_avatar">
+									{{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}}
+								</div>
+								<div class="song_content">
+									<span style="color: #428bca;">{{$cmt['user_name']}}</span> nói rằng:<br />
+									
 									{{$cmt['content']}}
 								</div>
 							</div>
-					@endforeach
+						@endforeach
+					
+						@if(Session::has('email'))
 
-					@if(Session::has('email'))
-						<div class="song_comment_container">
-							<div class="title_comment"><i class="fa fa-user"></i> 
-								<span style="color: #428bca;">
-									{{User::where('email',Session::get('email'))->get()->first()->firstname}} 
-									{{User::where('email',Session::get('email'))->get()->first()->lastname}}
-								</span>
+							<div class="song_comment">
+								<div class="song_avatar">
+									{{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}}<br />
+									<span style="color: #428bca;">{{$user_name}}</span>
+								</div>
+								<div class="song_content">
+									<input type="text" id="song_comment" placeholder="Bình luận của bạn..."></input><br />
+									<button class="btn btn-primary" onclick="post_comment({{UserController::id_user()}})">Đăng</button>
+								</div>
 							</div>
-							<div class="post_comment">
-								<input type="text" name="song_comment" id="song_comment" placeholder="Bình luận của bạn...">
-							</div>
-							<div class="btn_post_comment"><button class="btn btn-primary" onclick="post_comment({{User::where('email',Session::get('email'))->get()->first()->id}});" >Đăng</button></div>
-							
-						</div>
-					@endif
-					<script type="text/javascript">
-						function post_comment (id_user) {
-							
-							var cmt = $("#song_comment").val(); 
-							$("#song_comment").val("");
+						
+						@endif
+						<script type="text/javascript">
+							function post_comment (id_user) {
+								
+								var cmt = $("#song_comment").val(); 
+								$("#song_comment").val("");
 
-							$.ajax({
-								type: "post",
-								url: "{{URL::route('song_comment', array('id_song'=>$song['id']))}}",
-								data: {
-									id_user:id_user,
-									cmt:cmt
-								},
-								success: function(data){
-									var obj = JSON.parse(data);
-									$('#display_song_comment').after(obj.html);
+								$.ajax({
+									type: "post",
+									url: "{{URL::route('song_comment', array('id_song'=>$song['id']))}}",
+									data: {
+										id_user:id_user,
+										cmt:cmt
+									},
+									success: function(data){
+										var obj = JSON.parse(data);
+										$('#display-cmt'+obj.id_cmt_last).after(obj.html);
 
-								}
+									}
 
-							});
+								});
 
-						}
-					</script>
-
+							}
+						</script>
 			</div>
 
 			<div class="col-xs-3" style="background: #f3f3f3;">
