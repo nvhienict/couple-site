@@ -14,6 +14,7 @@ class CreateGuest extends Migration {
 	{
 		Schema::create('guests',function($table){
 			$table->increments("id");
+			$table->string("user");
 			$table->string("fullname");
 			$table->string("email")->unique();
 			$table->string("addresss");
