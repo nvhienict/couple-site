@@ -188,3 +188,10 @@ Route::get('guest-list',array("before"=>"check_login",'as'=>'guest-list','uses'=
 Route::post("guest-list/add_group", array("as"=>"add_group", "uses"=>"GuestController@post_Add_Group"));
 Route::post('check-email-guest',array('as'=>'check-email-guest','uses'=>'GuestController@check_guest_email'));
 Route::post('guest-list/add-guest',array('as'=>'guest-list/add-guest','uses'=>'GuestController@post_Add_Guest'));
+Route::post('guest-list/update_name',array('as'=>'update_name','uses'=>'GuestController@update_name'));
+Route::post('guest-list/update_phone',array('as'=>'update_phone','uses'=>'GuestController@update_phone'));
+Route::post('guest-list/update_address',array('as'=>'update_address','uses'=>'GuestController@update_address'));
+Route::post('guest-list/update_email',array('as'=>'update_email','uses'=>'GuestController@update_email'));
+Route::post('guest-list/update_attend',array('as'=>'update_attend','uses'=>'GuestController@update_attend'));
+Route::post('guest-list/create',array('before'=>'check_login','as'=>'create','uses'=>'GuestController@create'));
+Route::post('guest-list/delete',array('before'=>'check_login','as'=>'delete','uses'=>'GuestController@delete'));
