@@ -1,6 +1,7 @@
+
 <div class="row" id="nav-bar">
   <div class="col-xs-12">
-<div class="navbar navbar-default">
+<div class="navbar">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
       <span class="icon-bar"></span>

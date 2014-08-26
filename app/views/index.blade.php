@@ -6,7 +6,7 @@ Trang chủ
 <!-- Navigation -->
 <div id="nav-bar" class="row">
 	<div class="col-xs-12">
-	<div class="navbar navbar-default" style="z-index: 99999;">
+	<div class="navbar" style="z-index: 99999;">
 	  <div class="">
 	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 	      <span class="icon-bar"></span>
@@ -154,7 +154,8 @@ Trang chủ
 
 @section('content')
     <!-- /Navigation -->
-    <section id="intro" class="home-slide text-light">
+<div class="row">
+	<section id="intro" class="home-slide text-light">
 
 		<!-- Carousel -->
     	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -205,7 +206,9 @@ Trang chủ
 			</a>
 		</div><!-- /carousel -->
 	</section>
-	<!-- /Section: intro -->  
+	<!-- /Section: intro -->
+</div>
+      
 
 	<!-- form search -->
 		<div id="form-search-index" class="container">

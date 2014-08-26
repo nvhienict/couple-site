@@ -46,6 +46,7 @@
 
 </head>
 @include('social')
+<div class="row">
 <body>
 	<!--Header login-->
 	<div class="row user-header">
@@ -77,7 +78,9 @@
 
 @yield('nav-bar')
 @yield('content')
-	<footer>
+
+<div class="row">
+<footer>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
@@ -115,7 +118,11 @@
 				</div>
 			</div>	
 		</div>
-	</footer>
+	
+</footer>
+</div> <!-- class row -->
+
 </body>
+</div>
 
 </html>
