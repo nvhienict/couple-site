@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 
 <head>
-    <meta charset="UTF-8">
 	<title>@yield('title')</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <!-- css -->
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	
+	<!-- css -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
 	<link href="{{Asset("assets/css/nivo-lightbox.css")}}" rel="stylesheet" />
@@ -18,7 +17,7 @@
     <link href="{{Asset("assets/css/style.css")}}" rel="stylesheet">
 	<link href="{{Asset("assets/color/default.css")}}" rel="stylesheet">
 	
-	 <!-- Core JavaScript Files -->
+	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/main.js")}}"></script>	 
@@ -47,7 +46,7 @@
 
 </head>
 @include('social')
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+<body>
 	<!--Header login-->
 	<div class="row user-header">
 		<div class="col-lg-3 col-xs-12 pull-right wedding-user-logged">

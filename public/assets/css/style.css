@@ -5,19 +5,20 @@
 
 body {
     width: 100%;
-    height: 100%;
-    font-family: 'Ek Mukta', sans-serif;
+    font-family: Arial;
 	font-weight: 300;
     color: #666;
     background-color: #fff;
 	font-size: 16px;
     line-height: 1.6em;
 	font-weight: 400;
+	margin: 0 auto;
+	overflow: 0 auto;
 }
 
 html {
     width: 100%;
-    height: 100%;
+    margin: 0px auto;
 }
 
 h1 {
@@ -1952,3 +1953,17 @@ a.guest_list_icon_trash{
 .algin-delete{
 	text-align: center;
 }
+
+
+/***** index tool *****/
+#index-tool{
+	border: 1px solid #ffc790;
+	background-color: #fff8f2;
+	margin: 20px 5px 10px 5px;
+}
+.tool-1{
+	padding: 5px;
+	margin: 20px 0px 10px 0px;
+	text-align: center;
+}
+

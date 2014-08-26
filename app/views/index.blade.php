@@ -278,240 +278,38 @@ Trang chủ
 			</div>	
 		</div>
 	<!-- form search -->
+
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10" id="index-tool">
+			<div class="row tool-1" >
+				<div class="col-xs-4">
+					<h3>Danh sách công việc</h3>
+					<h5>Thuận lợi, sắp xếp một cách khoa học, chính xác thời gian trước ngày cưới...</h5>
+					<h6><a href="#">Sử dụng ngay</a></h6>
+				</div>
+				<div class="col-xs-1"></div>
+				<div class="col-xs-5">
+					<img src="{{Asset('images/tool/tool-1.png')}}">
+				</div>
+			</div>
+			<div class="row tool-1" >
+
+				<div class="col-xs-6">
+					<img src="{{Asset('images/tool/tool-22.png')}}">
+				</div>
+
+				<div class="col-xs-4">
+					<h3>Quản lý ngân sách</h3>
+					<h5>Sử dụng dễ dàng, tính toán một cách chính xác, phân bố ngân sách chi tiết, hợp lý...</h5>
+					<h6><a href="#">Sử dụng ngay</a></h6>
+				</div>
+				
+			</div>
+		</div>
+		<div class="col-xs-1"></div>
+	</div>
 	
-<!-- Section: about -->
-    <section id="about" class="home-section color-dark bg-white">
-		<div class="container marginbot-50">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
-					<div class="section-heading text-center">
-					<h2 class="h-bold">Thông tin về chúng tôi</h2>
-					<div class="divider-header"></div>
-					<p>Lorem ipsum dolor sit amet, agam perfecto sensibus usu at duo ut iriure.</p>
-					</div>
-					</div>
-				</div>
-			</div>
 
-		</div>
-
-		<div class="container">
-        <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-			<div class="text-center">
-		<div class="container">
-			<div class="row">
-            <div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow fadeInLeft" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<span class="fa fa-users fa-5x"></span> 
-					</div>
-					<div class="service-desc">						
-						<h5>Chúng tôi là ai?</h5>
-						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
-						</p>
-						<a href="#" class="btn btn-skin">Chi tiết</a>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<span class="fa fa-cog fa-5x"></span> 
-					</div>
-					<div class="service-desc">
-						<h5>Cách thức làm việc</h5>
-						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
-						</p>
-						<a href="#" class="btn btn-skin">Chi tiết</a>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<span class="fa fa-question fa-5x"></span> 
-					</div>
-					<div class="service-desc">
-						<h5>Thắc mắc</h5>
-						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
-						</p>
-						<a href="#" class="btn btn-skin">Chi tiết</a>
-					</div>
-                </div>
-				</div>
-            </div>
-        </div>
-        		
-		</div>
-		</div>		    		
-		</div>
-		</div>
-
-
-	</section>
-	<!-- /Section: about -->
-
-	<!-- Section: services -->
-    <section id="service" class="home-section color-dark bg-gray">
-		<div class="container marginbot-50">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
-					<div class="section-heading text-center">
-					<h2 class="h-bold">Dịch vụ</h2>
-					<div class="divider-header"></div>
-					<p>Lorem ipsum dolor sit amet, agam perfecto sensibus usu at duo ut iriure.</p>
-					</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-		<div class="text-center">
-		<div class="container">
-
-        <div class="row">
-            <div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow fadeInLeft" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<span class="fa fa-cogs fa-5x"></span> 
-					</div>
-					<div class="service-desc">						
-						<h5>Web Design</h5>
-						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
-						</p>
-						<a href="#" class="btn btn-skin">Chi tiết</a>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<span class="fa fa-camera fa-5x"></span> 
-					</div>
-					<div class="service-desc">
-						<h5>Photography</h5>
-						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
-						</p>
-						<a href="#" class="btn btn-skin">Chi tiết</a>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<span class="fa fa-laptop fa-5x"></span> 
-					</div>
-					<div class="service-desc">
-						<h5>Graphic design</h5>
-						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
-						</p>
-						<a href="#" class="btn btn-skin">Chi tiết</a>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow fadeInRight" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<span class="fa fa-mobile-phone fa-5x"></span> 
-					</div>
-					<div class="service-desc">
-						<h5>Mobile apps</h5>
-						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
-						</p>
-						<a href="#" class="btn btn-skin">Chi tiết</a>
-					</div>
-                </div>
-				</div>
-            </div>
-        </div>		
-		</div>
-		</div>
-	</section>
-	<!-- /Section: services -->
-
-
-	<!-- Section: contact -->
-    <section id="contact" class="home-section nopadd-bot color-dark bg-gray text-center">
-		<div class="container marginbot-50">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
-					<div class="section-heading text-center">
-					<h2 class="h-bold">Liên hệ</h2>
-					<div class="divider-header"></div>
-					<p>114 Đặng Huy Trứ, Thành phố Huế</p>
-					<p>Tel <span class="tel">0949290110</span></p>
-					</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="map">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d15306.227941012417!2d107.591868!3d16.447311!3m2!1i1024!2i768!4f13.1!2m1!1zMTE0IMSQ4bq3bmcgSHV5IFRy4bupLCBUcsaw4budbmcgQW4sIHRwLiBIdeG6vyBUcsaw4budbmcgQW4sIHRwLiBIdeG6vyBUaOG7q2EgVGhpw6puIEh14bq_LCBWaeG7h3QgTmFt!5e0!3m2!1svi!2sus!4v1406192204654" width="755" height="300" frameborder="0" style="border:0"></iframe>
-					</div>
-				</div>
-			</div>
-
-		</div>
-		
-		<div class="container">
-
-			<div class="row marginbot-80">
-				<div class="col-md-8 col-md-offset-2">
-				<h2>Gửi phản hồi</h2>
-						<form class="wow bounceInUp form-homepage" data-wow-offset="10" data-wow-delay="0.2s">
-						<div class="row marginbot-20">
-							<div class="col-md-6 xs-marginbot-20">
-								<input type="text" class="form-control input-lg" id="name" placeholder="Enter name" required="required" />
-							</div>
-							<div class="col-md-6">
-								<input type="email" class="form-control input-lg" id="email" placeholder="Enter email" required="required" />
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-										<input type="text" class="form-control input-lg" id="subject" placeholder="Subject" required="required" />
-								</div>
-								<div class="form-group">
-									<textarea name="message" id="message" class="form-control" rows="4" cols="25" required="required"
-										placeholder="Message"></textarea>
-								</div>						
-								<button type="submit" class="btn btn-skin btn-lg btn-block" id="btnContactUs">
-									Send Message</button>
-							</div>
-						</div>
-						</form>
-				</div>
-			</div>	
-
-
-		</div>
-	</section>
-	<!-- /Section: contact -->
 @endsection
 	
