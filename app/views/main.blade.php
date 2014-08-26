@@ -42,6 +42,9 @@
 	<script src="{{Asset('assets/js/jquery.number.js')}}"></script>
 	<script src="{{Asset('assets/js/jquery.number.min.js')}}"></script>
 
+	<!-- ckeditor -->
+	<script src="{{Asset('assets/ckeditor/ckeditor.js')}}"></script>
+
 </head>
 @include('social')
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">

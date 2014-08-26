@@ -48,7 +48,7 @@
 
 						@foreach($arCmt=SongComment::where('song',$song['id'])->get() as $cmt)
 							
-							<div id="display-cmt{{$cmt->id}}" class="song_comment">
+							<div class="song_comment">
 								<div class="song_avatar">
 									{{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}}
 								</div>
@@ -59,7 +59,7 @@
 								</div>
 							</div>
 						@endforeach
-					
+							<div id="your_cmt"></div>
 						@if(Session::has('email'))
 
 							<div class="song_comment">
@@ -88,9 +88,7 @@
 										cmt:cmt
 									},
 									success: function(data){
-										var obj = JSON.parse(data);
-										$('#display-cmt'+obj.id_cmt_last).after(obj.html);
-
+										$('#your_cmt').replaceWith(data);
 									}
 
 								});

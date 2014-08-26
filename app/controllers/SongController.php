@@ -96,8 +96,30 @@ class SongController extends \BaseController {
 	// play songs
 	public function play($id)
 	{
+		if(!Session::has('email')){
+			$firstname="";
+			$lastname="";
+			$user_name = $firstname.' '.$lastname;
+			$user_avatar="";
+		}else{
+			$id_user = User::where('email',Session::get('email'))->get()->first()->id;
+
+			$firstname = User::where('id',$id_user)->get()->first()->firstname;
+			$lastname = User::where('id',$id_user)->get()->first()->lastname;
+			$user_name = $firstname.' '.$lastname;
+			$user_avatar = User::where('id',$id_user)->get()->first()->avatar;
+		}
+		
 		$songs = Song::where('id', $id)->get();
-		return View::make('song.play_song')->with('songs', $songs);
+		return View::make('song.play_song')->with('songs', $songs)
+											->with('user_name', $user_name)
+											->with('user_avatar', $user_avatar);
+	}
+
+	// return lyric of a song
+	public static function lyric($str)
+	{
+		return $str = str_replace('.','<br>',$str);
 	}
 
 	// comment for song
@@ -110,8 +132,6 @@ class SongController extends \BaseController {
 		$lastname = User::where('id',$id_user)->get()->first()->lastname;
 		$user_name = $firstname.' '.$lastname;
 
-		$id_cmt_last = SongComment::get()->last()->id;
-
 		// insert comment to table song_comment
 
 		$song_comment = new SongComment();
@@ -121,19 +141,24 @@ class SongController extends \BaseController {
 		$song_comment->content=$cmt;
 		$song_comment->save();
 
+		$user_avatar = User::where('id',$id_user)->get()->first()->avatar;
+
 		// get data for show 
 		$arComment = SongComment::get()->last();
 
-		
 		$html = '';
-		$html .="<div id='display_song_comment' class='song_comment_container'>
-					<div class='title_comment'><i class='fa fa-user'></i> <span style='color: #428bca;'>".$arComment->user_name."</span> đã nói rằng:</div>
-					<div class='content_comment'>
+		$html .="<div class='song_comment'>
+					<div class='song_avatar'>
+						<img class='user_avatar' alt='' src='data:image/jpeg;base64,". base64_encode($user_avatar) . "' /> 
+					</div>
+					<div class='song_content'>
+						<span style='color: #428bca;''>".$arComment->user_name."</span> nói rằng:<br />
+						
 						".$arComment->content."
 					</div>
-				</div>";
-		echo json_encode(array('html'=>$html));
-		exit();
+				</div>
+				<div id='your_cmt'></div>";
+		echo $html;
 
 	}
 
