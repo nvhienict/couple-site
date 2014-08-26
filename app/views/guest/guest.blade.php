@@ -55,10 +55,76 @@ guest
 							<script type="text/javascript" src="{{Asset('assets/js/script_thuy.js')}}"></script>
 				</div>
 				<div class="col-xs-2">
-					<a href="" id="add-checklist" style="cursor:pointer;" data-toggle="modal" data-target="#myModalAddChecklist">
+					<a href="" id="add-guest-wedding" style="cursor:pointer;" data-toggle="modal" data-target="#myModalAddGuest">
 					<i class="glyphicon glyphicon-plus"></i>
 					&nbsp Thêm Khách 
+
 				</a>
+
+					<div class="modal fade" id="myModalAddGuest" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						        <h3 class="modal-title" id="myGrouplable">Thêm Khách Mời</h3>
+						      </div>
+						      <div class="modal-body">
+						        <form id="form_add_guest" action="{{URL::route('guest-list/add-guest')}}" method="post">
+								    <div class="row form-group">
+										<label for="name" class="col-xs-3 control-label">Họ và tên:</label>
+										<div class="col-xs-9">
+										   	<input type="text" class="form-control" name="fullname" id="fullname" placeholder="">
+										</div>
+									</div>
+									<div class="row form-group">
+										<label for="phone" class="col-xs-3 control-label">Số điện thoại:</label>
+										<div class="col-xs-9">
+										   	<input type="text" class="form-control" name="phone" id="phone" placeholder="">
+										</div>
+									</div>
+									<div class="row form-group">
+										<label for="address" class="col-xs-3 control-label">Địa chỉ:</label>
+										<div class="col-xs-9">
+										   	<input type="text" class="form-control" name="address" id="address" placeholder="">
+										</div>
+									</div>
+									<div class="row form-group">
+										<label for="email" class="col-xs-3 control-label">Email:</label>
+										<div class="col-xs-9">
+										   	<input type="text" class="form-control" name="email" id="email" placeholder="">
+										</div>
+									</div>
+									<div class="row form-group">
+										<label for="group" class="col-xs-3 control-label">Group:</label>
+										<div class="col-xs-9">
+										   	<select name="group" class="form-control">
+						                    	@foreach(Groups::get() as $group)
+						                        <option value="{{$group->id}}">{{$group->name}}</option>
+						                        @endforeach
+						                    </select>
+										</div>
+									</div>
+									<div class="row form-group">
+										<label for="attending" class="col-xs-3 control-label">Số người tham dự:</label>
+										<div class="col-xs-9">
+										   	<input type="text" class="form-control" name="attending" id="attending" placeholder="">
+										</div>
+									</div>
+								  	<div class="row form-group">
+								  		<div class="col-xs-4"></div>
+								  		<div class="col-xs-4">
+									    	<button type="submit" class="btn btn-primary" id=""> Thêm </button>
+									    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
+								  		</div>
+								  		<div class="col-xs-4"></div>
+								  	</div>
+								</form>
+							   </div> <!-- end modal body -->
+							</div> <!-- end modal content -->
+							</div> <!-- end modal dialog -->
+							</div> <!-- end modal fade -->
+							<!-- end modal Add -->
+							<script type="text/javascript" src="{{Asset('assets/js/script-binh.js')}}"></script>
 				</div>
 
 				<div class="col-xs-2">

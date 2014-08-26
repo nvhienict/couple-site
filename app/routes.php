@@ -186,3 +186,5 @@ Route::get('th', function(){
 //Guest list
 Route::get('guest-list',array("before"=>"check_login",'as'=>'guest-list','uses'=>'GuestController@index'));
 Route::post("guest-list/add_group", array("as"=>"add_group", "uses"=>"GuestController@post_Add_Group"));
+Route::post('check-email-guest',array('as'=>'check-email-guest','uses'=>'GuestController@check_guest_email'));
+Route::post('guest-list/add-guest',array('as'=>'guest-list/add-guest','uses'=>'GuestController@post_Add_Guest'));

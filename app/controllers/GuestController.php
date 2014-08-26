@@ -81,9 +81,13 @@ class GuestController extends \BaseController {
 	{
 		//
 	}
+	public static function id_user(){
+		$id_user = User::where( 'email', Session::get('email') )->get()->first()->id;
+		return $id_user;
+	}
 	public function post_Add_Group(){
 
-			$id_user = ChecklistController::id_user();
+			$id_user = GuestController::id_user();
 
 		    $rules=array(
 				"name"=>"required"
@@ -100,8 +104,33 @@ class GuestController extends \BaseController {
 				$msg="Thêm nhóm mới không thành công";
 				return Redirect::route("guest-list")->with('msg',$msg);
 			}
+	}		
+	public function post_Add_Guest(){
+
+			$id_user = GuestController::id_user();
+
+		   
+		    // check then insert to database
+			
+				$guest = new Guests();
+				$guest->user=$id_user;
+				$guest->fullname = Input::get('fullname');
+				$guest->phone = Input::get('phone');
+				$guest->address = Input::get('address');
+				$guest->group=Input::get('group');
+				$guest->email = Input::get('email');
+				$guest->attending = Input::get('attending');
+				$guest->save();
+				
+				$msg="Đã thêm khách mời thành công!";
+				return Redirect::route("guest-list")->with('msg',$msg);
+			
+
 
 	} // function add_Check_List
-
+	public function check_guest_email(){
+			$id_user = GuestController::id_user();
+			return (Guests::where('id',$id_user)->where("email",Input::get('email'))->count()==0? "true": "false");
+		}
 
 }
