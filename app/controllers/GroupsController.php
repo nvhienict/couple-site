@@ -92,6 +92,7 @@ class GroupsController extends \BaseController {
 		    // check then insert to database
 			if(!Validator::make(Input::all(),$rules)->fails()){
 				$group = new Groups();
+				$group->user = $id_user ;
 				$group->name = Input::get('name');
 				$group->save();
 				
