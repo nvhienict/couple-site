@@ -219,26 +219,6 @@ public function update_name()
 		$id_user = User::where( 'email', Session::get('email') )->get()->first()->id;
 		return $id_user;
 	}
-	public function post_Add_Group(){
-
-			$id_user = GuestController::id_user();
-
-		    $rules=array(
-				"name"=>"required"
-			);
-		    // check then insert to database
-			if(!Validator::make(Input::all(),$rules)->fails()){
-				$group = new Groups();
-				$group->name = Input::get('name');
-				$group->save();
-				
-				$msg="Đã tạo nhóm thành công!";
-				return Redirect::route("guest-list")->with('msg',$msg);
-			}else{
-				$msg="Thêm nhóm mới không thành công";
-				return Redirect::route("guest-list")->with('msg',$msg);
-			}
-	}		
 	public function post_Add_Guest(){
 
 			$id_user = GuestController::id_user();

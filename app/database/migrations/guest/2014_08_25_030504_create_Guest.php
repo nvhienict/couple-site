@@ -16,7 +16,7 @@ class CreateGuest extends Migration {
 			$table->increments("id");
 			$table->integer("user");
 			$table->string("fullname");
-			$table->string("email")->unique();
+			$table->string("email");
 			$table->string("address");
 			$table->string("phone");
 			$table->integer("attending");

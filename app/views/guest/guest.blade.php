@@ -184,6 +184,8 @@ guest
 					 		<th>Email</th>
 					 		<th >Số người tham dự</th>
 					 		<th></th>
+					 		<th></th>
+					 		<th></th>
 					 	</thead>
 
 					 	<tbody>
@@ -195,6 +197,99 @@ guest
 					 			<td></td>
 					 			<td></td>
 					 			<td></td>
+					 			<td>
+					 				<a href="#" id="edit-group-webding" data-toggle="modal" data-target="#editGroup-guest{{$group->id}}">
+										<span class="fa fa-edit"></span>
+									</a>
+									<!-- Modal edit group guest -->
+										<div class="modal fade" id="editGroup-guest{{$group->id}}" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
+										  <div class="modal-dialog">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+										        <h3 class="modal-title" id="myGrouplable">Sửa nhóm "{{$group->name}} "</h3>
+										      </div>
+										      <div class="modal-body">
+										        <form id="form_edit_group{{$group->id}}" action="{{Asset('guest-list/edit_group')}}" method="post">
+												    <div class="row form-group">
+														<label for="name" class="col-xs-3 control-label">Tên nhóm </label>
+														<div class="col-xs-9">
+														   	<input type="text" class="form-control" name="name" id="name" placeholder="Tên nhóm" value="{{$group->name}}">
+															<input type="text" hidden name="id_group" value="{{$group->id}}">
+														</div>
+													</div>
+												  	<div class="row form-group">
+												  		<div class="col-xs-4"></div>
+												  		<div class="col-xs-4">
+													    	<button type="submit" class="btn btn-primary" id="submit_edit"> Lưu </button>
+													    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
+												  		</div>
+												  		<div class="col-xs-4"></div>
+												  	</div>
+												</form>
+											   </div> <!-- end modal body -->
+											</div> <!-- end modal content -->
+											</div> <!-- end modal dialog -->
+											</div> <!-- end modal fade -->
+											<!-- end modal edit -->
+											<script type="text/javascript">
+
+												$("#form_edit_group{{$group->id}}").validate({
+												rules:{
+													name:{
+														required:true,
+														remote:{
+															url: "{{URL::route('checkName')}}",
+															type:"POST",
+														}
+													}
+												},
+												messages:{
+													name:{
+														required:"Bạn chưa nhập tên nhóm",
+														remote: "Đã tồn tại nhóm này"
+													}
+												}
+											})
+											
+										</script>
+					 			</td>
+					 			<td>
+					 				<a href="#" id="delete-group-webding" data-toggle="modal" data-target="#deleteGroup-guest{{$group->id}}" style="margin-right: 10px;">
+										<span class="fa fa-trash-o"></span>
+									</a>
+									<!-- Modal delete group guest -->
+										<div class="modal fade" id="deleteGroup-guest{{$group->id}}" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
+										  <div class="modal-dialog">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+										        <h3 class="modal-title" id="myGrouplable">Xoá nhóm khách mời</h3>
+										      </div>
+										      <div class="modal-body">
+										        <form id="form_delete_group" action="{{Asset('guest-list/delete_group')}}" method="post">
+												    <div class="row form-group algin-delete">
+														 Bạn chắc chắn muốn xoá nhóm <h3 style="color: red;">{{$group->name}}?</h3>
+															<small>*Tấc cả các thành viên trong nhóm cũng bị xoá</small>
+														<div class="col-xs-9">
+														   	<input type="text" hidden name="id_group" id="id_group" value="{{$group->id}}" >
+														</div>
+													</div>
+												  	<div class="row form-group">
+												  		<div class="col-xs-4"></div>
+												  		<div class="col-xs-4">
+													    	<button type="submit" class="btn btn-primary" id="submit_delete"> Xoá </button>
+													    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
+												  		</div>
+												  		<div class="col-xs-4"></div>
+												  	</div>
+												</form>
+											   </div> <!-- end modal body -->
+											</div> <!-- end modal content -->
+											</div> <!-- end modal dialog -->
+											</div> <!-- end modal fade -->
+											<!-- end modal delete -->
+								</td>
 					 			<td>
 					 				<span class="up_item_cat" style="color: #19b5bc; cursor:pointer; " id="up{{$group->id}}"><i class="glyphicon glyphicon-chevron-up"></i></span>
 					 				<span class="down_item_cat" style="color: #19b5bc; cursor:pointer; display:none"; id="down{{$group->id}}" ><i class="glyphicon glyphicon-chevron-down"></i></span>
