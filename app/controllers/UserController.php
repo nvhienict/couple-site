@@ -282,8 +282,36 @@ class UserController extends \BaseController {
 			$IdUser=User::where('email','=',Input::get('email'))->get()->first()->id;
 
 			Session::put("email",Input::get('email'));
-			$view = View::make("index");
-			return Response::make($view);
+
+				// return view
+				$get_url = Session::get('url');
+				if( !empty($get_url) ){
+					switch ($get_url) {
+						case 1:
+							Session::forget('url');
+							return Redirect::to('user-checklist');
+							break;
+
+						case 2:
+							Session::forget('url');
+							return Redirect::to('budget');
+							break;
+
+						case 11:
+							Session::forget('url');
+							$get_song=Session::get('get_song');
+							return Redirect::to('songs/'.$get_song.'/play-songs');
+							break;
+						
+						default:
+							$view = View::make('index');
+							return Response::make($view);
+							break;
+					}
+				}else{
+					$view = View::make('index');
+					return Response::make($view);
+				}
 		}else{
 			$errors=$validator->messages();
 			return Redirect::route("register")->with("errors",$errors);

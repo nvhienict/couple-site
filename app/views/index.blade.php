@@ -57,34 +57,27 @@ Trang chủ
 	                <li><a href="#">Sơ đồ ghế ngồi</a></li>
 	                
 	                <li>
-	                	<a href="{{URL::route('user-checklist')}}" onclick="get_url(1);" >Danh sách công việc</a><span class="glyphicon glyphicon-ok"></span>
+	                	<a onclick="get_url(1);" href="{{URL::route('user-checklist')}}" >Danh sách công việc</a><span class="glyphicon glyphicon-ok"></span>
 					</li>
 	               	<li><a href="#">Quản lý vendor</a></li>
 	                <li>
-	                	<a href="{{URL::route('budget')}}" onclick="get_url(2);" >Quản lý ngân sách</a><span class="glyphicon glyphicon-ok"></span>
+	                	<a onclick="get_url(2);" href="{{URL::route('budget')}}" >Quản lý ngân sách</a><span class="glyphicon glyphicon-ok"></span>
 					</li>
+
 					@if( empty(Session::has('email')) )
 					<script type="text/javascript">
                 		function get_url(id){
-							$.ajax({
+							return $.ajax({
 								type: "post",
 								url: "{{URL::to('get_url')}}",
 								data: {id:id}
-							});
-							alert('Bạn phải đăng nhập để sử dụng công cụ này!')
-						};
-                	</script>
-                	@else
-                	<script type="text/javascript">
-                		function get_url(id){
-							$.ajax({
-								type: "post",
-								url: "{{URL::to('get_url')}}",
-								data: {id:id}
+							}).done(function(){
+								console.log();
 							});
 						};
                 	</script>
                 	@endif
+
 	              </ul>
 	            </div>
 	            <div class="col-xs-6">
