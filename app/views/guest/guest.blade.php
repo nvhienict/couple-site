@@ -397,15 +397,6 @@ guest
 										});
 
 							 			};
-
-					 					// $('#invited1{{$guest->id}}').click(function(){
-					 					// 		$('#invited1{{$guest->id}}').hide();
-					 					// 		$('#invited2{{$guest->id}}').show();
-					 					// });
-					 					// $('#invited2{{$guest->id}}').click(function(){
-					 					// 		$('#invited2{{$guest->id}}').hide();
-					 					// 		$('#invited1{{$guest->id}}').show();
-					 					// });
 					 			</script>
 					 			<td>
 					 				<a onclick="guest_del({{$guest->id}})" href="javascript:void(0)" class="confirm guest_list_icon_trash guest_del{{$guest->id}}"><i class="glyphicon glyphicon-trash"></i></a>
@@ -443,15 +434,38 @@ guest
 				
 		</div>
 	<script type="text/javascript">
-	        //invited
-	    //     function invited1_click(id){
-	 			// 	$('#invited1'+id).hide();
-	 			// 	$('#invited2'+id).show();
-	 			// };
-	 			// function invited2_click(id){
-	 			// 	$('#invited2'+id).hide();
-	 			// 	$('#invited1'+id).show();
-	 			// };
+	        function invited1_click(id){
+				$('#invited1'+id).hide();
+				$('#invited2'+id).show();
+				$.ajax({
+				type: "post",
+				url: "{{URL::route('update_invited1')}}",
+				data: {
+				id:$("#invited1"+id).next().val()
+				},	
+				success: function(data){
+					var obj=JSON.parse(data);
+					$(".total_invited").text(obj.total_invited);   
+					$(".total_noinvited").text(obj.total_noinvited); 
+				}																			
+			});
+				};
+				function invited2_click(id){
+					$('#invited2'+id).hide();
+					$('#invited1'+id).show();
+					$.ajax({
+				type: "post",
+				url: "{{URL::route('update_invited2')}}",
+				data: {
+				id:$("#invited2"+id).next().val()
+				},	
+				success: function(data){
+					var obj = JSON.parse(data);
+					$(".total_invited").text(obj.total_invited);   
+					$(".total_noinvited").text(obj.total_noinvited); 
+				}																		
+			});
+				};
 		    //add
 		    function add_guest(id){
 		    	$.ajax({

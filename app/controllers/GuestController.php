@@ -48,7 +48,7 @@ class GuestController extends \BaseController {
 		$guest->fullname="New Guest";
 		$guest->email="Email";
 		$guest->address="Address";
-		$guest->phone="Number";
+		$guest->phone="Phone";
 		$guest->attending="1";
 		$guest->group=$id_group;
 		$guest->user=$id_user;
@@ -178,7 +178,10 @@ public function update_name()
 		$guest=Guests::find($id);
 		$guest->invited=true;
 		$guest->save();
-
+		$total_invited=Guests::where('user',UserController::id_user())->where('invited',true)->get()->count();
+		$total_noinvited=Guests::where('user',UserController::id_user())->where('invited',false)->get()->count();
+        echo json_encode(array('total_invited'=>$total_invited,'total_noinvited'=>$total_noinvited));
+        exit();
 
 	}
 	public function update_invited2()
@@ -189,6 +192,10 @@ public function update_name()
 		$guest=Guests::find($id);
 		$guest->invited=false;
 		$guest->save();
+		$total_invited=Guests::where('user',UserController::id_user())->where('invited',true)->get()->count();
+		$total_noinvited=Guests::where('user',UserController::id_user())->where('invited',false)->get()->count();
+        echo json_encode(array('total_invited'=>$total_invited,'total_noinvited'=>$total_noinvited));
+        exit();
 		
 
 	}
