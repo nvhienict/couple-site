@@ -66,15 +66,19 @@ Trang chủ
 
 					@if( empty(Session::has('email')) )
 					<script type="text/javascript">
+
                 		function get_url(id){
-							return $.ajax({
+                			// create session
+							$.ajax({
 								type: "post",
 								url: "{{URL::to('get_url')}}",
-								data: {id:id}
-							}).done(function(){
-								console.log();
+								data: {id:id},
+								success: function(data){
+									return id;
+								}
 							});
 						};
+
                 	</script>
                 	@endif
 
