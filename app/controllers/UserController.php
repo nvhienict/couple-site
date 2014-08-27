@@ -231,28 +231,47 @@ class UserController extends \BaseController {
 		$validator=Validator::make(Input::all(),$rules);
 		if($validator->passes())
 		{
+			$weddingdate = Input::get('weddingdate');
 			$user=new User();
 			$user->firstname=Input::get('first_name');
 			$user->lastname=Input::get('last_name');
 			$user->email=Input::get('email');
 			$user->password=Hash::make(Input::get('password_confirm'));
-			$user->weddingdate=Input::get('weddingdate');
+			$user->weddingdate = $weddingdate;
 			$user->role_id=Input::get('role');
 			$user->budget=0;
 			$user->save();
 
-			
-
+			//kiểm tra nếu stast đây so với hiện tại đã qua, thì lưa stastdate của user bằng stastdate hiện tại
+			$dateNow = New DateTime('now');
+			$date_wedding = new DateTime($weddingdate);
+			if(date_timestamp_get($dateNow) > date_timestamp_get($date_wedding))
+			{
+				$NowToWedding = (date_timestamp_get($dateNow)- date_timestamp_get($date_wedding))/(3600*24);
+			}
+			else
+			{
+				$NowToWedding = (date_timestamp_get($date_wedding)- date_timestamp_get($dateNow))/(3600*24);
+			}
 				//truyền dữ liệu sang bảng usertask
 					
 					$id_user = User::where('email','=',Input::get('email'))->get()->first()->id; //lấy id_user từ cookie chi đó hi
 
 					$tasks = Task::get();
 					foreach($tasks as $task){
+						if( $NowToWedding > $task->startdate){
+							$startdate = $task->startdate;
+						}
+						else
+						{
+							$startdate = $NowToWedding;
+						}
+						
+
 						$usertask = new UserTask();
 						$usertask->title = $task->title;
 						$usertask->user = $id_user;
-						$usertask->startdate = $task->startdate;
+						$usertask->startdate = $startdate;
 						$usertask->category = $task->category;
 						$usertask->description = $task->description;
 						$usertask->todo = 0;

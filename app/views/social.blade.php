@@ -24,11 +24,22 @@
 		<div id="social">
 		<!-- facebook -->
 			 <div class="button_social">
-				<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fthuna.vn%2F&amp;
+				<!-- <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fthuna.vn%2F&amp;
 				width=70&amp;layout=box_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;ref=none&amp;
 				height=65" scrolling="no" frameborder="0" style="border:none; margin-left: 6px; overflow:hidden; width:70px; height:65px;"
-				 allowTransparency="true">
-				</iframe>
+				 allowTransparency="true" href="">
+				</iframe> -->
+				<div id="fb-root"></div>
+					<script>(function(d, s, id) {
+						  var js, fjs = d.getElementsByTagName(s)[0];
+						  if (d.getElementById(id)) return;
+						  js = d.createElement(s); js.id = id;
+						  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.0";
+						  fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));
+					</script>
+				<div class="fb-like" data-layout="box_count" data-action="like" data-show-faces="false" 
+				data-share="false" data-ref="none"></div>
 				
 			</div>
 		<!-- tweet -->

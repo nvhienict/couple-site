@@ -148,14 +148,31 @@ class ChecklistController extends \BaseController {
 
 	public static function byMonth(){
 		$id_user = ChecklistController::id_user();
+		$date_now = new DateTime("now");
+		$date_wedding = new DateTime(User::find($id_user)->weddingdate);
 
-		$date=new DateTime(User::find($id_user)->weddingdate);
-		$month=array($date->format('m-Y'));
-		for($i=0;$i<12;$i++){
-			//$month[]=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
-			// $month[]= $date->modify("-1 month")->format('m-Y');
-			array_unshift($month,$date->modify("-1 month")->format('m-Y'));
+		if(date_timestamp_get($date_now)>date_timestamp_get($date_wedding))
+		{
+			$month=array($date_now->format('m-Y'));
 		}
+		else
+		{
+			$month = array($date_wedding->format('m-Y'));
+			
+			for($i=0;$i<12;$i++){
+				//kiểm tra nếu tháng có công việc >= tháng hiện tại thì tiếp tục hiển thị tháng đó
+				if(date_timestamp_get($date_wedding->modify("-1 month")) > date_timestamp_get($date_now))
+				{
+					array_unshift($month,$date_wedding->format('m-Y'));
+				}
+				else
+				{
+					break;//ngắt vong lặp for
+				}
+				
+			}
+		}
+		
 		return $month;
 	}
 	public static function sortBy($month){
