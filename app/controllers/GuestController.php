@@ -49,14 +49,7 @@ class GuestController extends \BaseController {
 		$html = '';
 		$html .='<tr class="guest_list'.$guest_add->id.'" id="guest_list_item_cat'.$guest_add->id.'">
 			 						
-		 		<td>
-		 				<div class="checkbox">
-		 					<label>
-		 						<input type="checkbox" value="">
-		 						
-		 					</label>
-		 				</div>
-	 				</td>
+		 		
 	 			<td>
 	 				<div>
 					 <a onclick="name_click('.$guest_add->id.')" class="'.$guest_add->id.'show_name">'.$guest->fullname.'</a> 										 	
@@ -99,6 +92,11 @@ class GuestController extends \BaseController {
 	 				</div>
 	 				<p style="display:none;color:red;" class="attend_error'.$guest_add->id.'">Vui lòng nhập số khách mời</p>
 	 			</td><!-- Due -->
+	 			<td>
+
+	 				<input type="submit" name="invited1" id="invited1'.$guest_add->id.'" class="form-control invited1" value="Chưa mời" required="required" title="">
+	 				<input type="submit" name="invited2" style="display:none" id="invited2'.$guest_add->id.'" class="form-control invited2" value="Đã mời" required="required" title="">
+	 			</td>
 	 			<td>
 	 				<a onclick="guest_del('.$guest_add->id.')" href="javascript:void(0)"  class="confirm guest_list_icon_trash guest_del'.$guest_add->id.'"><i class="glyphicon glyphicon-trash"></i></a>
 	 				<input type="hidden"  name="'.$guest_add->id.'" value="'.$guest_add->id.'" >
@@ -219,6 +217,26 @@ public function update_name()
 		$id_user = User::where( 'email', Session::get('email') )->get()->first()->id;
 		return $id_user;
 	}
+	public function post_Add_Group(){
+
+			$id_user = GuestController::id_user();
+
+		    $rules=array(
+				"name"=>"required"
+			);
+		    // check then insert to database
+			if(!Validator::make(Input::all(),$rules)->fails()){
+				$group = new Groups();
+				$group->name = Input::get('name');
+				$group->save();
+				
+				$msg="Đã tạo nhóm thành công!";
+				return Redirect::route("guest-list")->with('msg',$msg);
+			}else{
+				$msg="Thêm nhóm mới không thành công";
+				return Redirect::route("guest-list")->with('msg',$msg);
+			}
+	}		
 	public function post_Add_Guest(){
 
 			$id_user = GuestController::id_user();

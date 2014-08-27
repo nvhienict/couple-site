@@ -1900,6 +1900,7 @@ div.song_content button{
 	
 }
 
+
 .table-guest tr{
 	line-height: 40px;
 }
@@ -1927,7 +1928,14 @@ div.song_content button{
 a.guest_list_icon_trash{
 	display: none;
 }
-
+ .invited1
+{
+	background-color:#3B5998;height:30px;width:70px;color: white;
+}
+.invited2
+{
+	background-color:#B5B2AF;height:30px;width:70px;color: white;
+}
 
 /*thuy*/
 .input-edit-guest{

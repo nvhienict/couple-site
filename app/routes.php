@@ -193,7 +193,7 @@ Route::post('guest-list/update_phone',array('as'=>'update_phone','uses'=>'GuestC
 Route::post('guest-list/update_address',array('as'=>'update_address','uses'=>'GuestController@update_address'));
 Route::post('guest-list/update_email',array('as'=>'update_email','uses'=>'GuestController@update_email'));
 Route::post('guest-list/update_attend',array('as'=>'update_attend','uses'=>'GuestController@update_attend'));
-Route::post('guest-list/create',array('before'=>'check_login','as'=>'create','uses'=>'GuestController@create'));
+Route::post('guest-list/create',array('before'=>'check_login','as'=>'create_guest','uses'=>'GuestController@create'));
 Route::post('guest-list/delete',array('before'=>'check_login','as'=>'delete','uses'=>'GuestController@delete'));
 
 // Group Thuỷ

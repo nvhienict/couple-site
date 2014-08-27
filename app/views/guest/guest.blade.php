@@ -107,7 +107,7 @@ guest
 									<div class="row form-group">
 										<label for="attending" class="col-xs-3 control-label">Số người tham dự:</label>
 										<div class="col-xs-9">
-										   	<input type="text" class="form-control" name="attending" id="attending" placeholder="">
+										   	<input type="number" class="form-control" name="attending" id="attending" value="1" min="1"placeholder="">
 										</div>
 									</div>
 								  	<div class="row form-group">
@@ -156,15 +156,14 @@ guest
 			<div class="row">
 				<div class="col-xs-10">
 					<table class="table-guest">
-
-						<tr class="table-guest-thead-fixed">							
-					 		<th style="width:50px;">Mời</th>
-					 		<th style="width:220px;">Nhóm</th>
+						<tr class="table-guest-thead-fixed">			
+							<th style="width:180px;">Nhóm</th>
 					 		<th style="width:200px;">Số điện thoại</th>
-					 		<th style="width:250px;">Địa chỉ</th>
-					 		<th style="width:240px;">Email</th>
-					 		<th style="width:200px;">Số người tham dự</th>
+					 		<th style="width:180px;">Địa chỉ</th>
+					 		<th style="width:200px;">Email</th>
+					 		<th style="width:200px;">Tham dự</th>
 					 		<th style="width:60px;"></th>
+					 		<th></th>
 
 					 	</tr>
 					 	<script type="text/javascript">
@@ -177,27 +176,27 @@ guest
 							});
 						</script>
 					 	<thead>					 		
-					 		<th>Mời</th>
 					 		<th>Nhóm</th>
 					 		<th>Số điện thoại</th>
 					 		<th>Địa chỉ</th>
 					 		<th>Email</th>
-					 		<th >Số người tham dự</th>
-					 		<th></th>
+					 		<th >Tham dự</th>
 					 		<th></th>
 					 		<th></th>
 					 	</thead>
 
 					 	<tbody>
 					 	@foreach(Groups::get() as $key=>$group)
-					 		<tr class="guest_cat{{$group->id}} guest_cat" id="cate{{$group->id}}">
-					 			<td></td>					 			
-					 			<td><strong>{{$group->name}}</strong></td>					 								 		
+					 		<tr class="guest_cat{{$group->id}} guest_cat" id="cate{{$group->id}}">					 						 			
+					 			<td style="width:200px;"><strong>{{$group->name}}</strong></td>					 								 		
+					 			<td style="width:200px;"></td>
+					 			<td  style="width:220px;"></td>
+					 			<td style="width:220px;"></td>
+					 			<td style="width:100px;"></td>					 							 									 			</td>
 					 			<td></td>
-					 			<td></td>
-					 			<td></td>
-					 			<td></td>
-					 			<td>
+					 			<td style="width:100px;">
+
+
 					 				<a href="#" id="edit-group-webding" data-toggle="modal" data-target="#editGroup-guest{{$group->id}}">
 										<span class="fa fa-edit"></span>
 									</a>
@@ -253,8 +252,6 @@ guest
 											})
 											
 										</script>
-					 			</td>
-					 			<td>
 					 				<a href="#" id="delete-group-webding" data-toggle="modal" data-target="#deleteGroup-guest{{$group->id}}" style="margin-right: 10px;">
 										<span class="fa fa-trash-o"></span>
 									</a>
@@ -289,8 +286,7 @@ guest
 											</div> <!-- end modal dialog -->
 											</div> <!-- end modal fade -->
 											<!-- end modal delete -->
-								</td>
-					 			<td>
+					 				<!-- _Item up-down -->
 					 				<span class="up_item_cat" style="color: #19b5bc; cursor:pointer; " id="up{{$group->id}}"><i class="glyphicon glyphicon-chevron-up"></i></span>
 					 				<span class="down_item_cat" style="color: #19b5bc; cursor:pointer; display:none"; id="down{{$group->id}}" ><i class="glyphicon glyphicon-chevron-down"></i></span>
 					 				<!-- display or hide a item -->
@@ -315,15 +311,7 @@ guest
 					 		<tbody id="guest_list_item_cat{{$group->id}}">
 					 			@foreach(Guests::where('group',$group->id)->get() as $guest)
 			 					<tr class=" guest_list{{$guest->id}} guest_list_item_cat" id="guest_list_item_cat{{$guest->id}}">
-			 						
-						 			<td>
-						 				<div class="checkbox">
-						 					<label>
-						 						<input type="checkbox" value="">
-						 						
-						 					</label>
-						 				</div>
-					 				</td>
+			 											 			
 					 			<td>
 					 				<div>
 									 <a onclick="name_click({{$guest->id}})" class="{{$guest->id}}show_name">{{$guest->fullname}}</a> 										 	
@@ -339,7 +327,7 @@ guest
 									    <input onchange="phone_change({{$guest->id}})" ondblclick="phone_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}phone form-control input-edit-guest" name="phone" value="{{$guest->phone}}">   
 										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 									 </div>
-									 <p style="display:none;color:red;" class="phone_error{{$guest->id}}">Vui lòng nhập sdt</p>
+									 
 									 
 						 		</td>
 						 		<td ><!-- Actual -->
@@ -348,7 +336,7 @@ guest
 									    <input onchange="address_change({{$guest->id}})" ondblclick="address_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}address form-control input-edit-guest" name="address" value="{{$guest->address}}">   
 										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 									</div>
-									<p style="display:none;color:red;" class="address_error{{$guest->id}}">Vui lòng nhập địa chỉ</p>
+									
 								</td>
 					 			<td >
 					 				<div  > 
@@ -356,7 +344,7 @@ guest
 									    <input onchange="email_change({{$guest->id}})" ondblclick="email_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}email form-control input-edit-guest" name="email" value="{{$guest->email}}">   
 										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 									</div>
-									<p style="display:none;color:red;" class="email_error{{$guest->id}}">Vui lòng nhập email</p>
+									<p style="display:none;color:red;" class="email_error{{$guest->id}}">Email không đúng định dạng</p>
 				 				</td><!-- pay -->
 					 			<td>
 					 				<div>
@@ -364,8 +352,27 @@ guest
 									    <input onchange="attend_change({{$guest->id}})" ondblclick="attend_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}attend form-control input-edit-guest" name="attending" value="{{$guest->attending}}">   
 										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 					 				</div>
-					 				<p style="display:none;color:red;" class="attend_error{{$guest->id}}">Vui lòng nhập số khách mời</p>
+					 				
 					 			</td><!-- Due -->
+					 			<td>
+					 				@if($guest->invited==false)
+					 				<input type="submit" name="invited1" id="invited1{{$guest->id}}" class="form-control invited1" value="Chưa mời" required="required" title="">
+					 				<input type="submit" style="display:none" name="invited2" id="invited2{{$guest->id}}" class="form-control invited2" value="Đã mời" required="required" title="">
+					 				@else
+					 				<input type="submit" style="display:none" name="invited1" id="invited1{{$guest->id}}" class="form-control invited1" value="Chưa mời" required="required" title="">
+					 				<input type="submit" name="invited2" id="invited2{{$guest->id}}" class="form-control invited2" value="Đã mời" required="required" title="">
+					 				@endif
+					 			</td>
+					 			<script type="text/javascript">
+					 					$('#invited1{{$guest->id}}').click(function(){
+					 							$('#invited1{{$guest->id}}').hide();
+					 							$('#invited2{{$guest->id}}').show();
+					 					});
+					 					$('#invited2{{$guest->id}}').click(function(){
+					 							$('#invited2{{$guest->id}}').hide();
+					 							$('#invited1{{$guest->id}}').show();
+					 					});
+					 			</script>
 					 			<td>
 					 				<a onclick="guest_del({{$guest->id}})" href="javascript:void(0)" class="confirm guest_list_icon_trash guest_del{{$guest->id}}"><i class="glyphicon glyphicon-trash"></i></a>
 					 				<input type="hidden"  name="{{$guest->item}}" value="{{$guest->id}}" >
@@ -375,7 +382,7 @@ guest
 						 		                                											  						     
 						 		@endforeach
 						 		<tr class="guest_list_item_cat" id="guest_list_item_cat">
-						 			<td></td>
+						 			
 						 				<td colspan="7"><a onclick="add_guest({{$group->id}})" href="javascript:void(0)" class="guest_list_add{{$group->id}}" style="cursor:pointer;">
 											<i class="glyphicon glyphicon-plus"></i>&nbsp Thêm Khách
 										</a>
@@ -405,7 +412,7 @@ guest
 		    function add_guest(id){
 		    	$.ajax({
 					type: "post",
-					url: "{{URL::route('create')}}",
+					url: "{{URL::route('create_guest')}}",
 					data: {
 					id_group:$(".guest_list_add"+id).next().val()
 					},
@@ -431,7 +438,11 @@ guest
 						},
 						success: function(data){
 							//var obj = JSON.parse(data);  
-							$(".guest_list"+id).remove();                             
+							$(".guest_list"+id).remove();  
+							// var obj = JSON.parse(data);
+							// $(".total_guest").text(obj.total_guest); 
+							// $(".total_invited").text(obj.total_invited);   
+							// $(".total_noinvited").text(obj.total_noinvited);                        
 						}												
 						});
                     return true;
@@ -484,32 +495,28 @@ guest
             	};            	
             };
             //phone
-            function phone_click(id){
-            	if ($('.'+id+'phone').val()=="Number") {
-            		$('.'+id+'phone').val("");
+            function phone_click(id){            	
             		$('.'+id+'phone').show();
-            		$('.'+id+'show_phone').hide();
-            	} else{
-            		$('.'+id+'show_phone').hide();
-            	    $('.'+id+'phone').show();
-            	};            	
+            		$('.'+id+'show_phone').hide();            	            	
             };
             function phone_dblclick(id){
-            	if ($("."+id+"phone").val()=="") {
-            		$("."+id+"phone").show();
-            		$('.'+id+'show_phone').hide();
-            		$('.phone_error'+id).show();
-            	} else{
-            		$('.'+id+'show_phone').show();
-            	    $('.'+id+'phone').hide();
-            	    $('.phone_error'+id).hide();
-            	};
+            	$('.'+id+'phone').hide();
+            	$('.'+id+'show_phone').show();
             };
             function phone_change(id){
             	if ($("."+id+"phone").val()=="") {
-            		$("."+id+"phone").show();
-            		$('.'+id+'show_phone').hide();
-            		$('.phone_error'+id).show();
+            		$("."+id+"phone").val("Phone")
+            		$.ajax({
+					type: "post",
+					url: "{{URL::route('update_phone')}}",
+					data: {
+					phone:$("."+id+"phone").val(),	
+					id:$("."+id+"phone").next().val()
+					}
+					});	
+            		$('.'+id+'show_phone').text($("."+id+"phone").val());
+					$("."+id+"phone").hide();
+					$('.'+id+'show_phone').show();					
             	} else{
             		$.ajax({
 					type: "post",
@@ -524,34 +531,40 @@ guest
 				$('.'+id+'show_phone').show();
 				$('.phone_error'+id).hide();
             	};
-            };
+            };            
+			function key_phone(event,id)
+			 	      {  	
+		             if(event.which >= 37 && event.which <= 40) return;
+		                 $("."+id+"phone").val(function(index, value) {
+						        return value
+						            .replace(/\D/g, '')
+						            .replace(/\B(?=(\d{3})+(?!\d))/g, "")
+						        ;
+						    });
+			        };       
             //adress
-            function address_click(id){
-            	if ($('.'+id+'address').val()=="Address") {
-            		$('.'+id+'address').val("");
-            		$('.'+id+'show_address').hide();
-	            	$('.'+id+'address').show();	            	
-            	} else{
-            		$('.'+id+'show_address').hide();
-	            	$('.'+id+'address').show();
-            	};            	
+            function address_click(id){        
+        		$('.'+id+'show_address').hide();
+            	$('.'+id+'address').show();            	            	
             };
             function address_dblclick(id){
-            	if ($("."+id+"address").val()=="") {
-            		$("."+id+"address").show();
-            		$('.'+id+'show_address').hide();
-            		$('.address_error'+id).show();
-            	} else{
-            		$('.'+id+'show_address').show();
-            	    $('.'+id+'address').hide();
-            	    $('.address_error'+id).hide();
-            	};            	
-            };
+            	$('.'+id+'show_address').show();
+	            $('.'+id+'address').hide();
+            };   
             function address_change(id){
             	if ($("."+id+"address").val()=="") {
-            		$("."+id+"address").show();
-            		$('.'+id+'show_address').hide();
-            		$('.address_error'+id).show();
+            		$("."+id+"address").val('Address')
+            		$.ajax({
+					type: "post",
+					url: "{{URL::route('update_address')}}",
+					data: {
+					address:$("."+id+"address").val(),	
+					id:$("."+id+"address").next().val()
+					}							
+				});
+	            	$('.'+id+'show_address').text($("."+id+"address").val());
+					$("."+id+"address").hide();
+					$('.'+id+'show_address').show();					
             	} else{
             		$.ajax({
 					type: "post",
@@ -563,39 +576,41 @@ guest
 				});
 				$('.'+id+'show_address').text($("."+id+"address").val());
 				$("."+id+"address").hide();
-				$('.'+id+'show_address').show();
-				$('.address_error'+id).hide();
+				$('.'+id+'show_address').show();				
             	};
             };
             //email
-            function email_click(id){
-            	if ($('.'+id+'email').val()=="Email") {
-            		$('.'+id+'email').val("");
-            		$('.'+id+'show_email').hide();
-            	    $('.'+id+'email').show();
-            	} else{
-            		$('.'+id+'show_email').hide();
-            	    $('.'+id+'email').show();
-            	};
+            function email_click(id){            	
+        		$('.'+id+'show_email').hide();
+        	    $('.'+id+'email').show();            	
             };
             function email_dblclick(id){
-            	if ($("."+id+"email").val()=="") {
-            		$("."+id+"email").show();
-            		$('.'+id+'show_email').hide();
-            		$('.email_error'+id).show();
-            	} else{
-            		$('.'+id+'show_email').show();
-            	    $('.'+id+'email').hide();
-            	    $('.email_error'+id).hide();
-            	};
-            };
+                 $('.'+id+'show_email').show();
+            	 $('.'+id+'email').hide();
+            };          
             function email_change(id){
             	if ($("."+id+"email").val()=="") {
-            		$("."+id+"email").show();
-            		$('.'+id+'show_email').hide();
-            		$('.email_error'+id).show();
-            	} else{
+            		$("."+id+"email").val("Email");
             		$.ajax({
+					type: "post",
+					url: "{{URL::route('update_email')}}",
+					data: {
+					email:$("."+id+"email").val(),	
+					id:$("."+id+"email").next().val()
+					}							
+				});
+					$('.'+id+'show_email').text($("."+id+"email").val());
+					$("."+id+"email").hide();
+					$('.'+id+'show_email').show(); 
+					$('.email_format'+id).hide();          		
+            	} else{
+            		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            		if (!emailReg.test($("."+id+"email").val())) {
+            			$("."+id+"email").show();
+				    	$('.email_format'+id).show();
+            		   } 
+            		else{
+            			$.ajax({
 					type: "post",
 					url: "{{URL::route('update_email')}}",
 					data: {
@@ -606,36 +621,33 @@ guest
 				$('.'+id+'show_email').text($("."+id+"email").val());
 				$("."+id+"email").hide();
 				$('.'+id+'show_email').show();
-				 $('.email_error'+id).hide();
+				$('.email_format'+id).hide();
+              };           		
 			};            	
             };
             //attend
-            function attend_click(id){
-            	if ($('.'+id+'attend').val()=="0") {
-            		$('.'+id+'attend').val("");
-            		$('.'+id+'show_attend').hide();
-                 	$('.'+id+'attend').show();
-            	} else{
-            		$('.'+id+'show_attend').hide();
-            	    $('.'+id+'attend').show();
-            	};
+            function attend_click(id){            	
+	    		$('.'+id+'show_attend').hide();
+	    	    $('.'+id+'attend').show();            	
             };
             function attend_dblclick(id){
-            	if ($("."+id+"attend").val()=="") {
-            		$("."+id+"attend").show();
-            		$('.'+id+'show_attend').hide();
-            		$('.attend_error'+id).show();
-            	} else{
-            		$('.'+id+'show_attend').show();
-            	    $('.'+id+'attend').hide();
-            	    $('.attend_error'+id).hide();
-            	};
-            };
+            	$('.'+id+'show_attend').show();
+            	$('.'+id+'attend').hide();
+            };      
             function attend_change(id){
             	if ($("."+id+"attend").val()=="") {
-            		$("."+id+"attend").show();
-            		$('.'+id+'show_attend').hide();
-            		$('.attend_error'+id).show();
+            		$("."+id+"attend").val("1");
+            		$.ajax({
+					type: "post",
+					url: "{{URL::route('update_attend')}}",
+					data: {
+					attend:$("."+id+"attend").val(),	
+					id:$("."+id+"attend").next().val()
+					}							
+				});
+					$('.'+id+'show_attend').text($("."+id+"attend").val());
+					$("."+id+"attend").hide();
+					$('.'+id+'show_attend').show();
             	} else{
             		$.ajax({
 					type: "post",
