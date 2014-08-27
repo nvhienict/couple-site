@@ -138,14 +138,14 @@ guest
 					<!-- display or hide all items -->
 					<script type="text/javascript">
 						$('#guest_all_item_sign_down').click(function(){
-							$('.guest_list_item_cat').show();
+							$('.guest_list_show_cat').show();
 
 							$('.down_item_cat').hide();
 							$('.up_item_cat').show();
 							
 						});
 						$('#guest_all_item_sign_up').click(function(){
-							$('.guest_list_item_cat').hide();
+							$('.guest_list_show_cat').hide();
 
 							$('.down_item_cat').show();
 							$('.up_item_cat').hide();
@@ -201,14 +201,14 @@ guest
 									<script type="text/javascript">
 
 										$('#up{{$group->id}}').click(function(){
-											$('#guest_list_item_cat{{$group->id}}').hide();
+											$('.guest_list_show_cat{{$group->id}}').hide();
 
 											$('#up{{$group->id}}').hide();
 											$('#down{{$group->id}}').show();
 										});
 
 										$('#down{{$group->id}}').click(function(){
-											$('#guest_list_item_cat{{$group->id}}').show();
+											$('.guest_list_show_cat{{$group->id}}').show();
 
 											$('#up{{$group->id}}').show();
 											$('#down{{$group->id}}').hide();
@@ -308,7 +308,7 @@ guest
 					 				
 					 			</td>
 					 		</tr>
-					 		<tbody id="guest_list_item_cat{{$group->id}}">
+					 		<tbody class="guest_list_show_cat{{$group->id}} guest_list_show_cat">
 					 			@foreach(Guests::where('group',$group->id)->get() as $guest)
 			 					<tr class=" guest_list{{$guest->id}} guest_list_item_cat" id="guest_list_item_cat{{$guest->id}}">
 			 											 			
