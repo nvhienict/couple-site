@@ -48,7 +48,7 @@
             <div class="col-xs-6">
               <ul class="list-unstyled">
                 <li><a href="#">Website cưới</a></li>
-                <li><a href="#">Danh sách khách mời</a></li>
+                <li><a href="{{URL::route('guest-list')}}">Danh sách khách mời</a></li>
                 <li><a href="#">Sơ đồ ghế ngồi</a></li>
                 <li>
                     <a href="{{URL::route('user-checklist')}}" onclick="get_url(1);" >Danh sách công việc</a><span class="glyphicon glyphicon-ok"></span>
