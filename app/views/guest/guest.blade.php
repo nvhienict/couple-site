@@ -107,7 +107,7 @@ guest
 									<div class="row form-group">
 										<label for="attending" class="col-xs-3 control-label">Số người tham dự:</label>
 										<div class="col-xs-9">
-										   	<input type="number" class="form-control" name="attending" id="attending" value="1" min="1"placeholder="">
+										   	<input type="number" class="form-control" name="attending" id="attending" value="1" min="0"placeholder="">
 										</div>
 									</div>
 								  	<div class="row form-group">
@@ -128,7 +128,7 @@ guest
 				</div>
 
 				<div class="col-xs-2">
-					<a href="" ><i class="fa fa-print"></i>&nbspXuất file</a>
+					<a href="{{URL::route('guest-list/exportfile')}}" ><i class="fa fa-print"></i>&nbspXuất file</a>
 				</div>
 			</div>
 		</div>
@@ -195,10 +195,28 @@ guest
 					 			<td style="width:100px;"></td>					 							 									 			</td>
 					 			<td></td>
 					 			<td style="width:100px;">
+					 				<span class="up_item_cat" style="color: #19b5bc; cursor:pointer; " id="up{{$group->id}}"><i class="glyphicon glyphicon-chevron-up"></i></span>
+					 				<span class="down_item_cat" style="color: #19b5bc; cursor:pointer; display:none"; id="down{{$group->id}}" ><i class="glyphicon glyphicon-chevron-down"></i></span>
+					 				<!-- display or hide a item -->
+									<script type="text/javascript">
 
+										$('#up{{$group->id}}').click(function(){
+											$('#guest_list_item_cat{{$group->id}}').hide();
 
-					 				<a href="#" id="edit-group-webding" data-toggle="modal" data-target="#editGroup-guest{{$group->id}}">
-										<span class="fa fa-edit"></span>
+											$('#up{{$group->id}}').hide();
+											$('#down{{$group->id}}').show();
+										});
+
+										$('#down{{$group->id}}').click(function(){
+											$('#guest_list_item_cat{{$group->id}}').show();
+
+											$('#up{{$group->id}}').show();
+											$('#down{{$group->id}}').hide();
+										});
+									</script>
+
+					 				<a href="#" id="edit-group-webding{{$group->id}}" class="icon-delete-group"data-toggle="modal" data-target="#editGroup-guest{{$group->id}}">
+										<span class="fa fa-edit "></span>
 									</a>
 									<!-- Modal edit group guest -->
 										<div class="modal fade" id="editGroup-guest{{$group->id}}" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
@@ -252,8 +270,8 @@ guest
 											})
 											
 										</script>
-					 				<a href="#" id="delete-group-webding" data-toggle="modal" data-target="#deleteGroup-guest{{$group->id}}" style="margin-right: 10px;">
-										<span class="fa fa-trash-o"></span>
+					 				<a href="#" id="delete-group-webding{{$group->id}} " class="icon-delete-group" data-toggle="modal" data-target="#deleteGroup-guest{{$group->id}}" style="margin-right: 10px;">
+										<span class="fa fa-trash-o "></span>
 									</a>
 									<!-- Modal delete group guest -->
 										<div class="modal fade" id="deleteGroup-guest{{$group->id}}" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
@@ -287,25 +305,7 @@ guest
 											</div> <!-- end modal fade -->
 											<!-- end modal delete -->
 					 				<!-- _Item up-down -->
-					 				<span class="up_item_cat" style="color: #19b5bc; cursor:pointer; " id="up{{$group->id}}"><i class="glyphicon glyphicon-chevron-up"></i></span>
-					 				<span class="down_item_cat" style="color: #19b5bc; cursor:pointer; display:none"; id="down{{$group->id}}" ><i class="glyphicon glyphicon-chevron-down"></i></span>
-					 				<!-- display or hide a item -->
-									<script type="text/javascript">
-
-										$('#up{{$group->id}}').click(function(){
-											$('#guest_list_item_cat{{$group->id}}').hide();
-
-											$('#up{{$group->id}}').hide();
-											$('#down{{$group->id}}').show();
-										});
-
-										$('#down{{$group->id}}').click(function(){
-											$('#guest_list_item_cat{{$group->id}}').show();
-
-											$('#up{{$group->id}}').show();
-											$('#down{{$group->id}}').hide();
-										});
-									</script>
+					 				
 					 			</td>
 					 		</tr>
 					 		<tbody id="guest_list_item_cat{{$group->id}}">
@@ -368,39 +368,10 @@ guest
 					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 					 				@endif
 					 			</td>
-					 			<script type="text/javascript">
-					 			       function invited1_click(id){
-							 				$('#invited1'+id).hide();
-							 				$('#invited2'+id).show();
-							 				$.ajax({
-											type: "post",
-											url: "{{URL::route('update_invited1')}}",
-											data: {
-											id:$("#invited1"+id).next().val()
-											},
-											
-																						
-										});
-
-							 			};
-							 			function invited2_click(id){
-							 				$('#invited2'+id).hide();
-							 				$('#invited1'+id).show();
-							 				$.ajax({
-											type: "post",
-											url: "{{URL::route('update_invited2')}}",
-											data: {
-											id:$("#invited2"+id).next().val()
-											},
-											
-																						
-										});
-
-							 			};
-					 			</script>
+					 			
 					 			<td>
 					 				<a onclick="guest_del({{$guest->id}})" href="javascript:void(0)" class="confirm guest_list_icon_trash guest_del{{$guest->id}}"><i class="glyphicon glyphicon-trash"></i></a>
-					 				<input type="hidden"  name="{{$guest->item}}" value="{{$guest->id}}" >
+					 				<input type="hidden"  name="{{$guest->id}}" value="{{$guest->id}}" >
 
 					 			</td>								
 						 		</tr>
@@ -435,38 +406,41 @@ guest
 		</div>
 	<script type="text/javascript">
 	        function invited1_click(id){
-				$('#invited1'+id).hide();
-				$('#invited2'+id).show();
-				$.ajax({
+ 				$('#invited1'+id).hide();
+ 				$('#invited2'+id).show();
+ 				$.ajax({
 				type: "post",
 				url: "{{URL::route('update_invited1')}}",
 				data: {
 				id:$("#invited1"+id).next().val()
-				},	
+				},
 				success: function(data){
 					var obj=JSON.parse(data);
 					$(".total_invited").text(obj.total_invited);   
 					$(".total_noinvited").text(obj.total_noinvited); 
-				}																			
+				}																					
 			});
-				};
-				function invited2_click(id){
-					$('#invited2'+id).hide();
-					$('#invited1'+id).show();
-					$.ajax({
+
+ 			};
+ 			function invited2_click(id){
+ 				$('#invited2'+id).hide();
+ 				$('#invited1'+id).show();
+ 				$.ajax({
 				type: "post",
 				url: "{{URL::route('update_invited2')}}",
 				data: {
 				id:$("#invited2"+id).next().val()
-				},	
+				},
 				success: function(data){
 					var obj = JSON.parse(data);
 					$(".total_invited").text(obj.total_invited);   
 					$(".total_noinvited").text(obj.total_noinvited); 
-				}																		
+				}
+															
 			});
-				};
-		    //add
+
+ 			};
+			//add
 		    function add_guest(id){
 		    	$.ajax({
 					type: "post",

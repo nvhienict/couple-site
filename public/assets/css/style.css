@@ -1913,6 +1913,16 @@ div.song_content button{
 	text-align: left;
 	padding: 5px;
 }
+.table-guest tr.guest_cat:hover > td a.icon-delete-group
+{
+	display: inline-block;
+}
+.table-guest tr.guest_cat:hover > td a.icon-edit-group
+{
+	display: inline-block;
+}
+
+
 .table-guest tr:hover > td a.guest_list_icon_trash{
 	display: inline-block;
 }
@@ -1924,19 +1934,27 @@ div.song_content button{
 	background-color: #fff6ee;
 }
 
-
+a.icon-delete-group
+{
+	display: none;
+}
+a.icon-edit-group
+{
+	display: none;
+}
 a.guest_list_icon_trash{
 	display: none;
 }
  .invited1
 {
 	background-color:#3B5998;height:30px;width:70px;color: white;
+	text-align: center;
 }
 .invited2
 {
 	background-color:#B5B2AF;height:30px;width:70px;color: white;
+	text-align: center;
 }
-
 /*thuy*/
 .input-edit-guest{
 	width: 120px;

@@ -111,8 +111,8 @@ class GuestController extends \BaseController {
 	 				<input type="hidden" name="'.$guest->id.'" value="'.$guest->id.'">
 	 				<input onclick="invited2_click('.$guest->id.')"  type="submit" name="invited2" style="display:none" id="invited2'.$guest_add->id.'" class="form-control invited2" value="Đã mời" required="required" title="">
 	 				<input type="hidden" name="'.$guest->id.'" value="'.$guest->id.'">
-	 			</td
-	 			<td>
+	 			</td>
+	 			<td>	 				
 	 				<a onclick="guest_del('.$guest_add->id.')" href="javascript:void(0)"  class="confirm guest_list_icon_trash guest_del'.$guest_add->id.'"><i class="glyphicon glyphicon-trash"></i></a>
 	 				<input type="hidden"  name="'.$guest_add->id.'" value="'.$guest_add->id.'" >
 	 			</td>								
@@ -182,6 +182,7 @@ public function update_name()
 		$total_noinvited=Guests::where('user',UserController::id_user())->where('invited',false)->get()->count();
         echo json_encode(array('total_invited'=>$total_invited,'total_noinvited'=>$total_noinvited));
         exit();
+
 
 	}
 	public function update_invited2()
@@ -283,8 +284,7 @@ public function update_name()
 			}
 	}		
 	public function post_Add_Guest(){
-
-			$id_user = GuestController::id_user();
+$id_user = GuestController::id_user();
 
 		   
 		    // check then insert to database
@@ -292,10 +292,30 @@ public function update_name()
 				$guest = new Guests();
 				$guest->user=$id_user;
 				$guest->fullname = Input::get('fullname');
-				$guest->phone = Input::get('phone');
-				$guest->address = Input::get('address');
+				if(Input::get('phone')==""){
+					$guest->phone ="Phone";
+				}
+				else{
+					$guest->phone = Input::get('phone');
+				}
+				if(Input::get('address')=="")
+				{
+					$guest->address="Address";
+				}
+				else
+				{
+					$guest->address = Input::get('address');
+				}
 				$guest->group=Input::get('group');
-				$guest->email = Input::get('email');
+				if(Input::get('email')=="")
+				{
+					$guest->email = "Email";
+				}
+				else
+				{
+					$guest->email = Input::get('email');
+				}
+				
 				$guest->attending = Input::get('attending');
 				$guest->save();
 				
@@ -304,10 +324,59 @@ public function update_name()
 			
 
 
+
 	} // function add_Check_List
 	public function check_guest_email(){
 			$id_user = GuestController::id_user();
 			return (Guests::where('id',$id_user)->where("email",Input::get('email'))->count()==0? "true": "false");
 		}
+
+	public function exportfile(){
+		$id_user =GuestController::id_user();		
+		$datas = Guests::where('user', $id_user)->get();
+		$email = User::where('id', $id_user)->get()->first()->email;
+		$date_wedding = new DateTime(User::find($id_user)->weddingdate);
+		
+		// -------------
+		$row = array(
+			array('Khách hàng', $email, ''),
+			array('In danh sách khách mời từ', 'thuna.vn', ''),
+		    array('Nhóm','Khách mời','Số điện thoại','Email','Địa chỉ','Tham dự','Tình trạng'),
+		);
+
+		foreach($datas as $data){
+			$id_group=$data->group;
+			$group =Groups::where('id',$id_group)->get()->first()->name;
+			$guest=$data->fullname;
+			$phone=$data->phone;
+			$email=$data->email;
+			$address=$data->address;
+			$attending=$data->attending;
+			$invited=$data->invited;
+			if($invited==true){
+				$print_invited="Đã mời";
+			}else{ $print_invited="Chưa mời"; }
+		    
+		    $row[] = array( $group, $guest,$phone,$email,$address,$attending, $print_invited );
+		}
+
+
+		Excel::create('Guestslist', function($excel) use($row) {
+			
+		    $excel->sheet('Guestslist', function($sheet) use($row) {
+		    	
+		    	$sheet->cells('A3:G3', function($row) {
+				    // set color for cell
+				    $row->setBackground('#95b3d7');
+
+				});
+
+		    	// cell A1 not null
+		        $sheet->fromArray($row, null, 'A1', false, false);
+		    });
+		})->export('xlsx');
+
+		return View::make('guest-list');
+	}
 
 }
