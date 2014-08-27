@@ -83,16 +83,16 @@ Budget
 					<!-- display or hide all items -->
 					<script type="text/javascript">
 						$('#budget_all_item_sign_down').click(function(){
-							$('.budget_item_cat').show();
+							$('.budget_item_show_cat').show();
 
 							$('.down_item_cat').hide();
 							$('.up_item_cat').show();
 							
 						});
 						$('#budget_all_item_sign_up').click(function(){
-							$('.budget_item_cat').hide();
+							$('.budget_item_show_cat').hide();
 
-							$('.down_item_cat').hide();
+							$('.down_item_cat').show();
 							$('.up_item_cat').hide();
 						});
 					</script>
@@ -170,14 +170,14 @@ Budget
 									<script type="text/javascript">
 
 										$('#up{{$category->id}}').click(function(){
-											$('#budget_item_cat{{$category->id}}').hide();
+											$('.budget_item_show_cat{{$category->id}}').hide();
 
 											$('#up{{$category->id}}').hide();
 											$('#down{{$category->id}}').show();
 										});
 
 										$('#down{{$category->id}}').click(function(){
-											$('#budget_item_cat{{$category->id}}').show();
+											$('.budget_item_show_cat{{$category->id}}').show();
 
 											$('#up{{$category->id}}').show();
 											$('#down{{$category->id}}').hide();
@@ -185,7 +185,7 @@ Budget
 									</script>
 					 			</td>
 					 		</tr>
-					 		<tbody id="budget_item_cat{{$category->id}}">
+					 		<tbody class="budget_item_show_cat{{$category->id}} budget_item_show_cat">
 					 			@foreach(UserBudget::where("user",UserBudgetController::id_user())->where('category',$category->id)->get() as $budget)
 			 					<tr class="budget_item_cat" id="budget_item_cat{{$budget->id}}">
 						 			<td>
