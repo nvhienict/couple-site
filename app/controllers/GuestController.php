@@ -15,7 +15,15 @@ class GuestController extends \BaseController {
 		{
 			$id=Input::get('id');
 			$guest=Guests::find($id);
+			$id_group = $guest->group;
+			
 			$guest->delete();
+			$total_guest=Guests::where('user',UserController::id_user())->get()->count();
+			$total_invited=Guests::where('user',UserController::id_user())->where('invited',true)->get()->count();
+			$total_noinvited=Guests::where('user',UserController::id_user())->where('invited',false)->get()->count();
+			$total_group_guest=Guests::where('user',UserController::id_user())->where('group',$id_group)->get()->count();
+			echo json_encode(array('total_group_guest'=>$total_group_guest,'total_guest'=>$total_guest,'total_invited'=>$total_invited,'total_noinvited'=>$total_noinvited));
+			exit();
 		}
 	
 
@@ -29,9 +37,9 @@ class GuestController extends \BaseController {
 		$id_user=UserController::id_user();
 		$id_group=Input::get('id_group');
 		
-		$count=Guests::where('group',$id_group)->get()->count();
+		$count=Guests::where('user',$id_user)->where('group',$id_group)->get()->count();
 		if ($count) {
-			$guest_last=Guests::where('group',$id_group)->get()->last()->id;
+			$guest_last=Guests::where('user',$id_user)->where('group',$id_group)->get()->last()->id;
 		} else {
 			$guest_last=0;
                
@@ -41,11 +49,16 @@ class GuestController extends \BaseController {
 		$guest->email="Email";
 		$guest->address="Address";
 		$guest->phone="Number";
-		$guest->attending="0";
+		$guest->attending="1";
 		$guest->group=$id_group;
 		$guest->user=$id_user;
+        $guest->invited=false;
 		$guest->save(); 
-		$guest_add=Guests::get()->last();
+		$total_guest=Guests::where('user',UserController::id_user())->get()->count();
+		$total_invited=Guests::where('user',UserController::id_user())->where('invited',true)->get()->count();
+		$total_noinvited=Guests::where('user',UserController::id_user())->where('invited',false)->get()->count();
+		$total_group_guest=Guests::where('user',UserController::id_user())->where('group',$id_group)->get()->count();	
+		$guest_add=Guests::where('user',$id_user)->where('group',$id_group)->get()->last();
 		$html = '';
 		$html .='<tr class="guest_list'.$guest_add->id.'" id="guest_list_item_cat'.$guest_add->id.'">
 			 						
@@ -93,16 +106,18 @@ class GuestController extends \BaseController {
 	 				<p style="display:none;color:red;" class="attend_error'.$guest_add->id.'">Vui lòng nhập số khách mời</p>
 	 			</td><!-- Due -->
 	 			<td>
-
-	 				<input type="submit" name="invited1" id="invited1'.$guest_add->id.'" class="form-control invited1" value="Chưa mời" required="required" title="">
-	 				<input type="submit" name="invited2" style="display:none" id="invited2'.$guest_add->id.'" class="form-control invited2" value="Đã mời" required="required" title="">
-	 			</td>
+                     
+	 				<input onclick="invited1_click('.$guest->id.')" type="submit" name="invited1" id="invited1'.$guest_add->id.'" class="form-control invited1" value="Chưa mời" required="required" title="">
+	 				<input type="hidden" name="'.$guest->id.'" value="'.$guest->id.'">
+	 				<input onclick="invited2_click('.$guest->id.')"  type="submit" name="invited2" style="display:none" id="invited2'.$guest_add->id.'" class="form-control invited2" value="Đã mời" required="required" title="">
+	 				<input type="hidden" name="'.$guest->id.'" value="'.$guest->id.'">
+	 			</td
 	 			<td>
 	 				<a onclick="guest_del('.$guest_add->id.')" href="javascript:void(0)"  class="confirm guest_list_icon_trash guest_del'.$guest_add->id.'"><i class="glyphicon glyphicon-trash"></i></a>
 	 				<input type="hidden"  name="'.$guest_add->id.'" value="'.$guest_add->id.'" >
 	 			</td>								
 	 		</tr>';
-	 		echo json_encode(array('guest_last'=>$guest_last,'html'=>$html));
+	 		echo json_encode(array('total_group_guest'=>$total_group_guest,'total_guest'=>$total_guest,'total_invited'=>$total_invited,'total_noinvited'=>$total_noinvited,'guest_last'=>$guest_last,'html'=>$html));
 	 		exit();
 	}
 public function update_name()
@@ -155,6 +170,29 @@ public function update_name()
 		$guest->save();
 
 	}
+	public function update_invited1()
+	{
+		//
+		$id=Input::get('id');
+	
+		$guest=Guests::find($id);
+		$guest->invited=true;
+		$guest->save();
+
+
+	}
+	public function update_invited2()
+	{
+		//
+		$id=Input::get('id');
+	
+		$guest=Guests::find($id);
+		$guest->invited=false;
+		$guest->save();
+		
+
+	}
+
 
 	/**
 	 * Store a newly created resource in storage.

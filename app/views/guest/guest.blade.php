@@ -188,7 +188,7 @@ guest
 					 	<tbody>
 					 	@foreach(Groups::get() as $key=>$group)
 					 		<tr class="guest_cat{{$group->id}} guest_cat" id="cate{{$group->id}}">					 						 			
-					 			<td style="width:200px;"><strong>{{$group->name}}</strong></td>					 								 		
+					 			<td style="width:260px;"><strong>{{$group->name}}</strong> (<span class="total_group_guest">{{Guests::where('user',Usercontroller::id_user())->where('group',$group->id)->get()->count()}}</span>)</td>					 								 		
 					 			<td style="width:200px;"></td>
 					 			<td  style="width:220px;"></td>
 					 			<td style="width:220px;"></td>
@@ -356,26 +356,61 @@ guest
 					 			</td><!-- Due -->
 					 			<td>
 					 				@if($guest->invited==false)
-					 				<input type="submit" name="invited1" id="invited1{{$guest->id}}" class="form-control invited1" value="Chưa mời" required="required" title="">
-					 				<input type="submit" style="display:none" name="invited2" id="invited2{{$guest->id}}" class="form-control invited2" value="Đã mời" required="required" title="">
+					 				<input onclick="invited1_click({{$guest->id}})" type="submit" name="invited1" id="invited1{{$guest->id}}" class="form-control invited1" value="Chưa mời" required="required" title="">
+					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
+					 				<input onclick="invited2_click({{$guest->id}})" type="submit" style="display:none" name="invited2" id="invited2{{$guest->id}}" class="form-control invited2" value="Đã mời" required="required" title="">
+					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
+					 				
 					 				@else
-					 				<input type="submit" style="display:none" name="invited1" id="invited1{{$guest->id}}" class="form-control invited1" value="Chưa mời" required="required" title="">
-					 				<input type="submit" name="invited2" id="invited2{{$guest->id}}" class="form-control invited2" value="Đã mời" required="required" title="">
+					 				<input onclick="invited1_click({{$guest->id}})" type="submit" style="display:none" name="invited1" id="invited1{{$guest->id}}" class="form-control invited1" value="Chưa mời" required="required" title="">
+					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
+					 				<input onclick="invited2_click({{$guest->id}})" type="submit" name="invited2" id="invited2{{$guest->id}}" class="form-control invited2" value="Đã mời" required="required" title="">
+					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 					 				@endif
 					 			</td>
 					 			<script type="text/javascript">
-					 					$('#invited1{{$guest->id}}').click(function(){
-					 							$('#invited1{{$guest->id}}').hide();
-					 							$('#invited2{{$guest->id}}').show();
-					 					});
-					 					$('#invited2{{$guest->id}}').click(function(){
-					 							$('#invited2{{$guest->id}}').hide();
-					 							$('#invited1{{$guest->id}}').show();
-					 					});
+					 			       function invited1_click(id){
+							 				$('#invited1'+id).hide();
+							 				$('#invited2'+id).show();
+							 				$.ajax({
+											type: "post",
+											url: "{{URL::route('update_invited1')}}",
+											data: {
+											id:$("#invited1"+id).next().val()
+											},
+											
+																						
+										});
+
+							 			};
+							 			function invited2_click(id){
+							 				$('#invited2'+id).hide();
+							 				$('#invited1'+id).show();
+							 				$.ajax({
+											type: "post",
+											url: "{{URL::route('update_invited2')}}",
+											data: {
+											id:$("#invited2"+id).next().val()
+											},
+											
+																						
+										});
+
+							 			};
+
+					 					// $('#invited1{{$guest->id}}').click(function(){
+					 					// 		$('#invited1{{$guest->id}}').hide();
+					 					// 		$('#invited2{{$guest->id}}').show();
+					 					// });
+					 					// $('#invited2{{$guest->id}}').click(function(){
+					 					// 		$('#invited2{{$guest->id}}').hide();
+					 					// 		$('#invited1{{$guest->id}}').show();
+					 					// });
 					 			</script>
 					 			<td>
 					 				<a onclick="guest_del({{$guest->id}})" href="javascript:void(0)" class="confirm guest_list_icon_trash guest_del{{$guest->id}}"><i class="glyphicon glyphicon-trash"></i></a>
 					 				<input type="hidden"  name="{{$guest->item}}" value="{{$guest->id}}" >
+
 					 			</td>								
 						 		</tr>
 						 		<!-- Script thuỷ viết -->
@@ -400,14 +435,23 @@ guest
 		<div class="col-xs-2" id="guest_summary">
 			<h3>Tóm tắt:</h3>
 			<p>
-				<div>Tổng số khách:</div>
+				<div>Tổng số khách:<span class="total_guest">{{Guests::where('user',UserController::id_user())->get()->count()}}</span></div>
 				
-				<div>Đã mời:</div>
+				<div>Đã mời:<span class="total_invited">{{Guests::where('user',UserController::id_user())->where('invited',true)->get()->count()}}</span></div>
 				
-				<div>Chưa mời:</div>
+				<div>Chưa mời:<span class="total_noinvited">{{Guests::where('user',UserController::id_user())->where('invited',false)->get()->count()}}</span></div>
 				
 		</div>
 	<script type="text/javascript">
+	        //invited
+	    //     function invited1_click(id){
+	 			// 	$('#invited1'+id).hide();
+	 			// 	$('#invited2'+id).show();
+	 			// };
+	 			// function invited2_click(id){
+	 			// 	$('#invited2'+id).hide();
+	 			// 	$('#invited1'+id).show();
+	 			// };
 		    //add
 		    function add_guest(id){
 		    	$.ajax({
@@ -422,8 +466,12 @@ guest
 						$('.guest_list'+obj.guest_last).after(obj.html);
 					} else{
 						$('.guest_cat'+id).after(obj.html);
-					};
-																	
+					};				
+					$(".total_guest").text(obj.total_guest); 
+					$(".total_invited").text(obj.total_invited);   
+					$(".total_noinvited").text(obj.total_noinvited); 
+					$(".total_group_guest").text(obj.total_group_guest); 
+
 					}											
 				});
 		    };
@@ -437,12 +485,12 @@ guest
 						       id:$(".guest_del"+id).next().val()
 						},
 						success: function(data){
-							//var obj = JSON.parse(data);  
-							$(".guest_list"+id).remove();  
-							// var obj = JSON.parse(data);
-							// $(".total_guest").text(obj.total_guest); 
-							// $(".total_invited").text(obj.total_invited);   
-							// $(".total_noinvited").text(obj.total_noinvited);                        
+							var obj = JSON.parse(data);
+							$(".guest_list"+id).remove();
+							$(".total_guest").text(obj.total_guest); 
+							$(".total_invited").text(obj.total_invited);   
+							$(".total_noinvited").text(obj.total_noinvited); 
+							$(".total_group_guest").text(obj.total_group_guest);                        
 						}												
 						});
                     return true;

@@ -195,7 +195,8 @@ Route::post('guest-list/update_email',array('as'=>'update_email','uses'=>'GuestC
 Route::post('guest-list/update_attend',array('as'=>'update_attend','uses'=>'GuestController@update_attend'));
 Route::post('guest-list/create',array('before'=>'check_login','as'=>'create_guest','uses'=>'GuestController@create'));
 Route::post('guest-list/delete',array('before'=>'check_login','as'=>'delete','uses'=>'GuestController@delete'));
-
+Route::post('guest-list/update_invited1',array('as'=>'update_invited1','uses'=>'GuestController@update_invited1'));
+Route::post('guest-list/update_invited2',array('as'=>'update_invited2','uses'=>'GuestController@update_invited2'));
 // Group Thuỷ
 Route::post("guest-list/add_group", array("as"=>"add_group", "uses"=>"GroupsController@post_Add_Group"));
 Route::post("guest-list/edit_group", array("as"=>"edit_group", "uses"=>"GroupsController@post_edit_Group"));
