@@ -68,26 +68,21 @@ class GuestController extends \BaseController {
 					 <a onclick="name_click('.$guest_add->id.')" class="'.$guest_add->id.'show_name">'.$guest->fullname.'</a> 										 	
 					    <input onchange="name_change('.$guest_add->id.')" ondblclick="name_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'name form-control input-edit-guest" name="fullname" value="'.$guest->fullname.'">   
 						<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
-					 </div>	
-					 <p style="display:none;color:red;" class="name_error'.$guest_add->id.'">Vui lòng nhập tên khách mời</p>		 
+					 </div>			 
 	 			</td>
 		 		<td >
 	 				<div ><!-- Estimate -->
 					 <a onclick="phone_click('.$guest_add->id.')" class="'.$guest_add->id.'show_phone">'.$guest->phone.'</a> 										 	
-					    <input onchange="phone_change('.$guest_add->id.')" ondblclick="phone_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'phone form-control input-edit-guest" name="phone" value="'.$guest->phone.'">   
+					    <input onkeyup="key_phone(event,'.$guest_add->id.')" onchange="phone_change('.$guest_add->id.')" ondblclick="phone_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'phone form-control input-edit-guest" name="phone" value="'.$guest->phone.'">   
 						<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
-					 </div>
-					  <p style="display:none;color:red;" class="phone_error'.$guest_add->id.'">Vui lòng nhập sdt</p>
-					 
+					 </div>					 
 		 		</td>
 		 		<td >
 					<div  > 
 						<a onclick="address_click('.$guest_add->id.')" class="'.$guest_add->id.'show_address">'.$guest->address.'</a> 										 	
 					    <input onchange="address_change('.$guest_add->id.')" ondblclick="address_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'address form-control input-edit-guest" name="address" value="'.$guest->address.'">   
 						<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
-					</div>
-					
-                     <p style="display:none;color:red;" class="address_error'.$guest_add->id.'">Vui lòng nhập địa chỉ</p>
+					</div>				
 				</td>
 	 			<td >
 	 				<div  > 
@@ -95,7 +90,7 @@ class GuestController extends \BaseController {
 					    <input onchange="email_change('.$guest_add->id.')" ondblclick="email_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'email form-control input-edit-guest" name="email" value="'.$guest->email.'">   
 						<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
 					</div>
-					<p style="display:none;color:red;" class="email_error'.$guest_add->id.'">Vui lòng nhập email</p>
+					<p style="display:none;color:red;" class="email_format'.$guest_add->id.'">email không đúng</p>
  				</td><!-- pay -->
 	 			<td>
 	 				<div>
@@ -103,7 +98,6 @@ class GuestController extends \BaseController {
 					    <input onchange="attend_change('.$guest_add->id.')" ondblclick="attend_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'attend form-control input-edit-guest" name="attending" value="'.$guest->attending.'">   
 						<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
 	 				</div>
-	 				<p style="display:none;color:red;" class="attend_error'.$guest_add->id.'">Vui lòng nhập số khách mời</p>
 	 			</td><!-- Due -->
 	 			<td>
                      

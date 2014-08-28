@@ -79,7 +79,7 @@ guest
 									<div class="row form-group">
 										<label for="phone" class="col-xs-3 control-label">Số điện thoại:</label>
 										<div class="col-xs-9">
-										   	<input type="text" class="form-control" name="phone" id="phone" placeholder="">
+										   	<input onkeyup="phone_validate(event)" type="text" class="form-control" name="phone" id="phone" placeholder="">
 										</div>
 									</div>
 									<div class="row form-group">
@@ -324,7 +324,7 @@ guest
 						 		<td >
 					 				<div ><!-- Estimate -->
 									 <a onclick="phone_click({{$guest->id}})" class="{{$guest->id}}show_phone">{{$guest->phone}}</a> 										 	
-									    <input onchange="phone_change({{$guest->id}})" ondblclick="phone_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}phone form-control input-edit-guest" name="phone" value="{{$guest->phone}}">   
+									    <input onkeyup="key_phone(event,{{$guest->id}})" onchange="phone_change({{$guest->id}})" ondblclick="phone_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}phone form-control input-edit-guest" name="phone" value="{{$guest->phone}}">   
 										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 									 </div>
 									 
@@ -344,7 +344,7 @@ guest
 									    <input onchange="email_change({{$guest->id}})" ondblclick="email_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}email form-control input-edit-guest" name="email" value="{{$guest->email}}">   
 										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 									</div>
-									<p style="display:none;color:red;" class="email_error{{$guest->id}}">Email không đúng định dạng</p>
+									<p style="display:none;color:red;" class="email_format{{$guest->id}}">email không đúng</p>
 				 				</td><!-- pay -->
 					 			<td>
 					 				<div>
@@ -468,7 +468,7 @@ guest
             	if(confirm("Bạn chắc chắn muốn xoá khách mời này?")){
                 	$.ajax({
 						type: "post",
-						url: "{{URL::route('delete')}}",
+						url: "{{URL::route('delete_guest')}}",
 						data: { 								    
 						       id:$(".guest_del"+id).next().val()
 						},
@@ -577,7 +577,7 @@ guest
 						            .replace(/\B(?=(\d{3})+(?!\d))/g, "")
 						        ;
 						    });
-			        };       
+			        }; 
             //adress
             function address_click(id){        
         		$('.'+id+'show_address').hide();
