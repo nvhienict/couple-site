@@ -17,9 +17,11 @@ Route::get('/',array("as"=>"index", function()
 }));
 
 Route::filter("check_login", function(){
-		$user = Session::get('email');
-		if(!isset($user))
-			return Redirect::to("login");
+
+		$view = View::make('user-login');
+		if(!Session::has('email')){
+			return Response::make($view);
+		}
 	});
 
 Route::post('get_url', array('as'=>'get_url', 'uses'=>'UserController@get_url'));
@@ -169,19 +171,10 @@ Route::get('songs/{id}', array('as'=>'songs', 'uses'=>'SongController@index'));
 
 Route::get('songs/{id}/play-songs', array('as'=>'play_song', 'uses'=>'SongController@play'));
 
-Route::post('get_id_song', array('as'=>'get_id_song', 'uses'=>'SongController@get_id_song'));
-
 Route::post('song_comment/{id_song}',array('as'=>'song_comment', 'uses'=>'SongController@post_comment'));
 
-Route::get('gh', function(){
-	$gh=Session::get('get_song');
-	echo 'song: '.$gh;
-	
-});
+Route::post('get_url_song_cmt', array('as'=>'get_url_song_cmt', 'uses'=>'SongController@getUrlSongCmt'));
 
-Route::get('th', function(){
-	Session::forget('get_song');
-});
 
 //Guest list
 Route::get('guest-list',array("before"=>"check_login",'as'=>'guest-list','uses'=>'GuestController@index'));

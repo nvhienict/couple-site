@@ -145,15 +145,21 @@ class UserController extends \BaseController {
 		Session::put('url', Input::get('id'));
 	}
 
+	// return view for user login
 	public function get_login()
 	{
-		return View::make('user-login');
+		if(!Session::has('email')){
+			Session::flush();
+			return View::make('user-login');
+		}else{
+			return Redirect::to('/');
+		}
 	}
 
 	// after user login
 	public function post_login()
 	{
-		
+
 		try {
 
 			($remember=Input::has('remember')) ? true: false;
@@ -167,8 +173,9 @@ class UserController extends \BaseController {
 				{
 					Session::put("email",Input::get('txMail'));
 
-					// return view
 					$get_url = Session::get('url');
+					$get_song = Session::get('get_song');
+
 					if( !empty($get_url) ){
 						switch ($get_url) {
 							case 1:
@@ -181,21 +188,26 @@ class UserController extends \BaseController {
 								return Redirect::to('budget');
 								break;
 
-							case 11:
+							case 3:
 								Session::forget('url');
-								$get_song=Session::get('get_song');
+								return Redirect::to('guest-list');
+								break;
+
+							case 111:
+								Session::forget('url');
+								Session::forget('get_song');
+
 								return Redirect::to('songs/'.$get_song.'/play-songs');
 								break;
 							
 							default:
-								$view = View::make('index');
-								return Response::make($view);
+								return Redirect::to('/');
 								break;
 						}
 					}else{
-						$view = View::make('index');
-						return Response::make($view);
+						return Redirect::to('/');
 					}
+
 					
 				}else{
 					return View::make("user-login")->with("messages","Email hoặc mật khẩu không đúng!");
@@ -255,7 +267,7 @@ class UserController extends \BaseController {
 			}
 				//truyền dữ liệu sang bảng usertask
 					
-					$id_user = User::where('email','=',Input::get('email'))->get()->first()->id; //lấy id_user từ cookie chi đó hi
+					$id_user = User::where('email','=',Input::get('email'))->get()->first()->id; //get id_user
 
 					$tasks = Task::get();
 					foreach($tasks as $task){
@@ -285,6 +297,8 @@ class UserController extends \BaseController {
 
 				// return view
 				$get_url = Session::get('url');
+				$get_song = Session::get('get_song');
+
 				if( !empty($get_url) ){
 					switch ($get_url) {
 						case 1:
@@ -297,9 +311,15 @@ class UserController extends \BaseController {
 							return Redirect::to('budget');
 							break;
 
-						case 11:
+						case 3:
 							Session::forget('url');
-							$get_song=Session::get('get_song');
+							return Redirect::to('guest-list');
+							break;
+
+						case 111:
+							Session::forget('url');
+							Session::forget('get_song');
+
 							return Redirect::to('songs/'.$get_song.'/play-songs');
 							break;
 						

@@ -32,16 +32,19 @@
 					<h6>Bình luận ({{SongComment::where('song',$song['id'])->count()}}):</h6>
 
 					@if(!Session::has('email'))
-						<span><a href="{{URL::route('login')}}" onclick="get_url(11);">Đăng nhận xét!</a></span>
+						<span><a href="{{URL::route('login')}}" onclick="get_url(111, {{$song->id}});">Đăng nhận xét!</a></span>
 					@endif
 					<script type="text/javascript">
-                		function get_url(id){
+                		function get_url(id_url, id_song){
 							$.ajax({
 								type: "post",
-								url: "{{URL::to('get_url')}}",
-								data: {id:id}
+								url: "{{URL::to('get_url_song_cmt')}}",
+								data: {id_url:id_url, id_song:id_song},
+								success: function(data){
+									return id_url,id_song;
+								}
 							});
-							alert('Bạn phải đăng nhập!')
+							alert('Bạn phải đăng nhập!');
 						};
                 	</script>
                 	
