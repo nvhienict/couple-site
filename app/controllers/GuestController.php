@@ -7,21 +7,25 @@ class GuestController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+
 	public function index()
 	{
 		return View::make('guest.guest');
+	}
+	public static function id_user(){
+		$id_user = User::where( 'email', Session::get('email') )->get()->first()->id;
+		return $id_user;
 	}
 	public function delete()
 		{
 			$id=Input::get('id');
 			$guest=Guests::find($id);
-			$id_group = $guest->group;
-			
+			$id_group = $guest->group;			
 			$guest->delete();
-			$total_guest=Guests::where('user',UserController::id_user())->get()->count();
-			$total_invited=Guests::where('user',UserController::id_user())->where('invited',true)->get()->count();
-			$total_noinvited=Guests::where('user',UserController::id_user())->where('invited',false)->get()->count();
-			$total_group_guest=Guests::where('user',UserController::id_user())->where('group',$id_group)->get()->count();
+			$total_guest=Guests::where('user',GuestController::id_user())->get()->count();
+			$total_invited=Guests::where('user',GuestController::id_user())->where('invited',true)->get()->count();
+			$total_noinvited=Guests::where('user',GuestController::id_user())->where('invited',false)->get()->count();
+			$total_group_guest=Guests::where('user',GuestController::id_user())->where('group',$id_group)->get()->count();
 			echo json_encode(array('total_group_guest'=>$total_group_guest,'total_guest'=>$total_guest,'total_invited'=>$total_invited,'total_noinvited'=>$total_noinvited));
 			exit();
 		}
@@ -34,7 +38,7 @@ class GuestController extends \BaseController {
 	 */
 	public function create()
 	{
-		$id_user=UserController::id_user();
+		$id_user=GuestController::id_user();
 		$id_group=Input::get('id_group');
 		
 		$count=Guests::where('user',$id_user)->where('group',$id_group)->get()->count();
@@ -54,10 +58,10 @@ class GuestController extends \BaseController {
 		$guest->user=$id_user;
         $guest->invited=false;
 		$guest->save(); 
-		$total_guest=Guests::where('user',UserController::id_user())->get()->count();
-		$total_invited=Guests::where('user',UserController::id_user())->where('invited',true)->get()->count();
-		$total_noinvited=Guests::where('user',UserController::id_user())->where('invited',false)->get()->count();
-		$total_group_guest=Guests::where('user',UserController::id_user())->where('group',$id_group)->get()->count();	
+		$total_guest=Guests::where('user',GuestController::id_user())->get()->count();
+		$total_invited=Guests::where('user',GuestController::id_user())->where('invited',true)->get()->count();
+		$total_noinvited=Guests::where('user',GuestController::id_user())->where('invited',false)->get()->count();
+		$total_group_guest=Guests::where('user',GuestController::id_user())->where('group',$id_group)->get()->count();	
 		$guest_add=Guests::where('user',$id_user)->where('group',$id_group)->get()->last();
 		$html = '';
 		$html .='<tr class="guest_list'.$guest_add->id.'" id="guest_list_item_cat'.$guest_add->id.'">
@@ -172,8 +176,8 @@ public function update_name()
 		$guest=Guests::find($id);
 		$guest->invited=true;
 		$guest->save();
-		$total_invited=Guests::where('user',UserController::id_user())->where('invited',true)->get()->count();
-		$total_noinvited=Guests::where('user',UserController::id_user())->where('invited',false)->get()->count();
+		$total_invited=Guests::where('user',GuestController::id_user())->where('invited',true)->get()->count();
+		$total_noinvited=Guests::where('user',GuestController::id_user())->where('invited',false)->get()->count();
         echo json_encode(array('total_invited'=>$total_invited,'total_noinvited'=>$total_noinvited));
         exit();
 
@@ -187,8 +191,8 @@ public function update_name()
 		$guest=Guests::find($id);
 		$guest->invited=false;
 		$guest->save();
-		$total_invited=Guests::where('user',UserController::id_user())->where('invited',true)->get()->count();
-		$total_noinvited=Guests::where('user',UserController::id_user())->where('invited',false)->get()->count();
+		$total_invited=Guests::where('user',GuestController::id_user())->where('invited',true)->get()->count();
+		$total_noinvited=Guests::where('user',GuestController::id_user())->where('invited',false)->get()->count();
         echo json_encode(array('total_invited'=>$total_invited,'total_noinvited'=>$total_noinvited));
         exit();
 		
@@ -253,10 +257,7 @@ public function update_name()
 	{
 		//
 	}
-	public static function id_user(){
-		$id_user = User::where( 'email', Session::get('email') )->get()->first()->id;
-		return $id_user;
-	}
+	
 	public function post_Add_Group(){
 
 			$id_user = GuestController::id_user();

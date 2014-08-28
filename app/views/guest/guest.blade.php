@@ -188,7 +188,7 @@ guest
 					 	<tbody>
 					 	@foreach(Groups::get() as $key=>$group)
 					 		<tr class="guest_cat{{$group->id}} guest_cat" id="cate{{$group->id}}">					 						 			
-					 			<td style="width:260px;"><strong>{{$group->name}}</strong> (<span class="total_group_guest">{{Guests::where('user',Usercontroller::id_user())->where('group',$group->id)->get()->count()}}</span>)</td>					 								 		
+					 			<td style="width:260px;"><strong>{{$group->name}}</strong> (<span class="total_group_guest">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()->count()}}</span>)</td>					 								 		
 					 			<td style="width:200px;"></td>
 					 			<td  style="width:220px;"></td>
 					 			<td style="width:220px;"></td>
@@ -397,11 +397,11 @@ guest
 		<div class="col-xs-2" id="guest_summary">
 			<h3>Tóm tắt:</h3>
 			<p>
-				<div>Tổng số khách:<span class="total_guest">{{Guests::where('user',UserController::id_user())->get()->count()}}</span></div>
+				<div>Tổng số khách:<span class="total_guest">{{Guests::where('user',GuestController::id_user())->get()->count()}}</span></div>
 				
-				<div>Đã mời:<span class="total_invited">{{Guests::where('user',UserController::id_user())->where('invited',true)->get()->count()}}</span></div>
+				<div>Đã mời:<span class="total_invited">{{Guests::where('user',GuestController::id_user())->where('invited',true)->get()->count()}}</span></div>
 				
-				<div>Chưa mời:<span class="total_noinvited">{{Guests::where('user',UserController::id_user())->where('invited',false)->get()->count()}}</span></div>
+				<div>Chưa mời:<span class="total_noinvited">{{Guests::where('user',GuestController::id_user())->where('invited',false)->get()->count()}}</span></div>
 				
 		</div>
 	<script type="text/javascript">
