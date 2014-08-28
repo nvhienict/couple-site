@@ -138,7 +138,7 @@ Route::get("check_task_del/{id}", array("as"=>"check_task_del", "uses"=>"Checkli
 
 Route::get("user-checklist", array("before"=>"check_login","as"=>"user-checklist", "uses"=>"ChecklistController@get_UserChecklist"));
 
-Route::post('check_task_complete/{ac}', array("as"=>"check_task_complete", "uses"=>"ChecklistController@post_CheckTaskComplete"));
+Route::post('check_task_complete/{ac}&{month}', array("as"=>"check_task_complete", "uses"=>"ChecklistController@post_CheckTaskComplete"));
 
 
 // ------ BUDGET -----Giang

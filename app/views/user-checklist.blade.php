@@ -45,18 +45,18 @@ Checklist
 		<div class="checklist-statis-formonth">
 			<div class="row">
 				<div class="col-xs-5"><span>Tháng</span></div>
-				<div class="col-xs-2"><span >Số việc cần làm</span></div>
-				<div class="col-xs-2"><span >Số việc quá hạn</span></div>
-				<div class="col-xs-3"><span >Số việc hoàn thành</span></div>
+				<div class="col-xs-2">Việc cần làm</div>
+				<div class="col-xs-2">Việc quá hạn</div>
+				<div class="col-xs-3">Việc hoàn thành</div>
 			</div>
 		</div>
 		<!-- hide for scroll will show -->
 		<div class="checklist-statis-formonth-hide" >
 			<div class="row">
 				<div class="col-xs-5"><span>Tháng</span></div>
-				<div class="col-xs-2"><span >Số việc cần làm</span></div>
-				<div class="col-xs-2"><span >Số việc quá hạn</span></div>
-				<div class="col-xs-3"><span >Số việc hoàn thành</span></div>
+				<div class="col-xs-2">Việc cần làm</div>
+				<div class="col-xs-2">Việc quá hạn</div>
+				<div class="col-xs-3">Việc hoàn thành</div>
 			</div>
 		</div>
 		<script type="text/javascript">
@@ -75,12 +75,20 @@ Checklist
 			<div class="panel-group" id="accordion">
 	  		@foreach(ChecklistController::byMonth() as $index=> $checklist_month)
 			  <div class="panel panel-default">
-			    <div class="panel-heading" style="background: #fff6ee;" >
-			      <h4 class="panel-title">
-			        <a class="collapse-month" id="collapse-month{{$index}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
-			         <i class="fa fa-plus-square-o"></i> Tháng {{ChecklistController::changeMonth($checklist_month)}}
-			        </a>
-			      </h4>
+			    <div  class="panel-heading row" style="background: #fff6ee;" >
+			    <div class="col-xs-5">
+				    <h4 class="panel-title">
+				        <a class="collapse-month" id="collapse-month{{$index}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
+				        	<i class="fa fa-plus-square-o"></i> Tháng {{ChecklistController::changeMonth($checklist_month)}}
+				        </a>
+				    </h4>
+				</div>
+
+				<div class="col-xs-2" id="task{{$index}}"><span>{{ChecklistController::taskMonth($checklist_month)}}</span></div>
+				<div class="col-xs-2" id="overDue{{$index}}"><span>{{ChecklistController::taskMonthOverDue($checklist_month)}}</span></div>
+				<div class="col-xs-3" id="Completed{{$index}}"><span>{{ChecklistController::taskMonthCompleted($checklist_month)}}</span></div>
+			        
+			      
 			      <script type="text/javascript">
 			      $("#collapse-month{{$index}}").click(function(){
 			      	if($("#collapse-month{{$index}} i").hasClass("fa fa-plus-square-o"))
@@ -101,6 +109,7 @@ Checklist
 							<tr>
 								<th></th>
 								<th>Các việc cần làm trong Tháng {{$checklist_month}}</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -131,10 +140,15 @@ Checklist
 											$("#warning{{$usertask->id}}").hide();
 											$.ajax({
 												type: "post",
-												url: "{{URL::route('check_task_complete', array('ac'=>1))}}",
-													data: {id:$(this).val()}
-
-												});
+												url: "{{URL::route('check_task_complete', array('ac'=>1,'month'=>$checklist_month))}}",
+												data: {id:$(this).val()},
+												success: function(data){
+														data = $.parseJSON(data);
+														$("#task{{$index}}").text(data['Counttask']);
+														$("#overDue{{$index}}").text(data['Overdue']);
+														$("#Completed{{$index}}").text(data['completed']);
+												}
+											});
 
 										}else{
 											$(this).next().val("");
@@ -150,10 +164,15 @@ Checklist
 											$("#warning{{$usertask->id}}").show();
 											$.ajax({
 												type: "post",
-												url: "{{URL::route('check_task_complete', array('ac'=>0))}}",
-													data: {id:$(this).val()}
-
-												});
+												url: "{{URL::route('check_task_complete', array('ac'=>0,'month'=>$checklist_month))}}",
+												data: {id:$(this).val()},
+												success: function(data){
+														data = $.parseJSON(data);
+														$("#task{{$index}}").text(data['Counttask']);
+														$("#overDue{{$index}}").text(data['Overdue']);
+														$("#Completed{{$index}}").text(data['completed']);
+												}
+											});
 										}
 										});
 									</script>

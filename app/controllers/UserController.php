@@ -272,7 +272,8 @@ class UserController extends \BaseController {
 			}
 				//truyền dữ liệu sang bảng usertask
 					
-					$id_user = User::where('email','=',Input::get('email'))->get()->first()->id; //get id_user
+					$id_user = User::where('email','=',Input::get('email'))->get()->first()->id; 
+					//lấy id_user từ cookie chi đó hi
 
 					$tasks = Task::get();
 					foreach($tasks as $task){
@@ -281,7 +282,7 @@ class UserController extends \BaseController {
 						}
 						else
 						{
-							$startdate = $NowToWedding;
+							$startdate = $NowToWedding+1;
 						}
 						
 
@@ -293,6 +294,7 @@ class UserController extends \BaseController {
 						$usertask->description = $task->description;
 						$usertask->todo = 0;
 						$usertask->save();
+
 
 					}
 
