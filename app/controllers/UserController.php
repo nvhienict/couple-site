@@ -243,11 +243,16 @@ class UserController extends \BaseController {
 		$validator=Validator::make(Input::all(),$rules);
 		if($validator->passes())
 		{
+
+			// get avatar default
+			$avatar_default = User::where('role_id', '=', 1)->get()->first()->avatar;
+
 			$weddingdate = Input::get('weddingdate');
-			$user=new User();
+			$user = new User();
 			$user->firstname=Input::get('first_name');
 			$user->lastname=Input::get('last_name');
 			$user->email=Input::get('email');
+			$user->avatar = $avatar_default;
 			$user->password=Hash::make(Input::get('password_confirm'));
 			$user->weddingdate = $weddingdate;
 			$user->role_id=Input::get('role');
