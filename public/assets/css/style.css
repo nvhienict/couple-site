@@ -1947,13 +1947,17 @@ a.guest_list_icon_trash{
 }
  .invited1
 {
-	background-color:#3B5998;height:30px;width:70px;color: white;
+	background-color:#3B5998;
+	height:30px;width:70px;
+	color: white;
 	text-align: center;
+	padding: 0px; !important
 }
 .invited2
 {
 	background-color:#B5B2AF;height:30px;width:70px;color: white;
 	text-align: center;
+	padding: 1px;
 }
 /*thuy*/
 .input-edit-guest{
