@@ -98,7 +98,7 @@ guest
 										<label for="group" class="col-xs-3 control-label">Group:</label>
 										<div class="col-xs-9">
 										   	<select name="group" class="form-control">
-						                    	@foreach(Groups::get() as $group)
+						                    	@foreach(Groups::where('user',GuestController::id_user())->get() as $group)
 						                        <option value="{{$group->id}}">{{$group->name}}</option>
 						                        @endforeach
 						                    </select>
