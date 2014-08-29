@@ -93,15 +93,16 @@ class VendorController extends \BaseController {
 			$firstname = User::where('id',$id_user)->get()->first()->firstname;
 			$lastname = User::where('id',$id_user)->get()->first()->lastname;
 			$email = User::where('id',$id_user)->get()->first()->email;
-		}
-
-		
+		}		
+		$photoslides=PhotoSlide::where('vendor',$id)->get();	
 		$vendor=Vendor::where('id',$id)->get()->first();
 		return View::make("detail-vendor")->with("vendor",$vendor)
 										->with('firstname',$firstname)
 										->with('lastname',$lastname)
-										->with('email',$email);
-
+										->with('email',$email)
+										->with('photoslides',$photoslides);
+										
+									
 	}
 	/**
 	 * Show the form for editing the specified resource.

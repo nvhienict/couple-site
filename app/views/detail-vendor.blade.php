@@ -65,13 +65,9 @@
 								<div id="content-photo">
 									<h4>Ảnh</h4>
 										<ul id="thumbs-main">
-											<li class="active" rel="1"><img alt="" src="{{Asset("images/slide/1_thumb.jpg")}}"> </li>
-											<li rel="2"><img alt="" src="{{Asset("images/slide/2_thumb.jpg")}}"> </li>
-											<li rel="3"><img alt="" src="{{Asset("images/slide/3_thumb.jpg")}}"> </li>
-											<li rel="4"><img alt="" src="{{Asset("images/slide/4_thumb.jpg")}}"> </li>
-											<li rel="5"><img alt="" src="{{Asset("images/slide/5_thumb.jpg")}}"> </li>
-											<li rel="6"><img alt="" src="{{Asset("images/slide/6_thumb.jpg")}}"> </li>
-											<li rel="7"><img alt="" src="{{Asset("images/slide/7_thumb.jpg")}}"> </li>
+											@foreach($photoslides as $index => $photoslide)
+											<li rel="{{$index+1}}">{{'<img alt="" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
+											@endforeach
 												   
 										</ul>
 										   
@@ -102,24 +98,16 @@
 						  			<h4>{{Lang::get('messages.Photo')}}</h4>
 						  			  <!-- Wrapper for slides -->
 								<div id="bigPic">
-									<img alt="" src="{{Asset("images/slide/1.jpg")}}">
-									<img alt="" src="{{Asset("images/slide/2.jpg")}}">
-									<img alt="" src="{{Asset("images/slide/3.jpg")}}">
-									<img alt="" src="{{Asset("images/slide/4.jpg")}}">
-									<img alt="" src="{{Asset("images/slide/5.jpg")}}">
-									<img alt="" src="{{Asset("images/slide/6.jpg")}}">
-									<img alt="" src="{{Asset("images/slide/7.jpg")}}">
+									@foreach($photoslides as $index => $photoslide)
+											{{'<img alt="" src="data:image/jpeg;base64,' . base64_encode($photoslide->bigpic) . '">'}}
+									@endforeach
 												    
 								</div>
 
 								<ul id="thumbs">
-									<li class="active" rel="1"><img alt="" src="{{Asset("images/slide/1_thumb.jpg")}}"> </li>
-									<li rel="2"><img alt="" src="{{Asset("images/slide/2_thumb.jpg")}}"> </li>
-									<li rel="3"><img alt="" src="{{Asset("images/slide/3_thumb.jpg")}}"> </li>
-									<li rel="4"><img alt="" src="{{Asset("images/slide/4_thumb.jpg")}}"> </li>
-									<li rel="5"><img alt="" src="{{Asset("images/slide/5_thumb.jpg")}}"> </li>
-									<li rel="6"><img alt="" src="{{Asset("images/slide/6_thumb.jpg")}}"> </li>
-									<li rel="7"><img alt="" src="{{Asset("images/slide/7_thumb.jpg")}}"> </li>
+									@foreach($photoslides as $index => $photoslide)
+											<li rel="{{$index+1}}">{{'<img alt="" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
+									@endforeach
 												   
 								</ul>
 								<!-- script slides		 -->		
@@ -303,7 +291,7 @@
 								    </div></li><!-- -endcall-div -->
 								    
 								    <li style="display:none ; list-style:none"><div id="number3" class="number">
-								    	<textarea rows="7" cols="21" style="margin-left:-68px; resize: none" >
+								    	<textarea rows="7" cols="31" style="margin-left:-68px; resize: none" >
 								    	</textarea>
 
 								    </div></li>

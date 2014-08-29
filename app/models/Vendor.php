@@ -25,4 +25,8 @@ class Vendor extends Eloquent{
   	{
     	return $this->belongsTo('Category', 'category');
   	}
+  	public function photoslide()
+  	{
+  		return $this->hasMany('PhotoSlide','photoslide');
+  	}
 }
