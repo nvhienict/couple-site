@@ -53,30 +53,12 @@ Trang chủ
 	            <div class="col-xs-6">
 	              <ul class="list-unstyled">
 	                <li><a href="#">Website cưới</a></li>
-	                <li><a href="{{URL::route('guest-list')}}" onclick="get_url(3);" >Danh sách khách mời</a></li>
+	                <li><a href="{{URL::route('guest-list')}}" >Danh sách khách mời</a></li>
 	                <li><a href="#">Sơ đồ ghế ngồi</a></li>
-	                <li><a href="{{URL::route('user-checklist')}}" onclick="get_url(1);" >Danh sách công việc</a></li>
+	                <li><a href="{{URL::route('user-checklist')}}"  >Danh sách công việc</a></li>
 	                <li><a href="#">Quản lý vendor</a></li>
-	                <li><a href="{{URL::route('budget')}}" onclick="get_url(2);" >Quản lý ngân sách</a></li>
+	                <li><a href="{{URL::route('budget')}}"  >Quản lý ngân sách</a></li>
 
-					@if(!Session::has('email'))
-					<script type="text/javascript">
-
-                		function get_url(id){
-                			// create session
-							$.ajax({
-								type: "post",
-								url: "{{URL::to('get_url')}}",
-								data: {id:id},
-								success: function(data){
-									return id;
-								}
-							});
-							alert('Bạn phải đăng nhập!');
-						};
-
-                	</script>
-                	@endif
 
 	              </ul>
 	            </div>

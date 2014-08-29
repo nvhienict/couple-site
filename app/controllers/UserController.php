@@ -137,13 +137,6 @@ class UserController extends \BaseController {
 		return View::make('user.profile')->with('user',$user);
 	}
 
-	
-
-	// get url when user click on menu
-	public function get_url(){
-		
-		Session::put('url', Input::get('id'));
-	}
 
 	// return view for user login
 	public function get_login()
@@ -173,42 +166,8 @@ class UserController extends \BaseController {
 				{
 					Session::put("email",Input::get('txMail'));
 
-					$get_url = Session::get('url');
-					$get_song = Session::get('get_song');
+					return Redirect::to(URL::previous());
 
-					if( !empty($get_url) ){
-						switch ($get_url) {
-							case 1:
-								Session::forget('url');
-								return Redirect::to('user-checklist');
-								break;
-
-							case 2:
-								Session::forget('url');
-								return Redirect::to('budget');
-								break;
-
-							case 3:
-								Session::forget('url');
-								return Redirect::to('guest-list');
-								break;
-
-							case 111:
-								Session::forget('url');
-								Session::forget('get_song');
-
-								return Redirect::to('songs/'.$get_song.'/play-songs');
-								break;
-							
-							default:
-								return Redirect::to('/');
-								break;
-						}
-					}else{
-						return Redirect::to('/');
-					}
-
-					
 				}else{
 					return View::make("user-login")->with("messages","Email hoặc mật khẩu không đúng!");
 				}
@@ -302,43 +261,8 @@ class UserController extends \BaseController {
 
 			Session::put("email",Input::get('email'));
 
-				// return view
-				$get_url = Session::get('url');
-				$get_song = Session::get('get_song');
-
-				if( !empty($get_url) ){
-					switch ($get_url) {
-						case 1:
-							Session::forget('url');
-							return Redirect::to('user-checklist');
-							break;
-
-						case 2:
-							Session::forget('url');
-							return Redirect::to('budget');
-							break;
-
-						case 3:
-							Session::forget('url');
-							return Redirect::to('guest-list');
-							break;
-
-						case 111:
-							Session::forget('url');
-							Session::forget('get_song');
-
-							return Redirect::to('songs/'.$get_song.'/play-songs');
-							break;
-						
-						default:
-							$view = View::make('index');
-							return Response::make($view);
-							break;
-					}
-				}else{
-					$view = View::make('index');
-					return Response::make($view);
-				}
+			return Redirect::to(URL::previous());
+			
 		}else{
 			$errors=$validator->messages();
 			return Redirect::route("register")->with("errors",$errors);

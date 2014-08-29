@@ -24,8 +24,6 @@ Route::filter("check_login", function(){
 		}
 	});
 
-Route::post('get_url', array('as'=>'get_url', 'uses'=>'UserController@get_url'));
-
 
 Route::get("main",array("before"=>"check_login", "as"=>"main","uses"=>"UserController@index"));
 
