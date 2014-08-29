@@ -46,18 +46,18 @@ Checklist
 	<div class="checklist-statis-formonth">
 		<div class="row">
 			<div class="col-xs-5"><span>Tháng</span></div>
-			<div class="col-xs-2"><span >Số việc cần làm</span></div>
-			<div class="col-xs-2"><span >Số việc quá hạn</span></div>
-			<div class="col-xs-3"><span >Số việc hoàn thành</span></div>
+			<div class="col-xs-2">Việc cần làm</div>
+			<div class="col-xs-2">Việc quá hạn</div>
+			<div class="col-xs-3">Việc hoàn thành</div>
 		</div>
 	</div>
 	<!-- hide for scroll will show -->
 	<div class="checklist-statis-formonth-hide" >
 		<div class="row">
 			<div class="col-xs-5"><span>Tháng</span></div>
-			<div class="col-xs-2"><span >Số việc cần làm</span></div>
-			<div class="col-xs-2"><span >Số việc quá hạn</span></div>
-			<div class="col-xs-3"><span >Số việc hoàn thành</span></div>
+			<div class="col-xs-2">Việc cần làm</div>
+			<div class="col-xs-2">Việc quá hạn</div>
+			<div class="col-xs-3">Việc hoàn thành</div>
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -76,12 +76,17 @@ Checklist
 		<div class="panel-group" id="accordion">
   		@foreach(Category::get() as $index=> $category)
 		  <div class="panel panel-default" >
-		    <div class="panel-heading" style="background: #fff6ee;">
-		      <h4 class="panel-title">
-		        <a class="collapse-category" id="collapse-category{{$index}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
-		         <i class="fa fa-plus-square-o"></i> {{$category->name}}
-		        </a>
-		      </h4>
+		    <div class="panel-heading row" style="background: #fff6ee;">
+		    	<div class="col-xs-5">
+			      <h4 class="panel-title">
+			        <a class="collapse-category" id="collapse-category{{$index}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
+			         <i class="fa fa-plus-square-o"></i> {{$category->name}}
+			        </a>
+			      </h4>
+		  		</div>
+				<div class="col-xs-2" id="Cat_task{{$category->id}}"><span>{{ChecklistController::countCategoryToDo($category->id)}}</span></div>
+				<div class="col-xs-2" id="Cat_overDue{{$category->id}}"><span>{{ChecklistController::countCatOverDue($category->id)}}</span></div>
+				<div class="col-xs-3" id="Cat_Completed{{$category->id}}"><span>{{ChecklistController::countCatComplete($category->id)}}</span></div>
 		      <script type="text/javascript">
 			      $("#collapse-category{{$index}}").click(function(){
 			      	if($("#collapse-category{{$index}} i").hasClass("fa fa-plus-square-o"))
@@ -133,10 +138,16 @@ Checklist
 										$("#warning{{$usertask->id}}").hide();
 										$.ajax({
 											type: "post",
-											url: "{{URL::route('check_task_complete', array('ac'=>1))}}",
-												data: {id:$(this).val()}
-
-											});
+											url: "{{URL::route('check_Cat_complete', array('ac'=>1,'category'=>$category->id, 'startdate'=>$usertask->startdate))}}",
+											data: {id:$(this).val()},
+											success: function(data){
+													data = $.parseJSON(data);
+													$("#Cat_task{{$category->id}}").text(data['Counttask']);
+													$("#Cat_overDue{{$category->id}}").text(data['Overdue']);
+													$("#Cat_Completed{{$category->id}}").text(data['completed']);
+													
+											}
+										});
 
 									}else{
 										$(this).next().val("");
@@ -149,15 +160,22 @@ Checklist
 
 										$("#count_overdue").text($j);
 										$("#count_complete").text($i);
-										$("#warning{{$usertask->id}}").show();
+										
 										$.ajax({
 											type: "post",
-											url: "{{URL::route('check_task_complete', array('ac'=>0))}}",
-												data: {id:$(this).val()}
+											url: "{{URL::route('check_Cat_complete', array('ac'=>0,'category'=>$category->id, 'startdate'=>$usertask->startdate))}}",
+											data: {id:$(this).val()},
+											success: function(data){
+													data = $.parseJSON(data);
+													$("#Cat_task{{$category->id}}").text(data['Counttask']);
+													$("#Cat_overDue{{$category->id}}").text(data['Overdue']);
+													$("#Cat_Completed{{$category->id}}").text(data['completed']);
+													$("#warning{{$usertask->id}}").replaceWith(data['waning']);
+											}
 
-											});
+										});
 									}
-									});
+								});
 								</script>
 							</td>
 							<td>{{$usertask->title}}</td>

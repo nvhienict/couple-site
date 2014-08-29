@@ -88,7 +88,6 @@ Checklist
 				<div class="col-xs-2" id="overDue{{$index}}"><span>{{ChecklistController::taskMonthOverDue($checklist_month)}}</span></div>
 				<div class="col-xs-3" id="Completed{{$index}}"><span>{{ChecklistController::taskMonthCompleted($checklist_month)}}</span></div>
 			        
-			      
 			      <script type="text/javascript">
 			      $("#collapse-month{{$index}}").click(function(){
 			      	if($("#collapse-month{{$index}} i").hasClass("fa fa-plus-square-o"))
@@ -140,7 +139,7 @@ Checklist
 											$("#warning{{$usertask->id}}").hide();
 											$.ajax({
 												type: "post",
-												url: "{{URL::route('check_task_complete', array('ac'=>1,'month'=>$checklist_month))}}",
+												url: "{{URL::route('check_task_complete',array('ac'=>1,'month'=>$checklist_month,'startdate'=>$usertask->startdate))}}",
 												data: {id:$(this).val()},
 												success: function(data){
 														data = $.parseJSON(data);
@@ -161,16 +160,17 @@ Checklist
 
 											$("#count_overdue").text($j);
 											$("#count_complete").text($i);
-											$("#warning{{$usertask->id}}").show();
+											
 											$.ajax({
 												type: "post",
-												url: "{{URL::route('check_task_complete', array('ac'=>0,'month'=>$checklist_month))}}",
+												url: "{{URL::route('check_task_complete',array('ac'=>0,'month'=>$checklist_month,'startdate'=>$usertask->startdate))}}",
 												data: {id:$(this).val()},
 												success: function(data){
 														data = $.parseJSON(data);
 														$("#task{{$index}}").text(data['Counttask']);
 														$("#overDue{{$index}}").text(data['Overdue']);
 														$("#Completed{{$index}}").text(data['completed']);
+														$("#warning{{$usertask->id}}").replaceWith(data['waning']);
 												}
 											});
 										}

@@ -109,7 +109,36 @@ class ChecklistController extends \BaseController {
 
 		return $tasks;
 	}
+	// count công việc hoàn thành theo Category
+	public static function countCatComplete($category){
+		$id_user = ChecklistController::id_user();
+		$tasks = UserTask::where('user',$id_user)->where("category", $category)->where('todo',1)->count();
 
+		return $tasks;
+	}
+	// Count công việc quá hạn theo category
+	public static function countCatOverDue($category){
+		$id_user = ChecklistController::id_user();
+		$date_now=new DateTime("now");
+		$overdue=0;
+
+		foreach(User::find($id_user)->user_task()->get() as $task)
+		{
+			$date=new DateTime(User::find($id_user)->weddingdate);
+			$date_task=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
+				if(date_timestamp_get($date_now)>date_timestamp_get($date_task) && 
+					$task->todo!=1 && $task->category == $category) 
+						$overdue++;
+		}
+		return $overdue; 
+	}
+	// đếm công việc có trong category
+	public static function countCategoryToDo($category){
+		$id_user = ChecklistController::id_user();
+		$tasks = UserTask::where('user',$id_user)->where("category", $category)->count();
+
+		return $tasks;
+	}
 
 	public function get_UserChecklist()
 	{
@@ -386,38 +415,69 @@ class ChecklistController extends \BaseController {
 
 		return View::make('user-checklist')->with('checklist', $checklist);
 	}
-
-	public function post_CheckTaskComplete($ac,$month){
+	//tính theo category
+	public function post_CheckCatComplete($ac,$category,$startdate){
 		$id_user = ChecklistController::id_user();
 		$id = Input::get('id');
 
 		if($ac==1){
 			$user_task = UserTask::where('id',$id)->update(
-			array(
-				"todo"=>1
-				));
+			array("todo"=>1));
 		}else{
 			$user_task = UserTask::where('id',$id)->update(
-			array(
-				"todo"=>0
-				));
+			array("todo"=>0));
+		}
+		$CountTaskCat = ChecklistController::countCategoryToDo($category);
+		$CountOverDueCat = ChecklistController::countCatOverDue($category);
+		$CountCompletedCat = ChecklistController::countCatComplete($category);
+		//$compare = ChecklistController::comparedate($startdate,$ac);
+		$waning = '';
+		if (ChecklistController::comparedate($startdate,$ac)) {
+			$waning = '<span  id="warning'.$id.'" class="fa fa-warning" style="color:#E9621A;"></span>';
+		}
+		else
+		{
+			$waning = '<span  id="warning'.$id.'" class="fa fa-warning" style="color:#E9621A; display: none;"></span>';
+		}
+		echo json_encode(array('Counttask'=>$CountTaskCat,'Overdue'=>$CountOverDueCat, 'completed'=>$CountCompletedCat, 'waning'=>$waning));
+        exit();
+	}
+
+	public function post_CheckTaskComplete($ac,$month,$startdate){
+		$id_user = ChecklistController::id_user();
+		$id = Input::get('id');
+
+		if($ac==1)
+		{
+			$user_task = UserTask::where('id',$id)->update(array("todo"=>1));
+		}
+		else
+		{
+			$user_task = UserTask::where('id',$id)->update(array("todo"=>0));
 		}
 		$Counttask = 0;
 		$Overdue = 0;
 		$completed = 0;
+		
 		foreach(User::find($id_user)->user_task()->get() as $task)
 		{
 			$date_now=new DateTime("now");
 			$date=new DateTime(User::find($id_user)->weddingdate);
 			$date_task=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
 			if($date_task->format("m-Y")==$month) $Counttask++;
-				
 			if($date_task->format("m-Y")==$month && $task->todo==1) $completed++;
 			if(date_timestamp_get($date_task)<date_timestamp_get($date_now) && $date_task->format("m-Y")==$month && $task->todo!=1  )
 				$Overdue++;
 		} 
-
-		echo json_encode(array('Counttask'=>$Counttask,'Overdue'=>$Overdue, 'completed'=>$completed));
+		$waning = '';
+		if (ChecklistController::comparedate($startdate,$ac)) {
+			$waning = '<span  id="warning'.$id.'" class="fa fa-warning" style="color:#E9621A;"></span>';
+		}
+		else
+		{
+			$waning = '<span  id="warning'.$id.'" class="fa fa-warning" style="color:#E9621A; display: none;"></span>';
+		}
+		echo json_encode(array('Counttask'=>$Counttask,'Overdue'=>$Overdue, 'completed'=>$completed, 'waning'=>$waning));
         exit();
 	}
 
