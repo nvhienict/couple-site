@@ -370,7 +370,8 @@ class ChecklistController extends \BaseController {
 			$user_task->description=$description;
 			$user_task->startdate=$startdate;
 			$user_task->save();
-			
+			echo json_encode(array('title'=>$title,'description'=>$description));
+	      	exit();
 		}
 		
 	} // function edit_Check_List

@@ -189,7 +189,7 @@ Checklist
 									@endif
 								</td>
 								<td>
-									<a href="#" id="edit{{$usertask->id}}" data-toggle="modal" data-target="#myModalEditChecklist" data-backdrop="static">
+									<a href="javascript:void(0);" id="edit{{$usertask->id}}" data-toggle="modal" data-target="#myModalEditChecklist" data-backdrop="static">
 										<span class="fa fa-edit"></span>
 									</a>
 									<script type="text/javascript">
@@ -355,8 +355,12 @@ Checklist
 									      			url:"{{URL::route('edit-checklist')}}",
 									      			data:{id:$('#form_editChecklist #id').val(),task:$('#form_editChecklist #task').val(),category:$('#form_editChecklist #category').val(),startdate:$('#form_editChecklist #startdate-edit').val(),description:$('#form_editChecklist #description').val()
 									      			},
-									      			success:function(){
-									      				 window.location.href = "{{URL::route('user-checklist')}}";
+									      			success:function(data){
+									      				 //window.location.href = "{{URL::route('user-checklist')}}";
+									      				var obj = JSON.parse(data);
+									      				var id_edit=$('#form_editChecklist #id').val();
+									      				$("#title-"+id_edit).text(obj.title);
+									      				$("#description-"+id_edit).text(obj.description);
 									      			}
 									      			
 									      		});
@@ -389,7 +393,7 @@ Checklist
 					      	
 					      </div>
 					      <div class="modal-footer">
-					      	<a id="del-task-form" href="" class="btn btn-primary">OK</a>
+					      	<a id="del-task-form" href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary">OK</a>
 					      	<script type="text/javascript">
 					      	$("#del-task-form").click(function(){
 					     		var parent=$("#drop"+$('#task-id').val()).parent();
@@ -400,7 +404,9 @@ Checklist
 					      			},
 					      			cache:false,
 					      			success:function(){
-					      				window.location.href = "{{URL::route('user-checklist')}}";
+					      				//window.location.href = "{{URL::route('user-checklist')}}";
+					      				var del=$('#task-id').val();
+					      				$("#"+del).remove();
 					      			}
 					      			
 					      		});

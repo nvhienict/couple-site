@@ -112,7 +112,7 @@ Checklist
 					<tbody>
 					@foreach(User::find(ChecklistController::id_user())->user_task()->get() as $index=>$usertask)
 					@if($category->id==$usertask->category)
-						<tr>
+						<tr id="{{$usertask->id}}">
 							<td>
 	  							@if($usertask->todo==0)
 	  							<input type="checkbox" id="chk_cat_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}"  />
@@ -178,7 +178,7 @@ Checklist
 								});
 								</script>
 							</td>
-							<td>{{$usertask->title}}</td>
+							<td id="title_cat{{$usertask->id}}">{{$usertask->title}}</td>
 							<td>
 							<?php 
 								$date=new DateTime(User::find(ChecklistController::id_user())->weddingdate);
@@ -218,7 +218,7 @@ Checklist
 								</script>	
 							</td>
 							<td>
-								<a href="#" id="drop{{$usertask->id}}" data-toggle="modal" data-target="#myModalDelTask" data-backdrop="static">
+								<a href="javascript:void(0);" id="drop{{$usertask->id}}" data-toggle="modal" data-target="#myModalDelTask" data-backdrop="static">
 									<span class="fa fa-trash-o"></span>
 								</a>
 								<script type="text/javascript">
@@ -359,8 +359,11 @@ Checklist
 									      			url:"{{URL::route('edit-checklist')}}",
 									      			data:{id:$('#form_editChecklist #id').val(),task:$('#form_editChecklist #task').val(),category:$('#form_editChecklist #category').val(),startdate:$('#form_editChecklist #startdate-edit').val(),description:$('#form_editChecklist #description').val()
 									      			},
-									      			success:function(){
-									      				 window.location.href = "{{URL::route('user-checklist-category')}}";
+									      			success:function(data){
+									      				 //window.location.href = "{{URL::route('user-checklist-category')}}";
+									      				 var obj = JSON.parse(data);
+									      				var id_edit=$('#form_editChecklist #id').val();
+									      				$("#title_cat"+id_edit).text(obj.title);
 									      			}
 									      			
 									      		});
@@ -392,7 +395,7 @@ Checklist
 					      	
 					      </div>
 					      <div class="modal-footer">
-					      	<a id="del-task-form" href="" class="btn btn-primary">OK</a>
+					      	<a id="del-task-form" href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary">OK</a>
 					      	<script type="text/javascript">
 					      	$("#del-task-form").click(function(){
 					     		var parent=$("#drop"+$('#task-id').val()).parent();
@@ -403,7 +406,9 @@ Checklist
 					      			},
 					      			cache:false,
 					      			success:function(){
-					      				window.location.href = "{{URL::route('user-checklist-category')}}";
+					      				//window.location.href = "{{URL::route('user-checklist-category')}}";
+					      				var del=$('#task-id').val();
+					      				$("#"+del).remove();
 					      			}
 					      			
 					      		});
