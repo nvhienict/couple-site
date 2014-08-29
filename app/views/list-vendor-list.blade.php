@@ -207,7 +207,7 @@ Danh sách Dịch vụ
 
 	</form>
 
-	<button id="toida" style="display:none;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalToiDa">GH</button>
+	<button id="toida" style="display:none;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalToiDa" data-backdrop="static"></button>
 		<div class="modal fade" id="ModalToiDa" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -219,7 +219,7 @@ Danh sách Dịch vụ
 		        <span style="color: #ff2642; font-size: 25px;">Bạn đã chọn đủ 5 dịch vụ để so sánh</span>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="submit" id="compare_submit_modal" class="btn btn-primary" data-dismiss="modal">So sánh</button>
+		        <button type="submit" id="compare_submit_modal" class="btn btn-primary" data-dismiss="modal" data-backdrop="static" >So sánh</button>
 		        <script type="text/javascript">
 		        	$('#compare_submit_modal').click(function(){
 		        		$("#form-compare").submit();
@@ -230,7 +230,7 @@ Danh sách Dịch vụ
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 
-		<button id="chuachon" style="display:none;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalChuaChon"></button>
+		<button id="chuachon" style="display:none;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalChuaChon" data-backdrop="static"></button>
 		<div class="modal fade" id="ModalChuaChon" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">

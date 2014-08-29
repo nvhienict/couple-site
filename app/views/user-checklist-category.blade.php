@@ -30,7 +30,7 @@ Checklist
 	<div class="submenu">
 		<div class="row">
 			<div class="col-md-3">
-				<a href="" id="add-checklist" style="cursor:pointer;" data-toggle="modal" data-target="#myModalAddChecklist">
+				<a href="" id="add-checklist" style="cursor:pointer;" data-toggle="modal" data-target="#myModalAddChecklist" data-backdrop="static">
 				<i class="glyphicon glyphicon-plus"></i>
 				&nbsp Thêm công việc
 			</a>
@@ -177,7 +177,7 @@ Checklist
 							@endif
 							</td>
 							<td>
-								<a href="#" id="edit{{$usertask->id}}" data-toggle="modal" data-target="#myModalEditChecklist">
+								<a href="#" id="edit{{$usertask->id}}" data-toggle="modal" data-target="#myModalEditChecklist" data-backdrop="static">
 									<span class="fa fa-edit"></span>
 								</a>
 								<script type="text/javascript">
@@ -200,7 +200,7 @@ Checklist
 								</script>	
 							</td>
 							<td>
-								<a href="#" id="drop{{$usertask->id}}" data-toggle="modal" data-target="#myModalDelTask">
+								<a href="#" id="drop{{$usertask->id}}" data-toggle="modal" data-target="#myModalDelTask" data-backdrop="static">
 									<span class="fa fa-trash-o"></span>
 								</a>
 								<script type="text/javascript">

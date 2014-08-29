@@ -18,7 +18,7 @@ guest
 		<div class="submenu">
 			<div class="row">
 				<div class="col-xs-2">
-					<a href="" id="add-group-webding" style="cursor:pointer;" data-toggle="modal" data-target="#myGroup">
+					<a href="" id="add-group-webding" style="cursor:pointer;" data-toggle="modal" data-target="#myGroup" data-backdrop="static">
 						<i class="glyphicon glyphicon-plus"></i>
 						&nbsp Thêm Nhóm
 					</a>
@@ -55,7 +55,7 @@ guest
 							<script type="text/javascript" src="{{Asset('assets/js/script_thuy.js')}}"></script>
 				</div>
 				<div class="col-xs-2">
-					<a href="" id="add-guest-wedding" style="cursor:pointer;" data-toggle="modal" data-target="#myModalAddGuest">
+					<a href="" id="add-guest-wedding" style="cursor:pointer;" data-toggle="modal" data-target="#myModalAddGuest" data-backdrop="static">
 					<i class="glyphicon glyphicon-plus"></i>
 					&nbsp Thêm Khách 
 
@@ -215,7 +215,7 @@ guest
 										});
 									</script>
 
-					 				<a href="#" id="edit-group-webding{{$group->id}}" class="icon-delete-group"data-toggle="modal" data-target="#editGroup-guest{{$group->id}}">
+					 				<a href="#" id="edit-group-webding{{$group->id}}" class="icon-delete-group"data-toggle="modal" data-target="#editGroup-guest{{$group->id}}" data-backdrop="static">
 										<span class="fa fa-edit "></span>
 									</a>
 									<!-- Modal edit group guest -->
@@ -270,7 +270,7 @@ guest
 											})
 											
 										</script>
-					 				<a href="#" id="delete-group-webding{{$group->id}} " class="icon-delete-group" data-toggle="modal" data-target="#deleteGroup-guest{{$group->id}}" style="margin-right: 10px;">
+					 				<a href="#" id="delete-group-webding{{$group->id}} " class="icon-delete-group" data-toggle="modal" data-target="#deleteGroup-guest{{$group->id}}" data-backdrop="static" style="margin-right: 10px;" >
 										<span class="fa fa-trash-o "></span>
 									</a>
 									<!-- Modal delete group guest -->

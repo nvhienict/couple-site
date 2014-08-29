@@ -131,7 +131,7 @@ Budget
 					 	<tbody>
 					 	@foreach(Category::get() as $key=>$category)
 					 		<tr class="budget_cat" id="cate{{$category->id}}">
-					 			<td class="budget-column-icon" style="background-image:url({{Asset($category->images)}})"></td>
+					 			<td class="budget-column-icon" style="background-image:url({{Asset("icon/cat/{$category->images}")}})"></td>
 					 			<td><strong>{{$category->name}}</strong></td>
 					 			<td class="TienVND">
 					 				<span  id="totalEstimate{{$category->id}}" >
@@ -190,11 +190,11 @@ Budget
 			 					<tr class="budget_item_cat" id="budget_item_cat{{$budget->id}}">
 						 			<td>
 					 				@if(!empty($budget->note))
-					 				<a href="#" class="budget_icon_notes" data-toggle="modal"  data-target="#{{$budget->id}}" >
+					 				<a href="#" class="budget_icon_notes" data-toggle="modal"  data-target="#{{$budget->id}}" data-backdrop="static" >
 						 				<i class="glyphicon glyphicon-comment"></i>
 					 				</a>
 					 				@else
-					 				<a href="#" class="budget_icon_note" data-toggle="modal"  data-target="#{{$budget->id}}" >
+					 				<a href="#" class="budget_icon_note" data-toggle="modal"  data-target="#{{$budget->id}}" data-backdrop="static" >
 						 				<i class="glyphicon glyphicon-comment"></i>
 					 				</a>
 					 				@endif
