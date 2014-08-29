@@ -188,7 +188,7 @@ guest
 					 	<tbody>
 					 	@foreach(Groups::where('user',GuestController::id_user())->get() as $key=>$group)
 					 		<tr class="guest_cat{{$group->id}} guest_cat" id="cate{{$group->id}}">					 						 			
-					 			<td style="width:260px;"><strong>{{$group->name}}</strong> (<span class="total_group_guest">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()->count()}}</span>)</td>					 								 		
+					 			<td style="width:260px;"><strong>{{$group->name}}</strong> (<span class="total_group_guest{{$group->id}}">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()->count()}}</span>)</td>					 								 		
 					 			<td style="width:200px;"></td>
 					 			<td  style="width:220px;"></td>
 					 			<td style="width:220px;"></td>
@@ -454,11 +454,12 @@ guest
 						$('.guest_list'+obj.guest_last).after(obj.html);
 					} else{
 						$('.guest_cat'+id).after(obj.html);
-					};				
+					};	
+					id_gr=$(".guest_list_add"+id).next().val();		
 					$(".total_guest").text(obj.total_guest); 
 					$(".total_invited").text(obj.total_invited);   
 					$(".total_noinvited").text(obj.total_noinvited); 
-					$(".total_group_guest").text(obj.total_group_guest); 
+					$(".total_group_guest"+id_gr).text(obj.total_group_guest); 
 
 					}											
 				});
@@ -478,7 +479,7 @@ guest
 							$(".total_guest").text(obj.total_guest); 
 							$(".total_invited").text(obj.total_invited);   
 							$(".total_noinvited").text(obj.total_noinvited); 
-							$(".total_group_guest").text(obj.total_group_guest);                        
+							$(".total_group_guest"+obj.id_group).text(obj.total_group_guest);                        
 						}												
 						});
                     return true;

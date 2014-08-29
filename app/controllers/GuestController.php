@@ -26,7 +26,7 @@ class GuestController extends \BaseController {
 			$total_invited=Guests::where('user',GuestController::id_user())->where('invited',true)->get()->count();
 			$total_noinvited=Guests::where('user',GuestController::id_user())->where('invited',false)->get()->count();
 			$total_group_guest=Guests::where('user',GuestController::id_user())->where('group',$id_group)->get()->count();
-			echo json_encode(array('total_group_guest'=>$total_group_guest,'total_guest'=>$total_guest,'total_invited'=>$total_invited,'total_noinvited'=>$total_noinvited));
+			echo json_encode(array('id_group'=>$id_group,'total_group_guest'=>$total_group_guest,'total_guest'=>$total_guest,'total_invited'=>$total_invited,'total_noinvited'=>$total_noinvited));
 			exit();
 		}
 	
@@ -36,6 +36,7 @@ class GuestController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+	
 	public function create()
 	{
 		$id_user=GuestController::id_user();
@@ -88,7 +89,7 @@ class GuestController extends \BaseController {
 						<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
 					</div>				
 				</td>
-	 			<td >
+	 			<td>
 	 				<div  > 
 						<a onclick="email_click('.$guest_add->id.')" class="'.$guest_add->id.'show_email">'.$guest->email.'</a> 										 	
 					    <input onchange="email_change('.$guest_add->id.')" ondblclick="email_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'email form-control input-edit-guest" name="email" value="'.$guest->email.'">   
