@@ -364,7 +364,7 @@ guest
 					 				@else
 					 				<input onclick="invited1_click({{$guest->id}})" type="submit" style="display:none" name="invited1" id="invited1{{$guest->id}}" class="form-control invited1" value="Chưa mời" required="required" title="">
 					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
-					 				<input onclick="invited2_click({{$guest->id}})" type="submit" name="invited2" id="invited2{{$guest->id}}" class=" invited1 form-control" value="Đã mời" required="required" title="">
+					 				<input onclick="invited2_click({{$guest->id}})" type="submit" name="invited2" id="invited2{{$guest->id}}" class=" invited2 form-control" value="Đã mời" required="required" title="">
 					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 					 				@endif
 					 			</td>
