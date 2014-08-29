@@ -186,7 +186,7 @@ guest
 					 	</thead>
 
 					 	<tbody>
-					 	@foreach(Groups::get() as $key=>$group)
+					 	@foreach(Groups::where('user',GuestController::id_user())->get() as $key=>$group)
 					 		<tr class="guest_cat{{$group->id}} guest_cat" id="cate{{$group->id}}">					 						 			
 					 			<td style="width:260px;"><strong>{{$group->name}}</strong> (<span class="total_group_guest">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()->count()}}</span>)</td>					 								 		
 					 			<td style="width:200px;"></td>
@@ -309,7 +309,7 @@ guest
 					 			</td>
 					 		</tr>
 					 		<tbody class="guest_list_show_cat{{$group->id}} guest_list_show_cat">
-					 			@foreach(Guests::where('group',$group->id)->get() as $guest)
+					 			@foreach(Guests::where('user',GuestController::id_user())->where('group',$group->id)->get() as $guest)
 			 					<tr class=" guest_list{{$guest->id}} guest_list_item_cat" id="guest_list_item_cat{{$guest->id}}">
 			 											 			
 					 			<td>
@@ -356,7 +356,7 @@ guest
 					 			</td><!-- Due -->
 					 			<td>
 					 				@if($guest->invited==false)
-					 				<input onclick="invited1_click({{$guest->id}})" type="submit" name="invited1" id="invited1{{$guest->id}}" class="form-control invited1" value="Chưa mời" required="required" title="">
+					 				<input onclick="invited1_click({{$guest->id}})" type="submit" name="invited1" id="invited1{{$guest->id}}" class="invited1 form-control " value="Chưa mời" required="required" title="">
 					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 					 				<input onclick="invited2_click({{$guest->id}})" type="submit" style="display:none" name="invited2" id="invited2{{$guest->id}}" class="form-control invited2" value="Đã mời" required="required" title="">
 					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
@@ -364,7 +364,7 @@ guest
 					 				@else
 					 				<input onclick="invited1_click({{$guest->id}})" type="submit" style="display:none" name="invited1" id="invited1{{$guest->id}}" class="form-control invited1" value="Chưa mời" required="required" title="">
 					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
-					 				<input onclick="invited2_click({{$guest->id}})" type="submit" name="invited2" id="invited2{{$guest->id}}" class="form-control invited2" value="Đã mời" required="required" title="">
+					 				<input onclick="invited2_click({{$guest->id}})" type="submit" name="invited2" id="invited2{{$guest->id}}" class=" invited1 form-control" value="Đã mời" required="required" title="">
 					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 					 				@endif
 					 			</td>
