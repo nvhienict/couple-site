@@ -73,6 +73,7 @@ class GuestController extends \BaseController {
 					 <a onclick="name_click('.$guest_add->id.')" class="'.$guest_add->id.'show_name">'.$guest->fullname.'</a> 										 	
 					    <input onchange="name_change('.$guest_add->id.')" ondblclick="name_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'name form-control input-edit-guest" name="fullname" value="'.$guest->fullname.'">   
 						<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
+						 <p style="display:none;color:red;" class="name_error'.$guest_add->id.'">Vui lòng nhập tên khách mời</p>
 					 </div>			 
 	 			</td>
 		 		<td >
