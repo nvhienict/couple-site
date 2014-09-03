@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-Profile
+Thông tin cá nhân
 @endsection
 @section('nav-bar')
 @include('nav')

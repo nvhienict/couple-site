@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-Register
+Đăng ký
 @endsection
 @section('nav-bar')
 @include('nav')

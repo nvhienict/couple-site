@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-Checklist
+Danh sách công việc
 @endsection
 @section('nav-bar')
 @include('nav')

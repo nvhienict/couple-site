@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-Budget
+Quản lý ngân sách
 @endsection
 @section('nav-bar')
 @include('nav')

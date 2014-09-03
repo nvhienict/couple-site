@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-Login
+Đăng nhập
 @endsection
 @section('nav-bar')
 @include('nav')

@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-guest
+Danh sách khách mời
 @endsection
 @section('nav-bar')
 @include('nav')
