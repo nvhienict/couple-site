@@ -444,10 +444,11 @@ class ChecklistController extends \BaseController {
         exit();
 	}
 
-	public function post_CheckTaskComplete($ac,$month,$startdate){
+	public function post_CheckTaskComplete($ac){
 		$id_user = ChecklistController::id_user();
 		$id = Input::get('id');
-
+		$month = Input::get('month');
+		$startdate = Input::get('startdate');
 		if($ac==1)
 		{
 			$user_task = UserTask::where('id',$id)->update(array("todo"=>1));

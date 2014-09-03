@@ -17,7 +17,6 @@
 		margin-left: 9px;
 	}
 </style>
-<link rel="canonical" href="http://thuna.vn/" />
 <div class="row">
 	<div class="col-sm-1"></div>
 	<div class="col-sm-1">
@@ -30,7 +29,8 @@
 				 allowTransparency="true" href="">
 				</iframe> -->
 				<div id="fb-root"></div>
-					<script>(function(d, s, id) {
+					<script>
+						(function(d, s, id) {
 						  var js, fjs = d.getElementsByTagName(s)[0];
 						  if (d.getElementById(id)) return;
 						  js = d.createElement(s); js.id = id;

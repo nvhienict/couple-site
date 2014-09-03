@@ -74,6 +74,8 @@ Danh sách công việc
 		<div class="checklist-content">
 			<div class="panel-group" id="accordion">
 	  		@foreach(ChecklistController::byMonth() as $index=> $checklist_month)
+	  		<input id="month{{$index}}" hidden name = "month{{$index}}" value="{{$index}}">
+	  		<input id="month_y{{$index}}" hidden name = "month_y{{$index}}" value="{{$checklist_month}}">
 			  <div class="panel panel-default">
 			    <div  class="panel-heading row" style="background: #fff6ee;" >
 			    <div class="col-xs-5">
@@ -113,68 +115,18 @@ Danh sách công việc
 						</thead>
 						<tbody>
 							@foreach(@ChecklistController::sortBy($checklist_month) as $usertask)
+							<input id="startdate{{$usertask->id}}" hidden name="startdate{{$usertask->id}}" value="{{$usertask->id}}">
 							<tr id="{{$usertask->id}}">
 								<td class="text-center">
 									@if($usertask->todo==0)
-										<input type="checkbox" id="chk_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}"  />
+										<input onclick="clickCheckbox({{$index}},{{$usertask->id}})" type="checkbox" id="chk_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}"  />
 										<input type="hidden" name="checkbox-{{$usertask->id}}" value="">
 									@else
-										<input type="checkbox" id="chk_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}" checked />
+										<input onclick="clickCheckbox({{$index}},{{$usertask->id}})" type="checkbox" id="chk_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}" checked />
 										<input type="hidden" name="checkbox-{{$usertask->id}}" value="{{$usertask->id}}">
 									@endif
 									<script type="text/javascript">
-										$('input[type="checkbox"]#chk_{{$usertask->id}}').click(function(){
-											if($(this).is(':checked')) {
-											var id= $(this).val();
-											$(this).next().val(id);
-
-											var $i= parseInt($("#count_complete").text())+1;
-
-											var $j= parseInt($("#count_overdue").text());
-											if ($j==0) { $j=$j; }
-											else{ $j=$j-1; }
-
-											$("#count_overdue").text($j);
-											$("#count_complete").text($i);
-											$("#warning{{$usertask->id}}").hide();
-											$.ajax({
-												type: "post",
-												url: "{{URL::route('check_task_complete',array('ac'=>1,'month'=>$checklist_month,'startdate'=>$usertask->startdate))}}",
-												data: {id:$(this).val()},
-												success: function(data){
-														data = $.parseJSON(data);
-														$("#task{{$index}}").text(data['Counttask']);
-														$("#overDue{{$index}}").text(data['Overdue']);
-														$("#Completed{{$index}}").text(data['completed']);
-												}
-											});
-
-										}else{
-											$(this).next().val("");
-
-											var $i= parseInt($("#count_complete").text())-1;
-
-											var $j= parseInt($("#count_overdue").text());
-											if ($j==0) { $j=$j; }
-											else{ $j=$j+1; }
-
-											$("#count_overdue").text($j);
-											$("#count_complete").text($i);
-											
-											$.ajax({
-												type: "post",
-												url: "{{URL::route('check_task_complete',array('ac'=>0,'month'=>$checklist_month,'startdate'=>$usertask->startdate))}}",
-												data: {id:$(this).val()},
-												success: function(data){
-														data = $.parseJSON(data);
-														$("#task{{$index}}").text(data['Counttask']);
-														$("#overDue{{$index}}").text(data['Overdue']);
-														$("#Completed{{$index}}").text(data['completed']);
-														$("#warning{{$usertask->id}}").replaceWith(data['waning']);
-												}
-											});
-										}
-										});
+										
 									</script>
 								</td>
 								<td><a href="{{$usertask->link}}" id="title-{{$usertask->id}}">{{$usertask->title}}</a>
@@ -189,46 +141,15 @@ Danh sách công việc
 									@endif
 								</td>
 								<td>
-									<a href="javascript:void(0);" id="edit{{$usertask->id}}" data-toggle="modal" data-target="#myModalEditChecklist" data-backdrop="static">
+									<a href="javascript:void(0);" onclick ="editTask({{$usertask->id}})" id="edit{{$usertask->id}}" data-toggle="modal" data-target="#myModalEditChecklist" data-backdrop="static">
 										<span class="fa fa-edit"></span>
 									</a>
-									<script type="text/javascript">
-										$("#edit{{$usertask->id}}").click(function(){
-											var validator = $( "#form_editChecklist" ).validate();
-											validator.resetForm();
-											$.ajax({
-												type: "post",
-												url:"{{URL::route('get-id')}}",
-												data:{id: $("#usertask-id-{{$usertask->id}}").val()},
-												success:function(result){
-													$("#myModalEditChecklist #task").val(result['title']),
-													$("#myModalEditChecklist #id").val(result['id']),
-													$("#myModalEditChecklist #description").val(result['description']),
-													$("#myModalEditChecklist #startdate-edit").val(result['startdate']),
-													$('#myModalEditChecklist #category option[value="' + result['category_id'] + '"]').prop('selected', true);
-												}
-											});
-										});
-									</script>	
+									
 								</td>
 								<td>
-									<a href="#" id="drop{{$usertask->id}}" data-toggle="modal" data-target="#myModalDelTask" data-backdrop="static">
+									<a href="#" id="drop{{$usertask->id}}" onclick = "dropTask({{$usertask->id}})" data-toggle="modal" data-target="#myModalDelTask" data-backdrop="static">
 										<span class="fa fa-trash-o"></span>
 									</a>
-									<script type="text/javascript">
-										$("#drop{{$usertask->id}}").click(function(){
-											var parent = $(this).parent();
-											$.ajax({
-												type: "post",
-												url:"{{URL::route('get-id')}}",
-												data:{id: $("#usertask-id-{{$usertask->id}}").val()},
-												success:function(result){
-													$("#myModalDelTask #task-title").text(result['title']),
-													$("#myModalDelTask #task-id").val(result['id'])
-												}
-											});
-										});
-									</script>
 								</td>
 							</tr>
 							@endforeach
@@ -463,4 +384,81 @@ Danh sách công việc
 
 </div> <!-- end row -->
 </div><!--container-->
+<script type="text/javascript">
+	function showCountTask(data,id){
+		data = $.parseJSON(data);
+		$("#task"+id).text(data['Counttask']);
+		$("#overDue"+id).text(data['Overdue']);
+		$("#Completed"+id).text(data['completed']);
+	}
+
+	function clickCheckbox(index,id_usertask){
+		var name_input = 'input[type="checkbox"]#chk_'+id_usertask;
+		if($(name_input).is(':checked')) 
+		{
+			var id= $(name_input).val();
+			$(name_input).next().val(id);
+			var $i= parseInt($("#count_complete").text())+1;
+			var $j= parseInt($("#count_overdue").text());
+			if ($j==0) { $j=$j; }
+			else{ $j=$j-1; }
+
+			$("#count_overdue").text($j);
+			$("#count_complete").text($i);
+			$("#warning"+id_usertask).hide();
+			$.ajax({
+				type: "post",
+				url: "{{URL::route('check_task_complete',array('ac'=>1))}}",
+				data: {id:$(name_input).val(), month:$('#month_y'+index).val(),startdate: $('#startdate'+id_usertask).val()},
+				success: function(data){showCountTask(data,index)}
+			});
+		}
+		else
+		{
+			$(name_input).next().val("");
+			var $i= parseInt($("#count_complete").text())-1;
+			var $j= parseInt($("#count_overdue").text());
+			if ($j==0) { $j=$j; }
+			else{ $j=$j+1; }
+
+			$("#count_overdue").text($j);
+			$("#count_complete").text($i);
+			
+			$.ajax({
+				type: "post",
+				url: "{{URL::route('check_task_complete',array('ac'=>0))}}",
+				data: {id:$(name_input).val(), month:$('#month_y'+index).val(),startdate: $('#startdate'+id_usertask).val()},
+				success: function(data){showCountTask(data,index)}
+			});
+		}
+	}
+	function editTask(id){
+		var validator = $( "#form_editChecklist" ).validate();
+		validator.resetForm();
+		$.ajax({
+			type: "post",
+			url:"{{URL::route('get-id')}}",
+			data:{id: $("#usertask-id-"+id).val()},
+			success:function(result){
+				$("#myModalEditChecklist #task").val(result['title']),
+				$("#myModalEditChecklist #id").val(result['id']),
+				$("#myModalEditChecklist #description").val(result['description']),
+				$("#myModalEditChecklist #startdate-edit").val(result['startdate']),
+				$('#myModalEditChecklist #category option[value="' + result['category_id'] + '"]').prop('selected', true);
+			}
+		});
+	}
+	function dropTask(id){
+		var parent = $(this).parent();
+		$.ajax({
+			type: "post",
+			url:"{{URL::route('get-id')}}",
+			data:{id: $("#usertask-id-"+id).val()},
+			success:function(result){
+				$("#myModalDelTask #task-title").text(result['title']),
+				$("#myModalDelTask #task-id").val(result['id'])
+			}
+		});
+	}
+</script>
 @endsection
