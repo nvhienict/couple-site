@@ -21,7 +21,7 @@ Danh sách Dịch vụ
 								
 							<form action="{{URL::route('category_vendor_list')}}" method="get" style="float:left;" >
 		  						<input type="hidden" name="id" value="{{$id}}">
-		  						<button type="submit" class="btn btn-default" id="list-vendor-list" ><span class="glyphicon glyphicon-list"></span> DẠNG DANH SÁCH</button>
+		  						<button type="submit" class="btn btn-primary active" id="list-vendor-list" ><span class="glyphicon glyphicon-list"></span> DẠNG DANH SÁCH</button>
 		  					</form>
 							
 							<button class="btn btn-default" id="submit_compare" ><span class="glyphicon glyphicon-retweet"></span> SO SÁNH</button>

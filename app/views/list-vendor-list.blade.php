@@ -25,7 +25,7 @@ Danh sách Dịch vụ
 		  						<input type="hidden" name="name" value="{{Input::get('name')}}">
 		  						<input type="hidden" name="location" value="{{Input::get('location')}}">
 		  						<input type="hidden" name="category" value="{{Input::get('category')}}">
-		  						<button type="submit" class="btn btn-default" id="list-vendor-list" ><span class="glyphicon glyphicon-list"></span> DẠNG DANH SÁCH</button>
+		  						<button type="submit" class="btn btn-primary active" id="list-vendor-list" ><span class="glyphicon glyphicon-list"></span> DẠNG DANH SÁCH</button>
 		  					</form>
 							
 							<button class="btn btn-default" id="submit_compare" ><span class="glyphicon glyphicon-retweet"></span> SO SÁNH</button>

@@ -22,7 +22,7 @@ Danh sách Dịch vụ
 		  						<input type="hidden" name="name" value="{{Input::get('name')}}">
 		  						<input type="hidden" name="location" value="{{Input::get('location')}}">
 		  						<input type="hidden" name="category" value="{{Input::get('category')}}">
-		  						<button type="submit" class="btn btn-default" id="list-vendor-photo" ><span class="glyphicon glyphicon-th-large"></span> DẠNG LƯỚI</button>
+		  						<button type="submit" class="btn btn-primary active" id="list-vendor-photo" ><span class="glyphicon glyphicon-th-large"></span> DẠNG LƯỚI</button>
 		  					</form>
 								
 							<form action="{{Asset('list-vendor/search_list')}}" method="get" style="float:left;" >
