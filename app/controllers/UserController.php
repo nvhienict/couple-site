@@ -166,6 +166,7 @@ class UserController extends \BaseController {
 				{
 					Session::put("email",Input::get('txMail'));
 
+					// go to view request
 					return Redirect::to(URL::previous());
 
 				}else{
@@ -187,9 +188,19 @@ class UserController extends \BaseController {
 
 	public function get_register()
 	{
+		// get url then create Session
+		$url = URL::previous();
+
+		$arStr = explode("/", $url);
+		$count = count($arStr);
+		$url = $arStr[$count-1];
+
+		Session::put('url',$url);
+
 		return View::make('register');
 	}
 
+	// user post register
 	public function post_users(){
 		$rules=array(
 			"first_name"=>"required|min:3",
@@ -218,7 +229,7 @@ class UserController extends \BaseController {
 			$user->budget=0;
 			$user->save();
 
-			//kiểm tra nếu stast đây so với hiện tại đã qua, thì lưa stastdate của user bằng stastdate hiện tại
+			//kiểm tra nếu startdate so với hiện tại đã qua, thì lưu startdate của user bằng startdate hiện tại
 			$dateNow = New DateTime('now');
 			$date_wedding = new DateTime($weddingdate);
 			if(date_timestamp_get($dateNow) > date_timestamp_get($date_wedding))
@@ -229,11 +240,10 @@ class UserController extends \BaseController {
 			{
 				$NowToWedding = (date_timestamp_get($date_wedding)- date_timestamp_get($dateNow))/(3600*24);
 			}
+				
 				//truyền dữ liệu sang bảng usertask
+				$id_user = User::where('email','=',Input::get('email'))->get()->first()->id; 
 					
-					$id_user = User::where('email','=',Input::get('email'))->get()->first()->id; 
-					//lấy id_user từ cookie chi đó hi
-
 					$tasks = Task::get();
 					foreach($tasks as $task){
 						if( $NowToWedding > $task->startdate){
@@ -254,14 +264,20 @@ class UserController extends \BaseController {
 						$usertask->todo = 0;
 						$usertask->save();
 
-
 					}
 
 			$IdUser=User::where('email','=',Input::get('email'))->get()->first()->id;
 
 			Session::put("email",Input::get('email'));
 
-			return Redirect::to(URL::previous());
+			if (!Session::has('url')) {
+				return Redirect::to('index');
+			}else{
+				$view_request = Session::get('url');
+				Session::forget('url');
+
+				return Redirect::to($view_request);
+			}
 			
 		}else{
 			$errors=$validator->messages();
