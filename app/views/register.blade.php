@@ -34,7 +34,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6">
           
-            <div  class="input-append input-group">
+            <div  class="input-append form-group">
               <input data-format="yyyy-MM-dd" type="text" readonly name="weddingdate" id="weddingdate" class="form-control input-lg " placeholder="Ngày cưới" tabindex="3">
               <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span> -->
               @foreach ($errors->get('weddingdate') as $message)

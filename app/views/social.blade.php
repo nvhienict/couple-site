@@ -2,7 +2,7 @@
 	#social{
 		position: fixed;
 		left: 1%;
-		bottom:15%;
+		bottom:35%;
 		z-index: 9999;
 		margin-top: 20px;
 		padding-top: 10px;
@@ -38,7 +38,7 @@
 						  fjs.parentNode.insertBefore(js, fjs);
 						}(document, 'script', 'facebook-jssdk'));
 					</script>
-				<div class="fb-like" data-layout="box_count" data-action="like" data-show-faces="false" 
+				<div class="fb-like" data-layout="box_count" data-action="like" data-show-faces="true" 
 				data-share="false" data-ref="none"></div>
 				
 			</div>
