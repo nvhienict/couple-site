@@ -48,8 +48,16 @@ Danh sách Dịch vụ
 	                <input type="text" name="name" class="form-control input-lg"
 	                		value="{{Input::get('name')}}" placeholder="Từ tìm kiếm" />
 	                <select name="location" class="form-control input-lg">
-	                	@foreach(Location::get() as $location)
-				    	<option value="{{$location->id}}">{{$location->name}}</option>
+	                	@foreach(Location::get() as $location_item)
+	                	<?php
+	                		$location_id = $location_item->id;
+	                		if ( $location_id==$location ) {
+	                			$strSec = 'selected="selected"';
+	                		}else{
+	                			$strSec = null;
+	                		}
+	                	?>
+				    	<option {{$strSec}} value="{{$location_item->id}}">{{$location_item->name}}</option>
 				    	@endforeach
 			    	</select>
 	                <input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Danh mục" value="{{Input::get('category')}}" readonly style="cursor:pointer;" >
@@ -59,7 +67,7 @@ Danh sách Dịch vụ
 					    	<div class="row" id="menu">
 						    	<div class="col-xs-6">
 						      		<ul class="list-unstyled">
-							      		@foreach (Category::get() as $index=> $category)
+							      		@foreach (Category::get() as $index => $category)
 			    						@if($index<7)
 						      			<li><span style="cursor:pointer;" >{{$category['name']}}</span>
 						      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">

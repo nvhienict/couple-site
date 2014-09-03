@@ -190,67 +190,67 @@ Trang chủ
 			<div class="row marginbot-80">
 				<div class="col-md-8 col-md-offset-2">
 						<form id="form-search" class="wow bounceInUp form-homepage" data-wow-offset="10" data-wow-delay="0.2s" action="{{Asset('list-vendor/search')}}" method="get">
-						<div class="row marginbot-20">
-							<div class="col-md-6 xs-marginbot-20">
-								<input type="text" name="name" class="form-control input-lg" placeholder="Từ tìm kiếm" />
+							<div class="row marginbot-20">
+								<div class="col-md-6 xs-marginbot-20">
+									<input type="text" name="name" class="form-control input-lg" placeholder="Từ tìm kiếm" />
+								</div>
+								<div class="col-md-6">
+									<select name="location" class="form-control input-lg">
+							    		@foreach(Location::get() as $location)
+								    	<option value="{{$location->id}}">{{$location->name}}</option>
+								    	@endforeach
+							    	</select>
+								</div>
 							</div>
-							<div class="col-md-6">
-								<select name="location" class="form-control input-lg">
-						    		@foreach(Location::get() as $location)
-							    	<option value="{{$location->id}}">{{$location->name}}</option>
-							    	@endforeach
-						    	</select>
-							</div>
-						</div>
-						<div class="row xs-marginbot-20">
-							<div class="col-md-12">
-								<input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Danh mục" readonly style="cursor:pointer;">
-						    	<input id="searchId" name="category_id" type="hidden">
-						    	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-								    <li role="presentation">
-								    	<div class="row" id="menu">
-									    	<div class="col-xs-6">
-									      		<ul class="list-unstyled">
-										      		@foreach (Category::get() as $index=> $category)
-						    						@if($index<7)
-									      			<li class="budget-column-icon images_li" style="background-image:url({{Asset("icon/cat/{$category->images}")}})"><span style="cursor:pointer;">{{$category['name']}}</span>
-									      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
-									      			</li>
-									      			@endif
-					      							@endforeach
-									      		</ul>
+							<div class="row xs-marginbot-20">
+								<div class="col-md-12">
+									<input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Danh mục" readonly style="cursor:pointer;">
+							    	<input id="searchId" name="category_id" type="hidden">
+							    	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+									    <li role="presentation">
+									    	<div class="row" id="menu">
+										    	<div class="col-xs-6">
+										      		<ul class="list-unstyled">
+											      		@foreach (Category::get() as $index=> $category)
+							    						@if($index<7)
+										      			<li class="budget-column-icon images_li" style="background-image:url({{Asset("icon/cat/{$category->images}")}})"><span style="cursor:pointer;">{{$category['name']}}</span>
+										      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
+										      			</li>
+										      			@endif
+						      							@endforeach
+										      		</ul>
+										      	</div>
+										      	<div class="col-xs-6">
+										      		<ul class="list-unstyled">
+										      			@foreach (Category::get() as $index=> $category)
+						    							@if($index>=7)
+										      			<li class="budget-column-icon images_li" style="background-image:url({{Asset("icon/cat/{$category->images}")}})"><span style="cursor:pointer;">{{$category['name']}}</span>
+										      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
+										      			</li>
+										      			@endif
+						      							@endforeach
+										      		</ul>
+										      	</div>
 									      	</div>
-									      	<div class="col-xs-6">
-									      		<ul class="list-unstyled">
-									      			@foreach (Category::get() as $index=> $category)
-					    							@if($index>=7)
-									      			<li class="budget-column-icon images_li" style="background-image:url({{Asset("icon/cat/{$category->images}")}})"><span style="cursor:pointer;">{{$category['name']}}</span>
-									      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
-									      			</li>
-									      			@endif
-					      							@endforeach
-									      		</ul>
-									      	</div>
-								      	</div>
-								    </li>
-								    <script>
-									    $(document).ready(function(){
-											$('#menu li span').click(function(){
-											  var text= $(this).text();
-											  var id= $(this).next().val();
-												$( "#searchTxt" ).val(text);
-												$( "#searchId").val(id);
+									    </li>
+									    <script>
+										    $(document).ready(function(){
+												$('#menu li span').click(function(){
+												  var text= $(this).text();
+												  var id= $(this).next().val();
+													$( "#searchTxt" ).val(text);
+													$( "#searchId").val(id);
+												});
 											});
-										});
-									</script>	
-							    </ul>					
+										</script>	
+								    </ul>					
+								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<button type="submit" class="btn btn-skin btn-lg btn-block">Tìm kiếm</button>
+							<div class="row">
+								<div class="col-md-12">
+									<button type="submit" class="btn btn-skin btn-lg btn-block">Tìm kiếm</button>
+								</div>
 							</div>
-						</div>
 						</form>
 				</div>
 			</div>	
