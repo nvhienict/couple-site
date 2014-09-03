@@ -37,9 +37,9 @@ class UserBudgetController extends \BaseController {
 		$budget->item="New Item";
 		$budget->user=$id_user;
 		$budget->category=$id;
-		$budget->estimate="$0.00";
-		$budget->actual="$0.00";
-		$budget->pay="$0.00";
+		$budget->estimate="0";
+		$budget->actual="0";
+		$budget->pay="0";
 		$budget->note="";
 		$budget->save(); 
 		$item=UserBudget::get()->last();
@@ -87,7 +87,7 @@ class UserBudgetController extends \BaseController {
 			<td>
 				<div>
 			 		<a onclick="item_click('.$item->id.')" class="'.$item->id.'show_item">'.$item->item.'</a>
-				    <input  onchange="item_change('.$item->id.')"  ondblclick="item_dblclick('.$item->id.')"  type="text" value="'.$item->item.'" name="item" class="'.$item->id.'item form-control input-edit-money" >
+				    <input  onblur="item_change('.$item->id.')"  ondblclick="item_dblclick('.$item->id.')"  type="text" value="'.$item->item.'" name="item" class="'.$item->id.'item form-control input-edit-money" >
 					<input type="hidden" value="'.$item->id.'" name="'.$item->id.'">
 					<p style="display:none;color:red;" class="item_error'.$item->id.'">Chi tiêu không được trống</p>
 			 	</div>
@@ -97,7 +97,7 @@ class UserBudgetController extends \BaseController {
 					<a onclick="estimate_click('.$item->id.')" hreft="" class="'.$item->id.'showEstimate" >
 						'.number_format(($item->estimate),0, ',', ' ').' VND
 					</a>
-					<input onkeyup="key_estimate(event,'.$item->id.')" onchange="estimate_dblclick('.$item->id.')" ondblclick="estimate_dblclick('.$item->id.')" type="text" class="'.$item->id.'InputEstimate form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->estimate.'">
+					<input onkeyup="key_estimate(event,'.$item->id.')" onblur="estimate_dblclick('.$item->id.')" ondblclick="estimate_dblclick('.$item->id.')" type="text" class="'.$item->id.'InputEstimate form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->estimate.'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
 					<p style="display:none;color:red;" class="estimate_error'.$item->id.'">Vui lòng nhập số tiền</p>
 				</div>
@@ -107,7 +107,7 @@ class UserBudgetController extends \BaseController {
 					<a onclick="actual_click('.$item->id.')" hreft="" class="'.$item->id.'_show_hide">
 						'.number_format(($item->actual),0, ',', ' ').' VND
 					</a>
-					<input onkeyup="key_actual(event,'.$item->id.')" onchange="actual_dblclick('.$item->id.')" ondblclick="actual_dblclick('.$item->id.')" type="text" class="'.$item->id.'_slidingDiv form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->actual.'">
+					<input onkeyup="key_actual(event,'.$item->id.')" onblur="actual_dblclick('.$item->id.')" ondblclick="actual_dblclick('.$item->id.')" type="text" class="'.$item->id.'_slidingDiv form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->actual.'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
 					<p style="display:none;color:red;" class="actual_error'.$item->id.'">Vui lòng nhập số tiền</p>
 				</div>
@@ -117,7 +117,7 @@ class UserBudgetController extends \BaseController {
 					<a onclick="pay_click('.$item->id.')" hreft="" class="'.$item->id.'Pay" >
 						'.number_format(($item->pay),0, ',', ' ').' VND
 					</a>
-					<input onkeyup="key_pay(event,'.$item->id.')" onchange="pay_dblclick('.$item->id.')" ondblclick="pay_dblclick('.$item->id.')" type="text" class="'.$item->id.'Estimate form-control input-edit-money" id="'.$item->id.'estimate" name="estimate" value="'.$item->pay .'">
+					<input onkeyup="key_pay(event,'.$item->id.')" onblur="pay_dblclick('.$item->id.')" ondblclick="pay_dblclick('.$item->id.')" type="text" class="'.$item->id.'Estimate form-control input-edit-money" id="'.$item->id.'estimate" name="estimate" value="'.$item->pay .'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
 					<p style="display:none;color:red;" class="pay_error'.$item->id.'">Vui lòng nhập số tiền</p>
 				</div>

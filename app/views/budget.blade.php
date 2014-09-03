@@ -234,7 +234,7 @@ Quản lý ngân sách
 					 			<td>
 					 				<div>
 									 <a  onclick="item_click({{$budget->id}})" class="{{$budget->id}}show_item">{{$budget->item}}</a> 										 	
-									    <input onchange="item_change({{$budget->id}})" ondblclick="item_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}item form-control input-edit-money" name="item" value="{{$budget->item}}">   
+									    <input onblur="item_change({{$budget->id}})" ondblclick="item_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}item form-control input-edit-money" name="item" value="{{$budget->item}}">   
 										<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
 									 </div>
 									 <p style="display:none;color:red;" class="item_error{{$budget->id}}">Chi tiêu không được trống</p>
@@ -244,7 +244,7 @@ Quản lý ngân sách
 									 <a onclick="estimate_click({{$budget->id}})" class="{{$budget->id}}showEstimate">
                                         {{number_format(($budget->estimate),0, '.', ',')}} VND
 									 </a> 
-									    <input onkeyup="key_estimate(event,{{$budget->id}})" onchange="estimate_dblclick({{$budget->id}})" ondblclick="estimate_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}InputEstimate form-control input-edit-money" name="estimate" value=" {{number_format(($budget->estimate),0, '.', ',')}}">
+									    <input onkeyup="key_estimate(event,{{$budget->id}})" onblur="estimate_dblclick({{$budget->id}})" ondblclick="estimate_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}InputEstimate form-control input-edit-money" name="estimate" value=" {{number_format(($budget->estimate),0, '.', ',')}}">
 										<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
 									 </div>
 									 <p style="display:none;color:red;" class="estimate_error{{$budget->id}}">Vui lòng nhập số tiền</p>
@@ -254,7 +254,7 @@ Quản lý ngân sách
 										<a onclick="actual_click({{$budget->id}})" hreft="" class="{{$budget->id}}_show_hide">
 											{{number_format(($budget->actual),0, '.', ',')}} VND
 										</a>
-										<input onkeyup="key_actual(event,{{$budget->id}})" onchange="actual_dblclick({{$budget->id}})" ondblclick="actual_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}_slidingDiv form-control input-edit-money" id="{{$budget->id}}money" name="money" value="{{number_format(($budget->actual),0, '.', ',')}}">
+										<input onkeyup="key_actual(event,{{$budget->id}})" onblur="actual_dblclick({{$budget->id}})" ondblclick="actual_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}_slidingDiv form-control input-edit-money" id="{{$budget->id}}money" name="money" value="{{number_format(($budget->actual),0, '.', ',')}}">
 										<input type="text" hidden name="{{$budget->id}}" value="{{$budget->id}}">
 									</div>
 									<p style="display:none;color:red;" class="actual_error{{$budget->id}}">Vui lòng nhập số tiền</p>
@@ -265,7 +265,7 @@ Quản lý ngân sách
 										<a onclick="pay_click({{$budget->id}})" hreft="" class="{{$budget->id}}Pay" >
 											{{number_format(($budget->pay),0, '.', ',')}} VND
 										</a>
-										<input onkeyup="key_pay(event,{{$budget->id}})" onchange="pay_dblclick({{$budget->id}})" ondblclick="pay_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}Estimate form-control input-edit-money" id="{{$budget->id}}estimate" name="estimate" value="{{number_format(($budget->pay),0, '.', ',')}}">
+										<input onkeyup="key_pay(event,{{$budget->id}})" onblur="pay_dblclick({{$budget->id}})" ondblclick="pay_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}Estimate form-control input-edit-money" id="{{$budget->id}}estimate" name="estimate" value="{{number_format(($budget->pay),0, '.', ',')}}">
 										<input type="text" hidden name="{{$budget->id}}" value="{{$budget->id}}">
 									</div>
 									<p style="display:none;color:red;" class="pay_error{{$budget->id}}">Vui lòng nhập số tiền</p>
@@ -337,10 +337,13 @@ Quản lý ngân sách
 						$("."+id+"show_item").hide();
 						$("."+id+"item").val("");
 						$("."+id+"item").show();
+						$("."+id+"item").focus();
 					} 
 					else{
 						$("."+id+"show_item").hide();
 						$("."+id+"item").show();
+						$("."+id+"item").focus();
+
 					};
 					};																										
 				function item_dblclick(id){
@@ -430,17 +433,6 @@ Quản lý ngân sách
 				                                    $("#ubsThanhToan").show();
 				                                    $("#ubsConNo").text(obj.sumDue.format(0,3,',') + " VND");
 				                                    $("#ubsConNo").show();
-
-
-
-
-				                                    
-
-				                                    
-
-
-
-
 											}												
 											});
                                         return true;
@@ -452,8 +444,18 @@ Quản lý ngân sách
 								};
 			 	//Estimate 
 			 	function estimate_click(id){
-                    $("."+id+"InputEstimate").show(); 
-				    $("."+id+"showEstimate").hide();
+			 		if ($("."+id+"InputEstimate").val()==0) {
+			 			$("."+id+"showEstimate").hide();
+			 			$("."+id+"InputEstimate").val("");
+			 			$("."+id+"InputEstimate").show(); 
+	                    $("."+id+"InputEstimate").focus();
+					   
+			 		} else{
+			 			$("."+id+"InputEstimate").show(); 
+	                    $("."+id+"InputEstimate").focus();
+					    $("."+id+"showEstimate").hide();
+			 		};
+                   
 			 	};
 			 	function estimate_dblclick(id){
 			 		if ($("."+id+"InputEstimate").val()=="") {
@@ -486,8 +488,16 @@ Quản lý ngân sách
 			        };
 			 	//actual
 			 	function actual_click(id){
-                    $("."+id+"_slidingDiv").show();
-			        $("."+id+"_show_hide").hide();
+			 		if ($("."+id+"_slidingDiv").val()=="0") {
+			 			$("."+id+"_slidingDiv").show();
+			 			$("."+id+"_slidingDiv").val("");
+	                    $("."+id+"_slidingDiv").focus();
+				        $("."+id+"_show_hide").hide();
+			 		} else{
+			 			$("."+id+"_slidingDiv").show();
+	                    $("."+id+"_slidingDiv").focus();
+				        $("."+id+"_show_hide").hide();
+			 		};
 			 	};
 			 	function actual_dblclick(id){
 			 		if ($("."+id+"_slidingDiv").val()=="") {
@@ -519,8 +529,16 @@ Quản lý ngân sách
 			        };	
 			 	//pay
 			 	function pay_click(id){
-			 		$("."+id+"Estimate").show();
-			        $("."+id+"Pay").hide();
+			 		if ($("."+id+"Estimate").val()=="0") {
+			 			$("."+id+"Estimate").val("");
+			 			$("."+id+"Estimate").show();
+				 		$("."+id+"Estimate").focus();
+				        $("."+id+"Pay").hide();
+			 		} else{
+			 			$("."+id+"Estimate").show();
+				 		$("."+id+"Estimate").focus();
+				        $("."+id+"Pay").hide();
+			 		};			 		
 			 	};
 			 	function pay_dblclick(id){
                     if ($("."+id+"Estimate").val()=="") {
