@@ -105,11 +105,11 @@ Quản lý ngân sách
 
 						<tr class="table-budget-thead-fixed">
 							<th><i class="glyphicon glyphicon-th-large"></i></th>
-					 		<th style="width:300px;"  >Danh mục</th>
-					 		<th style="width:160px;" >Chi phí dự kiến</th>
-					 		<th style="width:160px;" >Chi phí thực tế</th>
-					 		<th style="width:160px;" >Số tiền thanh toán</th>
-					 		<th colspan="2" style="width:140px;" >Số tiền còn nợ</th>
+					 		<th style="width:200px;"  >Danh mục</th>
+					 		<th style="width:185px;" >Chi phí dự kiến</th>
+					 		<th style="width:185px;" >Chi phí thực tế</th>
+					 		<th style="width:185px;" >Số tiền thanh toán</th>
+					 		<th colspan="2" style="width:165px;" >Số tiền còn nợ</th>
 					 	</tr>
 					 	<script type="text/javascript">
 						 	$(window).scroll(function(){

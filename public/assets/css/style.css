@@ -1566,7 +1566,7 @@ a.budget_icon_notes{
 	text-align: right;
 }
 #budget_summary div, #budget_summary h3{text-align: left;}
-.TienVND{text-align: right !important;}
+.TienVND{text-align: left; !important;}
 .budget_vendor{
 	margin: 10px 0px 10px 0px;
 }
