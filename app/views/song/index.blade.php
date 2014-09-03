@@ -24,16 +24,6 @@
 					<td><a href="{{URL::route('play_song', array($song['id']))}}" onclick="get_song({{$song['id']}});">{{$song['name']}}</a></td>
 					<td><a href="{{URL::route('play_song', array($song['id']))}}" onclick="get_song({{$song['id']}});">{{$song['artist']}}</a></td>
 					<td class="last">{{SongComment::where('song',$song['id'])->count()}} <i class="fa fa-comment"></i></td>
-					<script type="text/javascript">
-						function get_song (id_song) {
-							$.ajax({
-								type: "post",
-								url: "{{URL::to('get_id_song')}}",
-								data: {id_song:id_song}
-							});
-							alert('Bạn muốn nghe ca khúc này?');
-						}
-					</script>
 				</tr>
 				@endforeach
 			</table>

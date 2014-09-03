@@ -172,8 +172,7 @@ Route::get('songs/{id}/play-songs', array('as'=>'play_song', 'uses'=>'SongContro
 
 Route::post('song_comment/{id_song}',array('as'=>'song_comment', 'uses'=>'SongController@post_comment'));
 
-Route::post('get_url_song_cmt', array('as'=>'get_url_song_cmt', 'uses'=>'SongController@getUrlSongCmt'));
-
+Route::get('song/{id}/play-songs', array("before"=>"check_login", 'as'=>'cmt_song', 'uses'=>'SongController@play'));
 
 //Guest list
 Route::get('guest-list',array("before"=>"check_login",'as'=>'guest-list','uses'=>'GuestController@index'));

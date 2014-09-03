@@ -87,13 +87,6 @@ class SongController extends \BaseController {
 		//
 	}
 
-	// get url for user login post comment
-	public function getUrlSongCmt(){
-
-		Session::put('get_song', Input::get('id_song'));
-
-		Session::put('url', Input::get('id_url'));
-	}
 
 	// play songs
 	public function play($id)
