@@ -281,44 +281,41 @@ public function update_name()
 			}
 	}		
 	public function post_Add_Guest(){
-$id_user = GuestController::id_user();
 
-		   
-		    // check then insert to database
+			$id_user = GuestController::id_user();
+	    	$guest = new Guests();
+			$guest->user=$id_user;
+			$guest->fullname = Input::get('fullname');
+			if(Input::get('phone')==""){
+				$guest->phone ="Phone";
+			}
+			else{
+				$guest->phone = Input::get('phone');
+			}
+			if(Input::get('address')=="")
+			{
+				$guest->address="Address";
+			}
+			else
+			{
+				$guest->address = Input::get('address');
+			}
+			$guest->group=Input::get('group');
+			if(Input::get('email')=="")
+			{
+				$guest->email = "Email";
+			}
+			else
+			{
+				$guest->email = Input::get('email');
+			}
 			
-				$guest = new Guests();
-				$guest->user=$id_user;
-				$guest->fullname = Input::get('fullname');
-				if(Input::get('phone')==""){
-					$guest->phone ="Phone";
-				}
-				else{
-					$guest->phone = Input::get('phone');
-				}
-				if(Input::get('address')=="")
-				{
-					$guest->address="Address";
-				}
-				else
-				{
-					$guest->address = Input::get('address');
-				}
-				$guest->group=Input::get('group');
-				if(Input::get('email')=="")
-				{
-					$guest->email = "Email";
-				}
-				else
-				{
-					$guest->email = Input::get('email');
-				}
-				
-				$guest->attending = Input::get('attending');
-				$guest->save();
-				
-				$msg="Đã thêm khách mời thành công!";
-				return Redirect::route("guest-list")->with('msg',$msg);
+			$guest->attending = Input::get('attending');
+			$guest->save();
 			
+			$msg="Đã thêm khách mời thành công!";
+			return Redirect::route("guest-list")->with('msg',$msg);
+		
 
 
 
@@ -327,7 +324,22 @@ $id_user = GuestController::id_user();
 			$id_user = GuestController::id_user();
 			return (Guests::where('id',$id_user)->where("email",Input::get('email'))->count()==0? "true": "false");
 		}
-
+	public function check_group()
+	{
+		$id_user = GuestController::id_user();
+		$count= Groups::where('user',$id_user)->get()->count();
+		if($count)
+		{
+			$counts=1;
+		}
+		else
+		{
+			$counts=0;
+		}
+		 echo json_encode(array('counts'=>$counts));
+        exit();
+		
+	}
 	public function exportfile(){
 		$id_user =GuestController::id_user();		
 		$datas = Guests::where('user', $id_user)->get();

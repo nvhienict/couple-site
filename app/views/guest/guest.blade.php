@@ -55,13 +55,31 @@ Danh sách khách mời
 							<script type="text/javascript" src="{{Asset('assets/js/script_thuy.js')}}"></script>
 				</div>
 				<div class="col-xs-2">
-					<a href="" id="add-guest-wedding" style="cursor:pointer;" data-toggle="modal" data-target="#myModalAddGuest" data-backdrop="static">
+					<a href="" onclick="showHideAddGuest()" id="add-guest-wedding" style="cursor:pointer;" data-toggle="modal" data-target="#myModalAddGuest" data-backdrop="static">
 					<i class="glyphicon glyphicon-plus"></i>
 					&nbsp Thêm Khách 
 
 				</a>
+					<script type="text/javascript">
 
-					<div class="modal fade" id="myModalAddGuest" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
+						function showHideAddGuest()
+						{
+							$.ajax({
+								type: "POST",
+								url: "{{URL::route('check_group')}}",
+								success: function(data){
+									var obj = JSON.parse(data);
+									if(obj.counts==0)
+									{	
+										alert('Chưa có nhóm');
+										window.location.href="{{URL::route('guest-list')}}";
+									}
+									
+								}
+							});
+						}
+					</script>
+					<div class="modal " id="myModalAddGuest" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
 						  <div class="modal-dialog">
 						    <div class="modal-content">
 						      <div class="modal-header">
