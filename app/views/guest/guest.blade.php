@@ -315,7 +315,7 @@ Danh sách khách mời
 					 			<td>
 					 				<div>
 									 <a onclick="name_click({{$guest->id}})" class="{{$guest->id}}show_name">{{$guest->fullname}}</a> 										 	
-									    <input onchange="name_change({{$guest->id}})" ondblclick="name_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}name form-control input-edit-guest" name="fullname" value="{{$guest->fullname}}">   
+									    <input onblur="name_change({{$guest->id}})" ondblclick="name_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}name form-control input-edit-guest" name="fullname" value="{{$guest->fullname}}">   
 										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 									 </div>
 									 <p style="display:none;color:red;" class="name_error{{$guest->id}}">Vui lòng nhập tên khách mời</p>
@@ -324,7 +324,7 @@ Danh sách khách mời
 						 		<td >
 					 				<div ><!-- Estimate -->
 									 <a onclick="phone_click({{$guest->id}})" class="{{$guest->id}}show_phone">{{$guest->phone}}</a> 										 	
-									    <input onkeyup="key_phone(event,{{$guest->id}})" onchange="phone_change({{$guest->id}})" ondblclick="phone_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}phone form-control input-edit-guest" name="phone" value="{{$guest->phone}}">   
+									    <input onkeyup="key_phone(event,{{$guest->id}})" onblur="phone_change({{$guest->id}})" ondblclick="phone_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}phone form-control input-edit-guest" name="phone" value="{{$guest->phone}}">   
 										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 									 </div>
 									 
@@ -333,7 +333,7 @@ Danh sách khách mời
 						 		<td ><!-- Actual -->
 									<div  > 
 										<a onclick="address_click({{$guest->id}})" class="{{$guest->id}}show_address">{{$guest->address}}</a> 										 	
-									    <input onchange="address_change({{$guest->id}})" ondblclick="address_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}address form-control input-edit-guest" name="address" value="{{$guest->address}}">   
+									    <input onblur="address_change({{$guest->id}})" ondblclick="address_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}address form-control input-edit-guest" name="address" value="{{$guest->address}}">   
 										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 									</div>
 									
@@ -341,7 +341,7 @@ Danh sách khách mời
 					 			<td >
 					 				<div  > 
 										<a onclick="email_click({{$guest->id}})" class="{{$guest->id}}show_email">{{$guest->email}}</a> 										 	
-									    <input onchange="email_change({{$guest->id}})" ondblclick="email_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}email form-control input-edit-guest" name="email" value="{{$guest->email}}">   
+									    <input onblur="email_change({{$guest->id}})" type="text" class="{{$guest->id}}email form-control input-edit-guest" name="email" value="{{$guest->email}}">   
 										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 									</div>
 									<p style="display:none;color:red;" class="email_format{{$guest->id}}">email không đúng</p>
@@ -349,7 +349,7 @@ Danh sách khách mời
 					 			<td>
 					 				<div>
 						 				<a onclick="attend_click({{$guest->id}})" class="{{$guest->id}}show_attend">{{$guest->attending}}</a> 										 	
-									    <input onchange="attend_change({{$guest->id}})" ondblclick="attend_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}attend form-control input-edit-guest" name="attending" value="{{$guest->attending}}">   
+									    <input onblur="attend_change({{$guest->id}})" ondblclick="attend_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}attend form-control input-edit-guest" name="attending" value="{{$guest->attending}}">   
 										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 					 				</div>
 					 				
@@ -491,13 +491,16 @@ Danh sách khách mời
             //name
             function name_click(id){
             	if ($("."+id+"name").val()=="New Guest") {
+            		$('.'+id+'show_name').hide();  
             		$("."+id+"name").val("");
-            		$('.'+id+'show_name').hide();
-            		$("."+id+"name").show();     
+            		$("."+id+"name").show();  
+            		$("."+id+"name").focus(); 
+            		
             	} 
             	else{
 	            	$('.'+id+'show_name').hide();
 	            	$('.'+id+'name').show();
+	            	$("."+id+"name").focus(); 
             	};            	
             };
             function name_dblclick(id){
@@ -532,8 +535,15 @@ Danh sách khách mời
             	};            	
             };
             //phone
-            function phone_click(id){            	
+            function phone_click(id){ 
+            if ($('.'+id+'phone').val()=="Phone") {
+            	    $('.'+id+'phone').val("");
+            	    $('.'+id+'phone').show();
+            	    $('.'+id+'phone').focus();
+            		$('.'+id+'show_phone').hide();
+            } else{};           	
             		$('.'+id+'phone').show();
+            		$('.'+id+'phone').focus();
             		$('.'+id+'show_phone').hide();            	            	
             };
             function phone_dblclick(id){
@@ -580,9 +590,17 @@ Danh sách khách mời
 						    });
 			        }; 
             //adress
-            function address_click(id){        
-        		$('.'+id+'show_address').hide();
-            	$('.'+id+'address').show();            	            	
+            function address_click(id){  
+            if ($('.'+id+'address').val()=="Address") {
+            	$('.'+id+'show_address').hide();
+            	$('.'+id+'address').val("");
+            	$('.'+id+'address').show();
+            	$('.'+id+'address').focus();
+            } else{
+            	$('.'+id+'show_address').hide();
+            	$('.'+id+'address').show();
+                $('.'+id+'address').focus();
+            };                 	            	
             };
             function address_dblclick(id){
             	$('.'+id+'show_address').show();
@@ -617,14 +635,23 @@ Danh sách khách mời
             	};
             };
             //email
-            function email_click(id){            	
-        		$('.'+id+'show_email').hide();
-        	    $('.'+id+'email').show();            	
+            function email_click(id){ 
+            if ($('.'+id+'email').val()=="Email") {
+            	$('.'+id+'show_email').hide();
+            	$('.'+id+'email').val("");
+        	    $('.'+id+'email').show();
+        	    $('.'+id+'email').focus();    
+            } else{
+            	$('.'+id+'show_email').hide();
+        	    $('.'+id+'email').show(); 
+        	    $('.'+id+'email').focus();
+            };           	           	
             };
-            function email_dblclick(id){
-                 $('.'+id+'show_email').show();
-            	 $('.'+id+'email').hide();
-            };          
+            // function email_dblclick(id){
+            //      $('.'+id+'show_email').show();
+            // 	 $('.'+id+'email').hide();
+            // 	 $('.email_format'+id).hide();
+            // };          
             function email_change(id){
             	if ($("."+id+"email").val()=="") {
             		$("."+id+"email").val("Email");
@@ -663,9 +690,17 @@ Danh sách khách mời
 			};            	
             };
             //attend
-            function attend_click(id){            	
-	    		$('.'+id+'show_attend').hide();
-	    	    $('.'+id+'attend').show();            	
+            function attend_click(id){  
+            if ($('.'+id+'attend').val()=="1") {
+            	$('.'+id+'show_attend').hide();
+            	$('.'+id+'attend').val("");
+	    	    $('.'+id+'attend').show();
+	    	    $('.'+id+'attend').focus();
+            } else{
+            	$('.'+id+'show_attend').hide();
+	    	    $('.'+id+'attend').show(); 
+	    	    $('.'+id+'attend').focus();  
+            };          		    		         	
             };
             function attend_dblclick(id){
             	$('.'+id+'show_attend').show();
