@@ -57,6 +57,7 @@ Quản lý ngân sách
     		$("#rowSumDue").text(result['sumDue'].format(0,3,',') + " VND");
 
     		//tom tat
+    		$("#ubsDuKien").text(result['sumExpected'].format(0,3,',') + " VND");
     		$("#ubsThucTe").text(result['sumActual'].format(0,3,',') + " VND");
     		$("#ubsThanhToan").text(result['sumPay'].format(0,3,',') + " VND");
     		$("#ubsConNo").text(result['sumDue'].format(0,3,',') + " VND");
