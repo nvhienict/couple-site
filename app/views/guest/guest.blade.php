@@ -193,26 +193,28 @@ Danh sách khách mời
 							    }
 							});
 						</script>
-					 	<thead>					 		
-					 		<th>Nhóm</th>
-					 		<th>Số điện thoại</th>
-					 		<th>Địa chỉ</th>
-					 		<th>Email</th>
-					 		<th >Tham dự</th>
-					 		<th></th>
-					 		<th></th>
+					 	<thead>
+					 	<tr>
+					 		<th style="width:18%;text-align: left;">Nhóm</th>
+					 		<th style="width:14%;text-align: left;">Số điện thoại</th>
+					 		<th style="width:18%;">Địa chỉ</th>
+					 		<th style="width:18%;">Email</th>
+					 		<th style="width:10%;">Tham dự</th>
+					 		<th style="width:10%;"></th>
+					 		<th style="width:10%;"></th>
+					 	</tr>
 					 	</thead>
 
 					 	<tbody>
 					 	@foreach(Groups::where('user',GuestController::id_user())->get() as $key=>$group)
 					 		<tr class="guest_cat{{$group->id}} guest_cat" id="cate{{$group->id}}">					 						 			
-					 			<td style="width:260px;"><strong>{{$group->name}}</strong> (<span class="total_group_guest{{$group->id}}">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()->count()}}</span>)</td>					 								 		
-					 			<td style="width:200px;"></td>
-					 			<td  style="width:220px;"></td>
-					 			<td style="width:220px;"></td>
-					 			<td style="width:100px;"></td>					 							 									 			</td>
-					 			<td></td>
-					 			<td style="width:100px;">
+					 			<td style="width:18%;text-align: left;"><strong>{{$group->name}}</strong> (<span class="total_group_guest{{$group->id}}">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()->count()}}</span>)</td>					 								 		
+					 			<td style="width:14%;text-align: left;"></td>
+					 			<td style="width:18%;"></td>
+					 			<td style="width:18%;"></td>
+					 			<td style="width:10%;"></td>
+					 			<td style="width:10%;"></td>
+					 			<td style="width:10%;">
 					 				<span class="up_item_cat" style="color: #19b5bc; cursor:pointer; " id="up{{$group->id}}"><i class="glyphicon glyphicon-chevron-up"></i></span>
 					 				<span class="down_item_cat" style="color: #19b5bc; cursor:pointer; display:none"; id="down{{$group->id}}" ><i class="glyphicon glyphicon-chevron-down"></i></span>
 					 				<!-- display or hide a item -->
@@ -330,7 +332,7 @@ Danh sách khách mời
 					 			@foreach(Guests::where('user',GuestController::id_user())->where('group',$group->id)->get() as $guest)
 			 					<tr class=" guest_list{{$guest->id}} guest_list_item_cat" id="guest_list_item_cat{{$guest->id}}">
 			 											 			
-					 			<td>
+					 			<td style="width:18%;text-align: left;">
 					 				<div>
 									 <a onclick="name_click({{$guest->id}})" class="{{$guest->id}}show_name">{{$guest->fullname}}</a> 										 	
 									    <input onblur="name_change({{$guest->id}})" ondblclick="name_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}name form-control input-edit-guest" name="fullname" value="{{$guest->fullname}}">   
@@ -339,7 +341,7 @@ Danh sách khách mời
 									 <p style="display:none;color:red;" class="name_error{{$guest->id}}">Nhập tên khách mời</p>
 									 
 					 			</td>
-						 		<td >
+						 		<td style="width:14%;text-align: left;">
 					 				<div ><!-- Estimate -->
 									 <a onclick="phone_click({{$guest->id}})" class="{{$guest->id}}show_phone">{{$guest->phone}}</a> 										 	
 									    <input onkeyup="key_phone(event,{{$guest->id}})" onblur="phone_change({{$guest->id}})" ondblclick="phone_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}phone form-control input-edit-guest" name="phone" value="{{$guest->phone}}">   
@@ -348,7 +350,7 @@ Danh sách khách mời
 									 <p style="display:none;color:red;" class="phone_error{{$guest->id}}">phone không đúng</p>
 									 
 						 		</td>
-						 		<td ><!-- Actual -->
+						 		<td style="width:18%;"><!-- Actual -->
 									<div  > 
 										<a onclick="address_click({{$guest->id}})" class="{{$guest->id}}show_address">{{$guest->address}}</a> 										 	
 									    <input onblur="address_change({{$guest->id}})" ondblclick="address_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}address form-control input-edit-guest" name="address" value="{{$guest->address}}">   
@@ -356,7 +358,7 @@ Danh sách khách mời
 									</div>
 									
 								</td>
-					 			<td >
+					 			<td style="width:18%;">
 					 				<div  > 
 										<a onclick="email_click({{$guest->id}})" class="{{$guest->id}}show_email">{{$guest->email}}</a> 										 	
 									    <input onblur="email_change({{$guest->id}})" type="text" class="{{$guest->id}}email form-control input-edit-guest" name="email" value="{{$guest->email}}">   
@@ -364,7 +366,7 @@ Danh sách khách mời
 									</div>
 									<p style="display:none;color:red;" class="email_format{{$guest->id}}">email không đúng</p>
 				 				</td><!-- pay -->
-					 			<td>
+					 			<td style="width:10%;">
 					 				<div>
 						 				<a onclick="attend_click({{$guest->id}})" class="{{$guest->id}}show_attend">{{$guest->attending}}</a> 										 	
 									    <input onblur="attend_change({{$guest->id}})" ondblclick="attend_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}attend form-control input-edit-guest" name="attending" value="{{$guest->attending}}">   
@@ -372,7 +374,7 @@ Danh sách khách mời
 					 				</div>
 					 				
 					 			</td><!-- Due -->
-					 			<td>
+					 			<td style="width:10%;">
 					 				@if($guest->invited==false)
 					 				<input onclick="invited1_click({{$guest->id}})" type="submit" name="invited1" id="invited1{{$guest->id}}" class="invited1 form-control " value="Chưa mời" required="required" title="">
 					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
@@ -387,7 +389,7 @@ Danh sách khách mời
 					 				@endif
 					 			</td>
 					 			
-					 			<td>
+					 			<td style="width:10%;">
 					 				<a onclick="guest_del({{$guest->id}})" href="javascript:void(0)" class="confirm guest_list_icon_trash guest_del{{$guest->id}}"><i class="glyphicon glyphicon-trash"></i></a>
 					 				<input type="hidden"  name="{{$guest->id}}" value="{{$guest->id}}" >
 
@@ -398,7 +400,7 @@ Danh sách khách mời
 						 		@endforeach
 						 		<tr class="guest_list_item_cat" id="guest_list_item_cat">
 						 			
-						 				<td colspan="7"><a onclick="add_guest({{$group->id}})" href="javascript:void(0)" class="guest_list_add{{$group->id}}" style="cursor:pointer;">
+						 			<td style="text-align: left;" colspan="7"><a onclick="add_guest({{$group->id}})" href="javascript:void(0)" class="guest_list_add{{$group->id}}" style="cursor:pointer;">
 											<i class="glyphicon glyphicon-plus"></i>&nbsp Thêm Khách
 										</a>
 										<input type="hidden" value="{{$group->id}}" name="{{$group->id}}">

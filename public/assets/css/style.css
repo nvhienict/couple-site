@@ -4,7 +4,7 @@
 
 
 body {
-    
+    width: 100%;
     font-family: Arial;
 	font-weight: 300;
     color: #666;
@@ -12,7 +12,7 @@ body {
 	font-size: 16px;
     line-height: 1.6em;
 	font-weight: 400;
-	margin: 0 15px 0 15px;
+	margin: 0 auto;
 }
 
 html {
@@ -567,11 +567,9 @@ section#intro {
 	z-index: 10000;
 }
 
-/**
-* slide show
-*
-*/
-
+/* ===========================
+--- About
+============================ */
 
 
 
@@ -779,15 +777,27 @@ form.search-form input:focus {
 --- Footer
 ============================ */
 
-.footer {
-	text-align: center;
-	padding: 50px 0 ;
-	background-color: #f2f0ee;
+footer {
+    background-color: #404040;
 }
 
-.footer p {
-	color: #707070;
+footer {
+	text-align: center;
+	padding: 50px 0 ;
+	
+}
+
+footer p {
+	color: #f8f8f8;
 	font-size: 14px;
+}
+
+footer a.totop {
+	color: #fff;
+	margin-bottom: 30px;
+}
+footer a.totop:focus {
+	outline: 0;
 }
 
 
@@ -1934,11 +1944,13 @@ div.song_content button{
 }
 .table-guest tr td{
 	padding: 0px 0px 0px 10px;
+	text-align: center;
+	
 }
 .table-guest th{
 	background: #555555;
 	color: #fff;
-	text-align: left;
+	text-align: center;
 	padding: 5px;
 
 }

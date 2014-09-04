@@ -68,7 +68,7 @@ class GuestController extends \BaseController {
 		$html .='<tr class="guest_list'.$guest_add->id.'" id="guest_list_item_cat'.$guest_add->id.'">
 			 						
 		 		
-	 			<td>
+	 			<td style="width:18%;text-align: left;">
 	 				<div>
 					 <a onclick="name_click('.$guest_add->id.')" class="'.$guest_add->id.'show_name">'.$guest->fullname.'</a> 										 	
 					    <input onblur="name_change('.$guest_add->id.')" ondblclick="name_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'name form-control input-edit-guest" name="fullname" value="'.$guest->fullname.'">   
@@ -76,7 +76,7 @@ class GuestController extends \BaseController {
 						 <p style="display:none;color:red;" class="name_error'.$guest_add->id.'">Nhập tên khách mời</p>
 					 </div>			 
 	 			</td>
-		 		<td >
+		 		<td style="width:14%;text-align: left;">
 	 				<div ><!-- Estimate -->
 					 <a onclick="phone_click('.$guest_add->id.')" class="'.$guest_add->id.'show_phone">'.$guest->phone.'</a> 										 	
 					    <input onkeyup="key_phone(event,'.$guest_add->id.')" onblur="phone_change('.$guest_add->id.')" ondblclick="phone_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'phone form-control input-edit-guest" name="phone" value="'.$guest->phone.'">   
@@ -84,14 +84,14 @@ class GuestController extends \BaseController {
 					 </div>	
 					  <p style="display:none;color:red;" class="phone_error'.$guest_add->id.'">phone không đúng</p>				 
 		 		</td>
-		 		<td >
+		 		<td style="width:18%;">
 					<div> 
 						<a onclick="address_click('.$guest_add->id.')" class="'.$guest_add->id.'show_address">'.$guest->address.'</a> 										 	
 					    <input onblur="address_change('.$guest_add->id.')" ondblclick="address_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'address form-control input-edit-guest" name="address" value="'.$guest->address.'">   
 						<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
 					</div>				
 				</td>
-	 			<td>
+	 			<td style="width:18%;">
 	 				<div> 
 						<a onclick="email_click('.$guest_add->id.')" class="'.$guest_add->id.'show_email">'.$guest->email.'</a> 										 	
 					    <input onblur="email_change('.$guest_add->id.')"  type="text" class="'.$guest_add->id.'email form-control input-edit-guest" name="email" value="'.$guest->email.'">   
@@ -99,21 +99,21 @@ class GuestController extends \BaseController {
 					</div>
 					<p style="display:none;color:red;" class="email_format'.$guest_add->id.'">email không đúng</p>
  				</td><!-- pay -->
-	 			<td>
+	 			<td style="width:10%;">
 	 				<div>
 		 				<a onclick="attend_click('.$guest_add->id.')" class="'.$guest_add->id.'show_attend">'.$guest->attending.'</a> 										 	
 					    <input onblur="attend_change('.$guest_add->id.')" ondblclick="attend_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'attend form-control input-edit-guest" name="attending" value="'.$guest->attending.'">   
 						<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
 	 				</div>
 	 			</td><!-- Due -->
-	 			<td>
+	 			<td style="width:10%;">
                      
 	 				<input onclick="invited1_click('.$guest->id.')" type="submit" name="invited1" id="invited1'.$guest_add->id.'" class="form-control invited1" value="Chưa mời" required="required" title="">
 	 				<input type="hidden" name="'.$guest->id.'" value="'.$guest->id.'">
 	 				<input onclick="invited2_click('.$guest->id.')"  type="submit" name="invited2" style="display:none" id="invited2'.$guest_add->id.'" class="form-control invited2" value="Đã mời" required="required" title="">
 	 				<input type="hidden" name="'.$guest->id.'" value="'.$guest->id.'">
 	 			</td>
-	 			<td>	 				
+	 			<td style="width:10%;">	 				
 	 				<a onclick="guest_del('.$guest_add->id.')" href="javascript:void(0)"  class="confirm guest_list_icon_trash guest_del'.$guest_add->id.'"><i class="glyphicon glyphicon-trash"></i></a>
 	 				<input type="hidden"  name="'.$guest_add->id.'" value="'.$guest_add->id.'" >
 	 			</td>								
