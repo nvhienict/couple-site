@@ -45,6 +45,12 @@ Route::get('list-vendor',array('as'=>'list-vendor', function(){
 	 return View::make('list-vendor');
 }));
 
+// get location create session display on form seacrh
+// Route::post('get_location/{id}', array('as'=>'get_location', 'uses'=>'VendorController@get_location'));
+Route::post('get_location/{id}', array('as'=>'get_location', function($id){
+	Session::put('location',$id);
+}));
+
 Route::get('category-vendor',array('as'=>'category-vendor', "uses"=>"VendorController@index"));
 
 Route::get('category/{id}', array('as'=>'category', "uses"=>"VendorController@category"));

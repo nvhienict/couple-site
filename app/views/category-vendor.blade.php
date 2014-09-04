@@ -38,14 +38,34 @@ Danh sách Dịch vụ
             <p class="lead">Tìm kiếm nhà cung cấp</p>
             <div class="list-group">
             	<form id="form-search" class="wow bounceInUp form-homepage" action="{{Asset('list-vendor/search')}}" method="get">
-	                <input type="text" name="name" class="form-control input-lg"
-	                		value="{{Input::get('name')}}" placeholder="Từ tìm kiếm" />
+	                <input type="text" name="name" class="form-control input-lg" value="{{Input::get('name')}}" placeholder="Từ tìm kiếm" />
+	                
 	                <select name="location" class="form-control input-lg">
-	                	@foreach(Location::get() as $location)
-				    	<option value="{{$location->id}}">{{$location->name}}</option>
+			    		@foreach(Location::get() as $location)
+
+			    			@if(!Session::has('location'))
+			    				<option value="{{$location->id}}" id="get_location{{$location->id}}">{{$location->name}}</option>
+				    		@else
+				    			@if(Session::get('location')==$location->id)
+				    				<option selected="selected" value="{{$location->id}}" id="get_location{{$location->id}}">{{$location->name}}</option>
+				    			@else
+				    				<option value="{{$location->id}}" id="get_location{{$location->id}}">{{$location->name}}</option>
+				    			@endif
+				    		@endif
+
+				    		<script type="text/javascript">
+					    		$('#get_location{{$location->id}}').click(function(){
+
+					    			$.ajax({
+					    				type: "post",
+					    				url: "{{URL::route('get_location', array($location->id))}}"
+					    			});
+					    		});
+					    	</script>
 				    	@endforeach
 			    	</select>
-	                <input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Danh mục" value="{{Input::get('category')}}" readonly style="cursor:pointer;" >
+
+	                <input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Danh mục" value="{{Category::where('id',$id)->get()->first()->name}}" readonly style="cursor:pointer;" >
 			    	<input id="searchId" name="category_id" type="hidden">
 			    	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 					    <li role="presentation">

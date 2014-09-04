@@ -188,7 +188,26 @@ Trang chủ
 								<div class="col-xs-6 col-md-6">
 									<select name="location" class="form-control input-lg">
 							    		@foreach(Location::get() as $location)
-								    	<option value="{{$location->id}}">{{$location->name}}</option>
+
+							    			@if(!Session::has('location'))
+							    				<option value="{{$location->id}}" id="get_location{{$location->id}}">{{$location->name}}</option>
+								    		@else
+								    			@if(Session::get('location')==$location->id)
+								    				<option selected="selected" value="{{$location->id}}" id="get_location{{$location->id}}">{{$location->name}}</option>
+								    			@else
+								    				<option value="{{$location->id}}" id="get_location{{$location->id}}">{{$location->name}}</option>
+								    			@endif
+								    		@endif
+
+								    		<script type="text/javascript">
+									    		$('#get_location{{$location->id}}').click(function(){
+
+									    			$.ajax({
+									    				type: "post",
+									    				url: "{{URL::route('get_location', array($location->id))}}"
+									    			});
+									    		});
+									    	</script>
 								    	@endforeach
 							    	</select>
 								</div>
