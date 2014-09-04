@@ -155,7 +155,7 @@ Route::post('budget/delete',array('as'=>'delete','uses'=>'UserBudgetController@d
 Route::post('budget/update',array('as'=>'update','uses'=>'UserBudgetController@update'));
 // Route::post('budget/update1',array('as'=>'update1','uses'=>'ItemController@update1'));
 // Route::post('budget/update2',array('as'=>'update2','uses'=>'ItemController@update2'));
-
+Route::get('budget/exportfile',array("as"=>"exportfile", "uses"=>"UserBudgetController@exportfile"));
 
 // PROFILE OF USER
 Route::get('profile', array('as'=>'profile', 'uses'=>'UserController@get_profile'));

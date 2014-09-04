@@ -371,7 +371,7 @@ public function update_name()
 		}
 
 
-		Excel::create('Guestslist', function($excel) use($row) {
+		Excel::create('Budget', function($excel) use($row) {
 			
 		    $excel->sheet('Guestslist', function($sheet) use($row) {
 		    	

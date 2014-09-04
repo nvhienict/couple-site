@@ -74,8 +74,8 @@ Quản lý ngân sách
 			</div>
 			<div class="row">
 				<div class="col-xs-4">
-					<a href="#" style="cursor:pointer;">
-						<i class="fa fa-print"></i>&nbsp In báo cáo
+					<a href="{{URL::route('exportfile')}}" style="cursor:pointer;">
+						<i class="fa fa-print"></i>&nbsp Xuất file
 					</a>
 				</div>
 				<div class="col-xs-8" align="right">

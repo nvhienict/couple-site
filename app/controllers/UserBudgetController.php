@@ -287,5 +287,86 @@ class UserBudgetController extends \BaseController {
 		echo json_encode($task);
 		exit();
 	}
-	
+	function exportfile()
+	{
+		$id_user=UserBudgetController::id_user();
+		$categories= Category::get();
+		$datas = UserBudget::where('user', $id_user)->get();
+		$email = User::where('id', $id_user)->get()->first()->email;
+		$date_wedding = new DateTime(User::find($id_user)->weddingdate);
+
+		$row= array(
+			array('Khách hàng', $email, ''),
+			array('In chi phí từ', 'thuna.vn', ''),
+		    array('Danh mục ','Phần tử','Chi phí dự kiến','Chi phí thực tế','Thanh toán','Còn nợ'),
+
+		);
+		$row1=array(
+			array('Khách hàng', $email, ''),
+			array('In chi phí từ', 'thuna.vn', ''),
+		    array('Danh mục ','Tổng chi phí dự kiến','Tổng chi phí thực tế','Thanh toán','Còn nợ'),
+			);
+		
+			
+			foreach($datas as $data){
+					$id_category=$data->category;
+					$category=Category::where('id',$id_category)->get()->first()->name;
+					$item=$data->item;
+					$estimate=$data->estimate;
+					$actual=$data->actual;
+					$pay=$data->pay;
+					$due = $actual - $pay;
+					
+				    $row[] = array($category, $item, $estimate,$actual,$pay,$due );
+			}
+			foreach ($categories as $cat) {
+				$categoriname=$cat->name;
+				$sumEstimate=UserBudget::where('user',UserBudgetController::id_user())
+					 				->where('category',$cat->id)
+					 				->sum('estimate');
+				$sumActual=UserBudget::where('user',UserBudgetController::id_user())
+					 				->where('category',$cat->id)
+					 				->sum('actual');
+				$sumPay=UserBudget::where('user',UserBudgetController::id_user())
+					 				->where('category',$cat->id)
+					 				->sum('pay');
+				$sumDue=$sumActual-$sumPay;
+				$row1[]=array($categoriname,$sumEstimate,$sumActual,$sumPay,$sumDue);	 				
+			}
+		
+		Excel::create('Budget', function($excel) use($row,$row1) {
+			
+		    $excel->sheet('Chi tiết chi phí', function($sheet) use($row) {
+		    	
+		    	$sheet->cells('A3:F3', function($row) {
+				    // set color for cell
+				    $row->setBackground('#95b3d7');
+
+				});
+		    	
+		    	// cell A1 not null
+		        $sheet->fromArray($row, null, 'A1', false, false);
+		        
+		    });
+
+		     $excel->sheet('Tổng chi phí', function($sheet) use($row1) {
+		    	
+		    	$sheet->cells('A3:E3', function($row1) {
+				    // set color for cell
+				    $row1->setBackground('#95b3d7');
+
+				});
+		    	
+		    	// cell A1 not null
+		        $sheet->fromArray($row1, null, 'A1', false, false);
+		        
+		    });
+		})->export('xlsx');
+		
+
+		
+
+		return View::make('user-checklist');
+
+	}
 }
