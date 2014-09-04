@@ -239,10 +239,14 @@ Danh sách khách mời
 											if($('.guest_list_show_cat'+id).is(':visible') )
 											{
 												$('.guest_list_show_cat'+id).hide();
+												$('#up'+id).hide();
+												$('#down'+id).show();
 											}
 											else
 											{
 												$('.guest_list_show_cat'+id).show();
+												$('#up'+id).show();
+												$('#down'+id).hide();
 											}
 										}
 

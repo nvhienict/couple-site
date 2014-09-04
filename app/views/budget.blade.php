@@ -189,10 +189,14 @@ Quản lý ngân sách
 											if($('.budget_item_show_cat'+id).is(':visible') )
 											{
 												$('.budget_item_show_cat'+id).hide();
+												$('#up'+id).hide();
+												$('#down'+id).show();
 											}
 											else
 											{
 												$('.budget_item_show_cat'+id).show();
+												$('#up'+id).show();
+												$('#down'+id).hide();
 											}
 										}
 									</script>
