@@ -81,29 +81,77 @@ class VendorController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$email=Session::get('email');
 
-		if (empty($email)) {
-			$firstname ="";
-			$lastname ="";
-			$email ="";
+		if (!Session::has('email')) {
+			$firstname = "";
+			$lastname = "";
+			$user_name = $firstname.' '.$lastname;
+			$user_avatar="";
+			$email = "";
 		}else{
-			$id_user=User::where('email',$email)->get()->first()->id;
+			$id_user = VendorController::id_user();
 
 			$firstname = User::where('id',$id_user)->get()->first()->firstname;
 			$lastname = User::where('id',$id_user)->get()->first()->lastname;
+			$user_name = $firstname.' '.$lastname;
+			$user_avatar = User::where('id',$id_user)->get()->first()->avatar;
 			$email = User::where('id',$id_user)->get()->first()->email;
 		}		
 		$photoslides=PhotoSlide::where('vendor',$id)->get();	
 		$vendor=Vendor::where('id',$id)->get()->first();
+
 		return View::make("detail-vendor")->with("vendor",$vendor)
 										->with('firstname',$firstname)
 										->with('lastname',$lastname)
+										->with('user_name',$user_name)
+										->with('user_avatar',$user_avatar)
 										->with('email',$email)
 										->with('photoslides',$photoslides);
 										
 									
 	}
+
+	// comment for vendor
+	public function vendor_comment($id_vendor)
+	{
+		$id_user = Input::get('id_user');
+		$cmt = Input::get('cmt');
+
+		$firstname = User::where('id',$id_user)->get()->first()->firstname;
+		$lastname = User::where('id',$id_user)->get()->first()->lastname;
+		$user_name = $firstname.' '.$lastname;
+
+		// insert comment to table vendor_comment
+
+		$vendor_comment = new VendorComment();
+		$vendor_comment->user=$id_user;
+		$vendor_comment->user_name=$user_name;
+		$vendor_comment->vendor=$id_vendor;
+		$vendor_comment->content=$cmt;
+		$vendor_comment->save();
+
+		$user_avatar = User::where('id',$id_user)->get()->first()->avatar;
+
+		// get data for show 
+		$arComment = vendorComment::get()->last();
+
+		$html = '';
+		$html .="<div class='vendor_comment'>
+					<div class='vendor_avatar'>
+						<img class='user_avatar' alt='' src='data:image/jpeg;base64,". base64_encode($user_avatar) . "' /> 
+					</div>
+					<div class='vendor_content'>
+						<span style='color: #428bca;''>".$arComment->user_name."</span> nói rằng:<br />
+						
+						".$arComment->content."
+					</div>
+				</div>
+				<div id='your_cmt'></div>";
+		echo $html;
+
+	}
+
+
 	/**
 	 * Show the form for editing the specified resource.
 	 *

@@ -89,12 +89,66 @@
 									<h4> Video</h4>
 									{{$vendor->video}}	
 								</div>
-						  </div>
-						  <div class="tab-pane" id="review">
-						  		
-						  			<h4>{{Lang::get('messages.Review')}}</h4>
-						  </div>
-						  <div class="tab-pane" id="photos">
+						  	</div>
+						  	<div class="tab-pane" id="review">
+
+						  	@if(!Session::has('email'))
+								<span><a href="{{URL::route('cmt_vendor', array($vendor['id']))}}" >Đăng nhận xét!</a></span>
+							@endif
+
+						  		@foreach(VendorComment::where('vendor',$vendor->id)->get() as $cmt)
+								
+								<div class="vendor_comment">
+									<div class="vendor_avatar">
+										{{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}}
+									</div>
+									<div class="vendor_content">
+										<span style="color: #428bca;">{{$cmt['user_name']}}</span> nhận xét:<br />
+										
+										{{$cmt['content']}}
+									</div>
+								</div>
+								
+								@endforeach
+								<div id="your_cmt"></div> <!-- add comment -->
+
+								@if(Session::has('email'))
+
+								<div class="vendor_comment">
+									<div class="vendor_avatar">
+										{{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}}<br />
+										<span style="color: #428bca;">{{$user_name}}</span>
+									</div>
+									<div class="vendor_content">
+										<input type="text" id="vendor_comment" placeholder="Nhận xét của bạn..."></input><br />
+										<button class="btn btn-primary" onclick="post_comment({{UserController::id_user()}})">Đăng</button>
+									</div>
+								</div>
+						
+								@endif
+								<script type="text/javascript">
+									function post_comment (id_user) {
+										
+										var cmt = $("#vendor_comment").val(); 
+										$("#vendor_comment").val("");
+
+										$.ajax({
+											type: "post",
+											url: "{{URL::route('vendor_comment', array('id_vendor'=>$vendor['id']))}}",
+											data: {
+												id_user:id_user,
+												cmt:cmt
+											},
+											success: function(data){
+												$('#your_cmt').replaceWith(data);
+											}
+
+										});
+
+									}
+								</script>
+						  	</div>
+						  	<div class="tab-pane" id="photos">
 						  			<h4>{{Lang::get('messages.Photo')}}</h4>
 						  			  <!-- Wrapper for slides -->
 								<div id="bigPic">

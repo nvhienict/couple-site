@@ -34,7 +34,12 @@ Route::get('/map/{id}',function($id){
 	return View::make('map')->with('vendor', Vendor::find($id));
 });
 
-Route::get('vendor/{id}', array('as'=>'vendor', 'uses'=>'VendorController@show'));
+/**
+* Route vendor
+*
+*
+**/
+
 
 Route::get('list-vendor',array('as'=>'list-vendor', function(){
 	 return View::make('list-vendor');
@@ -56,9 +61,15 @@ Route::post('check_vendor_compare',array("as"=>"check_vendor_compare", "uses"=>"
 
 Route::post('remove_vendor_compare/{id}',array("as"=>"remove_vendor_compare", "uses"=>"VendorController@post_RemoveCompare"));
 
+Route::get('vendor/{id}', array('as'=>'vendor', 'uses'=>'VendorController@show'));
+
+Route::post('vendor_comment/{id_vendor}', array("as"=>"vendor_comment", "uses"=>"VendorController@vendor_comment"));
+
+Route::get('vendor/{id}/comments', array("before"=>"check_login", 'as'=>'cmt_vendor', 'uses'=>'VendorController@show'));
+
+/* End Route vendor */
 
 
-/*Cuong*/
 
 Route::get('about',array('as'=>'about',function(){
 	return View::make('about');

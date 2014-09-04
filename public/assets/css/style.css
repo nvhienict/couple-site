@@ -1351,7 +1351,40 @@ ul#thumbs-main li{
 	cursor:pointer;
 	list-style:none;
 }
-/*Cuong*/
+/*- comment in detail vendor -*/
+div.vendor_comment{
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	margin: 10px 0px;
+	display: inline-block;
+}
+div.vendor_avatar{
+	width: 48px;
+	height: 48px;
+	float: left;
+	margin: 0px 20px 0px 0px;
+}
+div.vendor_avatar img{
+	width: 48px;
+	height: 48px;
+}
+div.vendor_content{
+	margin: 0px 0px 0px 5px;
+}
+div.vendor_content input{
+	margin: 0px 0px 10px;
+	width: 90%;
+	height: 50px;
+}
+div.vendor_content button{
+	margin: 0px 0px 10px 63px;
+}
+
+
+/**
+*Main
+*
+**/
 .user-header{
 	background: #404040;
 }
