@@ -273,8 +273,11 @@
 							  </div>
 							  <div class="form-group">
 							    <div class="">
-							      <input data-format="yyyy-MM-dd" type="text"   id="input-date" class="form-control  " placeholder="Ngày-tháng-năm" tabindex="3">
-							      	<!-- datetime-picker -->
+							    @if(!empty($weddingdate))
+							      	
+							      	<input data-format="yyyy-MM-dd" type="text"   id="input-date" class="form-control  " placeholder="" value="{{$weddingdate}}"tabindex="3">
+							    	@else
+							    	<input data-format="yyyy-MM-dd" type="text"   id="input-date" class="form-control  " placeholder="Ngày cưới" tabindex="3">
 							      <script type="text/javascript">
 						                $(function() {
 						                  $('#input-date').datetimepicker({
@@ -285,6 +288,7 @@
 										  
 						                });
 						              </script>
+						         @endif
 							    </div>
 							  </div>
 							  <div class="form-group">

@@ -88,6 +88,7 @@ class VendorController extends \BaseController {
 			$user_name = $firstname.' '.$lastname;
 			$user_avatar="";
 			$email = "";
+			$weddingdate="";
 		}else{
 			$id_user = VendorController::id_user();
 
@@ -96,6 +97,7 @@ class VendorController extends \BaseController {
 			$user_name = $firstname.' '.$lastname;
 			$user_avatar = User::where('id',$id_user)->get()->first()->avatar;
 			$email = User::where('id',$id_user)->get()->first()->email;
+			$weddingdate=VendorController::getDates();
 		}		
 		$photoslides=PhotoSlide::where('vendor',$id)->get();	
 		$vendor=Vendor::where('id',$id)->get()->first();
@@ -106,9 +108,16 @@ class VendorController extends \BaseController {
 										->with('user_name',$user_name)
 										->with('user_avatar',$user_avatar)
 										->with('email',$email)
+										->with('weddingdate',$weddingdate)
 										->with('photoslides',$photoslides);
 										
 									
+	}
+	public static function getDates(){
+		$id_user = ChecklistController::id_user();
+		$weddingdate = User::find($id_user)->weddingdate;
+
+		return Carbon::parse($weddingdate)->format('d-m-Y');
 	}
 
 	// comment for vendor
