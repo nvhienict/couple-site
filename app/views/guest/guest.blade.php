@@ -336,7 +336,7 @@ Danh sách khách mời
 									    <input onblur="name_change({{$guest->id}})" ondblclick="name_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}name form-control input-edit-guest" name="fullname" value="{{$guest->fullname}}">   
 										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 									 </div>
-									 <p style="display:none;color:red;" class="name_error{{$guest->id}}">Vui lòng nhập tên khách mời</p>
+									 <p style="display:none;color:red;" class="name_error{{$guest->id}}">Nhập tên khách mời</p>
 									 
 					 			</td>
 						 		<td >
@@ -345,7 +345,7 @@ Danh sách khách mời
 									    <input onkeyup="key_phone(event,{{$guest->id}})" onblur="phone_change({{$guest->id}})" ondblclick="phone_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}phone form-control input-edit-guest" name="phone" value="{{$guest->phone}}">   
 										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 									 </div>
-									 
+									 <p style="display:none;color:red;" class="phone_error{{$guest->id}}">phone không đúng</p>
 									 
 						 		</td>
 						 		<td ><!-- Actual -->
@@ -581,9 +581,12 @@ Danh sách khách mời
 					});	
             		$('.'+id+'show_phone').text($("."+id+"phone").val());
 					$("."+id+"phone").hide();
-					$('.'+id+'show_phone').show();					
+					$('.'+id+'show_phone').show();	
+					$('.phone_error'+id).hide();			
             	} else{
-            		$.ajax({
+            		var str=$("."+id+"phone").val();
+            		if (str.length>9&&str.length<12) {
+            			$.ajax({
 					type: "post",
 					url: "{{URL::route('update_phone')}}",
 					data: {
@@ -591,10 +594,16 @@ Danh sách khách mời
 					id:$("."+id+"phone").next().val()
 					}							
 				});
-				$('.'+id+'show_phone').text($("."+id+"phone").val());
-				$("."+id+"phone").hide();
-				$('.'+id+'show_phone').show();
-				$('.phone_error'+id).hide();
+					$('.'+id+'show_phone').text($("."+id+"phone").val());
+					$("."+id+"phone").hide();
+					$('.'+id+'show_phone').show();
+					$('.phone_error'+id).hide();
+            		} else{
+            			$("."+id+"phone").show();
+						$('.'+id+'show_phone').hide();
+						$('.phone_error'+id).show();
+            		};
+            		
             	};
             };            
 			function key_phone(event,id)
