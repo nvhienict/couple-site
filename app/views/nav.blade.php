@@ -109,10 +109,6 @@
           </ul>
         </li>
 
-      <li><a href="{{URL::route('index')}}#about">Giới thiệu</a></li>
-      <li><a href="{{URL::route('index')}}#service">Dịch vụ</a></li>
-      <li><a href="{{URL::route('index')}}#contact">Liên hệ</a></li>
-      <li><div id="giang2"></div></li>
     </ul>
   </div>
 </div>

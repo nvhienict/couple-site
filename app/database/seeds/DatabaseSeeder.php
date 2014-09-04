@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UserTableSeeder');
 		$this->call('LocationTableSeeder');		
 		$this->call('CategoriesTableSeeder');
+        $this->call('VendorTableSeeder');
 	}
 
 }
@@ -117,9 +118,9 @@ class CategoriesTableSeeder extends Seeder {
         Category::create(array(
         	'name'=>'Áo cưới cô dâu',
         	'description'=>'',
-        	'range1'=>'',
-        	'range2'=>'',
-        	'range3'=>'',
+        	'range1'=>0.08,
+        	'range2'=>0.08,
+        	'range3'=>0.08,
         	'range4'=>'',
         	'range5'=>'',
             'images'=>'dress.svg'
@@ -128,9 +129,9 @@ class CategoriesTableSeeder extends Seeder {
 	    Category::create(array(
         	'name'=>'Ban nhạc',
         	'description'=>'',
-        	'range1'=>'',
-        	'range2'=>'',
-        	'range3'=>'',
+        	'range1'=>0.02,
+        	'range2'=>0.02,
+        	'range3'=>0.03,
         	'range4'=>'',
         	'range5'=>'',
             'images'=>'band.svg'
@@ -139,9 +140,9 @@ class CategoriesTableSeeder extends Seeder {
 	    Category::create(array(
         	'name'=>'Bánh cưới',
         	'description'=>'',
-        	'range1'=>'',
-        	'range2'=>'',
-        	'range3'=>'',
+        	'range1'=>0,
+        	'range2'=>0.01,
+        	'range3'=>0.01,
         	'range4'=>'',
         	'range5'=>'',
             'images'=>'cake.png'
@@ -150,9 +151,9 @@ class CategoriesTableSeeder extends Seeder {
 	    Category::create(array(
         	'name'=>'Dịch vụ vận chuyển',
         	'description'=>'',
-        	'range1'=>'',
-        	'range2'=>'',
-        	'range3'=>'',
+        	'range1'=>0,
+        	'range2'=>0,
+        	'range3'=>0.02,
         	'range4'=>'',
         	'range5'=>'',
             'images'=>'transportation.svg'
@@ -161,9 +162,9 @@ class CategoriesTableSeeder extends Seeder {
 	    Category::create(array(
         	'name'=>'Trang điểm',
         	'description'=>'',
-        	'range1'=>'',
-        	'range2'=>'',
-        	'range3'=>'',
+        	'range1'=>0.04,
+        	'range2'=>0.03,
+        	'range3'=>0.03,
         	'range4'=>'',
         	'range5'=>'',
             'images'=>'makeup.png'
@@ -183,9 +184,9 @@ class CategoriesTableSeeder extends Seeder {
 	    Category::create(array(
         	'name'=>'Nhà hàng tiệc cưới',
         	'description'=>'',
-        	'range1'=>'',
-        	'range2'=>'',
-        	'range3'=>'',
+        	'range1'=>0.58,
+        	'range2'=>0.52,
+        	'range3'=>0.48,
         	'range4'=>'',
         	'range5'=>'',
             'images'=>'venue.svg'
@@ -194,9 +195,9 @@ class CategoriesTableSeeder extends Seeder {
 	    Category::create(array(
         	'name'=>'Chụp ảnh',
         	'description'=>'',
-        	'range1'=>'',
-        	'range2'=>'',
-        	'range3'=>'',
+        	'range1'=>0.08,
+        	'range2'=>0.1,
+        	'range3'=>0.07,
         	'range4'=>'',
         	'range5'=>'',
             'images'=>'photography.svg'
@@ -205,9 +206,9 @@ class CategoriesTableSeeder extends Seeder {
 	    Category::create(array(
         	'name'=>'Thiệp cưới',
         	'description'=>'',
-        	'range1'=>'',
-        	'range2'=>'',
-        	'range3'=>'',
+        	'range1'=>0.02,
+        	'range2'=>0.02,
+        	'range3'=>0.02,
         	'range4'=>'',
         	'range5'=>'',
             'images'=>'invitations.svg'
@@ -216,9 +217,9 @@ class CategoriesTableSeeder extends Seeder {
 	    Category::create(array(
         	'name'=>'Trang phục chú rể',
         	'description'=>'',
-        	'range1'=>'',
-        	'range2'=>'',
-        	'range3'=>'',
+        	'range1'=>0.02,
+        	'range2'=>0.02,
+        	'range3'=>0.02,
         	'range4'=>'',
         	'range5'=>'',
             'images'=>'dress.svg'
@@ -227,9 +228,9 @@ class CategoriesTableSeeder extends Seeder {
 	    Category::create(array(
         	'name'=>'Hoa và trang trí',
         	'description'=>'',
-        	'range1'=>'',
-        	'range2'=>'',
-        	'range3'=>'',
+        	'range1'=>0.1,
+        	'range2'=>0.1,
+        	'range3'=>0.12,
         	'range4'=>'',
         	'range5'=>'',
             'images'=>'florist.svg'
@@ -238,9 +239,9 @@ class CategoriesTableSeeder extends Seeder {
 	    Category::create(array(
         	'name'=>'Ca sĩ/MC',
         	'description'=>'',
-        	'range1'=>'',
-        	'range2'=>'',
-        	'range3'=>'',
+        	'range1'=>0,
+        	'range2'=>0.02,
+        	'range3'=>0.02,
         	'range4'=>'',
         	'range5'=>'',
             'images'=>'music.png'
@@ -249,9 +250,9 @@ class CategoriesTableSeeder extends Seeder {
 	    Category::create(array(
         	'name'=>'Quay phim',
         	'description'=>'',
-        	'range1'=>'',
-        	'range2'=>'',
-        	'range3'=>'',
+        	'range1'=>0.06,
+        	'range2'=>0.08,
+        	'range3'=>0.08,
         	'range4'=>'',
         	'range5'=>'',
             'images'=>'videography.svg'
@@ -260,9 +261,9 @@ class CategoriesTableSeeder extends Seeder {
 	    Category::create(array(
         	'name'=>'Khác',
         	'description'=>'',
-        	'range1'=>'',
-        	'range2'=>'',
-        	'range3'=>'',
+        	'range1'=>0,
+        	'range2'=>0,
+        	'range3'=>0.02,
         	'range4'=>'',
         	'range5'=>'',
             'images'=>'other.svg'
@@ -271,3 +272,102 @@ class CategoriesTableSeeder extends Seeder {
     }
 }
 
+class VendorTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('vendors')->delete();
+
+        for ($i = 0; $i < 10; $i++)
+        {
+          $vendor = Vendor::create(array(
+            'name' => 'Monte Cristo Ballroom',
+            'address' => '1507 Wall Street' ,
+            'phone' => 099966654,
+            'website' => 'thuna.vn',
+            'email' => 'info@montecristoballroom.com',
+            'avatar' => '',
+            'about' => "The Monte Cristo Ballroom is an all-inclusive chef-owned wedding and event venue in downtown Everett, WA. This historic building, originally a hotel build in the late 1800's, provides a stunning, elegant ambiance for any special occasion. At the Monte Cristo Ballroom, we strive to create a relaxed experience for you on your special day.",
+            'album' => 1,
+            'video' => '<iframe width="560" height="315" src="//www.youtube.com/embed/dHOEGpEesFQ" frameborder="0" allowfullscreen></iframe>',
+            'map' => '<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d26081603.29442047!2d-95.677068!3d37.0625!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1405651963057" width="600" height="450" frameborder="0" style="border:0"></iframe>',
+            'category' => 1,
+            'location' => 1
+
+          ));
+        }
+        for ($i = 0; $i < 10; $i++)
+        {
+          $vendor = Vendor::create(array(
+            'name' => 'Lord Hill Farms',
+            'address' => '1507 Wall Street' ,
+            'phone' => 099966654,
+            'website' => 'thuna.vn',
+            'email' => 'info@montecristoballroom.com',
+            'avatar' => '',
+            'about' => "The Monte Cristo Ballroom is an all-inclusive chef-owned wedding and event venue in downtown Everett, WA. This historic building, originally a hotel build in the late 1800's, provides a stunning, elegant ambiance for any special occasion. At the Monte Cristo Ballroom, we strive to create a relaxed experience for you on your special day.",
+            'album' => 2,
+            'video' => '<iframe width="560" height="315" src="//www.youtube.com/embed/dHOEGpEesFQ" frameborder="0" allowfullscreen></iframe>',
+            'map' => '<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d26081603.29442047!2d-95.677068!3d37.0625!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1405651963057" width="600" height="450" frameborder="0" style="border:0"></iframe>',
+            'category' => 2,
+            'location' => 1
+
+          ));
+        }
+        for ($i = 0; $i < 10; $i++)
+        {
+          $vendor = Vendor::create(array(
+            'name' => 'Belle Chapel',
+            'address' => '1507 Wall Street' ,
+            'phone' => 099966654,
+            'website' => 'thuna.vn',
+            'email' => 'info@montecristoballroom.com',
+            'avatar' => '',
+            'about' => "The Monte Cristo Ballroom is an all-inclusive chef-owned wedding and event venue in downtown Everett, WA. This historic building, originally a hotel build in the late 1800's, provides a stunning, elegant ambiance for any special occasion. At the Monte Cristo Ballroom, we strive to create a relaxed experience for you on your special day.",
+            'album' => 3,
+            'video' => '<iframe width="560" height="315" src="//www.youtube.com/embed/dHOEGpEesFQ" frameborder="0" allowfullscreen></iframe>',
+            'map' => '<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d26081603.29442047!2d-95.677068!3d37.0625!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1405651963057" width="600" height="450" frameborder="0" style="border:0"></iframe>',
+            'category' => 3,
+            'location' => 1
+
+          ));
+        }
+        for ($i = 0; $i < 10; $i++)
+        {
+          $vendor = Vendor::create(array(
+            'name' => 'Pickering Barn',
+            'address' => '1507 Wall Street' ,
+            'phone' => 099966654,
+            'website' => 'thuna.vn',
+            'email' => 'info@montecristoballroom.com',
+            'avatar' => '',
+            'about' => "The Monte Cristo Ballroom is an all-inclusive chef-owned wedding and event venue in downtown Everett, WA. This historic building, originally a hotel build in the late 1800's, provides a stunning, elegant ambiance for any special occasion. At the Monte Cristo Ballroom, we strive to create a relaxed experience for you on your special day.",
+            'album' => 4,
+            'video' => '<iframe width="560" height="315" src="//www.youtube.com/embed/dHOEGpEesFQ" frameborder="0" allowfullscreen></iframe>',
+            'map' => '<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d26081603.29442047!2d-95.677068!3d37.0625!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1405651963057" width="600" height="450" frameborder="0" style="border:0"></iframe>',
+            'category' => 4,
+            'location' => 2
+
+          ));
+        }
+    }
+}
+class UserTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('users')->delete();
+
+        User::create(array(
+            'email' => 'admin@gmail.com',
+            'password'=>Hash::make('123456'),
+            'firstname'=>'nguyen',
+            'lastname'=>'thuna',
+            'weddingdate'=>'',
+            'role_id'=>'1',
+            'remember_me'=>'',
+            'budget'=>'1'
+        )
+        );
+    }
+}

@@ -137,7 +137,7 @@ Danh sách công việc
 									@if(ChecklistController::comparedate($usertask->startdate,$usertask->todo))
 										<span  id="warning{{$usertask->id}}" class="fa fa-warning" style="color:#E9621A;"></span>
 									@else
-										<span  id="warning{{$usertask->id}}" class="fa fa-warning" style="color:#E9621A; display: none;"></span>
+										<span  id="warning{{$usertask->id}}" class="fa fa-warning warning" style="color:#E9621A;"></span>
 									@endif
 								</td>
 								<td>
@@ -390,6 +390,7 @@ Danh sách công việc
 		$("#task"+id).text(data['Counttask']);
 		$("#overDue"+id).text(data['Overdue']);
 		$("#Completed"+id).text(data['completed']);
+		$("#warning"+id).replaceWith(data['waning']);
 	}
 
 	function clickCheckbox(index,id_usertask){
@@ -405,7 +406,7 @@ Danh sách công việc
 
 			$("#count_overdue").text($j);
 			$("#count_complete").text($i);
-			$("#warning"+id_usertask).hide();
+			$("#warning"+id_usertask).addClass();
 			$.ajax({
 				type: "post",
 				url: "{{URL::route('check_task_complete',array('ac'=>1))}}",

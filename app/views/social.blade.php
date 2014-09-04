@@ -23,11 +23,7 @@
 		<div id="social">
 		<!-- facebook -->
 			 <div class="button_social">
-				<!-- <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fthuna.vn%2F&amp;
-				width=70&amp;layout=box_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;ref=none&amp;
-				height=65" scrolling="no" frameborder="0" style="border:none; margin-left: 6px; overflow:hidden; width:70px; height:65px;"
-				 allowTransparency="true" href="">
-				</iframe> -->
+				
 				<div id="fb-root"></div>
 					<script>
 						(function(d, s, id) {

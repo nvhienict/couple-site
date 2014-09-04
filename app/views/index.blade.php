@@ -59,7 +59,6 @@ Trang chủ
 	                <li><a href="#">Quản lý vendor</a></li>
 	                <li><a href="{{URL::route('budget')}}"  >Quản lý ngân sách</a></li>
 
-
 	              </ul>
 	            </div>
 	            <div class="col-xs-6">
@@ -113,11 +112,6 @@ Trang chủ
 	          </li>
 	        </ul>
 	      </li>
-
-	      <li><a href="#about">Giới thiệu</a></li>
-	      <li><a href="#service">Dịch vụ</a></li>
-	      <li><a href="#contact">Liên hệ</a></li>
-	      
 	    </ul>
 	  </div>
 	</div>
@@ -148,7 +142,6 @@ Trang chủ
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
                             <h2><span>Chào mừng bạn đến với Thuna.vn</span></h2>
-                            
                         </div>
                     </div><!-- /header-text -->
 			    </div>
@@ -183,18 +176,16 @@ Trang chủ
 	</section>
 	<!-- /Section: intro -->
 </div>
-      
-
 	<!-- form search -->
 		<div id="form-search-index" class="container">
 			<div class="row marginbot-80">
-				<div class="col-md-8 col-md-offset-2">
+				<div class="col-xs-8 col-md-8 col-md-offset-2">
 						<form id="form-search" class="wow bounceInUp form-homepage" data-wow-offset="10" data-wow-delay="0.2s" action="{{Asset('list-vendor/search')}}" method="get">
 							<div class="row marginbot-20">
-								<div class="col-md-6 xs-marginbot-20">
+								<div class=" col-xs-6 col-md-6 xs-marginbot-20">
 									<input type="text" name="name" class="form-control input-lg" placeholder="Từ tìm kiếm" />
 								</div>
-								<div class="col-md-6">
+								<div class="col-xs-6 col-md-6">
 									<select name="location" class="form-control input-lg">
 							    		@foreach(Location::get() as $location)
 								    	<option value="{{$location->id}}">{{$location->name}}</option>
@@ -203,7 +194,7 @@ Trang chủ
 								</div>
 							</div>
 							<div class="row xs-marginbot-20">
-								<div class="col-md-12">
+								<div class="col-xs-12 col-md-12">
 									<input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Danh mục" readonly style="cursor:pointer;">
 							    	<input id="searchId" name="category_id" type="hidden">
 							    	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -247,7 +238,7 @@ Trang chủ
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-12">
+								<div class=" col-xs-12 col-md-12">
 									<button type="submit" class="btn btn-skin btn-lg btn-block">Tìm kiếm</button>
 								</div>
 							</div>
