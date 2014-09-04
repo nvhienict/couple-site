@@ -57,14 +57,14 @@ Danh sách Dịch vụ
 				    	<option {{$strSec}} value="{{$location_item->id}}">{{$location_item->name}}</option>
 				    	@endforeach
 			    	</select>
-	                <input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" value="{{Input::get('category')}}" placeholder="Danh mục"  readonly style="cursor:pointer;" >
+	                <input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Danh mục" value="{{Input::get('category')}}" readonly style="cursor:pointer;" >
 			    	<input id="searchId" name="category_id" type="hidden">
 			    	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 					    <li role="presentation">
 					    	<div class="row" id="menu">
 						    	<div class="col-xs-6">
 						      		<ul class="list-unstyled">
-							      		@foreach (Category::get() as $index=> $category)
+							      		@foreach (Category::get() as $index => $category)
 			    						@if($index<7)
 						      			<li><span style="cursor:pointer;" >{{$category['name']}}</span>
 						      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
@@ -97,7 +97,7 @@ Danh sách Dịch vụ
 							});
 						</script>	
 				    </ul>
-				    <button type="submit" class="btn btn-skin btn-lg btn-block">Tìm kiếm</button>			
+				    <button type="submit" class="btn btn-skin btn-lg btn-block" id="list-vendor-search">Tìm kiếm</button>			
 		    	</form>
             </div>
         </div>

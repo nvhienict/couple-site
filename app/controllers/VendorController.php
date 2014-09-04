@@ -246,6 +246,7 @@ class VendorController extends \BaseController {
 		}
 
 		return View::make('list-vendor-list')->with("results",$results)
+										->with("location",$location)
 										->with("compares", $compares);
 		
 	}
