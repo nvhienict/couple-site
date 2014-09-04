@@ -49,7 +49,6 @@
 
 </head>
 @include('social')
-<div class="row">
 <body>
 	<!--Header login-->
 	<div class="row user-header">
@@ -73,59 +72,51 @@
 					
 				</ul>
 		  		@else
-		  		<li><a href="{{URL::route('login')}}">Đăng nhập</a></li>
+		  		<li><a href="{{URL::route('login')}}" >Đăng nhập</a></li>
 		  		<li><a href="{{URL::route('register')}}">Đăng ký</a></li>
 		  		@endif
 		</div>
 	</div>
-
+	<!-- .row user-header -->
 @yield('nav-bar')
 @yield('content')
-
-<div class="row">
-<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
-					
-					<div class="text-center">
-						<a href="#intro" class="totop"><i class="fa fa-angle-up fa-3x"></i></a>
-
-						<p>47 Đỗ Huy Uyển, Đà Nẵng<br />
-						&copy; Copyright 2014 - <a href="http://thuna.vn">thuna.vn</a></p>
-					</div>
-					
-				</div>
-				<div class="col-md-3">
-					<a href="javascript:void(0);" class="btn btn-top" id="go_top">
-						<!-- <img src="{{Asset('icon/top3.png')}}" id="back-top" > -->
-						<i class="fa fa-angle-up fa-3x text-center"></i>
-					</a>
-					<script type="text/javascript">
-					(function(){
-					    // Cuộn trang lên với scrollTop
-					    $('#go_top').click(function(){
-					        $('body,html').animate({scrollTop:0},400);
-					        return false;
-					    })
-					})(jQuery)
-		            $(window).scroll(function(){
-					    if( $(window).scrollTop() > 500 ) {
-					        $('#go_top').stop(false,true).fadeIn(300);
-					    }else{
-					        $('#go_top').hide();
-					    }
-					});
-					</script>
-					
-				</div>
-			</div>	
+	<!-- footer -->
+	<div class="row footer">
+		<div class="col-md-6 col-md-offset-3">
+			
+			<div class="text-center">
+				<p>47 Đỗ Huy Uyển, Đà Nẵng<br />
+				&copy; Copyright 2014 - <a href="http://thuna.vn">thuna.vn</a></p>
+			</div>
+			
 		</div>
-	
-</footer>
-</div> <!-- class row -->
+		<div class="col-md-3">
+			<a href="javascript:void(0);" class="btn btn-top" id="go_top">
+				<!-- <img src="{{Asset('icon/top3.png')}}" id="back-top" > -->
+				<i class="fa fa-angle-up fa-3x text-center"></i>
+			</a>
+			<script type="text/javascript">
+			(function(){
+			    // Cuộn trang lên với scrollTop
+			    $('#go_top').click(function(){
+			        $('body,html').animate({scrollTop:0},400);
+			        return false;
+			    })
+			})(jQuery)
+            $(window).scroll(function(){
+			    if( $(window).scrollTop() > 500 ) {
+			        $('#go_top').stop(false,true).fadeIn(300);
+			    }else{
+			        $('#go_top').hide();
+			    }
+			});
+			</script>
+			
+		</div>
+	</div>	
+	<!-- .row -->
+
 
 </body>
-</div>
 
 </html>

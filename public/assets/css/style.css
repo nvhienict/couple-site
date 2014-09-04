@@ -4,7 +4,7 @@
 
 
 body {
-    width: 100%;
+    
     font-family: Arial;
 	font-weight: 300;
     color: #666;
@@ -12,7 +12,7 @@ body {
 	font-size: 16px;
     line-height: 1.6em;
 	font-weight: 400;
-	margin: 0 auto;
+	margin: 0 15px 0 15px;
 }
 
 html {
@@ -567,9 +567,11 @@ section#intro {
 	z-index: 10000;
 }
 
-/* ===========================
---- About
-============================ */
+/**
+* slide show
+*
+*/
+
 
 
 
@@ -777,27 +779,15 @@ form.search-form input:focus {
 --- Footer
 ============================ */
 
-footer {
-    background-color: #404040;
-}
-
-footer {
+.footer {
 	text-align: center;
 	padding: 50px 0 ;
-	
+	background-color: #f2f0ee;
 }
 
-footer p {
-	color: #f8f8f8;
+.footer p {
+	color: #707070;
 	font-size: 14px;
-}
-
-footer a.totop {
-	color: #fff;
-	margin-bottom: 30px;
-}
-footer a.totop:focus {
-	outline: 0;
 }
 
 
