@@ -133,7 +133,7 @@ Quản lý ngân sách
 					 	@foreach(Category::get() as $key=>$category)
 					 		<tr class="budget_cat" id="cate{{$category->id}}">
 					 			<td class="budget-column-icon" style="background-image:url({{Asset("icon/cat/{$category->images}")}})"></td>
-					 			<td><strong>{{$category->name}}</strong></td>
+					 			<td><a style="color:#555555;" href="javascript:void(0);" onclick="show_hide({{$category->id}})"><strong>{{$category->name}}</strong></a></td>
 					 			<td class="TienVND">
 					 				<span  id="totalEstimate{{$category->id}}" >
 					 				{{number_format(UserBudget::where('category',$category->id)
@@ -183,6 +183,18 @@ Quản lý ngân sách
 											$('#up{{$category->id}}').show();
 											$('#down{{$category->id}}').hide();
 										});
+
+										function show_hide(id)
+										{
+											if($('.budget_item_show_cat'+id).is(':visible') )
+											{
+												$('.budget_item_show_cat'+id).hide();
+											}
+											else
+											{
+												$('.budget_item_show_cat'+id).show();
+											}
+										}
 									</script>
 					 			</td>
 					 		</tr>

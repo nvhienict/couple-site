@@ -208,7 +208,7 @@ Danh sách khách mời
 					 	<tbody>
 					 	@foreach(Groups::where('user',GuestController::id_user())->get() as $key=>$group)
 					 		<tr class="guest_cat{{$group->id}} guest_cat" id="cate{{$group->id}}">					 						 			
-					 			<td style="width:18%;text-align: left;"><strong>{{$group->name}}</strong> (<span class="total_group_guest{{$group->id}}">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()->count()}}</span>)</td>					 								 		
+					 			<td style="width:18%;text-align: left;"><a href="javascript:void(0);" style="color:#555555;"onclick="show_hide({{$group->id}})"><strong>{{$group->name}}</strong>(<span class="total_group_guest{{$group->id}}">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()->count()}}</span>)</a></td>					 								 		
 					 			<td style="width:14%;text-align: left;"></td>
 					 			<td style="width:18%;"></td>
 					 			<td style="width:18%;"></td>
@@ -233,7 +233,21 @@ Danh sách khách mời
 											$('#up{{$group->id}}').show();
 											$('#down{{$group->id}}').hide();
 										});
+
+										function show_hide(id)
+										{
+											if($('.guest_list_show_cat'+id).is(':visible') )
+											{
+												$('.guest_list_show_cat'+id).hide();
+											}
+											else
+											{
+												$('.guest_list_show_cat'+id).show();
+											}
+										}
+
 									</script>
+									
 
 					 				<a href="#" id="edit-group-webding{{$group->id}}" class="icon-delete-group"data-toggle="modal" data-target="#editGroup-guest{{$group->id}}" data-backdrop="static">
 										<span class="fa fa-edit "></span>
