@@ -14,21 +14,19 @@
 							<a href="" onclick="history.go(-1);return false" id="left-infor title-infor">Địa điểm đám cưới {{Vendor::find($vendor->id)->location()->get()->first()->name}}</a>
 							<div id="left-infor avata-vendor" >
 								{{'<img class="img-responsive" style="width:250px;height:600 "src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}
-								<div class="fb-like" data-href="https://www.facebook.com/thuna.1987" data-width="150px" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
-								
+								<div class="fb-like" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
+						</div>
 							</div>
 							<div id="fb-root"></div>
-							
-							<!-- facebook script -->
-							<script>(function(d, s, id) {
+								<script>(function(d, s, id) {
 								  var js, fjs = d.getElementsByTagName(s)[0];
 								  if (d.getElementById(id)) return;
 								  js = d.createElement(s); js.id = id;
 								  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.0";
 								  fjs.parentNode.insertBefore(js, fjs);
 								}(document, 'script', 'facebook-jssdk'));
-							</script>
-						</div>
+								</script>
+								
 						<div calss="col-xs-6 col-sm-4" id="right-infor">
 							<h3 id="right-infor name">{{$vendor->name}}</h3>
 							<p id="right-infor address">{{$vendor->address}} {{Vendor::find($vendor->id)->location()->get()->first()->name}}<a href="#map" data-toggle="tab" class="outside-link"> |Map.</a></p>
