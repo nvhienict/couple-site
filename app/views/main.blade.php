@@ -6,7 +6,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta property="og:type" content="website"/>
 	<meta property="og:url" content="http://thuna.vn/"/>
-	<meta property="fb:admins" content="805744042771207"/>
+	<meta property="fb:admins" content="100000097093656"/>
 	
 	<!-- css -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
