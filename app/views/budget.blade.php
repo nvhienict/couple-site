@@ -260,31 +260,27 @@ Quản lý ngân sách
 									 <a onclick="estimate_click({{$budget->id}})" class="{{$budget->id}}showEstimate">
                                         {{number_format(($budget->estimate),0, '.', ',')}} VND
 									 </a> 
-									    <input onkeyup="key_estimate(event,{{$budget->id}})" onblur="estimate_dblclick({{$budget->id}})" ondblclick="estimate_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}InputEstimate form-control input-edit-money" name="estimate" value=" {{number_format(($budget->estimate),0, '.', ',')}}">
+									    <input onkeyup="key_estimate(event,{{$budget->id}})" onblur="estimate_dblclick({{$budget->id}})" ondblclick="estimate_dbl({{$budget->id}})" type="text" class="{{$budget->id}}InputEstimate form-control input-edit-money" name="estimate" value=" {{number_format(($budget->estimate),0, '.', ',')}}">
 										<input type="hidden" name="{{$budget->id}}" value="{{$budget->id}}">
 									 </div>
-									 <p style="display:none;color:red;" class="estimate_error{{$budget->id}}">Vui lòng nhập số tiền</p>
 						 		</td>
 						 		<td class="TienVND"><!-- Actual -->
 									<div id="edit-money" > 
 										<a onclick="actual_click({{$budget->id}})" hreft="" class="{{$budget->id}}_show_hide">
 											{{number_format(($budget->actual),0, '.', ',')}} VND
 										</a>
-										<input onkeyup="key_actual(event,{{$budget->id}})" onblur="actual_dblclick({{$budget->id}})" ondblclick="actual_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}_slidingDiv form-control input-edit-money" id="{{$budget->id}}money" name="money" value="{{number_format(($budget->actual),0, '.', ',')}}">
+										<input onkeyup="key_actual(event,{{$budget->id}})" onblur="actual_dblclick({{$budget->id}})" ondblclick="actual_dbl({{$budget->id}})" type="text" class="{{$budget->id}}_slidingDiv form-control input-edit-money" id="{{$budget->id}}money" name="money" value="{{number_format(($budget->actual),0, '.', ',')}}">
 										<input type="text" hidden name="{{$budget->id}}" value="{{$budget->id}}">
 									</div>
-									<p style="display:none;color:red;" class="actual_error{{$budget->id}}">Vui lòng nhập số tiền</p>
-
 								</td>
 					 			<td class="TienVND">
 					 				<div  > 
 										<a onclick="pay_click({{$budget->id}})" hreft="" class="{{$budget->id}}Pay" >
 											{{number_format(($budget->pay),0, '.', ',')}} VND
 										</a>
-										<input onkeyup="key_pay(event,{{$budget->id}})" onblur="pay_dblclick({{$budget->id}})" ondblclick="pay_dblclick({{$budget->id}})" type="text" class="{{$budget->id}}Estimate form-control input-edit-money" id="{{$budget->id}}estimate" name="estimate" value="{{number_format(($budget->pay),0, '.', ',')}}">
+										<input onkeyup="key_pay(event,{{$budget->id}})" onblur="pay_dblclick({{$budget->id}})" ondblclick="pay_dbl({{$budget->id}})" type="text" class="{{$budget->id}}Estimate form-control input-edit-money" id="{{$budget->id}}estimate" name="estimate" value="{{number_format(($budget->pay),0, '.', ',')}}">
 										<input type="text" hidden name="{{$budget->id}}" value="{{$budget->id}}">
 									</div>
-									<p style="display:none;color:red;" class="pay_error{{$budget->id}}">Vui lòng nhập số tiền</p>
 				 				</td><!-- pay -->
 					 			<td class="TienVND">
 					 				<div>
@@ -473,24 +469,35 @@ Quản lý ngân sách
 			 		};
                    
 			 	};
+			 	function estimate_dbl(id){
+			 		$("."+id+"InputEstimate").hide(); 
+			 		$("."+id+"showEstimate").show();
+			 	};
 			 	function estimate_dblclick(id){
 			 		if ($("."+id+"InputEstimate").val()=="") {
-						$("."+id+"InputEstimate").show();
-						$(".estimate_error"+id).show();
-					} 
-					else
-					{
-                    $("."+id+"InputEstimate").hide();
-			        $.ajax({
+			 			$("."+id+"InputEstimate").val("0");
+			 			$.ajax({
 		            	type: "POST", url: "{{URL::route('editEstimate')}}",
 		            	data: {estimate:$("."+id+"InputEstimate").val().replace(/,/gi,""), id:$("."+id+"InputEstimate").next().val() },
 		            	success: function (result) { ShowSummary(result); 
 		            	}	
 		            	});				        
-				        $("."+id+"showEstimate").show();
 				        $("."+id+"showEstimate").text(parseInt($("."+id+"InputEstimate").val().replace(/,/gi,"")).format(0, 3, ',') + " VND");
-				        $(".estimate_error"+id).hide();
-						};							
+				        $("."+id+"showEstimate").show();
+				        $("."+id+"InputEstimate").hide();
+					} 
+					else
+					{
+				        $.ajax({
+			            	type: "POST", url: "{{URL::route('editEstimate')}}",
+			            	data: {estimate:$("."+id+"InputEstimate").val().replace(/,/gi,""), id:$("."+id+"InputEstimate").next().val() },
+			            	success: function (result) { ShowSummary(result); 
+			            	}	
+			            	});				        
+					    $("."+id+"showEstimate").text(parseInt($("."+id+"InputEstimate").val().replace(/,/gi,"")).format(0, 3, ',') + " VND");
+				        $("."+id+"showEstimate").show();
+				        $("."+id+"InputEstimate").hide();
+				    };							
 			 	};
 			 	function key_estimate(event,id)
 			 	      {  	
@@ -515,22 +522,32 @@ Quản lý ngân sách
 				        $("."+id+"_show_hide").hide();
 			 		};
 			 	};
+			 	function actual_dbl(id){
+			 		    $("."+id+"_slidingDiv").hide();
+				        $("."+id+"_show_hide").show();
+			 	};
 			 	function actual_dblclick(id){
 			 		if ($("."+id+"_slidingDiv").val()=="") {
-						$("."+id+"_slidingDiv").show();
-						$(".actual_error"+id).show();
+						$("."+id+"_slidingDiv").val("0");
+						$.ajax({
+		            	type: "POST", url: "{{URL::route('editActual')}}",
+		            	data: {actual:$("."+id+"_slidingDiv").val().replace(/,/gi,""), id:$("."+id+"_slidingDiv").next().val() },
+		            	success: function (result) { ShowSummary(result); }	
+		             });
+				        $("."+id+"_show_hide").text(parseInt($("."+id+"_slidingDiv").val().replace(/,/gi,"")).format(0, 3, ',') + " VND");
+				        $("."+id+"_show_hide").show();
+				        $("."+id+"_slidingDiv").hide();
 					} 
 					else
 					{ 
-					$("."+id+"_slidingDiv").hide();
 			        $.ajax({
 		            	type: "POST", url: "{{URL::route('editActual')}}",
 		            	data: {actual:$("."+id+"_slidingDiv").val().replace(/,/gi,""), id:$("."+id+"_slidingDiv").next().val() },
 		            	success: function (result) { ShowSummary(result); }	
 		             });
-			        $("."+id+"_show_hide").show();
-			        $("."+id+"_show_hide").text(parseInt($("."+id+"_slidingDiv").val().replace(/,/gi,"")).format(0, 3, ',') + " VND");
-			        $(".actual_error"+id).hide();
+				        $("."+id+"_show_hide").text(parseInt($("."+id+"_slidingDiv").val().replace(/,/gi,"")).format(0, 3, ',') + " VND");
+				        $("."+id+"_show_hide").show();
+				         $("."+id+"_slidingDiv").hide();
 					};
 			 	};
 			 	function key_actual(event,id)
@@ -556,13 +573,26 @@ Quản lý ngân sách
 				        $("."+id+"Pay").hide();
 			 		};			 		
 			 	};
+			 	function pay_dbl(id){
+			 		    $("."+id+"Estimate").hide();
+				        $("."+id+"Pay").show();
+			 	};
 			 	function pay_dblclick(id){
                     if ($("."+id+"Estimate").val()=="") {
-	                   $("."+id+"Estimate").show();
-	                   $(".pay_error"+id).show();
+	                   $("."+id+"Estimate").val("0");
+	                   $.ajax({
+			    		type: "POST", url: "{{URL::route('editPay')}}",
+		            	data: {
+		            		pay:$("."+id+"Estimate").val().replace(/,/gi,""),
+		            		id:$("."+id+"Estimate").next().val()
+		            	},
+		            	success: function (result) { ShowSummary(result); }
+			    	});					
+					$("."+id+"Pay").text(parseInt($("."+id+"Estimate").val().replace(/,/gi,"")).format(0, 3, ',')+" VND");
+					$("."+id+"Pay").show();
+					$("."+id+"Estimate").hide();
 			    	} 
 			    	else{
-			    		$("."+id+"Estimate").hide();
 			    	$.ajax({
 			    		type: "POST", url: "{{URL::route('editPay')}}",
 		            	data: {
@@ -571,9 +601,9 @@ Quản lý ngân sách
 		            	},
 		            	success: function (result) { ShowSummary(result); }
 			    	});
-					$("."+id+"Pay").show();
 					$("."+id+"Pay").text(parseInt($("."+id+"Estimate").val().replace(/,/gi,"")).format(0, 3, ',')+" VND");
-					$(".pay_error"+id).hide();
+					$("."+id+"Pay").show();
+					$("."+id+"Estimate").hide();					
 			    	};
 				};
 				function key_pay(event,id)

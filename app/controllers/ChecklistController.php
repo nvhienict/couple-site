@@ -121,8 +121,8 @@ class ChecklistController extends \BaseController {
 		$id_user = ChecklistController::id_user();
 		$date_now=new DateTime("now");
 		$overdue=0;
-
-		foreach(User::find($id_user)->user_task()->get() as $task)
+		$usertask = UserTask::where('user',$id_user)->get();
+		foreach($usertask as $task)
 		{
 			$date=new DateTime(User::find($id_user)->weddingdate);
 			$date_task=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
@@ -157,8 +157,8 @@ class ChecklistController extends \BaseController {
 
 		$date_now=new DateTime("now");
 		$overdue=0;
-
-		foreach(User::find($id_user)->user_task()->get() as $task)
+		$usertask = UserTask::where('user',$id_user)->get();
+		foreach($usertask as $task)
 		{
 			$date=new DateTime(User::find($id_user)->weddingdate);
 			$date_task=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
@@ -168,47 +168,53 @@ class ChecklistController extends \BaseController {
 	}
 	//Thuỷ viết
 	//đếm số công việc trong tháng
+	// public static function taskMonth($month){
+	// 	$id_user = ChecklistController::id_user();
+	// 	$usertask = UserTask::where('user',$id_user)->get();
+	// 	$countTaskMonth=0;
+	// 	foreach($usertask as $task)
+	// 	{
+	// 		$date=new DateTime(User::find($id_user)->weddingdate);
+	// 		$date_task=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
+	// 		if($date_task->format("m-Y")==$month)
+	// 			$countTaskMonth++;
+	// 	} 
+	// 	return $countTaskMonth;
+	// }
+	// // Đếm số công việc đã hoàn thành trong tháng
+	// public static function taskMonthCompleted($month){
+	// 	$id_user = ChecklistController::id_user();
+	// 	$usertask = UserTask::where('user',$id_user)->get();
+	// 	$countTaskMonth=0;
+	// 	foreach($usertask as $task)
+	// 	{
+	// 		$date=new DateTime(User::find($id_user)->weddingdate);
+	// 		$date_task=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
+	// 		if($date_task->format("m-Y")==$month && $task->todo==1)
+	// 			$countTaskMonth++;
+	// 	} 
+	// 	return $countTaskMonth;
+	// }
+	// Đếm số công việc quá hạn trong tháng
 	public static function taskMonth($month){
 		$id_user = ChecklistController::id_user();
 
-		$countTaskMonth=0;
-		foreach(User::find($id_user)->user_task()->get() as $task)
-		{
-			$date=new DateTime(User::find($id_user)->weddingdate);
-			$date_task=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
-			if($date_task->format("m-Y")==$month)
-				$countTaskMonth++;
-		} 
-		return $countTaskMonth;
-	}
-	// Đếm số công việc đã hoàn thành trong tháng
-	public static function taskMonthCompleted($month){
-		$id_user = ChecklistController::id_user();
-
-		$countTaskMonth=0;
-		foreach(User::find($id_user)->user_task()->get() as $task)
-		{
-			$date=new DateTime(User::find($id_user)->weddingdate);
-			$date_task=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
-			if($date_task->format("m-Y")==$month && $task->todo==1)
-				$countTaskMonth++;
-		} 
-		return $countTaskMonth;
-	}
-	// Đếm số công việc quá hạn trong tháng
-	public static function taskMonthOverDue($month){
-		$id_user = ChecklistController::id_user();
-
-		$countTaskMonth=0;
-		foreach(User::find($id_user)->user_task()->get() as $task)
+		$Counttask = 0;
+		$Overdue = 0;
+		$completed = 0;
+		$usertask = UserTask::where('user',$id_user)->get();
+		foreach($usertask as $task)
 		{
 			$date_now=new DateTime("now");
 			$date=new DateTime(User::find($id_user)->weddingdate);
 			$date_task=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
+			if($date_task->format("m-Y")==$month) $Counttask++;
+			if($date_task->format("m-Y")==$month && $task->todo==1) $completed++;
 			if(date_timestamp_get($date_task)<date_timestamp_get($date_now) && $date_task->format("m-Y")==$month && $task->todo!=1  )
-				$countTaskMonth++;
+				$Overdue++;
 		} 
-		return $countTaskMonth;
+		
+		return  array('task' => $Counttask, 'Overdue' => $Overdue, 'Completed' => $completed);
 	}
 	public static function comparedate($startdate,$todo){
 		$id_user = ChecklistController::id_user();
@@ -232,7 +238,6 @@ class ChecklistController extends \BaseController {
 		{			
 			$month = array($date_wedding->format('m-Y'));
 			for($i=0;$i<12;$i++){
-
 				//kiểm tra nếu tháng có công việc >= tháng hiện tại thì tiếp tục hiển thị tháng đó
 				if ($date_wedding->format('m-Y') == $date_create->format('m-Y')) {
 					break;
@@ -246,9 +251,9 @@ class ChecklistController extends \BaseController {
 	}
 	public static function sortBy($month){
 		$id_user = ChecklistController::id_user();
-
+		$usertask = UserTask::where('user',$id_user)->orderBy('todo','ASC')->get();
 		$tasks_month=array();
-		foreach(User::find($id_user)->user_task()->get() as $task)
+		foreach( $usertask as $task)
 		{
 			$date=new DateTime(User::find($id_user)->weddingdate);
 			$date_task=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
@@ -257,6 +262,7 @@ class ChecklistController extends \BaseController {
 		} 
 		return $tasks_month;
 	}
+	
 	public function getId()
 	{
 		$id_user = ChecklistController::id_user();
@@ -460,8 +466,8 @@ class ChecklistController extends \BaseController {
 		$Counttask = 0;
 		$Overdue = 0;
 		$completed = 0;
-		
-		foreach(User::find($id_user)->user_task()->get() as $task)
+		$usertask = UserTask::where('user',$id_user)->get();
+		foreach($usertask as $task)
 		{
 			$date_now=new DateTime("now");
 			$date=new DateTime(User::find($id_user)->weddingdate);
@@ -477,7 +483,7 @@ class ChecklistController extends \BaseController {
 		}
 		else
 		{
-			$waning = '<span  id="warning'.$id.'" class="fa fa-warning" style="color:#E9621A; display: none;"></span>';
+			$waning = '<span  id="warning'.$id.'" class="fa fa-warning " style="color:#E9621A; display: none;"></span>';
 		}
 		echo json_encode(array('Counttask'=>$Counttask,'Overdue'=>$Overdue, 'completed'=>$completed, 'waning'=>$waning));
         exit();

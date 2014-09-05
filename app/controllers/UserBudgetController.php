@@ -97,9 +97,8 @@ class UserBudgetController extends \BaseController {
 					<a onclick="estimate_click('.$item->id.')" hreft="" class="'.$item->id.'showEstimate" >
 						'.number_format(($item->estimate),0, ',', ' ').' VND
 					</a>
-					<input onkeyup="key_estimate(event,'.$item->id.')" onblur="estimate_dblclick('.$item->id.')" ondblclick="estimate_dblclick('.$item->id.')" type="text" class="'.$item->id.'InputEstimate form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->estimate.'">
+					<input onkeyup="key_estimate(event,'.$item->id.')" onblur="estimate_dblclick('.$item->id.')" ondblclick="estimate_dbl('.$item->id.')" type="text" class="'.$item->id.'InputEstimate form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->estimate.'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
-					<p style="display:none;color:red;" class="estimate_error'.$item->id.'">Vui lòng nhập số tiền</p>
 				</div>
 			</td>
 			<td class="TienVND">
@@ -107,9 +106,9 @@ class UserBudgetController extends \BaseController {
 					<a onclick="actual_click('.$item->id.')" hreft="" class="'.$item->id.'_show_hide">
 						'.number_format(($item->actual),0, ',', ' ').' VND
 					</a>
-					<input onkeyup="key_actual(event,'.$item->id.')" onblur="actual_dblclick('.$item->id.')" ondblclick="actual_dblclick('.$item->id.')" type="text" class="'.$item->id.'_slidingDiv form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->actual.'">
+					<input onkeyup="key_actual(event,'.$item->id.')" onblur="actual_dblclick('.$item->id.')" ondblclick="actual_dbl('.$item->id.')" type="text" class="'.$item->id.'_slidingDiv form-control input-edit-money" id="'.$item->id.'money" name="money" value="'.$item->actual.'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
-					<p style="display:none;color:red;" class="actual_error'.$item->id.'">Vui lòng nhập số tiền</p>
+					
 				</div>
 			</td>
 			<td class="TienVND">
@@ -117,9 +116,8 @@ class UserBudgetController extends \BaseController {
 					<a onclick="pay_click('.$item->id.')" hreft="" class="'.$item->id.'Pay" >
 						'.number_format(($item->pay),0, ',', ' ').' VND
 					</a>
-					<input onkeyup="key_pay(event,'.$item->id.')" onblur="pay_dblclick('.$item->id.')" ondblclick="pay_dblclick('.$item->id.')" type="text" class="'.$item->id.'Estimate form-control input-edit-money" id="'.$item->id.'estimate" name="estimate" value="'.$item->pay .'">
+					<input onkeyup="key_pay(event,'.$item->id.')" onblur="pay_dblclick('.$item->id.')" ondblclick="pay_dbl('.$item->id.')" type="text" class="'.$item->id.'Estimate form-control input-edit-money" id="'.$item->id.'estimate" name="estimate" value="'.$item->pay .'">
 					<input type="text" hidden name="'.$item->id.'" value="'.$item->id.'">
-					<p style="display:none;color:red;" class="pay_error'.$item->id.'">Vui lòng nhập số tiền</p>
 				</div>
  			</td>
 			<td class="TienVND">

@@ -141,10 +141,10 @@ Danh sách công việc
 											url: "{{URL::route('check_Cat_complete', array('ac'=>1,'category'=>$category->id, 'startdate'=>$usertask->startdate))}}",
 											data: {id:$(this).val()},
 											success: function(data){
-													data = $.parseJSON(data);
-													$("#Cat_task{{$category->id}}").text(data['Counttask']);
-													$("#Cat_overDue{{$category->id}}").text(data['Overdue']);
-													$("#Cat_Completed{{$category->id}}").text(data['completed']);
+												data = $.parseJSON(data);
+												$("#Cat_task{{$category->id}}").text(data['Counttask']);
+												$("#Cat_overDue{{$category->id}}").text(data['Overdue']);
+												$("#Cat_Completed{{$category->id}}").text(data['completed']);
 													
 											}
 										});
@@ -166,11 +166,11 @@ Danh sách công việc
 											url: "{{URL::route('check_Cat_complete', array('ac'=>0,'category'=>$category->id, 'startdate'=>$usertask->startdate))}}",
 											data: {id:$(this).val()},
 											success: function(data){
-													data = $.parseJSON(data);
-													$("#Cat_task{{$category->id}}").text(data['Counttask']);
-													$("#Cat_overDue{{$category->id}}").text(data['Overdue']);
-													$("#Cat_Completed{{$category->id}}").text(data['completed']);
-													$("#warning{{$usertask->id}}").replaceWith(data['waning']);
+												data = $.parseJSON(data);
+												$("#Cat_task{{$category->id}}").text(data['Counttask']);
+												$("#Cat_overDue{{$category->id}}").text(data['Overdue']);
+												$("#Cat_Completed{{$category->id}}").text(data['completed']);
+												$("#warning{{$usertask->id}}").replaceWith(data['waning']);
 											}
 
 										});
