@@ -52,22 +52,22 @@ Trang chủ
 	          <div class="row">
 	            <div class="col-xs-6">
 	              <ul class="list-unstyled">
-	                <li><a href="#">Website cưới</a></li>
+	                <!-- <li><a href="#">Website cưới</a></li> -->
 	                <li><a href="{{URL::route('guest-list')}}" >Danh sách khách mời</a></li>
-	                <li><a href="#">Sơ đồ ghế ngồi</a></li>
+	                <!-- <li><a href="#">Sơ đồ ghế ngồi</a></li> -->
 	                <li><a href="{{URL::route('user-checklist')}}"  >Danh sách công việc</a></li>
-	                <li><a href="#">Quản lý vendor</a></li>
+	                <!-- <li><a href="#">Quản lý vendor</a></li> -->
 	                <li><a href="{{URL::route('budget')}}"  >Quản lý ngân sách</a></li>
 
 	              </ul>
 	            </div>
-	            <div class="col-xs-6">
+	            <!-- <div class="col-xs-6">
 	              <ul class="list-unstyled">
 	                <li><a href="#">Viết nhật ký</a></li>
 	                <li><a href="#">Thiết kế thiệp cưới</a></li>
 	                <li><a href="#">Làm video</a></li>
 	              </ul>
-	            </div>
+	            </div> -->
 	          </div>
 	          </li>
 	        </ul>

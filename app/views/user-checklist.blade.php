@@ -6,6 +6,7 @@ Danh sách công việc
 @include('nav')
 @endsection
 @section('content')
+
 <div class="container user-checklist">
 <div class="row">
 
@@ -80,28 +81,14 @@ Danh sách công việc
 			    <div  class="panel-heading row" style="background: #fff6ee;" >
 			    <div class="col-xs-5">
 				    <h4 class="panel-title">
-				        <a class="collapse-month" id="collapse-month{{$index}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
+				        <a class="collapse-month" onclick ="sortByMonth({{$index}})" id="collapse-month{{$index}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
 				        	<i class="fa fa-plus-square-o"></i> Tháng {{ChecklistController::changeMonth($checklist_month)}}
 				        </a>
 				    </h4>
 				</div>
-
-				<div class="col-xs-2" id="task{{$index}}"><span>{{ChecklistController::taskMonth($checklist_month)}}</span></div>
-				<div class="col-xs-2" id="overDue{{$index}}"><span>{{ChecklistController::taskMonthOverDue($checklist_month)}}</span></div>
-				<div class="col-xs-3" id="Completed{{$index}}"><span>{{ChecklistController::taskMonthCompleted($checklist_month)}}</span></div>
-			        
-			      <script type="text/javascript">
-			      $("#collapse-month{{$index}}").click(function(){
-			      	if($("#collapse-month{{$index}} i").hasClass("fa fa-plus-square-o"))
-			      	{	
-			      		$("#collapse-month{{$index}} i").removeClass("fa-plus-square-o").addClass("fa-minus-square-o");
-			      	}
-			      	else
-			      	{
-			      		$("#collapse-month{{$index}} i").removeClass("fa-minus-square-o").addClass("fa-plus-square-o");	
-			      	}
-			      });
-			      </script>
+				<div class="col-xs-2" id="task{{$index}}"><span>{{ChecklistController::taskMonth($checklist_month)['task']}}</span></div>
+				<div class="col-xs-2" id="overDue{{$index}}"><span>{{ChecklistController::taskMonth($checklist_month)['Overdue']}}</span></div>
+				<div class="col-xs-3" id="Completed{{$index}}"><span>{{ChecklistController::taskMonth($checklist_month)['Completed']}}</span></div>
 			    </div>
 			    <div id="collapse{{$index}}" class="panel-collapse collapse">
 			      <div class="panel-body">
@@ -115,7 +102,7 @@ Danh sách công việc
 						</thead>
 						<tbody>
 							@foreach(@ChecklistController::sortBy($checklist_month) as $usertask)
-							<input id="startdate{{$usertask->id}}" hidden name="startdate{{$usertask->id}}" value="{{$usertask->id}}">
+							<input id="startdate{{$usertask->id}}" hidden name="startdate{{$usertask->id}}" value="{{$usertask->startdate}}">
 							<tr id="{{$usertask->id}}">
 								<td class="text-center">
 									@if($usertask->todo==0)
@@ -125,9 +112,6 @@ Danh sách công việc
 										<input onclick="clickCheckbox({{$index}},{{$usertask->id}})" type="checkbox" id="chk_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}" checked />
 										<input type="hidden" name="checkbox-{{$usertask->id}}" value="{{$usertask->id}}">
 									@endif
-									<script type="text/javascript">
-										
-									</script>
 								</td>
 								<td><a href="{{$usertask->link}}" id="title-{{$usertask->id}}">{{$usertask->title}}</a>
 								<p id="description-{{$usertask->id}}">{{$usertask->description}}</p>
@@ -144,7 +128,6 @@ Danh sách công việc
 									<a href="javascript:void(0);" onclick ="editTask({{$usertask->id}})" id="edit{{$usertask->id}}" data-toggle="modal" data-target="#myModalEditChecklist" data-backdrop="static">
 										<span class="fa fa-edit"></span>
 									</a>
-									
 								</td>
 								<td>
 									<a href="#" id="drop{{$usertask->id}}" onclick = "dropTask({{$usertask->id}})" data-toggle="modal" data-target="#myModalDelTask" data-backdrop="static">
@@ -384,13 +367,14 @@ Danh sách công việc
 
 </div> <!-- end row -->
 </div><!--container-->
-<script type="text/javascript">
+<script type="text/javascript" async>
 	function showCountTask(data,id){
 		data = $.parseJSON(data);
 		$("#task"+id).text(data['Counttask']);
 		$("#overDue"+id).text(data['Overdue']);
 		$("#Completed"+id).text(data['completed']);
 		$("#warning"+id).replaceWith(data['waning']);
+		
 	}
 
 	function clickCheckbox(index,id_usertask){
@@ -406,12 +390,12 @@ Danh sách công việc
 
 			$("#count_overdue").text($j);
 			$("#count_complete").text($i);
-			$("#warning"+id_usertask).addClass();
+			$("#warning"+id_usertask).hide();
 			$.ajax({
 				type: "post",
 				url: "{{URL::route('check_task_complete',array('ac'=>1))}}",
 				data: {id:$(name_input).val(), month:$('#month_y'+index).val(),startdate: $('#startdate'+id_usertask).val()},
-				success: function(data){showCountTask(data,index)}
+				success: function(data){showCountTask(data,id_usertask)}
 			});
 		}
 		else
@@ -424,12 +408,11 @@ Danh sách công việc
 
 			$("#count_overdue").text($j);
 			$("#count_complete").text($i);
-			
 			$.ajax({
 				type: "post",
 				url: "{{URL::route('check_task_complete',array('ac'=>0))}}",
 				data: {id:$(name_input).val(), month:$('#month_y'+index).val(),startdate: $('#startdate'+id_usertask).val()},
-				success: function(data){showCountTask(data,index)}
+				success: function(data){showCountTask(data,id_usertask)}
 			});
 		}
 	}
@@ -460,6 +443,17 @@ Danh sách công việc
 				$("#myModalDelTask #task-id").val(result['id'])
 			}
 		});
+	}
+	function sortByMonth(index){
+	  	if($("#collapse-month"+index+" i").hasClass("fa fa-plus-square-o") && ($("#collapse"+index).hasClass("panel-collapse collapse")))
+	  	{	
+	  		$("#collapse-month"+index+" i").removeClass("fa-plus-square-o").addClass("fa-minus-square-o");
+	  	}
+	  	else
+	  	{
+	  		$("#collapse-month"+index+" i").removeClass("fa-minus-square-o").addClass("fa-plus-square-o");	
+	  	}
+	  	
 	}
 </script>
 @endsection
