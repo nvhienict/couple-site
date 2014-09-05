@@ -174,5 +174,5 @@ jQuery('#weddingdate-edit').datetimepicker({
 		}
 	},
 	timepicker:false,
-	format:'Y-m-d'
+	format:'d-m-Y'
 	});
