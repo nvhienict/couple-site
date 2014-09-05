@@ -154,21 +154,7 @@ Danh sách khách mời
 					<span style="color: #19b5bc; cursor:pointer; margin-right: 5px;" id="guest_all_item_sign_down"><i class="glyphicon glyphicon-chevron-down"></i></span>
 					<span style="color: #19b5bc; cursor:pointer; " id="guest_all_item_sign_up"><i class="glyphicon glyphicon-chevron-up"></i></span>
 					<!-- display or hide all items -->
-					<script type="text/javascript">
-						$('#guest_all_item_sign_down').click(function(){
-							$('.guest_list_show_cat').show();
-							$('#show-hide-group{{$group->id}}').removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
-							$('.down_item_cat').hide();
-							$('.up_item_cat').show();
-							
-						});
-						$('#guest_all_item_sign_up').click(function(){
-							$('.guest_list_show_cat').hide();
-							$('#show-hide-group{{$group->id}}').removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
-							$('.down_item_cat').show();
-							$('.up_item_cat').hide();
-						});
-					</script>
+					
 				</div>
 			</div>
 			<div class="row">
@@ -219,7 +205,19 @@ Danh sách khách mời
 					 				<span class="down_item_cat" style="color: #19b5bc; cursor:pointer; display:none"; id="down{{$group->id}}" ><i class="glyphicon glyphicon-chevron-down"></i></span>
 					 				<!-- display or hide a item -->
 									<script type="text/javascript">
-
+										$('#guest_all_item_sign_down').click(function(){
+										$('.guest_list_show_cat').show();
+										$('#show-hide-group{{$group->id}}').removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
+										$('.down_item_cat').hide();
+										$('.up_item_cat').show();
+										
+									});
+									$('#guest_all_item_sign_up').click(function(){
+										$('.guest_list_show_cat').hide();
+										$('#show-hide-group{{$group->id}}').removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
+										$('.down_item_cat').show();
+										$('.up_item_cat').hide();
+									});
 										$('#up{{$group->id}}').click(function(){
 											$('.guest_list_show_cat{{$group->id}}').hide();
 											$('#show-hide-group{{$group->id}}').removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
