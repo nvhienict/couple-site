@@ -116,6 +116,20 @@ class UserController extends \BaseController {
 			else{return "true";}
 		}
 	} 
+
+	// check password edit
+	public function checkPass($id){
+		$password = Input::get('password');
+		$pass = User::where("id",$id)->get()->first()->password;
+
+		if(Hash::check($password, $pass)){
+			return "true";
+		}
+		else{
+			return "false";
+		}
+	}
+
 	// edit profile
 	public function post_profile(){
 
@@ -123,18 +137,63 @@ class UserController extends \BaseController {
 		$lastname = Input::get('lastname');
 		$email = Input::get('email');
 		$weddingdate = Input::get('weddingdate');
-		$new_password = Hash::make(Input::get('confim_new_password'));
+		$cover_weddingdate = Carbon::parse($weddingdate)->format('Y-m-d');
 
 		// update to database
 		User::where("id", UserController::id_user())->update(
 				array("email"=>$email,
-					"weddingdate"=>$weddingdate,
+					"weddingdate"=>$cover_weddingdate,
 					"firstname"=>$firstname,
-					"lastname"=>$lastname,
-					"password"=>$new_password));
+					"lastname"=>$lastname));
+		$msg = "Cập nhật thông tin thành công";
 
 		$user=User::where('id',UserController::id_user())->get();
+		return View::make('user.profile')->with('user',$user)->with('msg',$msg);
+	}
+
+	// update padword
+	public function profile_password(){
+
+		$password_new = Hash::make(Input::get('confim_new_password'));
+
+		// update to database
+		User::where("id", UserController::id_user())->update(
+				array("password"=>$password_new));
+		$msg = "Cập nhật mật khẩu thành công";
+
+		$user=User::where('id',UserController::id_user())->get();
+		return View::make('user.profile')->with('user',$user)->with('msg',$msg);
+	}
+
+	// update avatar
+	public function update_avatar()
+	{
+
+		$file = Input::file('file');
+
+		$destinationPath = 'update/';
+        $filename = $file->getClientOriginalName();
+        Input::file('file')->move($destinationPath, $filename);
+
+        $path = asset($destinationPath.$filename);
+
+        $avatar = base64_encode($path);
+
+		// return $size = Input::file('photo')->getSize();
+
+		// return Image::make(Input::get('img_avatar')->getRealPath())->encode('jpg',80);
+
+		// $avatar = Image::make(Input::file('img_avatar')->getRealPath())->encode('jpg',80);
+
+		// return $avatar;
+
+		// update to database
+		User::where("id", UserController::id_user())->update(
+				array("avatar"=>$avatar));
+
+		$user=User::where('id', UserController::id_user())->get();
 		return View::make('user.profile')->with('user',$user);
+
 	}
 
 
@@ -203,7 +262,7 @@ class UserController extends \BaseController {
 	// user post register
 	public function post_users(){
 		$rules=array(
-			"first_name"=>"required|min:3",
+			"first_name"=>"required|min:2",
 			"last_name"=>"required|min:1",
 			"weddingdate"=>"required",
 			"email"=>"required|email",

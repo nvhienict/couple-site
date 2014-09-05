@@ -175,13 +175,18 @@ Route::post('budget/update',array('as'=>'update','uses'=>'UserBudgetController@u
 Route::get('budget/exportfile',array("as"=>"exportfile", "uses"=>"UserBudgetController@exportfile"));
 
 // PROFILE OF USER
-Route::get('profile', array('as'=>'profile', 'uses'=>'UserController@get_profile'));
-Route::post('profile', array('as'=>'profile', 'uses'=>'UserController@post_profile'));
+Route::get('profile', array("before"=>"check_login", 'as'=>'profile', 'uses'=>'UserController@get_profile'));
+Route::post('profile', array("before"=>"check_login", 'as'=>'profile', 'uses'=>'UserController@post_profile'));
 
-Route::post('check_email_edit/{id}', array('as'=>'check_email_edit', 'uses'=>'UserController@checkEmail'));
+Route::post('profile_password', array("before"=>"check_login", 'as'=>'profile_password', 'uses'=>'UserController@profile_password'));
 
-Route::get('account', array('as'=>'account', 'uses'=>'UserController@get_account'));
+Route::post('check_email_edit/{id}', array("before"=>"check_login", 'as'=>'check_email_edit', 'uses'=>'UserController@checkEmail'));
 
+Route::post('check_pass_edit/{id}', array("before"=>"check_login", 'as'=>'check_pass_edit', 'uses'=>'UserController@checkPass'));
+
+Route::post('update_avatar', array("before"=>"check_login", 'as'=>'update_avatar', 'uses'=>'UserController@update_avatar'));
+
+Route::get('update_avatar', array("before"=>"check_login", 'as'=>'update_avatar', 'uses'=>'UserController@change_avatar'));
 
 // SONGS
 Route::get('songs/{id}', array('as'=>'songs', 'uses'=>'SongController@index'));
