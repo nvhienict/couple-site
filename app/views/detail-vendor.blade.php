@@ -63,10 +63,11 @@
 								<div id="content-photo">
 									<h4>Ảnh</h4>
 										<ul id="thumbs-main">
-											@foreach($photoslides as $index => $photoslide)
-											<li rel="{{$index+1}}">{{'<img alt="" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
-											@endforeach
-												   
+											@if(!empty($photoslides))	
+												@foreach($photoslides as $index => $photoslide)
+												<li rel="{{$index+1}}">{{'<img alt="" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
+												@endforeach
+											@endif	   
 										</ul>
 										   
 									<a href="#photos" class="outside-link"data-toggle="tab">Xem thêm</a>
@@ -150,17 +151,19 @@
 						  			<h4>{{Lang::get('messages.Photo')}}</h4>
 						  			  <!-- Wrapper for slides -->
 								<div id="bigPic">
-									@foreach($photoslides as $index => $photoslide)
-											{{'<img alt="" src="data:image/jpeg;base64,' . base64_encode($photoslide->bigpic) . '">'}}
-									@endforeach
-												    
+									@if(!empty($photoslides))
+										@foreach($photoslides as $index => $photoslide)
+												{{'<img alt="" src="data:image/jpeg;base64,' . base64_encode($photoslide->bigpic) . '">'}}
+										@endforeach
+									@endif			    
 								</div>
 
 								<ul id="thumbs">
-									@foreach($photoslides as $index => $photoslide)
-											<li rel="{{$index+1}}">{{'<img alt="" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
-									@endforeach
-												   
+									@if(!empty($photoslides))
+										@foreach($photoslides as $index => $photoslide)
+												<li rel="{{$index+1}}">{{'<img alt="" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
+										@endforeach
+									@endif			   
 								</ul>
 								<!-- script slides		 -->		
 								<script type="text/javascript"> 
