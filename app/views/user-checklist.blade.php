@@ -368,11 +368,11 @@ Danh sách công việc
 </div> <!-- end row -->
 </div><!--container-->
 <script type="text/javascript" async>
-	function showCountTask(data,id){
+	function showCountTask(data,id,index){
 		data = $.parseJSON(data);
-		$("#task"+id).text(data['Counttask']);
-		$("#overDue"+id).text(data['Overdue']);
-		$("#Completed"+id).text(data['completed']);
+		$("#task"+index).text(data['Counttask']);
+		$("#overDue"+index).text(data['Overdue']);
+		$("#Completed"+index).text(data['completed']);
 		$("#warning"+id).replaceWith(data['waning']);
 		
 	}
@@ -395,7 +395,7 @@ Danh sách công việc
 				type: "post",
 				url: "{{URL::route('check_task_complete',array('ac'=>1))}}",
 				data: {id:$(name_input).val(), month:$('#month_y'+index).val(),startdate: $('#startdate'+id_usertask).val()},
-				success: function(data){showCountTask(data,id_usertask)}
+				success: function(data){showCountTask(data,id_usertask,index)}
 			});
 		}
 		else
@@ -412,7 +412,7 @@ Danh sách công việc
 				type: "post",
 				url: "{{URL::route('check_task_complete',array('ac'=>0))}}",
 				data: {id:$(name_input).val(), month:$('#month_y'+index).val(),startdate: $('#startdate'+id_usertask).val()},
-				success: function(data){showCountTask(data,id_usertask)}
+				success: function(data){showCountTask(data,id_usertask,index)}
 			});
 		}
 	}
