@@ -208,7 +208,7 @@ Danh sách khách mời
 					 	<tbody>
 					 	@foreach(Groups::where('user',GuestController::id_user())->get() as $key=>$group)
 					 		<tr class="guest_cat{{$group->id}} guest_cat" id="cate{{$group->id}}">					 						 			
-					 			<td style="width:18%;text-align: left;"><a href="javascript:void(0);" style="color:#555555;"onclick="show_hide({{$group->id}})"><strong>{{$group->name}}</strong>(<span class="total_group_guest{{$group->id}}">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()->count()}}</span>)</a></td>					 								 		
+					 			<td style="width:18%;text-align: left;"><a href="javascript:void(0);" style="color:#555555;"onclick="show_hide({{$group->id}})" ><i id="show-hide-group{{$group->id}}" class=" fa fa-minus-square-o"></i><strong> {{$group->name}}</strong>(<span class="total_group_guest{{$group->id}}">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()->count()}}</span>)</a></td>					 								 		
 					 			<td style="width:14%;text-align: left;"></td>
 					 			<td style="width:18%;"></td>
 					 			<td style="width:18%;"></td>
@@ -222,14 +222,14 @@ Danh sách khách mời
 
 										$('#up{{$group->id}}').click(function(){
 											$('.guest_list_show_cat{{$group->id}}').hide();
-
+											$('#show-hide-group{{$group->id}}').removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
 											$('#up{{$group->id}}').hide();
 											$('#down{{$group->id}}').show();
 										});
 
 										$('#down{{$group->id}}').click(function(){
 											$('.guest_list_show_cat{{$group->id}}').show();
-
+											$('#show-hide-group{{$group->id}}').removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
 											$('#up{{$group->id}}').show();
 											$('#down{{$group->id}}').hide();
 										});
@@ -239,12 +239,15 @@ Danh sách khách mời
 											if($('.guest_list_show_cat'+id).is(':visible') )
 											{
 												$('.guest_list_show_cat'+id).hide();
+												$('#show-hide-group'+id).removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
 												$('#up'+id).hide();
 												$('#down'+id).show();
+												
 											}
 											else
 											{
 												$('.guest_list_show_cat'+id).show();
+												$('#show-hide-group'+id).removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
 												$('#up'+id).show();
 												$('#down'+id).hide();
 											}
