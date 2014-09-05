@@ -157,14 +157,14 @@ Danh sách khách mời
 					<script type="text/javascript">
 						$('#guest_all_item_sign_down').click(function(){
 							$('.guest_list_show_cat').show();
-
+							$('#show-hide-group{{$group->id}}').removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
 							$('.down_item_cat').hide();
 							$('.up_item_cat').show();
 							
 						});
 						$('#guest_all_item_sign_up').click(function(){
 							$('.guest_list_show_cat').hide();
-
+							$('#show-hide-group{{$group->id}}').removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
 							$('.down_item_cat').show();
 							$('.up_item_cat').hide();
 						});
