@@ -1604,7 +1604,7 @@ a.budget_icon_notes{
 	z-index: 1;
 }
 .compare_vendor{
-	width: 199px; height: 600px; margin-right: 2px; float:left;
+	width: 194px; height: 600px; margin-right: 2px; float:left;
 	margin: 0px 0px 0px 0px;
 	border-left: 1px solid #fff;
 	border-right: 1px solid #fff;
@@ -1661,7 +1661,7 @@ a.budget_icon_notes{
 
 
 .compare_vendor_show1{
-	width: 199px; height: 600px; margin-right: 2px; float:left;
+	width: 194px; height: 600px; margin-right: 2px; float:left;
 	margin: 0px 0px 0px 0px;
 	border-left: 1px solid #fff;
 	border-right: 1px solid #fff;
@@ -1670,40 +1670,40 @@ a.budget_icon_notes{
 	left: 135px;
 }
 .compare_vendor_show2{
-	width: 199px; height: 600px; margin-right: 2px; float:left;
+	width: 194px; height: 600px; margin-right: 2px; float:left;
 	margin: 0px 0px 0px 0px;
 	border-left: 1px solid #fff;
 	border-right: 1px solid #fff;
 	position: absolute;
 	z-index: 100;
-	left: 334px;
+	left: 329px;
 }
 .compare_vendor_show3{
-	width: 199px; height: 600px; margin-right: 2px; float:left;
+	width: 194px; height: 600px; margin-right: 2px; float:left;
 	margin: 0px 0px 0px 0px;
 	border-left: 1px solid #fff;
 	border-right: 1px solid #fff;
 	position: absolute;
 	z-index: 100;
-	left: 533px;
+	left: 523px;
 }
 .compare_vendor_show4{
-	width: 199px; height: 600px; margin-right: 2px; float:left;
+	width: 194px; height: 600px; margin-right: 2px; float:left;
 	margin: 0px 0px 0px 0px;
 	border-left: 1px solid #fff;
 	border-right: 1px solid #fff;
 	position: absolute;
 	z-index: 100;
-	left: 732px;
+	left: 717px;
 }
 .compare_vendor_show5{
-	width: 199px; height: 600px; margin-right: 2px; float:left;
+	width: 194px; height: 600px; margin-right: 2px; float:left;
 	margin: 0px 0px 0px 0px;
 	border-left: 1px solid #fff;
 	border-right: 1px solid #fff;
 	position: absolute;
 	z-index: 100;
-	left: 931px;
+	left: 911px;
 }
 
 
