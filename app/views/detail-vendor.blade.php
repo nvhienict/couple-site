@@ -92,9 +92,9 @@
 						  	<div class="tab-pane" id="review">
 						  		<div>
 						  				@if($check_rating_avg)
-							  				<h2>Trung bình:<span class="avg-show-rating">{{Rating::where('vendor',$vendor->id)->avg('rating')}}</span></h2>
+							  				<h2>Trung bình:<span class="avg-show-rating"> {{Rating::where('vendor',$vendor->id)->avg('rating')}}</span>/5</h2>
 							  			@else
-							  				<h2>Trung bình:<span class="avg-show-rating">0</span></h2>
+							  				<h2>Trung bình:<span class="avg-show-rating"> 0</span>/5</h2>
 							  			@endif
 
 						  		</div>
