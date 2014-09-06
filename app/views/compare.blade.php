@@ -51,55 +51,55 @@ So sánh dịch vụ
 		<?php $i=0; ?>
 		@if( !empty($compares) )
 		<?php $arCompares = array_unique($compares); ?>
-		@foreach ($arCompares as $key=>$compare)
-		@foreach (Vendor::get() as $vendor)
-		@if($vendor->id==$compare)
-			<?php $i++; ?>
+			@foreach ($arCompares as $key=>$compare)
+				@foreach (Vendor::get() as $vendor)
+					@if($vendor->id==$compare)
+						<?php $i++; ?>
 			
-			<div class="compare_vendor_show{{$i}}" id="del_compare{{$key}}">
-				<div class="compare_vendor_img-name">
-					<div class="btn_del_vendor_compare">
-						<button class="btn btn-default" id="btn_del_compare{{$key}}">
-							<img src="{{Asset('icon/delete.png')}}" class="img-icon">
-						</button>
-						<script type="text/javascript">
-							$('#btn_del_compare{{$key}}').click(function(){
+							<div class="compare_vendor_show{{$i}}" id="del_compare{{$key}}">
+								<div class="compare_vendor_img-name">
+									<div class="btn_del_vendor_compare">
+										<button class="btn btn-default" id="btn_del_compare{{$key}}">
+											<img src="{{Asset('icon/delete.png')}}" class="img-icon">
+										</button>
+										<script type="text/javascript">
+											$('#btn_del_compare{{$key}}').click(function(){
 
-								$.ajax({
-									type: "post",
-									url: "{{URL::route('remove_vendor_compare', array($key))}}"
+												$.ajax({
+													type: "post",
+													url: "{{URL::route('remove_vendor_compare', array($key))}}"
 
-								});
+												});
 
-								$('#del_compare{{$key}}').remove();
-							});
-						</script>
-					</div>
-					<div class="compare_add_vendor_show">
-						<a href="{{URL::to('vendor',array($vendor->id))}}">{{'<img class="img-responsive img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a>
-						<a href="{{URL::to('vendor',array($vendor->id))}}">{{$vendor->name}}</a>
-					</div>
-				</div>
-				<div class="compare_tr22">
-					{{$vendor->address}}
-				</div>
-				<div class="compare_tr32">
-					{{$vendor->phone}}
-				</div>
-				<div class="compare_tr42">
-					<img src="{{Asset('images/50_stars.gif')}}">
-				</div>
-				<div class="compare_tr52">
-					{{Vendor::find($vendor->id)->category()->get()->first()->name}}
-				</div>
-				<div class="compare_tr62">
-					<span style="color: #ff924c"><i class="glyphicon glyphicon-ok"></i></span>
-					<div><button type="button" class="btn btn-skin btn-theme btn-lg"><i class="glyphicon glyphicon-heart-empty"></i> Lưu lại</button></div>
-				</div>
-			</div>
-		@endif
-		@endforeach
-		@endforeach
+												$('#del_compare{{$key}}').remove();
+											});
+										</script>
+									</div>
+									<div class="compare_add_vendor_show">
+										<a href="{{URL::to('vendor',array($vendor->id))}}">{{'<img class="img-responsive img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a>
+										<a href="{{URL::to('vendor',array($vendor->id))}}">{{$vendor->name}}</a>
+									</div>
+								</div>
+								<div class="compare_tr22">
+									{{$vendor->address}}
+								</div>
+								<div class="compare_tr32">
+									{{$vendor->phone}}
+								</div>
+								<div class="compare_tr42">
+									<img src="{{Asset('images/50_stars.gif')}}">
+								</div>
+								<div class="compare_tr52">
+									{{Vendor::find($vendor->id)->category()->get()->first()->name}}
+								</div>
+								<div class="compare_tr62">
+									<span style="color: #ff924c"><i class="glyphicon glyphicon-ok"></i></span>
+									<div><button type="button" class="btn btn-skin btn-theme btn-lg"><i class="glyphicon glyphicon-heart-empty"></i> Lưu lại</button></div>
+								</div>
+							</div>
+					@endif
+				@endforeach
+			@endforeach
 		@endif
 		<!-- vendor 1 -->
 		<div class="compare_vendor" id="del_compare">
