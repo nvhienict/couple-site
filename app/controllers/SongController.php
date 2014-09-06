@@ -136,7 +136,9 @@ class SongController extends \BaseController {
 		$song_comment->content=$cmt;
 		$song_comment->save();
 
+		// get avatar user
 		$user_avatar = User::where('id',$id_user)->get()->first()->avatar;
+		$avatar = base64_decode($user_avatar);
 
 		// get data for show 
 		$arComment = SongComment::get()->last();
@@ -144,7 +146,7 @@ class SongController extends \BaseController {
 		$html = '';
 		$html .="<div class='song_comment'>
 					<div class='song_avatar'>
-						<img class='user_avatar' alt='' src='data:image/jpeg;base64,". base64_encode($user_avatar) . "' /> 
+						<img src=".$avatar.">
 					</div>
 					<div class='song_content'>
 						<span style='color: #428bca;''>".$arComment->user_name."</span> nói rằng:<br />

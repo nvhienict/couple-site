@@ -338,12 +338,12 @@ Quản lý ngân sách
 			</p>
 		</div>
 		<div class="budget_vendor">
-			{{'<img width="195px" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',1)->get()->first()->avatar) . '" />'}}
-			<span style="color: #68ceee">{{Vendor::where('id',1)->get()->first()->name}}</span>
+			{{'<img width="195px;" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',VendorController::last_vendor())->get()->first()->avatar) . '" />'}}
+			<span style="color: #68ceee">{{Vendor::where('id',VendorController::last_vendor())->get()->first()->name}}</span>
 		</div>
 		<div class="budget_vendor">
-			{{'<img width="195px" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',3)->get()->first()->avatar) . '" />'}}
-			<span style="color: #68ceee">{{Vendor::where('id',3)->get()->first()->name}}</span>
+			{{'<img width="195px;" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',VendorController::last_vendor()-1)->get()->first()->avatar) . '" />'}}
+			<span style="color: #68ceee">{{Vendor::where('id',VendorController::last_vendor()-1)->get()->first()->name}}</span>
 		</div>
 		<script type="text/javascript">
 	            //item

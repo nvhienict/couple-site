@@ -13,16 +13,24 @@ class VendorController extends \BaseController {
 		return View::make('category-vendor')->with('results', $results);
 	}
 
+	// get id user from Session email
 	public static function id_user(){
 		$id_user = User::where( 'email', Session::get('email') )->get()->first()->id;
 		return $id_user;
 	}
 
+	// get location last
+	public static function location_last()
+	{
+		return Location::get()->last();
+	}
+
+
 	public function category($id){
 
 		$compares = Session::get('compare');
 		if(!Session::has('location')){
-			$id_location=1;
+			$id_location = VendorController::location_last()->id;
 		}else{
 			$id_location = Session::get('location');
 		}
@@ -267,29 +275,14 @@ class VendorController extends \BaseController {
 	public function post_Compare(){
 		
 		$gh=Input::get('chk');
-		// $hg=Session::get('compare');
-
-		// foreach ($hg as $hg_item) {
-		// 	foreach ($gh as $gh_item) {
-		// 		if ( $gh_item == $hg_item ) {
-
-		// 			unset($hg[$gh_item]);
-		// 			$compares = Session::set('compare', $hg);
-		// 		}else{
-		// 			$compares = Session::put('compare', $gh_item);
-		// 		}
-		// 	}
-		// }
-
-		
 
 		Session::put('compare', $gh);
 		$compares = Session::get('compare');
-
 		return View::make('compare')->with('compares', $compares);
 
 	}
 
+	// function add vendor for compare
 	public function post_AddCompare(){
 
 		$compares = Session::get('compare');
@@ -304,13 +297,21 @@ class VendorController extends \BaseController {
 		}
 
 	}
+
+	// function remove vendor in array compare
 	public function post_RemoveCompare($id){
 
 		$t = Session::get('compare');
 		unset($t[$id]);
 		$compares = Session::set('compare', $t);
-		// return Redirect::to('home-page')->with('compares', $compares);
 
+	}
+
+	// function get a vendor last
+	public static function last_vendor()
+	{
+		$vendor_id_last = Vendor::get()->last()->id;
+		return $vendor_id_last;
 	}
 
 

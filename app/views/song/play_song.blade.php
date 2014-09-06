@@ -29,7 +29,8 @@
 					<h6>Lời:</h6>
 					<p>{{SongController::lyric($song['lyric'])}}</p>
 				<hr>
-					<h6>Bình luận ({{SongComment::where('song',$song['id'])->count()}}):</h6>
+					<h6>Bình luận (<span class="count_cmt">{{SongComment::where('song',$song['id'])->count()}}</span>):</h6>
+					
 
 					@if(!Session::has('email'))
 						<span><a href="{{URL::route('cmt_song', array($song['id']))}}" >Đăng nhận xét!</a></span>
@@ -39,7 +40,9 @@
 							
 							<div class="song_comment">
 								<div class="song_avatar">
-									{{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}}
+									<!-- {{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}} -->
+									<?php $avatar = base64_decode($user_avatar); ?>
+									<img src="{{$avatar}}">
 								</div>
 								<div class="song_content">
 									<span style="color: #428bca;">{{$cmt['user_name']}}</span> nói rằng:<br />
@@ -53,11 +56,13 @@
 
 							<div class="song_comment">
 								<div class="song_avatar">
-									{{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}}<br />
+									<!-- {{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}}<br /> -->
+									<?php $avatar = base64_decode($user_avatar); ?>
+									<img src="{{$avatar}}">
 									<span style="color: #428bca;">{{$user_name}}</span>
 								</div>
 								<div class="song_content">
-									<input type="text" id="song_comment" placeholder="Bình luận của bạn..."></input><br />
+									<input type="text" id="song_comment" placeholder="Bình luận của bạn..." autofocus><br />
 									<button class="btn btn-primary" onclick="post_comment({{UserController::id_user()}})">Đăng</button>
 								</div>
 							</div>
@@ -65,8 +70,11 @@
 						@endif
 						<script type="text/javascript">
 							function post_comment (id_user) {
+
+								var g=parseInt($(".count_cmt").text())+1;
+								$(".count_cmt").text(g);
 								
-								var cmt = $("#song_comment").val(); 
+								var cmt = $("#song_comment").val();
 								$("#song_comment").val("");
 
 								$.ajax({

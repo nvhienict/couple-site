@@ -46,20 +46,20 @@ Route::get('list-vendor',array('as'=>'list-vendor', function(){
 }));
 
 // get location create session display on form seacrh
-// Route::post('get_location/{id}', array('as'=>'get_location', 'uses'=>'VendorController@get_location'));
 Route::post('get_location/{id}', array('as'=>'get_location', function($id){
 	Session::put('location',$id);
 }));
 
+Route::get('gh', function(){
+	return "location la: ".Session::get('location');
+});
+
 Route::get('category-vendor',array('as'=>'category-vendor', "uses"=>"VendorController@index"));
 
 Route::get('category/{id}', array('as'=>'category', "uses"=>"VendorController@category"));
-Route::get('category-photo', array('as'=>'category_vendor', "uses"=>"VendorController@category_vendor"));
-Route::get('category-list', array('as'=>'category_vendor_list', "uses"=>"VendorController@category_vendor_list"));
+
 
 Route::get('list-vendor/search', array('as'=>'home-page',"uses"=>"VendorController@search"));
-
-Route::get('list-vendor/search_list', array('as'=>'home-page',"uses"=>"VendorController@search_list"));
 
 Route::get('compare',array("as"=>"compare", "uses"=>"VendorController@post_Compare"));
 

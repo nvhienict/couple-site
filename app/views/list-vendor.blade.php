@@ -30,7 +30,7 @@ Danh sách Dịch vụ
 			   				@if( Session::has('location') )
 			   					{{Location::where("id",Session::get('location'))->get()->first()->name}}
 			   				@else
-			   					{{Location::where("id",1)->get()->first()->name}}
+			   					{{VendorController::location_last()->name}}
 			   				@endif
 			   			@endif
 
@@ -44,7 +44,7 @@ Danh sách Dịch vụ
 			   				@if( !empty($category_id) )
 				   				{{Category::where("id",$category_id)->get()->first()->name}}
 				   			@else
-				   				Chưa chọn Danh mục
+				   				Chưa chọn
 				   			@endif
 			   			@endif
 
