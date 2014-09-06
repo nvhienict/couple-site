@@ -90,10 +90,95 @@
 								</div>
 						  	</div>
 						  	<div class="tab-pane" id="review">
+						  		<div>
+						  				@if($check_rating_avg)
+							  				<h2>Trung bình:<span class="avg-show-rating">{{Rating::where('vendor',$vendor->id)->avg('rating')}}</span></h2>
+							  			@else
+							  				<h2>Trung bình:<span class="avg-show-rating">0</span></h2>
+							  			@endif
+
+						  		</div>
 
 						  	@if(!Session::has('email'))
+						  		<span><a href="{{URL::route('reviews',array($vendor->id))}}">Đánh giá,</a></span>
 								<span><a href="{{URL::route('cmt_vendor', array($vendor['id']))}}" >Đăng nhận xét!</a></span>
 							@endif
+
+								@if(Session::has('email'))
+																			
+										<div class="rating" data-rating="{{$ratings}}">
+											   Đánh giá: <div></div><div></div><div></div><div></div><div></div> (<span id='info'>{{$ratings}}</span>/5)<br>
+											   <input class="id-vendor-rating" type="hidden" value="{{$vendor->id}}" name="id-vendor-rating">
+										</div>
+									
+											
+									
+									<script type="text/javascript">
+										function ShowRating($element, rating){
+											    $stars = $element.find('div');
+											    $stars.removeClass('selected highlighted');
+											    rating = parseInt(rating);
+											    if(rating < 1 || rating > $stars.length) return false;
+
+											    $stars.eq(rating-1).addClass('selected')
+											        .prevAll().addClass('highlighted');
+											    return true;
+											}
+
+											$('.rating').each(function(){
+											    var $this = $(this);
+											    ShowRating($this, $this.data('rating'));
+											}).bind({
+											    mouseleave: function(){
+											        var $this = $(this);
+											        ShowRating($this, $this.data('rating'));
+											    }
+											}).find('div').bind({
+											    mouseenter: function(){
+											        var $this = $(this);
+											        ShowRating($this.parent(), $this.index() + 1);
+											    },
+											    click: function(){
+											        var $this = $(this);
+											        var $parent = $this.parent();
+											        var idx = $this.index() + 1;
+											        if($parent.data('rating') == idx){
+											            // Remove rating
+											            ShowRating($parent, 0);
+											            $parent.data('rating', 0);
+											        } else {
+											            // Set rating
+											            ShowRating($parent, idx);
+											            $parent.data('rating', idx);
+											        }
+											        
+											        $('#info').text($parent.data('rating'));
+											    }
+											});
+									</script>
+									<script type="text/javascript">
+									$('.rating').click(function(){
+														
+											$.ajax({
+												type:"POST",
+												url:"{{URL::route('rating')}}",
+												data:{
+													rating:$('#info').text(),
+													vendor:	$('.id-vendor-rating').val()	
+												},
+												success:function(data){
+													var obj= JSON.parse(data);
+													$('.avg-show-rating').text(obj.avg_rating);
+												}													
+											});
+										});
+
+									</script>
+
+
+
+								@endif
+
 
 						  		@foreach(VendorComment::where('vendor',$vendor->id)->get() as $cmt)
 								

@@ -73,6 +73,9 @@ Route::post('vendor_comment/{id_vendor}', array("as"=>"vendor_comment", "uses"=>
 
 Route::get('vendor/{id}/comments', array("before"=>"check_login", 'as'=>'cmt_vendor', 'uses'=>'VendorController@show'));
 
+Route::get('vendor/{id}/reviews', array("before"=>"check_login", 'as'=>'reviews', 'uses'=>'VendorController@show'));
+
+Route::post('vendor/rating',array('as'=>'rating','uses'=>'VendorController@ratingVendor'));
 /* End Route vendor */
 
 

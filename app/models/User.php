@@ -35,5 +35,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function song_comment(){
 		return $this->hasMany("SongComment","user");
 	}
-
+	public function rating()
+  	{
+  		return $this->hasMany('Rating','rating');
+  	}
 }

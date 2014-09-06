@@ -48,18 +48,38 @@ class VendorController extends \BaseController {
 											->with('compares', $compares);
 	}
 
+	public function ratingVendor()
+	{
+		$id_user = VendorController::id_user();
+		$id_vendor=Input::get('vendor');
+		$check=Rating::where('user',$id_user)->where('vendor',$id_vendor)->get()->count();
+		if($check)
+		{
+			$rating_up=Rating::where('user',$id_user)->where('vendor',$id_vendor)->get()->first();
+			$rating_up->rating=Input::get('rating');
+			$rating_up->save();
+			$avg_rating=Rating::where('vendor',$id_vendor)->avg('rating');
+		}
+		else
+		{
+			$rating_add=new Rating();
+			$rating_add->user=$id_user;
+			$rating_add->rating=Input::get('rating');
+			$rating_add->vendor=Input::get('vendor');
+			$rating_add->save();
+			$avg_rating=Rating::where('vendor',$id_vendor)->avg('rating');
+		}
+		echo json_encode(array('avg_rating'=>$avg_rating));
+		exit();
+	}
 	
-
 
 	/**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
-		//
-	}
+
 
 
 	/**
@@ -98,20 +118,39 @@ class VendorController extends \BaseController {
 			$user_avatar = User::where('id',$id_user)->get()->first()->avatar;
 			$email = User::where('id',$id_user)->get()->first()->email;
 			$weddingdate=VendorController::getDates();
-		}		
+		}
+		$check_rating= Rating::where('user',$id_user)->where('vendor',$id)->get()->count();
+
 		$photoslides=PhotoSlide::where('vendor',$id)->get();	
 		$vendor=Vendor::where('id',$id)->get()->first();
-
+		if($check_rating>0){
+			$ratings=Rating::where('user',$id_user)->where('vendor',$id)->get()->first()->rating;
+		}
+		else
+		{
+			$ratings=0;
+		}
+		$rating_avg=Rating::where('vendor',$id)->get()->count();
+		if($rating_avg>0)
+		{
+			$check_rating_avg=true;
+		}
+		else
+		{
+			$check_rating_avg=false;
+		}
+		
 		return View::make("detail-vendor")->with("vendor",$vendor)
 										->with('firstname',$firstname)
 										->with('lastname',$lastname)
 										->with('user_name',$user_name)
 										->with('user_avatar',$user_avatar)
 										->with('email',$email)
+										->with('check_rating_avg',$check_rating_avg)
+										->with('ratings',$ratings)
 										->with('weddingdate',$weddingdate)
 										->with('photoslides',$photoslides);
-										
-									
+				
 	}
 	public static function getDates(){
 		$id_user = ChecklistController::id_user();

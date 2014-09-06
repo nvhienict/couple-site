@@ -29,4 +29,8 @@ class Vendor extends Eloquent{
   	{
   		return $this->hasMany('PhotoSlide','photoslide');
   	}
+  	public function rating()
+  	{
+  		return $this->hasMany('Rating','rating');
+  	}
 }
