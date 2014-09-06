@@ -428,11 +428,9 @@ class ChecklistController extends \BaseController {
 		$id = Input::get('id');
 
 		if($ac==1){
-			$user_task = UserTask::where('id',$id)->update(
-			array("todo"=>1));
+			$user_task = UserTask::where('id',$id)->update(array("todo"=>1));
 		}else{
-			$user_task = UserTask::where('id',$id)->update(
-			array("todo"=>0));
+			$user_task = UserTask::where('id',$id)->update(array("todo"=>0));
 		}
 		$CountTaskCat = ChecklistController::countCategoryToDo($category);
 		$CountOverDueCat = ChecklistController::countCatOverDue($category);
@@ -458,11 +456,14 @@ class ChecklistController extends \BaseController {
 		if($ac==1)
 		{
 			$user_task = UserTask::where('id',$id)->update(array("todo"=>1));
+			
 		}
 		else
 		{
 			$user_task = UserTask::where('id',$id)->update(array("todo"=>0));
+
 		}
+
 		$Counttask = 0;
 		$Overdue = 0;
 		$completed = 0;
@@ -477,6 +478,7 @@ class ChecklistController extends \BaseController {
 			if(date_timestamp_get($date_task)<date_timestamp_get($date_now) && $date_task->format("m-Y")==$month && $task->todo!=1  )
 				$Overdue++;
 		} 
+		
 		$waning = '';
 		if (ChecklistController::comparedate($startdate,$ac)) {
 			$waning = '<span  id="warning'.$id.'" class="fa fa-warning" style="color:#E9621A;"></span>';

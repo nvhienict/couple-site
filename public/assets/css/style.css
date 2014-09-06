@@ -1029,9 +1029,7 @@ a.btn:focus{
 	min-width: 100%;
 	clear: both;
 }
-#nav-bar .dropdown-menu{
-	width: 560px;
-}
+
 #nav-bar .dropdown-menu a{
 	font-size: 20px;
 }
@@ -1164,9 +1162,7 @@ label.error{
 }
 
 =======
-#nav-bar .dropdown-menu{
-	width: 560px;
-}
+
 #nav-bar .dropdown-menu a{
 	font-size: 20px;
 }
@@ -1399,7 +1395,7 @@ div.vendor_content button{
 	min-width: 100%;
 	clear: both;
 }
-#nav-bar .dropdown-menu{
+.oneUl{
 	width: 300%;
 }
 #nav-bar .dropdown-menu a{

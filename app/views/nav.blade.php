@@ -12,10 +12,9 @@
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li><a href="{{URL::route('index')}}">Trang chủ</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nhà cung cấp <b class="caret"></b></a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu oneUl">
           <li role="presentation" class="dropdown-header"><span>Dịch vụ</span>
           <div class="row">
             <div class="col-xs-6">
@@ -71,7 +70,7 @@
 
       <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Âm nhạc<b class="caret"></b></a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu oneUl">
             <li role="presentation" class="dropdown-header"><span>Nghi lễ</span>
               <div class="row">
                 <div class="col-xs-6">

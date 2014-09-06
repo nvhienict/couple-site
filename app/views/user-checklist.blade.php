@@ -74,8 +74,8 @@ Danh sách công việc
 
 		<div class="checklist-content">
 			<div class="panel-group" id="accordion">
-		@if(ChecklistController::byMonth())
-	  	   @foreach(ChecklistController::byMonth() as $index=> $checklist_month)
+			@if(ChecklistController::byMonth())
+	  		@foreach(ChecklistController::byMonth() as $index=> $checklist_month)
 	  		<input id="month{{$index}}" hidden name = "month{{$index}}" value="{{$index}}">
 	  		<input id="month_y{{$index}}" hidden name = "month_y{{$index}}" value="{{$checklist_month}}">
 			  <div class="panel panel-default">
@@ -138,7 +138,8 @@ Danh sách công việc
 								</td>
 							</tr>
 							@endforeach
-						@endif
+							@endif
+							<tr id="tr{{$index}}"></tr>
 						</tbody>
 
 					</table>
@@ -401,8 +402,20 @@ Danh sách công việc
 				type: "post",
 				url: "{{URL::route('check_task_complete',array('ac'=>1))}}",
 				data: {id:$(name_input).val(), month:$('#month_y'+index).val(),startdate: $('#startdate'+id_usertask).val()},
-				success: function(data){showCountTask(data,id_usertask,index)}
+				success: function(data){
+					data = $.parseJSON(data);
+					$("#task"+index).text(data['Counttask']);
+					$("#overDue"+index).text(data['Overdue']);
+					$("#Completed"+index).text(data['completed']);
+					$("#warning"+id).replaceWith(data['waning']);
+					
+				}
 			});
+			$("#"+id_usertask).hide();
+			$("#tr"+index).before($("#"+id_usertask)).show();
+			$("#"+id_usertask).show();
+			
+			
 		}
 		else
 		{
@@ -418,7 +431,13 @@ Danh sách công việc
 				type: "post",
 				url: "{{URL::route('check_task_complete',array('ac'=>0))}}",
 				data: {id:$(name_input).val(), month:$('#month_y'+index).val(),startdate: $('#startdate'+id_usertask).val()},
-				success: function(data){showCountTask(data,id_usertask,index)}
+				success: function(data){
+					data = $.parseJSON(data);
+					$("#task"+index).text(data['Counttask']);
+					$("#overDue"+index).text(data['Overdue']);
+					$("#Completed"+index).text(data['completed']);
+					$("#warning"+id).replaceWith(data['waning']);
+				}
 			});
 		}
 	}

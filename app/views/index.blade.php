@@ -17,14 +17,13 @@ Trang chủ
 	  </div>
 	  <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="{{URL::route('index')}}">Trang chủ</a></li>
 	      <li class="dropdown">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nhà cung cấp <b class="caret"></b></a>
-	        <ul class="dropdown-menu">
+	        <ul class="dropdown-menu oneUl" role="menu">
 	          <li role="presentation" class="dropdown-header"><span>Dịch vụ</span>
 	          <div class="row">
 	            <div class="col-md-6 col-xs-12">
-	              <ul class="list-unstyled">
+	              <ul class="list-unstyled ">
 	                  @foreach (Category::get() as $index=> $category)
 	                  @if($index < 7)
 	                    <li><a href="{{URL::route('category', array($category->id))}}">{{$category['name']}}</a></li>
@@ -32,8 +31,8 @@ Trang chủ
 	                  @endforeach
 	              </ul>
 	            </div>
-	            <div class="col-xs-6">
-	              <ul class="list-unstyled">
+	            <div class="col-md-6">
+	              <ul class="list-unstyled ">
 	                  @foreach (Category::get() as $index=> $category)
 	                  @if($index >= 7)
 	                    <li><a href="{{URL::route('category', array($category->id))}}">{{$category['name']}}</a></li>
@@ -47,35 +46,23 @@ Trang chủ
 	      </li>
 	      <li class="dropdown">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Công cụ lập kế hoạch <b class="caret"></b></a>
-	        <ul class="dropdown-menu">
-	          <li role="presentation" class="dropdown-header"><span>Công cụ</span>
-	          <div class="row">
-	            <div class="col-xs-6">
-	              <ul class="list-unstyled">
-	                <!-- <li><a href="#">Website cưới</a></li> -->
-	                <li><a href="{{URL::route('guest-list')}}" >Danh sách khách mời</a></li>
-	                <!-- <li><a href="#">Sơ đồ ghế ngồi</a></li> -->
-	                <li><a href="{{URL::route('user-checklist')}}"  >Danh sách công việc</a></li>
-	                <!-- <li><a href="#">Quản lý vendor</a></li> -->
-	                <li><a href="{{URL::route('budget')}}"  >Quản lý ngân sách</a></li>
+	        <ul class="dropdown-menu " role="menu" >
 
-	              </ul>
-	            </div>
-	            <!-- <div class="col-xs-6">
-	              <ul class="list-unstyled">
-	                <li><a href="#">Viết nhật ký</a></li>
-	                <li><a href="#">Thiết kế thiệp cưới</a></li>
-	                <li><a href="#">Làm video</a></li>
-	              </ul>
-	            </div> -->
-	          </div>
-	          </li>
-	        </ul>
+		        <li role="presentation" class="dropdown-header"><span>Công cụ</span>
+			        <ul class="list-unstyled">
+			      		<li><a href="{{URL::route('guest-list')}}" >Danh sách khách mời</a></li>
+				        <!-- <li><a href="#">Sơ đồ ghế  ngồi</a></li>-->
+				        <li ><a href="{{URL::route('user-checklist')}}"  >Danh sách công việc</a></li>
+				        <!-- <li><a href="#">Quản lý ve ndor</a></li>-->
+				        <li><a href="{{URL::route('budget')}}"  >Quản lý ngân sách</a></li>
+				    </ul>
+	          	</li>
+	        </ul> 
 	      </li>
 
 	      <li class="dropdown">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Âm nhạc<b class="caret"></b></a>
-	        <ul class="dropdown-menu">
+	        <ul class="dropdown-menu oneUl" role="menu">
 	          <li role="presentation" class="dropdown-header"><span>Nghi lễ</span>
 	            <div class="row">
 	              <div class="col-xs-6">
