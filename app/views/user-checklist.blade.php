@@ -402,20 +402,11 @@ Danh sách công việc
 				type: "post",
 				url: "{{URL::route('check_task_complete',array('ac'=>1))}}",
 				data: {id:$(name_input).val(), month:$('#month_y'+index).val(),startdate: $('#startdate'+id_usertask).val()},
-				success: function(data){
-					data = $.parseJSON(data);
-					$("#task"+index).text(data['Counttask']);
-					$("#overDue"+index).text(data['Overdue']);
-					$("#Completed"+index).text(data['completed']);
-					$("#warning"+id).replaceWith(data['waning']);
-					
-				}
+				success: function(data){showCountTask(data,id_usertask,index)}
 			});
 			$("#"+id_usertask).hide();
 			$("#tr"+index).before($("#"+id_usertask)).show();
 			$("#"+id_usertask).show();
-			
-			
 		}
 		else
 		{
@@ -431,13 +422,7 @@ Danh sách công việc
 				type: "post",
 				url: "{{URL::route('check_task_complete',array('ac'=>0))}}",
 				data: {id:$(name_input).val(), month:$('#month_y'+index).val(),startdate: $('#startdate'+id_usertask).val()},
-				success: function(data){
-					data = $.parseJSON(data);
-					$("#task"+index).text(data['Counttask']);
-					$("#overDue"+index).text(data['Overdue']);
-					$("#Completed"+index).text(data['completed']);
-					$("#warning"+id).replaceWith(data['waning']);
-				}
+				success: function(data){showCountTask(data,id_usertask,index)}
 			});
 		}
 	}
