@@ -74,7 +74,8 @@ Danh sách công việc
 
 		<div class="checklist-content">
 			<div class="panel-group" id="accordion">
-	  		@foreach(ChecklistController::byMonth() as $index=> $checklist_month)
+		@if(ChecklistController::byMonth())
+	  	   @foreach(ChecklistController::byMonth() as $index=> $checklist_month)
 	  		<input id="month{{$index}}" hidden name = "month{{$index}}" value="{{$index}}">
 	  		<input id="month_y{{$index}}" hidden name = "month_y{{$index}}" value="{{$checklist_month}}">
 			  <div class="panel panel-default">
@@ -101,6 +102,7 @@ Danh sách công việc
 							</tr>
 						</thead>
 						<tbody>
+							@if(@ChecklistController::sortBy($checklist_month))
 							@foreach(@ChecklistController::sortBy($checklist_month) as $usertask)
 							<input id="startdate{{$usertask->id}}" hidden name="startdate{{$usertask->id}}" value="{{$usertask->startdate}}">
 							<tr id="{{$usertask->id}}">
@@ -136,6 +138,7 @@ Danh sách công việc
 								</td>
 							</tr>
 							@endforeach
+						@endif
 						</tbody>
 
 					</table>
@@ -143,6 +146,7 @@ Danh sách công việc
 			    </div><!--collapse number-->
 			  </div><!--panel-default-->
 		  @endforeach
+		  @endif
 
 			<!-- Modal Add checklist -->
 			<div class="modal fade" id="myModalAddChecklist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -233,11 +237,13 @@ Danh sách công việc
 							        <input type="hidden" id="id" name="id" value="">
 									   	<select name="category" class="form-control" id="category" />
 									   		<option value=""></option>
+									   		@if(Category::get())
 					                    	@foreach(Category::get() as $category)
 					                        <option value="{{$category->id}}">
 					                        {{$category->name}}
 					                        </option>
 					                        @endforeach
+					                        @endif
 					                    </select>
 							        </div>
 							    </div>

@@ -74,6 +74,7 @@ Danh sách công việc
 
 	<div class="checklist-content">
 		<div class="panel-group" id="accordion">
+	@if(Category::get())
   		@foreach(Category::get() as $index=> $category)
 		  <div class="panel panel-default" >
 		    <div class="panel-heading row" style="background: #fff6ee;">
@@ -110,6 +111,7 @@ Danh sách công việc
 						</tr>
 					</thead>
 					<tbody>
+				@if(User::find(ChecklistController::id_user())->user_task()->get())
 					@foreach(User::find(ChecklistController::id_user())->user_task()->get() as $index=>$usertask)
 					@if($category->id==$usertask->category)
 						<tr id="{{$usertask->id}}">
@@ -239,12 +241,14 @@ Danh sách công việc
 						</tr>
 						@endif
 					@endforeach
+				@endif
 					</tbody>
 				</table>
 		      </div><!--panel body-->
 		    </div><!--collapse number-->
 		  </div><!--panel-default-->
 		  @endforeach
+		 @endif
 		  <!-- Modal Add checklist - Giang -->
 	<div class="modal fade" id="myModalAddChecklist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
@@ -274,9 +278,11 @@ Danh sách công việc
 			        <div class='col-sm-9'>
 					   	<select name="category" class="form-control input-lg" id="category">
 		                	<option value="{{Input::get('category')}}">{{Input::get('category')}}</option>
+		                	@if(Category::get())
 				    		@foreach (Category::get() as $index=> $category)
 					    	<option value="{{$category['id']}}">{{$category['name']}}</option>
 					    	@endforeach
+					    	@endif
 	    				</select>
 			        </div>
 			    </div>
@@ -333,11 +339,13 @@ Danh sách công việc
 							        <input type="hidden" id="id" name="id" value="">
 									   	<select name="category" class="form-control" id="category" />
 									   		<option value=""></option>
+									   		@if(Category::get())
 					                    	@foreach(Category::get() as $category)
 					                        <option value="{{$category->id}}">
 					                        {{$category->name}}
 					                        </option>
 					                        @endforeach
+					                        @endif
 					                    </select>
 							        </div>
 							    </div>
