@@ -119,17 +119,26 @@ class VendorController extends \BaseController {
 			$email = User::where('id',$id_user)->get()->first()->email;
 			$weddingdate=VendorController::getDates();
 		}
-		$check_rating= Rating::where('user',$id_user)->where('vendor',$id)->get()->count();
-
-		$photoslides=PhotoSlide::where('vendor',$id)->get();	
-		$vendor=Vendor::where('id',$id)->get()->first();
-		if($check_rating>0){
-			$ratings=Rating::where('user',$id_user)->where('vendor',$id)->get()->first()->rating;
-		}
+		if(Session::has('email'))
+		{
+			$check_rating= Rating::where('user',$id_user)->where('vendor',$id)->get()->count();
+			if($check_rating>0){
+				$ratings=Rating::where('user',$id_user)->where('vendor',$id)->get()->first()->rating;
+			}
+			else
+			{
+				$ratings=0;
+			}
+		}	
 		else
 		{
 			$ratings=0;
 		}
+		
+
+		$photoslides=PhotoSlide::where('vendor',$id)->get();	
+		$vendor=Vendor::where('id',$id)->get()->first();
+		
 		$rating_avg=Rating::where('vendor',$id)->get()->count();
 		if($rating_avg>0)
 		{
