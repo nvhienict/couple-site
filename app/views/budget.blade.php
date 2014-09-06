@@ -130,6 +130,7 @@ Quản lý ngân sách
 					 	</thead>
 
 					 	<tbody>
+					 	@if((Category::get()))
 					 	@foreach(Category::get() as $key=>$category)
 					 		<tr class="budget_cat" id="cate{{$category->id}}">
 					 			<td class="budget-column-icon" style="background-image:url({{Asset("icon/cat/{$category->images}")}})"></td>
@@ -203,6 +204,7 @@ Quản lý ngân sách
 					 			</td>
 					 		</tr>
 					 		<tbody class="budget_item_show_cat{{$category->id}} budget_item_show_cat">
+					 		@if((UserBudget::where("user",UserBudgetController::id_user())->where('category',$category->id)->get()))
 					 			@foreach(UserBudget::where("user",UserBudgetController::id_user())->where('category',$category->id)->get() as $budget)
 			 					<tr class="budget_item_cat" id="budget_item_cat{{$budget->id}}">
 						 			<td>
@@ -297,6 +299,7 @@ Quản lý ngân sách
 						 		<!-- Script thuỷ viết -->
 						 		                                											  						     
 						 		@endforeach
+						 		@endif
 						 		<tr class="budget_item_cat" id="budget_item_cat">
 						 			<td></td>
 						 			<td colspan="7"><a href="javascript:void(0);" onclick="item_add({{$category->id}})" class="item-add{{$category->id}}" style="cursor:pointer;">
@@ -307,6 +310,7 @@ Quản lý ngân sách
 						 		</tr>
 						 	</tbody>
 						@endforeach
+						@endif
 					 	</tbody>
 					 	<tr>
 					 		<th><i class="glyphicon glyphicon-gbp"></i></th>

@@ -190,8 +190,8 @@ Danh sách khách mời
 					 		<th style="width:10%;"></th>
 					 	</tr>
 					 	</thead>
-
 					 	<tbody>
+					 @if((Groups::where('user',GuestController::id_user())->get()))
 					 	@foreach(Groups::where('user',GuestController::id_user())->get() as $key=>$group)
 					 		<tr class="guest_cat{{$group->id}} guest_cat" id="cate{{$group->id}}">					 						 			
 					 			<td style="width:18%;text-align: left;"><a href="javascript:void(0);" style="color:#555555;"onclick="show_hide({{$group->id}})" ><i id="show-hide-group{{$group->id}}" class=" fa fa-minus-square-o"></i><strong> {{$group->name}}</strong>(<span class="total_group_guest{{$group->id}}">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()->count()}}</span>)</a></td>					 								 		
@@ -348,6 +348,7 @@ Danh sách khách mời
 					 			</td>
 					 		</tr>
 					 		<tbody class="guest_list_show_cat{{$group->id}} guest_list_show_cat">
+					 			@if((Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()))
 					 			@foreach(Guests::where('user',GuestController::id_user())->where('group',$group->id)->get() as $guest)
 			 					<tr class=" guest_list{{$guest->id}} guest_list_item_cat" id="guest_list_item_cat{{$guest->id}}">
 			 											 			
@@ -417,6 +418,7 @@ Danh sách khách mời
 						 		<!-- Script thuỷ viết -->
 						 		                                											  						     
 						 		@endforeach
+						 	@endif	
 						 		<tr class="guest_list_item_cat" id="guest_list_item_cat">
 						 			
 						 			<td style="text-align: left;" colspan="7"><a onclick="add_guest({{$group->id}})" href="javascript:void(0)" class="guest_list_add{{$group->id}}" style="cursor:pointer;">
@@ -427,6 +429,7 @@ Danh sách khách mời
 						 		</tr>
 						 	</tbody>
 						@endforeach
+						@endif
 					 	</tbody>
 					 	
 					</table>
