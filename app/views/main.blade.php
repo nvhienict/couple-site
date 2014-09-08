@@ -9,8 +9,6 @@
 	<meta property="og:title" content="Dịch vụ cưới hỏi Thuna.vn">
 	<meta property="og:type" content="website">
 	<meta property="og:image" content="{{Asset("assets/img/logo.png")}}" />
-	<meta property="og:url" content="http://thuna.vn/"/>
-	<meta property="fb:admins" content="100000097093656"/>
 	<meta property="fb:app_id" content="692038267552175" />
 	
 	<!-- css -->
