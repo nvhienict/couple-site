@@ -131,9 +131,9 @@
 
 							  				</div>		
 							  			@else
-							  				<h2>Trung bình:<span class="avg-show-rating"> 0</span>/5</h2>
-							  				<div>
-							  					<img src="{{Asset('images/star/0.jpg')}}" class="img-responsive" alt="">
+							  				<h2>Trung bình:<span class="avg-show-rating "> 0</span>/5</h2>
+							  				<div class="star-avg-rating">
+							  					<img src="{{Asset('images/star/0.jpg')}}" class="img-responsive agv-rating" alt="">
 							  				</div>
 							  			@endif
 
@@ -209,7 +209,7 @@
 												success:function(data){
 													var obj= JSON.parse(data);
 													$('.avg-show-rating').text(obj.avg_rating);
-													f(obj.avg_rating==0)
+													if(obj.avg_rating==0)
 														$('.agv-rating').attr('src','{{Asset('images/star/0.jpg')}}');
 													if(obj.avg_rating>0 &&obj.avg_rating<1)
 														$('.agv-rating').attr('src','{{Asset('images/star/0.5.jpg')}}');
