@@ -53,7 +53,7 @@ class VendorController extends \BaseController {
 			$rating_up=Rating::where('user',$id_user)->where('vendor',$id_vendor)->get()->first();
 			$rating_up->rating=Input::get('rating');
 			$rating_up->save();
-			$avg_rating=Rating::where('vendor',$id_vendor)->avg('rating');
+			$avg_rating=round(Rating::where('vendor',$id_vendor)->avg('rating'),1);
 		}
 		else
 		{
@@ -62,7 +62,7 @@ class VendorController extends \BaseController {
 			$rating_add->rating=Input::get('rating');
 			$rating_add->vendor=Input::get('vendor');
 			$rating_add->save();
-			$avg_rating=Rating::where('vendor',$id_vendor)->avg('rating');
+			$avg_rating=round(Rating::where('vendor',$id_vendor)->avg('rating'),1);
 		}
 		echo json_encode(array('avg_rating'=>$avg_rating));
 		exit();
@@ -138,10 +138,12 @@ class VendorController extends \BaseController {
 		if($rating_avg>0)
 		{
 			$check_rating_avg=true;
+			$avg_rating=round(Rating::where('vendor',$vendor->id)->avg('rating'),1);
 		}
 		else
 		{
 			$check_rating_avg=false;
+			$avg_rating=0;
 		}
 		
 		return View::make("detail-vendor")->with("vendor",$vendor)
@@ -152,6 +154,7 @@ class VendorController extends \BaseController {
 										->with('email',$email)
 										->with('check_rating_avg',$check_rating_avg)
 										->with('ratings',$ratings)
+										->with('avg_rating',$avg_rating)
 										->with('weddingdate',$weddingdate)
 										->with('photoslides',$photoslides);
 				

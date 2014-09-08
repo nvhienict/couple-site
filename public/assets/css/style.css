@@ -2073,7 +2073,12 @@ a.guest_list_icon_trash{
 
 /********Rating*********/
 .rating { display:inline-block; padding:0px; }
-.rating div { display:inline-block; width:17px; height:17px; margin:0px; background-image: url('../../images/star-rating/empty-star.jpg');}
+.rating div { display:inline-block; width:20px; height:20px; margin:0px; background-image: url('../../images/star-rating/empty-star.jpg');}
 
 .selected { background-image: url('../../images/star-rating/full-star.jpg') !important; }
 .highlighted { background-image: url('../../images/star-rating/full-star.jpg') !important; }
+.star-avg-rating
+{
+	margin-left: 175px;
+	margin-top: -20px;
+}

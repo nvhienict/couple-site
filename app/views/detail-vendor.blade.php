@@ -91,13 +91,53 @@
 						  	</div>
 						  	<div class="tab-pane" id="review">
 						  		<div>
-						  				@if($check_rating_avg)
-							  				<h2>Trung bình:<span class="avg-show-rating"> {{Rating::where('vendor',$vendor->id)->avg('rating')}}</span>/5</h2>
+						  			@if($check_rating_avg)
+							  				<h2>Trung bình:<span class="avg-show-rating"> {{round(Rating::where('vendor',$vendor->id)->avg('rating'),1)}}</span>/5</h2>
+							  				<div class="star-avg-rating">
+							  					@if($avg_rating==0)
+							  						<img src="{{Asset('images/star/0.jpg')}}" class="img-responsive agv-rating " alt="">
+							  					@else
+							  						@if($avg_rating > 0 & $avg_rating < 1)
+							  						<img src="{{Asset('images/star/0.5.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if($avg_rating == 1)
+							  						<img src="{{Asset('images/star/1.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if($avg_rating > 1 & $avg_rating < 2)
+							  						<img src="{{Asset('images/star/1.5.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if($avg_rating == 2)
+							  						<img src="{{Asset('images/star/2.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if($avg_rating > 2 & $avg_rating < 3)
+							  						<img src="{{Asset('images/star/2.5.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if($avg_rating == 3)
+							  						<img src="{{Asset('images/star/3.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if($avg_rating > 3 & $avg_rating < 4)
+							  						<img src="{{Asset('images/star/3.5.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if($avg_rating == 4)
+							  						<img src="{{Asset('images/star/4.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if($avg_rating > 4 & $avg_rating < 5)
+							  						<img src="{{Asset('images/star/4.5.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if($avg_rating == 5)
+							  						<img src="{{Asset('images/star/5.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  					@endif
+
+							  				</div>		
 							  			@else
 							  				<h2>Trung bình:<span class="avg-show-rating"> 0</span>/5</h2>
+							  				<div>
+							  					<img src="{{Asset('images/star/0.jpg')}}" class="img-responsive" alt="">
+							  				</div>
 							  			@endif
 
-						  		</div>
+						  		</div><br><br>
 
 						  	@if(!Session::has('email'))
 						  		<span><a href="{{URL::route('reviews',array($vendor->id))}}">Đánh giá,</a></span>
@@ -169,6 +209,28 @@
 												success:function(data){
 													var obj= JSON.parse(data);
 													$('.avg-show-rating').text(obj.avg_rating);
+													f(obj.avg_rating==0)
+														$('.agv-rating').attr('src','{{Asset('images/star/0.jpg')}}');
+													if(obj.avg_rating>0 &&obj.avg_rating<1)
+														$('.agv-rating').attr('src','{{Asset('images/star/0.5.jpg')}}');
+													if(obj.avg_rating==1)
+														$('.agv-rating').attr('src','{{Asset('images/star/1.jpg')}}');
+													if(obj.avg_rating>1 &&obj.avg_rating<2)
+														$('.agv-rating').attr('src','{{Asset('images/star/1.5.jpg')}}');
+													if(obj.avg_rating==2)
+														$('.agv-rating').attr('src','{{Asset('images/star/2.jpg')}}');	
+													if(obj.avg_rating>2 &&obj.avg_rating<3)
+														$('.agv-rating').attr('src','{{Asset('images/star/2.5.jpg')}}');
+													if(obj.avg_rating==3)	
+														$('.agv-rating').attr('src','{{Asset('images/star/3.jpg')}}');									
+													if(obj.avg_rating>3 &&obj.avg_rating<4)
+														$('.agv-rating').attr('src','{{Asset('images/star/3.5.jpg')}}');	
+													if(obj.avg_rating==4)	
+														$('.agv-rating').attr('src','{{Asset('images/star/4.jpg')}}');	
+													if(obj.avg_rating>4 &&obj.avg_rating<5)
+														$('.agv-rating').attr('src','{{Asset('images/star/4.5.jpg')}}');
+													if(obj.avg_rating==5)	
+														$('.agv-rating').attr('src','{{Asset('images/star/5.jpg')}}');
 												}													
 											});
 										});
