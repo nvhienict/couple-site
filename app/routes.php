@@ -46,7 +46,8 @@ Route::get('list-vendor',array('as'=>'list-vendor', function(){
 }));
 
 // get location create session display on form seacrh
-Route::post('get_location/{id}', array('as'=>'get_location', function($id){
+Route::post('get_location', array('as'=>'get_location', function(){
+	$id = Input::get('id');
 	Session::put('location',$id);
 }));
 

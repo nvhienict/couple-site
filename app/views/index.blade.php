@@ -173,28 +173,19 @@ Trang chủ
 									<input type="text" name="name" class="form-control input-lg" placeholder="Từ tìm kiếm" />
 								</div>
 								<div class="col-xs-6 col-md-6">
-									<select name="location" class="form-control input-lg">
+									<select name="location" class="form-control input-lg" onchange="get_location(this.value)" >
 							    		@foreach(Location::get() as $location)
 
 							    			@if(!Session::has('location'))
-							    				<option value="{{$location->id}}" id="get_location{{$location->id}}">{{$location->name}}</option>
+							    				<option  value="{{$location->id}}" >{{$location->name}}</option>
 								    		@else
 								    			@if(Session::get('location')==$location->id)
-								    				<option selected="selected" value="{{$location->id}}" id="get_location{{$location->id}}">{{$location->name}}</option>
+								    				<option  selected="selected" value="{{$location->id}}" >{{$location->name}}</option>
 								    			@else
-								    				<option value="{{$location->id}}" id="get_location{{$location->id}}">{{$location->name}}</option>
+								    				<option  value="{{$location->id}}" >{{$location->name}}</option>
 								    			@endif
 								    		@endif
 
-								    		<script type="text/javascript">
-									    		$('#get_location{{$location->id}}').click(function(){
-
-									    			$.ajax({
-									    				type: "post",
-									    				url: "{{URL::route('get_location', array($location->id))}}"
-									    			});
-									    		});
-									    	</script>
 								    	@endforeach
 							    	</select>
 								</div>
@@ -284,7 +275,19 @@ Trang chủ
 		</div>
 		<div class="col-xs-1"></div>
 	</div>
-	
+
+
+<script type="text/javascript">
+
+	function get_location(id){
+		$.ajax({
+			type: "post",
+			url: "{{URL::route('get_location')}}",
+			data:{id:id}
+		});
+	};
+
+</script>	
 
 @endsection
 	
