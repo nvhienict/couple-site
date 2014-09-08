@@ -184,7 +184,9 @@
 								
 								<div class="vendor_comment">
 									<div class="vendor_avatar">
-										{{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}}
+										<!-- {{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}} -->
+										<?php $avatar = base64_decode($user_avatar); ?>
+										<img src="{{$avatar}}">
 									</div>
 									<div class="vendor_content">
 										<span style="color: #428bca;">{{$cmt['user_name']}}</span> nhận xét:<br />
@@ -200,17 +202,34 @@
 
 								<div class="vendor_comment">
 									<div class="vendor_avatar">
-										{{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}}<br />
+										<!-- {{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}}<br /> -->
+										<?php $avatar = base64_decode($user_avatar); ?>
+										<img src="{{$avatar}}">
 										<span style="color: #428bca;">{{$user_name}}</span>
 									</div>
 									<div class="vendor_content">
 										<input type="text" id="vendor_comment" placeholder="Nhận xét của bạn..."></input><br />
-										<button class="btn btn-primary" onclick="post_comment({{UserController::id_user()}})">Đăng</button>
+										<button class="btn btn-primary btn_post_cmt" onclick="post_comment({{UserController::id_user()}})">Đăng</button>
 									</div>
 								</div>
 						
 								@endif
 								<script type="text/javascript">
+
+									$(document).ready(function(){
+									    $('.btn_post_cmt').attr('disabled',true);
+
+									    $('#vendor_comment').keyup(function(){
+									        if($(this).val().length !=0){
+									            $('.btn_post_cmt').attr('disabled', false);
+									        }
+									        else
+									        {
+									            $('.btn_post_cmt').attr('disabled', true);        
+									        }
+									    })
+									});
+
 									function post_comment (id_user) {
 										
 										var cmt = $("#vendor_comment").val(); 

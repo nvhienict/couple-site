@@ -62,19 +62,35 @@
 									<span style="color: #428bca;">{{$user_name}}</span>
 								</div>
 								<div class="song_content">
-									<input type="text" id="song_comment" placeholder="Bình luận của bạn..." autofocus><br />
-									<button class="btn btn-primary" onclick="post_comment({{UserController::id_user()}})">Đăng</button>
+									<input type="text" id="song_comment" placeholder="Bình luận của bạn..." ><br />
+									<button class="btn btn-primary btn_post_cmt" onclick="post_comment({{UserController::id_user()}})">Đăng</button>
 								</div>
 							</div>
 						
 						@endif
 						<script type="text/javascript">
+
+							$(document).ready(function(){
+							    $('.btn_post_cmt').attr('disabled',true);
+
+							    $('#song_comment').keyup(function(){
+							        if($(this).val().length !=0){
+							            $('.btn_post_cmt').attr('disabled', false);
+							        }
+							        else
+							        {
+							            $('.btn_post_cmt').attr('disabled', true);        
+							        }
+							    })
+							});
+
 							function post_comment (id_user) {
+
+								var cmt = $("#song_comment").val();
 
 								var g=parseInt($(".count_cmt").text())+1;
 								$(".count_cmt").text(g);
 								
-								var cmt = $("#song_comment").val();
 								$("#song_comment").val("");
 
 								$.ajax({
@@ -89,8 +105,8 @@
 									}
 
 								});
-
 							}
+
 						</script>
 			</div>
 
