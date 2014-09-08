@@ -423,10 +423,11 @@ class ChecklistController extends \BaseController {
 		return View::make('user-checklist')->with('checklist', $checklist);
 	}
 	//tính theo category
-	public function post_CheckCatComplete($ac,$category,$startdate){
+	public function post_CheckCatComplete($ac){
 		$id_user = ChecklistController::id_user();
 		$id = Input::get('id');
-
+		$category = Input::get('category');
+		$startdate = Input::get('startdate');
 		if($ac==1){
 			$user_task = UserTask::where('id',$id)->update(array("todo"=>1));
 		}else{

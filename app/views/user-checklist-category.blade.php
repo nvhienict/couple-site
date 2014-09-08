@@ -6,6 +6,7 @@ Danh sách công việc
 @include('nav')
 @endsection
 @section('content')
+
 <div class="container user-checklist">
 <div class="row">
 	
@@ -76,11 +77,12 @@ Danh sách công việc
 		<div class="panel-group" id="accordion">
 	@if(Category::get())
   		@foreach(Category::get() as $index=> $category)
+  		<input type="text" hidden id="cat{{$category->id}}" value="{{$category->id}}">
 		  <div class="panel panel-default" >
 		    <div class="panel-heading row" style="background: #fff6ee;">
 		    	<div class="col-xs-5">
 			      <h4 class="panel-title">
-			        <a class="collapse-category" id="collapse-category{{$index}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
+			        <a class="collapse-category" onclick ="sortByCat({{$index}})" id="collapse-category{{$index}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
 			         <i class="fa fa-plus-square-o"></i> {{$category->name}}
 			        </a>
 			      </h4>
@@ -88,18 +90,6 @@ Danh sách công việc
 				<div class="col-xs-2" id="Cat_task{{$category->id}}"><span>{{ChecklistController::countCategoryToDo($category->id)}}</span></div>
 				<div class="col-xs-2" id="Cat_overDue{{$category->id}}"><span>{{ChecklistController::countCatOverDue($category->id)}}</span></div>
 				<div class="col-xs-3" id="Cat_Completed{{$category->id}}"><span>{{ChecklistController::countCatComplete($category->id)}}</span></div>
-		      <script type="text/javascript">
-			      $("#collapse-category{{$index}}").click(function(){
-			      	if($("#collapse-category{{$index}} i").hasClass("fa fa-plus-square-o"))
-			      	{	
-			      		$("#collapse-category{{$index}} i").removeClass("fa-plus-square-o").addClass("fa-minus-square-o");
-			      	}
-			      	else
-			      	{
-			      		$("#collapse-category{{$index}} i").removeClass("fa-minus-square-o").addClass("fa-plus-square-o");	
-			      	}
-		      });
-		      </script>
 		    </div>
 		    <div id="collapse{{$index}}" class="panel-collapse collapse">
 		      <div class="panel-body">
@@ -112,73 +102,19 @@ Danh sách công việc
 					</thead>
 					<tbody>
 				@if(User::find(ChecklistController::id_user())->user_task()->get())
-					@foreach(User::find(ChecklistController::id_user())->user_task()->get() as $index=>$usertask)
+					@foreach(User::find(ChecklistController::id_user())->user_task()->orderBy('todo','ASC')->get() as $index=>$usertask)
 					@if($category->id==$usertask->category)
+					<input type="text" hidden id="startdate{{$usertask->id}}" value="{{$usertask->startdate}}">
 						<tr id="{{$usertask->id}}">
 							<td>
 	  							@if($usertask->todo==0)
-	  							<input type="checkbox" id="chk_cat_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}"  />
+	  							<input onclick="clickCheckboxCat({{$category->id}},{{$usertask->id}})" type="checkbox"  id="chk_cat_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}"  />
 								<input type="hidden" name="checkbox-{{$usertask->id}}" value="">
 	  							@else
-	  							<input type="checkbox" id="chk_cat_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}" checked />
+	  							<input onclick="clickCheckboxCat({{$category->id}},{{$usertask->id}})" type="checkbox" id="chk_cat_{{$usertask->id}}" name="chk_checklist" value="{{$usertask->id}}" checked />
 	  							<input type="hidden" name="checkbox-{{$usertask->id}}" value="{{$usertask->id}}">
 	  							@endif
-	  							<script type="text/javascript">
-									$('input[type="checkbox"]#chk_cat_{{$usertask->id}}').click(function(){
-										if($(this).is(':checked')) {
-										var id= $(this).val();
-										$(this).next().val(id);
-
-										var $i= parseInt($("#count_complete").text())+1;
-
-										var $j= parseInt($("#count_overdue").text());
-										if ($j==0) { $j=$j; }
-										else{ $j=$j-1; }
-
-										$("#count_overdue").text($j);
-										$("#count_complete").text($i);
-										$("#warning{{$usertask->id}}").hide();
-										$.ajax({
-											type: "post",
-											url: "{{URL::route('check_Cat_complete', array('ac'=>1,'category'=>$category->id, 'startdate'=>$usertask->startdate))}}",
-											data: {id:$(this).val()},
-											success: function(data){
-												data = $.parseJSON(data);
-												$("#Cat_task{{$category->id}}").text(data['Counttask']);
-												$("#Cat_overDue{{$category->id}}").text(data['Overdue']);
-												$("#Cat_Completed{{$category->id}}").text(data['completed']);
-													
-											}
-										});
-
-									}else{
-										$(this).next().val("");
-
-										var $i= parseInt($("#count_complete").text())-1;
-
-										var $j= parseInt($("#count_overdue").text());
-										if ($j==0) { $j=$j; }
-										else{ $j=$j+1; }
-
-										$("#count_overdue").text($j);
-										$("#count_complete").text($i);
-										
-										$.ajax({
-											type: "post",
-											url: "{{URL::route('check_Cat_complete', array('ac'=>0,'category'=>$category->id, 'startdate'=>$usertask->startdate))}}",
-											data: {id:$(this).val()},
-											success: function(data){
-												data = $.parseJSON(data);
-												$("#Cat_task{{$category->id}}").text(data['Counttask']);
-												$("#Cat_overDue{{$category->id}}").text(data['Overdue']);
-												$("#Cat_Completed{{$category->id}}").text(data['completed']);
-												$("#warning{{$usertask->id}}").replaceWith(data['waning']);
-											}
-
-										});
-									}
-								});
-								</script>
+	  							
 							</td>
 							<td id="title_cat{{$usertask->id}}">{{$usertask->title}}</td>
 							<td>
@@ -242,6 +178,7 @@ Danh sách công việc
 						@endif
 					@endforeach
 				@endif
+				<tr id="trCat{{$category->id}}"></tr>
 					</tbody>
 				</table>
 		      </div><!--panel body-->
@@ -373,7 +310,6 @@ Danh sách công việc
 									      				var id_edit=$('#form_editChecklist #id').val();
 									      				$("#title_cat"+id_edit).text(obj.title);
 									      			}
-									      			
 									      		});
 								    			
 								    		});
@@ -474,4 +410,76 @@ Danh sách công việc
 </div> <!-- end row -->
 
 </div><!--container-->
+<script type="text/javascript">
+	
+	function clickCheckboxCat(cat,idTask){
+		var name_input = 'input[type="checkbox"]#chk_cat_'+idTask;
+		
+			if($(name_input).is(':checked')) {
+			var id= $(name_input).val();
+			$(name_input).next().val(id);
+			var $i= parseInt($("#count_complete").text())+1;
+			var $j= parseInt($("#count_overdue").text());
+			if ($j==0) { $j=$j; }
+			else{ $j=$j-1; }
+
+			$("#count_overdue").text($j);
+			$("#count_complete").text($i);
+			$("#warning"+idTask).hide();
+			$.ajax({
+				type: "post",
+				url: "{{URL::route('check_Cat_complete', array('ac'=>1))}}",
+				data: {
+					id:$(name_input).val(),
+					category: $('#cat'+cat).val(),
+					startdate: $("#startdate"+idTask).val()
+				},
+				success: function(data){showCountTask(data,cat,idTask)}
+			});
+			$("#"+idTask).hide();
+			$("#trCat"+cat).before($("#"+idTask)).show();
+			$("#"+idTask).show();
+
+		}else{
+			$(name_input).next().val("");
+
+			var $i= parseInt($("#count_complete").text())-1;
+			var $j= parseInt($("#count_overdue").text());
+			if ($j==0) { $j=$j; }
+			else{ $j=$j+1; }
+
+			$("#count_overdue").text($j);
+			$("#count_complete").text($i);
+			
+			$.ajax({
+				type: "post",
+				url: "{{URL::route('check_Cat_complete', array('ac'=>0))}}",
+				data: {
+					id:$(name_input).val(),
+					category: $('#cat'+cat).val(),
+					startdate: $("#startdate"+idTask).val()
+				},
+				success: function(data){showCountTask(data,cat,idTask)}
+
+			});
+		}
+	}
+	function sortByCat(index){
+		if($("#collapse-category" +index+" i").hasClass("fa fa-plus-square-o"))
+	      	{	
+	      		$("#collapse-category" +index+" i").removeClass("fa-plus-square-o").addClass("fa-minus-square-o");
+	      	}
+	      	else
+	      	{
+	      		$("#collapse-category" +index+" i").removeClass("fa-minus-square-o").addClass("fa-plus-square-o");	
+	      	}
+	}
+	function showCountTask(data,cat,id){
+		data = $.parseJSON(data);
+		$("#Cat_task"+cat).text(data['Counttask']);
+		$("#Cat_overDue"+cat).text(data['Overdue']);
+		$("#Cat_Completed"+cat).text(data['completed']);
+		$("#warning"+id).replaceWith(data['waning']);
+	}
+ </script>
 @endsection
