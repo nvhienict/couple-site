@@ -6,8 +6,12 @@
 	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
 	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logo.png")}}">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta property="og:title" content="Dịch vụ cưới hỏi Thuna.vn">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="{{Asset("assets/img/logo.png")}}" />
 	<meta property="og:url" content="http://thuna.vn/"/>
 	<meta property="fb:admins" content="100000097093656"/>
+	<meta property="fb:app_id" content="692038267552175" />
 	
 	<!-- css -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
