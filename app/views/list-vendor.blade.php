@@ -70,28 +70,19 @@ Danh sách Dịch vụ
             <div class="list-group">
             	<form id="form-search" class="wow bounceInUp form-homepage" action="{{Asset('list-vendor/search')}}" method="get">
 	                <input type="text" name="name" class="form-control input-lg" value="{{Input::get('name')}}" placeholder="Từ tìm kiếm" />
-	                <select name="location" class="form-control input-lg">
+	                <select name="location" class="form-control input-lg" onchange="get_location(this.value)" >
 			    		@foreach(Location::get() as $location)
 
 			    			@if(!Session::has('location'))
-			    				<option value="{{$location->id}}" id="get_location{{$location->id}}">{{$location->name}}</option>
+			    				<option value="{{$location->id}}" >{{$location->name}}</option>
 				    		@else
 				    			@if(Session::get('location')==$location->id)
-				    				<option selected="selected" value="{{$location->id}}" id="get_location{{$location->id}}">{{$location->name}}</option>
+				    				<option selected="selected" value="{{$location->id}}" >{{$location->name}}</option>
 				    			@else
-				    				<option value="{{$location->id}}" id="get_location{{$location->id}}">{{$location->name}}</option>
+				    				<option value="{{$location->id}}" >{{$location->name}}</option>
 				    			@endif
 				    		@endif
 
-				    		<script type="text/javascript">
-					    		$('#get_location{{$location->id}}').click(function(){
-
-					    			$.ajax({
-					    				type: "post",
-					    				url: "{{URL::route('get_location', array($location->id))}}"
-					    			});
-					    		});
-					    	</script>
 				    	@endforeach
 			    	</select>
 	                <input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Danh mục" value="{{Input::get('category')}}" readonly style="cursor:pointer;" >
@@ -415,5 +406,16 @@ Danh sách Dịch vụ
 
 </div>
 
+<script type="text/javascript">
+
+	function get_location(id){
+		$.ajax({
+			type: "post",
+			url: "{{URL::route('get_location')}}",
+			data:{id:id}
+		});
+	};
+
+</script>
 
 @endsection
