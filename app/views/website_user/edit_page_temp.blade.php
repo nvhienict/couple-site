@@ -31,7 +31,7 @@
 <body style="width:1048px;">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -75,7 +75,7 @@
 
             <!-- Page Heading -->
             <div class="row title-website">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <h1 class="text-center title-tab">Ngay cuoi                 
                     </h1>
                     <h2 class="text-center">Ten co dau chu re</h2>
