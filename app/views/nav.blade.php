@@ -52,7 +52,7 @@
                 <li><a href="{{URL::route('user-checklist')}}" >Danh sách công việc</a></li>
                 <!-- <li><a href="#">Quản lý vendor</a></li> -->
                 <li><a href="{{URL::route('budget')}}" >Quản lý ngân sách</a></li>
-                
+                <li><a href="{{URL::route('website')}}"  >Website cưới</a></li>
 
               </ul>
             <!-- </div> -->

@@ -55,6 +55,7 @@ Trang chủ
 				        <li ><a href="{{URL::route('user-checklist')}}"  >Danh sách công việc</a></li>
 				        <!-- <li><a href="#">Quản lý ve ndor</a></li>-->
 				        <li><a href="{{URL::route('budget')}}"  >Quản lý ngân sách</a></li>
+				        <li><a href="{{URL::route('website')}}"  >Website cưới</a></li>
 				    </ul>
 	          	</li>
 	        </ul> 
