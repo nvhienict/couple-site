@@ -14,3 +14,21 @@
 .title-tab{
 	font-family: "Bombshell Pro"
 }
+.section button{
+position: absolute;
+right: 20px;
+bottom: 5px;
+display: none;
+}
+.edit-content{
+	display: none;
+}
+.section:hover button{
+display:inline-block;
+}
+.section:hover .edit-content{
+display:inline-block;
+}
+.add-section {
+	height: 40px;
+}

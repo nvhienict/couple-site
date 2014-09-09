@@ -55,9 +55,10 @@ class WebsiteController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit()
 	{
 		//
+		return View::make("website_user.edit_page_temp");
 	}
 
 
