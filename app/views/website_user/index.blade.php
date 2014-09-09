@@ -23,7 +23,9 @@ Website cưới
 				<div class="col-xs-1"></div>
 				<div class="col-xs-5"><h6>Ảnh Website</h6></div>
 				<div class="col-xs-2">
-					<button class="btn btn-primary" style="background: #19b5bc; border:none;">Chỉnh sửa Website</button>
+					<a href="{{Asset('website/edit/pages')}}">
+						<button class="btn btn-primary" style="background: #19b5bc; border:none;">Chỉnh sửa Website</button>
+					</a>
 				</div>
 				<div class="col-xs-1"></div>
 			</div>

@@ -28,7 +28,7 @@
 
 </head>
 
-<body>
+<body style="width:1048px;">
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">

@@ -1,4 +1,4 @@
-/* ==== Google font ==== */
+ ==== Google font ==== */
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700,900);
 @import url('http://fonts.googleapis.com/css?family=Ek+Mukta:400,600,700');
 
@@ -2089,6 +2089,7 @@ a.guest_list_icon_trash{
 *
 **/
 
+/* view dashboard */
 .website_dashboard_left{
 	background-color: #F7F5F3;
 	border: 1px solid #ddd;
@@ -2119,6 +2120,69 @@ tr.even td{
 	padding: 5px;
 }
 
+/* .view dashboard */
+
+/* view design */
+
+.design_website_heading{
+	width: 100%;
+	height: 50px;
+	padding: 10px 10px 55px 40px;
+	margin: 0;
+	background-color: #19B5BC;
+}
+.thuna{
+	color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 5px;
+}
+.thuna2{
+	color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.design_website_content_left{
+	width: 300px;
+	border: 1px solid #ddd;
+	background-color: #F7F5F3;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	float: left;
+}
+.page_design_home_item{
+	padding: 5px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	background-color: #fff;
+}
+.page_design_home_item img{
+	width: 150px;
+}
+.span_design_item{
+	margin-top: 10px;
+}
+.select_design{
+	width: 150px;
+	border-radius:3px; 
+	padding: 5px;
+	margin-top: 5px;
+}
+.color_design{
+	margin-top: 5px;
+}
+
+.design_website_content_right{
+	width: 1048px;
+	float: right;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
 
 
-/*** end Website user ***/
+
+/* .view design */
+
+/*** end Website user **

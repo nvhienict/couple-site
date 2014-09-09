@@ -228,11 +228,11 @@ Route::post("checkName", array("as"=>"checkName", "uses"=>"GroupsController@chec
 *
 **/
 
-Route::get('website', array('as'=>'website', 'uses'=>'WebsiteController@index'));
-Route::get('page_temp', array('as'=>'page_temp', 'uses'=>'WebsiteController@create'));
-Route::get('edit_page_temp', array('as'=>'edit_page_temp', 'uses'=>'WebsiteController@edit'));
+Route::get('website', array('before'=>'check_login', 'as'=>'website', 'uses'=>'WebsiteController@index'));
+Route::get('page_temp', array('before'=>'check_login', 'as'=>'page_temp', 'uses'=>'WebsiteController@create'));
+Route::get('edit_page_temp', array('before'=>'check_login', 'as'=>'edit_page_temp', 'uses'=>'WebsiteController@edit'));
 
-
+Route::get('website/edit/pages', array('before'=>'check_login', 'as'=>'website/edit/pages', 'uses'=>'WebsiteController@design'));
 
 /*** end website user ***/ 
 
