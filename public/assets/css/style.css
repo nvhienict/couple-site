@@ -2130,6 +2130,9 @@ tr.even td{
 	padding: 10px 10px 55px 40px;
 	margin: 0;
 	background-color: #19B5BC;
+	position: absolute;
+	left: 16px;
+	top: 0;
 }
 .thuna{
 	color: #fff;
@@ -2146,12 +2149,13 @@ tr.even td{
 
 .design_website_content_left{
 	width: 300px;
-	height: 590px;
+	height: 570px;
 	border: 1px solid #ddd;
 	background-color: #F7F5F3;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	float: left;
+	margin: 0;
 }
 .page_design_home_item{
 	padding: 5px;
@@ -2177,10 +2181,11 @@ tr.even td{
 
 .design_website_content_right{
 	width: 1048px;
-	height: 590px;
-	float: right;
+	height: 570px;
+	float: left;
 	overflow-y: scroll;
 	overflow-x: hidden;
+	margin: 0;
 }
 
 

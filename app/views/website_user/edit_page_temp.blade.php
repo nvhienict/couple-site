@@ -28,7 +28,7 @@
 
 </head>
 
-<body style="width:1048px;">
+<div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar" role="navigation">
@@ -75,7 +75,7 @@
 
             <!-- Page Heading -->
             <div class="row title-website">
-                <div class="col-md-12">
+                <div class="col-xs-12">
                     <h1 class="text-center title-tab">Ngay cuoi                 
                     </h1>
                     <h2 class="text-center">Ten co dau chu re</h2>
@@ -89,7 +89,7 @@
 
             <div class="row section">
                 <h3 class="text-center title-tab">Welcome</h3>
-                <div class="col-md-6">
+                <div class="col-xs-6">
                     <span>
                         <a href="#">
                         <img class="img-responsive" src="http://placehold.it/700x300" alt="">
@@ -99,16 +99,16 @@
                         <button  type="button" class="btn btn-primary">Change image</button>
                     </span>
                 </div>
-                <div class="col-md-6">
+                <div class="col-xs-6">
                     <h3>Project One</h3>
                     <h4>Subheading</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
                 
                 </div>
                 <div class="row ">
-                    <div class="col-md-11">
+                    <div class="col-xs-11">
                     </div>
-                    <div class="col-md-1 edit-content">
+                    <div class="col-xs-1 edit-content">
                         <span><a class="glyphicon glyphicon-edit" href=""></a></span>
                         <span><a class="glyphicon glyphicon-cog" href=""></a></span>
                     </div>               
@@ -124,13 +124,13 @@
 
             <div class="row section">
                 <h3 class="text-center title-tab">About Us</h3>
-                <div class="col-md-6">
+                <div class="col-xs-6">
                     <h3>Project Two</h3>
                     <h4>Subheading</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
                     
                 </div>
-                <div class="col-md-6">
+                <div class="col-xs-6">
                     <span>
                         <a href="#">
                         <img class="img-responsive" src="http://placehold.it/700x300" alt="">
@@ -141,9 +141,9 @@
                     </span>
                 </div>
                 <div class="row ">
-                    <div class="col-md-11">
+                    <div class="col-xs-11">
                     </div>
-                    <div class="col-md-1 edit-content">
+                    <div class="col-xs-1 edit-content">
                         <span><a class="glyphicon glyphicon-edit" href=""></a></span>
                         <span><a class="glyphicon glyphicon-cog" href=""></a></span>
                     </div>               
@@ -158,13 +158,13 @@
 
             <div class="row section">
                 <h3 class="text-center title-tab">Wedding Events</h3>
-                <div class="col-md-6">
+                <div class="col-xs-6">
                     <h3>Project Three</h3>
                     <h4>Subheading</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
                     
                 </div>
-                <div class="col-md-6">
+                <div class="col-xs-6">
                     <span>
                         <a href="#">
                         <img class="img-responsive" src="http://placehold.it/700x300" alt="">
@@ -175,9 +175,9 @@
                     </span>
                 </div>
                 <div class="row ">
-                    <div class="col-md-11">
+                    <div class="col-xs-11">
                     </div>
-                    <div class="col-md-1 edit-content">
+                    <div class="col-xs-1 edit-content">
                         <span><a class="glyphicon glyphicon-edit" href=""></a></span>
                         <span><a class="glyphicon glyphicon-cog" href=""></a></span>
                     </div>               
@@ -186,7 +186,7 @@
             <hr>
            
             <div class="row section">
-                <div class="col-md-6">
+                <div class="col-xs-6">
                     <span>
                         <a href="#">
                         <img class="img-responsive" src="http://placehold.it/700x300" alt="">
@@ -196,16 +196,16 @@
                         <button  type="button" class="btn btn-primary">Change image</button>
                     </span>
                 </div>
-                <div class="col-md-6">
+                <div class="col-xs-6">
                     <h3>Project Four</h3>
                     <h4>Subheading</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
                    
                 </div>
                 <div class="row ">
-                    <div class="col-md-11">
+                    <div class="col-xs-11">
                     </div>
-                    <div class="col-md-1 edit-content">
+                    <div class="col-xs-1 edit-content">
                         <span><a class="glyphicon glyphicon-edit" href=""></a></span>
                         <span><a class="glyphicon glyphicon-cog" href=""></a></span>
                     </div>               
@@ -215,9 +215,9 @@
             <div class="row section">
                 <img class="img-responsive" src="http://placehold.it/700x300" alt="">
                 <div class="row ">
-                    <div class="col-md-11">
+                    <div class="col-xs-11">
                     </div>
-                    <div class="col-md-1 edit-content">
+                    <div class="col-xs-1 edit-content">
                         <span><a class="glyphicon glyphicon-edit" href=""></a></span>
                         <span><a class="glyphicon glyphicon-cog" href=""></a></span>
                     </div>               
@@ -234,9 +234,9 @@
                 <h3 class="text-center title-tab">Travaling</h3>                            
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
                 <div class="row ">
-                    <div class="col-md-11">
+                    <div class="col-xs-11">
                     </div>
-                    <div class="col-md-1 edit-content">
+                    <div class="col-xs-1 edit-content">
                         <span><a class="glyphicon glyphicon-edit" href=""></a></span>
                         <span><a class="glyphicon glyphicon-cog" href=""></a></span>
                     </div>               
@@ -250,9 +250,9 @@
                 <h3 class="text-center title-tab">Accommodations</h3>                            
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
                 <div class="row ">
-                    <div class="col-md-11">
+                    <div class="col-xs-11">
                     </div>
-                    <div class="col-md-1 edit-content">
+                    <div class="col-xs-1 edit-content">
                         <span><a class="glyphicon glyphicon-edit" href=""></a></span>
                         <span><a class="glyphicon glyphicon-cog" href=""></a></span>
                     </div>               
@@ -270,9 +270,9 @@
                         <h3 class="text-center title-tab">Photo Album</h3>                            
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
                         <div class="row ">
-                            <div class="col-md-11">
+                            <div class="col-xs-11">
                             </div>
-                            <div class="col-md-1 edit-content">
+                            <div class="col-xs-1 edit-content">
                                 <span><a class="glyphicon glyphicon-edit" href=""></a></span>
                                 <span><a class="glyphicon glyphicon-cog" href=""></a></span>
                             </div>               
@@ -284,9 +284,9 @@
                     <a href=""><img src="">photo1</a>
                     <a href=""><img src="">photo1</a>
                     <div class="row ">
-                        <div class="col-md-11">
+                        <div class="col-xs-11">
                         </div>
-                        <div class="col-md-1 edit-content">
+                        <div class="col-xs-1 edit-content">
                             <span><a class="glyphicon glyphicon-edit" href=""></a></span>
                             <span><a class="glyphicon glyphicon-cog" href=""></a></span>
                         </div>               
@@ -304,9 +304,9 @@
                 <h3 class="text-center title-tab">Register</h3>                            
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
                 <div class="row ">
-                        <div class="col-md-11">
+                        <div class="col-xs-11">
                         </div>
-                        <div class="col-md-1 edit-content">
+                        <div class="col-xs-1 edit-content">
                             <span><a class="glyphicon glyphicon-edit" href=""></a></span>
                             <span><a class="glyphicon glyphicon-cog" href=""></a></span>
                         </div>               
@@ -324,9 +324,9 @@
                     <h3 class="text-center title-tab">Contact Us</h3>                            
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
                     <div class="row ">
-                        <div class="col-md-11">
+                        <div class="col-xs-11">
                         </div>
-                        <div class="col-md-1 edit-content">
+                        <div class="col-xs-1 edit-content">
                             <span><a class="glyphicon glyphicon-edit" href=""></a></span>
                             <span><a class="glyphicon glyphicon-cog" href=""></a></span>
                         </div>               
@@ -354,9 +354,9 @@
                            <button type="submit" class="btn btn-primary">Send Mesages</button>
                        </form> 
                        <div class="row ">
-                            <div class="col-md-11">
+                            <div class="col-xs-11">
                             </div>
-                            <div class="col-md-1 edit-content">
+                            <div class="col-xs-1 edit-content">
                                 <span><a class="glyphicon glyphicon-edit" href=""></a></span>
                                 <span><a class="glyphicon glyphicon-cog" href=""></a></span>
                             </div>               
@@ -372,7 +372,7 @@
 
         <footer>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-xs-12">
                     <p class="text-center">Copyright &copy; Your Website 2014</p>
                 </div>
             </div>
@@ -381,6 +381,6 @@
 
     </div>
     <!-- /.container -->
-</body>
+</div>
 
 </html>
