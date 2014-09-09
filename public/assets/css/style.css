@@ -2082,3 +2082,43 @@ a.guest_list_icon_trash{
 	margin-left: 175px;
 	margin-top: -20px;
 }
+
+
+/**
+* Website user
+*
+**/
+
+.website_dashboard_left{
+	background-color: #F7F5F3;
+	border: 1px solid #ddd;
+	margin: 0 20px 0 0;
+}
+.website_dashboard_left_top{
+	margin: 20px 0;
+}
+.img_website{
+	width: 100%;
+}
+.website_tabs{
+	width: 100%;
+	border: 1px solid #ccc;
+}
+tr.odd{
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+tr.odd td{
+	padding: 5px;
+}
+tr.even{
+	border: 1px solid #ccc;
+	background-color: #FFF8F2;
+}
+tr.even td{
+	padding: 5px;
+}
+
+
+
+/*** end Website user ***/
