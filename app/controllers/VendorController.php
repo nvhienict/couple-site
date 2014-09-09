@@ -26,21 +26,7 @@ class VendorController extends \BaseController {
 	}
 
 
-	public function category($id){
-
-		$compares = Session::get('compare');
-		if(!Session::has('location')){
-			$id_location = VendorController::location_last()->id;
-		}else{
-			$id_location = Session::get('location');
-		}
-
-
-		$results = Vendor::where('category',$id)->where('location',$id_location)->get();
-		return View::make('list-vendor')->with('results', $results)
-											->with('category_id', $id)
-											->with('compares', $compares);
-	}
+	
 
 
 	public function ratingVendor()
@@ -242,6 +228,23 @@ class VendorController extends \BaseController {
 	//{
 		//
 	//}
+
+	public function category($id){
+
+		$compares = Session::get('compare');
+		if(!Session::has('location')){
+			$id_location = VendorController::location_last()->id;
+		}else{
+			$id_location = Session::get('location');
+		}
+
+						
+							
+		$results = Vendor::where('category',$id)->where('location',$id_location)->get();
+		return View::make('list-vendor')->with('results', $results)
+											->with('category_id', $id)
+											->with('compares', $compares);
+	}
 	public function search()
 	{
 		$compares = Session::get('compare');
@@ -254,6 +257,7 @@ class VendorController extends \BaseController {
 		if(empty($name)&&empty($category))
 		{
 			$results=$vendor->where('location',"=",$location)->get();
+
 		}
 		elseif(empty($name)&&!empty($category))
 		{
@@ -268,7 +272,8 @@ class VendorController extends \BaseController {
 		{
 			$results=$vendor->where('location',$location)->where('name', 'LIKE', "%$name%")->where('category',$category)->get();
 		}
-
+		
+				
 		return View::make('list-vendor')->with("results",$results)
 										->with("location",$location)
 										->with("compares", $compares);
