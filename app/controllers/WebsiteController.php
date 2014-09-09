@@ -22,6 +22,7 @@ class WebsiteController extends \BaseController {
 	public function create()
 	{
 		//
+		return View::make("website_user.page_temp");
 	}
 
 

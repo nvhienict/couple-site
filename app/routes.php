@@ -229,6 +229,8 @@ Route::post("checkName", array("as"=>"checkName", "uses"=>"GroupsController@chec
 **/
 
 Route::get('website', array('as'=>'website', 'uses'=>'WebsiteController@index'));
+Route::get('page_temp', array('as'=>'page_temp', 'uses'=>'WebsiteController@create'));
+
 
 /*** end website user ***/ 
 
