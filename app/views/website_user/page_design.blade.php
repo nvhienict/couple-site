@@ -37,8 +37,79 @@
 			  		<div class="page_design_home_item">
 			  			<span class="span_design_item">Hình nền:</span><br />
 			  			<img src="{{Asset('images/website/1.png')}}">
-			  			<button class="btn btn-primary" style="background: #19b5bc; border:none;">Đổi ảnh</button>
-			  			
+			  			<button class="btn btn-primary" data-toggle="modal" data-target='#modal-changebackground' style="background: #19b5bc; border:none;">Đổi Ảnh Nền</button>
+			  			<!-- -modal change background -->
+			  				<div class="modal fade " id="modal-changebackground">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content ">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title">Chọn Ảnh Nền</h4>
+										</div>
+										<div class="modal-body">
+											<div class="row">
+												<div class="col-xs-4 col-md-2 menu-image" >
+													<div class="menu-tab-modal">
+														<ul class="nav nav-pills nav-stacked" id="#my-menu-tab">
+															<li><a style="text-align:center"data-toggle="tab" href="#tab-modal-1">Upload Ảnh</a></li>
+															<li class="active"><a style="text-align:center" data-toggle="tab" href="#tab-modal-2">Ảnh Của Tôi</a></li>
+														</ul>
+													</div>
+												</div>
+												<div class="col-xs-12 col-md-10 tab-image">
+													<div class="tab-content ">
+														<div class="tab-pane " id="tab-modal-1">
+																<div class="upload-image-tab">
+																		
+																	<form action="" method="POST" role="form">
+																		
+																	
+																		<div class="form-group">
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			
+																			<a onclick="chose_image()" id="chose_image" >Chọn ảnh từ máy tính của bạn</a>
+																			<input id="input-image-modal"  type="file" class="file" multiple="true">
+																			
+																			
+																		</div>
+																																																			
+																		
+																		<script type="text/javascript">
+																		
+																			function chose_image()
+																			{
+																				 $('#input-image-modal').trigger('click');
+																			};
+																		</script>
+
+																	</form>
+																</div>
+
+														</div>
+														<div class="tab-pane active" id="tab-modal-2">
+														
+														</div>
+													</div>																																					
+												</div>
+
+											</div>
+											
+										</div>
+										
+											
+										
+									</div><!-- /.modal-content -->
+								</div><!-- /.modal-dialog -->
+							</div><!-- /.modal -->
+
+			  			<!-- -end modal change background -->
 			  			<hr>
 			  			<span class="span_design_item">Bố trí Website:</span><br />
 			  			<input type="radio" name="design_layout"  > Theo từng phần &nbsp&nbsp&nbsp&nbsp&nbsp

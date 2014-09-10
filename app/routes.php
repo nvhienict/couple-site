@@ -233,6 +233,8 @@ Route::get('page_temp', array('before'=>'check_login', 'as'=>'page_temp', 'uses'
 Route::get('edit_page_temp', array('before'=>'check_login', 'as'=>'edit_page_temp', 'uses'=>'WebsiteController@edit'));
 
 Route::get('website/edit/pages', array('before'=>'check_login', 'as'=>'website/edit/pages', 'uses'=>'WebsiteController@design'));
-
+Route::get('upload',function(){
+	return View::make('website_user.upload-images');
+});
 /*** end website user ***/ 
 

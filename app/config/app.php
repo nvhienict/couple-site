@@ -122,6 +122,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Maatwebsite\Excel\ExcelServiceProvider',
+		'Intervention\Image\ImageServiceProvider'
 	),
 
 	/*
@@ -190,6 +191,8 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
 		'Carbon' => 'Carbon\Carbon',
+		'Image' => 'Intervention\Image\Facades\Image'
+
 	),
 
 );

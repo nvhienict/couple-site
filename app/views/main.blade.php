@@ -23,6 +23,7 @@
     <link href="{{Asset("assets/css/style.css")}}" rel="stylesheet">
 	<link href="{{Asset("assets/color/default.css")}}" rel="stylesheet">
 	
+	
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
@@ -36,9 +37,8 @@
 	<script src="{{Asset("assets/js/wow.min.js")}}"></script>
 	<script src="{{Asset("assets/js/owl.carousel.min.js")}}"></script>
 	<script src="{{Asset("assets/js/nivo-lightbox.min.js")}}"></script>
-	    <script src="{{Asset("assets/js/custom.js")}}"></script>
+	<script src="{{Asset("assets/js/custom.js")}}"></script>
 	<script src="{{Asset('assets/js/jquery-validate/jquery.validate.js')}}"></script>
-
 	<!-- checklist -->
 	<link href="{{Asset("assets/css/jquery.datetimepicker.css")}}" rel="stylesheet">
 	<script src="{{Asset('assets/js/jquery.js')}}"></script>
