@@ -19,13 +19,19 @@
     <!-- Custom CSS -->
     <link href="{{Asset("assets/css/col-portfolio.css")}}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website.css")}}">
-
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
 <body>
 
     <!-- Navigation -->
+    <div class="row nav-website">
     <nav class="navbar navbar-inverse navbar nav-website-fixed" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -62,6 +68,7 @@
         </div>
         <!-- /.container -->
     </nav>
+    </div>
 
     <!-- Page Content -->
     <div class="container">
@@ -83,31 +90,33 @@
     <!-- Welcome -->
 
             <div class="row section">
-                <h3 class="text-center title-tab">Welcome</h3>
-                <div class="col-xs-6">
-                    <span>
-                        <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                        </a>
-                    </span>
-                    <span>
-                        <button  type="button" class="btn btn-primary">Change image</button>
-                    </span>
-                </div>
-                <div class="col-xs-6">
-                    <h3>Project One</h3>
-                    <h4>Subheading</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-                
-                </div>
-                <div class="row ">
-                    <div class="col-xs-11">
+                <div class="col-xs-12">
+                    <div class="row">
+                            <h3 class="text-center title-tab">Welcome</h3>
+                        <div class="col-xs-6">
+                            <span>
+                                <a href="#">
+                                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                </a>
+                            </span>
+                            <span>
+                                <button  type="button" class="btn btn-primary">Change image</button>
+                            </span>
+                        </div>
+                        <div class="col-xs-6">
+                            <h3>Project One</h3>
+                            <h4>Subheading</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>                   
+                        </div>
                     </div>
-                    <div class="col-xs-1 edit-content">
-                        <span><a class="glyphicon glyphicon-edit" href=""></a></span>
-                        <span><a class="glyphicon glyphicon-cog" href=""></a></span>
-                    </div>               
-                 </div>
+                    <div class="row">
+                        <div class="col-xs-11"></div>
+                        <div class="col-xs-1 edit-content">
+                            <span><a class="glyphicon glyphicon-edit" href=""></a></span>
+                            <span><a class="glyphicon glyphicon-cog" href=""></a></span>
+                        </div>               
+                    </div>
+                </div>
             </div>
             
             <div class="row add-section text-center">
@@ -118,31 +127,35 @@
             <!-- about us -->
 
             <div class="row section">
-                <h3 class="text-center title-tab">About Us</h3>
-                <div class="col-xs-6">
-                    <h3>Project Two</h3>
-                    <h4>Subheading</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
-                    
-                </div>
-                <div class="col-xs-6">
-                    <span>
-                        <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                        </a>
-                    </span>
-                    <span>
-                        <button  type="button" class="btn btn-primary">Change image</button>
-                    </span>
-                </div>
-                <div class="row ">
-                    <div class="col-xs-11">
+                 <div class="col-xs-12">
+                    <div class="row">
+                        <h3 class="text-center title-tab">About Us</h3>
+                        <div class="col-xs-6">
+                            <h3>Project Two</h3>
+                            <h4>Subheading</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
+                            
+                        </div>
+                        <div class="col-xs-6">
+                            <span>
+                                <a href="#">
+                                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                </a>
+                            </span>
+                            <span>
+                                <button  type="button" class="btn btn-primary">Change image</button>
+                            </span>
+                        </div>
                     </div>
-                    <div class="col-xs-1 edit-content">
-                        <span><a class="glyphicon glyphicon-edit" href=""></a></span>
-                        <span><a class="glyphicon glyphicon-cog" href=""></a></span>
-                    </div>               
+                    <div class="row ">
+                        <div class="col-xs-11"></div>
+                        <div class="col-xs-1 edit-content">
+                            <span><a class="glyphicon glyphicon-edit" href=""></a></span>
+                            <span><a class="glyphicon glyphicon-cog" href=""></a></span>
+                        </div>               
+                     </div>
                  </div>
+                
             </div>
             <div class="row add-section text-center">
                 <button  type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add Section</button>
@@ -152,70 +165,78 @@
             <!-- Wedding Events -->
 
             <div class="row section">
-                <h3 class="text-center title-tab">Wedding Events</h3>
-                <div class="col-xs-6">
-                    <h3>Project Three</h3>
-                    <h4>Subheading</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-                    
-                </div>
-                <div class="col-xs-6">
-                    <span>
-                        <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                        </a>
-                    </span>
-                    <span>
-                        <button  type="button" class="btn btn-primary">Change image</button>
-                    </span>
-                </div>
-                <div class="row ">
-                    <div class="col-xs-11">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <h3 class="text-center title-tab">Wedding Events</h3>
+                        <div class="col-xs-6">
+                            <h3>Project Three</h3>
+                            <h4>Subheading</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
+                            
+                        </div>
+                        <div class="col-xs-6">
+                            <span>
+                                <a href="#">
+                                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                </a>
+                            </span>
+                            <span>
+                                <button  type="button" class="btn btn-primary">Change image</button>
+                            </span>
+                        </div>
                     </div>
-                    <div class="col-xs-1 edit-content">
-                        <span><a class="glyphicon glyphicon-edit" href=""></a></span>
-                        <span><a class="glyphicon glyphicon-cog" href=""></a></span>
-                    </div>               
-                 </div>
+                    <div class="row ">
+                        <div class="col-xs-11"></div>
+                        <div class="col-xs-1 edit-content">
+                            <span><a class="glyphicon glyphicon-edit" href=""></a></span>
+                            <span><a class="glyphicon glyphicon-cog" href=""></a></span>
+                        </div>               
+                    </div>                    
+                </div>                              
             </div>
             <hr>
            
             <div class="row section">
-                <div class="col-xs-6">
-                    <span>
-                        <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                        </a>
-                    </span>
-                    <span>
-                        <button  type="button" class="btn btn-primary">Change image</button>
-                    </span>
-                </div>
-                <div class="col-xs-6">
-                    <h3>Project Four</h3>
-                    <h4>Subheading</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
-                   
-                </div>
-                <div class="row ">
-                    <div class="col-xs-11">
+                <div class="col-xs-12">
+                    <div class="row ">
+                        <div class="col-xs-6">
+                            <span>
+                                <a href="#">
+                                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                </a>
+                            </span>
+                            <span>
+                                <button  type="button" class="btn btn-primary">Change image</button>
+                            </span>
+                        </div>
+                            <div class="col-xs-6">
+                            <h3>Project Four</h3>
+                            <h4>Subheading</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>                       
+                        </div>
                     </div>
-                    <div class="col-xs-1 edit-content">
-                        <span><a class="glyphicon glyphicon-edit" href=""></a></span>
-                        <span><a class="glyphicon glyphicon-cog" href=""></a></span>
-                    </div>               
-                </div>
+                    <div class="row ">
+                        <div class="col-xs-11"> </div>
+                        <div class="col-xs-1 edit-content">
+                            <span><a class="glyphicon glyphicon-edit" href=""></a></span>
+                            <span><a class="glyphicon glyphicon-cog" href=""></a></span>
+                        </div>               
+                    </div>
+                </div>               
             </div>
             <hr>
             <div class="row section">
-                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                <div class="row ">
-                    <div class="col-xs-11">
+                <div class="col-xs-12">
+                    <div  class="row">
+                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                    </div>                    
+                    <div class="row ">
+                        <div class="col-xs-11"></div>
+                        <div class="col-xs-1 edit-content">
+                            <span><a class="glyphicon glyphicon-edit" href=""></a></span>
+                            <span><a class="glyphicon glyphicon-cog" href=""></a></span>
+                        </div>               
                     </div>
-                    <div class="col-xs-1 edit-content">
-                        <span><a class="glyphicon glyphicon-edit" href=""></a></span>
-                        <span><a class="glyphicon glyphicon-cog" href=""></a></span>
-                    </div>               
                 </div>
             </div>
             <div class="row add-section text-center">
@@ -226,32 +247,34 @@
            <!--  Travalling -->
 
             <div class="row section">
-                <h3 class="text-center title-tab">Travaling</h3>                            
+                <div class="col-xs-12">
+                    <h3 class="text-center title-tab">Travaling</h3>                            
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-                <div class="row ">
-                    <div class="col-xs-11">
+                    <div class="row ">
+                        <div class="col-xs-11"></div>
+                        <div class="col-xs-1 edit-content">
+                            <span><a class="glyphicon glyphicon-edit" href=""></a></span>
+                            <span><a class="glyphicon glyphicon-cog" href=""></a></span>
+                        </div>               
                     </div>
-                    <div class="col-xs-1 edit-content">
-                        <span><a class="glyphicon glyphicon-edit" href=""></a></span>
-                        <span><a class="glyphicon glyphicon-cog" href=""></a></span>
-                    </div>               
-                </div>
+                </div>               
             </div>
             <div class="row add-section text-center">
                 <button  type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add Section</button>
             </div> 
             <hr>
             <div class="row section">
-                <h3 class="text-center title-tab">Accommodations</h3>                            
+                <div class="col-xs-12">
+                    <h3 class="text-center title-tab">Accommodations</h3>                            
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-                <div class="row ">
-                    <div class="col-xs-11">
+                    <div class="row ">
+                        <div class="col-xs-11"></div>
+                        <div class="col-xs-1 edit-content">
+                            <span><a class="glyphicon glyphicon-edit" href=""></a></span>
+                            <span><a class="glyphicon glyphicon-cog" href=""></a></span>
+                        </div>               
                     </div>
-                    <div class="col-xs-1 edit-content">
-                        <span><a class="glyphicon glyphicon-edit" href=""></a></span>
-                        <span><a class="glyphicon glyphicon-cog" href=""></a></span>
-                    </div>               
-                </div>
+                </div>                
             </div>
             <div class="row add-section text-center">
                 <button  type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add Section</button>
@@ -260,8 +283,9 @@
 
            <!--  Photo album -->
 
-            <div class="row">
-                <div class="row section">
+            <div class="row"> 
+                <div class="col-xs-12">
+                    <div class="row section">
                         <h3 class="text-center title-tab">Photo Album</h3>                            
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
                         <div class="row ">
@@ -272,21 +296,26 @@
                                 <span><a class="glyphicon glyphicon-cog" href=""></a></span>
                             </div>               
                         </div>
-                </div> 
-                <div class="row section">
-                    <a href=""><img src="">photo1</a>
-                    <a href=""><img src="">photo1</a>
-                    <a href=""><img src="">photo1</a>
-                    <a href=""><img src="">photo1</a>
-                    <div class="row ">
-                        <div class="col-xs-11">
-                        </div>
-                        <div class="col-xs-1 edit-content">
-                            <span><a class="glyphicon glyphicon-edit" href=""></a></span>
-                            <span><a class="glyphicon glyphicon-cog" href=""></a></span>
-                        </div>               
-                    </div>
-                </div>                
+                    </div> 
+                    <div class="row section">
+                        <div class="col-xs-12">
+                            <div class="row ">
+                                <a href=""><img src="">photo1</a>
+                                <a href=""><img src="">photo1</a>
+                                <a href=""><img src="">photo1</a>
+                                <a href=""><img src="">photo1</a>
+                            </div>
+                            <div class="row ">
+                                <div class="col-xs-11">
+                                </div>
+                                <div class="col-xs-1 edit-content">
+                                    <span><a class="glyphicon glyphicon-edit" href=""></a></span>
+                                    <span><a class="glyphicon glyphicon-cog" href=""></a></span>
+                                </div>               
+                            </div>
+                        </div>                       
+                    </div>      
+                </div>         
             </div>
             <div class="row add-section text-center">
                 <button  type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add Section</button>
@@ -296,16 +325,18 @@
            <!--  Register -->
 
             <div class="row section">
-                <h3 class="text-center title-tab">Register</h3>                            
+                <div class="col-xs-12">
+                    <h3 class="text-center title-tab">Register</h3>                            
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-                <div class="row ">
+                    <div class="row ">
                         <div class="col-xs-11">
                         </div>
                         <div class="col-xs-1 edit-content">
                             <span><a class="glyphicon glyphicon-edit" href=""></a></span>
                             <span><a class="glyphicon glyphicon-cog" href=""></a></span>
                         </div>               
-                    </div>
+                    </div> 
+                </div>                
             </div>
             <div class="row add-section text-center">
                 <button  type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add Section</button>
@@ -315,56 +346,61 @@
             <!-- Contact Us -->
 
             <div class="row">
-                <div class="row section">
-                    <h3 class="text-center title-tab">Contact Us</h3>                            
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-                    <div class="row ">
-                        <div class="col-xs-11">
-                        </div>
-                        <div class="col-xs-1 edit-content">
-                            <span><a class="glyphicon glyphicon-edit" href=""></a></span>
-                            <span><a class="glyphicon glyphicon-cog" href=""></a></span>
-                        </div>               
-                    </div>
-                </div>
-                <div class="row section">
-                    <div class="col-xs-12">
-                        <form  class="contact-website" action="" method="POST" role="form">
-                       
-                           <div class="form-group">
-                               <label for="">From</label>
-                               <input  type="text" class="form-control" id="" placeholder="Your Name">
-                           </div>
-                           <div class="form-group">
-                               <label for="">Email</label>
-                               <input type="text" class="form-control" id="" placeholder="Email Adress Your">
-                           </div>
-                           <div class="form-group">
-                               <label for="">Subject</label>
-                               <input type="text" class="form-control" id="" placeholder="Subject">
-                           </div>
-                           <div class="form-group">
-                               <label for="">Mesages</label>
-                               <input type="text" class="form-control" id="" placeholder=Messages>
-                           </div>                   
-                           <button type="submit" class="btn btn-primary">Send Mesages</button>
-                       </form> 
-                       <div class="row ">
-                            <div class="col-xs-11">
+                <div class="col-xs-12">
+                    <div class="row section">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <h3 class="text-center title-tab">Contact Us</h3>                            
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
                             </div>
-                            <div class="col-xs-1 edit-content">
-                                <span><a class="glyphicon glyphicon-edit" href=""></a></span>
-                                <span><a class="glyphicon glyphicon-cog" href=""></a></span>
-                            </div>               
-                        </div> 
-                    </div>
-                </div>        
-            </div>  
-            
-            <div class="row add-section text-center">
-                <button  type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add Section</button>
-            </div>
-        </div>    
+                            <div class="row ">
+                                <div class="col-xs-11">
+                                </div>
+                                <div class="col-xs-1 edit-content">
+                                    <span><a class="glyphicon glyphicon-edit" href=""></a></span>
+                                    <span><a class="glyphicon glyphicon-cog" href=""></a></span>
+                                </div>               
+                            </div>
+                        </div>                                      
+                    </div> 
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-6 ">
+                                    <form  class="contact-website" action="" method="POST" role="form">
+                                   
+                                       <div class="form-group">
+                                           <label for="">From</label>
+                                           <input  type="text" class="form-control" id="" placeholder="Your Name">
+                                       </div>
+                                       <div class="form-group">
+                                           <label for="">Email</label>
+                                           <input type="text" class="form-control" id="" placeholder="Email Adress Your">
+                                       </div>
+                                       <div class="form-group">
+                                           <label for="">Subject</label>
+                                           <input type="text" class="form-control" id="" placeholder="Subject">
+                                       </div>
+                                       <div class="form-group">
+                                           <label for="">Mesages</label>
+                                           <input type="text" class="form-control" id="" placeholder=Messages>
+                                       </div>  
+                                        <button type="submit" class="btn btn-primary send-contact">Send Mesages</button>   
+                                       
+                                   </form> 
+
+                                </div>
+                                <div class="col-xs-6"></div> 
+                            </div>                            
+                        </div>  
+
+                    </div>                   
+            </div>                 
+        </div>  
+        <div class="row add-section text-center">
+            <button  type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add Section</button>
+        </div>
+    </body>    
 
         <!-- Footer -->
 
@@ -379,6 +415,6 @@
 
     </div>
     <!-- /.container -->
-</body>
+</div>
 
 </html>

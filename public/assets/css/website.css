@@ -1,6 +1,6 @@
-.contact-website input{
+/*.contact-website input{
 	width: 600px;
-}
+}*/
 /*.background-website{
 	background-image: url('../../images/website/hinhnen.jpg');
 }*/
@@ -20,6 +20,12 @@ right: 20px;
 bottom: 5px;
 display: none;
 }
+/*.send-contact{
+position: absolute;
+left: 10px;
+bottom:0px;
+
+}*/
 .edit-content{
 	display: none;
 }
@@ -39,6 +45,9 @@ display: none;
 .nav-website-fixed{
 	position: fixed;
 	top: 65px;
-	z-index: 99999;
+	z-index: 11111;
+}
+.nav-website{
+ text-align: center;
 }
 
