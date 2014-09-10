@@ -2203,3 +2203,30 @@ tr.even td{
 
 
 /* .view design */
+/**modal upload image**/
+.upload-image-tab
+{
+	border: dashed 2px #ddd;
+	width: 710px;
+	height: 355px;
+}
+.tab-image
+{
+	border: solid 2px #ddd;
+	height: 400px;
+	background-color: #F7F5F3;
+}
+
+#input-image-modal
+{
+	display: none;
+}
+#chose_image
+{
+	font-weight: bold ;
+	font-style: italic;
+	margin-left: 250px;
+	
+}
+ 
+
