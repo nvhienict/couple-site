@@ -19,9 +19,6 @@
 	<!-- .heading -->
 
 	<div class="row">
-<div class="col-xs-1 design_website_content_left_hide">
-			<a href="javascript:;" onclick="design_website_plus_circle();" ><i class='fa fa-plus-circle fa-fw'></i></a>
-		</div>
 
 		<div class="col-xs-3 design_website_content_left">
 			<div class="minus-plus">
@@ -155,34 +152,42 @@
 			  	<div class="tab-pane" id="design_page">
 			  		<table class="website_tabs">
 						<tr class="odd">
+							<td><input type="text" size="2" value="1" class="website_tabs_input" ></td>
 							<td>Welcome</td>
 							<td><span id="giang" class="glyphicon glyphicon-cog"></span></td>
 						</tr>
 						<tr class="even">
+							<td><input type="text" size="2" value="2" class="website_tabs_input" ></td>
 							<td>About</td>
 							<td><span class="glyphicon glyphicon-cog"></span></td>
 						</tr>
 						<tr class="odd">
+							<td><input type="text" size="2" value="3" class="website_tabs_input" ></td>
 							<td>Sự kiện cưới</td>
 							<td><span class="glyphicon glyphicon-cog"></span></td>
 						</tr>
 						<tr class="even">
+							<td><input type="text" size="2" value="4" class="website_tabs_input" ></td>
 							<td>Du lịch</td>
 							<td><span class="glyphicon glyphicon-cog"></span></td>
 						</tr>
 						<tr class="odd">
+							<td><input type="text" size="2" value="5" class="website_tabs_input" ></td>
 							<td>Đăng ký</td>
 							<td><span class="glyphicon glyphicon-cog"></span></td>
 						</tr>
 						<tr class="even">
+							<td><input type="text" size="2" value="6" class="website_tabs_input" ></td>
 							<td>Album ảnh</td>
 							<td><span class="glyphicon glyphicon-cog"></span></td>
 						</tr>
 						<tr class="odd">
+							<td><input type="text" size="2" value="7" class="website_tabs_input" ></td>
 							<td>Liên lạc</td>
 							<td><span class="glyphicon glyphicon-cog"></span></td>
 						</tr>
 						<tr class="even">
+							<td><input type="text" size="2" value="8" class="website_tabs_input" ></td>
 							<td>Lời chúc</td>
 							<td><span class="glyphicon glyphicon-cog"></span></td>
 						</tr>
@@ -194,6 +199,9 @@
 			</div>
 		</div>
 
+		<div class="col-xs-1 design_website_content_left_hide">
+			<a href="javascript:;" onclick="design_website_plus_circle();" ><i class='fa fa-plus-circle fa-fw'></i></a>
+		</div>
 		<div class="col-xs-9 design_website_content_right">
 			<iframe src="{{URL::route('edit_page_temp')}}" frameborder="0" class="col-xs-12" ></iframe>
 		</div>
