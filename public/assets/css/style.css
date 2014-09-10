@@ -2124,6 +2124,7 @@ tr.even td{
 
 .design_website_heading{
 	height: 50px;
+	width: 100%;
 	padding: 10px 10px 55px 40px;
 	margin: 0;
 	background-color: #19B5BC;
@@ -2151,15 +2152,13 @@ tr.even td{
 }
 
 .design_website_content_left{
-	height: 570px;
+	height: 600px;
 	border: 1px solid #ddd;
 	background-color: #F7F5F3;
-	overflow-y: visible;
-	overflow-x: visible;
+	overflow-y: auto;
+	overflow-x: hidden;
 	float: left;
 	margin: 0;
-	position: fixed;
-	z-index: 10000;
 }
 .page_design_home_item{
 	padding: 5px;
@@ -2184,31 +2183,23 @@ tr.even td{
 }
 
 .design_website_content_right{
-	
-	float: right;
+	height: 600px;
+	float: left;
 	margin: 0;
-	width: calc(100% - 340px);
-	height: 100%;
-	overflow-y: visible;
+	padding: 0px;
+
+}
+.bodyScroll{
+	overflow: hidden;
 }
 .design_website_content_right iframe{
 	height: 100%;
-	overflow: auto;
-	margin: 0px 10px 0px 10px;
-}
-#divContentHTML{
-	display:none;
-	z-index: 101000;
 	width: 100%;
-	position: fixed;
-	
-	max-width: 425px;
-	
+	overflow-y: auto;
+	margin: 0px ;
+	padding-left: 0px;
+	z-index: 1000;
 }
-.popover{
-	min-width: 300px;;
-}
-/*---------------------------------------- thuỷ ^*/
 
 .website_tabs_input{
 	text-align: center;
@@ -2245,4 +2236,9 @@ tr.even td{
 	
 }
  
+
+#divContentHTML{
+	display: none;
+	z-index: 12000;
+}
 

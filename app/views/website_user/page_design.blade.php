@@ -4,6 +4,7 @@
 @endsection
 
 @section('content')
+<body class="bodyScroll">
 	<div class="row design_website_heading">
 		<div class="col-xs-1">
 			<a href="{{URL::route('index')}}" class="thuna" >Thuna.vn</a>

@@ -17,7 +17,6 @@
 
 
     <!-- Custom CSS -->
-    <link href="{{Asset("assets/css/col-portfolio.css")}}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website.css")}}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,8 +30,8 @@
 <body>
 
     <!-- Navigation -->
-    <div class="container">
-    <nav class="navbar navbar-inverse navbar nav-website-fixed" role="navigation">
+    <div class="row">
+    <nav class="navbar navbar-inverse navbar nav-website-fixed col-xs-12" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -70,13 +69,12 @@
     </nav>
     </div>
     <!-- Page Content -->
-    <div class="container">
+    
+        
         <div style="background-image: url("")" class="background-website ">
-
-
+            <div class="row">
             <!-- Page Heading -->
-            <div class="row title-website">
-                <div class="col-xs-12">
+            <div class="col-xs-12 title-website">
                     <h1 class="text-center title-tab">Ngay cuoi                 
                     </h1>
                     <h2 class="text-center">Ten co dau chu re</h2>
@@ -285,24 +283,34 @@
             <div class="row"> 
                 <div class="col-xs-12">
                     <div class="row section">
-                        <h3 class="text-center title-tab">Photo Album</h3>                            
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-                        <div class="row ">
-                            <div class="col-xs-11">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div><h3 class="text-center title-tab">Photo Album</h3></div>
+                                <div class="col-xs-12">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
+                                </div>
+                                                        
+                                
                             </div>
-                            <div class="col-xs-1 edit-content">
-                                <span><a class="glyphicon glyphicon-edit" href=""></a></span>
-                                <span><a class="glyphicon glyphicon-cog" href=""></a></span>
-                            </div>               
-                        </div>
+                            <div class="row ">
+                                <div class="col-xs-11">
+                                </div>
+                                <div class="col-xs-1 edit-content">
+                                    <span><a class="glyphicon glyphicon-edit" href=""></a></span>
+                                    <span><a class="glyphicon glyphicon-cog" href=""></a></span>
+                                </div>               
+                            </div>
+                         </div>
                     </div> 
                     <div class="row section">
                         <div class="col-xs-12">
                             <div class="row ">
-                                <a href=""><img src="">photo1</a>
-                                <a href=""><img src="">photo1</a>
-                                <a href=""><img src="">photo1</a>
-                                <a href=""><img src="">photo1</a>
+                                <div class="col-xs-12">
+                                    <a href=""><img src="">photo1</a>
+                                    <a href=""><img src="">photo1</a>
+                                    <a href=""><img src="">photo1</a>
+                                    <a href=""><img src="">photo1</a>
+                                </div>
                             </div>
                             <div class="row ">
                                 <div class="col-xs-11">
@@ -349,8 +357,10 @@
                     <div class="row section">
                         <div class="col-xs-12">
                             <div class="row">
-                                <h3 class="text-center title-tab">Contact Us</h3>                            
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
+                                <div class="col-xs-12">
+                                    <h3 class="text-center title-tab">Contact Us</h3>                            
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
+                                </div>
                             </div>
                             <div class="row ">
                                 <div class="col-xs-11">
@@ -398,22 +408,16 @@
         </div>  
         <div class="row add-section text-center">
             <button  type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add Section</button>
-     </div>
-    </body>    
-
-        <!-- Footer -->
-
-        <footer>
-            <div class="row">
-                <div class="col-xs-12">
-                    <p class="text-center">Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
-
-    </div>
+        </div>
     <!-- /.container -->
 </div>
-
+<footer>
+    <div class="row">
+        <div class="col-xs-12">
+            <p class="text-center">Copyright &copy; Your Website 2014</p>
+        </div>
+    </div>
+    <!-- /.row -->
+</footer>
+</body>    
 </html>
