@@ -15,6 +15,16 @@ class WeddingWebsite extends Eloquent {
 	 *
 	 * @var array
 	 */
+
+	public function user()
+	{
+		return $this->belongsTo('User','user');
+	}
+
+	public function template()
+	{
+		return $this->belongsTo('WeddingTemplate','template');
+	}
 	
 
 }

@@ -107,5 +107,53 @@ class WebsiteController extends \BaseController {
 		return View::make('website_user.page_design')->with('firstname', $firstname);
 	}
 
+	// function change font for website
+	public function updateFontWebsite()
+	{
+		$font_name = Input::get('font_name');
+
+		$id_user = WebsiteController::id_user();
+
+		$check_isset = WeddingWebsite::where('user',$id_user)->get()->count();
+
+		if ($check_isset==0) {
+			$website = new WeddingWebsite();
+			$website->user = $id_user;
+			$website->font = $font_name;
+			$website->save();
+		}else{
+			WeddingWebsite::where('user',$id_user)->update(
+			array(
+				'font'=>$font_name
+				));
+
+		}
+
+	} // end function
+
+	// function change font for website
+	public function updateColorWebsite()
+	{
+		$color_design = Input::get('color_design');
+
+		$id_user = WebsiteController::id_user();
+
+		$check_isset = WeddingWebsite::where('user',$id_user)->get()->count();
+
+		if ($check_isset==0) {
+			$website = new WeddingWebsite();
+			$website->user = $id_user;
+			$website->color1 = $color_design;
+			$website->save();
+		}else{
+			WeddingWebsite::where('user',$id_user)->update(
+			array(
+				'color1'=>$color_design
+				));
+
+		}
+
+	} // end function
+
 
 }

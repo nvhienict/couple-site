@@ -236,5 +236,11 @@ Route::get('website/edit/pages', array('before'=>'check_login', 'as'=>'website/e
 Route::get('upload',function(){
 	return View::make('website_user.upload-images');
 });
+
+Route::post('change_font_website', array('before'=>'check_login', 'as'=>'change_font_website', 'uses'=>'WebsiteController@updateFontWebsite'));
+
+Route::post('change_color_website1', array('before'=>'check_login', 'as'=>'change_color_website1', 'uses'=>'WebsiteController@updateColorWebsite1'));
+
+
 /*** end website user ***/ 
 

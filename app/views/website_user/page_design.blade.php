@@ -128,11 +128,13 @@
 
 			  		
 			  			<span class="span_design_item">Font chữ:</span><br />
-			  			<span class="span_design_item">Nội dung:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select name="font_website" class="select_design">
-						  							<option value="">Arial</option>
-						  							<option value="">Verdana</option>
-						  							<option value="">Times New Roman</option>
-						  							<option value="">Wedding</option>
+			  			<span class="span_design_item">Nội dung:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select name="font_website" onchange="font_website(this.value);" class="select_design">
+						  							<option value="Arial">Arial</option>
+						  							<option value="Verdana">Verdana</option>
+						  							<option value="Times New Roman">Times New Roman</option>
+						  							<option value="Open Sans">Open Sans</option>
+						  							<option value="Open Sans Condensed">Open Sans Condensed</option>
+						  							<option value="Roboto Condensed">Roboto Condensed</option>
 						  						</select>
 						</span><br />
 			  			<span class="span_design_item">Nhấn mạnh:&nbsp&nbsp&nbsp<select name="accent_website" class="select_design">
@@ -143,9 +145,9 @@
 						</span>
 			  			<hr>
 			  			<span class="span_design_item">Màu: <a href="#">Khôi phục mặc định</a></span><br />
-			  			<span class="span_design_item">Màu 1: <input type="text" name="" class="color color_design"></span><br />
-			  			<span class="span_design_item">Màu 2: <input type="text" name="" class="color color_design"></span><br />
-			  			<span class="span_design_item">Màu 3: <input type="text" name="" class="color color_design"></span>
+			  			<span class="span_design_item">Màu 1: <input type="text" name="color1" onchange="color_design1(this.value);" class="color color_design"></span><br />
+			  			<span class="span_design_item">Màu 2: <input type="text" name="color2" onchange="color_design2(this.value);" class="color color_design"></span><br />
+			  			<span class="span_design_item">Màu 3: <input type="text" name="color3" onchange="color_design3(this.value);" class="color color_design"></span>
 			  		</div>
 			  		
 			  	</div>
@@ -154,42 +156,42 @@
 						<tr class="odd">
 							<td><input type="text" size="2" value="1" class="website_tabs_input" ></td>
 							<td>Welcome</td>
-							<td><span  class="glyphicon glyphicon-cog pop"></span></td>
+							<td><span  class="glyphicon glyphicon-cog pop" style="color: #19B5BC; cursor: pointer;" ></span></td>
 						</tr>
 						<tr class="even">
 							<td><input type="text" size="2" value="2" class="website_tabs_input" ></td>
 							<td>About</td>
-							<td><span class="glyphicon glyphicon-cog"></span></td>
+							<td><span class="glyphicon glyphicon-cog pop" style="color: #19B5BC; cursor: pointer;" ></span></td>
 						</tr>
 						<tr class="odd">
 							<td><input type="text" size="2" value="3" class="website_tabs_input" ></td>
 							<td>Sự kiện cưới</td>
-							<td><span class="glyphicon glyphicon-cog"></span></td>
+							<td><span class="glyphicon glyphicon-cog pop" style="color: #19B5BC; cursor: pointer;" ></span></td>
 						</tr>
 						<tr class="even">
 							<td><input type="text" size="2" value="4" class="website_tabs_input" ></td>
 							<td>Du lịch</td>
-							<td><span class="glyphicon glyphicon-cog"></span></td>
+							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;" ></span></td>
 						</tr>
 						<tr class="odd">
 							<td><input type="text" size="2" value="5" class="website_tabs_input" ></td>
 							<td>Đăng ký</td>
-							<td><span class="glyphicon glyphicon-cog"></span></td>
+							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;" ></span></td>
 						</tr>
 						<tr class="even">
 							<td><input type="text" size="2" value="6" class="website_tabs_input" ></td>
 							<td>Album ảnh</td>
-							<td><span class="glyphicon glyphicon-cog"></span></td>
+							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;" ></span></td>
 						</tr>
 						<tr class="odd">
 							<td><input type="text" size="2" value="7" class="website_tabs_input" ></td>
 							<td>Liên lạc</td>
-							<td><span class="glyphicon glyphicon-cog"></span></td>
+							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;" ></span></td>
 						</tr>
 						<tr class="even">
 							<td><input type="text" size="2" value="8" class="website_tabs_input" ></td>
 							<td>Lời chúc</td>
-							<td><span class="glyphicon glyphicon-cog"></span></td>
+							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;"></span></td>
 						</tr>
 					</table>
 			  	</div>
@@ -220,9 +222,9 @@
 			    <label class="col-xs-5 control-label"> Canh chỉnh:</label>
 			    <div class="col-xs-7">
 				    <div class="btn-group">
-					  <button type="button" class="btn btn-default "><i class="glyphicon glyphicon-align-left"></i></button>
-					  <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-align-center"></i></button>
-					  <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-align-right"></i></button>
+					  <button type="button" class="btn btn-primary "><i class="glyphicon glyphicon-align-left"></i></button>
+					  <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-align-center"></i></button>
+					  <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-align-right"></i></button>
 					</div>
 				</div>
 		  	</div>
@@ -240,7 +242,8 @@
 		  	</div>
 	      </form>
 		</div>
-	<script type="text/javascript">
+
+<script type="text/javascript">
 	function design_website_minus_circle(){
 		$('div.design_website_content_left').hide();
 		$('div.design_website_content_right').removeClass('col-xs-9 design_website_content_right').addClass('col-xs-11 design_website_content_right');
@@ -251,15 +254,51 @@
 		$('div.design_website_content_right').removeClass('col-xs-12 design_website_content_right').addClass('col-xs-9 design_website_content_right');
 		$('div.design_website_content_left_hide').hide();
 	};
+
+	// get font design
+	function font_website(font_name){
+		$.ajax({
+			type:"post",
+			url:"{{URL::to('change_font_website')}}",
+			data:{font_name:font_name}
+		});
+	};
+
+	// get color
+	function color_design1(color_design){
+		$.ajax({
+			type:"post",
+			url:"{{URL::to('change_color_website')}}",
+			data:{color_design:color_design}
+		});
+	}
+	function color_design2(color_design){
+		$.ajax({
+			type:"post",
+			url:"{{URL::to('change_color_website')}}",
+			data:{color_design:color_design}
+		});
+	}
+	function color_design3(color_design){
+		$.ajax({
+			type:"post",
+			url:"{{URL::to('change_color_website')}}",
+			data:{color_design:color_design}
+		});
+	}
+
+
+	// 
 	$(function () {
       //popover option
       $(".pop").popover({
-        title: 'Page Settings',
+        title: 'Chỉnh sửa',
         content: $('#divContentHTML').html(),
         placement: 'right',
         html: true
       });
     });
+
 </script>
 
 @endsection
