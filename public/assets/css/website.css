@@ -28,7 +28,17 @@ display:inline-block;
 }
 .section:hover .edit-content{
 display:inline-block;
+
 }
 .add-section {
 	height: 40px;
 }
+.ok-content{
+display: none;
+}
+.nav-website-fixed{
+	position: fixed;
+	top: 65px;
+	z-index: 99999;
+}
+

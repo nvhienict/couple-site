@@ -28,10 +28,10 @@
 
 </head>
 
-<div>
+<div class="row">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar" role="navigation">
+    <nav class="navbar navbar-inverse navbar nav-website-fixed" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -45,7 +45,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul style="background-color:#222222;" class="nav navbar-nav">
                     <li>
                         <a href="#">Welcome</a>
                     </li>
