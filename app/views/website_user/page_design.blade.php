@@ -65,10 +65,11 @@
 												</div>
 												<div class="col-xs-12 col-md-10 tab-image">
 													<div class="tab-content ">
+														<div></div>
 														<div class="tab-pane " id="tab-modal-1">
 																<div class="upload-image-tab">
 																		
-																	<form action="" method="POST" role="form">
+																	<form action="" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >
 																		
 																	
 																		<div class="form-group">
@@ -77,13 +78,14 @@
 																			<br>
 																			<br>
 																			<br>
-																			<br>
-																			<br>
+																			
+
+																			<a onclick="chose_image()" id="chose_image" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br>
+																			<input id="input-image-modal"  type="file" class="file" multiple="true">
+																			<a type="submit" style="float:right"class="btn btn-primary">Upload</a>
 																			<br>
 
-																			<a onclick="chose_image()" id="chose_image" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a>
-																			<input id="input-image-modal"  type="file" class="file" multiple="true">
-																			
+																																					
 																			
 																		</div>
 																																																			
@@ -97,11 +99,18 @@
 																		</script>
 
 																	</form>
-																</div>
+																</div><br>
 
 														</div>
 														<div class="tab-pane active" id="tab-modal-2">
-														
+															<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
 														</div>
 													</div>																																					
 												</div>
