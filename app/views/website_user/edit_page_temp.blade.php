@@ -31,7 +31,7 @@
 <body>
 
     <!-- Navigation -->
-    <div class="row nav-website">
+    <div class="container">
     <nav class="navbar navbar-inverse navbar nav-website-fixed" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -69,7 +69,6 @@
         <!-- /.container -->
     </nav>
     </div>
-
     <!-- Page Content -->
     <div class="container">
         <div style="background-image: url("")" class="background-website ">
@@ -399,7 +398,7 @@
         </div>  
         <div class="row add-section text-center">
             <button  type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add Section</button>
-        </div>
+     </div>
     </body>    
 
         <!-- Footer -->
