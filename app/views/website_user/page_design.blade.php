@@ -154,7 +154,7 @@
 						<tr class="odd">
 							<td><input type="text" size="2" value="1" class="website_tabs_input" ></td>
 							<td>Welcome</td>
-							<td><span id="giang" class="glyphicon glyphicon-cog"></span></td>
+							<td><span  class="glyphicon glyphicon-cog pop"></span></td>
 						</tr>
 						<tr class="even">
 							<td><input type="text" size="2" value="2" class="website_tabs_input" ></td>
@@ -198,7 +198,7 @@
 			  	</div>
 			</div>
 		</div>
-
+		
 		<div class="col-xs-1 design_website_content_left_hide">
 			<a href="javascript:;" onclick="design_website_plus_circle();" ><i class='fa fa-plus-circle fa-fw'></i></a>
 		</div>
@@ -208,6 +208,38 @@
 
 	</div>
 	<!-- .row -->
+	<div id="divContentHTML" class="text-align" >
+	      <form  class="form-horizontal" role="form">
+	      	<div class="form-group">
+			    <label for="title" class="col-xs-5 control-label">Tiêu đề*:</label>
+			    <div class="col-xs-7">
+			    	<input type="text" class="form-control" name="title"id="title" placeholder="welcome" value=""> 	
+		  		</div>
+		  	</div>
+		  	<div class="form-group">
+			    <label class="col-xs-5 control-label"> Canh chỉnh:</label>
+			    <div class="col-xs-7">
+				    <div class="btn-group">
+					  <button type="button" class="btn btn-default "><i class="glyphicon glyphicon-align-left"></i></button>
+					  <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-align-center"></i></button>
+					  <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-align-right"></i></button>
+					</div>
+				</div>
+		  	</div>
+		  	<div class="form-group">
+			    <label class="col-sm-6 control-label"> Ẩn khỏi trang?</label>
+			    <div class="col-xs-6">
+			    	<input type="checkbox" name="hideTitle">
+				</div>
+		  	</div>
+		  	<div class="form-group">
+			    <label class="col-xs-5 control-label"><a href="#"> Xoá trang</a></label>
+			    <div class="col-xs-7">
+			    	<button>Lưu thay đổi</button>
+				</div>
+		  	</div>
+	      </form>
+		</div>
 	<script type="text/javascript">
 	function design_website_minus_circle(){
 		$('div.design_website_content_left').hide();
@@ -219,6 +251,15 @@
 		$('div.design_website_content_right').removeClass('col-xs-12 design_website_content_right').addClass('col-xs-9 design_website_content_right');
 		$('div.design_website_content_left_hide').hide();
 	};
+	$(function () {
+      //popover option
+      $(".pop").popover({
+        title: 'Page Settings',
+        content: $('#divContentHTML').html(),
+        placement: 'right',
+        html: true
+      });
+    });
 </script>
 
 @endsection

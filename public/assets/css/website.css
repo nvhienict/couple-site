@@ -1,3 +1,15 @@
+#divContentHTML{
+	display:none;
+	z-index: 101000;
+	width: 100%;
+	position: fixed;
+	
+	max-width: 425px;
+	
+}
+.popover{
+	min-width: 300px;;
+}
 /*.contact-website input{
 	width: 600px;
 }*/
