@@ -21,8 +21,8 @@
 	<link href="{{Asset("assets/css/flexslider.css")}}" rel="stylesheet" />
 	<link href="{{Asset("assets/css/animate.css")}}" rel="stylesheet" />
     <link href="{{Asset("assets/css/style.css")}}" rel="stylesheet">
+    
 	<link href="{{Asset("assets/color/default.css")}}" rel="stylesheet">
-	
 	
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
@@ -39,8 +39,6 @@
 	<script src="{{Asset("assets/js/nivo-lightbox.min.js")}}"></script>
 	<script src="{{Asset("assets/js/custom.js")}}"></script>
 	<script src="{{Asset('assets/js/jquery-validate/jquery.validate.js')}}"></script>
-	
-
 
 	<!-- checklist -->
 	<link href="{{Asset("assets/css/jquery.datetimepicker.css")}}" rel="stylesheet">
@@ -53,10 +51,11 @@
 	<!-- ckeditor -->
 	<script src="{{Asset('assets/ckeditor/ckeditor.js')}}"></script>
 
-
+	<!-- Bootstrap 3.2.0 -->
 	<script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
 	
-
+	<!-- Jscolor -->
+	<script src="{{Asset('assets/jscolor/jscolor.js')}}"></script>
 
 
 </head>
