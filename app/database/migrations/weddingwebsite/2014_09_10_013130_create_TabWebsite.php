@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlbumsTab extends Migration {
+class CreateTabWebsite extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -20,6 +20,7 @@ class CreateAlbumsTab extends Migration {
 			$table->string("content");
 			$table->boolean("visiable");
 			$table->string("titlestyle");
+			$table->integer("sort");
 			$table->string("video");
 			$table->string("map");
 			$table->timestamps();
