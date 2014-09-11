@@ -95,7 +95,7 @@
                                 </a>
                             </span>
                             <span>
-                                <button  type="button" class="btn btn-primary">Change image</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target='#modal-changebackground-images' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
                             </span>
                         </div>
                         <div class="col-xs-6">
@@ -138,7 +138,7 @@
                                 </a>
                             </span>
                             <span>
-                                <button  type="button" class="btn btn-primary">Change image</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target='#modal-changebackground-images' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
                             </span>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                                 </a>
                             </span>
                             <span>
-                                <button  type="button" class="btn btn-primary">Change image</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target='#modal-changebackground-images' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
                             </span>
                         </div>
                     </div>
@@ -201,7 +201,7 @@
                                 </a>
                             </span>
                             <span>
-                                <button  type="button" class="btn btn-primary">Change image</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target='#modal-changebackground-images' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
                             </span>
                         </div>
                             <div class="col-xs-6">
@@ -407,6 +407,84 @@
         <div class="row add-section text-center">
             <button  type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add Section</button>
         </div>
+
+
+        <div class="modal fade " id="modal-changebackground-images">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Chọn Ảnh Nền</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-6 col-md-3 menu-image" >
+                                <div class="menu-tab-modal">
+                                    <ul class="nav nav-pills nav-stacked" id="#my-menu-tab">
+                                        <li><a style="text-align:center"data-toggle="tab" href="#tab-modal-edit-1">Upload Ảnh</a></li>
+                                        <li class="active"><a style="text-align:center" data-toggle="tab" href="#tab-modal-edit-2">Ảnh Của Tôi</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-9 tab-image">
+                                <div class="tab-content ">
+                                    <div></div>
+                                    <div class="tab-pane " id="tab-modal-edit-1">
+                                            <div class="upload-image-tab">
+                                                    
+                                                    <form action="" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        
+                                                        <div class="form-group">
+                                                            <a onclick="chose_image()" id="chose_image_edit" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br>
+                                                            <input id="input-image-modal-edit" name="input-image-modal-edit"  type="file" class="file" >
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button type="submit" style="float:right"class="btn btn-primary">Upload</button> 
+                                                        </div>
+                                                        <br>
+                                                        <br>
+                                                                                                        
+                                                                                                                                                                                                                                                                                                                                        
+                                                    <script type="text/javascript">
+                                                    
+                                                        function chose_image()
+                                                        {
+                                                             $('#input-image-modal-edit').trigger('click');
+                                                        };
+                                                    </script>
+
+                                                </form>
+                                            </div><br>
+
+                                    </div>
+                                    <div class="tab-pane active" id="tab-modal-edit-2">
+                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                    </div>
+                                </div>                                                                                                                                                  
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                    
+                        
+                    
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
     <!-- /.container -->
 </div>
 <footer>

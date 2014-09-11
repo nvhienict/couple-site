@@ -74,3 +74,34 @@ display: none;
 	text-align: center;
 	width: 100%
 }
+/***modal up anh**/
+#modal-changebackground-images
+{
+	z-index: 1041;
+}
+.upload-image-tab
+{
+	border: dashed 2px #ddd;
+	padding: 10px;
+}
+.tab-image
+{
+	border: solid 2px #ddd;
+	background-color: #F7F5F3;
+}
+
+#input-image-modal-edit
+{
+	display: none;
+}
+#chose_image_edit
+{
+	font-weight: bold ;
+	font-style: italic;
+	padding-left: 200px;
+	
+}
+.modal-backdrop{
+	z-index: 100;
+
+}
