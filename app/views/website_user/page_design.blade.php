@@ -206,7 +206,8 @@
 			<a href="javascript:;" onclick="design_website_plus_circle();" ><i class='fa fa-plus-circle fa-fw'></i></a>
 		</div>
 		<div class="col-xs-9 design_website_content_right">
-			<iframe src="{{URL::route('edit_page_temp')}}" frameborder="0" class="col-xs-12" ></iframe>
+			<!-- <iframe src="{{URL::route('edit_page_temp')}}" frameborder="0" class="col-xs-12" ></iframe> -->
+			@include('website_user.edit_page_temp')
 		</div>
 
 	</div>

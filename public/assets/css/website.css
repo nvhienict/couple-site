@@ -59,13 +59,17 @@ display:inline-block;
 display: none;
 }
 .nav-website-fixed{
-	position: fixed;
 	top: 0px;
 	z-index: 1000;
+	padding: 0px;
 }
 .nav-website{
  text-align: center;
 }
 .title-website{
 	padding-top: 30px;
+}
+.navar-page{
+	position: absolute;
+	text-align: center;
 }

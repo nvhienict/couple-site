@@ -2124,10 +2124,11 @@ tr.even td{
 
 .design_website_heading{
 	height: 50px;
-	width: 100%;
+	
 	padding: 10px 10px 55px 40px;
 	margin: 0;
 	background-color: #19B5BC;
+	position: relative;
 }
 .thuna{
 	color: #fff;
@@ -2192,8 +2193,7 @@ tr.even td{
 .bodyScroll{
 	overflow: hidden;
 }
-.design_website_content_right iframe{
-	height: 100%;
+.design_website_content_right {
 	width: 100%;
 	overflow-y: auto;
 	margin: 0px ;
@@ -2241,4 +2241,6 @@ tr.even td{
 	display: none;
 	z-index: 12000;
 }
-
+.page-edit{
+	padding: 0px;
+}

@@ -12,7 +12,6 @@
     <title>Nguyen's wedding</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
 
 
@@ -27,11 +26,10 @@
 
 </head>
 
-<body>
 
     <!-- Navigation -->
-    <div class="row">
-    <nav class="navbar navbar-inverse navbar nav-website-fixed col-xs-12" role="navigation">
+    <div class="row navar-page">
+    <nav class="navbar-inverse navbar nav-website-fixed col-xs-12" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -419,5 +417,5 @@
     </div>
     <!-- /.row -->
 </footer>
-</body>    
+    
 </html>
