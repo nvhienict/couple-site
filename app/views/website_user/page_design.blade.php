@@ -53,7 +53,7 @@
 										</div>
 										<div class="modal-body">
 											<div class="row">
-												<div class="col-xs-4 col-md-2 menu-image" >
+												<div class="col-xs-6 col-md-3 menu-image" >
 													<div class="menu-tab-modal">
 														<ul class="nav nav-pills nav-stacked" id="#my-menu-tab">
 															<li><a style="text-align:center"data-toggle="tab" href="#tab-modal-1">Upload Ảnh</a></li>
@@ -61,33 +61,31 @@
 														</ul>
 													</div>
 												</div>
-												<div class="col-xs-12 col-md-10 tab-image">
+												<div class="col-xs-12 col-md-9 tab-image">
 													<div class="tab-content ">
 														<div></div>
 														<div class="tab-pane " id="tab-modal-1">
 																<div class="upload-image-tab">
 																		
-																	<form action="" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >
-																		
-																	
-																		<div class="form-group">
-																			<br>
+																		<form action="{{URL::route('upload')}}" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >
+																																		
+																																			<br>
 																			<br>
 																			<br>
 																			<br>
 																			<br>
 																			
-
-																			<a onclick="chose_image()" id="chose_image" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br>
-																			<input id="input-image-modal"  type="file" class="file" multiple="true">
-																			<a type="submit" style="float:right"class="btn btn-primary">Upload</a>
+																			<div class="form-group">
+																				<a onclick="chose_image()" id="chose_image" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br>
+																				<input id="input-image-modal" name="input-image-modal"  type="file" class="file" >
+																			</div>
+																			<div class="form-group">
+																				<button type="submit" style="float:right"class="btn btn-primary">Upload</button> 
+																			</div>
 																			<br>
-
-																																					
-																			
-																		</div>
-																																																			
-																		
+																			<br>
+																															
+																																																																																							
 																		<script type="text/javascript">
 																		
 																			function chose_image()
