@@ -84,7 +84,7 @@
 
     <!-- Welcome -->
 
-            <div class="row section">
+            <div class="row section" id="section-welcome">
                 <div class="col-xs-12">
                     <div class="row">
                             <h3 class="text-center title-tab">Welcome</h3>
@@ -121,7 +121,7 @@
 
             <!-- about us -->
 
-            <div class="row section">
+            <div class="row section" id="section-about">
                  <div class="col-xs-12">
                     <div class="row">
                         <h3 class="text-center title-tab">About Us</h3>
@@ -159,7 +159,7 @@
 
             <!-- Wedding Events -->
 
-            <div class="row section">
+            <div class="row section " id="section-event">
                 <div class="col-xs-12">
                     <div class="row">
                         <h3 class="text-center title-tab">Wedding Events</h3>
@@ -241,7 +241,7 @@
 
            <!--  Travalling -->
 
-            <div class="row section">
+            <div class="row section " id="section-traval">
                 <div class="col-xs-12">
                     <h3 class="text-center title-tab">Travaling</h3>                            
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
@@ -278,7 +278,7 @@
 
            <!--  Photo album -->
 
-            <div class="row"> 
+            <div class="row" id="section-album"> 
                 <div class="col-xs-12">
                     <div class="row section">
                         <div class="col-xs-12">
@@ -329,7 +329,7 @@
 
            <!--  Register -->
 
-            <div class="row section">
+            <div class="row section" id="section-register">
                 <div class="col-xs-12">
                     <h3 class="text-center title-tab">Register</h3>                            
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
@@ -350,7 +350,7 @@
 
             <!-- Contact Us -->
 
-            <div class="row">
+            <div class="row" id="section-contact">
                 <div class="col-xs-12">
                     <div class="row section">
                         <div class="col-xs-12">

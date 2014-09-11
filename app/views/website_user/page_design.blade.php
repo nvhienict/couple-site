@@ -156,42 +156,42 @@
 			  		<table class="website_tabs">
 						<tr class="odd">
 							<td><input type="text" size="2" value="1" class="website_tabs_input" ></td>
-							<td>Welcome</td>
+							<td><a href="#section-welcome">Welcome</a></td>
 							<td><span  class="glyphicon glyphicon-cog pop" style="color: #19B5BC; cursor: pointer;" ></span></td>
 						</tr>
 						<tr class="even">
 							<td><input type="text" size="2" value="2" class="website_tabs_input" ></td>
-							<td>About</td>
+							<td><a href="#section-about">About</a></td>
 							<td><span class="glyphicon glyphicon-cog pop" style="color: #19B5BC; cursor: pointer;" ></span></td>
 						</tr>
 						<tr class="odd">
 							<td><input type="text" size="2" value="3" class="website_tabs_input" ></td>
-							<td>Sự kiện cưới</td>
+							<td><a href="#section-event">Sự kiện cưới</a></td>
 							<td><span class="glyphicon glyphicon-cog pop" style="color: #19B5BC; cursor: pointer;" ></span></td>
 						</tr>
 						<tr class="even">
 							<td><input type="text" size="2" value="4" class="website_tabs_input" ></td>
-							<td>Du lịch</td>
+							<td><a href="#section-traval">Du lịch</a</td>
 							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;" ></span></td>
 						</tr>
 						<tr class="odd">
 							<td><input type="text" size="2" value="5" class="website_tabs_input" ></td>
-							<td>Đăng ký</td>
+							<td><a href="#section-register">Đăng ký</a></td>
 							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;" ></span></td>
 						</tr>
 						<tr class="even">
 							<td><input type="text" size="2" value="6" class="website_tabs_input" ></td>
-							<td>Album ảnh</td>
+							<td><a href="#section-album">Album ảnh</a></td>
 							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;" ></span></td>
 						</tr>
 						<tr class="odd">
 							<td><input type="text" size="2" value="7" class="website_tabs_input" ></td>
-							<td>Liên lạc</td>
+							<td><a href="#section-contact">Liên lạc</a></td>
 							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;" ></span></td>
 						</tr>
 						<tr class="even">
 							<td><input type="text" size="2" value="8" class="website_tabs_input" ></td>
-							<td>Lời chúc</td>
+							<td><a href="#section-guest-book">Lời chúc</a></td>
 							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;"></span></td>
 						</tr>
 					</table>
