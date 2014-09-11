@@ -154,6 +154,14 @@ class WebsiteController extends \BaseController {
 		}
 
 	} // end function
-
+	public function addImagebackground()
+	{
+		$id_user = WebsiteController::id_user();
+		$website=new WeddingWebsite();
+		$website->user=$id_user;
+		$website->background=Image::make(Input::file('input-image-modal')->getRealPath())->encode('jpg',80);
+		$website->save();
+		return Redirect::route('website/edit/pages');
+	}
 
 }

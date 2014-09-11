@@ -233,14 +233,11 @@ Route::get('page_temp', array('before'=>'check_login', 'as'=>'page_temp', 'uses'
 Route::get('edit_page_temp', array('before'=>'check_login', 'as'=>'edit_page_temp', 'uses'=>'WebsiteController@edit'));
 
 Route::get('website/edit/pages', array('before'=>'check_login', 'as'=>'website/edit/pages', 'uses'=>'WebsiteController@design'));
-Route::get('upload',function(){
-	return View::make('website_user.upload-images');
-});
 
 Route::post('change_font_website', array('before'=>'check_login', 'as'=>'change_font_website', 'uses'=>'WebsiteController@updateFontWebsite'));
 
 Route::post('change_color_website1', array('before'=>'check_login', 'as'=>'change_color_website1', 'uses'=>'WebsiteController@updateColorWebsite1'));
-
+Route::post('upload_background',array('as'=>'upload','uses'=>'WebsiteController@addImagebackground'));
 
 /*** end website user ***/ 
 
