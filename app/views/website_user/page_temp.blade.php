@@ -12,7 +12,6 @@
     <title>Nguyen's wedding</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
 
 
@@ -27,10 +26,10 @@
 
 </head>
 
-<body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="row navar-page">
+    <nav class="navbar-inverse navbar nav-website-fixed col-xs-12" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -44,7 +43,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul style="background-color:#222222;" class="nav navbar-nav">
                     <li>
                         <a href="#">Welcome</a>
                     </li>
@@ -66,15 +65,14 @@
         </div>
         <!-- /.container -->
     </nav>
-
+    </div>
     <!-- Page Content -->
-    <div class="container">
+    
+        
         <div style="background-image: url("")" class="background-website ">
-
-
+            <div class="row">
             <!-- Page Heading -->
-            <div class="row title-website">
-                <div class="col-lg-12">
+            <div class="col-xs-12 title-website">
                     <h1 class="text-center title-tab">Ngay cuoi                 
                     </h1>
                     <h2 class="text-center">Ten co dau chu re</h2>
@@ -83,150 +81,224 @@
                 </div>
             </div>
             <hr>  
-            <!-- /.row -->
 
-            <!-- Project One -->
-            <div class="row">
-                <h3 class="text-center title-tab">Welcome</h3>
-                <div class="col-md-6">
-                    <a href="#">
+    <!-- Welcome -->
+
+            <div class="row section" id="section-welcome">
+                <div class="col-xs-12">
+                    <div class="row">
+                            <h3 class="text-center title-tab">Welcome</h3>
+                        <div class="col-xs-6">
+                            <span>
+                                <a href="#">
+                                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                </a>
+                            </span>
+                        </div>
+                        <div class="col-xs-6">
+                            <h3>Project One</h3>
+                            <h4>Subheading</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>                   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <!-- about us -->
+
+            <div class="row section" id="section-about">
+                 <div class="col-xs-12">
+                    <div class="row">
+                        <h3 class="text-center title-tab">About Us</h3>
+                        <div class="col-xs-6">
+                            <h3>Project Two</h3>
+                            <h4>Subheading</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
+                            
+                        </div>
+                        <div class="col-xs-6">
+                            <span>
+                                <a href="#">
+                                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                 </div>               
+            </div>
+            <hr>
+
+            <!-- Wedding Events -->
+
+            <div class="row section " id="section-event">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <h3 class="text-center title-tab">Wedding Events</h3>
+                        <div class="col-xs-6">
+                            <h3>Project Three</h3>
+                            <h4>Subheading</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
+                            
+                        </div>
+                        <div class="col-xs-6">
+                            <span>
+                                <a href="#">
+                                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                </a>
+                            </span>
+                        </div>
+                    </div>                   
+                </div>                              
+            </div>
+            <hr>
+           
+            <div class="row section">
+                <div class="col-xs-12">
+                    <div class="row ">
+                        <div class="col-xs-6">
+                            <span>
+                                <a href="#">
+                                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                </a>
+                            </span>
+                        </div>
+                            <div class="col-xs-6">
+                            <h3>Project Four</h3>
+                            <h4>Subheading</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>                       
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <hr>
+            <div class="row section">
+                <div class="col-xs-12">
+                    <div  class="row">
                         <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                    </a>
+                    </div>                    
                 </div>
-                <div class="col-md-6">
-                    <h3>Project One</h3>
-                    <h4>Subheading</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-                
-                </div>
-            </div>
-            <!-- /.row -->
-
+            </div>            
             <hr>
 
-            <!-- Project Two -->
-            <div class="row">
-                <h3 class="text-center title-tab">About Us</h3>
-                <div class="col-md-6">
-                    <h3>Project Two</h3>
-                    <h4>Subheading</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
-                    
-                </div>
-                <div class="col-md-6">
-                    <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                    </a>
-                </div>
-            </div>
-            <!-- /.row -->
+           <!--  Travalling -->
 
-            <hr>
-
-            <!-- Project Three -->
-            <div class="row">
-                <h3 class="text-center title-tab">Wedding Events</h3>
-                <div class="col-md-6">
-                    <h3>Project Three</h3>
-                    <h4>Subheading</h4>
+            <div class="row section " id="section-traval">
+                <div class="col-xs-12">
+                    <h3 class="text-center title-tab">Travaling</h3>                            
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-                    
-                </div>
-                <div class="col-md-6">
-                    <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                    </a>
-                </div>
-                
+                </div>               
             </div>
             <hr>
-            <!-- /.row -->
-            <!-- Project Four -->
-            <div class="row">
-                <div class="col-md-6">
-                    <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                    </a>
-                </div>
-                <div class="col-md-6">
-                    <h3>Project Four</h3>
-                    <h4>Subheading</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
-                   
-                </div>
-            </div>
-            <!-- /.row -->
-            <hr>
-            <!-- Project Five -->
-            <div class="row">
-                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-            </div>
-            <!-- /.row -->
-
-            <hr>
-            <div class="row">
-                <h3 class="text-center title-tab">Travaling</h3>                            
+            <div class="row section">
+                <div class="col-xs-12">
+                    <h3 class="text-center title-tab">Accommodations</h3>                            
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-            </div>
-
-            <hr>
-            <div class="row">
-                <h3 class="text-center title-tab">Accommodations</h3>                            
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-            </div>
-
-            <hr>
-            <div class="row">
-                <h3 class="text-center title-tab">Photo Album</h3>                            
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-                    <a href=""><img src="">photo1</a>
-                    <a href=""><img src="">photo1</a>
-                    <a href=""><img src="">photo1</a>
-                    <a href=""><img src="">photo1</a>
-            </div>
-            <div class="row">
-                <h3 class="text-center title-tab">Register</h3>                            
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
+                </div>                
             </div>
             <hr>
-            <div class="row">
-                    <h3 class="text-center title-tab">Contact Us</h3>                            
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-                    <form  class="contact-website" action="" method="POST" role="form">
-                       
-                           <div class="form-group">
-                               <label for="">From</label>
-                               <input  type="text" class="form-control" id="" placeholder="Your Name">
-                           </div>
-                           <div class="form-group">
-                               <label for="">Email</label>
-                               <input type="text" class="form-control" id="" placeholder="Email Adress Your">
-                           </div>
-                           <div class="form-group">
-                               <label for="">Subject</label>
-                               <input type="text" class="form-control" id="" placeholder="Subject">
-                           </div>
-                           <div class="form-group">
-                               <label for="">Mesages</label>
-                               <input type="text" class="form-control" id="" placeholder=Messages>
-                           </div>                   
-                           <button type="submit" class="btn btn-primary">Send Mesages</button>
-                       </form>   
-            </div>  
-        </div>    
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="text-center">Copyright &copy; Your Website 2014</p>
-                </div>
+           <!--  Photo album -->
+
+            <div class="row" id="section-album"> 
+                <div class="col-xs-12">
+                    <div class="row section">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div><h3 class="text-center title-tab">Photo Album</h3></div>
+                                <div class="col-xs-12">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
+                                </div>                          
+                            </div>
+                         </div>
+                    </div> 
+                    <div class="row section">
+                        <div class="col-xs-12">
+                            <div class="row ">
+                                <div class="col-xs-12">
+                                    <a href=""><img src="">photo1</a>
+                                    <a href=""><img src="">photo1</a>
+                                    <a href=""><img src="">photo1</a>
+                                    <a href=""><img src="">photo1</a>
+                                </div>
+                            </div>
+                        </div>                       
+                    </div>      
+                </div>         
             </div>
-            <!-- /.row -->
-        </footer>
+            <hr>
 
-    </div>
+           <!--  Register -->
+
+            <div class="row section" id="section-register">
+                <div class="col-xs-12">
+                    <h3 class="text-center title-tab">Register</h3>                            
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p> 
+                </div>                
+            </div> 
+            <hr>
+
+            <!-- Contact Us -->
+
+            <div class="row" id="section-contact">
+                <div class="col-xs-12">
+                    <div class="row section">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h3 class="text-center title-tab">Contact Us</h3>                            
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
+                                </div>
+                            </div>
+                        </div>                                      
+                    </div> 
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-6 ">
+                                    <form  class="contact-website" action="" method="POST" role="form">
+                                   
+                                       <div class="form-group">
+                                           <label for="">From</label>
+                                           <input  type="text" class="form-control" id="" placeholder="Your Name">
+                                       </div>
+                                       <div class="form-group">
+                                           <label for="">Email</label>
+                                           <input type="text" class="form-control" id="" placeholder="Email Adress Your">
+                                       </div>
+                                       <div class="form-group">
+                                           <label for="">Subject</label>
+                                           <input type="text" class="form-control" id="" placeholder="Subject">
+                                       </div>
+                                       <div class="form-group">
+                                           <label for="">Mesages</label>
+                                           <input type="text" class="form-control" id="" placeholder=Messages>
+                                       </div>  
+                                        <button type="submit" class="btn btn-primary send-contact">Send Mesages</button>   
+                                       
+                                   </form> 
+
+                                </div>
+                                <div class="col-xs-6"></div> 
+                            </div>                            
+                        </div>  
+
+                    </div>                   
+            </div>                 
+        </div>  
+        <div class="row add-section text-center">
+            <button  type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add Section</button>
+        </div>
     <!-- /.container -->
-</body>
-
+</div>
+<hr>
+<footer>
+    <div class="row">
+        <div class="col-xs-12">
+            <p class="text-center">Copyright &copy; Your Website 2014</p>
+        </div>
+    </div>
+    <!-- /.row -->
+</footer>
+    
 </html>
