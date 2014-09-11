@@ -15,7 +15,7 @@ class CreateWebsites extends Migration {
 		Schema::create('weddingwebsite',function($table){
 			$table->increments("id");
 			$table->integer("user");
-			$table->binary("template");
+			$table->integer("template");
 			$table->string("url");
 			$table->integer("tab");
 			$table->binary("background");
