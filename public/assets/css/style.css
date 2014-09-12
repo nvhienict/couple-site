@@ -2259,3 +2259,8 @@ tr.even td{
 .page-edit{
 	padding: 0px;
 }
+.background-website 
+{
+	background-repeat:no-repeat;
+	position: fixed;
+}

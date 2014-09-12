@@ -105,3 +105,9 @@ display: none;
 	z-index: 100;
 
 }
+
+.background-website 
+{
+	background-repeat:no-repeat;
+	position: relative;
+}

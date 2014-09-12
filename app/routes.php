@@ -233,7 +233,7 @@ Route::group(array('before'=>'check_login'), function(){
 	// all Route for website user here
 
 	Route::get('website', array('as'=>'website', 'uses'=>'WebsiteController@index'));
-	Route::get('page_temp', array('as'=>'page_temp', 'uses'=>'WebsiteController@create'));
+	Route::get('page_temp', array('as'=>'page_temp', 'uses'=>'WebsiteController@template_1'));
 	Route::get('edit_page_temp', array('as'=>'edit_page_temp', 'uses'=>'WebsiteController@edit'));
 
 	Route::get('website/edit/pages', array('as'=>'website/edit/pages', 'uses'=>'WebsiteController@design'));

@@ -32,10 +32,18 @@ class WebsiteController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
-		//
-		return View::make("website_user.page_temp");
+	public function template_1()
+	{	$id_user = WebsiteController::id_user();
+		$check=WeddingWebsite::where('user',$id_user)->get()->count();
+		if($check>0)
+		{
+			$background=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		}
+		else
+		{
+			$background='template_1.jpg';
+		}
+		return View::make("website_user.page_temp")->with('background',$background);
 	}
 
 
@@ -70,12 +78,23 @@ class WebsiteController extends \BaseController {
 	 */
 	public function edit()
 	{
-		//
+		$id_user = WebsiteController::id_user();
+		$check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		if(!$check)
+		{
+			$backgrounds='template_1.jpg';
+			
+		}
+		else
+		{
+			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		}
 		$firstname = User::where('id', WebsiteController::id_user())->get()->first()->firstname;
 		
 		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
 
 		return View::make("website_user.edit_page_temp")->with('firstname', $firstname)
+														->with('backgrounds',$backgrounds)
 														->with('website', $website);
 	}
 
@@ -107,13 +126,26 @@ class WebsiteController extends \BaseController {
 	{
 		
 		$id_user = WebsiteController::id_user();
-		$check_isset = WeddingWebsite::where('user', $id_user)->get()->count();
 
+		$check_isset = WeddingWebsite::where('user', $id_user)->get()->count();
 		if( $check_isset==0 ){
 			$new_website = new WeddingWebsite();
 			$new_website->user = $id_user;
 			$new_website->save();
 		}
+
+		$check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		if(!$check)
+		{
+			$backgrounds='template_1.jpg';
+			
+		}
+		else
+		{
+			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		}
+		
+		
 		
 
 		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
@@ -131,6 +163,7 @@ class WebsiteController extends \BaseController {
 
 		return View::make('website_user.page_design')->with('firstname', $firstname)
 													->with('arFont', $arFont)
+													->with('backgrounds',$backgrounds)
 													->with('website', $website);
 	}
 
@@ -283,8 +316,8 @@ public function getTab(){
 	public function updateImagebackground()
 	{	
 		$id_user = WebsiteController::id_user();
-		$check=WeddingWebsite::where('user',$id_user)->get()->count();
-		if($check==0)
+		$check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		if($check="")
 		{	if(Input::hasFile('input-image-modal'))
 			{	
 				$website= new WeddingWebsite();

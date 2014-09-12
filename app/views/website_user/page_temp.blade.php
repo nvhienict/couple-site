@@ -69,7 +69,7 @@
     <!-- Page Content -->
     
         
-        <div style="background-image: url("")" class="background-website ">
+        <div style="" class="background-website ">
             <div class="row">
             <!-- Page Heading -->
             <div class="col-xs-12 title-website">

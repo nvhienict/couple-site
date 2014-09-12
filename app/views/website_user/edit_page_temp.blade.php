@@ -70,7 +70,7 @@
     @if( !empty($website) )
         @foreach( $website as $website_item )
 
-            <div style="background-image: url("")" class="background-website ">
+            <div style="background-image: url({{Asset("images/website/background/{$backgrounds}")}});" class="background-website ">
             <div class="row">
             <!-- Page Heading -->
             <div class="col-xs-12 title-website">
