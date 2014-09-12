@@ -148,8 +148,9 @@
 			  		<table class="website_tabs">
 						@foreach(Tab::get() as $tab)
 							<tr class="odd">
-								<td><input type="text" size="2" value="1" class="website_tabs_input" ></td>
-								<td><input type="text" hidden id="tab{{$tab->id}}" value="{{$tab->id}}">{{$tab->title}}</td>
+								<td><input type="text" size="2" value="" class="website_tabs_input" ></td>
+								<td id="TT{{$tab->id}}">{{$tab->title}}</td>
+								<input type="text" hidden id="tab{{$tab->id}}" value="{{$tab->id}}">
 								<td><span  class="glyphicon glyphicon-cog pop{{$tab->id}} popoverThis" style="color: #19B5BC; cursor: pointer;" onclick="titleTab({{$tab->id}})" ></span></td>
 							</tr>
 						@endforeach
@@ -176,38 +177,39 @@
 	</div>
 	<!-- .row -->
 	<div id="divContentHTML" class="text-align" >
-      <form  class="form-horizontal" role="form" id="TitleForm" action="{{Asset('')}}" method="post">
-      	<div class="form-group">
+     
+      	<div class="form-group row">
 		    <label for="title" class="col-xs-5 control-label">Tiêu đề*:</label>
 		    <div class="col-xs-7">
-		    	<input type="text" class="form-control" name="title" id="title" placeholder="welcome" value=""> 	
+		    	<input type="text" class="form-control" name="title" id="title" placeholder="welcome" value="">
+		    	<input type="text" name="id_title" id="id_title" hidden  value=""> 	
 	  		</div>
 	  	</div>
-	  	<div class="form-group">
+	  	<div class="form-group row">
 		    <label class="col-xs-5 control-label"> Canh chỉnh:</label>
 		    <div class="col-xs-7">
 			    <div class="btn-group" >
-				  <button type="button" class="btn btn-primary" onclick="Align('left')"><i class="glyphicon glyphicon-align-left"></i></button>
-				  <button type="button" class="btn btn-primary" onclick="Align('center')"><i class="glyphicon glyphicon-align-center"></i></button>
-				  <button type="button" class="btn btn-primary" onclick="Align('right')"><i class="glyphicon glyphicon-align-right"></i></button>
-				  <input  type="text" id="Align-title" hidden  >
+				  <button type="button" class="btn btn-primary" id="btleft" onclick="Align('left')"><i class="glyphicon glyphicon-align-left"></i></button>
+				  <button type="button" class="btn btn-primary" id="btcenten" onclick="Align('center')"><i class="glyphicon glyphicon-align-center"></i></button>
+				  <button type="button" class="btn btn-primary" id="btright" onclick="Align('right')"><i class="glyphicon glyphicon-align-right"></i></button>
+				  <input  type="text" id="Align_title" hidden name="Align_title" >
 				  
 				</div>
 			</div>
 	  	</div>
-	  	<div class="form-group">
+	  	<div class="form-group row">
 		    <label class="col-sm-6 control-label"> Ẩn khỏi trang?</label>
 		    <div class="col-xs-6">
 		    	<input type="checkbox" name="hideTitle" id="hideTitle">
 			</div>
 	  	</div>
-	  	<div class="form-group">
+	  	<div class="form-group row">
 		    <label class="col-xs-5 control-label"><a href="#"> Xoá trang</a></label>
 		    <div class="col-xs-7">
-		    	<button>Lưu thay đổi</button>
+		    	<a class="btn btn-primary"  href="javascript:;" onclick="submit_title();" >Lưu thay đổi</a>
 			</div>
 	  	</div>
-      </form>
+      
 	</div>
 
 <script type="text/javascript" src="{{Asset('assets/js/design_color_font.js')}}"></script>
@@ -273,22 +275,85 @@
 
 
 	// 
+	function submit_title(){
+		var id_title = $("input[name=id_title]").val();
+		var title = $("input[name=title]").val();
+		var Align_title = $("input[name=Align_title]").val();
+		var hideTitle = $("input[name=hideTitle]").val();
+		
+		$.ajax({
+  			type: "post",
+  			url:"{{URL::route('update-title')}}",
+  			
+  			data:{
+	  			id_title: id_title,
+	  			title: title ,
+	  			Align_title: Align_title,
+	  			hideTitle: hideTitle
+  			},
+  			success:function(data){
+  				$('#TT'+id_title).text(data['title']);
+  			}
+  		});
+  		$(".pop"+id_title).popover('hide');
+	};
 	function Align(value){
+		if(value == 'left')
+		{
+			$('#btleft').removeClass('btn btn-primary').addClass('btn btn-primary active');
+			$('#btcenten').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+			$('#btright').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+		}
+		else
+		if(value == 'center')
+		{
+			$('#btcenten').removeClass('btn btn-primary').addClass('btn btn-primary active');
+			$('#btleft').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+			$('#btright').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+		}
+		else
+		{
+			$('#btright').removeClass('btn btn-primary').addClass('btn btn-primary active');
+			$('#btcenten').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+			$('#btleft').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+		}
 		
 			$("#Align-title").val(value);
 	}
 	
 	function titleTab(id){
-		var validator = $( "#TitleForm" ).validate();
+		
 		$.ajax({
 			type: "post",
 			url:"{{URL::route('get-id-tab')}}",
 			data:{id: $("#tab"+id).val()},
 			success:function(result){
 				$('#title').val(result['title']),
-				$('#hideTitle').replaceWith(result['visiable'])
+				$('#hideTitle').replaceWith(result['visiable']),
+				$('#id_title').val(result['id']),
+				$('#Align_title').val(result['titleStyle'])
 			}
 		});
+		if($('#Align-title').val() == 'left')
+		{
+			$('#btleft').removeClass('btn btn-primary').addClass('btn btn-primary active');
+			$('#btcenten').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+			$('#btright').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+		}
+		else
+		if($('#Align-title').val() == 'center')
+		{
+			$('#btcenten').removeClass('btn btn-primary').addClass('btn btn-primary active');
+			$('#btleft').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+			$('#btright').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+		}
+		else
+		{
+			$('#btright').removeClass('btn btn-primary').addClass('btn btn-primary active');
+			$('#btcenten').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+			$('#btleft').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+		}
+		
 		
 	      //popover option
 	      $(".pop"+id).popover({
@@ -305,7 +370,6 @@
 					$(".pop"+id).popover('hide');
 				}
 			});
-	   
 	}
 
 </script>

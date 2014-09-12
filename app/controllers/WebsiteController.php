@@ -312,6 +312,30 @@ public function getTab(){
 	}
 
 
+public function Post_update_Tab(){
+
+	$id = Input::get('id_title');
+	$title = Input::get('title');
+	$titleStyle = Input::get('Align_title');
+
+	if(Input::get('hideTitle') == true)
+	{
+		$visiable = 1;
+	}
+	else
+	{
+		$visiable = 0;
+	}
+
+	$Tab = Tab::where('id',$id)->update(
+		array(
+			'title'=>$title,
+			'titleStyle'=>$titleStyle,
+			'visiable'=>$visiable
+			));
+	$tab = array('title'=>$title,'titleStyle'=>$titleStyle,'visiable'=>$visiable);
+	return $tab;
+} 
 
 	public function updateImagebackground()
 	{	

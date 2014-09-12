@@ -249,6 +249,8 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('upload_background',array('as'=>'upload','uses'=>'WebsiteController@updateImagebackground'));
 
 	Route::post('get-id-tab', array('as'=>'get-id-tab', 'uses'=>'WebsiteController@getTab'));//lấy dữ liệu của 1 tab
+	Route::post('update-title', array('as'=>'update-title', 'uses'=>'WebsiteController@Post_update_Tab'));
+
 
 });
 /*** end website user ***/ 
