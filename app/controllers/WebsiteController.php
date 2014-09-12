@@ -10,14 +10,15 @@ class WebsiteController extends \BaseController {
 	public function index()
 	{
 		$id_user = WebsiteController::id_user();
-		$check=WeddingWebsite::where('user',$id_user)->get()->count();
-		if($check>0)
+		$check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		if(!$check)
 		{
-			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+			$backgrounds='template_1.jpg';
+			
 		}
 		else
 		{
-			$backgrounds='template_1.jpg';
+			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
 		}
 		
 		return View::make('website_user.index')->with('backgrounds',$backgrounds);
@@ -44,14 +45,15 @@ class WebsiteController extends \BaseController {
 	 */
 	public function template_1()
 	{	$id_user = WebsiteController::id_user();
-		$check=WeddingWebsite::where('user',$id_user)->get()->count();
-		if($check>0)
+		$check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		if(!$check)
 		{
-			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+			$backgrounds='template_1.jpg';
+			
 		}
 		else
 		{
-			$backgrounds='template_1.jpg';
+			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
 		}
 		return View::make("website_user.page_temp")->with('backgrounds',$backgrounds);
 	}
