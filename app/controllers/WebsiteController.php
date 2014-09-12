@@ -105,12 +105,14 @@ class WebsiteController extends \BaseController {
 
 	public function design()
 	{
-		$countWebsite = WeddingWebsite::where('user',WebsiteController::id_user())->get()->count();
-		if($countWebsite==0){
-			$website=null;
-		}else{
-			$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
-		}
+		
+		$id_user = WebsiteController::id_user();
+
+		$new_website = new WeddingWebsite();
+		$new_website->user = $id_user;
+		$new_website->save();
+
+		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
 		
 		
 		// get username
@@ -135,20 +137,10 @@ class WebsiteController extends \BaseController {
 
 		$id_user = WebsiteController::id_user();
 
-		$check_isset = WeddingWebsite::where('user',$id_user)->get()->count();
-
-		if ($check_isset==0) {
-			$website = new WeddingWebsite();
-			$website->user = $id_user;
-			$website->font = $font_name;
-			$website->save();
-		}else{
-			WeddingWebsite::where('user',$id_user)->update(
-			array(
-				'font'=>$font_name
-				));
-
-		}
+		WeddingWebsite::where('user',$id_user)->update(
+		array(
+			'font'=>$font_name
+			));
 
 		// return font in database
 		
@@ -165,21 +157,12 @@ class WebsiteController extends \BaseController {
 		$color_design = Input::get('color_design');
 
 		$id_user = WebsiteController::id_user();
+		
+		WeddingWebsite::where('user',$id_user)->update(
+		array(
+			'color'.$index=>$color_design
+			));
 
-		$check_isset = WeddingWebsite::where('user',$id_user)->get()->count();
-
-		if ($check_isset==0) {
-			$website = new WeddingWebsite();
-			$website->user = $id_user;
-			$website->color.$index = $color_design;
-			$website->save();
-		}else{
-			WeddingWebsite::where('user',$id_user)->update(
-			array(
-				'color'.$index=>$color_design
-				));
-
-		}
 
 		// return color in database
 		switch ($index) {
