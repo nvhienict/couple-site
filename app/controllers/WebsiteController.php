@@ -105,8 +105,14 @@ class WebsiteController extends \BaseController {
 
 	public function design()
 	{
-
-		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
+		$countWebsite = WeddingWebsite::where('user',WebsiteController::id_user())->get()->count();
+		if($countWebsite==0){
+			$website=null;
+		}else{
+			$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
+		}
+		
+		
 		// get username
 		
 		$firstname = User::where('id', WebsiteController::id_user())->get()->first()->firstname;
@@ -217,19 +223,37 @@ class WebsiteController extends \BaseController {
 	{
 
 		$id_user = WebsiteController::id_user();
+		$arWebsite = WeddingWebsite::where('user',$id_user)->get()->count();
 
-		switch ($index) {
-			case 1:
-				$color = WeddingWebsite::where('user',$id_user)->get()->first()->color1;
-				break;
-			case 2:
-				$color = WeddingWebsite::where('user',$id_user)->get()->first()->color2;
-				break;
-			
-			default:
-				$color = WeddingWebsite::where('user',$id_user)->get()->first()->color3;
-				break;
+		if( $arWebsite>0 )
+		{
+			switch ($index) {
+				case 1:
+					$color = WeddingWebsite::where('user',$id_user)->get()->first()->color1;
+					break;
+				case 2:
+					$color = WeddingWebsite::where('user',$id_user)->get()->first()->color2;
+					break;
+				
+				default:
+					$color = WeddingWebsite::where('user',$id_user)->get()->first()->color3;
+					break;
+			}
+		}else{
+			switch ($index) {
+				case 1:
+					$color = "";
+					break;
+				case 2:
+					$color = "";
+					break;
+				
+				default:
+					$color = "";
+					break;
+			}
 		}
+		
 		return $color;
 	}
 
