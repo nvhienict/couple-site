@@ -107,10 +107,14 @@ class WebsiteController extends \BaseController {
 	{
 		
 		$id_user = WebsiteController::id_user();
+		$check_isset = WeddingWebsite::where('user', $id_user)->get()->count();
 
-		$new_website = new WeddingWebsite();
-		$new_website->user = $id_user;
-		$new_website->save();
+		if( $check_isset==0 ){
+			$new_website = new WeddingWebsite();
+			$new_website->user = $id_user;
+			$new_website->save();
+		}
+		
 
 		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
 		
