@@ -246,7 +246,7 @@ Route::group(array('before'=>'check_login'), function(){
 
 	Route::post('reset_color', array('as'=>'reset_color', 'uses'=>'WebsiteController@resetColor'));
 
-	Route::post('upload_background',array('as'=>'upload','uses'=>'WebsiteController@addImagebackground'));
+	Route::post('upload_background',array('as'=>'upload','uses'=>'WebsiteController@updateImagebackground'));
 
 	Route::post('get-id-tab', array('as'=>'get-id-tab', 'uses'=>'WebsiteController@getTab'));//lấy dữ liệu của 1 tab
 

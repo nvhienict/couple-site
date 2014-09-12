@@ -266,4 +266,49 @@ public function getTab(){
 		return $title;
 	}
 
+
+
+	public function updateImagebackground()
+	{	
+		$id_user = WebsiteController::id_user();
+		$check=WeddingWebsite::where('user',$id_user)->get()->count();
+		if($check==0)
+		{	if(Input::hasFile('input-image-modal'))
+			{	
+				$website= new WeddingWebsite();
+				$website->user=$id_user;
+			    $image=Input::file('input-image-modal');
+			  	$filename =$image->getClientOriginalName();
+				$path = public_path('images/website/background/' . $filename);
+				Image::make($image->getRealPath())->resize(2000, 1500)->save($path);
+			    $website->background=$filename ;
+				$website->save();
+				return Redirect::route('website/edit/pages');
+			}
+		}
+		else
+		{
+			if(Input::hasFile('input-image-modal'))
+			{	$name=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+				$path_delete=public_path('images/website/background/'.$name);
+				File::delete($path_delete);
+				$image=Input::file('input-image-modal');
+			  	$filename =$image->getClientOriginalName();
+				$path = public_path('images/website/background/' . $filename);
+				Image::make($image->getRealPath())->resize(2000, 1500)->save($path);
+				WeddingWebsite::where('user',$id_user)->update(
+					array('background'=>$filename)
+					
+					);
+			    return Redirect::route('website/edit/pages');
+				}	
+		   
+		}
+			
+		
+	}	
+		
+		
+
 }
+

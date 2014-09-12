@@ -53,30 +53,25 @@
 										</div>
 										<div class="modal-body">
 											<div class="row">
-												<div class="col-xs-6 col-md-3 menu-image" >
-													<div class="menu-tab-modal">
-														<ul class="nav nav-pills nav-stacked" id="#my-menu-tab">
-															<li><a style="text-align:center"data-toggle="tab" href="#tab-modal-1">Upload Ảnh</a></li>
-															<li class="active"><a style="text-align:center" data-toggle="tab" href="#tab-modal-2">Ảnh Của Tôi</a></li>
-														</ul>
-													</div>
+												<div class="col-xs-6 col-md-2 menu-image" >
+													
+															<a style="text-align:center" href="javascript:void(0);">Upload Ảnh</a></li>
 												</div>
-												<div class="col-xs-12 col-md-9 tab-image">
-													<div class="tab-content ">
-														<div></div>
+												<div class="col-xs-12 col-md-10 tab-image">
+													<br>
 														<div class="tab-pane " id="tab-modal-1">
 																<div class="upload-image-tab">
 																		
 																		<form action="{{URL::route('upload')}}" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >
 																																		
-																																			<br>
+																			<br>
 																			<br>
 																			<br>
 																			<br>
 																			<br>
 																			
 																			<div class="form-group">
-																				<a onclick="chose_image()" id="chose_image" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br>
+																				<a onclick="chose_image_backgound()" id="chose_image" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br>
 																				<input id="input-image-modal" name="input-image-modal"  type="file" class="file" >
 																			</div>
 																			<div class="form-group">
@@ -88,7 +83,7 @@
 																																																																																							
 																		<script type="text/javascript">
 																		
-																			function chose_image()
+																			function chose_image_backgound()
 																			{
 																				 $('#input-image-modal').trigger('click');
 																			};
@@ -98,17 +93,8 @@
 																</div><br>
 
 														</div>
-														<div class="tab-pane active" id="tab-modal-2">
-															<br>
-																			<br>
-																			<br>
-																			<br>
-																			<br>
-																			<br>
-																			<br>
-																			<br>
-														</div>
-													</div>																																					
+														
+																																																
 												</div>
 
 											</div>
