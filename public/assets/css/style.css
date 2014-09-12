@@ -2156,16 +2156,20 @@ tr.even td{
 	height: 600px;
 	border: 1px solid #ddd;
 	background-color: #F7F5F3;
-	overflow-y: visible;
-	overflow-x: visible;
 	float: left;
-	margin: 0;
+	position: relative;
 }
+#page_design_home{
+	height: 500px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background-color: #FFFFFF;
+}
+
 .page_design_home_item{
 	padding: 5px;
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
-	background-color: #fff;
 }
 .page_design_home_item img{
 	width: 150px;
@@ -2188,6 +2192,7 @@ tr.even td{
 .color_design{
 	margin-top: 5px;
 }
+
 
 .design_website_content_right{
 	height: 600px;

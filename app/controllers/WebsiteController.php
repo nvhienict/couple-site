@@ -113,8 +113,9 @@ class WebsiteController extends \BaseController {
 		$lastname = User::where('id', WebsiteController::id_user())->get()->first()->lastname;
 		$user_name = $firstname.' '.$lastname;
 
-		$arFont = array("Arial", "Verdana", "Times New Roman", "Open Sans",
-						"Open Sans Condensed", "Roboto Condensed");
+		$arFont = array("Calibri","Arial", "Verdana", "Times New Roman",
+						"Adobe Gothic Std B", "Algerian", "AR BERKLEY",
+						"French Script MT", "Vladimir Script", "Kunstler Script");
 
 		return View::make('website_user.page_design')->with('firstname', $firstname)
 													->with('arFont', $arFont)

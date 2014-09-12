@@ -35,7 +35,7 @@
 			<!-- Tab panes -->
 			<div class="tab-content" style="padding: 5px;">
 			  	<div class="tab-pane active" id="page_design_home" >
-			  		<p>Website được design bởi <a href="http://thuna.vn">thuna.vn</a> </p>
+			  		<span>Website được design bởi <a href="http://thuna.vn">thuna.vn</a> </span>
 			  		<p>
 			  			<a href="#">Thay đổi giao diện <i class="fa fa-chevron-right fa-fw"></i></a>
 			  		</p>
@@ -131,9 +131,13 @@
 
 			  			@for($i=1;$i<=3;$i++)
 				  			@if( !empty(WebsiteController::returnColor($i)) )
-					  			<span class="span_design_item">Màu {{$i}}: <input type="text" name="color" value="#{{WebsiteController::returnColor($i)}}" onchange="color_design{{$i}}(this.value);" class="color color_design"></span><br />
+					  			<span class="span_design_item">Màu {{$i}}: 
+					  				<input type="text" name="color" value="#{{WebsiteController::returnColor($i)}}" onchange="color_design{{$i}}(this.value);" class="color color_design">
+					  			</span><br />
 					  		@else
-					  			<span class="span_design_item">Màu {{$i}}: <input type="text" name="color" value="" onchange="color_design{{$i}}(this.value);" class="color color_design"></span><br />
+					  			<span class="span_design_item">Màu {{$i}}: 
+					  				<input type="text" name="color" value="" onchange="color_design{{$i}}(this.value);" class="color color_design">
+					  			</span><br />
 					  		@endif
 				  		@endfor
 			  			
@@ -205,18 +209,11 @@
 	  	</div>
       </form>
 	</div>
-<script type="text/javascript">
-	function design_website_minus_circle(){
-		$('div.design_website_content_left').hide();
-		$('div.design_website_content_right').removeClass('col-xs-9 design_website_content_right').addClass('col-xs-11 design_website_content_right');
-		$('div.design_website_content_left_hide').show();
-	};
-	function design_website_plus_circle(){
-		$('div.design_website_content_left').show();
-		$('div.design_website_content_right').removeClass('col-xs-12 design_website_content_right').addClass('col-xs-9 design_website_content_right');
-		$('div.design_website_content_left_hide').hide();
-	};
 
+<script type="text/javascript" src="{{Asset('assets/js/design_color_font.js')}}"></script>
+
+<script type="text/javascript">
+	
 	// get font design
 	function font_website(font_name){
 		$.ajax({
@@ -235,7 +232,7 @@
 			type:"post",
 			url:"{{URL::to('reset_color')}}",
 			success: function(data){
-				$("input[name=color]").val('FFFFFF');
+				location.reload();
 			}
 		});
 	}
