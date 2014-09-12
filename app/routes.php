@@ -240,6 +240,8 @@ Route::group(array('before'=>'check_login'), function(){
 
 	Route::post('change_font_website', array('as'=>'change_font_website', 'uses'=>'WebsiteController@updateFontWebsite'));
 
+	Route::post('change_style_website', array('as'=>'change_style_website', 'uses'=>'WebsiteController@updateStyleWebsite'));
+
 	Route::post('change_color_website1', array('as'=>'change_color_website1', 'uses'=>'WebsiteController@updateColorWebsite1'));
 	Route::post('change_color_website2', array('as'=>'change_color_website2', 'uses'=>'WebsiteController@updateColorWebsite2'));
 	Route::post('change_color_website3', array('as'=>'change_color_website3', 'uses'=>'WebsiteController@updateColorWebsite3'));

@@ -169,6 +169,9 @@ class WebsiteController extends \BaseController {
 		$lastname = User::where('id', WebsiteController::id_user())->get()->first()->lastname;
 		$user_name = $firstname.' '.$lastname;
 
+		// get data from table website
+		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
+
 		$arFont = array("Calibri","Arial", "Verdana", "Times New Roman",
 						"Adobe Gothic Std B", "Algerian", "AR BERKLEY",
 						"French Script MT", "Vladimir Script", "Kunstler Script");
@@ -193,6 +196,25 @@ class WebsiteController extends \BaseController {
 
 		// return font in database
 		
+		$font = WeddingWebsite::where('user',$id_user)->get()->first()->font;
+
+		echo $font;
+
+	} // end function
+
+	// function change style for website
+	public function updateStyleWebsite()
+	{
+		$style_website = Input::get('style_website');
+
+		$id_user = WebsiteController::id_user();
+
+		WeddingWebsite::where('user',$id_user)->update(
+		array(
+			'style'=>$style_website
+			));
+
+		// return style in database
 		$font = WeddingWebsite::where('user',$id_user)->get()->first()->font;
 
 		echo $font;

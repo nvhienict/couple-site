@@ -11,7 +11,7 @@
 		</div>
 		<div class="col-xs-8"></div>
 		<div class="col-xs-2">
-			<a href="#" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+			<a href="{{Asset('edit_page_temp')}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 		</div>
 		<div class="col-xs-1">
 			<a href="{{Asset('website')}}" class="thuna2" ><i class="glyphicon glyphicon-log-out"></i></a>
@@ -115,15 +115,22 @@
 			  			<span class="span_design_item">Font chữ:</span><br />
 			  			<span class="span_design_item">Nội dung:
 			  					<select name="font_website" onchange="font_website(this.value);" class="select_design1">
-  									@foreach($arFont as $font_name)
-			  							<option value="{{$font_name}}">{{$font_name}}</option>
+  									@foreach( $website as $item_website )
+	  									@foreach($arFont as $font_name)
+	  										@if( ($item_website->font)==($font_name) )
+	  											<?php $str='selected="selected"'; ?>
+	  										@else
+	  											<?php $str=''; ?>
+	  										@endif
+				  							<option <?php echo $str?> value="{{$font_name}}">{{$font_name}}</option>
+				  						@endforeach
 			  						@endforeach
 			  					</select>
 						</span><br />
-			  			<span class="span_design_item">Nhấn mạnh:<select name="accent_website" class="select_design2">
-						  							<option value="">Style 1</option>
-						  							<option value="">Style 2</option>
-						  							<option value="">Style 3</option>
+			  			<span class="span_design_item">Nhấn mạnh:<select name="accent_website" onchange="style_website(this.value);" class="select_design2">
+						  							@for($i=1;$i<=3;$i++)
+						  								<option value="{{$i}}">Style {{$i}}</option>
+						  							@endfor
 						  						</select>
 						</span>
 			  			<hr>
@@ -227,6 +234,27 @@
 			}
 		});
 	};
+
+	// get style design
+	function style_website(style_website){
+		$.ajax({
+			type:"post",
+			url:"{{URL::to('change_style_website')}}",
+			data:{style_website:style_website},
+			success: function(data){
+				
+				if(style_website==1){
+					$("h1, h2").css("font-family",""+data+"");
+				}
+				if(style_website==2){
+					$("h1").css("font-family",""+data+"");
+				}
+				if(style_website==3){
+					$("h2").css("font-family",""+data+"");
+				}
+			}
+		});
+	}
 
 	// reset color
 	function reset_color(){
