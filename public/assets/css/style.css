@@ -2173,11 +2173,17 @@ tr.even td{
 .span_design_item{
 	margin-top: 10px;
 }
-.select_design{
+.select_design1{
 	width: 150px;
 	border-radius:3px; 
 	padding: 5px;
-	margin-top: 5px;
+	margin: 5px 3px 0 25px;
+}
+.select_design2{
+	border-radius: 3px;
+    margin: 5px 3px 0 11px;
+    padding: 5px;
+    width: 150px;
 }
 .color_design{
 	margin-top: 5px;
@@ -2206,7 +2212,8 @@ tr.even td{
 	border-radius: 3px;
 }
 .minus-plus{
-	float: right;
+	width: 100%;
+	text-align: right;
 	clear: both;
 }
 

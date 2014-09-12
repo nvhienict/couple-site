@@ -228,16 +228,27 @@ Route::post("checkName", array("as"=>"checkName", "uses"=>"GroupsController@chec
 *
 **/
 
-Route::get('website', array('before'=>'check_login', 'as'=>'website', 'uses'=>'WebsiteController@index'));
-Route::get('page_temp', array('before'=>'check_login', 'as'=>'page_temp', 'uses'=>'WebsiteController@create'));
-Route::get('edit_page_temp', array('before'=>'check_login', 'as'=>'edit_page_temp', 'uses'=>'WebsiteController@edit'));
+Route::group(array('before'=>'check_login'), function(){
 
-Route::get('website/edit/pages', array('before'=>'check_login', 'as'=>'website/edit/pages', 'uses'=>'WebsiteController@design'));
+	// all Route for website user here
 
-Route::post('change_font_website', array('before'=>'check_login', 'as'=>'change_font_website', 'uses'=>'WebsiteController@updateFontWebsite'));
+	Route::get('website', array('as'=>'website', 'uses'=>'WebsiteController@index'));
+	Route::get('page_temp', array('as'=>'page_temp', 'uses'=>'WebsiteController@create'));
+	Route::get('edit_page_temp', array('as'=>'edit_page_temp', 'uses'=>'WebsiteController@edit'));
 
-Route::post('change_color_website1', array('before'=>'check_login', 'as'=>'change_color_website1', 'uses'=>'WebsiteController@updateColorWebsite1'));
-Route::post('upload_background',array('as'=>'upload','uses'=>'WebsiteController@addImagebackground'));
+	Route::get('website/edit/pages', array('as'=>'website/edit/pages', 'uses'=>'WebsiteController@design'));
 
+	Route::post('change_font_website', array('as'=>'change_font_website', 'uses'=>'WebsiteController@updateFontWebsite'));
+
+	Route::post('change_color_website1', array('as'=>'change_color_website1', 'uses'=>'WebsiteController@updateColorWebsite1'));
+	Route::post('change_color_website2', array('as'=>'change_color_website2', 'uses'=>'WebsiteController@updateColorWebsite2'));
+	Route::post('change_color_website3', array('as'=>'change_color_website3', 'uses'=>'WebsiteController@updateColorWebsite3'));
+
+	Route::post('reset_color', array('as'=>'reset_color', 'uses'=>'WebsiteController@resetColor'));
+
+	Route::post('upload_background',array('as'=>'upload','uses'=>'WebsiteController@addImagebackground'));
+
+
+});
 /*** end website user ***/ 
 

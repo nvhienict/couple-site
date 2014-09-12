@@ -127,26 +127,30 @@
 
 			  		
 			  			<span class="span_design_item">Font chữ:</span><br />
-			  			<span class="span_design_item">Nội dung:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select name="font_website" onchange="font_website(this.value);" class="select_design">
-						  							<option value="Arial">Arial</option>
-						  							<option value="Verdana">Verdana</option>
-						  							<option value="Times New Roman">Times New Roman</option>
-						  							<option value="Open Sans">Open Sans</option>
-						  							<option value="Open Sans Condensed">Open Sans Condensed</option>
-						  							<option value="Roboto Condensed">Roboto Condensed</option>
-						  						</select>
+			  			<span class="span_design_item">Nội dung:
+			  					<select name="font_website" onchange="font_website(this.value);" class="select_design1">
+  									@foreach($arFont as $font_name)
+			  							<option value="{{$font_name}}">{{$font_name}}</option>
+			  						@endforeach
+			  					</select>
 						</span><br />
-			  			<span class="span_design_item">Nhấn mạnh:&nbsp&nbsp&nbsp<select name="accent_website" class="select_design">
+			  			<span class="span_design_item">Nhấn mạnh:<select name="accent_website" class="select_design2">
 						  							<option value="">Style 1</option>
 						  							<option value="">Style 2</option>
 						  							<option value="">Style 3</option>
 						  						</select>
 						</span>
 			  			<hr>
-			  			<span class="span_design_item">Màu: <a href="#">Khôi phục mặc định</a></span><br />
-			  			<span class="span_design_item">Màu 1: <input type="text" name="color1" onchange="color_design1(this.value);" class="color color_design"></span><br />
-			  			<span class="span_design_item">Màu 2: <input type="text" name="color2" onchange="color_design2(this.value);" class="color color_design"></span><br />
-			  			<span class="span_design_item">Màu 3: <input type="text" name="color3" onchange="color_design3(this.value);" class="color color_design"></span>
+			  			<span class="span_design_item">Màu: <a href="javascript:;" onclick="reset_color();" >Khôi phục mặc định</a></span><br />
+
+			  			@for($i=1;$i<=3;$i++)
+				  			@if( !empty(WebsiteController::returnColor($i)) )
+					  			<span class="span_design_item">Màu {{$i}}: <input type="text" name="color" value="#{{WebsiteController::returnColor($i)}}" onchange="color_design{{$i}}(this.value);" class="color color_design"></span><br />
+					  		@else
+					  			<span class="span_design_item">Màu {{$i}}: <input type="text" name="color" value="" onchange="color_design{{$i}}(this.value);" class="color color_design"></span><br />
+					  		@endif
+				  		@endfor
+			  			
 			  		</div>
 			  		
 			  	</div>
@@ -200,13 +204,17 @@
 			</div>
 		</div>
 		
+		<!-- button hide content design left -->
 		<div class="col-xs-1 design_website_content_left_hide">
 			<a href="javascript:;" onclick="design_website_plus_circle();" ><i class='fa fa-plus-circle fa-fw'></i></a>
 		</div>
+		<!-- .button -->
+
+		<!-- content right include from view -->
 		<div class="col-xs-9 design_website_content_right">
-			<!-- <iframe src="{{URL::route('edit_page_temp')}}" frameborder="0" class="col-xs-12" ></iframe> -->
 			@include('website_user.edit_page_temp')
 		</div>
+		<!-- .end -->
 
 	</div>
 	<!-- .row -->
@@ -242,7 +250,6 @@
 		  	</div>
 	      </form>
 		</div>
-
 <script type="text/javascript">
 	function design_website_minus_circle(){
 		$('div.design_website_content_left').hide();
@@ -260,30 +267,55 @@
 		$.ajax({
 			type:"post",
 			url:"{{URL::to('change_font_website')}}",
-			data:{font_name:font_name}
+			data:{font_name:font_name},
+			success: function(data){
+				$("h1, h2, h3").css("font-family",""+data+"");
+			}
 		});
 	};
+
+	// reset color
+	function reset_color(){
+		$.ajax({
+			type:"post",
+			url:"{{URL::to('reset_color')}}",
+			success: function(data){
+				$("input[name=color]").val('FFFFFF');
+			}
+		});
+	}
 
 	// get color
 	function color_design1(color_design){
 		$.ajax({
 			type:"post",
-			url:"{{URL::to('change_color_website')}}",
-			data:{color_design:color_design}
+			url:"{{URL::to('change_color_website1')}}",
+			data:{color_design:color_design},
+			success: function(data){
+				$("h1").css("color","#"+data+"");
+			}
 		});
+
 	}
 	function color_design2(color_design){
 		$.ajax({
 			type:"post",
-			url:"{{URL::to('change_color_website')}}",
-			data:{color_design:color_design}
+			url:"{{URL::to('change_color_website2')}}",
+			data:{color_design:color_design},
+			success: function(data){
+				$("h2").css("color","#"+data+"");
+			}
 		});
 	}
 	function color_design3(color_design){
 		$.ajax({
 			type:"post",
-			url:"{{URL::to('change_color_website')}}",
-			data:{color_design:color_design}
+			url:"{{URL::to('change_color_website3')}}",
+			data:{color_design:color_design},
+			success: function(data){
+				$("h4").css("color","#"+data+"");
+				$("p").css("color","#"+data+"");
+			}
 		});
 	}
 

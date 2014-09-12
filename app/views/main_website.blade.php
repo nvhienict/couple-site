@@ -20,8 +20,12 @@
     <link href="{{Asset("assets/css/owl.theme.css")}}" rel="stylesheet" media="screen" />
 	<link href="{{Asset("assets/css/flexslider.css")}}" rel="stylesheet" />
 	<link href="{{Asset("assets/css/animate.css")}}" rel="stylesheet" />
+
+	<link type='text/css' href="{{Asset("assets/css/style.php")}}" rel="stylesheet">
     <link href="{{Asset("assets/css/style.css")}}" rel="stylesheet">
     
+    
+
 	<link href="{{Asset("assets/color/default.css")}}" rel="stylesheet">
 	
 	<!-- Core JavaScript Files -->

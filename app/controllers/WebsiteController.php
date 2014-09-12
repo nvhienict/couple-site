@@ -20,6 +20,13 @@ class WebsiteController extends \BaseController {
 		return $id_user;
 	}
 
+	// format weddingdate
+	public static function getDates(){
+		$id_user = WebsiteController::id_user();
+
+		return Carbon::parse(User::find($id_user)->weddingdate)->format('d-m-Y');
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -64,7 +71,12 @@ class WebsiteController extends \BaseController {
 	public function edit()
 	{
 		//
-		return View::make("website_user.edit_page_temp");
+		$firstname = User::where('id', WebsiteController::id_user())->get()->first()->firstname;
+		
+		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
+
+		return View::make("website_user.edit_page_temp")->with('firstname', $firstname)
+														->with('website', $website);
 	}
 
 
@@ -93,18 +105,20 @@ class WebsiteController extends \BaseController {
 
 	public function design()
 	{
-		// get username
-		if(!Session::has('email')){
-			$firstname = "";
-			$lastname = "";
-			$user_name = $firstname.' '.$lastname;
-		}else{
-			$firstname = User::where('id', WebsiteController::id_user())->get()->first()->firstname;
-			$lastname = User::where('id', WebsiteController::id_user())->get()->first()->lastname;
-			$user_name = $firstname.' '.$lastname;
-		}
 
-		return View::make('website_user.page_design')->with('firstname', $firstname);
+		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
+		// get username
+		
+		$firstname = User::where('id', WebsiteController::id_user())->get()->first()->firstname;
+		$lastname = User::where('id', WebsiteController::id_user())->get()->first()->lastname;
+		$user_name = $firstname.' '.$lastname;
+
+		$arFont = array("Arial", "Verdana", "Times New Roman", "Open Sans",
+						"Open Sans Condensed", "Roboto Condensed");
+
+		return View::make('website_user.page_design')->with('firstname', $firstname)
+													->with('arFont', $arFont)
+													->with('website', $website);
 	}
 
 	// function change font for website
@@ -129,10 +143,17 @@ class WebsiteController extends \BaseController {
 
 		}
 
+		// return font in database
+		
+		$font = WeddingWebsite::where('user',$id_user)->get()->first()->font;
+
+		echo $font;
+
 	} // end function
 
+
 	// function change font for website
-	public function updateColorWebsite()
+	public function updateColorWebsite($index)
 	{
 		$color_design = Input::get('color_design');
 
@@ -143,25 +164,90 @@ class WebsiteController extends \BaseController {
 		if ($check_isset==0) {
 			$website = new WeddingWebsite();
 			$website->user = $id_user;
-			$website->color1 = $color_design;
+			$website->color.$index = $color_design;
 			$website->save();
 		}else{
 			WeddingWebsite::where('user',$id_user)->update(
 			array(
-				'color1'=>$color_design
+				'color'.$index=>$color_design
 				));
 
 		}
 
+		// return color in database
+		switch ($index) {
+			case 1:
+				$color = WeddingWebsite::where('user',$id_user)->get()->first()->color1;
+				break;
+			case 2:
+				$color = WeddingWebsite::where('user',$id_user)->get()->first()->color2;
+				break;
+			
+			default:
+				$color = WeddingWebsite::where('user',$id_user)->get()->first()->color3;
+				break;
+		}
+		echo $color;
+
+
 	} // end function
-	public function addImagebackground()
+	
+	
+
+	public function updateColorWebsite1()
+	{
+		WebsiteController::updateColorWebsite(1);
+		
+	} // end function
+	public function updateColorWebsite2()
+	{
+		WebsiteController::updateColorWebsite(2);
+
+	} // end function
+	public function updateColorWebsite3()
+	{
+		WebsiteController::updateColorWebsite(3);
+
+	} // end function
+
+	
+	// function return color in database
+	public static function returnColor($index)
+	{
+
+		$id_user = WebsiteController::id_user();
+
+		switch ($index) {
+			case 1:
+				$color = WeddingWebsite::where('user',$id_user)->get()->first()->color1;
+				break;
+			case 2:
+				$color = WeddingWebsite::where('user',$id_user)->get()->first()->color2;
+				break;
+			
+			default:
+				$color = WeddingWebsite::where('user',$id_user)->get()->first()->color3;
+				break;
+		}
+		return $color;
+	}
+
+	// function reset color default
+	public function resetColor()
 	{
 		$id_user = WebsiteController::id_user();
-		$website=new WeddingWebsite();
-		$website->user=$id_user;
-		$website->background=Image::make(Input::file('input-image-modal')->getRealPath())->encode('jpg',80);
-		$website->save();
-		return Redirect::route('website/edit/pages');
+		WeddingWebsite::where('user',$id_user)->update(
+			array(
+				'color1'=>'',
+				'color2'=>'',
+				'color3'=>''
+				));
+
+		echo $color='';
+
 	}
+	
+
+
 
 }
