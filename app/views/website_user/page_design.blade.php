@@ -156,46 +156,13 @@
 			  	</div>
 			  	<div class="tab-pane" id="design_page">
 			  		<table class="website_tabs">
-						<tr class="odd">
-							<td><input type="text" size="2" value="1" class="website_tabs_input" ></td>
-							<td><a href="#section-welcome">Welcome</a></td>
-							<td><span  class="glyphicon glyphicon-cog pop" style="color: #19B5BC; cursor: pointer;" ></span></td>
-						</tr>
-						<tr class="even">
-							<td><input type="text" size="2" value="2" class="website_tabs_input" ></td>
-							<td><a href="#section-about">About</a></td>
-							<td><span class="glyphicon glyphicon-cog pop" style="color: #19B5BC; cursor: pointer;" ></span></td>
-						</tr>
-						<tr class="odd">
-							<td><input type="text" size="2" value="3" class="website_tabs_input" ></td>
-							<td><a href="#section-event">Sự kiện cưới</a></td>
-							<td><span class="glyphicon glyphicon-cog pop" style="color: #19B5BC; cursor: pointer;" ></span></td>
-						</tr>
-						<tr class="even">
-							<td><input type="text" size="2" value="4" class="website_tabs_input" ></td>
-							<td><a href="#section-traval">Du lịch</a</td>
-							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;" ></span></td>
-						</tr>
-						<tr class="odd">
-							<td><input type="text" size="2" value="5" class="website_tabs_input" ></td>
-							<td><a href="#section-register">Đăng ký</a></td>
-							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;" ></span></td>
-						</tr>
-						<tr class="even">
-							<td><input type="text" size="2" value="6" class="website_tabs_input" ></td>
-							<td><a href="#section-album">Album ảnh</a></td>
-							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;" ></span></td>
-						</tr>
-						<tr class="odd">
-							<td><input type="text" size="2" value="7" class="website_tabs_input" ></td>
-							<td><a href="#section-contact">Liên lạc</a></td>
-							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;" ></span></td>
-						</tr>
-						<tr class="even">
-							<td><input type="text" size="2" value="8" class="website_tabs_input" ></td>
-							<td><a href="#section-guest-book">Lời chúc</a></td>
-							<td><span class="glyphicon glyphicon-cog" style="color: #19B5BC; cursor: pointer;"></span></td>
-						</tr>
+						@foreach(Tab::get() as $tab)
+							<tr class="odd">
+								<td><input type="text" size="2" value="1" class="website_tabs_input" ></td>
+								<td><input type="text" hidden id="tab{{$tab->id}}" value="{{$tab->id}}">{{$tab->title}}</td>
+								<td><span  class="glyphicon glyphicon-cog pop{{$tab->id}} popoverThis" style="color: #19B5BC; cursor: pointer;" onclick="titleTab({{$tab->id}})" ></span></td>
+							</tr>
+						@endforeach
 					</table>
 			  	</div>
 			  	<div class="tab-pane" id="design_setup">
@@ -219,37 +186,39 @@
 	</div>
 	<!-- .row -->
 	<div id="divContentHTML" class="text-align" >
-	      <form  class="form-horizontal" role="form">
-	      	<div class="form-group">
-			    <label for="title" class="col-xs-5 control-label">Tiêu đề*:</label>
-			    <div class="col-xs-7">
-			    	<input type="text" class="form-control" name="title"id="title" placeholder="welcome" value=""> 	
-		  		</div>
-		  	</div>
-		  	<div class="form-group">
-			    <label class="col-xs-5 control-label"> Canh chỉnh:</label>
-			    <div class="col-xs-7">
-				    <div class="btn-group">
-					  <button type="button" class="btn btn-primary "><i class="glyphicon glyphicon-align-left"></i></button>
-					  <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-align-center"></i></button>
-					  <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-align-right"></i></button>
-					</div>
+      <form  class="form-horizontal" role="form" id="TitleForm" action="{{Asset('')}}" method="post">
+      	<div class="form-group">
+		    <label for="title" class="col-xs-5 control-label">Tiêu đề*:</label>
+		    <div class="col-xs-7">
+		    	<input type="text" class="form-control" name="title" id="title" placeholder="welcome" value=""> 	
+	  		</div>
+	  	</div>
+	  	<div class="form-group">
+		    <label class="col-xs-5 control-label"> Canh chỉnh:</label>
+		    <div class="col-xs-7">
+			    <div class="btn-group" >
+				  <button type="button" class="btn btn-primary" onclick="Align('left')"><i class="glyphicon glyphicon-align-left"></i></button>
+				  <button type="button" class="btn btn-primary" onclick="Align('center')"><i class="glyphicon glyphicon-align-center"></i></button>
+				  <button type="button" class="btn btn-primary" onclick="Align('right')"><i class="glyphicon glyphicon-align-right"></i></button>
+				  <input  type="text" id="Align-title" hidden  >
+				  
 				</div>
-		  	</div>
-		  	<div class="form-group">
-			    <label class="col-sm-6 control-label"> Ẩn khỏi trang?</label>
-			    <div class="col-xs-6">
-			    	<input type="checkbox" name="hideTitle">
-				</div>
-		  	</div>
-		  	<div class="form-group">
-			    <label class="col-xs-5 control-label"><a href="#"> Xoá trang</a></label>
-			    <div class="col-xs-7">
-			    	<button>Lưu thay đổi</button>
-				</div>
-		  	</div>
-	      </form>
-		</div>
+			</div>
+	  	</div>
+	  	<div class="form-group">
+		    <label class="col-sm-6 control-label"> Ẩn khỏi trang?</label>
+		    <div class="col-xs-6">
+		    	<input type="checkbox" name="hideTitle" id="hideTitle">
+			</div>
+	  	</div>
+	  	<div class="form-group">
+		    <label class="col-xs-5 control-label"><a href="#"> Xoá trang</a></label>
+		    <div class="col-xs-7">
+		    	<button>Lưu thay đổi</button>
+			</div>
+	  	</div>
+      </form>
+	</div>
 <script type="text/javascript">
 	function design_website_minus_circle(){
 		$('div.design_website_content_left').hide();
@@ -321,15 +290,40 @@
 
 
 	// 
-	$(function () {
-      //popover option
-      $(".pop").popover({
-        title: 'Chỉnh sửa',
-        content: $('#divContentHTML').html(),
-        placement: 'right',
-        html: true
-      });
-    });
+	function Align(value){
+		
+			$("#Align-title").val(value);
+	}
+	
+	function titleTab(id){
+		var validator = $( "#TitleForm" ).validate();
+		$.ajax({
+			type: "post",
+			url:"{{URL::route('get-id-tab')}}",
+			data:{id: $("#tab"+id).val()},
+			success:function(result){
+				$('#title').val(result['title']),
+				$('#hideTitle').replaceWith(result['visiable'])
+			}
+		});
+		
+	      //popover option
+	      $(".pop"+id).popover({
+	        title: 'Chỉnh sửa',
+	        content: $('#divContentHTML').html(),
+	        placement: 'right',
+	        html: true
+	      });
+	      $(".pop"+id).click(function (e) {
+					e.stopPropagation();
+				});
+			$(document).click(function (e) {
+				if (($('.popover').has(e.target).length == 0) || $(e.target).is('.close')) {
+					$(".pop"+id).popover('hide');
+				}
+			});
+	   
+	}
 
 </script>
 

@@ -2156,8 +2156,8 @@ tr.even td{
 	height: 600px;
 	border: 1px solid #ddd;
 	background-color: #F7F5F3;
-	overflow-y: auto;
-	overflow-x: hidden;
+	overflow-y: visible;
+	overflow-x: visible;
 	float: left;
 	margin: 0;
 }
@@ -2200,7 +2200,7 @@ tr.even td{
 	overflow: hidden;
 }
 .design_website_content_right {
-	width: 100%;
+	
 	overflow-y: auto;
 	margin: 0px ;
 	padding-left: 0px;
@@ -2242,11 +2242,14 @@ tr.even td{
 	padding-left: 200px;
 	
 }
- 
-
 #divContentHTML{
 	display: none;
-	z-index: 12000;
+	z-index: 99999;
+	position: fixed;
+}
+
+.popover{
+	min-width: 300px;;
 }
 .page-edit{
 	padding: 0px;

@@ -248,6 +248,22 @@ class WebsiteController extends \BaseController {
 	}
 	
 
+public function getTab(){
 
+		$tab= Tab::find(Input::get('id'));
+		$visiable = '<input type="checkbox" name="hideTitle" id="hideTitle">';
+		if($tab->visiable == 1)
+		{
+			$visiable = '<input type="checkbox" name="hideTitle" id="hideTitle" checked>';
+		}
+		$title=array(
+		"id"=>$tab->id,
+		"title"=>$tab->title,
+		"content"=>$tab->content,
+		"visiable"=>$visiable,
+		"titleStyle"=>$tab->titleStyle
+		);
+		return $title;
+	}
 
 }
