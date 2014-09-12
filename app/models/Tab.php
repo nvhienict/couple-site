@@ -16,5 +16,8 @@ class Tab extends Eloquent {
 	 * @var array
 	 */
 	
-
+	function phototab()
+	{
+		return $this->hasMany("Phototab","phototab");
+	}
 }
