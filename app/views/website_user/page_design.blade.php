@@ -155,9 +155,9 @@
 			  	</div>
 			  	<div class="tab-pane" id="design_page">
 			  		<table class="website_tabs">
-						@foreach(Tab::get() as $tab)
+						@foreach(TabWebsite::orderBy('sort','ASC')->get() as $tab)
 							<tr class="odd">
-								<td><input type="text" size="2" value="" class="website_tabs_input" ></td>
+								<td><input type="text" size="2" value="{{$tab->sort}}" class="website_tabs_input" ></td>
 								<td id="TT{{$tab->id}}">{{$tab->title}}</td>
 								<input type="text" hidden id="tab{{$tab->id}}" value="{{$tab->id}}">
 								<td><span  class="glyphicon glyphicon-cog pop{{$tab->id}} popoverThis" style="color: #19B5BC; cursor: pointer;" onclick="titleTab({{$tab->id}})" ></span></td>
