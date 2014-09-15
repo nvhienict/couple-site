@@ -2222,6 +2222,28 @@ tr.even td{
 	clear: both;
 }
 
+/* modal add section */
+.add_section_item{
+	background-color: #19B5BC;
+    color: #FFFFFF;
+    text-align: center;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    margin: 20px 0px 20px 22px;
+    cursor: pointer;
+}
+.add_section_item_visiable{
+	background-color: #CCCCCC;
+    color: #FFFFFF;
+    text-align: center;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    margin: 20px 0px 20px 22px;
+}
+
+
 
 /* .view design */
 /**modal upload image**/

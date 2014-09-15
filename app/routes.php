@@ -253,6 +253,8 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('get-id-tab', array('as'=>'get-id-tab', 'uses'=>'WebsiteController@getTab'));//lấy dữ liệu của 1 tab
 	Route::post('update-title', array('as'=>'update-title', 'uses'=>'WebsiteController@Post_update_Tab'));
 
+	Route::post('add_section', array('as'=>'add_section', 'uses'=>'WebsiteController@addSection'));
+
 
 });
 /*** end website user ***/ 

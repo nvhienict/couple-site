@@ -168,9 +168,13 @@ class WebsiteController extends \BaseController {
 						"Adobe Gothic Std B", "Algerian", "AR BERKLEY",
 						"French Script MT", "Vladimir Script", "Kunstler Script");
 
+		// get data from table 'tabs'
+		$arTab = TabWebsite::get();
+
 		return View::make('website_user.page_design')->with('firstname', $firstname)
 													->with('arFont', $arFont)
-													->with('website', $website);
+													->with('website', $website)
+													->with('arTab', $arTab);
 	}
 
 	// function change font for website
