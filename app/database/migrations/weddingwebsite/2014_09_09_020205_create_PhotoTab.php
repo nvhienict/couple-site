@@ -15,7 +15,7 @@ class CreatePhotoTab extends Migration {
 		Schema::create('phototab',function($table)
 			{
 				$table->increments("id");
-				$table->binary('photo');
+				$table->string('photo');
 				$table->integer('album');
 				$table->integer('user');
 				$table->integer('tab');
