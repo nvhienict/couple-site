@@ -320,7 +320,7 @@ class WebsiteController extends \BaseController {
 
 public function getTab(){
 
-		$tab= Tab::find(Input::get('id'));
+		$tab= TabWebsite::find(Input::get('id'));
 		$visiable = '<input type="checkbox" name="hideTitle" id="hideTitle">';
 		if($tab->visiable == 1)
 		{
@@ -331,7 +331,7 @@ public function getTab(){
 		"title"=>$tab->title,
 		"content"=>$tab->content,
 		"visiable"=>$visiable,
-		"titleStyle"=>$tab->titleStyle
+		"titlestyle"=>$tab->titlestyle
 		);
 		return $title;
 	}
@@ -341,9 +341,9 @@ public function Post_update_Tab(){
 
 	$id = Input::get('id_title');
 	$title = Input::get('title');
-	$titleStyle = Input::get('Align_title');
+	$titlestyle = Input::get('Align_title');
 
-	if(Input::get('hideTitle') == true)
+	if(Input::get('hideTitle') == 1)
 	{
 		$visiable = 1;
 	}
@@ -352,13 +352,13 @@ public function Post_update_Tab(){
 		$visiable = 0;
 	}
 
-	$Tab = Tab::where('id',$id)->update(
+	$Tab = TabWebsite::where('id',$id)->update(
 		array(
 			'title'=>$title,
-			'titleStyle'=>$titleStyle,
+			'titlestyle'=>$titlestyle,
 			'visiable'=>$visiable
 			));
-	$tab = array('title'=>$title,'titleStyle'=>$titleStyle,'visiable'=>$visiable);
+	$tab = array('title'=>$title,'titlestyle'=>$titlestyle,'visiable'=>$visiable);
 	return $tab;
 } 
 

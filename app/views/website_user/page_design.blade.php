@@ -174,6 +174,24 @@
 								<input type="text" hidden id="tab{{$tab->id}}" value="{{$tab->id}}">
 								<td><span  class="glyphicon glyphicon-cog pop{{$tab->id}} popoverThis" style="color: #19B5BC; cursor: pointer;" onclick="titleTab({{$tab->id}})" ></span></td>
 							</tr>
+							<script type="text/javascript">
+							$(function () {
+								 $(".pop{{$tab->id}}").popover({
+							        title: 'Chỉnh sửa',
+							        content: $('#divContentHTML').html(),
+							        placement: 'right',
+							        html: true
+							      });
+							});
+		
+							$('body').on('click', function (e) {
+						        $('.pop{{$tab->id}}').each(function () {
+						          if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+						            $(this).popover('hide');
+						          }
+						        });
+						      });
+							</script>
 						@endforeach
 					</table>
 			  	</div>
@@ -203,7 +221,7 @@
 		    <label for="title" class="col-xs-5 control-label">Tiêu đề*:</label>
 		    <div class="col-xs-7">
 		    	<input type="text" class="form-control" name="title" id="title" placeholder="welcome" value="">
-		    	<input type="text" name="id_title" id="id_title" hidden  value=""> 	
+		    	<input type="text" name="id_title" id="id_title"   value=""> 	
 	  		</div>
 	  	</div>
 	  	<div class="form-group row">
@@ -213,7 +231,7 @@
 				  <button type="button" class="btn btn-primary" id="btleft" onclick="Align('left')"><i class="glyphicon glyphicon-align-left"></i></button>
 				  <button type="button" class="btn btn-primary" id="btcenten" onclick="Align('center')"><i class="glyphicon glyphicon-align-center"></i></button>
 				  <button type="button" class="btn btn-primary" id="btright" onclick="Align('right')"><i class="glyphicon glyphicon-align-right"></i></button>
-				  <input  type="text" id="Align_title" hidden name="Align_title" >
+				  <input  type="text" id="Align_title"  name="Align_title" >
 				  
 				</div>
 			</div>
@@ -360,11 +378,10 @@
 			$('#btleft').removeClass('btn btn-primary active').addClass('btn btn-primary ');
 		}
 		
-			$("#Align-title").val(value);
+			$("#Align_title").val(value);
 	}
 	
 	function titleTab(id){
-		
 		$.ajax({
 			type: "post",
 			url:"{{URL::route('get-id-tab')}}",
@@ -373,45 +390,11 @@
 				$('#title').val(result['title']),
 				$('#hideTitle').replaceWith(result['visiable']),
 				$('#id_title').val(result['id']),
-				$('#Align_title').val(result['titleStyle'])
+				$('#Align_title').val(result['titlestyle'])
 			}
+			
 		});
-		if($('#Align-title').val() == 'left')
-		{
-			$('#btleft').removeClass('btn btn-primary').addClass('btn btn-primary active');
-			$('#btcenten').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-			$('#btright').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-		}
-		else
-		if($('#Align-title').val() == 'center')
-		{
-			$('#btcenten').removeClass('btn btn-primary').addClass('btn btn-primary active');
-			$('#btleft').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-			$('#btright').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-		}
-		else
-		{
-			$('#btright').removeClass('btn btn-primary').addClass('btn btn-primary active');
-			$('#btcenten').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-			$('#btleft').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-		}
 		
-		
-	      //popover option
-	      $(".pop"+id).popover({
-	        title: 'Chỉnh sửa',
-	        content: $('#divContentHTML').html(),
-	        placement: 'right',
-	        html: true
-	      });
-	      $(".pop"+id).click(function (e) {
-					e.stopPropagation();
-				});
-			$(document).click(function (e) {
-				if (($('.popover').has(e.target).length == 0) || $(e.target).is('.close')) {
-					$(".pop"+id).popover('hide');
-				}
-			});
 	}
 
 </script>
