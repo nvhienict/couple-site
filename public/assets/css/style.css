@@ -2195,7 +2195,7 @@ tr.even td{
 
 
 .design_website_content_right{
-	height: 600px;
+	/*height: 600px;*/
 	float: left;
 	margin: 0;
 	padding: 0px;
@@ -2206,7 +2206,7 @@ tr.even td{
 }
 .design_website_content_right {
 	
-	overflow-y: auto;
+	/*overflow-y: auto;*/
 	margin: 0px ;
 	padding-left: 0px;
 	z-index: 1000;

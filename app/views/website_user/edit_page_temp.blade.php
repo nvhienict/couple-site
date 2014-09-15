@@ -27,50 +27,52 @@
 </head>
 
     <!-- Navigation -->
-    <div class="row navar-page">
-    <nav class="navbar-inverse navbar nav-website-fixed col-xs-12" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Home</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul style="background-color:#222222;" class="nav navbar-nav">
-                    <li>
-                        <a href="#">Welcome</a>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Wedding Events</a>
-                    </li>
-                    <li>
-                        <a href="#">Traval</a>
-                    </li>
-                    <li>
-                        <a href="#">Accommodations</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-    </div>
+    
     <!-- Page Content -->
 
     @if( !empty($website) )
         @foreach( $website as $website_item )
 
-            <div style="background-image: url({{Asset("images/website/background/{$website_item->background}")}});" class="background-website ">
+        <div style="background-image: url({{Asset("images/website/background/{$website_item->background}")}});" class="background-website ">
+            <div class="after-image">
+                <div class="row navar-page">
+                    <nav class="navbar-inverse navbar nav-website-fixed col-xs-12" role="navigation">
+                        <div class="container">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="#">Home</a>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul style="background-color:#222222;" class="nav navbar-nav">
+                                    <li>
+                                        <a href="#">Welcome</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">About</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Wedding Events</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Traval</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Accommodations</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                        </div>
+                        <!-- /.container -->
+                    </nav>
+                </div>
             <div class="row">
             <!-- Page Heading -->
             <div class="col-xs-12 title-website">
@@ -118,7 +120,9 @@
                 <button  type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" ><i class="glyphicon glyphicon-plus"></i>Add Section</button>
             </div>
             <hr>
-            @endforeach     
+            @endforeach
+        </div>    
+    </div>     
         
         @endforeach
     @else
