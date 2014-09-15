@@ -155,7 +155,7 @@
 			  	</div>
 			  	<div class="tab-pane" id="design_page">
 			  		<table class="website_tabs">
-						@foreach(TabWebsite::orderBy('sort','ASC')->get() as $tab)
+						@foreach(TabWebsite::where('website',WebsiteController::id_user())->orderBy('sort','ASC')->get() as $tab)
 							<tr class="odd">
 								<td><input type="text" size="2" value="{{$tab->sort}}" class="website_tabs_input" ></td>
 								<td id="TT{{$tab->id}}">{{$tab->title}}</td>

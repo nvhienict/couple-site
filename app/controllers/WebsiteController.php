@@ -133,15 +133,16 @@ class WebsiteController extends \BaseController {
 			$new_website->background = "template_1.jpg";
 			$new_website->save();
 		}
-
+		$id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;
 		// check user had in table weddingwebsite
-		$check_teb_website = TabWebsite::where('website', $id_user)->get()->count();
+		$check_teb_website = TabWebsite::where('website', $id_Web)->get()->count();
+
 		if ($check_teb_website==0) {
 			// insert data from table tabs to tabwebsite
 			$arTab = Tab::get();
 			foreach ($arTab as $item_tab) {
 				$tab_website = new TabWebsite();
-				$tab_website->website = $id_user;
+				$tab_website->website = $id_Web;
 				$tab_website->tab = $item_tab->id;
 				$tab_website->title = $item_tab->title;
 				$tab_website->content = $item_tab->content;

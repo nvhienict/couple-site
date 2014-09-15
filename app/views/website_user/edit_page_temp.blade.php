@@ -93,7 +93,7 @@
                         <div class="col-xs-6">
                             <span>
                                 <a href="#">
-                                <img class="img-responsive" src="{{Asset("images/website/background/{$backgrounds}")}}" alt="">
+                                <img class="img-responsive" src="{{Asset("images/website/background/{$website_item->background}")}}" alt="">
                                 </a>
                             </span>
                             <span>
