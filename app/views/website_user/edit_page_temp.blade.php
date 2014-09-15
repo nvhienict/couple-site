@@ -462,6 +462,8 @@
         </div>
 
 
+        
+    @endif   
         <div class="modal fade " id="modal-changebackground-images">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content ">
@@ -493,8 +495,10 @@
                                                         <br>
                                                         
                                                         <div class="form-group">
-                                                            <a onclick="chose_image()" id="chose_image_edit" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br>
-                                                            <input id="input-image-modal-edit" name="input-image-modal-edit"  type="file" class="file" >
+                                                            <div class="text-center "><img id="image-preview-photo" ></div>
+                                                            <div class="text-center"> <a onclick="chose_image()" id="chose_image_photo" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a></div><br><br><br>
+                                                            <div class="text-center"><input onchange="show_image_preview_photo(this)"id="input_image_modal_photo" name="input_image_modal_photo"  type="file" class="file" ></div>
+                                                            
                                                         </div>
                                                         <div class="form-group">
                                                             <button type="submit" style="float:right"class="btn btn-primary">Upload</button> 
@@ -507,8 +511,17 @@
                                                     
                                                         function chose_image()
                                                         {
-                                                             $('#input-image-modal-edit').trigger('click');
+                                                             $('#input_image_modal_photo').trigger('click');
                                                         };
+                                                        function show_image_preview_photo (input) {
+                                                                                if (input.files && input.files[0]) {
+                                                                                    var filerdr = new FileReader();
+                                                                                    filerdr.onload = function(e) {
+                                                                                        $('#image-preview-photo').attr('src', e.target.result);
+                                                                                    }
+                                                                                    filerdr.readAsDataURL(input.files[0]);
+                                                                                    }
+                                                                                };
                                                     </script>
 
                                                 </form>
@@ -541,8 +554,6 @@
         <!-- /.container -->
     </div>
 
-    @endif   
-        
 <footer>
     <div class="row">
         <div class="col-xs-12">

@@ -2236,7 +2236,7 @@ tr.even td{
 	background-color: #F7F5F3;
 }
 
-#input-image-modal
+#input_image_modal
 {
 	display: none;
 }
@@ -2244,8 +2244,12 @@ tr.even td{
 {
 	font-weight: bold ;
 	font-style: italic;
-	padding-left: 200px;
 	
+	
+}
+#image-preview-website
+{
+	width: 200px;
 }
 #divContentHTML{
 	display: none;

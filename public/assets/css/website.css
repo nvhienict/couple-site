@@ -90,16 +90,20 @@ display: none;
 	background-color: #F7F5F3;
 }
 
-#input-image-modal-edit
+#input_image_modal_photo
 {
 	display: none;
 }
-#chose_image_edit
+#chose_image_photo
 {
 	font-weight: bold ;
 	font-style: italic;
-	padding-left: 200px;
 	
+	
+}
+#image-preview-photo
+{
+	width: 200px;
 }
 .modal-backdrop{
 	z-index: 100;

@@ -73,8 +73,10 @@
 																			<br>
 																			
 																			<div class="form-group">
-																				<a onclick="chose_image_backgound()" id="chose_image" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br>
-																				<input id="input-image-modal" name="input-image-modal"  type="file" class="file" >
+																				<div class="text-center "><img id="image-preview-website" ></div>
+																				<div class="text-center"><a onclick="chose_image_backgound()" id="chose_image" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br></div>
+																				
+																				<input id="input_image_modal" name="input_image_modal" onchange="show_image_preview(this)" type="file" class="file" >
 																			</div>
 																			<div class="form-group">
 																				<button type="submit" style="float:right"class="btn btn-primary">Upload</button> 
@@ -87,8 +89,18 @@
 																		
 																			function chose_image_backgound()
 																			{
-																				 $('#input-image-modal').trigger('click');
+																				 $('#input_image_modal').trigger('click');
 																			};
+																			function show_image_preview (input) {
+																				if (input.files && input.files[0]) {
+																					var filerdr = new FileReader();
+																					filerdr.onload = function(e) {
+																						$('#image-preview-website').attr('src', e.target.result);
+																					}
+																					filerdr.readAsDataURL(input.files[0]);
+																					}
+																				};
+																			
 																		</script>
 
 																	</form>
