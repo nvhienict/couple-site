@@ -115,7 +115,7 @@
             </div>
             
             <div class="row add-section text-center">
-                <button  type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add Section</button>
+                <button  type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" ><i class="glyphicon glyphicon-plus"></i>Add Section</button>
             </div>
             <hr>
             @endforeach     
@@ -496,7 +496,7 @@
                                                         
                                                         <div class="form-group">
                                                             <div class="text-center "><img id="image-preview-photo" ></div>
-                                                            <div class="text-center"> <a onclick="chose_image()" id="chose_image_photo" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a></div><br><br><br>
+                                                            <div class="text-center"> <a onclick="chose_image()" style="cursor: pointer;" id="chose_image_photo" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a></div><br><br><br>
                                                             <div class="text-center"><input onchange="show_image_preview_photo(this)"id="input_image_modal_photo" name="input_image_modal_photo"  type="file" class="file" ></div>
                                                             
                                                         </div>
@@ -562,5 +562,53 @@
     </div>
     <!-- /.row -->
 </footer>
+
+<!-- modal get data to add section -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Thêm thành phần</h4>
+            </div>
+            <table>
+                <tr>
+                @foreach($arTab as $tab)
+                    
+                        @if( ($tab->visiable)==1 )
+                            <td class="add_section_item_visiable" >
+                                <i class="glyphicon glyphicon-asterisk"></i>
+                                <p>
+                                    {{$tab->title}} <br />
+                                    (Đã thêm)
+                                </p>
+                            </td>
+                        @else
+                            <td class="add_section_item" onclick="add_section_item({{$tab->id}});" >
+                                <i class="glyphicon glyphicon-asterisk"></i>
+                                <p>{{$tab->title}}</p>
+                            </td>
+                        @endif
+                    
+                @endforeach
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+</div>
+<!-- .modal -->
+
+<script type="text/javascript">
+    function add_section_item(id_tab)
+    {
+        $.ajax({
+            type:"post",
+            url:"{{URL::to('add_section')}}",
+            data:{id_tab:id_tab}
+        });
+    };
+
+</script>
     
 </html>

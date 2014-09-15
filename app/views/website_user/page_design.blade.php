@@ -74,7 +74,7 @@
 																			
 																			<div class="form-group">
 																				<div class="text-center "><img id="image-preview-website" ></div>
-																				<div class="text-center"><a onclick="chose_image_backgound()" id="chose_image" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br></div>
+																				<div class="text-center"><a onclick="chose_image_backgound()" style="cursor:pointer;" id="chose_image" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br></div>
 																				
 																				<input id="input_image_modal" name="input_image_modal" onchange="show_image_preview(this)" type="file" class="file" >
 																			</div>
