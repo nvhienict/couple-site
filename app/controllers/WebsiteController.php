@@ -174,7 +174,8 @@ class WebsiteController extends \BaseController {
 		return View::make('website_user.page_design')->with('firstname', $firstname)
 													->with('arFont', $arFont)
 													->with('website', $website)
-													->with('arTab', $arTab);
+													->with('arTab', $arTab)
+													->with('id_web', $id_Web);
 	}
 
 	// function change font for website
@@ -346,15 +347,7 @@ public function Post_update_Tab(){
 	$id = Input::get('id_title');
 	$title = Input::get('title');
 	$titlestyle = Input::get('Align_title');
-
-	if(Input::get('hideTitle') == 1)
-	{
-		$visiable = 1;
-	}
-	else
-	{
-		$visiable = 0;
-	}
+	$visiable = Input::get('hideTitle');
 
 	$Tab = TabWebsite::where('id',$id)->update(
 		array(
