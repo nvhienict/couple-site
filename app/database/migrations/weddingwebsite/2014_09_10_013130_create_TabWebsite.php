@@ -16,6 +16,7 @@ class CreateTabWebsite extends Migration {
 
 			$table->increments("id");
 			$table->integer("website");
+			$table->integer("tab");
 			$table->string("title");
 			$table->string("content");
 			$table->boolean("visiable");

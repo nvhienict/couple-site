@@ -41,7 +41,9 @@
 			  		</p>
 			  		<div class="page_design_home_item">
 			  			<span class="span_design_item">Hình nền:</span><br />
-			  			<img src="{{Asset("images/website/background/{$backgrounds}")}}">
+			  			@foreach($website as $item_website)
+			  			<img src="{{Asset("images/website/background/{$item_website->background}")}}">
+			  			@endforeach
 			  			<button class="btn btn-primary" data-toggle="modal" data-target='#modal-changebackground' style="background: #19b5bc; border:none;">Đổi Ảnh Nền</button>
 			  			<!-- -modal change background -->
 			  				<div class="modal fade " id="modal-changebackground">

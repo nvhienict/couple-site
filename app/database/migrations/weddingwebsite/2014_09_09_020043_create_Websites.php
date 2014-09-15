@@ -16,7 +16,7 @@ class CreateWebsites extends Migration {
 			$table->increments("id");
 			$table->integer("user");
 			$table->integer("template");
-			$table->string("url");
+			$table->string("url")
 			$table->integer("tab");
 			$table->string("background");
 			$table->string("color1");

@@ -10,15 +10,13 @@ class WebsiteController extends \BaseController {
 	public function index()
 	{
 		$id_user = WebsiteController::id_user();
-		$check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
-		if(!$check)
-		{
-			$backgrounds='template_1.jpg';
-			
-		}
-		else
-		{
-			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		
+		$check_bg_website = WeddingWebsite::where('user',$id_user)->get()->count();
+
+		if ($check_bg_website==0) {
+			$backgrounds = "template_1.jpg";
+		}else{
+			$backgrounds = WeddingWebsite::where('user',$id_user)->get()->first()->background;
 		}
 		
 		return View::make('website_user.index')->with('backgrounds',$backgrounds);
@@ -44,17 +42,11 @@ class WebsiteController extends \BaseController {
 	 * @return Response
 	 */
 	public function template_1()
-	{	$id_user = WebsiteController::id_user();
-		$check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
-		if(!$check)
-		{
-			$backgrounds='template_1.jpg';
-			
-		}
-		else
-		{
-			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
-		}
+	{	
+		$id_user = WebsiteController::id_user();
+		
+		$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		
 		return View::make("website_user.page_temp")->with('backgrounds',$backgrounds);
 	}
 
@@ -91,16 +83,10 @@ class WebsiteController extends \BaseController {
 	public function edit()
 	{
 		$id_user = WebsiteController::id_user();
-		$check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
-		if(!$check)
-		{
-			$backgrounds='template_1.jpg';
-			
-		}
-		else
-		{
-			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
-		}
+		
+		
+		$backgrounds = WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		
 		$firstname = User::where('id', WebsiteController::id_user())->get()->first()->firstname;
 		
 		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
@@ -138,33 +124,38 @@ class WebsiteController extends \BaseController {
 	{
 		
 		$id_user = WebsiteController::id_user();
-
 		$check_isset = WeddingWebsite::where('user', $id_user)->get()->count();
+
+		// check when not data
 		if( $check_isset==0 ){
 			$new_website = new WeddingWebsite();
 			$new_website->user = $id_user;
+			$new_website->background = "template_1.jpg";
 			$new_website->save();
 		}
 
-		$check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
-		if(!$check)
-		{
-			$backgrounds='template_1.jpg';
-			
+		// check user had in table weddingwebsite
+		$check_teb_website = TabWebsite::where('website', $id_user)->get()->count();
+		if ($check_teb_website==0) {
+			// insert data from table tabs to tabwebsite
+			$arTab = Tab::get();
+			foreach ($arTab as $item_tab) {
+				$tab_website = new TabWebsite();
+				$tab_website->website = $id_user;
+				$tab_website->tab = $item_tab->id;
+				$tab_website->title = $item_tab->title;
+				$tab_website->content = $item_tab->content;
+				$tab_website->visiable = $item_tab->visiable;
+				$tab_website->titlestyle = $item_tab->titlestyle;
+				$tab_website->video = $item_tab->video;
+				$tab_website->map = $item_tab->map;
+				$tab_website->sort = $item_tab->id;
+				$tab_website->save();
+			}
 		}
-		else
-		{
-			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
-		}
-		
-		
 		
 
-		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
-		
-		
 		// get username
-		
 		$firstname = User::where('id', WebsiteController::id_user())->get()->first()->firstname;
 		$lastname = User::where('id', WebsiteController::id_user())->get()->first()->lastname;
 		$user_name = $firstname.' '.$lastname;
@@ -178,7 +169,6 @@ class WebsiteController extends \BaseController {
 
 		return View::make('website_user.page_design')->with('firstname', $firstname)
 													->with('arFont', $arFont)
-													->with('backgrounds',$backgrounds)
 													->with('website', $website);
 	}
 
