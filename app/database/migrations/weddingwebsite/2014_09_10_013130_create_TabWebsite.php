@@ -15,6 +15,7 @@ class CreateTabWebsite extends Migration {
 		Schema::create('tabWebsite',function($table){
 
 			$table->increments("id");
+			$table->string("type");
 			$table->integer("website");
 			$table->integer("tab");
 			$table->string("title");

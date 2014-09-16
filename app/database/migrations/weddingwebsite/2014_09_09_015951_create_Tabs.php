@@ -14,6 +14,7 @@ class CreateTabs extends Migration {
 	{
 		Schema::create('tabs',function($table){
 			$table->increments("id");
+			$table->string("type");
 			$table->string("title");
 			$table->string("content");
 			$table->boolean("visiable");
