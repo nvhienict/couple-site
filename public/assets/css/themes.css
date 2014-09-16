@@ -1,0 +1,51 @@
+.float-left{
+	float: left;
+}
+.float-right{
+	float: right;
+}
+.float-left button{
+	position: absolute;
+	right: 20px;
+	bottom: 5px;
+	display: none;
+}
+.float-right button{
+	position: absolute;
+	right: 20px;
+	bottom: 5px;
+	display: none;
+}
+.click-edit{
+	display: none;
+}
+.ok-edit{
+	display: none;
+}
+.edit-content{
+	display: none;
+}
+.partion:hover button{
+	display: inline-block;
+}
+.partion:hover .click-edit{
+	display: inline-block;
+}
+.background-themes 
+{ 
+	height: 600px;
+	overflow-y:auto;
+	padding: 0px;
+	margin-left: -15px;
+	margin-right: -15px;
+	background-repeat:no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -10;
+}
+.after-image-themes{
+	padding-left: 15px;
+	padding-right: 15px;
+}
