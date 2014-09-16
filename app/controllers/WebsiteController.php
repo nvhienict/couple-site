@@ -338,7 +338,8 @@ public function getTab(){
 		"visiable"=>$visiable,
 		"titlestyle"=>$tab->titlestyle
 		);
-		return $title;
+		
+		echo json_encode($title); exit();
 	}
 
 

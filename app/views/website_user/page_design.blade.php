@@ -393,16 +393,35 @@
 		$.ajax({
 			type: "post",
 			url:"{{URL::route('get-id-tab')}}",
+			dataType: "text",
 			data:{id: $("#tab"+id).val()},
-			success:function(result){
-				$('#title').val(result['title']),
-				$('#hideTitle').replaceWith(result['visiable']),
-				$('#id_title').val(result['id']),
-				$('#Align_title').val(result['titlestyle'])
+			success:function(data){
+				var result = JSON.parse(data);
+				$('#title').val(result['title']);
+				$('#hideTitle').replaceWith(result['visiable']);
+				$('#id_title').val(result['id']);
+				$('#Align_title').val(result['titlestyle']);
+				if(result['titlestyle'] == 'left')
+					{
+						$('#btleft').removeClass('btn btn-primary').addClass('btn btn-primary active');
+						$('#btcenten').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+						$('#btright').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+					}
+					else
+					if(result['titlestyle'] == 'center')
+					{
+						$('#btcenten').removeClass('btn btn-primary').addClass('btn btn-primary active');
+						$('#btleft').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+						$('#btright').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+					}
+					else
+					{
+						$('#btright').removeClass('btn btn-primary').addClass('btn btn-primary active');
+						$('#btcenten').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+						$('#btleft').removeClass('btn btn-primary active').addClass('btn btn-primary ');
+					}
 			}
-			
 		});
-		
 	}
 
 </script>
