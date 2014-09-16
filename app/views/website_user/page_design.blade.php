@@ -333,7 +333,6 @@
 		});
 	}
 
-
 	// 
 	function submit_title(){
 		var id_title = $("input[name=id_title]").val();
@@ -360,7 +359,18 @@
   			},
   			success:function(data){
   				$('#TT'+id_title).text(data['title']);
+  				$('#nameTitle'+id_title).text(data['title']);
+  				$('#nameTitle'+id_title).css('text-align',data['titlestyle']);
+  				if (data['visiable'] == 1) 
+  				{
+  					$("#section-welcome"+id_title).hide();
+  				}
+  				else
+  				{
+  					$("#section-welcome"+id_title).show();
+  				};
   			}
+
   		});
   		
   		$(".pop"+id_title).popover('hide');

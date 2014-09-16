@@ -87,11 +87,11 @@
 
     <!-- Welcome -->
 
-            @foreach(TabWebsite::where('website',$website_item->id)->orderBy('sort','ASC')->get() as $tabWeb)
-            <div class="row section" id="section-welcome">
+            @foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
+            <div class="row section" id="section-welcome{{$tabWeb->id}}">
                 <div class="col-xs-12">
                     <div class="row">
-                            <h3 class="text-center title-tab" >{{$tabWeb->title}}</h3>
+                            <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}}" id = "nameTitle{{$tabWeb->id}}">{{$tabWeb->title}}</h3>
                         <div class="col-xs-6">
                             <span>
                                 <a href="#">
