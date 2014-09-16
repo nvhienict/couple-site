@@ -37,7 +37,7 @@
 	overflow-y:auto;
 	padding: 0px;
 	margin-left: -15px;
-	margin-right: -15px;
+	margin-right: 0px;
 	background-repeat:no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -48,4 +48,21 @@
 .after-image-themes{
 	padding-left: 15px;
 	padding-right: 15px;
+}
+.nav-themes-fixed{
+	top: 0px;
+	
+	padding: 0px;
+	
+}
+.navar-themes{
+	text-align: center;
+
+	width: 100%;
+	padding-right: 0px;
+	position: fixed;
+	z-index: 1000;
+}
+.show-content{
+	padding: 5px;
 }
