@@ -14,43 +14,6 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
-    <script type="text/javascript">
-		function showckeditor(id){
-		        var text=$('.phara'+id).text();
-		        $('.phara'+id).hide();
-		        CKEDITOR.instances['editor'+id].setData(text);
-
-		        $('.editphara'+id).addClass("col-xs-6");
-		        $('.editphara'+id).show();
-		        $('.click-edit-hide'+id).hide();
-		        $('.ok-edit-show'+id).show();
-		    }
-		function updateckeditor(id){
-			//var t= CKEDITOR.instances['editor4'].getData();alert(t);
-			$.ajax({
-				type:"post",
-				url:"{{URL::route('update_content_tab')}}",
-				data: {	content:CKEDITOR.instances['editor'+id].getData(),
-						id_tab:$('.get_id'+id).val()
-					},
-				success:function(data){
-					var obj = JSON.parse(data);
-					$('.phara'+id).text(obj.content);				
-				}
-			});
-				$('.editphara'+id).hide();
-				$('.phara'+id).show();
-				$('.click-edit-hide'+id).show();
-		        $('.ok-edit-show'+id).hide();
-		}  
-		function exitckeditor(id){
-				$('.editphara'+id).hide();
-				$('.phara'+id).show();
-				$('.click-edit-hide'+id).show();
-		        $('.ok-edit-show'+id).hide();
-		} 
-
-</script>
 
 </head>
 @if($website)
@@ -58,10 +21,10 @@
 <div class="background-themes" style="background-image: url({{Asset("images/website/background/{$website_item->background}")}});">
 	<!-- Thanh dieu huong -->
 
-	<!-- <div class="navar-themes">
+	<div class="navar-themes">
 		<nav class="navbar navbar-inverse nav-themes-fixed" role="navigation">
 	        <div >
-	           
+	            <!-- Brand and toggle get grouped for better mobile display -->
 	            <div class="navbar-header">
 	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 	                    <span class="sr-only">Toggle navigation</span>
@@ -71,7 +34,7 @@
 	                </button>
 	                <a class="navbar-brand" href="#">Home</a>
 	            </div>
-	            
+	            <!-- Collect the nav links, forms, and other content for toggling -->
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                <ul style="background-color:#222222;" class="nav navbar-nav">
 	                    <li>
@@ -94,11 +57,11 @@
 	                    </li>
 	                </ul>
 	            </div>
-	            
+	            <!-- /.navbar-collapse -->
 	        </div>
 		</nav>
 
-	</div> -->
+	</div>
 	<div class="after-image-themes">
 
 		<!-- Themes Heading -->
@@ -113,42 +76,42 @@
 	 @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
 		<!-- Welcome -->
 		@if($tabWeb->type =="welcome" )
-		@include('website_user.themes.edit.left')
+		@include('website_user.themes.page.left')
 		<hr>
 		@endif
 
 		<!-- About Us -->
 		@if($tabWeb->type=="about")
-		@include('website_user.themes.edit.right')
+		@include('website_user.themes.page.right')
 		<hr>
 		@endif
 
 		<!-- Wedding Event -->
 		@if($tabWeb->type=="wedding" )
-		@include('website_user.themes.edit.right')
+		@include('website_user.themes.page.right')
 		<hr>
 		@endif
 
 		<!-- Travaling -->
 		@if($tabWeb->type=="traval")
-		@include('website_user.themes.edit.text')
+		@include('website_user.themes.page.text')
         <hr>
         @endif
         <!-- Photo Album -->
         @if($tabWeb->type=="album" )
-        @include('website_user.themes.edit.photo')
+        @include('website_user.themes.page.photo')
         <hr>
         @endif
 
        <!--  Register -->
        @if($tabWeb->type=="register" )
-       @include('website_user.themes.edit.text')       
+       @include('website_user.themes.page.text')       
         <hr>
         @endif
 
         <!-- Contact Us -->
         @if($tabWeb->type=="contact")
-        @include('website_user.themes.edit.contact')
+        @include('website_user.themes.page.contact')
         <hr>
         @endif
   	@endforeach  

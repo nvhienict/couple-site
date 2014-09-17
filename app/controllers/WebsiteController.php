@@ -74,6 +74,7 @@ class WebsiteController extends \BaseController {
 	}
 
 
+
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -103,9 +104,25 @@ class WebsiteController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update()
 	{
 		//
+		try {
+			
+				$content=Input::get('content');
+				$id_tab=Input::get('id_tab');
+				$update_content=TabWebsite::where('id',$id_tab)->get()->first();
+				$update_content->content=$content;
+				$update_content->save();
+				$content_re=TabWebsite::where('id',$id_tab)->get()->first()->content;
+				echo json_encode(array('content'=>$content_re));
+				exit();
+	
+		} catch (Exception $e) {
+			echo "fail";
+			
+		}
+		
 	}
 
 
@@ -169,7 +186,7 @@ class WebsiteController extends \BaseController {
 						"French Script MT", "Vladimir Script", "Kunstler Script");
 
 		// get data from table 'tabs'
-		$arTab = TabWebsite::get();
+		$arTab = TabWebsite::where('website',$id_Web)->get();
 
 		return View::make('website_user.page_design')->with('firstname', $firstname)
 													->with('arFont', $arFont)

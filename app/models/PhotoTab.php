@@ -23,10 +23,15 @@ class PhotoTab extends Eloquent {
 		return $this->belongTo('User','user');
 	}
 
-	public function tab()
+	// public function tab()
+	// {
+	// 	return $this->belongTo('Tab','tab');
+	// }
+	public function TabWebsite()
 	{
-		return $this->belongTo('Tab','tab');
+		return $this->belongTo('TabWebsite','tab');
 	}
+
 	
 
 }

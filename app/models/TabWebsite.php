@@ -15,6 +15,9 @@ class TabWebsite extends Eloquent {
 	 *
 	 * @var array
 	 */
-	
+	function phototab()
+	{
+		return $this->hasMany("PhotoTab",'tab');
+	}
 
 }
