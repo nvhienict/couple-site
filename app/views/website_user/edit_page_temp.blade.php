@@ -33,7 +33,7 @@
     @if( !empty($website) )
         @foreach( $website as $website_item )
 
-        <div style="background-image: url({{Asset("images/website/background/{$website_item->background}")}});" class="background-website ">
+        <div style="background-image: url({{Asset("{$backgrounds}")}});" class="background-website ">
             <div class="after-image">
                 <div class="row navar-page">
                     <nav class="navbar-inverse navbar nav-website-fixed col-xs-12" role="navigation">

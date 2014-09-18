@@ -11,14 +11,16 @@ class WebsiteController extends \BaseController {
 	{
 		$id_user = WebsiteController::id_user();
 		
-		$check_bg_website = WeddingWebsite::where('user',$id_user)->get()->count();
-
-		if ($check_bg_website==0) {
-			$backgrounds = "template_1.jpg";
-		}else{
-			$backgrounds = WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		$check=WeddingWebsite::where('user',$id_user)->get()->count();
+		if($check!=0)
+		{
+			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
 		}
 		
+		else
+		{
+			$backgrounds='images/website/background/template_1.jpg';
+		}
 		return View::make('website_user.index')->with('backgrounds',$backgrounds);
 	}
 
@@ -41,14 +43,7 @@ class WebsiteController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function template_1()
-	{	
-		$id_user = WebsiteController::id_user();
-		
-		$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
-		
-		return View::make("website_user.page_temp")->with('backgrounds',$backgrounds);
-	}
+	
 
 
 	/**
@@ -81,22 +76,7 @@ class WebsiteController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit()
-	{
-		$id_user = WebsiteController::id_user();
-		
-		
-		$backgrounds = WeddingWebsite::where('user',$id_user)->get()->first()->background;
-		
-		$firstname = User::where('id', WebsiteController::id_user())->get()->first()->firstname;
-		
-		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
-
-		return View::make("website_user.edit_page_temp")->with('firstname', $firstname)
-														->with('backgrounds',$backgrounds)
-														->with('website', $website);
-	}
-
+	
 
 	/**
 	 * Update the specified resource in storage.
@@ -147,7 +127,6 @@ class WebsiteController extends \BaseController {
 		if( $check_isset==0 ){
 			$new_website = new WeddingWebsite();
 			$new_website->user = $id_user;
-			$new_website->background = "template_1.jpg";
 			$new_website->save();
 		}
 		$id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;
@@ -193,10 +172,21 @@ class WebsiteController extends \BaseController {
 		 	array_unshift($type, $tab_type->type);
 		 }
 		 $typeTab = array_unique ($type);
+
+		 $check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		if(!empty($check))
+		{
+			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		}
+		else
+		{
+			$backgrounds='images/website/background/template_1.jpg';
+		}
 		return View::make('website_user.page_design')->with('firstname', $firstname)
 													->with('arFont', $arFont)
 													->with('website', $website)
 													->with('typeTab', $typeTab)
+													->with('backgrounds',$backgrounds)
 													->with('id_web', $id_Web);
 	}
 	public function addTopic(){
@@ -443,28 +433,39 @@ public function Post_update_Tab(){
 		$id_user = WebsiteController::id_user();
 			
 			if(Input::hasFile('input_image_modal'))
+			{	
+				$id_user = WebsiteController::id_user();
+			
+			if(Input::hasFile('input_image_modal'))
 			{	$name=WeddingWebsite::where('user',$id_user)->get()->first()->background;
-				if($name!="template_1.jpg")
-				{
-					$path_delete=public_path('images/website/background/'.$name);
+				if(!empty($name))
+				{	
+					$year=date("Y");
+					$month=date('m');
+					$path_delete=public_path($name);
 					File::delete($path_delete);
 					$image=Input::file('input_image_modal');
 				  	$filename =$image->getClientOriginalName();
-					$path = public_path('images/website/background/' . $filename);
+					$path = public_path('images/website/'.$year.'/'.$month.'/'.$filename);
+					$pathsave='images/website/'.$year.'/'.$month.'/'.$filename;
 					Image::make($image->getRealPath())->resize(2000, 1500)->save($path);
 					WeddingWebsite::where('user',$id_user)->update(
-						array('background'=>$filename)					
+						array('background'=>$pathsave)					
 						);
 				    return Redirect::route('website/edit/pages');
 					
 				}
 				else{
+					$year=date("Y");
+					$month=date('m');
+					File::makeDirectory(public_path('images/website/'.$year.'/'.$month),$mode = 0775,true,true);
 					$image=Input::file('input_image_modal');
 					$filename =$image->getClientOriginalName();
-					$path = public_path('images/website/background/' . $filename);
+					$path = public_path('images/website/'.$year.'/'.$month.'/'.$filename);
+					$pathsave='images/website/'.$year.'/'.$month.'/'.$filename;
 					Image::make($image->getRealPath())->resize(2000, 1500)->save($path);
 					WeddingWebsite::where('user',$id_user)->update(
-						array('background'=>$filename)						
+						array('background'=>$pathsave)						
 						);
 			    return Redirect::route('website/edit/pages');
 					
@@ -478,3 +479,4 @@ public function Post_update_Tab(){
 
 }
 
+}

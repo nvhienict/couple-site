@@ -18,7 +18,7 @@
 </head>
 @if($website)
 @foreach( $website as $website_item )
-<div class="background-themes" style="background-image: url({{Asset("images/website/background/{$website_item->background}")}});">
+<div class="background-themes" style="background-image: url({{Asset("{$backgrounds}")}});">
 	<!-- Thanh dieu huong -->
 
 	<div class="navar-themes">

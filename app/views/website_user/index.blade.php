@@ -32,7 +32,7 @@ Website cưới
 			<!-- .row -->
 			<div class="row website_dashboard_left_top">
 				<div class="col-xs-1"></div>
-				<div class="col-xs-5"><img style="width:150px;"src="{{Asset("images/website/background/{$backgrounds}")}}"></div>
+				<div class="col-xs-5"><img style="width:150px;"src="{{Asset("{$backgrounds}")}}"></div>
 				<div class="col-xs-6 ">
 					Website được thiết kế bởi <a href="http://thuna.vn/" >thuna.vn</a><br />
 					<a href="#">Thay đổi giao diện <i class="fa fa-chevron-right fa-fw"></i></a>
