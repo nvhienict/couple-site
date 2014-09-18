@@ -168,7 +168,7 @@
 			  	<div class="tab-pane" id="design_page">
 			  		<table class="website_tabs">
 						@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tab)
-							<tr class="odd">
+							<tr class="odd" id="Tr{{$tab->id}}" >
 								<td><input type="text" size="2" value="{{$tab->sort}}" class="website_tabs_input" ></td>
 								<td id="TT{{$tab->id}}">{{$tab->title}}</td>
 								<input type="text" hidden id="tab{{$tab->id}}" value="{{$tab->id}}">
@@ -195,7 +195,7 @@
 						@endforeach
 					</table>
 					<div>
-						<a class="btn btn-primary"  href="javascript:;" data-toggle="modal" data-target="#addpage">Thêm chủ đề mới</a>
+						<a class="btn btn-primary"  href="#" data-toggle="modal" data-target="#addpage">Thêm chủ đề mới</a>
 						<div class="modal fade " tabindex="-1" role="dialog" id="addpage" aria-hidden="true">
 						  <div class="modal-dialog">
 						    <div class="modal-content">
@@ -216,8 +216,8 @@
 							        </div>
 							    </div>
 							    <div class="modal-footer">
-							        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							        <button type="button" class="btn btn-primary" onclick ="submitTopic()">Thêm </button>
+							        
+							        <a  class="btn btn-primary"  onclick ="submitTopic()">Thêm </a>
 							    </div>
 						    </div>
 						  </div>
@@ -365,6 +365,7 @@
 	// //  thêm một chủ để mới, hoặc xoá một hoặc nhiều chủ đề cũ
 	var id_tab = new Array();
 	var valueTab = new Array();
+
 	function topic(id){
 		var typeTab = $('input[name=Topic'+id+']').val();
 		valueTab[id]= typeTab;
@@ -387,7 +388,7 @@
 			},
 			success:function(data){
 				var data = JSON.parse(data);
-				alert(data["mangTabWeb"]+"/////"+data["mangvao"]);
+				location.reload(true);
 			}
 		});
 	}

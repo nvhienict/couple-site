@@ -205,7 +205,8 @@ class WebsiteController extends \BaseController {
 
 		$id_Web = WeddingWebsite::where('user', WebsiteController::id_user())->get()->first()->id;
 		$type = array();
-		$error="start";
+		$remove = array();
+		$addtop = array();
 		 foreach(TabWebsite::where('website', $id_Web)->get() as $tab_type)
 		 {
 		 	array_unshift($type, $tab_type->type);
@@ -218,7 +219,7 @@ class WebsiteController extends \BaseController {
 		 	{
 		 		if ($arrayTab[$i]=="0") {
 		 			TabWebsite::where('type',$arrayValue[$i])->delete();
-		 			 $error.="--xoa chu de".$arrayValue[$i];
+		 			array_unshift($remove, $i);
 		 		}
 		 	}
 		 	else
@@ -226,14 +227,21 @@ class WebsiteController extends \BaseController {
 		 		
 		 		if ($arrayTab[$i]=="1") {
 		 			try {
+		 				array_unshift($addtop, $i);
 		 				// Add tab moi vao
 		 				$tab = Tab::where('type',$arrayValue[$i])->get()->first();
 			 			$tab_web = new TabWebsite();
 			 			$tab_web->title = $tab->title;
 			 			$tab_web->type = $arrayValue[$i];
 			 			$tab_web->website = $id_Web;
+			 			$tab_web->content = $tab->content;
+						$tab_web->visiable = $tab->visiable;
+						$tab_web->titlestyle = $tab->titlestyle;
+						$tab_web->video = $tab->video;
+						$tab_web->map = $tab->map;
 			 			$tab_web->sort = $i;
 			 			$tab_web-> save();
+
 			 			
 		 			} catch (Exception $e) {
 		 				echo "khong luu du lieu dc";
@@ -243,7 +251,7 @@ class WebsiteController extends \BaseController {
 		 	}
 
 		 }
-		 echo json_encode(array("mangTabWeb"=> $typeTab,"mangvao"=>$arrayValue));
+		 echo json_encode(array("removeid"=> $remove,"addid"=>$addtop));
 		 exit();
 		
 	}
