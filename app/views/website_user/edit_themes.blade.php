@@ -111,47 +111,53 @@
             <h2 class="text-center" style="color: #{{$website_item->color2}}" >Chào bạn đến Website cưới của chúng tôi</h2>     
         </div>
 		<hr>
-	 @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
+	 @foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
+	  <div  id="section-welcome{{$tabWeb->id}}">
 		<!-- Welcome -->
-		@if($tabWeb->type =="welcome" )
-		@include('website_user.themes.edit.left')
+		@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
+			@include('website_user.themes.edit.left')
 		<hr>
 		@endif
 
 		<!-- About Us -->
-		@if($tabWeb->type=="about")
+		@if($tabWeb->type=="about" && $tabWeb->visiable==0)
 		@include('website_user.themes.edit.right')
 		<hr>
+		
 		@endif
 
 		<!-- Wedding Event -->
-		@if($tabWeb->type=="wedding" )
+		@if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
 		@include('website_user.themes.edit.right')
 		<hr>
+		
 		@endif
 
 		<!-- Travaling -->
-		@if($tabWeb->type=="traval")
+		@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
 		@include('website_user.themes.edit.text')
         <hr>
+        
         @endif
         <!-- Photo Album -->
-        @if($tabWeb->type=="album" )
+        @if($tabWeb->type=="album" && $tabWeb->visiable==0)
         @include('website_user.themes.edit.photo')
         <hr>
+       
         @endif
 
        <!--  Register -->
-       @if($tabWeb->type=="register" )
+       @if($tabWeb->type=="register" && $tabWeb->visiable==0)
        @include('website_user.themes.edit.text')       
         <hr>
+        
         @endif
 
         <!-- Contact Us -->
-        @if($tabWeb->type=="contact")
-        @include('website_user.themes.edit.contact')
-        
+        @if($tabWeb->type=="contact" && $tabWeb->visiable==0)
+        	@include('website_user.themes.edit.contact')
         @endif
+    </div>
   	@endforeach  
           
 	</div>

@@ -1,6 +1,6 @@
 <div class="partion">
 	<div class="row">
-       	<h3 class="text-center title-tab" >{{$tabWeb->title}}</h3>
+       	<h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}}" id = "nameTitle{{$tabWeb->id}}" >{{$tabWeb->title}}</h3>
         <div class="col-xs-6 float-right">
             <span>
                 <a href="#">

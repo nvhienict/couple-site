@@ -186,15 +186,67 @@ class WebsiteController extends \BaseController {
 						"French Script MT", "Vladimir Script", "Kunstler Script");
 
 		// get data from table 'tabs'
-		$arTab = TabWebsite::where('website',$id_Web)->get();
 
+		$type = array("st");
+		 foreach(TabWebsite::where('website', $id_Web)->get() as $tab_type)
+		 {
+		 	array_unshift($type, $tab_type->type);
+		 }
+		 $typeTab = array_unique ($type);
 		return View::make('website_user.page_design')->with('firstname', $firstname)
 													->with('arFont', $arFont)
 													->with('website', $website)
-													->with('arTab', $arTab)
+													->with('typeTab', $typeTab)
 													->with('id_web', $id_Web);
 	}
+	public function addTopic(){
+		$arrayTab = Input::get('id_tab');
+		$arrayValue = Input::get("valueTab");
 
+		$id_Web = WeddingWebsite::where('user', WebsiteController::id_user())->get()->first()->id;
+		$type = array();
+		$error="start";
+		 foreach(TabWebsite::where('website', $id_Web)->get() as $tab_type)
+		 {
+		 	array_unshift($type, $tab_type->type);
+		 }
+		 $typeTab = array_unique ($type);
+		 
+		 for($i=0; $i<=8; $i++)
+		 {
+		 	if (in_array($arrayValue[$i], $typeTab)) 
+		 	{
+		 		if ($arrayTab[$i]=="0") {
+		 			TabWebsite::where('type',$arrayValue[$i])->delete();
+		 			 $error.="--xoa chu de".$arrayValue[$i];
+		 		}
+		 	}
+		 	else
+		 	{
+		 		
+		 		if ($arrayTab[$i]=="1") {
+		 			try {
+		 				// Add tab moi vao
+		 				$tab = Tab::where('type',$arrayValue[$i])->get()->first();
+			 			$tab_web = new TabWebsite();
+			 			$tab_web->title = $tab->title;
+			 			$tab_web->type = $arrayValue[$i];
+			 			$tab_web->website = $id_Web;
+			 			$tab_web->sort = $i;
+			 			$tab_web-> save();
+			 			
+		 			} catch (Exception $e) {
+		 				echo "khong luu du lieu dc";
+		 			}
+		 			
+		 		}
+		 	}
+
+		 }
+		 echo json_encode(array("mangTabWeb"=> $typeTab,"mangvao"=>$arrayValue));
+		 exit();
+		
+	}
 	// function change font for website
 	public function updateFontWebsite()
 	{

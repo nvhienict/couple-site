@@ -6,8 +6,9 @@
                 <a href="#">
                     <?php
                         $gh=PhotoTab::where('tab',$tabWeb->id)->get()->first();
+                        echo $gh->photo;
                     ?>
-                <img class="img-responsive" src="{{Asset("images/website/background/{$gh->photo}")}}" alt="">
+                
                 </a>
             </span>
         </div>

@@ -194,6 +194,35 @@
 							</script>
 						@endforeach
 					</table>
+					<div>
+						<a class="btn btn-primary"  href="javascript:;" data-toggle="modal" data-target="#addpage">Thêm chủ đề mới</a>
+						<div class="modal fade " tabindex="-1" role="dialog" id="addpage" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+							    <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							        <h4 class="modal-title">Thêm chủ đề</h4>
+							    </div>
+							    <div class="modal-body">
+							        <div class="row">
+
+							        	@foreach(Tab::get() as $tab)
+							        		@if(in_array($tab->type,$typeTab) )
+							        			<input type="checkbox" name="Topic{{$tab->id}}" id="Topic{{$tab->id}}" onclick="topic({{$tab->id}})" value="{{$tab->type}}" checked >{{$tab->title}}</input><br>
+							        		@else
+							        			<input type="checkbox" name="Topic{{$tab->id}}" id="Topic{{$tab->id}}" onclick="topic({{$tab->id}})" value="{{$tab->type}}">{{$tab->title}}</input><br>
+							        		@endif
+							        	@endforeach
+							        </div>
+							    </div>
+							    <div class="modal-footer">
+							        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        <button type="button" class="btn btn-primary" onclick ="submitTopic()">Thêm </button>
+							    </div>
+						    </div>
+						  </div>
+						</div>
+					</div>
 			  	</div>
 			  	<div class="tab-pane" id="design_setup">
 			  	
@@ -209,7 +238,7 @@
 
 		<!-- content right include from view -->
 		<div class="col-xs-9 design_website_content_right">
-			@include('website_user.edit_page_temp')
+			@include('website_user.edit_themes')
 		</div>
 		<!-- .end -->
 
@@ -333,7 +362,55 @@
 		});
 	}
 
-	// 
+	// //  thêm một chủ để mới, hoặc xoá một hoặc nhiều chủ đề cũ
+	var id_tab = new Array();
+	var valueTab = new Array();
+	function topic(id){
+		var typeTab = $('input[name=Topic'+id+']').val();
+		valueTab[id]= typeTab;
+		if ($('input[name=Topic'+id+']').is( ":checked" ))
+		{
+			id_tab[id]= "1";
+		}
+		else
+		{
+			id_tab[id] = "0";
+		};
+	}
+	function submitTopic(){
+		$.ajax({
+			type: "post",
+			url: "{{URL::route('addTopic')}}",
+			data:{
+				id_tab: id_tab,
+				valueTab: valueTab
+			},
+			success:function(data){
+				var data = JSON.parse(data);
+				alert(data["mangTabWeb"]+"/////"+data["mangvao"]);
+			}
+		});
+	}
+	function deleteTab(){
+		var id = $("input[name=id_title]").val();
+		if(confirm("Bạn chắc chắn muốn xoá chủ để này này?")){
+        	$.ajax({
+				type: "post",
+				url: "{{URL::route('delete-title')}}",
+				data:{
+					id: id
+				},
+				success: function(data){
+					$("#section-welcome"+id).remove();
+					$('#Tr'+id).remove();
+				}
+			});
+			return true;
+        }
+        else{
+            return false;
+        };
+	}
 	function submit_title(){
 		var id_title = $("input[name=id_title]").val();
 		var title = $("input[name=title]").val();
