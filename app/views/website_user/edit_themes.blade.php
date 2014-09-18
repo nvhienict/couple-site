@@ -47,7 +47,7 @@
 		function exitckeditor(id){
 				$('.editphara'+id).hide();
 				$('.phara'+id).show();
-				// $('.click-edit-hide'+id).show();
+				$('.click-edit-hide'+id).show();
 		        $('.ok-edit-show'+id).hide();
 		} 
 
@@ -161,7 +161,13 @@
   	@endforeach  
           
 	</div>
+	<hr>
 	<!-- and after-images-themes -->
+	<footer>
+		<div>
+			<p class="text-center">Copyright by Thuna.vn</p>
+		</div>
+	</footer>
 	
 </div>
 @endforeach

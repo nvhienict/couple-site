@@ -1,5 +1,5 @@
 <div class="partion">
-	<div class="row">
+	<div class="row phara-margin">
        	<h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} " id = "nameTitle{{$tabWeb->id}}">
             {{$tabWeb->title}}
         </h3>
@@ -26,14 +26,14 @@
 
         </div>
     </div>
-    <div class="row ">
+    <div class="row phara-margin">
     	<div class="col-xs-11"></div>
     	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
     		<span> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
             <span><a class="glyphicon glyphicon-cog icon-site" href=""></a></span>
     	</div>
     </div>
-    <div class="row ">
+    <div class="row phara-margin">
     	<div class="col-xs-11"></div>
     	<div class="col-xs-1 ok-edit ok-edit-show{{$tabWeb->id}}">
     		<span>
