@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
     <script type="text/javascript">
 		function showckeditor(id){
-		        var text=$('.phara'+id).text();
+		        var text=$('.phara'+id).html();
 		        $('.phara'+id).hide();
 		        CKEDITOR.instances['editor'+id].setData(text);
 
@@ -29,13 +29,14 @@
 			//var t= CKEDITOR.instances['editor4'].getData();alert(t);
 			$.ajax({
 				type:"post",
+				dataType: "html",
 				url:"{{URL::route('update_content_tab')}}",
 				data: {	content:CKEDITOR.instances['editor'+id].getData(),
 						id_tab:$('.get_id'+id).val()
 					},
 				success:function(data){
 					var obj = JSON.parse(data);
-					$('.phara'+id).text(obj.content);				
+					$('.phara'+id).html(obj.content);	
 				}
 			});
 				$('.editphara'+id).hide();
@@ -46,7 +47,7 @@
 		function exitckeditor(id){
 				$('.editphara'+id).hide();
 				$('.phara'+id).show();
-				$('.click-edit-hide'+id).show();
+				// $('.click-edit-hide'+id).show();
 		        $('.ok-edit-show'+id).hide();
 		} 
 
@@ -149,7 +150,7 @@
         <!-- Contact Us -->
         @if($tabWeb->type=="contact")
         @include('website_user.themes.edit.contact')
-        <hr>
+        
         @endif
   	@endforeach  
           

@@ -8,7 +8,8 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 	config.enterMode = CKEDITOR.ENTER_BR;
-	config.entities = false ;
+	config.shiftEnterMode = CKEDITOR.ENTER_P;
+	config.entities  = false;
 	config . toolbarGroups =  [  
     { name :  'paragraph' ,    groups :  [  'list' ,  'blocks' ,  'align' ,'basicstyles' ]  }, 
     { name :  'styles'  }

@@ -255,7 +255,13 @@ Route::group(array('before'=>'check_login'), function(){
 
 	Route::post('add_section', array('as'=>'add_section', 'uses'=>'WebsiteController@addSection'));
 
+	Route::post('update-content', array('as'=>'update_content_tab', 'uses'=>'WebsiteController@update'));
+
+Route::get('thu', array('as'=>'thu', 'uses'=>'WebsiteController@thu'));
+
 
 });
 /*** end website user ***/ 
+// Route::get('thu', array('as'=>'thu', 'uses'=>'WebsiteController@thu'));
+
 

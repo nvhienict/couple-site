@@ -66,3 +66,16 @@
 .show-content{
 	padding: 5px;
 }
+.icon-site{
+	color: #19b5bc;
+	line-height: 2.75em;
+	font-size: 1.5em;
+
+}
+.icon-site:hover{
+	text-decoration: none;
+
+}
+.icon-site:active{
+	text-decoration: none;
+}
