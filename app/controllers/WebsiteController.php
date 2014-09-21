@@ -7,21 +7,35 @@ class WebsiteController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+
+	public function template()
+	{
+		$id_user = WebsiteController::id_user();
+
+		$check_user_website = WeddingWebsite::where('user', $id_user)->get()->count();
+		if ($check_user_website==0) {
+			return View::make('website_user.template');
+		} else {
+			return View::make('website_user.index');
+		}
+
+	}
+
+
 	public function index()
 	{
 		$id_user = WebsiteController::id_user();
 		
-		$check=WeddingWebsite::where('user',$id_user)->get()->count();
-		if($check!=0)
-		{
-			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		$check_bg_website = WeddingWebsite::where('user',$id_user)->get()->count();
+
+		if ($check_bg_website==0) {
+			// $backgrounds = "template_1.jpg";
+			return View::make('website_user.template');
+		}else{
+			$img_tmp = WeddingWebsite::where('user',$id_user)->get()->first()->template;
+			return View::make('website_user.index')->with('img_tmp',$img_tmp);
 		}
 		
-		else
-		{
-			$backgrounds='images/website/background/template_1.jpg';
-		}
-		return View::make('website_user.index')->with('backgrounds',$backgrounds);
 	}
 
 
@@ -76,7 +90,40 @@ class WebsiteController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	
+	public function edit()
+	{
+		
+	}
+
+	public function viewPrevious($id)
+	{
+		$id_user = WebsiteController::id_user();
+
+		// get username
+		$firstname = User::where('id', WebsiteController::id_user())->get()->first()->firstname;
+
+		// get data from table website
+		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
+
+		// get data from table 'tabs'
+		$id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;
+		$arTab = TabWebsite::where('website',$id_Web)->get();
+
+		switch ($id) {
+			case 2:
+				return View::make('website_user.themes2.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('id_web', $id_Web);
+				break;
+			
+			default:
+				return View::make('website_user.themes.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('id_web', $id_Web);
+				break;
+		}
+	}
+
 
 	/**
 	 * Update the specified resource in storage.
@@ -117,9 +164,11 @@ class WebsiteController extends \BaseController {
 		//
 	}
 
-	public function design()
+	public function design($id)
 	{
 		
+		$id_tmp = $id;
+
 		$id_user = WebsiteController::id_user();
 		$check_isset = WeddingWebsite::where('user', $id_user)->get()->count();
 
@@ -127,8 +176,16 @@ class WebsiteController extends \BaseController {
 		if( $check_isset==0 ){
 			$new_website = new WeddingWebsite();
 			$new_website->user = $id_user;
+			$new_website->template = $id_tmp;
+			$new_website->background = "template_1.jpg";
 			$new_website->save();
+		} else {
+			WeddingWebsite::where('user',$id_user)->update(
+				array(
+					"template"=>$id_tmp
+					));
 		}
+
 		$id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;
 		// check user had in table weddingwebsite
 		$check_teb_website = TabWebsite::where('website', $id_Web)->get()->count();
@@ -140,6 +197,7 @@ class WebsiteController extends \BaseController {
 				$tab_website = new TabWebsite();
 				$tab_website->website = $id_Web;
 				$tab_website->tab = $item_tab->id;
+				$tab_website->type = $item_tab->type;
 				$tab_website->title = $item_tab->title;
 				$tab_website->content = $item_tab->content;
 				$tab_website->visiable = $item_tab->visiable;
@@ -164,16 +222,57 @@ class WebsiteController extends \BaseController {
 						"Adobe Gothic Std B", "Algerian", "AR BERKLEY",
 						"French Script MT", "Vladimir Script", "Kunstler Script");
 
+		
+
+
+
+
+
+
+
+
+
+// get data from table 'tabs'
+		$arTab = TabWebsite::where('website',$id_Web)->get();
+
+		return View::make('website_user.page_design')->with('firstname', $firstname)
+													->with('arFont', $arFont)
+													->with('website', $website)
+													->with('arTab', $arTab)
+													->with('id_web', $id_Web)
+													->with('id_tmp', $id_tmp);
+	}
+
+	public function editPage()
+	{
+		$id_user = WebsiteController::id_user();
+
+		// get username
+		$firstname = User::where('id', WebsiteController::id_user())->get()->first()->firstname;
+		$lastname = User::where('id', WebsiteController::id_user())->get()->first()->lastname;
+		$user_name = $firstname.' '.$lastname;
+
+		// get data from table website
+		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
+
+		$arFont = array("Calibri","Arial", "Verdana", "Times New Roman",
+						"Adobe Gothic Std B", "Algerian", "AR BERKLEY",
+						"French Script MT", "Vladimir Script", "Kunstler Script");
+
+		$id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;
 		// get data from table 'tabs'
+		$arTab = TabWebsite::where('website',$id_Web)->get();
+
+		$id_tmp = WeddingWebsite::where('user', $id_user)->get()->first()->template;
 
 		$type = array("st");
-		 foreach(TabWebsite::where('website', $id_Web)->get() as $tab_type)
-		 {
+		foreach(TabWebsite::where('website', $id_Web)->get() as $tab_type)
+		{
 		 	array_unshift($type, $tab_type->type);
-		 }
-		 $typeTab = array_unique ($type);
+		}
+		$typeTab = array_unique ($type);
 
-		 $check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		$check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
 		if(!empty($check))
 		{
 			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
@@ -185,9 +284,11 @@ class WebsiteController extends \BaseController {
 		return View::make('website_user.page_design')->with('firstname', $firstname)
 													->with('arFont', $arFont)
 													->with('website', $website)
+													->with('arTab', $arTab)
 													->with('typeTab', $typeTab)
 													->with('backgrounds',$backgrounds)
-													->with('id_web', $id_Web);
+													->with('id_web', $id_Web)
+													->with('id_tmp', $id_tmp);
 	}
 	public function addTopic(){
 		$arrayTab = Input::get('id_tab');
@@ -436,47 +537,64 @@ public function Post_update_Tab(){
 			{	
 				$id_user = WebsiteController::id_user();
 			
-			if(Input::hasFile('input_image_modal'))
-			{	$name=WeddingWebsite::where('user',$id_user)->get()->first()->background;
-				if(!empty($name))
-				{	
-					$year=date("Y");
-					$month=date('m');
-					$path_delete=public_path($name);
-					File::delete($path_delete);
-					$image=Input::file('input_image_modal');
-				  	$filename =$image->getClientOriginalName();
-					$path = public_path('images/website/'.$year.'/'.$month.'/'.$filename);
-					$pathsave='images/website/'.$year.'/'.$month.'/'.$filename;
-					Image::make($image->getRealPath())->resize(2000, 1500)->save($path);
-					WeddingWebsite::where('user',$id_user)->update(
-						array('background'=>$pathsave)					
-						);
+				if(Input::hasFile('input_image_modal'))
+				{	$name=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+					if(!empty($name))
+					{	
+						$year=date("Y");
+						$month=date('m');
+						$path_delete=public_path($name);
+						File::delete($path_delete);
+						$image=Input::file('input_image_modal');
+					  	$filename =$image->getClientOriginalName();
+						$path = public_path('images/website/'.$year.'/'.$month.'/'.$filename);
+						$pathsave='images/website/'.$year.'/'.$month.'/'.$filename;
+						Image::make($image->getRealPath())->resize(2000, 1500)->save($path);
+						WeddingWebsite::where('user',$id_user)->update(
+							array('background'=>$pathsave)					
+							);
+					    return Redirect::route('website/edit/pages');
+						
+					}
+					else{
+						$year=date("Y");
+						$month=date('m');
+						File::makeDirectory(public_path('images/website/'.$year.'/'.$month),$mode = 0775,true,true);
+						$image=Input::file('input_image_modal');
+						$filename =$image->getClientOriginalName();
+						$path = public_path('images/website/'.$year.'/'.$month.'/'.$filename);
+						$pathsave='images/website/'.$year.'/'.$month.'/'.$filename;
+						Image::make($image->getRealPath())->resize(2000, 1500)->save($path);
+						WeddingWebsite::where('user',$id_user)->update(
+							array('background'=>$pathsave)						
+							);
 				    return Redirect::route('website/edit/pages');
-					
-				}
-				else{
-					$year=date("Y");
-					$month=date('m');
-					File::makeDirectory(public_path('images/website/'.$year.'/'.$month),$mode = 0775,true,true);
-					$image=Input::file('input_image_modal');
-					$filename =$image->getClientOriginalName();
-					$path = public_path('images/website/'.$year.'/'.$month.'/'.$filename);
-					$pathsave='images/website/'.$year.'/'.$month.'/'.$filename;
-					Image::make($image->getRealPath())->resize(2000, 1500)->save($path);
-					WeddingWebsite::where('user',$id_user)->update(
-						array('background'=>$pathsave)						
-						);
-			    return Redirect::route('website/edit/pages');
-					
-				}		
-		}
-			
-		
+						
+					}		
+				} //end if
+				
+			}//end if
+	} // end function
+
+	/**
+	* template 2
+	*
+	***/
+
+	public function templateTabIndex()
+	{
+
+		return View::make('website_user.themes2.page.index');
 	}
+
+	public function changeTemp()
+	{
+		return View::make('website_user.template');
+	}
+
+	/* end template 2 */
 		
 		
 
 }
 
-}

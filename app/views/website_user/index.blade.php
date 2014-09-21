@@ -8,7 +8,7 @@ Website cưới
 
 @section('content')
 <div id='container'>
-	<div class="row">
+	<div class="row" style="margin: 0px;">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10">
 			<h1>Website cưới</h1>
@@ -32,10 +32,19 @@ Website cưới
 			<!-- .row -->
 			<div class="row website_dashboard_left_top">
 				<div class="col-xs-1"></div>
-				<div class="col-xs-5"><img style="width:150px;"src="{{Asset("{$backgrounds}")}}"></div>
+				<div class="col-xs-5">
+				
+				@if($img_tmp==2)
+						<img style="width:150px;" src="{{Asset('images/website/tmp/2.png')}}">
+				@endif
+				@if($img_tmp==1)
+						<img style="width:150px;" src="{{Asset('images/website/tmp/1.png')}}">
+				@endif
+
+				</div>
 				<div class="col-xs-6 ">
 					Website được thiết kế bởi <a href="http://thuna.vn/" >thuna.vn</a><br />
-					<a href="#">Thay đổi giao diện <i class="fa fa-chevron-right fa-fw"></i></a>
+					<a href="{{Asset('change_temp')}}">Thay đổi giao diện <i class="fa fa-chevron-right fa-fw"></i></a>
 				</div>
 				<div class="col-xs-1"></div>
 			</div>
@@ -44,7 +53,12 @@ Website cưới
 				<div class="col-xs-1"></div>
 				<div class="col-xs-5">Trang web:</div>
 				<div class="col-xs-5 ">
-					<a href="#">Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+					@if($img_tmp==2)
+						<a href="{{URL::route('view-previous', array('id'=>$img_tmp))}}" target="_blank">Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+					@endif
+					@if($img_tmp==1)
+						<a href="{{URL::route('view-previous', array('id'=>$img_tmp))}}" target="_blank">Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+					@endif
 				</div>
 				<div class="col-xs-1"></div>
 			</div>

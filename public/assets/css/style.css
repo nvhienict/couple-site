@@ -2285,3 +2285,29 @@ tr.even td{
 .page-edit{
 	padding: 0px;
 }
+
+
+/**
+*view choose template
+*
+**/
+.choose_temp{
+	margin: 0px 0px 50px 0px;
+	background-color: #F7F5F3;
+	border: 1px solid #ddd;
+}
+.span_choose_tmp{
+	text-align: center;
+	display: inline;
+}
+.span_choose_tmp img{
+	width: 100%;
+	height: 300px;
+}
+.span_choose_tmp a{
+	display: none;
+}
+.span_choose_tmp:hover a{
+	display: inline-block;
+}
+

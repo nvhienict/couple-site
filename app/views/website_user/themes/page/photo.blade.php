@@ -6,11 +6,16 @@
     	</div> 
     </div>
     <div class="partion">
-        <div class="row ">
-                <a href=""><img src="">photo1</a>
-                <a href=""><img src="">photo1</a>
-                <a href=""><img src="">photo1</a>
-                <a href=""><img src="">photo1</a>
+        <div class="row phara-margin">
+            <div class="col-xs-4">
+                <a href=""><img style="width:100%;" src=""></a>
+            </div>
+            <div class="col-xs-4">
+                 <a href=""><img style="width:100%;" src=""></a>
+            </div>
+            <div class="col-xs-4">
+                <a href=""><img style="width:100%;" src=""></a>
+            </div>
         </div>
     </div>
 </div>

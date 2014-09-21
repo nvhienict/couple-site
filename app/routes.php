@@ -232,12 +232,15 @@ Route::group(array('before'=>'check_login'), function(){
 
 	// all Route for website user here
 
+	// choose template
+	Route::get('template', array('as'=>'template', 'uses'=>'WebsiteController@template'));
+	Route::get('template-website/{id}', array('as'=>'template-website', 'uses'=>'WebsiteController@design'));
+
 	Route::get('website', array('as'=>'website', 'uses'=>'WebsiteController@index'));
 	Route::get('page_temp', array('as'=>'page_temp', 'uses'=>'WebsiteController@template_1'));
-	Route::get('edit_page_temp', array('as'=>'edit_page_temp', 'uses'=>'WebsiteController@edit'));
-	
+	Route::get('{id}/view-previous', array('as'=>'view-previous', 'uses'=>'WebsiteController@viewPrevious'));
 
-	Route::get('website/edit/pages', array('as'=>'website/edit/pages', 'uses'=>'WebsiteController@design'));
+	Route::get('website/edit/pages', array('as'=>'website/edit/pages', 'uses'=>'WebsiteController@editPage'));
 
 	Route::post('change_font_website', array('as'=>'change_font_website', 'uses'=>'WebsiteController@updateFontWebsite'));
 
@@ -259,8 +262,11 @@ Route::group(array('before'=>'check_login'), function(){
 
 	Route::post('update-content', array('as'=>'update_content_tab', 'uses'=>'WebsiteController@update'));
 
-Route::get('thu', array('as'=>'thu', 'uses'=>'WebsiteController@thu'));
+	// template 2
+	Route::get('template-tab', array('as'=>'template-tab', 'uses'=>'WebsiteController@templateTabIndex'));
+	Route::get('change_temp', array('as'=>'change_temp', 'uses'=>'WebsiteController@changeTemp'));
 
+	// end template 2
 
 });
 /*** end website user ***/ 

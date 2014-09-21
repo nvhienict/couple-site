@@ -11,7 +11,14 @@
 		</div>
 		<div class="col-xs-8"></div>
 		<div class="col-xs-2">
-			<a href="{{Asset('edit_page_temp')}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+
+			@if($id_tmp==2)
+				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+			@endif
+			@if($id_tmp==1)
+				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+			@endif
+			
 		</div>
 		<div class="col-xs-1">
 			<a href="{{Asset('website')}}" class="thuna2" ><i class="glyphicon glyphicon-log-out"></i></a>
@@ -37,13 +44,13 @@
 			  	<div class="tab-pane active" id="page_design_home" >
 			  		<span>Website được design bởi <a href="http://thuna.vn">thuna.vn</a> </span>
 			  		<p>
-			  			<a href="#">Thay đổi giao diện <i class="fa fa-chevron-right fa-fw"></i></a>
+			  			<a href="{{Asset('change_temp')}}">Thay đổi giao diện <i class="fa fa-chevron-right fa-fw"></i></a>
 			  		</p>
 			  		<div class="page_design_home_item">
 			  			<span class="span_design_item">Hình nền:</span><br />
 			  			@foreach($website as $item_website)
-			  			<img src="{{Asset("{$backgrounds}")}}">
-			  			@endforeach
+			  				<img src="{{Asset("images/website/background/{$item_website->background}")}}">
+						@endforeach
 			  			<button class="btn btn-primary" data-toggle="modal" data-target='#modal-changebackground' style="background: #19b5bc; border:none;">Đổi Ảnh Nền</button>
 			  			<!-- -modal change background -->
 			  				<div class="modal fade " id="modal-changebackground">
@@ -204,16 +211,7 @@
 							        <h4 class="modal-title">Thêm chủ đề</h4>
 							    </div>
 							    <div class="modal-body">
-							        <div class="row">
-
-							        	@foreach(Tab::get() as $tab)
-							        		@if(in_array($tab->type,$typeTab) )
-							        			<input type="checkbox" name="Topic{{$tab->id}}" id="Topic{{$tab->id}}" onclick="topic({{$tab->id}})" value="{{$tab->type}}" checked >{{$tab->title}}</input><br>
-							        		@else
-							        			<input type="checkbox" name="Topic{{$tab->id}}" id="Topic{{$tab->id}}" onclick="topic({{$tab->id}})" value="{{$tab->type}}">{{$tab->title}}</input><br>
-							        		@endif
-							        	@endforeach
-							        </div>
+							        <!-- thuy crazy  -->
 							    </div>
 							    <div class="modal-footer">
 							        
@@ -238,7 +236,13 @@
 
 		<!-- content right include from view -->
 		<div class="col-xs-9 design_website_content_right">
-			@include('website_user.edit_themes')
+			
+			@if($id_tmp==2)
+					@include('website_user.themes2.edit.index')
+			@else
+					@include('website_user.themes.edit.index')
+			@endif
+
 		</div>
 		<!-- .end -->
 
@@ -308,10 +312,10 @@
 					$("h1, h2").css("font-family",""+data+"");
 				}
 				if(style_website==2){
-					$("h1").css("font-family",""+data+"");
+					$("h2, h3").css("font-family",""+data+"");
 				}
 				if(style_website==3){
-					$("h2").css("font-family",""+data+"");
+					$("h4, p").css("font-family",""+data+"");
 				}
 			}
 		});
@@ -346,7 +350,7 @@
 			url:"{{URL::to('change_color_website2')}}",
 			data:{color_design:color_design},
 			success: function(data){
-				$("h2").css("color","#"+data+"");
+				$("h2, h3").css("color","#"+data+"");
 			}
 		});
 	}

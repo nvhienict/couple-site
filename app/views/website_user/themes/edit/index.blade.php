@@ -56,50 +56,30 @@
 </head>
 @if($website)
 @foreach( $website as $website_item )
-<div class="background-themes" style="background-image: url({{Asset("{$backgrounds}")}});">
-	<!-- Thanh dieu huong -->
+<div class="background-themes" style="background-image: url({{Asset("images/website/background/{$website_item->background}")}});">
 
-	<!-- <div class="navar-themes">
-		<nav class="navbar navbar-inverse nav-themes-fixed" role="navigation">
-	        <div >
-	           
-	            <div class="navbar-header">
-	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button>
-	                <a class="navbar-brand" href="#">Home</a>
-	            </div>
-	            
-	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	                <ul style="background-color:#222222;" class="nav navbar-nav">
-	                    <li>
-	                        <a href="#">Welcome</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">About us</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">Wedding Event</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">Travaling</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">Register</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">Contact</a>
-	                    </li>
-	                </ul>
-	            </div>
-	            
-	        </div>
+	<div >
+		<nav style="padding:0px;" class="navbar navbar-default" role="navigation">
+		   <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" 
+		         data-target="#example-navbar-collapse">
+		         <span class="sr-only">Toggle navigation</span>
+		         <span class="icon-bar"></span>
+		         <span class="icon-bar"></span>
+		         <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Home</a>
+		   </div>
+		   <div style="background-color:#222222;" class="collapse navbar-collapse" id="example-navbar-collapse">
+		      <ul style="background-color:#222222;" class="nav navbar-nav">
+		         <li class=""><a href="#">Giới Thiệu</a></li>
+		         <li><a href="#">Thông Tin</a></li>
+		         <li><a href="#">Album</a></li>
+		         <li><a href="#">Liên Hệ</a></li>
+		      </ul>
+		   </div>
 		</nav>
-
-	</div> -->
+	</div>
 	<div class="after-image-themes">
 
 		<!-- Themes Heading -->
