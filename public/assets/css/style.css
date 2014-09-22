@@ -2304,10 +2304,5 @@ tr.even td{
 	width: 100%;
 	height: 300px;
 }
-.span_choose_tmp a{
-	display: none;
-}
-.span_choose_tmp:hover a{
-	display: inline-block;
-}
+
 

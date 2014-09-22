@@ -23,15 +23,17 @@ Giao diện Website cưới
 
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					<div class="span_choose_tmp">
-						<img src="{{Asset('images/website/tmp/1.png')}}">
-						<a href="{{URL::route('template-website', array('id'=>1))}}"><button class="btn btn-info">CHỌN</button></a>
+						<a href="{{URL::route('template-website', array('id'=>1))}}">
+							<img src="{{Asset('images/website/tmp/1.png')}}">
+						</a>
 					</div>
 	  				
 	  			</div>
 	  			<div class="col-sm-4 col-lg-4 col-md-4">
 	  				<div class="span_choose_tmp">
-						<img src="{{Asset('images/website/tmp/2.png')}}">
-						<a href="{{URL::route('template-website', array('id'=>2))}}"><button class="btn btn-info">CHỌN</button></a>
+						<a href="{{URL::route('template-website', array('id'=>2))}}">
+							<img src="{{Asset('images/website/tmp/2.png')}}">
+						</a>
 					</div>
 	  			</div>
 		  	</div>
