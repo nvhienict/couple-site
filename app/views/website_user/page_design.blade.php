@@ -34,14 +34,14 @@
 			</div>
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">
-			  	<li class="active"><a href="#page_design_home" role="tab" data-toggle="tab">Thiết kế</a></li>
-			  	<li><a href="#design_page" role="tab" data-toggle="tab">Trang Web</a></li>
+			  	<li ><a href="#page_design_home" role="tab" data-toggle="tab">Thiết kế</a></li>
+			  	<li class="active"><a href="#design_page" role="tab" data-toggle="tab">Trang Web</a></li>
 			  	<li><a href="#design_setup" role="tab" data-toggle="tab">Cài đặt</a></li>
 			</ul>
 
 			<!-- Tab panes -->
 			<div class="tab-content" style="padding: 5px;">
-			  	<div class="tab-pane active" id="page_design_home" >
+			  	<div class="tab-pane" id="page_design_home" >
 			  		<span>Website được design bởi <a href="http://thuna.vn">thuna.vn</a> </span>
 			  		<p>
 			  			<a href="{{Asset('change_temp')}}">Thay đổi giao diện <i class="fa fa-chevron-right fa-fw"></i></a>
@@ -172,11 +172,12 @@
 			  		</div>
 			  		
 			  	</div>
-			  	<div class="tab-pane" id="design_page">
+			  	<div class="tab-pane active" id="design_page">
 			  		<table class="website_tabs">
+			  			<input type="text" hidden value="{{$id_web}}" name="idweb">
 						@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tab)
 							<tr class="odd" id="Tr{{$tab->id}}" >
-								<td><input type="text" size="2" value="{{$tab->sort}}" class="website_tabs_input" ></td>
+								<td><input type="text" size="2" value="{{$tab->sort}}"  onchange= "changeSort({{$tab->id}})" class="website_tabs_input" name="{{$tab->id}}Sort" id="{{$tab->id}}Sort" ></td>
 								<td id="TT{{$tab->id}}">{{$tab->title}}</td>
 								<input type="text" hidden id="tab{{$tab->id}}" value="{{$tab->id}}">
 								<td><span  class="glyphicon glyphicon-cog pop{{$tab->id}} popoverThis" style="color: #19B5BC; cursor: pointer;" onclick="titleTab({{$tab->id}})" ></span></td>
@@ -211,7 +212,28 @@
 							        <h4 class="modal-title">Thêm chủ đề</h4>
 							    </div>
 							    <div class="modal-body">
-							        <!-- thuy crazy  -->
+							        <div class="row">
+							        	@foreach(Tab::get() as $index=>$tab)
+								        	@if($index < 4)
+								        	<div class="col-xs-6">
+								        		@if(in_array($tab->type,$typeTab) )
+								        			<input type="checkbox" name="Topic{{$tab->id}}" id="Topic{{$tab->id}}" onclick="topic({{$tab->id}})" value="{{$tab->type}}" checked >{{$tab->title}}</input><br>
+								        		@else
+								        			<input type="checkbox" name="Topic{{$tab->id}}" id="Topic{{$tab->id}}" onclick="topic({{$tab->id}})" value="{{$tab->type}}">{{$tab->title}}</input><br>
+								        		@endif
+								        	</div>
+								        	@endif
+								        	@if($index >= 4)
+								        	<div class="col-xs-6">
+								        		@if(in_array($tab->type,$typeTab) )
+								        			<input type="checkbox" name="Topic{{$tab->id}}" id="Topic{{$tab->id}}" onclick="topic({{$tab->id}})" value="{{$tab->type}}" checked >{{$tab->title}}</input><br>
+								        		@else
+								        			<input type="checkbox" name="Topic{{$tab->id}}" id="Topic{{$tab->id}}" onclick="topic({{$tab->id}})" value="{{$tab->type}}">{{$tab->title}}</input><br>
+								        		@endif
+								        	</div>
+								        	@endif
+							        	@endforeach
+							        </div>
 							    </div>
 							    <div class="modal-footer">
 							        
@@ -480,7 +502,23 @@
 		
 			$("#Align_title").val(value);
 	}
-	
+	function changeSort(id){
+		var position = $("#"+id+"Sort").val();
+		var id_web = $('input[name=idweb]').val();
+		$.ajax({
+			type: "post",
+			url: "{{URL::route('reSort')}}",
+			data:{position: position,
+				id: id,
+				id_web: id_web
+			},
+			success: function(data){
+				location.reload(true);
+				
+			}
+		});
+		
+	}
 	function titleTab(id){
 		$.ajax({
 			type: "post",

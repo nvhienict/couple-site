@@ -510,7 +510,29 @@ public function getTab(){
 		echo json_encode($title); exit();
 	}
 
+	public function reSort(){
+		$newSort = Input::get('position');
+		$idChange = Input::get('id');
+		$mang = array("k");
+		$oldSort = TabWebsite::where("id",$idChange)->get()->first()->sort;
+			try {
+					$idweb = input::get('id_web');
+					$tabwebsite = TabWebsite::where('website', $idweb)->get();
 
+					foreach ($tabwebsite as  $tab) {
+						if($oldSort > $newSort && $tab->sort < $oldSort && $tab->sort >= $newSort){
+							TabWebsite::where("id",$tab->id)->update(array('sort'=>$tab->sort + 1));
+						}
+						if($oldSort < $newSort &&  $tab->sort > $oldSort && $tab->sort <= $newSort){
+							TabWebsite::where("id",$tab->id)->update(array('sort'=>$tab->sort - 1));
+						}
+					}
+			} catch (Exception $e) {
+					echo "lỗi update dữ liệu";
+				}
+		TabWebsite::where("id",$idChange)->update(array('sort'=>$newSort));
+		
+	}
 public function Post_update_Tab(){
 
 	$id = Input::get('id_title');
