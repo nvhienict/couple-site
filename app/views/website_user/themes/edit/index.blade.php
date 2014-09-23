@@ -9,8 +9,12 @@
     <title>Nguyen's wedding</title>
 
     <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
+    
     <script src="{{Asset('assets/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{Asset("assets/js/jquery.min.js")}}"></script>
+	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">

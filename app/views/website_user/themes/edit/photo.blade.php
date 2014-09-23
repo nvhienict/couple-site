@@ -2,6 +2,7 @@
     <!--  Slide Album -->
 
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
+            <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
 
             <!-- Add mousewheel plugin (this is optional) -->
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
@@ -13,10 +14,6 @@
             <!-- Add Button helper (this is optional) -->
             <link rel="stylesheet" type="text/css" href="{{Asset("assets/slide/source/helpers/jquery.fancybox-buttons.css?v=1.0.5")}}" />
             <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-buttons.js?v=1.0.5")}}"></script>
-
-            <!-- Add Thumbnail helper (this is optional) -->
-            <link rel="stylesheet" type="text/css" href="{{Asset("asset/slide/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7")}}" />
-            <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7")}}"></script>
 
             <!-- Add Media helper (this is optional) -->
             <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-media.js?v=1.0.5")}}"></script>
