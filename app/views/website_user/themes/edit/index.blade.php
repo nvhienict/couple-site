@@ -29,6 +29,16 @@
 		        $('.click-edit-hide'+id).hide();
 		        $('.ok-edit-show'+id).show();
 		    }
+		function showckeditor_text(id){
+		        var text=$('.phara'+id).html();
+		        $('.phara'+id).hide();
+		        CKEDITOR.instances['editor'+id].setData(text);
+
+		        $('.editphara'+id).addClass("col-xs-12");
+		        $('.editphara'+id).show();
+		        $('.click-edit-hide'+id).hide();
+		        $('.ok-edit-show'+id).show();
+		    }
 		function updateckeditor(id){
 			//var t= CKEDITOR.instances['editor4'].getData();alert(t);
 			$.ajax({

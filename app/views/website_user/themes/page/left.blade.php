@@ -1,5 +1,5 @@
 <div class="partion">
-    <div class="row">
+    <div class="row phara-margin">
         <h3 class="text-center title-tab" >{{$tabWeb->title}}</h3>
         <div class="col-xs-6 float-left">
             <span>
