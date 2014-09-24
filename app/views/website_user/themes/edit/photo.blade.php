@@ -53,26 +53,24 @@
                 <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
             </div>
         </div> 
-        <?php
-            $gh=PhotoTab::where('tab',$tabWeb->id)->get()->first();
-        ?>
+        
 
     </div>
     <div class="partion">
         <div class="row phara-margin">
             <div class="col-xs-2 images-padding">
-                <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/background/{$gh->photo}")}}">
-                    <img style="width:100%;height:100px;" src="{{Asset("images/website/background/{$gh->photo}")}}" alt="" />
+                <a class="fancybox-buttons" data-fancybox-group="button" href="">
+                    <img style="width:100%;height:100px;" src="" alt="" />
                 </a>
             </div>
             <div class="col-xs-2 images-padding">
-                <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("assets/slide/demo/1_b.jpg")}}">
-                    <img style="width:100%;height:100px;" src="{{Asset("assets/slide/demo/1_s.jpg")}}" alt="" />
+                <a class="fancybox-buttons" data-fancybox-group="button" href="">
+                    <img style="width:100%;height:100px;" src="" alt="" />
                 </a>
             </div>
             <div class="col-xs-2 images-padding">
-                <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("assets/slide/demo/1_b.jpg")}}">
-                    <img style="width:100%;height:100px;" src="{{Asset("assets/slide/demo/1_s.jpg")}}" alt="" />
+                <a class="fancybox-buttons" data-fancybox-group="button" href="">
+                    <img style="width:100%;height:100px;" src="" alt="" />
                 </a>
             </div>
         </div>

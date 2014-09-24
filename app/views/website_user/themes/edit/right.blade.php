@@ -4,14 +4,12 @@
         <div class="col-xs-6 float-right">
             <span>
                 <a href="#">
-                    <?php
-                        $gh=PhotoTab::where('tab',$tabWeb->id)->get()->first();
-                    ?>
-                <img class="img-responsive" src="{{Asset("images/website/background/{$gh->photo}")}}" alt="">
+                    
+                <img class="img-responsive" src="" alt="">
                 </a>
             </span>
             <span>
-                <button class="btn btn-primary" >Đổi Ảnh</button>
+                <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
             </span>
         </div>
         <div class="show-content phara{{$tabWeb->id}}">

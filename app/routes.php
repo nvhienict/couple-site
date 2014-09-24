@@ -251,9 +251,8 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('change_color_website3', array('as'=>'change_color_website3', 'uses'=>'WebsiteController@updateColorWebsite3'));
 
 	Route::post('reset_color', array('as'=>'reset_color', 'uses'=>'WebsiteController@resetColor'));
-
-	Route::post('upload_background',array('as'=>'upload','uses'=>'WebsiteController@updateImagebackground'));
-
+	Route::post('upload-background',array('as'=>'upload','uses'=>'WebsiteController@updateImagebackground'));
+	Route::post('change-image-tab',array('as'=>'change-image-tab','uses'=>"WebsiteController@changeImage"));
 	Route::post('get-id-tab', array('as'=>'get-id-tab', 'uses'=>'WebsiteController@getTab'));//lấy dữ liệu của 1 tab
 	Route::post('update-title', array('as'=>'update-title', 'uses'=>'WebsiteController@Post_update_Tab'));
 	Route::post('delete-title', array('as'=>'delete-title', 'uses'=>'WebsiteController@delete_tab'));
@@ -272,4 +271,9 @@ Route::group(array('before'=>'check_login'), function(){
 /*** end website user ***/ 
 // Route::get('thu', array('as'=>'thu', 'uses'=>'WebsiteController@thu'));
 
+
+Route::get("gh", function(){
+	$id = WebsiteController::get_id_tab();
+	echo "ghghgh: ".$id;
+});
 

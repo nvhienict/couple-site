@@ -70,7 +70,7 @@
 </head>
 @if($website)
 @foreach( $website as $website_item )
-<div class="background-themes" style="background-image: url({{Asset("images/website/background/{$website_item->background}")}});">
+<div class="background-themes" style="background-image: url({{Asset("{$backgrounds}")}});">
 
 	<div >
 		<nav style="padding:0px;" class="navbar navbar-default" role="navigation">

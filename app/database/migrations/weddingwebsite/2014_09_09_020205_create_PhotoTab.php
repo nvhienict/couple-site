@@ -16,7 +16,6 @@ class CreatePhotoTab extends Migration {
 			{
 				$table->increments("id");
 				$table->string('photo');
-				$table->integer('album');
 				$table->integer('user');
 				$table->integer('tab');
 				$table->timestamps();

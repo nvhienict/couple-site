@@ -2262,6 +2262,17 @@ tr.even td{
 {
 	display: none;
 }
+#input_image
+{
+	display: none;
+}
+#chose_image_background
+{
+	font-weight: bold ;
+	font-style: italic;
+	
+	
+}
 #chose_image
 {
 	font-weight: bold ;
@@ -2273,6 +2284,11 @@ tr.even td{
 {
 	width: 200px;
 }
+#image-preview
+{
+	width: 200px;
+}
+/***************/
 #divContentHTML{
 	display: none;
 	z-index: 99999;
