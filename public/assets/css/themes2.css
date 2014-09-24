@@ -6,6 +6,7 @@
 	padding: 10px;
 	margin: 0px; 
 	border-color: #FFE6E6;
+	width: 100%;
 }
 .navbar-nav li{
 	font-size: 20px;
@@ -15,6 +16,7 @@
 	background-image: url("../../images/website/themes2/gifts-border-bottom.png");
 	padding: 5px 0 4px;
 	margin: 0px 0px 20px 0px; 
+	width: 100%;
 }
 
 .content_themes2{

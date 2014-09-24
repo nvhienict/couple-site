@@ -82,7 +82,7 @@
 <div class="background-themes" >
 
 	<!-- Static navbar -->
-  	<div class="navbar navbar-default menu_tab" role="navigation">
+  	<div class="navbar navbar-default menu_tab" role="navigation" style="position:fixed; width: 100%; z-index:1; clear:both; top:100; ">
     	<div class="container-fluid ">
       		<div class="navbar-header">
         		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -116,13 +116,13 @@
     	</div><!--/.container-fluid -->
 	</div>
 
-	<div class="row menu_tab_boder">
+	<!-- <div class="row menu_tab_boder"style="position:fixed; width: 100%; z-index:99999; top: 135px;" >
 		<div class="col-xs-12"></div>
-	</div>
+	</div> -->
 		
 
 <!-- Tab panes -->
-<div class="tab-content content_themes2">
+<div class="tab-content content_themes2" style="margin-top:150px;">
   	<div class="tab-pane active" id="home">
   		<div class="row" style="margin:0px;">
   			<div class="col-xs-1"></div>
