@@ -20,6 +20,8 @@
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
 
+	<script src="{{Asset('assets/ckeditor/ckeditor.js')}}"></script>
+
 	<!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes2.css")}}">
 
@@ -33,6 +35,16 @@
 		        CKEDITOR.instances['editor'+id].setData(text);
 
 		        $('.editphara'+id).addClass("col-xs-6");
+		        $('.editphara'+id).show();
+		        $('.click-edit-hide'+id).hide();
+		        $('.ok-edit-show'+id).show();
+		    }
+		function showckeditor_text(id){
+		        var text=$('.phara'+id).html();
+		        $('.phara'+id).hide();
+		        CKEDITOR.instances['editor'+id].setData(text);
+
+		        $('.editphara'+id).addClass("col-xs-12");
 		        $('.editphara'+id).show();
 		        $('.click-edit-hide'+id).hide();
 		        $('.ok-edit-show'+id).show();
@@ -211,6 +223,12 @@
 	  	@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
 			<div class="tab-pane" id="travel">
   				@include('website_user.themes2.page.text')
+  			</div>
+  		@endif
+
+  		@if($tabWeb->type=="album" && $tabWeb->visiable==0)
+			<div class="tab-pane" id="images">
+  				@include('website_user.themes2.page.photo')
   			</div>
   		@endif
 

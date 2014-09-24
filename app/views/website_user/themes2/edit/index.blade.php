@@ -37,6 +37,16 @@
 		        $('.click-edit-hide'+id).hide();
 		        $('.ok-edit-show'+id).show();
 		    }
+		function showckeditor_text(id){
+		        var text=$('.phara'+id).html();
+		        $('.phara'+id).hide();
+		        CKEDITOR.instances['editor'+id].setData(text);
+
+		        $('.editphara'+id).addClass("col-xs-12");
+		        $('.editphara'+id).show();
+		        $('.click-edit-hide'+id).hide();
+		        $('.ok-edit-show'+id).show();
+		    }
 		function updateckeditor(id){
 			//var t= CKEDITOR.instances['editor4'].getData();alert(t);
 			$.ajax({
@@ -212,6 +222,12 @@
 	  	@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
 			<div class="tab-pane" id="travel">
   				@include('website_user.themes2.edit.text')
+  			</div>
+  		@endif
+
+  		@if($tabWeb->type=="album" && $tabWeb->visiable==0)
+  			<div class="tab-pane" id="images">
+  				@include('website_user.themes2.edit.photo')
   			</div>
   		@endif
 

@@ -5,12 +5,18 @@
             {{$tabWeb->title}}
         </h3>
         <div class="col-xs-6 float-left">
-            <span>
-                    <?php
-                        $gh=PhotoTab::where('tab',$tabWeb->id)->get()->first();
-                    ?>
-                <img class="img-responsive" src="{{Asset("images/website/background/{$gh->photo}")}}" alt="">
-            
+            <span> 
+                <a href="#">
+                    <?php 
+                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
+                     ?>
+                @if($images)
+                    <img  class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
+                @else 
+                    <img  class="img-responsive" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+
+                @endif
+                </a>
             </span>
         </div>
         <div class="show-content phara{{$tabWeb->id}}">
