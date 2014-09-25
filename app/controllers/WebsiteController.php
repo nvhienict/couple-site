@@ -97,6 +97,7 @@ class WebsiteController extends \BaseController {
 
 	public function viewPrevious($id)
 	{
+		$id_tmp = $id;
 		$id_user = WebsiteController::id_user();
 
 		// get username
@@ -109,6 +110,24 @@ class WebsiteController extends \BaseController {
 		$id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;
 		$arTab = TabWebsite::where('website',$id_Web)->get();
 
+		if(!empty($check))
+		{
+			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
+		}
+		else
+		{
+			switch ($id_tmp) {
+			case 1:
+				$backgrounds='images/website/themes1/template_1.jpg';
+				break;
+			case 2:
+				$backgrounds='';
+				break;
+			
+			}			
+			
+		}
+
 		switch ($id) {
 			case 2:
 				return View::make('website_user.themes2.page.index')->with('website', $website)
@@ -119,7 +138,8 @@ class WebsiteController extends \BaseController {
 			default:
 				return View::make('website_user.themes.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
-																	->with('id_web', $id_Web);
+																	->with('id_web', $id_Web)
+																	->with('backgrounds',$backgrounds);
 				break;
 		}
 	}
@@ -681,6 +701,30 @@ public function Post_update_Tab(){
 	}
 
 	/* end template 2 */
+
+	public function up_images_album(){
+		$id_user = WebsiteController::id_user();	
+		$id_tab=Input::get('id_tab_album');
+		if(Input::hasFile('input_image_album'))
+			{
+				$phototab=new PhotoTab();
+				$years=date("Y");
+				$months=date('m');	
+				File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);					
+				$image=Input::file('input_image_album');
+			  	$filename =$image->getClientOriginalName();
+				$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+				$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
+				Image::make($image->getRealPath())->resize(800, 600)->save($path);
+				$phototab->user=$id_user;
+				$phototab->photo=$pathsave;
+				$phototab->tab = $id_tab;
+				$phototab->save();
+			    return Redirect::route('website/edit/pages');	
+
+			}
+
+	}
 		
 		
 

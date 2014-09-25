@@ -266,6 +266,7 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::get('change_temp', array('as'=>'change_temp', 'uses'=>'WebsiteController@changeTemp'));
 
 	// end template 2
+	Route::post('up_images_album',array('as'=>'up_images_album','uses'=>"WebsiteController@up_images_album"));
 
 });
 /*** end website user ***/ 

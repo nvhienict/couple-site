@@ -84,7 +84,7 @@
 			  			<span class="span_design_item">Màu: <a href="javascript:;" onclick="reset_color();" >Khôi phục mặc định</a></span><br />
 
 			  			@for($i=1;$i<=3;$i++)
-				  			@if( !empty(WebsiteController::returnColor($i)) )
+				  			@if((WebsiteController::returnColor($i)) )
 					  			<span class="span_design_item">Màu {{$i}}: 
 					  				<input type="text" name="color" value="#{{WebsiteController::returnColor($i)}}" onchange="color_design{{$i}}(this.value);" class="color color_design">
 					  			</span><br />
@@ -422,6 +422,103 @@
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- -end modal change image -->	
+
+<div class="modal fade " id="modal-up_images">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content ">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Chọn Ảnh</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-xs-6 col-md-2 menu-image" >
+						
+								<a style="text-align:center" href="javascript:void(0);">Upload Ảnh</a></li>
+					</div>
+					<div class="col-xs-12 col-md-10 tab-image">
+						<br>
+							<div class="tab-pane " id="tab-modal-image_album">
+									<div class="upload-image-tab">
+											
+											<form action="{{URL::route('up_images_album')}}" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >																																		
+												<br>
+												<br>
+												<br>
+												<br>
+												
+												<div class="form-group">
+													<div class="text-center "><img id="image-preview_album" ></div>
+													<div class="text-center"><a onclick="chose_image_album()" style="cursor:pointer;" id="chose_image_album" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br></div>
+													<input style="display:none;" id="input_image_album" name="input_image_album"  type="file" class="file" accept="image/*" required>
+													<input type="hidden" name="id_tab_album" id="id_tab_album" value="">
+												</div>
+												<div class="form-group">
+													<button type="submit" style="float:right"class="btn btn-primary">Upload</button> 
+												</div>
+												<br>
+												<br>
+																								
+																																																																																
+											<script type="text/javascript">
+											
+												function chose_image_album()
+												{
+													 $('#input_image_album').trigger('click');
+												};
+												
+												 function readURL_image_album(input) {
+													        if (input.files && input.files[0]) {
+													            var reader = new FileReader();
+													            
+													            reader.onload = function (e) {
+													                $('#image-preview_album').attr('src', e.target.result);
+													            }
+													            
+													            reader.readAsDataURL(input.files[0]);
+													        }
+													    }
+													     $("#input_image_album").change(function(){
+													     	 var fileName = $("#input_image_album").val().toLowerCase();
+															    if(fileName.lastIndexOf("png")===fileName.length-3 | fileName.lastIndexOf("jpeg")===fileName.length-3 |fileName.lastIndexOf("gif")===fileName.length-3|fileName.lastIndexOf("jpg")===fileName.length-3)
+															        readURL_image_album(this);
+															    else
+															    {
+															    	$("#input_image_album").val("");
+															    	$("#image-preview_album").removeAttr('src');
+															    	alert('Vui lòng chọn đúng định dạng file Ảnh');																				        	
+
+															    }																				    	
+														        																				        	
+														    });
+													     
+											     function send_id_album(id){
+													// var id_tab=$('#id_tab_web'+id).val();
+														$('input[name=id_tab_album]').val(id);
+														
+														
+													
+												};			
+																																																
+											</script>
+
+										</form>
+									</div><br>
+
+							</div>
+							
+																																									
+					</div>
+
+				</div>
+				
+			</div>
+			
+				
+			
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <script type="text/javascript" src="{{Asset('assets/js/design_color_font.js')}}"></script>
 

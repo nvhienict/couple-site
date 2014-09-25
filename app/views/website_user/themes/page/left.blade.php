@@ -2,13 +2,17 @@
     <div class="row phara-margin">
         <h3 class="text-center title-tab" >{{$tabWeb->title}}</h3>
         <div class="col-xs-6 float-left">
-            <span>
+            <span> 
                 <a href="#">
-                    <?php
-                        $gh=PhotoTab::where('tab',$tabWeb->id)->get()->first();
-                        echo $gh->photo;
-                    ?>
-                
+                    <?php 
+                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
+                     ?>
+                @if($images)
+                    <img  class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
+                @else 
+                    <img  class="img-responsive" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+
+                @endif
                 </a>
             </span>
         </div>

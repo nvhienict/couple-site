@@ -157,9 +157,15 @@
 	</div>
 	<hr>
 	<!-- and after-images-themes -->
-	<footer>
-		<div>
-			<p class="text-center">Copyright by Thuna.vn</p>
+	
+	<footer >
+		<div class="col-xs-6 col-md-offset-3">
+			
+			<div class="text-center">
+				<p>47 Đỗ Huy Uyển, Đà Nẵng<br>
+				© Copyright 2014 - <a href="http://thuna.vn">thuna.vn</a></p>
+			</div>
+			
 		</div>
 	</footer>
 	

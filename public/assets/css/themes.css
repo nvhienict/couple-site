@@ -33,7 +33,7 @@
 }
 .background-themes 
 { 
-	height: 600px;
+	height: 650px;
 	overflow-y:auto;
 	padding: 0px;
 	margin-left: -15px;
@@ -49,7 +49,6 @@
 	padding-left: 0px;
 	padding-right: 0px;
 	margin:25px 15px;
-	border: solid #FB78CC;
 	background:rgba(255,255,255,0.7);
 	/*background-color: white;*/
 }

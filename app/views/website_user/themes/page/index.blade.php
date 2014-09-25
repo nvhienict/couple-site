@@ -18,51 +18,33 @@
 </head>
 @if($website)
 @foreach( $website as $website_item )
-<div style="background-image: url({{Asset("images/website/background/{$website_item->background}")}});">
+<div class="background-themes" style="height: 700px; background-image: url({{Asset("{$backgrounds}")}});">
 	<!-- Thanh dieu huong -->
 
-	<div class="navar-themes">
-		<nav class="navbar navbar-inverse nav-themes-fixed" role="navigation">
-	        <div >
-	            <!-- Brand and toggle get grouped for better mobile display -->
-	            <div class="navbar-header">
-	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button>
-	                <a class="navbar-brand" href="#">Home</a>
-	            </div>
-	            <!-- Collect the nav links, forms, and other content for toggling -->
-	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	                <ul style="background-color:#222222;" class="nav navbar-nav">
-	                    <li>
-	                        <a href="#">Welcome</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">About us</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">Wedding Event</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">Travaling</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">Register</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">Contact</a>
-	                    </li>
-	                </ul>
-	            </div>
-	            <!-- /.navbar-collapse -->
-	        </div>
+	<div >
+		<nav style="padding:0px;" class="navbar navbar-default navbar-fixed-top" role="navigation">
+		   <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" 
+		         data-target="#example-navbar-collapse">
+		         <span class="sr-only">Toggle navigation</span>
+		         <span class="icon-bar"></span>
+		         <span class="icon-bar"></span>
+		         <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Home</a>
+		   </div>
+		   <div style="background-color:#222222;" class="collapse navbar-collapse" id="example-navbar-collapse">
+		      <ul style="background-color:#222222;" class="nav navbar-nav">
+		         <li class=""><a href="#">Giới Thiệu</a></li>
+		         <li><a href="#">Thông Tin</a></li>
+		         <li><a href="#">Album</a></li>
+		         <li><a href="#">Liên Hệ</a></li>
+		      </ul>
+		   </div>
 		</nav>
-
 	</div>
-	<div class="after-image-themes">
+	
+	<div style="margin-left:30px;" class="after-image-themes">
 
 		<!-- Themes Heading -->
 		<div class="title-website">
@@ -118,6 +100,16 @@
           
 	</div>
 	<!-- and after-images-themes -->
+	<footer>
+		<div class="col-xs-6 col-md-offset-3">
+			
+			<div class="text-center">
+				<p>47 Đỗ Huy Uyển, Đà Nẵng<br>
+				© Copyright 2014 - <a href="http://thuna.vn">thuna.vn</a></p>
+			</div>
+			
+		</div>
+	</footer>
 	
 </div>
 @endforeach

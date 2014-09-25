@@ -58,27 +58,22 @@
     </div>
     <div class="partion">
         <div class="row phara-margin">
-            <div class="col-xs-2 images-padding">
-                <a class="fancybox-buttons" data-fancybox-group="button" href="">
-                    <img style="width:100%;height:100px;" src="" alt="" />
-                </a>
-            </div>
-            <div class="col-xs-2 images-padding">
-                <a class="fancybox-buttons" data-fancybox-group="button" href="">
-                    <img style="width:100%;height:100px;" src="" alt="" />
-                </a>
-            </div>
-            <div class="col-xs-2 images-padding">
-                <a class="fancybox-buttons" data-fancybox-group="button" href="">
-                    <img style="width:100%;height:100px;" src="" alt="" />
-                </a>
-            </div>
+            <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
+            @if($albums)
+                @foreach($albums as $album)
+                    <div class="col-xs-2 images-padding">
+                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
+                            <img style="width:100%;height:100px;" src="{{Asset("{$album->photo}")}}" alt="" />
+                        </a>
+                    </div>
+                @endforeach
+            @endif
         </div>
         <div class="row phara-margin">
             <div class="col-xs-11">
             </div>
             <div class="col-xs-1 click-edit ">
-                <span><a  class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+                <span><a  onclick="send_id_album({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);"></a></span>
                 <span><a  class="glyphicon glyphicon-cog icon-site" href=""></a></span>
             </div>               
         </div>
@@ -91,5 +86,8 @@
         </div> 
     </div>
 </div>
+
+
+
 
      
