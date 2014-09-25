@@ -1,0 +1,134 @@
+.circle-text {
+    width:30%;
+}
+.circle-text:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height:0;
+    margin-left: 40%;
+    margin-top: 5%;
+    padding-bottom: 100%;
+    background: white;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.circle-text div {
+    float:left;
+    width:100%;
+    margin-left: 40%;
+    padding-top:20%;
+    line-height:1em;
+    margin-top:-0.5em;
+    text-align:center;
+    color:#391902;
+}
+.partion
+{
+    background-color:white; opacity: 0.8;
+    
+}
+.partion-contact
+{
+    background-color:white; opacity: 0.8;
+}
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+.float-left button{
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+    display: none;
+}
+.float-right button{
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+    display: none;
+}
+.click-edit{
+    display: none;
+}
+.ok-edit{
+    display: none;
+}
+.edit-content{
+    display: none;
+}
+.partion:hover button{
+    display: inline-block;
+}
+.partion:hover .click-edit{
+    display: inline-block;
+}
+
+
+.background-themes 
+{ 
+    height: 600px;
+    overflow-y:auto;
+    padding: 0px;
+    margin-left: -15px;
+    margin-right: 0px;
+    background-repeat:no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+}
+.contact-main
+{
+    height: 500px;
+    overflow-y:auto;
+    overflow-x:hidden;
+
+}
+.contact-content
+{
+    padding-top:30px;
+     padding-left:40px;
+}
+body
+{       
+    overflow: hidden;
+}
+.after-image-themes{
+    padding-left: 0px;
+    padding-right: 0px;
+    margin:25px 15px;
+    border: solid #FB78CC;
+    background:rgba(255,255,255,0.7);
+    /*background-color: white;*/
+}
+
+.show-content{
+    padding: 0px;
+    margin: 0px;
+    padding: 0 5px;
+    opacity: 1;
+}
+.icon-site{
+    color: #19b5bc;
+    line-height: 2.75em;
+    font-size: 1.5em;
+
+}
+.icon-site:hover{
+    text-decoration: none;
+
+}
+.icon-site:active{
+    text-decoration: none;
+}
+.phara-margin{
+    margin:0px !important;
+}
+.images-padding{
+    padding: 1px;
+}

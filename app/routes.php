@@ -267,14 +267,14 @@ Route::group(array('before'=>'check_login'), function(){
 
 	// end template 2
 	Route::post('up_images_album',array('as'=>'up_images_album','uses'=>"WebsiteController@up_images_album"));
+	//template 6
+	Route::get('template_6',array('as'=>'template_6','uses'=>'WebsiteController@template_6'));
+
+	//end template 6
 
 });
 /*** end website user ***/ 
 // Route::get('thu', array('as'=>'thu', 'uses'=>'WebsiteController@thu'));
 
 
-Route::get("gh", function(){
-	$id = WebsiteController::get_id_tab();
-	echo "ghghgh: ".$id;
-});
 

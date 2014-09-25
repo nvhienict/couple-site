@@ -613,7 +613,7 @@ public function Post_update_Tab(){
 						$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
 						$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
 						$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
-						Image::make($image->getRealPath())->resize(800, 600)->save($path);
+						Image::make($image->getRealPath())->resize(400, 250)->save($path);
 						PhotoTab::where('user',$id_user)->where('tab',$id_tab)->update(
 							array('photo'=>$pathsave)					
 							);
@@ -628,7 +628,7 @@ public function Post_update_Tab(){
 					  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
 						$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
 						$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
-						Image::make($image->getRealPath())->resize(800, 600)->save($path);
+						Image::make($image->getRealPath())->resize(400, 250)->save($path);
 						$phototab->user=$id_user;
 						$phototab->photo=$pathsave;
 						$phototab->tab = $id_tab;
@@ -702,8 +702,7 @@ public function Post_update_Tab(){
 	}
 
 	/* end template 2 */
-
-	public function up_images_album(){
+public function up_images_album(){
 		$id_user = WebsiteController::id_user();	
 		$id_tab=Input::get('id_tab_album');
 		if(Input::hasFile('input_image_album'))
@@ -727,7 +726,11 @@ public function Post_update_Tab(){
 
 	}
 		
-		
+	/*template_6*/
+	public function template_6()
+	{
+		return View::make('website_user.themes6.page.index');
+	}	
 
 }
 
