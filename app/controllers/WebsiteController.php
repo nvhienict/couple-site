@@ -109,7 +109,8 @@ class WebsiteController extends \BaseController {
 		// get data from table 'tabs'
 		$id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;
 		$arTab = TabWebsite::where('website',$id_Web)->get();
-
+		
+		$check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
 		if(!empty($check))
 		{
 			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
@@ -609,7 +610,7 @@ public function Post_update_Tab(){
 						File::delete($path_delete);
 						File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
 						$image=Input::file('input_image');
-						$filename =$image->getClientOriginalName();
+						$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
 						$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
 						$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
 						Image::make($image->getRealPath())->resize(800, 600)->save($path);
@@ -624,7 +625,7 @@ public function Post_update_Tab(){
 						$months=date('m');	
 						File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);					
 						$image=Input::file('input_image');
-					  	$filename =$image->getClientOriginalName();
+					  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
 						$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
 						$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
 						Image::make($image->getRealPath())->resize(800, 600)->save($path);
@@ -654,7 +655,7 @@ public function Post_update_Tab(){
 						$path_delete=public_path($name);
 						File::delete($path_delete);
 						$image=Input::file('input_image_modal');
-					  	$filename =$image->getClientOriginalName();
+					  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
 						$path = public_path('images/website/'.$year.'/'.$month.'/'.$filename);
 						$pathsave='images/website/'.$year.'/'.$month.'/'.$filename;
 						Image::make($image->getRealPath())->resize(2000, 1500)->save($path);
@@ -669,7 +670,7 @@ public function Post_update_Tab(){
 						$month=date('m');
 						File::makeDirectory(public_path('images/website/'.$year.'/'.$month),$mode = 0775,true,true);
 						$image=Input::file('input_image_modal');
-						$filename =$image->getClientOriginalName();
+						$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
 						$path = public_path('images/website/'.$year.'/'.$month.'/'.$filename);
 						$pathsave='images/website/'.$year.'/'.$month.'/'.$filename;
 						Image::make($image->getRealPath())->resize(2000, 1500)->save($path);
@@ -712,7 +713,7 @@ public function Post_update_Tab(){
 				$months=date('m');	
 				File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);					
 				$image=Input::file('input_image_album');
-			  	$filename =$image->getClientOriginalName();
+			  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
 				$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
 				$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
 				Image::make($image->getRealPath())->resize(800, 600)->save($path);
