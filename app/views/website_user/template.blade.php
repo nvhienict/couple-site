@@ -36,6 +36,13 @@ Giao diện Website cưới
 						</a>
 					</div>
 	  			</div>
+	  			<div class="col-sm-4 col-lg-4 col-md-4">
+	  				<div class="span_choose_tmp">
+						<a href="{{URL::route('template-website', array('id'=>3))}}">
+							<img src="{{Asset('images/website/tmp/3.png')}}">
+						</a>
+					</div>
+	  			</div>
 		  	</div>
 		  	<div class="col-sm-4 col-lg-4 col-md-4">
 	  				<div class="span_choose_tmp">

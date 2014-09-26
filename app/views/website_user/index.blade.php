@@ -34,6 +34,9 @@ Website cưới
 				<div class="col-xs-1"></div>
 				<div class="col-xs-5">
 				
+				@if($img_tmp==3)
+						<img style="width:150px;" src="{{Asset('images/website/tmp/3.png')}}">
+				@endif
 				@if($img_tmp==2)
 						<img style="width:150px;" src="{{Asset('images/website/tmp/2.png')}}">
 				@endif
@@ -56,6 +59,9 @@ Website cưới
 				<div class="col-xs-1"></div>
 				<div class="col-xs-5">Trang web:</div>
 				<div class="col-xs-5 ">
+					@if($img_tmp==3)
+						<a href="{{URL::route('view-previous', array('id'=>$img_tmp))}}" target="_blank">Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+					@endif
 					@if($img_tmp==2)
 						<a href="{{URL::route('view-previous', array('id'=>$img_tmp))}}" target="_blank">Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 					@endif

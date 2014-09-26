@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
+<html>
 <head>
-	<title>T3 Wedding Website | thuna.vn</title>
+	<title>{{$firstname}}'s Wedding Website | thuna.vn</title>
 	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
 	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logo.png")}}">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -28,17 +29,64 @@
     <!-- menu -->
     <script src="{{Asset("assets/js_website_themes3/modernizr-2.6.2.min.js")}}"></script>
     
+    <script type="text/javascript">
+		function showckeditor(id){
+		        var text=$('.phara'+id).html();
+		        $('.phara'+id).hide();
+		        CKEDITOR.instances['editor'+id].setData(text);
 
+		        $('.editphara'+id).addClass("col-xs-6");
+		        $('.editphara'+id).show();
+		        $('.click-edit-hide'+id).hide();
+		        $('.ok-edit-show'+id).show();
+		    }
+		function showckeditor_text(id){
+		        var text=$('.phara'+id).html();
+		        $('.phara'+id).hide();
+		        CKEDITOR.instances['editor'+id].setData(text);
+
+		        $('.editphara'+id).addClass("col-xs-12");
+		        $('.editphara'+id).show();
+		        $('.click-edit-hide'+id).hide();
+		        $('.ok-edit-show'+id).show();
+		    }
+		function updateckeditor(id){
+			//var t= CKEDITOR.instances['editor4'].getData();alert(t);
+			$.ajax({
+				type:"post",
+				dataType: "html",
+				url:"{{URL::route('update_content_tab')}}",
+				data: {	content:CKEDITOR.instances['editor'+id].getData(),
+						id_tab:$('.get_id'+id).val()
+					},
+				success:function(data){
+					var obj = JSON.parse(data);
+					$('.phara'+id).html(obj.content);	
+				}
+			});
+				$('.editphara'+id).hide();
+				$('.phara'+id).show();
+				$('.click-edit-hide'+id).show();
+		        $('.ok-edit-show'+id).hide();
+		}  
+		function exitckeditor(id){
+				$('.editphara'+id).hide();
+				$('.phara'+id).show();
+				$('.click-edit-hide'+id).show();
+		        $('.ok-edit-show'+id).hide();
+		} 
+
+	</script>
 
 </head>
 
 @if($website)
 @foreach( $website as $website_item )
 
-<div class="container_themes3_page">
+<div class="container_themes3">
 
 		<!-- Fixed navbar -->
-    	<div class="navbar-fixed-top menu-top" >
+    	<div class="col-xs-12 menu-top" >
 	      	<span>{{$firstname}} wedding</span><br />
 	      	{{WebsiteController::getDates()}}
 	    </div>
@@ -83,7 +131,7 @@
 			            <!-- Slides Container -->
 			            <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px;
 			                overflow: hidden;">
-			                
+
 			                <?php $albums=PhotoTab::where('user',$website_item->user)->get()->count();?>
 				            @if($albums>0)
 				                @foreach(PhotoTab::where('user',$website_item->user)->get() as $album)
@@ -110,7 +158,7 @@
 				                    <div u="caption" t="FLTTR|R" style="position:absolute;left:380px;top:80px;width:130px;height:40px;font-size:36px;color:#fff;line-height:40px;">thuna.vn</div>
 				                </div>
 				            @endif
-			                
+
 			            </div>
 			        </div>
 			        <!-- Jssor Slider End -->
@@ -121,52 +169,48 @@
 		<!-- .photo book (page home)-->
 
 		@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
-	  	
-		  	@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
-			  	<div class="col-sm-12 col-lg-12 col-md-12 welcome">
-					@include('website_user.themes3.page.left')
+			@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
+				<div class="col-sm-12 col-lg-12 col-md-12 welcome">
+					@include('website_user.themes3.edit.left')
 				</div>
-				<!-- . page welcome-->
-		  	@endif
-
-	  		@if($tabWeb->type=="about" && $tabWeb->visiable==0)
-			  	<div class="col-sm-12 col-lg-12 col-md-12 about">
-					@include('website_user.themes3.page.right')
-				</div>
-				<!-- . page about-->
 			@endif
+			<!-- . page welcome-->
+
+			@if($tabWeb->type=="about" && $tabWeb->visiable==0)
+				<div class="col-sm-12 col-lg-12 col-md-12 about">
+					@include('website_user.themes3.edit.right')
+				</div>
+			@endif
+			<!-- . page about-->
 
 			@if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
-			  	<div class="col-sm-12 col-lg-12 col-md-12 event">
-					@include('website_user.themes3.page.right')
+				<div class="col-sm-12 col-lg-12 col-md-12 event">
+					@include('website_user.themes3.edit.right')
 				</div>
-				<!-- . page event-->
-		  	@endif
+			@endif
+			<!-- . page event-->
 
-		  	@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
-	  			<div class="col-sm-12 col-lg-12 col-md-12 travel">
-					@include('website_user.themes3.page.text')
+			@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
+				<div class="col-sm-12 col-lg-12 col-md-12 travel">
+					@include('website_user.themes3.edit.text')
 				</div>
-				<!-- . page travel-->
-	  		@endif
+			@endif
+			<!-- . page travel-->
 
-	  		@if($tabWeb->type=="album" && $tabWeb->visiable==0)
-	  			<div class="col-sm-12 col-lg-12 col-md-12 images">
-					@include('website_user.themes3.page.photo')
+			@if($tabWeb->type=="album" && $tabWeb->visiable==0)
+				<div class="col-sm-12 col-lg-12 col-md-12 images">
+					@include('website_user.themes3.edit.photo')
 				</div>
-				<!-- . page images-->
-	  		@endif
+			@endif
+			<!-- . page images-->
 
-	  		@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
-	  			<div class="col-sm-12 col-lg-12 col-md-12 contact">
-					@include('website_user.themes3.page.contact')
+			@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
+				<div class="col-sm-12 col-lg-12 col-md-12 contact">
+					@include('website_user.themes3.edit.contact')
 				</div>
-				<!-- . page contact-->
-	  		@endif
-
-	  		<!--  -->
-
-	  	@endforeach
+			@endif
+			<!-- . page contact-->
+		@endforeach
 
 	</div>
 	<!-- .row margin-row -->
@@ -189,9 +233,10 @@
 	<!-- stranlator menu -->
 	<script src="{{Asset("assets/js_website_themes3/stran-menu.js")}}"></script>
 
+
+
 </div>
 <!-- .container -->
-
 @endforeach
 @endif
 
