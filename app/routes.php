@@ -268,8 +268,7 @@ Route::group(array('before'=>'check_login'), function(){
 	// end template 2
 	Route::post('up_images_album',array('as'=>'up_images_album','uses'=>"WebsiteController@up_images_album"));
 	//template 6
-	Route::get('template_6',array('as'=>'template_6','uses'=>'WebsiteController@template_6'));
-
+	
 	//end template 6
 
 });

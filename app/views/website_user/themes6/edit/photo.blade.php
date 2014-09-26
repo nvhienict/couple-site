@@ -29,84 +29,93 @@
 
 </head>
 <div class="col-xs-8 partion ">
-    <div class="photo-content">
-        <h2 class="text-center title-tab">Photo</h2>          
-        <div class="show-content phara"> 
-        <p>Đà Lạt là thành phố trực thuộc tỉnh Lâm Đồng nằm trên Cao nguyên Lâm Viên thuộc vùng Tây Nguyên của nước Việt Nam.
-
-     Thành Phố Đà Lạt cách Biên Hòa (Đồng Nai) 278km, Hà Nội 1.481km, Tp. Hồ Chí Minh 293km, Nha Trang (Khánh Hòa) 205km.
-
-    Về hàng không, Lâm Đồng có chuyến bay Đà Lạt – Tp. Hồ Chí Minh và ngược lại. Lâm Đồng có đường bộ chính là quốc lộ 20 chạy xuyên qua tỉnh từ Đà Lạt, Bảo Lộc, Di Linh, Ma Đa Gui tới Đồng Nai. Ngoài ra tỉnh còn nằm trên trục đường quốc lộ 27: Tp.Phan Rang Tháp Chàm (Ninh Thuận) – Lâm Đồng – Đắk Lắk (Buôn Ma Thuột), trục đường 28: Bình Thuận – Lâm Đồng (Di Linh) – Đắk Nông.</p>                           
-             
+    <div class="row phara-margin ">
+            <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}}" id = "nameTitle{{$tabWeb->id}}">{{$tabWeb->title}}</h3> 
+        <div class="show-content phara{{$tabWeb->id}}">                            
+        {{$tabWeb->content}}
         </div>   
-        <div class="edit-content editphara">
-            <textarea name="editor4" class="ckeditor form-control ckedit" id="editor" cols="40" rows="10" tabindex="1"></textarea>
+        <div class="edit-content editphara{{$tabWeb->id}}">
+            <textarea name="editor4" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1"></textarea>
         </div>
-        <div class="row phara-margin float-right">
-            
-            <div class="click-edit click-edit-hide " >
-                <span> <a class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+        <div class="row phara-margin float-right">      
+            <div class="click-edit click-edit-hide{{$tabWeb->id}}" >            
+                <span> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
                 <span><a class="glyphicon glyphicon-cog icon-site" href="javascript:void(0);"></a></span>
             </div>
         </div>
-        <div class="row phara-margin float-right">      
-            <div class=" ok-edit ok-edit-show ">
+        <div class="row phara-margin float-right">    
+            <div class="ok-edit ok-edit-show{{$tabWeb->id}}">
                 <span>
-                    <a class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-                    <input type="hidden" class="get_id" value="">
+                    <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
+                    <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
                 </span>
-                <span><a style="color:#e74c3c;"  class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
+                <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
             </div>
-        </div>
-    </div>             
+        </div> 
+    </div>                   
      <br>
      <br>
      <br>
-     <div class="slide-photo">
-         <div class="row phara-margin">
-            <div class="col-xs-3 images-padding">
-                <a class="fancybox-buttons" data-fancybox-group="button" href="">
-                    <img class="img-responsive" src="{{Asset("images/website/themes6/1.jpg")}}" alt="" />
+     <div class="row phara-margin ">     
+            <?php $check=PhotoTab::where('tab',$tabWeb->id)->get()->count();?>
+                @if($check>0)
+                <div class="row phara-margin">
+                    <?php $albums=PhotoTab::where('tab',$tabWeb->id)->get();?>
+                    @foreach($albums as $album)
+                        <div class="col-xs-3 images-padding">
+                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
+                                <img style="width:100%;height:100px;" src="{{Asset("{$album->photo}")}}" alt="" />
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+                
+                @else
+                        
+                        <div class="col-xs-3 images-padding">
+                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes6/1.jpg")}}">
+                                <img class="img-responsive" src="{{Asset("images/website/themes6/1.jpg")}}" alt="" />
+                            </a>
+                        </div>
+                        <div class="col-xs-3 images-padding">
+                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes6/2.jpg")}}">
+                                <img class="img-responsive" src="{{Asset("images/website/themes6/2.jpg")}}" alt="" />
+                            </a>
+                        </div>
+                        <div class="col-xs-3 images-padding">
+                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes6/3.jpg")}}">
+                                <img class="img-responsive" src="{{Asset("images/website/themes6/3.jpg")}}" alt="" />
+                            </a>
+                        </div>
+                        <div class="col-xs-3 images-padding">
+                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes6/4.jpg")}}">
+                                <img class="img-responsive" src="{{Asset("images/website/themes6/4.jpg")}}" alt="" />
+                            </a>
+                        </div>
+                   
+                @endif
+           
 
-                </a>
+             <div class="row phara-margin float-right">
+            
+                <div class="click-edit click-edit-hide " >
+                     <span><a  onclick="send_id_album({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);"></a></span>
+                        <span><a  class="glyphicon glyphicon-cog icon-site" href="javascript:void(0);"></a></span>
+                </div>
             </div>
-            <div class="col-xs-3 images-padding">
-                <a class="fancybox-buttons" data-fancybox-group="button" href="">
-                    <img class="img-responsive" src="{{Asset("images/website/themes6/2.jpg")}}" alt="" />
-                </a>
+            <div class="row phara-margin float-right">      
+                <div class=" ok-edit ok-edit-show ">
+                    <span>
+                       <span><a  class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a></span>
+                        <span><a class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
+                    </span>
+                    
+                </div>
             </div>
-            <div class="col-xs-3 images-padding">
-                <a class="fancybox-buttons" data-fancybox-group="button" href="">
-                    <img class="img-responsive" src="{{Asset("images/website/themes6/3.jpg")}}" alt="" />
-                </a>
-            </div>
-            <div class="col-xs-3 images-padding">
-                <a class="fancybox-buttons" data-fancybox-group="button" href="">
-                    <img class="img-responsive" src="{{Asset("images/website/themes6/4.jpg")}}" alt="" />
-                </a>
-            </div>
-
-        </div>
-         <div class="row phara-margin float-right">
         
-        <div class="click-edit click-edit-hide " >
-            <span> <a class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
-            <span><a class="glyphicon glyphicon-cog icon-site" href="javascript:void(0);"></a></span>
-        </div>
-    </div>
-    <div class="row phara-margin float-right">      
-        <div class=" ok-edit ok-edit-show ">
-            <span>
-                <a class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-                <input type="hidden" class="get_id" value="">
-            </span>
-            <span><a style="color:#e74c3c;"  class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-        </div>
-    </div>
-    
-     </div>  
-   
        
+   
+     </div>     
 <br>
 <br>
 <br> 

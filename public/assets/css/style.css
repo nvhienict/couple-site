@@ -2288,6 +2288,11 @@ tr.even td{
 {
 	width: 200px;
 }
+#image-preview_album
+{
+	width: 200px;
+}
+
 /***************/
 #divContentHTML{
 	display: none;

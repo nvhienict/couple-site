@@ -29,50 +29,61 @@
 
 </head>
 <div class="col-xs-8 partion ">
-    <div class="photo-content">
-        <h2 class="text-center title-tab">Photo</h2>          
-        <div class="show-content phara"> 
-        <p>Đà Lạt là thành phố trực thuộc tỉnh Lâm Đồng nằm trên Cao nguyên Lâm Viên thuộc vùng Tây Nguyên của nước Việt Nam.
-
-     Thành Phố Đà Lạt cách Biên Hòa (Đồng Nai) 278km, Hà Nội 1.481km, Tp. Hồ Chí Minh 293km, Nha Trang (Khánh Hòa) 205km.
-
-    Về hàng không, Lâm Đồng có chuyến bay Đà Lạt – Tp. Hồ Chí Minh và ngược lại. Lâm Đồng có đường bộ chính là quốc lộ 20 chạy xuyên qua tỉnh từ Đà Lạt, Bảo Lộc, Di Linh, Ma Đa Gui tới Đồng Nai. Ngoài ra tỉnh còn nằm trên trục đường quốc lộ 27: Tp.Phan Rang Tháp Chàm (Ninh Thuận) – Lâm Đồng – Đắk Lắk (Buôn Ma Thuột), trục đường 28: Bình Thuận – Lâm Đồng (Di Linh) – Đắk Nông.</p>                           
-             
-        </div>   
+    <div class="row phara-margin ">
+            <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}}" id = "nameTitle{{$tabWeb->id}}">{{$tabWeb->title}}</h3> 
+        <div class="show-content phara{{$tabWeb->id}}">                            
+        {{$tabWeb->content}}
+        </div>           
         
-    </div>             
+    </div>                   
      <br>
      <br>
      <br>
-     <div class="slide-photo">
-         <div class="row phara-margin">
-            <div class="col-xs-3 images-padding">
-                <a class="fancybox-buttons" data-fancybox-group="button" href="">
-                    <img class="img-responsive" src="{{Asset("images/website/themes6/1.jpg")}}" alt="" />
+     <div class="row phara-margin ">     
+            <?php $check=PhotoTab::where('tab',$tabWeb->id)->get()->count();?>
+                @if($check>0)
+                <div class="row phara-margin">
+                    <?php $albums=PhotoTab::where('tab',$tabWeb->id)->get();?>
+                    @foreach($albums as $album)
+                        <div class="col-xs-3 images-padding">
+                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
+                                <img style="width:100%;height:100px;" src="{{Asset("{$album->photo}")}}" alt="" />
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+                
+                @else
+                        
+                        <div class="col-xs-3 images-padding">
+                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes6/1.jpg")}}">
+                                <img class="img-responsive" src="{{Asset("images/website/themes6/1.jpg")}}" alt="" />
+                            </a>
+                        </div>
+                        <div class="col-xs-3 images-padding">
+                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes6/2.jpg")}}">
+                                <img class="img-responsive" src="{{Asset("images/website/themes6/2.jpg")}}" alt="" />
+                            </a>
+                        </div>
+                        <div class="col-xs-3 images-padding">
+                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes6/3.jpg")}}">
+                                <img class="img-responsive" src="{{Asset("images/website/themes6/3.jpg")}}" alt="" />
+                            </a>
+                        </div>
+                        <div class="col-xs-3 images-padding">
+                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes6/4.jpg")}}">
+                                <img class="img-responsive" src="{{Asset("images/website/themes6/4.jpg")}}" alt="" />
+                            </a>
+                        </div>
+                   
+                @endif
+           
 
-                </a>
-            </div>
-            <div class="col-xs-3 images-padding">
-                <a class="fancybox-buttons" data-fancybox-group="button" href="">
-                    <img class="img-responsive" src="{{Asset("images/website/themes6/2.jpg")}}" alt="" />
-                </a>
-            </div>
-            <div class="col-xs-3 images-padding">
-                <a class="fancybox-buttons" data-fancybox-group="button" href="">
-                    <img class="img-responsive" src="{{Asset("images/website/themes6/3.jpg")}}" alt="" />
-                </a>
-            </div>
-            <div class="col-xs-3 images-padding">
-                <a class="fancybox-buttons" data-fancybox-group="button" href="">
-                    <img class="img-responsive" src="{{Asset("images/website/themes6/4.jpg")}}" alt="" />
-                </a>
-            </div>
-
-        </div>
-         
-     </div>  
-   
+          
+        
        
+   
+     </div>     
 <br>
 <br>
 <br> 

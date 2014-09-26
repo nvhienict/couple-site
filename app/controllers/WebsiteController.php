@@ -124,6 +124,9 @@ class WebsiteController extends \BaseController {
 			case 2:
 				$backgrounds='';
 				break;
+			case 6:
+			$backgrounds='images/website/themes6/template_6.jpg';
+			break;
 			
 			}			
 			
@@ -135,6 +138,12 @@ class WebsiteController extends \BaseController {
 																	->with('firstname', $firstname)
 																	->with('id_web', $id_Web);
 				break;
+			case 6:
+				return View::make('website_user.themes6.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
+																	->with('id_web', $id_Web);
+				break;	
 			
 			default:
 				return View::make('website_user.themes.page.index')->with('website', $website)
@@ -263,8 +272,12 @@ class WebsiteController extends \BaseController {
 			case 2:
 				$backgrounds='';
 				break;
+			case 6:
+				$backgrounds='images/website/themes6/template_6.jpg';
+				break;	
 			
-			}			
+			}
+					
 			
 		}
 		return View::make('website_user.page_design')->with('firstname', $firstname)
@@ -320,8 +333,14 @@ class WebsiteController extends \BaseController {
 			case 2:
 				$backgrounds='';
 				break;
+			case 6:
+				$backgrounds='images/website/themes6/template_6.jpg';
+				break;			
 			
 			}
+			
+			
+			
 		}
 		return View::make('website_user.page_design')->with('firstname', $firstname)
 													->with('arFont', $arFont)
@@ -613,7 +632,7 @@ public function Post_update_Tab(){
 						$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
 						$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
 						$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
-						Image::make($image->getRealPath())->resize(400, 250)->save($path);
+						Image::make($image->getRealPath())->resize(800, 600)->save($path);
 						PhotoTab::where('user',$id_user)->where('tab',$id_tab)->update(
 							array('photo'=>$pathsave)					
 							);
@@ -628,7 +647,7 @@ public function Post_update_Tab(){
 					  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
 						$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
 						$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
-						Image::make($image->getRealPath())->resize(400, 250)->save($path);
+						Image::make($image->getRealPath())->resize(800, 600)->save($path);
 						$phototab->user=$id_user;
 						$phototab->photo=$pathsave;
 						$phototab->tab = $id_tab;
@@ -658,7 +677,7 @@ public function Post_update_Tab(){
 					  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
 						$path = public_path('images/website/'.$year.'/'.$month.'/'.$filename);
 						$pathsave='images/website/'.$year.'/'.$month.'/'.$filename;
-						Image::make($image->getRealPath())->resize(2000, 1500)->save($path);
+						Image::make($image->getRealPath())->resize(1500, 1000)->save($path);
 						WeddingWebsite::where('user',$id_user)->update(
 							array('background'=>$pathsave)					
 							);
@@ -673,7 +692,7 @@ public function Post_update_Tab(){
 						$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
 						$path = public_path('images/website/'.$year.'/'.$month.'/'.$filename);
 						$pathsave='images/website/'.$year.'/'.$month.'/'.$filename;
-						Image::make($image->getRealPath())->resize(2000, 1500)->save($path);
+						Image::make($image->getRealPath())->resize(1500, 1000)->save($path);
 						WeddingWebsite::where('user',$id_user)->update(
 							array('background'=>$pathsave)						
 							);

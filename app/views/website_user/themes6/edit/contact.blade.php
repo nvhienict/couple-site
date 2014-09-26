@@ -3,9 +3,7 @@
 <div class="col-xs-8 partion contact-main" >
   <div class="row phara-margin ">
         
-            <h3 class="text-center title-tab" style="text-align: center " id = "nameTitle">
-            Liên Lạc Với Chúng Tôi
-            </h3>
+            <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}}" id = "nameTitle{{$tabWeb->id}}">{{$tabWeb->title}}</h3> 
               
            <div class="text-center map-hove">
                 <span >
@@ -53,6 +51,5 @@
       
         
     </div>
-    
+  
 <br>
-</div>

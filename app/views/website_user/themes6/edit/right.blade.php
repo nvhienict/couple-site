@@ -1,53 +1,51 @@
 <br>
-<br>
-<div class="col-xs-8 partion" >
+<div class="col-xs-8 partion">
     <div class="row phara-margin">
-        <div class="col-xs-8 " >
-            <h3 class="text-center title-tab" style="text-align: center " id = "nameTitle">
-             Sự kiện
-            </h3>
-        </div>
-        
+        <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} " id = "nameTitle{{$tabWeb->id}}">
+            {{$tabWeb->title}}
+        </h3>
         <div class="col-xs-6 float-right">
-            <span>
+            <span> 
                 <a href="#">
-                    
-                <img class="img-responsive" src="{{Asset('images/website/themes6/tab_temp_6.jpg')}}" alt="">
+                    <?php 
+                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
+                     ?>
+                @if($images)
+                    <img  class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
+                @else 
+                    <img  class="img-responsive" src="{{Asset("images/website/themes6/tab_temp_6.jpg")}}" alt="">
+
+                @endif
                 </a>
             </span>
             <span>
-                <button   class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+                <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
             </span>
         </div>
-        <div class="col-xs-6 ">
-            <div class="show-content phara">
-                Địa điểm đám cưới: Nhà hàng Phì Lũ<br>
-                Địa chỉ: Đà Nãng
-                    
-            </div>
-        <div class="edit-content editphara">
-            <textarea name="editor" class="ckeditor form-control ckedit" id="editor" cols="40" rows="10" tabindex="1">
-                aaaaaaaaaaa
+        <div class="show-content phara{{$tabWeb->id}}">
+            {{$tabWeb->content}}
+        </div>
+        <div class="edit-content editphara{{$tabWeb->id}}">
+            <textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
+               {{$tabWeb->content}}
             </textarea>
 
         </div>
-        </div>
-        
     </div>
-    <div class="row phara-margin">      
-        <div class="click-edit click-edit-hide" >
-            <span> <a class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+    <div class="row phara-margin ">      
+        <div class="click-edit click-edit-hide{{$tabWeb->id}}" >            
+            <span> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
             <span><a class="glyphicon glyphicon-cog icon-site" href="javascript:void(0);"></a></span>
         </div>
     </div>
-    <div class="row phara-margin">      
-        <div class="ok-edit ok-edit-show">
+    <div class="row phara-margin">    
+        <div class="ok-edit ok-edit-show{{$tabWeb->id}}">
             <span>
-                <a class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-                <input type="hidden" class="get_id" value="">
+                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
+                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
             </span>
-            <span><a style="color:#e74c3c;"  class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
+            <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
         </div>
     </div>
-<br>
+    <br>
 </div>

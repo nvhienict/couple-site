@@ -40,6 +40,9 @@ Website cưới
 				@if($img_tmp==1)
 						<img style="width:150px;" src="{{Asset('images/website/tmp/1.png')}}">
 				@endif
+				@if($img_tmp==6)
+						<img style="width:150px;" src="{{Asset('images/website/tmp/6.png')}}">
+				@endif
 
 				</div>
 				<div class="col-xs-6 ">
@@ -57,6 +60,9 @@ Website cưới
 						<a href="{{URL::route('view-previous', array('id'=>$img_tmp))}}" target="_blank">Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 					@endif
 					@if($img_tmp==1)
+						<a href="{{URL::route('view-previous', array('id'=>$img_tmp))}}" target="_blank">Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+					@endif
+					@if($img_tmp==6)
 						<a href="{{URL::route('view-previous', array('id'=>$img_tmp))}}" target="_blank">Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 					@endif
 				</div>

@@ -1,17 +1,15 @@
 <br>
 <br>
 <div class="col-xs-8 partion contact-main" >
-	<div class="row phara-margin ">
-       	
-            <h3 class="text-center title-tab" style="text-align: center " id = "nameTitle">
-            Liên Lạc Với Chúng Tôi
-            </h3>
+  <div class="row phara-margin ">
+        
+            <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}}" id = "nameTitle{{$tabWeb->id}}">{{$tabWeb->title}}</h3> 
               
            <div class="text-center map-hove">
                 <span >
                     <iframe width="700" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=vi&amp;geocode=&amp;q=Nh%C3%A0+H%C3%A0ng+Ph%C3%AC+L%C5%A9+3,+%C4%90%C3%A0+N%E1%BA%B5ng&amp;aq=&amp;sll=16.067021,108.220977&amp;sspn=0.098314,0.169086&amp;gl=VN&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=16.047555,108.223128&amp;spn=0.006295,0.006295&amp;t=m&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=vi&amp;geocode=&amp;q=Nh%C3%A0+H%C3%A0ng+Ph%C3%AC+L%C5%A9+3,+%C4%90%C3%A0+N%E1%BA%B5ng&amp;aq=&amp;sll=16.067021,108.220977&amp;sspn=0.098314,0.169086&amp;gl=VN&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=16.047555,108.223128&amp;spn=0.006295,0.006295&amp;t=m" style="color:#0000FF;text-align:left">Xem Bản đồ cỡ lớn hơn</a></small>
                </span><br>
-                 
+               
            </div>                                   
               
     </div> 
@@ -51,6 +49,5 @@
       
         
     </div>
-    
+  
 <br>
-</div>
