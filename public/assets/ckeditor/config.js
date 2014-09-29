@@ -13,5 +13,5 @@ CKEDITOR.editorConfig = function( config ) {
     //config . toolbarGroups =  [
     //{ name :  'paragraph' ,    groups :  [  'list' ,  'blocks' ,  'align' ,'basicstyles' ]  },
     //{ name :  'styles'  }
-];
+//];
 };
