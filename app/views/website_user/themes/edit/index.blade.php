@@ -106,52 +106,67 @@
         </div>
 		<hr>
 	 @foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
-	  <div  id="section-welcome{{$tabWeb->id}}">
+	  
 		<!-- Welcome -->
 		@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
+		<div id="section_{{$tabWeb->type}}">
 			@include('website_user.themes.edit.left')
+		</div>
 		<hr>
 		@endif
 
 		<!-- About Us -->
 		@if($tabWeb->type=="about" && $tabWeb->visiable==0)
+		<div id="section_{{$tabWeb->type}}">
 		@include('website_user.themes.edit.right')
+		</div>
 		<hr>
 		
 		@endif
 
 		<!-- Wedding Event -->
 		@if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
+		<div id="section_{{$tabWeb->type}}">
 		@include('website_user.themes.edit.right')
+		</div>
 		<hr>
 		
 		@endif
 
 		<!-- Travaling -->
 		@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
+		<div id="section_{{$tabWeb->type}}">
 		@include('website_user.themes.edit.text')
+		</div>
         <hr>
         
         @endif
         <!-- Photo Album -->
         @if($tabWeb->type=="album" && $tabWeb->visiable==0)
+        <div id="section_{{$tabWeb->type}}">
         @include('website_user.themes.edit.photo')
+        </div>
         <hr>
        
         @endif
 
        <!--  Register -->
+      
        @if($tabWeb->type=="register" && $tabWeb->visiable==0)
-       @include('website_user.themes.edit.text')       
+        <div id="section_{{$tabWeb->type}}">
+       @include('website_user.themes.edit.text')     
+       </div>  
         <hr>
         
         @endif
 
         <!-- Contact Us -->
         @if($tabWeb->type=="contact" && $tabWeb->visiable==0)
+        <div id="section_{{$tabWeb->type}}">
         	@include('website_user.themes.edit.contact')
+    	</div>
         @endif
-    </div>
+   
   	@endforeach  
           
 	</div>

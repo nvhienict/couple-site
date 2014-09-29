@@ -110,7 +110,7 @@
 						@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tab)
 							<tr class="odd" id="Tr{{$tab->id}}" >
 								<td><input type="text" size="2" value="{{$tab->sort}}"  onchange= "changeSort({{$tab->id}})" class="website_tabs_input" name="{{$tab->id}}Sort" id="{{$tab->id}}Sort" ></td>
-								<td id="TT{{$tab->id}}">{{$tab->title}}</td>
+								<td id="TT{{$tab->id}}"><a href="#section_{{$tab->type}}">{{$tab->title}}</a></td>
 								<input type="text" hidden id="tab{{$tab->id}}" value="{{$tab->id}}">
 								<td><span  class="glyphicon glyphicon-cog pop{{$tab->id}} popoverThis" style="color: #19B5BC; cursor: pointer;" onclick="titleTab({{$tab->id}})" ></span></td>
 							</tr>
