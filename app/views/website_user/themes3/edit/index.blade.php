@@ -97,13 +97,13 @@
 			<button class="cn-button" id="cn-button">Menu</button>
 			<div class="cn-wrapper" id="cn-wrapper">
 				<ul>
-					<li><a href="javascript:;" id="welcome"><span>Chào mừng</span></a></li>
-					<li><a href="javascript:;" id="about"><span>Giới thiệu</span></a></li>
-					<li><a href="javascript:;" id="event"><span>Sự kiện</span></a></li>
-					<li><a href="javascript:;" id="home"><span>Trang chủ</span></a></li>
-					<li><a href="javascript:;" id="travel"><span>Du lịch</span></a></li>
-					<li><a href="javascript:;" id="images"><span>Ảnh</span></a></li>
-					<li><a href="javascript:;" id="contact"><span>Liên hệ</span></a></li>
+					<li><a href="javascript:void(0);" id="welcome"><span>Chào mừng</span></a></li>
+					<li><a href="javascript:void(0);" id="about"><span>Giới thiệu</span></a></li>
+					<li><a href="javascript:void(0);" id="event"><span>Sự kiện</span></a></li>
+					<li><a href="javascript:void(0);" id="home"><span>Trang chủ</span></a></li>
+					<li><a href="javascript:void(0);" id="travel"><span>Du lịch</span></a></li>
+					<li><a href="javascript:void(0);" id="images"><span>Ảnh</span></a></li>
+					<li><a href="javascript:void(0);" id="contact"><span>Liên hệ</span></a></li>
 				 </ul>
 			</div>
 			<!-- End of Nav Structure -->

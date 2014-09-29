@@ -1,6 +1,6 @@
 		
 		$('#home').click(function() {
-			$( ".welcome" ).hide();
+			$(".welcome").hide();
 			$(".photo-book").show();
 			$(".event").hide();
 			$(".about").hide();
@@ -18,7 +18,7 @@
 		});
 
 		$('#welcome').click(function() {
-			$( ".welcome" ).show();
+			$(".welcome").show();
 			$(".photo-book").hide();
 			$(".event").hide();
 			$(".about").hide();
@@ -29,12 +29,11 @@
 			$( ".welcome" ).animate({
 				width: "100%",
 				left: "0",
-				margin: "0",
-				marginTop: "30px"
+				top: "30px"
 				}, 1000 );
 		});
 		$('#about').click(function() {
-			$( ".welcome" ).hide();
+			$(".welcome").hide();
 			$(".photo-book").hide();
 			$(".event").hide();
 			$(".about").show();
@@ -45,8 +44,7 @@
 			$( ".about" ).animate({
 				width: "100%",
 				left: "0",
-				margin: "0",
-				marginTop: "30px"
+				top: "30px"
 				}, 1000 );
 
 			$(".welcome").removeAttr("style");
@@ -56,7 +54,7 @@
 			$(".contact").removeAttr("style");
 		});
 		$('#event').click(function() {
-			$( ".welcome" ).hide();
+			$(".welcome").hide();
 			$(".photo-book").hide();
 			$(".event").show();
 			$(".about").hide();
@@ -67,8 +65,7 @@
 			$( ".event" ).animate({
 				width: "100%",
 				left: "0",
-				margin: "0",
-				marginTop: "30px"
+				top: "30px"
 				}, 1000 );
 
 			$(".welcome").removeAttr("style");
@@ -78,7 +75,7 @@
 			$(".contact").removeAttr("style");
 		});
 		$('#travel').click(function() {
-			$( ".welcome" ).hide();
+			$(".welcome").hide();
 			$(".photo-book").hide();
 			$(".event").hide();
 			$(".about").hide();
@@ -89,8 +86,7 @@
 			$( ".travel" ).animate({
 				width: "100%",
 				left: "0",
-				margin: "0",
-				marginTop: "30px"
+				top: "30px"
 				}, 1000 );
 
 			$(".welcome").removeAttr("style");
@@ -100,7 +96,7 @@
 			$(".contact").removeAttr("style");
 		});
 		$('#images').click(function() {
-			$( ".welcome" ).hide();
+			$(".welcome").hide();
 			$(".photo-book").hide();
 			$(".event").hide();
 			$(".about").hide();
@@ -111,8 +107,7 @@
 			$( ".images" ).animate({
 				width: "100%",
 				left: "0",
-				margin: "0",
-				marginTop: "30px"
+				top: "30px"
 				}, 1000 );
 
 			$(".welcome").removeAttr("style");
@@ -122,7 +117,7 @@
 			$(".contact").removeAttr("style");
 		});
 		$('#contact').click(function() {
-			$( ".welcome" ).hide();
+			$(".welcome").hide();
 			$(".photo-book").hide();
 			$(".event").hide();
 			$(".about").hide();
@@ -130,11 +125,10 @@
 			$(".images").hide();
 			$(".contact").show();
 
-			$( ".contact" ).animate({
+			$(".contact").animate({
 				width: "100%",
 				left: "0",
-				margin: "0",
-				marginTop: "30px"
+				top: "30px"
 				}, 1000 );
 
 			$(".welcome").removeAttr("style");
