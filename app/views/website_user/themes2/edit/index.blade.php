@@ -97,6 +97,7 @@
 
         		<ul class="nav navbar-nav">
         			<li class="active"><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
+        			<li><a href="#love_story" role="tab" data-toggle="tab">Chuyện tình</a></li>
           			<li><a href="#welcome" role="tab" data-toggle="tab">Chào mừng</a></li>
 				  	<li><a href="#about" role="tab" data-toggle="tab">Giới thiệu</a></li>
 				  	<li><a href="#even" role="tab" data-toggle="tab">Sự kiện</a></li>
@@ -201,38 +202,46 @@
   	@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
 	  	
 	  	@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
-			<div class="tab-pane" id="welcome">
+			<div class="tab-pane" id="welcome"
+			style="min-height: 240px;">
 		  		@include('website_user.themes2.edit.left')
 		  	</div>
 		  	<!-- .tab welcome -->
 	  	@endif
 
+	  	@if($tabWeb->type =="love_story" && $tabWeb->visiable==0 )
+			<div class="tab-pane" id="love_story" style="min-height: 240px;">
+				@include('website_user.themes2.edit.love_story')
+			</div>
+			<!-- .tab love_story -->
+		@endif
+
   		@if($tabWeb->type=="about" && $tabWeb->visiable==0)
-		  	<div class="tab-pane" id="about">
+		  	<div class="tab-pane" id="about" style="min-height: 240px;">
 		  		@include('website_user.themes2.edit.right')
 		  	</div>
 		@endif
 
 		@if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
-		  	<div class="tab-pane" id="even">
+		  	<div class="tab-pane" id="even" style="min-height: 240px;">
 		  		@include('website_user.themes2.edit.right')
 		  	</div>
 	  	@endif
 
 	  	@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
-			<div class="tab-pane" id="travel">
+			<div class="tab-pane" id="travel" style="min-height: 240px;">
   				@include('website_user.themes2.edit.text')
   			</div>
   		@endif
 
   		@if($tabWeb->type=="album" && $tabWeb->visiable==0)
-  			<div class="tab-pane" id="images">
+  			<div class="tab-pane" id="images" style="min-height: 240px;">
   				@include('website_user.themes2.edit.photo')
   			</div>
   		@endif
 
   		@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
-			<div class="tab-pane" id="contact">
+			<div class="tab-pane" id="contact" style="min-height: 240px;">
   				@include('website_user.themes2.edit.contact')
   			</div>
   		@endif
