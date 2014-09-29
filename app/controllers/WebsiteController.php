@@ -764,6 +764,37 @@ public function up_images_album(){
 			}
 
 	}
+	public function load_album(){
+		try {
+			$id_user = WebsiteController::id_user();
+			$id_tab=Input::get('id_tab_album');
+			$images=PhotoTab::where('user',$id_user)->get();
+
+			echo json_encode(array('images'=>$images));			
+			} 
+		catch (Exception $e)
+			{
+				echo "fail";
+			}		
+	}
+	public function del_album(){
+		try 
+		{ 	$id_user=WebsiteController::id_user();
+			$id_images_del=array();
+			$id_images_del=Input::get('id_images');			
+				foreach ($id_images_del as $id_images_del) 
+				{	
+					$name=PhotoTab::where('user',$id_user)->where('id',$id_images_del)->get()->first()->photo;
+					$path_delete=public_path($name);
+					File::delete($path_delete);
+					PhotoTab::where('user',$id_user)->where('id',$id_images_del)->delete();
+				}						
+		} 
+		catch (Exception $e) 
+		{
+			echo('fail');
+		}
+	}
 		
 	/*template_6*/
 	public function template_6()

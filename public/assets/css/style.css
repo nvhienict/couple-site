@@ -2325,5 +2325,17 @@ tr.even td{
 	width: 100%;
 	height: 300px;
 }
+.gird_ablum{
+	display: none;
+}
+.delete_images{
+	display: none; 
+}
+.delete_images button{
+	margin-top: 30px;
+}
+.padding_album{
+	padding: 1px;
+}
 
 

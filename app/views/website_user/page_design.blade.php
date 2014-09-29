@@ -451,11 +451,70 @@
 				<div class="row">
 					<div class="col-xs-6 col-md-2 menu-image" >
 						
-								<a style="text-align:center" href="javascript:void(0);">Upload Ảnh</a></li>
+								<a class="upload" style="text-align:center;text-decoration: none;" href="javascript:void(0);">Upload Ảnh</a></br>
+								<a  class="text-center myalbum" style="text-decoration: none;" href="javascript:;">My Album</a>
 					</div>
 					<div class="col-xs-12 col-md-10 tab-image">
+						<script type="text/javascript">
+								function add_images(){
+									$('.gird_ablum').hide();
+									$('.delete_images').hide();
+									$('.upload-image-tab').show();
+								}
+								$('.myalbum').click(function(){
+									$('.gird_ablum').show();
+									$('.delete_images').show();
+									$('.upload-image-tab').hide();
+								});
+								$('.upload').click(function(){
+									$('.gird_ablum').hide();
+									$('.delete_images').hide();
+									$('.upload-image-tab').show();
+								});
+								function del_album(){
+									var id_array=new Array() ;
+									var i=0;
+									$('input[name="images_del"]'). each(function(){
+										if (this.checked==true) 
+										{
+											id_array[i]=$(this).next().val();
+											i++;
+										};
+									});
+									$.ajax({
+												type:"post",
+												url:"{{URL::route('del_album')}}",
+												data:{
+													id_images:id_array
+												},
+												success:function(data){
+													for (var i = 0; i < id_array.length; i++) {
+														$('.remove_image'+id_array[i]).remove();
+													};		
+												}
+											});																		
+								}
+
+						</script>
 						<br>
 							<div class="tab-pane " id="tab-modal-image_album">
+									<div class="col-xs-12 gird_ablum">
+										<?php $images=PhotoTab::where('user',WebsiteController::id_user())->get(); ?>
+										@foreach($images as $images)
+											<div style="padding-left: 1px;padding-right:1px;" class="col-xs-2 padding_album text-center remove_image{{$images->id}}">
+												<a href="javascript:;">
+													<img class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
+												</a>
+												<input class="images_del{{$images->id}}" name="images_del" type="checkbox" value="">
+												<input type="hidden" value="{{$images->id}}">
+											</div>
+										@endforeach
+									</div>
+
+									<div class="delete_images"> 
+										<button onclick="del_album()" class="btn btn-primary">Xóa</button>
+										<button onclick=" add_images()" class="btn btn-primary">Thêm</button>
+									</div>
 									<div class="upload-image-tab">
 											
 											<form action="{{URL::route('up_images_album')}}" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >																																		

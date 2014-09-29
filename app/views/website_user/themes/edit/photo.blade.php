@@ -61,9 +61,9 @@
             <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
             @if($albums)
                 @foreach($albums as $album)
-                    <div class="col-xs-2 images-padding">
+                    <div class="col-xs-2 images-padding remove_image{{$album->id}}">
                         <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
-                            <img style="width:100%;height:100px;" src="{{Asset("{$album->photo}")}}" alt="" />
+                            <img class="img-responsive" src="{{Asset("{$album->photo}")}}" alt="" />
                         </a>
                     </div>
                 @endforeach

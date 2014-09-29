@@ -46,9 +46,10 @@
   
 }
 .after-image-themes{
+	padding-top: 30px;
 	padding-left: 0px;
 	padding-right: 0px;
-	margin:25px 15px;
+	margin: 100px 15px 25px 15px;
 	background:rgba(255,255,255,0.7);
 	/*background-color: white;*/
 }

@@ -266,7 +266,11 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::get('change_temp', array('as'=>'change_temp', 'uses'=>'WebsiteController@changeTemp'));
 
 	// end template 2
+	// Upload Album
 	Route::post('up_images_album',array('as'=>'up_images_album','uses'=>"WebsiteController@up_images_album"));
+	Route::post('load_album',array('as'=>'load_album','uses'=>"WebsiteController@load_album"));
+	Route::post('del_album',array('as'=>'del_album','uses'=>"WebsiteController@del_album"));
+
 	//template 6
 	
 	//end template 6
