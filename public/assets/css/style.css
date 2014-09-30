@@ -2337,5 +2337,28 @@ tr.even td{
 .padding_album{
 	padding: 1px;
 }
-
+.url{
+	background-color: white;
+}
+.change_url{
+	
+	
+}
+.header_url{
+	padding-left: 10px;
+	font-size: 20px;
+}
+.share_url{
+	padding-right: 10px;
+	float: right;
+	
+}
+.edit_url{
+	margin-top: 25px;
+	padding-left: 10px;
+}
+.url_link{
+	margin-top: 10px;
+	padding-left: 10px;
+}
 

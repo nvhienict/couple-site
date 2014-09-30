@@ -600,9 +600,51 @@
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
+<!-- Change URL -->
+
+<div class="modal fade" id="modal-url">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Website URL</h4>
+      </div>
+      <div class="modal-body">
+        <p>Thay đổi URL Website</p>
+        <div>
+        	<label>http://www.thuna.vn/</label>
+        	@foreach($website as $website)
+        	<input type="text" class="url_website" name="url_website" value="{{$website->url}}">
+        	@endforeach()
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <button onclick="save_url()" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <script type="text/javascript" src="{{Asset('assets/js/design_color_font.js')}}"></script>
 
 <script type="text/javascript">
+	// Save Url
+	function save_url(){
+		$.ajax({
+			type:'post',
+			url:"{{URL::route('change_url')}}",
+			data:{
+				url_website:$('.url_website').val()
+			},
+			success: function(data){
+
+				$('.a_url').text("http://www.thuna.vn/"+$('.url_website').val())
+			}
+		});
+	}
 	// get font design
 	function font_website(font_name){
 		$.ajax({

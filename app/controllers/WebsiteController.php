@@ -853,6 +853,11 @@ public function up_images_album(){
 		return View::make('website_user.themes6.page.index');
 	}	
 
+	public function change_url(){
+		$change_url=Input::get('url_website');
+		$id_user=WebsiteController::id_user();
+		WeddingWebsite::where('user',$id_user)->update(array('url'=>$change_url));
+	}
 
 
 
