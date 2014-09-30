@@ -1,0 +1,715 @@
+/*
+
+Boshonto Responsive Wedding Template
+
+- Google font
+- Regular
+- Menu
+- Intro
+- Our story
+- Photo
+- Bridal party
+- Festivities
+- Gifts
+- Travel
+- RSVP
+- Footer
+- Custom media query
+
+*/
+
+
+/* Google font */
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Great+Vibes);
+
+/* Regular */
+
+body{
+	background:#fff;
+	font-family: 'Roboto Slab', serif;
+	color:#222;
+	font-weight:normal;
+}
+
+a{
+	text-decoration:none;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: 'Roboto Slab', serif;
+	color:#000;
+}
+
+p{
+	font-size:14px;
+	line-height:28px;
+}
+
+/* Menu */
+.container{
+	width: 100%;
+}
+#nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+#nav > .navbar-inner {
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+}
+
+.navbar-brand {
+    float: left;
+	padding:13px 15px;
+	
+}
+
+.navbar{
+	background:#fff;
+	border:none;
+	border-radius:0;
+	margin-bottom:0px;
+	box-shadow: 0px 0px 8px 0px; #000;
+
+}
+
+.navbar-nav > li > a{
+	color:#000000;
+	margin:0px;
+	padding:33px 15px;
+	font-size:14px;
+/* 	transition: background 0.3s ease;
+	-webkit-transition: background 0.3s ease;
+	-moz-transition: background 0.3s ease;
+	-o-transition: background 0.3s ease;
+	-ms-transition: background 0.3s ease;	 */	
+}
+
+.nav > li > a:focus{
+	background:none;
+}
+
+.nav > li > a:hover {
+	background:#FF9B83;
+	color:#fff;
+
+}
+
+.nav > li.current a{
+	background:#FF9B83;
+	color:#fff;
+
+}
+
+.navbar-toggle{
+	background:#f0f0f0;
+	margin-top:25px;
+}
+
+.navbar-toggle .icon-bar{
+	background:#000;
+}
+
+#nav {
+	left: 0;
+	list-style: none;
+	overflow: hidden;
+	position: fixed;
+	right: 0;
+	text-align: center;
+	top: 0;
+	z-index: 99997;
+	padding: 0px;
+}
+
+#nav-wrapper {
+	display: block;
+	width: 100%;
+	z-index:999999;
+}
+	
+/* Intro */
+
+.slider-top{
+	background:url(../images/header-bg.jpg) no-repeat center;
+	width:100%;
+}	
+	
+.slider-top h2{
+	font-size:72px;
+	padding-top:170px;
+	padding-bottom:40px;
+	font-family: 'Great Vibes', cursive;
+}	
+	
+.slider-top p{
+	font-size:48px;
+	padding-bottom:140px;
+	font-family: 'Great Vibes', cursive;
+	line-height:48px;
+}	
+
+.slider-top p span{
+	background:url(../images/dot.png);
+    display: inline-block;
+    height: 2px;
+    margin: 0 20px;
+    position: relative;
+    top: -10px;
+    width: 260px;	
+}
+
+.key-icon{
+    position: relative;
+    top: 20px;
+	left: 5px;
+    z-index: 999;	
+}
+
+.intro{
+	width:100%;
+	background:#34495e;
+	padding-bottom:160px;
+	border:1px red solod;
+}		
+	
+.box-01{
+	background-color:#ff9b83;
+	padding-bottom:10px;
+	min-height:240px;
+	box-shadow: -10px 10px 20px 0px rgba(0,0,0,0.30);
+}		
+		
+.box-left{
+	float: right;
+    margin: 30px 90px 0px 20px;
+}
+
+.box-right{
+	float: left;
+    margin: 30px 40px 0px 90px;
+}
+	
+.dif-color{
+	background-color:#00cbac;
+}
+
+.move-up{
+	margin-top:-124px ;
+	display:block;
+}
+	
+.abt-content h2{
+	font-size:48px;
+	padding-top:30px;
+	padding-left:50px;
+	font-family: 'Great Vibes', cursive;
+}
+
+.abt-content p{
+	padding:10px 0 10px 50px;
+	margin:0px;
+	font-size:14px;
+
+}
+
+.dif-color .abt-content p{
+	padding: 10px 30px 10px 50px;
+}
+
+.hexagon {
+    overflow: hidden;
+    visibility: hidden;
+    -webkit-transform: rotate(120deg);
+       -moz-transform: rotate(120deg);
+         -o-transform: rotate(120deg);
+            transform: rotate(120deg);
+    /* cursor: pointer; */
+}
+	
+.hexagon-in1 {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: rotate(-60deg);
+       -moz-transform: rotate(-60deg);
+         -o-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+}
+	
+.hexagon-in2 {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+
+    visibility: visible;
+    -webkit-transform: rotate(-60deg);
+       -moz-transform: rotate(-60deg);
+         -o-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+}
+	
+.hexagon-in2:hover {
+}
+
+.hexagon2 {
+    width: 174px;
+    height: 344px;
+    margin: -80px 0 0 20px;
+}
+
+	
+/* Our story */	
+
+.separator{
+	background:url(../images/separetor.png) no-repeat center;
+	display:block;
+	width:230px;
+	height:272px;
+	margin:0 auto;
+	clear:both;
+	position:relative;
+}
+
+.separator h2{
+	font-size:48px;
+	font-family: 'Great Vibes', cursive;
+	position:absolute;
+	top:120px;
+	left:0;
+	right:0;
+}
+
+.separator h2 span{
+	display:block;
+	line-height:110px;
+}
+
+.dec-space h2{
+	top:90px;
+}
+
+.sptr-position{
+	margin-top:-140px ;
+	margin-bottom:-4px ;
+	display:inline-block;
+}
+
+#ourstory{
+	line-height:0px;
+}
+	
+.story-left{
+	background:#ff9b83;
+	float:left;
+	width:50%;
+	padding-top:200px;
+	padding-bottom:200px;
+}
+	
+.story-right{
+	background:#00cbac;
+	float:left;
+	width:50%;
+	padding-top:200px;
+	padding-bottom:200px;
+}
+	
+.story h2{
+	font-size:36px;
+	line-height:50px;
+	padding-bottom:10px;
+	font-weight: 300;
+}
+
+.story h2 span{	
+    font-size: 14px;
+    left: 40px;
+    position: relative;
+    top: -40px;
+}
+
+.story p{	
+	padding:0 140px;
+	text-align:left;
+}
+	
+.story p span{	
+	border-bottom:1px solid #fff;
+	display:inline-block;	
+	margin-bottom: 40px;
+	width: 100%;
+}
+	
+/* Photo */		
+
+.photo-gallery{
+	width:100%;
+	background:#34495e; 
+	padding-top:200px;
+	padding-bottom:160px;
+}	
+
+#slider{
+	border:15px #fff solid;
+	box-shadow: -10px 10px 20px 0px rgba(0,0,0,0.30);	
+
+}
+
+/* Bridal party */	
+
+.bridal-party{
+	width:100%;
+}	
+
+#bridalparty{
+	line-height:0px;
+}
+	
+.bridal-party h2{
+	font-size:36px;	
+	padding-bottom:50px;
+	font-weight:300;
+}		
+	
+.bridal-party h3{
+	font-size:24px;	
+	padding-top:50px;
+	font-weight:300;
+}	
+			
+.bridal-party h3 span{
+	font-size:16px;	
+	display:block;
+	padding-top:14px;
+	padding-bottom: 24px;
+	font-weight:300;
+}		
+	
+.bridal-party p{
+	padding: 0 140px;
+	text-align:left;
+}	
+
+
+.shape_org {
+	width: 230px;
+	height: 272px;
+	position: relative;
+	overflow:hidden;
+	display:inline-block;
+	background:#CDD2D6;
+}
+		
+.shape_org .overlay {
+	display:block;
+	width: 100%;
+	height: 100%;
+	position: absolute;			
+	z-index:500;
+	background-repeat: no-repeat;
+	outline:0;		
+}
+	
+.shape_org .overlay.hexagon_mask {
+	background: url(../images/hexagonal-mask_320_org.png);
+	background-size:cover;
+}	
+
+.shape_org img{
+	width:100%;
+}
+
+
+.shape_green {
+	width: 230px;
+	height: 272px;
+	position: relative;
+	overflow:hidden;
+	display:inline-block;
+	background:#CDD2D6;
+}
+		
+.shape_green .overlay {
+	display:block;
+	width: 100%;
+	height: 100%;
+	position: absolute;			
+	z-index:500;
+	background-repeat: no-repeat;
+	outline:0;		
+}
+	
+.shape_green .overlay.hexagon_mask {
+	background: url(../images/hexagonal-mask_320_green.png);
+	background-size:cover;
+}	
+
+.shape_green img{
+	width:100%;
+}
+
+
+/* Festivities */		
+
+#festivities{
+	line-height:0px;
+}
+
+.fest-portion{
+	background:#ff9b83; 
+	padding-top:200px;
+	padding-bottom:200px;
+	width:100%;
+}
+
+.img-slide{
+	display:inline-block;
+	margin:0 auto;
+}
+.img-slide img{
+	width:100%;
+}
+
+.slide-content{
+	position:relative;
+}
+
+.slide-txt{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+}
+
+.slide-txt h2{
+	font-size:24px;
+	margin-top:120px;
+}
+
+.slide-txt h3{
+	font-size:14px;
+	font-weight:bold;
+}
+.slide-txt p{
+	padding:0px 80px;	
+	text-align:left;
+}
+
+.shape {
+	width: 100%;
+	height: 593px;
+	max-width:500px;
+	position: relative;
+	overflow:hidden;
+	display:inline-block;
+	background:#CDD2D6;
+}
+		
+.shape .overlay {
+	display:block;
+	width: 100%;
+	height: 100%;
+	position: absolute;			
+	z-index:500;
+	background-repeat: no-repeat;
+	outline:0;		
+}
+	
+.shape .overlay.hexagon_mask {
+	background: url(../images/hexagonal-mask.png);
+	background-size:cover;
+}	
+
+.shape img{
+	width:100%;
+}
+
+/* Gifts */	
+	
+.gift-portion{
+	width:100%;
+	background:#ff9b83;
+	padding-bottom:200px;
+	padding-top:200px;
+}		
+	
+.gift-portion ul {
+	list-style:none;
+}	
+	
+.gift-portion ul li{
+	border-top:1px #fff dotted;
+	border-bottom:1px #fff dotted;
+    display: inline-block;
+    margin: 50px 20px;
+    padding: 10px;	
+}
+	
+/* Travel */		
+
+.travel-portion{
+	width:100%;
+	background:#00cbac;
+	padding-bottom:200px;
+	padding-top:200px;
+}		
+	
+.travel-portion h2{
+    font-size: 28px;
+	line-height: 36px;
+    font-weight: 300;
+	margin-top:0px;
+}
+
+.travel-portion h3{
+	font-size:24px;
+	font-family: 'Great Vibes', cursive;
+}
+
+.travel-portion p{
+	font-size:14px;
+	padding-top:5px;
+	margin-bottom:10px;
+	line-height:24px;
+}
+
+.travel-portion p span{
+	display:block;
+}
+
+.ttilebdr{
+	border-top:1px #fff dotted;
+	border-bottom:1px #fff dotted;
+    display: inline-block;
+    margin-top: 50px;
+    padding: 20px 80px 5px;	
+}
+
+/* RSVP */	
+
+
+#rsvp h2{
+	font-size:32px;
+}
+
+.rsvp-portion{
+	width:100%;
+	background:#34495e; 
+	padding-bottom:60px;
+	}
+	
+.contact{
+	margin-top:160px;
+}
+
+.rsvp-portion p{
+	color:#fff;
+	margin-bottom:0px;
+	margin-top:30px;
+}
+
+.fc-xtra{
+	margin-top:5px;
+	border-radius:0px;
+	background:#fff;
+	font-size:18px;
+}
+	
+.bttn{
+	border:none;
+	margin-top:50px;
+	float:right;
+	font-size:18px;
+	padding:3px 35px;
+	background:#fff;
+}	
+
+/* Footer */
+
+.footer-top{
+	background:url(../images/footer-top.png) repeat-x;
+	height:259px;
+}
+
+.footer{
+	background:url(../images/header-bg.jpg);
+	background-size:cover;
+    margin-top: -164px;
+    position: relative;
+    z-index: -99;
+	height:400px;
+} 
+	 
+/* Custom media query */	 
+
+
+@media screen and (max-width: 1024px){
+
+	.key-icon{
+		display:none;
+	}
+	
+	.story p{
+		padding:20px;
+	}
+	
+	.bridal-party p{
+		padding:20px;
+	}
+}
+
+@media screen and (max-width: 800px){
+
+	.navbar-nav > li > a{
+		padding:12px 15px;
+	}
+	
+}
+
+@media screen and (max-width: 600px){
+
+	.navbar-nav > li > a{
+		padding:10px 15px;
+	}
+	
+	.shape {
+		width: 320px;
+		height:380px;
+	}
+		
+	.shape .overlay.hexagon_mask {
+		background:url(../images/hexagonal-mask_320.png);
+	}		
+
+	.s_txt .shape {
+		width: 100%;
+		height: 593px;
+		border:20px solid #E6E9EB;
+	}
+		
+	.s_txt .shape .overlay.hexagon_mask {
+		display: none;
+	}	
+	
+	.slide-txt p{
+		padding:10px;
+	}
+
+	.story-left{
+		width:100%;
+	}
+	.story-right{
+		width:100%;
+	}	
+	
+}

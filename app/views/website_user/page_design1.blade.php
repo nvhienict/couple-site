@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-<body style="overflow-x:hidden;">
+<body class="bodyScroll">
 	<div class="row design_website_heading">
 		<div class="col-xs-1">
 			<a href="{{URL::route('index')}}" class="thuna" >Thuna.vn</a>
@@ -15,16 +15,7 @@
 			@if($id_tmp==2)
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
-			@if($id_tmp==3)
-				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
-			@endif
 			@if($id_tmp==1)
-				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
-			@endif
-			@if($id_tmp==5)
-				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
-			@endif
-			@if($id_tmp==6)
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
 			
@@ -57,13 +48,91 @@
 			  		</p>
 			  		<div class="page_design_home_item">
 			  			<span class="span_design_item">Hình nền:</span><br />
-			  			
-			  				<img src="{{Asset("{$backgrounds}")}}">
-						
+			  			@foreach($website as $item_website)
+			  				<img src="{{Asset("images/website/background/{$item_website->background}")}}">
+						@endforeach
 			  			<button class="btn btn-primary" data-toggle="modal" data-target='#modal-changebackground' style="background: #19b5bc; border:none;">Đổi Ảnh Nền</button>
+			  			<!-- -modal change background -->
+			  				<div class="modal fade " id="modal-changebackground">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content ">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title">Chọn Ảnh Nền</h4>
+										</div>
+										<div class="modal-body">
+											<div class="row">
+												<div class="col-xs-6 col-md-2 menu-image" >
+													
+															<a style="text-align:center" href="javascript:void(0);">Upload Ảnh</a></li>
+												</div>
+												<div class="col-xs-12 col-md-10 tab-image">
+													<br>
+														<div class="tab-pane " id="tab-modal-1">
+																<div class="upload-image-tab">
+																		
+																		<form action="{{URL::route('upload')}}" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >
+																																		
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			
+																			<div class="form-group">
+																				<div class="text-center "><img id="image-preview-website" ></div>
+																				<div class="text-center"><a onclick="chose_image_backgound()" style="cursor:pointer;" id="chose_image" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br></div>
+																				
+																				<input id="input_image_modal" name="input_image_modal" onchange="show_image_preview(this)" type="file" class="file" >
+																			</div>
+																			<div class="form-group">
+																				<button type="submit" style="float:right"class="btn btn-primary">Upload</button> 
+																			</div>
+																			<br>
+																			<br>
+																															
+																																																																																							
+																		<script type="text/javascript">
+																		
+																			function chose_image_backgound()
+																			{
+																				 $('#input_image_modal').trigger('click');
+																			};
+																			function show_image_preview (input) {
+																				if (input.files && input.files[0]) {
+																					var filerdr = new FileReader();
+																					filerdr.onload = function(e) {
+																						$('#image-preview-website').attr('src', e.target.result);
+																					}
+																					filerdr.readAsDataURL(input.files[0]);
+																					}
+																				};
+																			
+																		</script>
 
+																	</form>
+																</div><br>
+
+														</div>
+														
+																																																
+												</div>
+
+											</div>
+											
+										</div>
+										
+											
+										
+									</div><!-- /.modal-content -->
+								</div><!-- /.modal-dialog -->
+							</div><!-- /.modal -->
+
+			  			<!-- -end modal change background -->
 			  			<hr>
 			  			
+
+			  		
 			  			<span class="span_design_item">Font chữ:</span><br />
 			  			<span class="span_design_item">Nội dung:
 			  					<select name="font_website" onchange="font_website(this.value);" class="select_design1">
@@ -89,7 +158,7 @@
 			  			<span class="span_design_item">Màu: <a href="javascript:;" onclick="reset_color();" >Khôi phục mặc định</a></span><br />
 
 			  			@for($i=1;$i<=3;$i++)
-				  			@if((WebsiteController::returnColor($i)) )
+				  			@if( !empty(WebsiteController::returnColor($i)) )
 					  			<span class="span_design_item">Màu {{$i}}: 
 					  				<input type="text" name="color" value="#{{WebsiteController::returnColor($i)}}" onchange="color_design{{$i}}(this.value);" class="color color_design">
 					  			</span><br />
@@ -109,7 +178,7 @@
 						@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tab)
 							<tr class="odd" id="Tr{{$tab->id}}" >
 								<td><input type="text" size="2" value="{{$tab->sort}}"  onchange= "changeSort({{$tab->id}})" class="website_tabs_input" name="{{$tab->id}}Sort" id="{{$tab->id}}Sort" ></td>
-								<td id="TT{{$tab->id}}"><a href="#section_{{$tab->type}}">{{$tab->title}}</a></td>
+								<td id="TT{{$tab->id}}">{{$tab->title}}</td>
 								<input type="text" hidden id="tab{{$tab->id}}" value="{{$tab->id}}">
 								<td><span  class="glyphicon glyphicon-cog pop{{$tab->id}} popoverThis" style="color: #19B5BC; cursor: pointer;" onclick="titleTab({{$tab->id}})" ></span></td>
 							</tr>
@@ -190,28 +259,7 @@
 		<!-- content right include from view -->
 		<div class="col-xs-9 design_website_content_right">
 			
-			@if($id_tmp==2)
-					@include('website_user.themes2.edit.index')
-			@else
-					@if($id_tmp==1)
-						@include('website_user.themes.edit.index')
-					@endif
-
-					@if($id_tmp==3)
-						@include('website_user.themes3.edit.index')
-					@endif
-
-					@if($id_tmp==6)
-						@include('website_user.themes6.edit.index')
-					@endif
-
-					@if($id_tmp==5)
-						@include('website_user.themes5.edit.index')
-					@endif
-
-			@endif
-			
-
+ 			@include('website_user.themes4.edit.index')
 		</div>
 		<!-- .end -->
 
@@ -253,356 +301,10 @@
       
 	</div>
 
-
-
-
-<!-- -modal change background -->
-	<div class="modal fade " id="modal-changebackground">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content ">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Chọn Ảnh Nền</h4>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-xs-6 col-md-2 menu-image" >
-						
-								<a style="text-align:center" href="javascript:void(0);">Upload Ảnh</a></li>
-					</div>
-					<div class="col-xs-12 col-md-10 tab-image">
-						<br>
-							<div class="tab-pane " id="tab-modal-1">
-									<div class="upload-image-tab">
-											
-											<form action="{{URL::route('upload')}}" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >																																		
-												<br>
-												<br>
-												<br>
-												<br>
-												
-												<div class="form-group">
-													<div class="text-center "><img id="image-preview-website" ></div>
-													<div class="text-center"><a onclick="chose_image_backgound()" style="cursor:pointer;" id="chose_image_background" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br></div>
-													<input id="input_image_modal" name="input_image_modal"  type="file" class="file" accept="image/*" required>
-												</div>
-												<div class="form-group">
-													<button type="submit" style="float:right"class="btn btn-primary">Upload</button> 
-												</div>
-												<br>
-												<br>
-																								
-																																																																																
-											<script type="text/javascript">
-											
-												function chose_image_backgound()
-												{
-													 $('#input_image_modal').trigger('click');
-												};
-												
-												 function readURL(input) {
-													        if (input.files && input.files[0]) {
-													            var reader = new FileReader();
-													            
-													            reader.onload = function (e) {
-													                $('#image-preview-website').attr('src', e.target.result);
-													            }
-													            
-													            reader.readAsDataURL(input.files[0]);
-													        }
-													    }
-													     $("#input_image_modal").change(function(){
-													     	 var fileName = $("#input_image_modal").val().toLowerCase();
-															    if(fileName.lastIndexOf("png")===fileName.length-3 | fileName.lastIndexOf("jpeg")===fileName.length-3 |fileName.lastIndexOf("gif")===fileName.length-3|fileName.lastIndexOf("jpg")===fileName.length-3)
-															        readURL(this);
-															    else
-															    {
-															    	$("#input_image_modal").val("");
-															    	$("#image-preview-website").removeAttr('src');
-															    	alert('Vui lòng chọn đúng định dạng file Ảnh');																				        	
-
-															    }																				    	
-														        																				        	
-														    });																																								
-											</script>
-
-										</form>
-									</div><br>
-
-							</div>
-							
-																																									
-					</div>
-
-				</div>
-				
-			</div>
-			
-				
-			
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<!-- -end modal change background -->
-
-<!-- -modal change image -->
-	<div class="modal fade " id="modal-changeimage">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content ">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Chọn Ảnh</h4>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-xs-6 col-md-2 menu-image" >
-						
-								<a style="text-align:center" href="javascript:void(0);">Upload Ảnh</a></li>
-					</div>
-					<div class="col-xs-12 col-md-10 tab-image">
-						<br>
-							<div class="tab-pane " id="tab-modal-image">
-									<div class="upload-image-tab">
-											
-											<form action="{{URL::route('change-image-tab')}}" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >																																		
-												<br>
-												<br>
-												<br>
-												<br>
-												
-												<div class="form-group">
-													<div class="text-center "><img id="image-preview" ></div>
-													<div class="text-center"><a onclick="chose_image()" style="cursor:pointer;" id="chose_image" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br></div>
-													<input id="input_image" name="input_image"  type="file" class="file" accept="image/*" required>
-													<input type="hidden" name="id_tab" id="id_tab" value="">
-												</div>
-												<div class="form-group">
-													<button type="submit" style="float:right"class="btn btn-primary">Upload</button> 
-												</div>
-												<br>
-												<br>
-																								
-																																																																																
-											<script type="text/javascript">
-											
-												function chose_image()
-												{
-													 $('#input_image').trigger('click');
-												};
-												
-												 function readURL_image(input) {
-													        if (input.files && input.files[0]) {
-													            var reader = new FileReader();
-													            
-													            reader.onload = function (e) {
-													                $('#image-preview').attr('src', e.target.result);
-													            }
-													            
-													            reader.readAsDataURL(input.files[0]);
-													        }
-													    }
-													     $("#input_image").change(function(){
-													     	 var fileName = $("#input_image").val().toLowerCase();
-															    if(fileName.lastIndexOf("png")===fileName.length-3 | fileName.lastIndexOf("jpeg")===fileName.length-3 |fileName.lastIndexOf("gif")===fileName.length-3|fileName.lastIndexOf("jpg")===fileName.length-3)
-															        readURL_image(this);
-															    else
-															    {
-															    	$("#input_image").val("");
-															    	$("#image-preview").removeAttr('src');
-															    	alert('Vui lòng chọn đúng định dạng file Ảnh');																				        	
-
-															    }																				    	
-														        																				        	
-														    });
-													     
-											     function send_id(id){
-													// var id_tab=$('#id_tab_web'+id).val();
-														$('input[name=id_tab]').val(id);
-														
-													
-												};			
-																																																
-											</script>
-
-										</form>
-									</div><br>
-
-							</div>
-							
-																																									
-					</div>
-
-				</div>
-				
-			</div>
-			
-				
-			
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- -end modal change image -->	
-
-<div class="modal fade " id="modal-up_images">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content ">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Chọn Ảnh</h4>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-xs-6 col-md-2 menu-image" >
-						
-								<a class="upload" style="text-align:center;text-decoration: none;" href="javascript:void(0);">Upload Ảnh</a></br>
-								<a  class="text-center myalbum" style="text-decoration: none;" href="javascript:;">My Album</a>
-					</div>
-					<div class="col-xs-12 col-md-10 tab-image">
-						<script type="text/javascript">
-								function add_images(){
-									$('.gird_ablum').hide();
-									$('.delete_images').hide();
-									$('.upload-image-tab').show();
-								}
-								$('.myalbum').click(function(){
-									$('.gird_ablum').show();
-									$('.delete_images').show();
-									$('.upload-image-tab').hide();
-								});
-								$('.upload').click(function(){
-									$('.gird_ablum').hide();
-									$('.delete_images').hide();
-									$('.upload-image-tab').show();
-								});
-								function del_album(){
-									var id_array=new Array() ;
-									var i=0;
-									$('input[name="images_del"]'). each(function(){
-										if (this.checked==true) 
-										{
-											id_array[i]=$(this).next().val();
-											i++;
-										};
-									});
-									$.ajax({
-												type:"post",
-												url:"{{URL::route('del_album')}}",
-												data:{
-													id_images:id_array
-												},
-												success:function(data){
-													for (var i = 0; i < id_array.length; i++) {
-														$('.remove_image'+id_array[i]).remove();
-													};		
-												}
-											});																		
-								}
-
-						</script>
-						<br>
-							<div class="tab-pane " id="tab-modal-image_album">
-									<div class="col-xs-12 gird_ablum">
-										<?php $images=PhotoTab::where('user',WebsiteController::id_user())->get(); ?>
-										@foreach($images as $images)
-											<div style="padding-left: 1px;padding-right:1px;" class="col-xs-2 padding_album text-center remove_image{{$images->id}}">
-												<a href="javascript:;">
-													<img class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
-												</a>
-												<input class="images_del{{$images->id}}" name="images_del" type="checkbox" value="">
-												<input type="hidden" value="{{$images->id}}">
-											</div>
-										@endforeach
-									</div>
-
-									<div class="delete_images"> 
-										<button onclick="del_album()" class="btn btn-primary">Xóa</button>
-										<button onclick=" add_images()" class="btn btn-primary">Thêm</button>
-									</div>
-									<div class="upload-image-tab">
-											
-											<form action="{{URL::route('up_images_album')}}" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >																																		
-												<br>
-												<br>
-												<br>
-												<br>
-												
-												<div class="form-group">
-													<div class="text-center "><img id="image-preview_album" ></div>
-													<div class="text-center"><a onclick="chose_image_album()" style="cursor:pointer;" id="chose_image_album" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br></div>
-													<input style="display:none;" id="input_image_album" name="input_image_album"  type="file" class="file" accept="image/*" required>
-													<input type="hidden" name="id_tab_album" id="id_tab_album" value="">
-												</div>
-												<div class="form-group">
-													<button type="submit" style="float:right"class="btn btn-primary">Upload</button> 
-												</div>
-												<br>
-												<br>
-																								
-																																																																																
-											<script type="text/javascript">
-											
-												function chose_image_album()
-												{
-													 $('#input_image_album').trigger('click');
-												};
-												
-												 function readURL_image_album(input) {
-													        if (input.files && input.files[0]) {
-													            var reader = new FileReader();
-													            
-													            reader.onload = function (e) {
-													                $('#image-preview_album').attr('src', e.target.result);
-													            }
-													            
-													            reader.readAsDataURL(input.files[0]);
-													        }
-													    }
-													     $("#input_image_album").change(function(){
-													     	 var fileName = $("#input_image_album").val().toLowerCase();
-															    if(fileName.lastIndexOf("png")===fileName.length-3 | fileName.lastIndexOf("jpeg")===fileName.length-3 |fileName.lastIndexOf("gif")===fileName.length-3|fileName.lastIndexOf("jpg")===fileName.length-3)
-															        readURL_image_album(this);
-															    else
-															    {
-															    	$("#input_image_album").val("");
-															    	$("#image-preview_album").removeAttr('src');
-															    	alert('Vui lòng chọn đúng định dạng file Ảnh');																				        	
-
-															    }																				    	
-														        																				        	
-														    });
-													     
-											     function send_id_album(id){
-													// var id_tab=$('#id_tab_web'+id).val();
-														$('input[name=id_tab_album]').val(id);
-														
-														
-													
-												};			
-																																																
-											</script>
-
-										</form>
-									</div><br>
-
-							</div>
-							
-																																									
-					</div>
-
-				</div>
-				
-			</div>
-			
-				
-			
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
 <script type="text/javascript" src="{{Asset('assets/js/design_color_font.js')}}"></script>
 
 <script type="text/javascript">
+	
 	// get font design
 	function font_website(font_name){
 		$.ajax({

@@ -270,7 +270,15 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('up_images_album',array('as'=>'up_images_album','uses'=>"WebsiteController@up_images_album"));
 	Route::post('load_album',array('as'=>'load_album','uses'=>"WebsiteController@load_album"));
 	Route::post('del_album',array('as'=>'del_album','uses'=>"WebsiteController@del_album"));
-
+	// Route::get('themes5', function(){
+	// $id_user = WebsiteController::id_user();
+	// $id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;
+	// $website = WeddingWebsite::where('user',$id_user)->get();
+	// $firstname = User::where('id', $id_user)->get()->first()->firstname;
+	// return View::make('website_user.themes5.page.index')->with('website', $website)
+	// 													->with('firstname', $firstname)
+	// 													->with('id_web', $id_Web);
+});
 	//template 6
 	
 	//end template 6

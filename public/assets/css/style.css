@@ -2202,7 +2202,7 @@ tr.even td{
 
 }
 .bodyScroll{
-	overflow: hidden;
+	overflow-x: hidden;
 }
 .design_website_content_right {
 	
