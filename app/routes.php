@@ -264,8 +264,11 @@ Route::group(array('before'=>'check_login'), function(){
 	// template 2
 	Route::get('template-tab', array('as'=>'template-tab', 'uses'=>'WebsiteController@templateTabIndex'));
 	Route::get('change_temp', array('as'=>'change_temp', 'uses'=>'WebsiteController@changeTemp'));
-
+	Route::post('update_about_groom', array('as'=>'update_about_groom', 'uses'=>'WebsiteController@updateAboutGroom'));
+	Route::post('update_about_bride', array('as'=>'update_about_bride', 'uses'=>'WebsiteController@updateAboutBride'));
 	// end template 2
+
+
 	// Upload Album
 	Route::post('up_images_album',array('as'=>'up_images_album','uses'=>"WebsiteController@up_images_album"));
 	Route::post('load_album',array('as'=>'load_album','uses'=>"WebsiteController@load_album"));

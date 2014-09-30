@@ -23,6 +23,21 @@
 	margin: 50px 0px;
 	
 }
+
+
+.about_groom:hover .icon_edit_about{
+	display: inline-block;
+}
+.about_bride:hover .icon_edit_about{
+	display: inline-block;
+}
+.icon_edit_about{
+	display: none;
+}
+.edit_ctn_about, .edit_ctn_about_bride{
+	display: none;
+}
+
 .time_wedding{
 	background-color: #FBABAB;
 	border-radius: 10px;

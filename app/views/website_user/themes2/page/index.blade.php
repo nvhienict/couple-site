@@ -131,13 +131,15 @@
   			<div class="col-xs-10">
   				<div class="row">
   					<div class="col-sm-4 col-lg-4 col-md-4">
-		  				<img width="100%;" src="{{Asset('images/website/themes2/wedding17.jpg')}}">
-		  				<h3 style="font-familly: {{$website_item->font}}; color:#{{$website_item->color2}}">
-	  						Marry Eva
-	  					</h3>
-	  					<p style="color: #{{$website_item->color3}}">
-	  						Là một nhân viên văn phòng tại Công ty thuna planner, tính tình hoà đồng, bla bla...
-	  					</p>
+		  				@if(!empty($website_item->avatar_bride))
+		  					<img width="100%;" src="{{Asset("$website_item->avatar_bride")}}">
+						@else
+							<img width="100%;" src="{{Asset('images/website/themes2/avatar/wedding17.jpg')}}">
+						@endif
+						
+		  				<div class="about_bride">
+							{{$website_item->about_bride}}
+						</div>
 		  			</div>
 		  			<div class="col-sm-4 col-lg-4 col-md-4">
 		  				<div style="text-align:center; margin-bottom:30px;">
@@ -185,13 +187,15 @@
 		  				</div>
 		  			</div>
 		  			<div class="col-sm-4 col-lg-4 col-md-4">
-		  				<img width="100%;" src="{{Asset('images/website/themes2/wedding22.jpg')}}">
-		  				<h3 style="font-familly: {{$website_item->font}}; color:#{{$website_item->color2}}">
-	  						Adam
-	  					</h3>
-	  					<p style="color: #{{$website_item->color3}}">
-	  						Anh đẹp trai nhưng không thích chảnh, đến với Eva là 1 sự tình cờ hoà trong 1 tình yêu nồng cháy sắc lửa nam tính...
-	  					</p>
+		  				@if(!empty($website_item->avatar_groom))
+		  					<img width="100%;" src="{{Asset("$website_item->avatar_groom")}}">
+						@else
+							<img width="100%;" src="{{Asset('images/website/themes2/avatar/wedding17.jpg')}}">
+						@endif
+
+		  				<div class="about_groom">
+							{{$website_item->about_groom}}
+						</div>
 		  			</div>
   				</div>
   			</div>
@@ -203,7 +207,7 @@
   	@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
 	  	
 	  	@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
-			<div class="tab-pane" id="welcome">
+			<div class="tab-pane" id="welcome" style="min-height: 240px;">
 		  		@include('website_user.themes2.page.left')
 		  	</div>
 		  	<!-- .tab welcome -->
@@ -217,31 +221,31 @@
 		@endif
 
   		@if($tabWeb->type=="about" && $tabWeb->visiable==0)
-		  	<div class="tab-pane" id="about">
+		  	<div class="tab-pane" id="about" style="min-height: 240px;">
 		  		@include('website_user.themes2.page.right')
 		  	</div>
 		@endif
 
 		@if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
-		  	<div class="tab-pane" id="even">
+		  	<div class="tab-pane" id="even" style="min-height: 240px;">
 		  		@include('website_user.themes2.page.right')
 		  	</div>
 	  	@endif
 
 	  	@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
-			<div class="tab-pane" id="travel">
+			<div class="tab-pane" id="travel" style="min-height: 240px;">
   				@include('website_user.themes2.page.text')
   			</div>
   		@endif
 
   		@if($tabWeb->type=="album" && $tabWeb->visiable==0)
-			<div class="tab-pane" id="images">
+			<div class="tab-pane" id="images" style="min-height: 240px;">
   				@include('website_user.themes2.page.photo')
   			</div>
   		@endif
 
   		@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
-			<div class="tab-pane" id="contact">
+			<div class="tab-pane" id="contact" style="min-height: 240px;">
   				@include('website_user.themes2.page.contact')
   			</div>
   		@endif
@@ -261,15 +265,14 @@
   			<div class="col-xs-1"></div>
   			<div class="col-xs-10">
   				<div class="col-sm-4 col-lg-4 col-md-4">
-					Chào mừng đến dự đám cưới vào<br />
-					01/01/2015 nhằm ngày 15/12/2014 Âm lịch
+					Chào mừng đến dự đám cưới vào ngày {{WebsiteController::getDates()}}
 				</div>
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					<img width="100%" src="{{Asset('images/website/themes2/couple.png')}}">
 				</div>
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					Mọi vấn đề xin liên hệ cho chúng tôi <br />
-					0123456789
+					{{WebsiteController::getEmail()}}
 				</div>
   			</div>
 				

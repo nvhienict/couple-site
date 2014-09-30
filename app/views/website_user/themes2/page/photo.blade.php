@@ -27,7 +27,7 @@
 </head>
 <div>
     <div class="partion">                
-        <h3 class="text-center title-tab">Photo</h3>  
+        <h3 class="text-center title-tab">Album ảnh</h3>
         <div class="show-content phara{{$tabWeb->id}}">                            
         <p> {{$tabWeb->content}}</p>
         </div> 

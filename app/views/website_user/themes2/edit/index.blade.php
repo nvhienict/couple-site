@@ -73,6 +73,64 @@
 		        $('.ok-edit-show'+id).hide();
 		} 
 
+		
+		function edit_about_bride()
+		{
+			$('.edit_ctn_about_bride').show();
+			$('.about_bride').hide();
+		}
+		function update_about_bride()
+		{
+			$.ajax({
+				type:"post",
+				dataType: "html",
+				url:"{{URL::route('update_about_bride')}}",
+				data: {	content:CKEDITOR.instances['edit_about_bride'].getData()
+					},
+				success:function(data){
+					var obj = JSON.parse(data);
+					$('.about_bride').html(obj.content);
+				}
+			});
+
+			$('.edit_ctn_about_bride').hide();
+			$('.about_bride').show();
+		}
+		function exit_edit_about_bride()
+		{
+			$('.edit_ctn_about_bride').hide();
+			$('.about_bride').show();
+		}
+
+
+		function edit_about_groom()
+		{
+			$('.edit_ctn_about').show();
+			$('.about_groom').hide();
+		}
+		function update_about_groom()
+		{
+			$.ajax({
+				type:"post",
+				dataType: "html",
+				url:"{{URL::route('update_about_groom')}}",
+				data: {	content:CKEDITOR.instances['edit_about_groom'].getData()
+					},
+				success:function(data){
+					var obj = JSON.parse(data);
+					$('.about_groom').html(obj.content);
+				}
+			});
+
+			$('.edit_ctn_about').hide();
+			$('.about_groom').show();
+		}
+		function exit_edit_about_groom()
+		{
+			$('.edit_ctn_about').hide();
+			$('.about_groom').show();
+		}
+
 	</script>
 
 </head>
@@ -130,13 +188,30 @@
   			<div class="col-xs-10">
   				<div class="row">
   					<div class="col-sm-4 col-lg-4 col-md-4">
-		  				<img width="100%;" src="{{Asset('images/website/themes2/wedding17.jpg')}}">
-		  				<h3 style="font-familly: {{$website_item->font}}; color:#{{$website_item->color2}}">
-	  						Marry Eva
-	  					</h3>
-	  					<p style="color: #{{$website_item->color3}}">
-	  						Là một nhân viên văn phòng tại Công ty thuna planner, tính tình hoà đồng, bla bla...
-	  					</p>
+  						@if(!empty($website_item->avatar_bride))
+		  					<img width="100%;" src="{{Asset("$website_item->avatar_bride")}}">
+						@else
+							<img width="100%;" src="{{Asset('images/website/themes2/avatar/wedding17.jpg')}}">
+						@endif
+			            <button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+
+		  				<div class="about_bride">
+							{{$website_item->about_bride}}
+							<span class="icon_edit_about"><a onclick="edit_about_bride();" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+						</div>
+
+						<div class="edit_ctn_about_bride">
+							<textarea name="edit_about_bride" class="ckeditor form-control" cols="40" rows="10" tabindex="1">
+							   {{$website_item->about_bride}}
+							</textarea>
+
+							<span>
+								<a onclick="update_about_bride();" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
+							</span>
+							<span><a style="color:#e74c3c;" onclick="exit_edit_about_bride();" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
+
+						</div>
+
 		  			</div>
 		  			<div class="col-sm-4 col-lg-4 col-md-4">
 		  				<div style="text-align:center; margin-bottom:30px;">
@@ -184,13 +259,30 @@
 		  				</div>
 		  			</div>
 		  			<div class="col-sm-4 col-lg-4 col-md-4">
-		  				<img width="100%;" src="{{Asset('images/website/themes2/wedding22.jpg')}}">
-		  				<h3 style="font-familly: {{$website_item->font}}; color:#{{$website_item->color2}}">
-	  						Adam
-	  					</h3>
-	  					<p style="color: #{{$website_item->color3}}">
-	  						Anh đẹp trai nhưng không thích chảnh, đến với Eva là 1 sự tình cờ hoà trong 1 tình yêu nồng cháy sắc lửa nam tính...
-	  					</p>
+		  				@if(!empty($website_item->avatar_groom))
+		  					<img width="100%;" src="{{Asset("$website_item->avatar_groom")}}">
+						@else
+							<img width="100%;" src="{{Asset('images/website/themes2/avatar/wedding17.jpg')}}">
+						@endif
+			            <button onclick="send_id(222)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+
+		  				<div class="about_groom">
+							{{$website_item->about_groom}}
+							<span class="icon_edit_about"><a onclick="edit_about_groom();" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+						</div>
+
+						<div class="edit_ctn_about">
+							<textarea name="edit_about_groom" class="ckeditor form-control" cols="40" rows="10" tabindex="1">
+							   {{$website_item->about_groom}}
+							</textarea>
+
+							<span>
+								<a onclick="update_about_groom();" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
+							</span>
+							<span><a style="color:#e74c3c;" onclick="exit_edit_about_groom();" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
+
+						</div>
+
 		  			</div>
   				</div>
   			</div>
@@ -261,15 +353,14 @@
   			<div class="col-xs-1"></div>
   			<div class="col-xs-10">
   				<div class="col-sm-4 col-lg-4 col-md-4">
-					Chào mừng đến dự đám cưới vào<br />
-					01/01/2015 nhằm ngày 15/12/2014 Âm lịch
+					Chào mừng đến dự đám cưới vào ngày {{WebsiteController::getDates()}}
 				</div>
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					<img width="100%" src="{{Asset('images/website/themes2/couple.png')}}">
 				</div>
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					Mọi vấn đề xin liên hệ cho chúng tôi <br />
-					0123456789
+					{{WebsiteController::getEmail()}}
 				</div>
   			</div>
 				

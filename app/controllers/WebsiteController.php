@@ -52,6 +52,13 @@ class WebsiteController extends \BaseController {
 		return Carbon::parse(User::find($id_user)->weddingdate)->format('d-m-Y');
 	}
 
+	// get email user
+	public static function getEmail(){
+		$id_user = WebsiteController::id_user();
+
+		return User::find($id_user)->email;
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -652,42 +659,73 @@ public function Post_update_Tab(){
 
 
 		if(Input::hasFile('input_image'))
-				{	
-					$check_photo=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->count();
-					if($check_photo>0)
-					{	$name=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->first()->photo;
-						$years=date("Y");
-						$months=date('m');
-						$path_delete=public_path($name);
-						File::delete($path_delete);
-						File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
-						$image=Input::file('input_image');
-						$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
-						$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
-						$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
-						Image::make($image->getRealPath())->resize(800, 600)->save($path);
-						PhotoTab::where('user',$id_user)->where('tab',$id_tab)->update(
-							array('photo'=>$pathsave)					
-							);
-					    return Redirect::route('website/edit/pages');						
-					}
-					else{
-						$phototab=new PhotoTab();
-						$years=date("Y");
-						$months=date('m');	
-						File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);					
-						$image=Input::file('input_image');
-					  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
-						$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
-						$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
-						Image::make($image->getRealPath())->resize(800, 600)->save($path);
-						$phototab->user=$id_user;
-						$phototab->photo=$pathsave;
-						$phototab->tab = $id_tab;
-						$phototab->save();
-					    return Redirect::route('website/edit/pages');					
+				{
+					switch ($id_tab) {
+						case 111:
+							$image=Input::file('input_image');
+							$filename = $id_user.'bride' . '.' .$image->getClientOriginalExtension();
+							$path = 'images/website/themes2/avatar/'.$filename;
+							Image::make($image->getRealPath())->resize(800, 600)->save($path);
+							WeddingWebsite::where('user',$id_user)->update(
+								array('avatar_bride'=>$path)					
+								);
+
+							return Redirect::route('website/edit/pages');
+							break;
+
+						case 222:
+							$image=Input::file('input_image');
+							$filename = $id_user.'groom' . '.' .$image->getClientOriginalExtension();
+							$path = 'images/website/themes2/avatar/'.$filename;
+							Image::make($image->getRealPath())->resize(800, 600)->save($path);
+							WeddingWebsite::where('user',$id_user)->update(
+								array('avatar_groom'=>$path)					
+								);
+
+							return Redirect::route('website/edit/pages');
+							break;
 						
-					}		
+						default:
+							$check_photo=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->count();
+							if($check_photo>0)
+							{	$name=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->first()->photo;
+								$years=date("Y");
+								$months=date('m');
+								$path_delete=public_path($name);
+								File::delete($path_delete);
+								File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
+								$image=Input::file('input_image');
+								$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
+								$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+								$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
+								Image::make($image->getRealPath())->resize(800, 600)->save($path);
+								PhotoTab::where('user',$id_user)->where('tab',$id_tab)->update(
+									array('photo'=>$pathsave)					
+									);
+							    return Redirect::route('website/edit/pages');						
+							}
+							else
+							{
+								$phototab=new PhotoTab();
+								$years=date("Y");
+								$months=date('m');	
+								File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);					
+								$image=Input::file('input_image');
+							  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
+								$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+								$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
+								Image::make($image->getRealPath())->resize(800, 600)->save($path);
+								$phototab->user=$id_user;
+								$phototab->photo=$pathsave;
+								$phototab->tab = $id_tab;
+								$phototab->save();
+							    return Redirect::route('website/edit/pages');					
+								
+							}
+							break;
+					}
+					
+
 				} //end if
 				
 			
@@ -815,5 +853,36 @@ public function up_images_album(){
 		return View::make('website_user.themes6.page.index');
 	}	
 
-}
+
+
+
+	public function updateAboutGroom()
+	{
+		$content = Input::get('content');
+
+		WeddingWebsite::where('user', WebsiteController::id_user())->update(
+		array(
+			'about_groom'=>$content
+			));
+
+		echo json_encode(array('content'=>$content));
+		exit();	
+
+	} // end function updateAboutGroom()
+
+	public function updateAboutBride()
+	{
+		$content = Input::get('content');
+
+		WeddingWebsite::where('user', WebsiteController::id_user())->update(
+		array(
+			'about_bride'=>$content
+			));
+
+		echo json_encode(array('content'=>$content));
+		exit();	
+
+	} // end function updateAboutGroom()
+
+} // edn Controller
 
