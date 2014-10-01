@@ -283,13 +283,11 @@ Route::group(array('before'=>'check_login'), function(){
 	// 													->with('firstname', $firstname)
 	// 													->with('id_web', $id_Web);
 
-	//template 6
-	
-	//end template 6
-
+	// time count down
+	Route::post('time_count_down', array('as'=>'time_count_down','uses'=>"WebsiteController@timeCountDown"));
+	// end time count down
 });
-/*** end website user ***/ 
-// Route::get('thu', array('as'=>'thu', 'uses'=>'WebsiteController@thu'));
+
 
 
 

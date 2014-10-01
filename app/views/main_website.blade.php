@@ -42,12 +42,9 @@
 	<script src="{{Asset("assets/js/owl.carousel.min.js")}}"></script>
 	<script src="{{Asset("assets/js/nivo-lightbox.min.js")}}"></script>
 	<script src="{{Asset("assets/js/custom.js")}}"></script>
-	<script src="{{Asset('assets/js/jquery-validate/jquery.validate.js')}}"></script>
 
 	<!-- checklist -->
-	<link href="{{Asset("assets/css/jquery.datetimepicker.css")}}" rel="stylesheet">
-	<script src="{{Asset('assets/js/jquery.js')}}"></script>
-	<script src="{{Asset('assets/js/jquery.datetimepicker.js')}}"></script>
+	
 	<script src="{{Asset('assets/js/jquery-validate/jquery.validate.min.js')}}"></script>
 	<script src="{{Asset('assets/js/jquery.number.js')}}"></script>
 	<script src="{{Asset('assets/js/jquery.number.min.js')}}"></script>
@@ -60,6 +57,9 @@
 	
 	<!-- Jscolor -->
 	<script src="{{Asset('assets/jscolor/jscolor.js')}}"></script>
+
+	<link href="{{Asset("assets/css/jquery.datetimepicker.css")}}" rel="stylesheet">
+	<script src="{{Asset('assets/js/jquery.datetimepicker.js')}}"></script>
 
 
 </head>

@@ -63,6 +63,57 @@
 			  			<button class="btn btn-primary" data-toggle="modal" data-target='#modal-changebackground' style="background: #19b5bc; border:none;">Đổi Ảnh Nền</button>
 
 			  			<hr>
+						<span class="span_design_item">Ngày tổ chức tiệc cưới</span><br />
+						<span class="span_design_item">
+			  				<input type="text" name="count_down" id="count_down" value="{{WebsiteController::getCountDown()}}">
+			  				<script type="text/javascript">
+								jQuery('#count_down').datetimepicker({
+									lang:'en',
+									i18n:{
+									en:{
+										months:[
+										    'January','February','March','April',
+										    'May','June','July','August',
+										    'September','October','November','December',
+										   ],
+										dayOfWeek:[
+										    "Su", "Mo", "Tu", "We", 
+										    "Th", "Fr", "Sa",
+										   ]
+										}
+									},
+									timepicker:false,
+									format:'d-m-Y'
+								});
+
+								$('#count_down').change(function(){
+									var data_input=$(this).val();
+									$.ajax({
+										type:"post",
+										url:"{{URL::route('time_count_down')}}",
+										data:{data_input:data_input},
+										success:function(data){
+											var obj = JSON.parse(data);
+											var date_input = obj.dd;
+
+											var d = jQuery.trim(data_input).substring(0, 2);
+											var m = jQuery.trim(data_input).substring(3, 5);
+											var y = jQuery.trim(data_input).substring(6, 10);
+
+											$('.getD0').text(d);
+											$('.getD1').text(m);
+											$('.getD2').text(y);
+
+											$('.design_website_content_right').load('website_user.themes2.edit.index');
+
+										}
+									});
+								});
+
+				            </script>
+						</span>
+
+			  			<hr>
 			  			
 			  			<span class="span_design_item">Font chữ:</span><br />
 			  			<span class="span_design_item">Nội dung:

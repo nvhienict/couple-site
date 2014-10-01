@@ -52,6 +52,13 @@ class WebsiteController extends \BaseController {
 		return Carbon::parse(User::find($id_user)->weddingdate)->format('d-m-Y');
 	}
 
+	// format time count down
+	public static function getCountDown(){
+		$id_user = WebsiteController::id_user();
+
+		return Carbon::parse(WeddingWebsite::where('user', $id_user)->get()->first()->count_down)->format('d-m-Y');
+	}
+
 	// get email user
 	public static function getEmail(){
 		$id_user = WebsiteController::id_user();
@@ -237,7 +244,9 @@ class WebsiteController extends \BaseController {
 		} else {
 			WeddingWebsite::where('user',$id_user)->update(
 				array(
-					"template"=>$id_tmp
+					"template"=>$id_tmp,
+					"about_bride"=>"Giới thiệu về cô dâu",
+					"about_groom"=>"Giới thiệu về chú rể",
 					));
 		}
 			
@@ -888,6 +897,21 @@ public function up_images_album(){
 		exit();	
 
 	} // end function updateAboutGroom()
+
+	public function timeCountDown()
+	{
+		$count_down = Input::get('data_input');
+		$cv_count_down = Carbon::parse($count_down)->format('Y-m-d');
+
+		WeddingWebsite::where('user', WebsiteController::id_user())->update(
+		array(
+			'count_down'=>$cv_count_down
+			));
+
+	} // end function timeCountDown()
+
+
+
 
 } // edn Controller
 
