@@ -913,5 +913,5 @@ public function up_images_album(){
 
 
 
-} // edn Controller
+} // end Controller
 
