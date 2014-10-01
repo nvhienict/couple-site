@@ -77,61 +77,77 @@
 </head>
 @if($website)
 @foreach( $website as $website_item )
-<body class="background-themes "style="background-image: url({{Asset("{$backgrounds}")}});">
+<div class="background-themes "style="background-image: url({{Asset("{$backgrounds}")}});">
 	
 		<div class="container main-template">
-		<br>
-			<div class="navbar-collapse collapse menu_tab_pills" >
-				<ul class="nav navbar-nav menu_tab">
-				  <li class="active"><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
-				  <li><a href="#welcome" role="tab" data-toggle="tab">Chào mừng</a></li>
-				  <li><a href="#about" role="tab" data-toggle="tab">Giới thiệu</a></li>
-				  <li><a href="#event" role="tab" data-toggle="tab">Sự kiện</a></li>
-				  <li><a href="#travel" role="tab" data-toggle="tab">Du lịch</a></li>
-				  <li><a href="#album" role="tab" data-toggle="tab">Album</a></li>
-				  <li><a href="#contact" role="tab" data-toggle="tab">Liên lạc</a></li>
-				</ul>
+		<br>		
+			<div class="navbar navbar-default menu_tab" role="navigation" style=" background-color:white; opacity: 0.8;z-index:9999; clear:both; top:0;">
+		    	<div class="container-fluid ">
+		      		<div class="navbar-header">
+		        		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-themes_6">
+		         			<span class="sr-only">Toggle navigation</span>
+			              	<span class="icon-bar"></span>
+			              	<span class="icon-bar"></span>
+			              	<span class="icon-bar"></span>
+		        		</button>
+		        		
+		      		</div>
+		      		<div class="navbar-collapse collapse" id="menu-themes_6">
+
+		        		<ul class="nav navbar-nav">
+		        			<li class="active"><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
+						  <li><a href="#welcome" role="tab" data-toggle="tab">Chào mừng</a></li>
+						  <li><a href="#about" role="tab" data-toggle="tab">Giới thiệu</a></li>
+						  <li><a href="#event" role="tab" data-toggle="tab">Sự kiện</a></li>
+						  <li><a href="#travel" role="tab" data-toggle="tab">Du lịch</a></li>
+						  <li><a href="#album" role="tab" data-toggle="tab">Album</a></li>
+						  <li><a href="#contact" role="tab" data-toggle="tab">Liên lạc</a></li>
+		          			
+		        		</ul>
+
+		      		</div><!--/.nav-collapse -->
+		    	</div><!--/.container-fluid -->
 			</div>
+		
+		
+		<br>
 		
 		  	<div class="tab-content">
 		  		<div class="row tab-pane active" id="home">
-		  			<div class="col-xs-1"></div>
-		  			<div class="col-xs-11">
+		  			
 		  				@include('website_user.themes6.edit.main')
-		  			</div>
-						
 				</div>
 			@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)	
 
 		  			@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
 		  				<div class="tab-pane " id="welcome">
-		  					@include('website_user.themes6.edit.left')
+		  					@include('website_user.themes6.page.left')
 		  				</div>
 		  			@endif
 		  			
 		  			@if($tabWeb->type =="about" && $tabWeb->visiable==0 )	
 		  				<div class="tab-pane" id="about">
-		  					@include('website_user.themes6.edit.right')
+		  					@include('website_user.themes6.page.right')
 		  				</div>
 	  				@endif
 	  				@if($tabWeb->type =="wedding" && $tabWeb->visiable==0 )	
 		  				<div class="tab-pane" id="event">
-		  					@include('website_user.themes6.edit.right')
+		  					@include('website_user.themes6.page.right')
 		  				</div>
 	  				@endif
 	  				@if($tabWeb->type =="traval" && $tabWeb->visiable==0 )	
 		  				<div class="tab-pane" id="travel">
-		  					@include('website_user.themes6.edit.text')
+		  					@include('website_user.themes6.page.text')
 		  				</div>
 	  				@endif
 	  				@if($tabWeb->type =="album" && $tabWeb->visiable==0 )
 		  				<div class="tab-pane" id="album">
-		  					@include('website_user.themes6.edit.photo')
+		  					@include('website_user.themes6.page.photo')
 		  				</div>
 		  			@endif
 		  			@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
 		  				<div class="tab-pane" id="contact">
-		  					@include('website_user.themes6.edit.contact')
+		  					@include('website_user.themes6.page.contact')
 		  				</div>	
 	  				@endif		
 				
@@ -142,7 +158,7 @@
 		</div>
 
 	
-</body>
+</div>
 
 
 @endforeach

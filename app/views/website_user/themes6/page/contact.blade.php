@@ -1,5 +1,5 @@
 <br>
-<br>
+
 <div class="col-xs-8 partion contact-main" >
   <div class="row phara-margin ">
         
@@ -16,7 +16,7 @@
 <br><br>
      <div class="row phara-margin"style="background-image: url({{Asset("images/website/themes6/envelope.jpg")}});">
         <div class="row contact-content">
-            <div class="col-xs-6">
+            <div class="col-xs-8">
                 <form  class="contact-website" action="" method="POST" role="form">
                
                    <div class="form-group">
