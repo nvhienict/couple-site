@@ -81,7 +81,7 @@
 	
 		<div class="container main-template">
 		<br>		
-			<div class="navbar navbar-default navbar-fixed-top menu_tab" role="navigation" style="position:fixed; background-color:white; opacity: 0.8;z-index:9999; clear:both; top:0;">
+			<div class="navbar navbar-default navbar-fixed-top menu_tab" role="navigation" style="position:fixed; background-color:white; opacity: 0.8; clear:both; top:0;">
 		    	<div class="container-fluid ">
 		      		<div class="navbar-header">
 		        		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-themes_6">
