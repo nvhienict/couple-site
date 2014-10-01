@@ -14,7 +14,7 @@
 	<!-- css -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
-    
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
 	
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
@@ -77,29 +77,46 @@
 </head>
 @if($website)
 @foreach( $website as $website_item )
-<body class="background-themes "style="background-image: url({{Asset("{$backgrounds}")}});">
+<div class="background-themes "style="background-image: url({{Asset("{$backgrounds}")}});">
 	
 		<div class="container main-template">
-		<br>
-			<div class="navbar-collapse collapse menu_tab_pills" >
-				<ul class="nav navbar-nav menu_tab">
-				  <li class="active"><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
-				  <li><a href="#welcome" role="tab" data-toggle="tab">Chào mừng</a></li>
-				  <li><a href="#about" role="tab" data-toggle="tab">Giới thiệu</a></li>
-				  <li><a href="#event" role="tab" data-toggle="tab">Sự kiện</a></li>
-				  <li><a href="#travel" role="tab" data-toggle="tab">Du lịch</a></li>
-				  <li><a href="#album" role="tab" data-toggle="tab">Album</a></li>
-				  <li><a href="#contact" role="tab" data-toggle="tab">Liên lạc</a></li>
-				</ul>
+		<br>		
+			<div class="navbar navbar-default navbar-fixed-top menu_tab" role="navigation" style="position:fixed; background-color:white; opacity: 0.8;z-index:9999; clear:both; top:0;">
+		    	<div class="container-fluid ">
+		      		<div class="navbar-header">
+		        		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-themes_6">
+		         			<span class="sr-only">Toggle navigation</span>
+			              	<span class="icon-bar"></span>
+			              	<span class="icon-bar"></span>
+			              	<span class="icon-bar"></span>
+		        		</button>
+		        		
+		      		</div>
+		      		<div class="navbar-collapse collapse" id="menu-themes_6">
+
+		        		<ul class="nav navbar-nav">
+		        			<li class="active"><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
+						  <li><a href="#welcome" role="tab" data-toggle="tab">Chào mừng</a></li>
+						  <li><a href="#about" role="tab" data-toggle="tab">Giới thiệu</a></li>
+						  <li><a href="#event" role="tab" data-toggle="tab">Sự kiện</a></li>
+						  <li><a href="#travel" role="tab" data-toggle="tab">Du lịch</a></li>
+						  <li><a href="#album" role="tab" data-toggle="tab">Album</a></li>
+						  <li><a href="#contact" role="tab" data-toggle="tab">Liên lạc</a></li>
+		          			
+		        		</ul>
+
+		      		</div><!--/.nav-collapse -->
+		    	</div><!--/.container-fluid -->
 			</div>
+		
+		<br>
+		<br>
 		
 		  	<div class="tab-content">
 		  		<div class="row tab-pane active" id="home">
-		  			<div class="col-xs-1"></div>
-		  			<div class="col-xs-11">
+		  			
 		  				@include('website_user.themes6.edit.main')
-		  			</div>
-						
+		  		
 				</div>
 			@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)	
 
@@ -142,7 +159,7 @@
 		</div>
 
 	
-</body>
+</div>
 
 
 @endforeach

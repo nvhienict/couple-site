@@ -1,5 +1,5 @@
-<br>
-<br>
+
+
 <br>
 <head>
     <!--  Slide Album -->
@@ -40,10 +40,10 @@
      <br>
      <br>
      <div class="row phara-margin ">     
-            <?php $check=PhotoTab::where('tab',$tabWeb->id)->get()->count();?>
+            <?php $check=PhotoTab::where('user',$website_item->user)->get()->count();?>
                 @if($check>0)
                 <div class="row phara-margin">
-                    <?php $albums=PhotoTab::where('tab',$tabWeb->id)->get();?>
+                    <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
                     @foreach($albums as $album)
                         <div class="col-xs-3 images-padding">
                             <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
