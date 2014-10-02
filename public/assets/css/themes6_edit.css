@@ -426,8 +426,11 @@
 }
 .partion
 {
+    height: 400px;
     background-color:white; opacity: 0.8;
+    overflow: auto;
 }
+
 .partion-contact
 {
     background-color:white; opacity: 0.8;
@@ -469,7 +472,7 @@
 
 .background-themes 
 { 
-    height: 600px;
+    min-height: 600px;
     overflow-y:auto;
     padding: 0px;
     margin-left: -15px;
@@ -483,11 +486,12 @@
 }
 .contact-main
 {
-    height: 500px;
+    height:600 ;
     overflow-y:auto;
     
 
 }
+
 .contact-content
 {
     padding-top:30px;

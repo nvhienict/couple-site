@@ -31,7 +31,7 @@
    }
    .circle-text:after
    {
-        margin-top: -67%;
+        margin-top: -30%;
         margin-left: 25%;
    }
    .circle-text 
@@ -39,7 +39,7 @@
     width:43%;
     }
    .circle-text div {
-    padding-top: 15%;
+    padding-top: 10%;
         margin-left: 25%;
    }
     .circle-text div  h1 
@@ -59,7 +59,7 @@
    }
    .circle-text:after
    {
-        margin-top: -60%;
+        margin-top: -30%;
         margin-left: 35%;
    }
    .circle-text div {
@@ -85,7 +85,7 @@
    }
    .circle-text:after
    {
-        margin-top: -50%;
+        margin-top: -12%;
         margin-left: 45%;
    }
    .circle-text {
@@ -113,7 +113,7 @@
    }
    .circle-text:after
    {
-        margin-top: -35%;
+        margin-top: 0%;
         margin-left: 53%;
    }
    .circle-text div {
@@ -136,7 +136,7 @@
    }
    .circle-text:after
    {
-        margin-top: -32%;
+        margin-top: -5%;
         margin-left: 45%;
    }
    .circle-text {
@@ -163,7 +163,7 @@
    }
    .circle-text:after
    {
-        margin-top: -25%;
+        margin-top: -5%;
         margin-left: 47%;
    }
    .circle-text {
@@ -190,7 +190,7 @@
    }
    .circle-text:after
    {
-        margin-top: -25%;
+        margin-top: 2%;
         margin-left: 55%;
    }
    .circle-text div {
@@ -214,7 +214,7 @@
    }
    .circle-text:after
    {
-        margin-top: -15%;
+        margin-top: 2%;
         margin-left: 55%;
    }
    .circle-text div {
@@ -238,7 +238,7 @@
    }
    .circle-text:after
    {
-        margin-top: -15%;
+        margin-top: 2%;
         margin-left: 55%;
    }
    .circle-text div {
@@ -262,7 +262,7 @@
    }
    .circle-text:after
    {
-        margin-top: -15%;
+        margin-top: 2%;
         margin-left: 55%;
    }
    .circle-text div {
@@ -286,7 +286,7 @@
    }
    .circle-text:after
    {
-        margin-top: -12%;
+        margin-top: 2%;
         margin-left: 50%;
    }
    .circle-text div {
@@ -310,7 +310,7 @@
    }
    .circle-text:after
    {
-        margin-top: -12%;
+        margin-top: 2%;
         margin-left: 55%;
    }
    .circle-text div {
@@ -330,11 +330,11 @@
 @media only screen and (min-device-width: 801px) and (max-device-width: 850px) {
    body
    {
-    padding-top: 40px;
+    padding-top: 70px;
    }
    .circle-text:after
    {
-        margin-top: 1%;
+        margin-top: 7%;
         margin-left: 45%;
    }
    .circle-text div {
@@ -354,7 +354,7 @@
 @media only screen and (min-device-width: 851px) and (max-device-width: 900px) {
    body
    {
-    padding-top: 40px;
+    padding-top: 70px;
    }
    .circle-text:after
    {
@@ -378,18 +378,18 @@
 @media only screen and (min-device-width: 901px) and (max-device-width: 950px) {
    body
    {
-    padding-top: 40px;
+    padding-top: 60px;
    }
    .circle-text {
     width:35%;
     }
    .circle-text:after
    {
-        margin-top: -15%;
+        margin-top: 10%;
         margin-left: 30%;
    }
    .circle-text div {
-        padding-top: 20%;
+        padding-top: 10%;
         margin-left: 30%;
    }
     .circle-text div  h1 
@@ -402,20 +402,22 @@
     }
       
 }
-@media only screen and (min-device-width: 951px) and (max-device-width: 1000px) {
+@media only screen and (min-device-width: 951px) and (max-device-width: 991px) {
    body
    {
     padding-top: 40px;
    }
-   
+    .circle-text {
+    width:34%;
+    }
    .circle-text:after
    {
-        margin-top: -10%;
-        margin-left: 45%;
+        margin-top: 10%;
+        margin-left: 30%;
    }
    .circle-text div {
         padding-top: 20%;
-        margin-left: 45%;
+        margin-left: 30%;
    }
     .circle-text div  h1 
     {
@@ -427,7 +429,7 @@
     }
       
 }
-@media only screen and (min-device-width: 1001px) and (max-device-width: 1500px) {
+@media only screen and (min-device-width: 992px) and (max-device-width: 1200px) {
    body
    {
     padding-top: 40px;
@@ -435,11 +437,35 @@
    .circle-text:after
    {
         margin-top: 5%;
-        margin-left: 40%;
+        margin-left: 47%;
    }
    .circle-text div {
         padding-top: 20%;
-        margin-left: 40%;
+        margin-left: 47%;
+   }
+    .circle-text div  h1 
+    {
+        font-size: 160%;  
+    }
+    .circle-text div  h2
+    {
+        font-size: 160%;  
+    }
+      
+}
+@media only screen and (min-device-width: 1201px) and (max-device-width: 1500px) {
+   body
+   {
+    padding-top: 30px;
+   }
+   .circle-text:after
+   {
+        margin-top: 12%;
+        margin-left: 45%;
+   }
+   .circle-text div {
+        padding-top: 20%;
+        margin-left: 45%;
    }
     .circle-text div  h1 
     {
@@ -478,6 +504,7 @@
 .partion
 {
     background-color:white; opacity: 0.8;
+
 }
 .partion-contact
 {
@@ -525,7 +552,7 @@
     padding: 0px;
     margin-left: -15px;
     margin-right: 0px;
-    background-repeat: none repeat top center ;
+    background-repeat: none;
   -webkit-background-size:100%;
   -moz-background-size: 100%;
   -o-background-size: 100%;
@@ -538,6 +565,11 @@
     overflow-y:auto;
     
 
+}
+.love_story
+{
+   
+    overflow-y:auto;
 }
 .contact-content
 {

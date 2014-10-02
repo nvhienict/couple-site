@@ -1,9 +1,7 @@
-<br>
+
 <div class="col-xs-8 partion">
     <div class="row phara-margin">
-        <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} " id = "nameTitle{{$tabWeb->id}}">
-            {{$tabWeb->title}}
-        </h3>
+        <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}"  id = "nameTitle{{$tabWeb->id}}" >{{$tabWeb->title}}</h3>
         <div class="col-xs-6 float-right">
             <span> 
                 <a href="#">
@@ -23,7 +21,7 @@
             </span>
         </div>
         <div class="show-content phara{{$tabWeb->id}}">
-            {{$tabWeb->content}}
+           <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
         </div>
         <div class="edit-content editphara{{$tabWeb->id}}">
             <textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">

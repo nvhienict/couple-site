@@ -96,12 +96,9 @@
 
 		        		<ul class="nav navbar-nav">
 		        			<li class="active"><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
-						  <li><a href="#welcome" role="tab" data-toggle="tab">Chào mừng</a></li>
-						  <li><a href="#about" role="tab" data-toggle="tab">Giới thiệu</a></li>
-						  <li><a href="#event" role="tab" data-toggle="tab">Sự kiện</a></li>
-						  <li><a href="#travel" role="tab" data-toggle="tab">Du lịch</a></li>
-						  <li><a href="#album" role="tab" data-toggle="tab">Album</a></li>
-						  <li><a href="#contact" role="tab" data-toggle="tab">Liên lạc</a></li>
+		        			@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
+		        			<li><a href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>
+						  	@endforeach
 		          			
 		        		</ul>
 
@@ -120,34 +117,39 @@
 			@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)	
 
 		  			@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
-		  				<div class="tab-pane " id="welcome">
-		  					@include('website_user.themes6.page.left')
+		  				<div class="tab-pane " id="{{$tabWeb->type}}">
+		  					@include('website_user.themes6.edit.left')
 		  				</div>
 		  			@endif
 		  			
 		  			@if($tabWeb->type =="about" && $tabWeb->visiable==0 )	
-		  				<div class="tab-pane" id="about">
-		  					@include('website_user.themes6.page.right')
+		  				<div class="tab-pane" id="{{$tabWeb->type}}">
+		  					@include('website_user.themes6.edit.right')
 		  				</div>
 	  				@endif
+	  				@if($tabWeb->type =="love_story" && $tabWeb->visiable==0 )
+						<div class="tab-pane" id="{{$tabWeb->type}}">
+							@include('website_user.themes6.edit.love_story')
+						</div>						
+					@endif
 	  				@if($tabWeb->type =="wedding" && $tabWeb->visiable==0 )	
-		  				<div class="tab-pane" id="event">
-		  					@include('website_user.themes6.page.right')
+		  				<div class="tab-pane" id="{{$tabWeb->type}}">
+		  					@include('website_user.themes6.edit.right')
 		  				</div>
 	  				@endif
 	  				@if($tabWeb->type =="traval" && $tabWeb->visiable==0 )	
-		  				<div class="tab-pane" id="travel">
-		  					@include('website_user.themes6.page.text')
+		  				<div class="tab-pane" id="{{$tabWeb->type}}">
+		  					@include('website_user.themes6.edit.text')
 		  				</div>
 	  				@endif
 	  				@if($tabWeb->type =="album" && $tabWeb->visiable==0 )
-		  				<div class="tab-pane" id="album">
-		  					@include('website_user.themes6.page.photo')
+		  				<div class="tab-pane" id="{{$tabWeb->type}}">
+		  					@include('website_user.themes6.edit.photo')
 		  				</div>
-		  			@endif
+		  			@endif		  			
 		  			@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
-		  				<div class="tab-pane" id="contact">
-		  					@include('website_user.themes6.page.contact')
+		  				<div class="tab-pane" id="{{$tabWeb->type}}">
+		  					@include('website_user.themes6.edit.contact')
 		  				</div>	
 	  				@endif		
 				
