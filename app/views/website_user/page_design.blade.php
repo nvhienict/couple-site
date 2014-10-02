@@ -37,7 +37,7 @@
 
 	<div class="row">
 
-		<div class="col-xs-3 design_website_content_left">
+		<div class="col-md-3 col-sm-3 col-lg-3 design_website_content_left">
 			<div class="minus-plus">
 				<a href="javascript:;" onclick="design_website_minus_circle();"><i class='fa fa-minus-circle fa-fw'></i></a>
 			</div>
@@ -65,7 +65,7 @@
 			  			<hr>
 						<span class="span_design_item">Ngày tổ chức tiệc cưới</span><br />
 						<span class="span_design_item">
-			  				<input type="text" name="count_down" id="count_down" value="{{WebsiteController::getCountDown()}}">
+			  				<input class="form-control" type="text" name="count_down" id="count_down" value="{{WebsiteController::getCountDown()}}">
 			  				<script type="text/javascript">
 								jQuery('#count_down').datetimepicker({
 									lang:'en',
@@ -93,18 +93,7 @@
 										url:"{{URL::route('time_count_down')}}",
 										data:{data_input:data_input},
 										success:function(data){
-											var obj = JSON.parse(data);
-											var date_input = obj.dd;
-
-											var d = jQuery.trim(data_input).substring(0, 2);
-											var m = jQuery.trim(data_input).substring(3, 5);
-											var y = jQuery.trim(data_input).substring(6, 10);
-
-											$('.getD0').text(d);
-											$('.getD1').text(m);
-											$('.getD2').text(y);
-
-											$('.design_website_content_right').load('website_user.themes2.edit.index');
+											location.reload();
 
 										}
 									});
@@ -117,7 +106,7 @@
 			  			
 			  			<span class="span_design_item">Font chữ:</span><br />
 			  			<span class="span_design_item">Nội dung:
-			  					<select name="font_website" onchange="font_website(this.value);" class="select_design1">
+			  					<select class="form-control" name="font_website" onchange="font_website(this.value);" class="select_design1">
   									@foreach( $website as $item_website )
 	  									@foreach($arFont as $font_name)
 	  										@if( ($item_website->font)==($font_name) )
@@ -130,7 +119,7 @@
 			  						@endforeach
 			  					</select>
 						</span><br />
-			  			<span class="span_design_item">Nhấn mạnh:<select name="accent_website" onchange="style_website(this.value);" class="select_design2">
+			  			<span class="span_design_item">Nhấn mạnh:<select class="form-control" name="accent_website" onchange="style_website(this.value);" class="select_design2">
 						  							@for($i=1;$i<=3;$i++)
 						  								<option value="{{$i}}">Style {{$i}}</option>
 						  							@endfor
@@ -142,11 +131,11 @@
 			  			@for($i=1;$i<=3;$i++)
 				  			@if((WebsiteController::returnColor($i)) )
 					  			<span class="span_design_item">Màu {{$i}}: 
-					  				<input type="text" name="color" value="#{{WebsiteController::returnColor($i)}}" onchange="color_design{{$i}}(this.value);" class="color color_design">
+					  				<input type="text" name="color" value="#{{WebsiteController::returnColor($i)}}" onchange="color_design{{$i}}(this.value);" class="color color_design form-control">
 					  			</span><br />
 					  		@else
 					  			<span class="span_design_item">Màu {{$i}}: 
-					  				<input type="text" name="color" value="" onchange="color_design{{$i}}(this.value);" class="color color_design">
+					  				<input type="text" name="color" value="" onchange="color_design{{$i}}(this.value);" class="color color_design form-control">
 					  			</span><br />
 					  		@endif
 				  		@endfor
@@ -248,15 +237,16 @@
 			  	</div>
 			</div>
 		</div>
+		<!-- . left -->
 		
 		<!-- button hide content design left -->
-		<div class="col-xs-1 design_website_content_left_hide">
+		<div class="col-md-1 col-sm-1 col-lg-1 design_website_content_left_hide">
 			<a href="javascript:;" onclick="design_website_plus_circle();" ><i class='fa fa-plus-circle fa-fw'></i></a>
 		</div>
 		<!-- .button -->
 
 		<!-- content right include from view -->
-		<div class="col-xs-9 design_website_content_right">
+		<div class="col-md-9 col-sm-9 col-lg-9 design_website_content_right">
 			
 			@if($id_tmp==2)
 					@include('website_user.themes2.edit.index')
