@@ -90,29 +90,49 @@
 	      	<span>{{$firstname}} wedding</span><br />
 	      	{{WebsiteController::getDates()}}
 	    </div>
-		
-		<div class="col-md-12 container_menu">
-			<h2>thuna.vn</h2>
-			<!-- Start Nav Structure -->
-			<button class="cn-button" id="cn-button">Menu</button>
-			<div class="cn-wrapper" id="cn-wrapper">
-				<ul>
-					<li><a href="javascript:void(0);" id="welcome"><span>Chào mừng</span></a></li>
-					<li><a href="javascript:void(0);" id="about"><span>Giới thiệu</span></a></li>
-					<li><a href="javascript:void(0);" id="event"><span>Sự kiện</span></a></li>
-					<li><a href="javascript:void(0);" id="home"><span>Trang chủ</span></a></li>
-					<li><a href="javascript:void(0);" id="travel"><span>Du lịch</span></a></li>
-					<li><a href="javascript:void(0);" id="images"><span>Ảnh</span></a></li>
-					<li><a href="javascript:void(0);" id="contact"><span>Liên hệ</span></a></li>
-				 </ul>
-			</div>
-			<!-- End of Nav Structure -->
+
+	    <div class='hexagon'>
+		  	<ul>
+		    	<li class='polygon_top'>
+		      		<a href="javascript:;" id="welcome"><span>Chào mừng</span></a>
+		    	</li>
+		   		<li class='polygon_top'></li>
+		    	<li class='polygon_top'>
+		      		<a href="javascript:;" id="about"><span>Giới thiệu</span></a>
+		    	</li>
+		    	<li class='polygon_bottom'>
+		      		<a href="javascript:;" id="event"><span>Sự kiện</span></a>
+		    	</li>
+		    	<li class='polygon_bottom'></li>
+		    	<li class='polygon_bottom'>
+		      		<a href="javascript:;" id="home"><span>Trang chủ</span></a>
+		    	</li>
+		  	</ul>
+		</div>
+
+		<div class='hexagon2'>
+		  	<ul>
+		    	<li class='polygon_top'>
+		      		<a href="javascript:;" id="travel"><span>Du lịch</span></a>
+		    	</li>
+		   		<li class='polygon_top'></li>
+		    	<li class='polygon_top'>
+		      		<a href="javascript:;" id="images"><span>Ảnh</span></a>
+		    	</li>
+		    	<li class='polygon_bottom'>
+		      		<a href="javascript:;" id="contact"><span>Liên hệ</span></a>
+		    	</li>
+		    	<li class='polygon_bottom'></li>
+		    	<li class='polygon_bottom'>
+		      		
+		    	</li>
+		  	</ul>
 		</div>
 		<!-- .menu -->
 
-	<div class="row margin-row">
+	<div class="row margin-row" style="margin-top: 80px; margin-bottom: 50px;">
 
-		<div class="col-sm-6 col-lg-6 col-md-6 photo-book">
+		<div class="col-sm-6 col-lg-6 col-md-6 photo-book" >
 
 
 			    <script src="{{Asset("assets/js_website_themes3/jquery-1.9.1.min.js")}}"></script>
@@ -220,6 +240,9 @@
 			<div class="col-md-12 text-center footer-badge" >
 				<span>{{$firstname}} wedding</span>
 			</div>
+			<span>@2014 thuna.vn<br />
+				Design by giangmd@thuna.vn
+			</span>
 		</div>
 	</div>
 	<!-- .footer -->

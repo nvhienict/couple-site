@@ -1,4 +1,5 @@
-		
+
+( function( window ) {
 		$('#home').click(function() {
 			$(".welcome").hide();
 			$(".photo-book").show();
@@ -31,6 +32,8 @@
 				left: "0",
 				top: "30px"
 				}, 1000 );
+
+
 		});
 		$('#about').click(function() {
 			$(".welcome").hide();
@@ -52,6 +55,7 @@
 			$(".travel").removeAttr("style");
 			$(".images").removeAttr("style");
 			$(".contact").removeAttr("style");
+
 		});
 		$('#event').click(function() {
 			$(".welcome").hide();
@@ -73,6 +77,7 @@
 			$(".travel").removeAttr("style");
 			$(".images").removeAttr("style");
 			$(".contact").removeAttr("style");
+
 		});
 		$('#travel').click(function() {
 			$(".welcome").hide();
@@ -94,6 +99,7 @@
 			$(".event").removeAttr("style");
 			$(".images").removeAttr("style");
 			$(".contact").removeAttr("style");
+			
 		});
 		$('#images').click(function() {
 			$(".welcome").hide();
@@ -115,6 +121,7 @@
 			$(".event").removeAttr("style");
 			$(".travel").removeAttr("style");
 			$(".contact").removeAttr("style");
+			
 		});
 		$('#contact').click(function() {
 			$(".welcome").hide();
@@ -136,4 +143,7 @@
 			$(".event").removeAttr("style");
 			$(".travel").removeAttr("style");
 			$(".images").removeAttr("style");
+			
 		});
+
+})();

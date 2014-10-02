@@ -60,285 +60,176 @@
 }
 
 /*menu*/
-.cn-button {
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	z-index: 11;
-	margin-top: -2.25em;
-	margin-left: -2.25em;
-	padding-top: 0em;
-	width: 4.5em;
-	height: 4.5em;
-	border: none;
-	border-radius: 50%;
-	background: none;
-	background-color: #fff;
-	color: #52be7f;
-	text-align: center;
-	font-weight: 700;
-	font-size: 1.5em;
-	text-transform: uppercase;
-	cursor: pointer;
-	-webkit-backface-visibility: hidden;
+ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
-.csstransforms .cn-wrapper {
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	z-index: 10;
-	margin-top: -13em;
-	margin-left: -13.5em;
-	width: 27em;
-	height: 27em;
-	border-radius: 50%;
-	background: transparent;
-	opacity: 0;
-	-webkit-transition: all .3s ease 0.3s;
-	-moz-transition: all .3s ease 0.3s;
-	transition: all .3s ease 0.3s;
-	-webkit-transform: scale(0.1);
-	-ms-transform: scale(0.1);
-	-moz-transform: scale(0.1);
-	transform: scale(0.1);
-	pointer-events: none;
-	overflow: hidden;
+li {
+	list-style-type: none;
 }
 
-/*cover to prevent extra space of anchors from being clickable*/
-.csstransforms .cn-wrapper:after{
-  content:".";
-  display:block;
-  font-size:2em;
-  width:6.2em;
-  height:6.2em;
+
+.hexagon {
+  position: relative;
+  top: 20%;
+  left: 30%;
+  margin-top: -30px;
+  margin-left: -30px;
+  width: 60px;
+  transform-origin: center;
+  transform: scale(1.00005); /* hack Firefox smooth edge */
+}
+.hexagon2 {
+  position: relative;
+  top: 20%;
+  left: 70%;
+  margin-top: -30px;
+  margin-left: -30px;
+  width: 60px;
+  transform-origin: center;
+  transform: scale(1.00005); /* hack Firefox smooth edge */
+}
+
+.hexagon_p {
+  position: relative;
+  top: 20%;
+  left: 30%;
+  margin-top: 30px;
+  margin-left: -30px;
+  width: 60px;
+  transform-origin: center;
+  transform: scale(1.00005); /* hack Firefox smooth edge */
+}
+.hexagon2_p {
+  position: relative;
+  top: 20%;
+  left: 70%;
+  margin-top: 30px;
+  margin-left: -30px;
+  width: 60px;
+  transform-origin: center;
+  transform: scale(1.00005); /* hack Firefox smooth edge */
+}
+
+/*=================================== top and bottom triangle
+*/
+
+.polygon_top,
+.polygon_bottom {
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
   position: absolute;
-  left: 50%;
-  margin-left: -3.1em;
-  top:50%;
-  margin-top: -3.1em;
-  border-radius: 50%;
-  z-index:10;
-  color: transparent;
+  width: 0;
+  height: 0;
+  transition: width 0.3s ease-in-out, border 0.1s linear, border-radius 0.5s ease-in-out;
 }
 
-.csstransforms .opened-nav {
-	border-radius: 50%;
-	opacity: 1;
-	-webkit-transition: all .3s ease;
-	-moz-transition: all .3s ease;
-	transition: all .3s ease;
-	-webkit-transform: scale(1);
-	-moz-transform: scale(1);
-	-ms-transform: scale(1);
-	transform: scale(1);
-	pointer-events: auto;
+.polygon_top a,
+.polygon_bottom a {
+  color: rgba(55, 55, 55, 0);
+  display: block;
+  font-size: 0px;
+  text-transform: uppercase;
+  width: 100%;
+  transition: color, font-size 0.1s;
 }
 
-.csstransforms .cn-wrapper li {
-	position: absolute;
-	top: 0%;
-	left: 50%;
-	overflow: hidden;
-	margin-top: -1.3em;
-	margin-left: -10em;
-	width: 10em;
-	height: 10em;
-	font-size: 1.5em;
-	-webkit-transition: all .3s ease;
-	-moz-transition: all .3s ease;
-	transition: all .3s ease;
-	-webkit-transform: rotate(76deg) skew(60deg);
-	-moz-transform: rotate(76deg) skew(60deg);
-	-ms-transform: rotate(76deg) skew(60deg);
-	transform: rotate(76deg) skew(60deg);
-	-webkit-transform-origin: 100% 100%;
-	-moz-transform-origin: 100% 100%;
-	transform-origin: 100% 100%;
-	pointer-events: none;
+.polygon_top:nth-child(1),
+.polygon_top:nth-child(3),
+.polygon_bottom:nth-child(4),
+.polygon_bottom:nth-child(6) {
+  cursor: pointer;
 }
 
-.csstransforms .cn-wrapper li a {
-	position: absolute;
-	position: fixed; /* fix the displacement bug in webkit browsers when using tab key */
-	right: -7.25em;
-	bottom: -7.25em;
-	display: block;
-	width: 14.5em;
-	height: 14.5em;
-	border-radius: 50%;
-	background: #429a67;
-	background: -webkit-radial-gradient(transparent 35%, #429a67 35%);
-	background: -moz-radial-gradient(transparent 35%, #429a67 35%);
-	background: radial-gradient(transparent 35%, #429a67 35%);
-	color: #fff;
-	text-align: center;
-	text-decoration: none;
-	font-size: 1.2em;
-	line-height: 2;
-	-webkit-transform: skew(-60deg) rotate(-75deg) scale(1);
-	-moz-transform: skew(-60deg) rotate(-75deg) scale(1);
-	-ms-transform: skew(-60deg) rotate(-75deg) scale(1);
-	transform: skew(-60deg) rotate(-75deg) scale(1);
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	pointer-events: auto;
+.polygon_top:nth-child(1):hover > a,
+.polygon_top:nth-child(3):hover > a,
+.polygon_bottom:nth-child(4):hover > a,
+.polygon_bottom:nth-child(6):hover > a {
+  color: #C31743;
+  font-size: 0.9em;
 }
 
-.csstransforms .cn-wrapper li a span {
-	position: relative;
-	top: 1.8em;
-	display: block;
-	font-size: .5em;
-	font-weight: 700;
-	text-transform: uppercase;
+.polygon_top:nth-child(1) {
+  border-bottom: 30px solid #9b59b6;
+  right: 0;
+  transform: translateX(-30px) translateY(-15px);
 }
 
-.csstransforms .cn-wrapper li a:hover,
-.csstransforms .cn-wrapper li a:active,
-.csstransforms .cn-wrapper li a:focus {
-	background: -webkit-radial-gradient(transparent 35%, #449e6a 35%);
-	background: -moz-radial-gradient(transparent 35%, #449e6a 35%);
-	background: radial-gradient(transparent 35%, #449e6a 35%);
+.polygon_top:nth-child(1):hover {
+  border-radius: 4px 0 0 4px;
+  border-left: 18px solid #9b59b6;
+  width: 120px;
+  z-index: 100;
+}
+.polygon_top:nth-child(1) > a {
+  line-height: 30px;
 }
 
-.csstransforms .opened-nav li {
-	-webkit-transition: all .3s ease .3s;
-	-moz-transition: all .3s ease .3s;
-	transition: all .3s ease .3s;
+.polygon_top:nth-child(2) {
+  border-bottom: 30px solid #d0b2dd;
+  transform: translateX(12px) translateY(15px);
 }
 
-.csstransforms .opened-nav li:first-child {
-	-webkit-transform: rotate(-20deg) skew(60deg);
-	-moz-transform: rotate(-20deg) skew(60deg);
-	-ms-transform: rotate(-20deg) skew(60deg);
-	transform: rotate(-20deg) skew(60deg);
+.polygon_top:nth-child(3) {
+  border-bottom: 30px solid #b07cc6;
+  left: 0;
+  transform: translateX(30px) translateY(-15px);
 }
 
-.csstransforms .opened-nav li:nth-child(2) {
-	-webkit-transform: rotate(12deg) skew(60deg);
-	-moz-transform: rotate(12deg) skew(60deg);
-	-ms-transform: rotate(12deg) skew(60deg);
-	transform: rotate(12deg) skew(60deg);
+.polygon_top:nth-child(3):hover {
+  border-radius: 0 4px 4px 0;
+  border-right: 18px solid #b07cc6;
+  width: 120px;
+  z-index: 100;
 }
 
-.csstransforms .opened-nav  li:nth-child(3) {
-	-webkit-transform: rotate(44deg) skew(60deg);
-	-moz-transform: rotate(44deg) skew(60deg);
-	-ms-transform: rotate(44deg) skew(60deg);
-	transform: rotate(44deg) skew(60deg);
+.polygon_top:nth-child(3) > a {
+  text-align: right;
+  line-height: 30px;
 }
 
-.csstransforms .opened-nav li:nth-child(4) {
-	-webkit-transform: rotate(76deg) skew(60deg);
-	-moz-transform: rotate(76deg) skew(60deg);
-	-ms-transform: rotate(76deg) skew(60deg);
-	transform: rotate(76deg) skew(60deg);
+.polygon_bottom:nth-child(4) {
+  border-top: 30px solid #dbc3e5;
+  right: 0;
+  transform: translateX(-30px) translateY(15px);
 }
 
-.csstransforms .opened-nav li:nth-child(5) {
-	-webkit-transform: rotate(108deg) skew(60deg);
-	-moz-transform: rotate(108deg) skew(60deg);
-	-ms-transform: rotate(108deg) skew(60deg);
-	transform: rotate(108deg) skew(60deg);
+.polygon_bottom:nth-child(4):hover {
+  border-radius: 4px 0 0 4px;
+  border-left: 18px solid #dbc3e5;
+  width: 120px;
+  z-index: 100;
 }
 
-.csstransforms .opened-nav li:nth-child(6) {
-	-webkit-transform: rotate(140deg) skew(60deg);
-	-moz-transform: rotate(140deg) skew(60deg);
-	-ms-transform: rotate(140deg) skew(60deg);
-	transform: rotate(140deg) skew(60deg);
+.polygon_bottom:nth-child(4) > a {
+  text-align: left;
+  line-height: 30px;
+  margin-top: -30px;
 }
 
-.csstransforms .opened-nav li:nth-child(7) {
-	-webkit-transform: rotate(172deg) skew(60deg);
-	-moz-transform: rotate(172deg) skew(60deg);
-	-ms-transform: rotate(172deg) skew(60deg);
-	transform: rotate(172deg) skew(60deg);
+.polygon_bottom:nth-child(5) {
+  border-top: 30px solid #a66bbe;
+  transform: translateX(12px) translateY(-15px);
 }
 
-.no-csstransforms .cn-wrapper {
-	overflow: hidden;
-	margin: 0em auto;
-	padding: .5em;
-	text-align: center;
+.polygon_bottom:nth-child(6) {
+  border-top: 30px solid #c6a0d5;
+  transform: translateX(30px) translateY(15px);
 }
 
-.no-csstransforms .cn-wrapper ul {
-	display: inline-block;
+.polygon_bottom:nth-child(6):hover {
+  border-radius: 0 4px 4px 0;
+  border-right: 18px solid #c6a0d5;
+  width: 120px;
+  z-index: 100;
 }
 
-.no-csstransforms .cn-wrapper li {
-	float: left;
-	width: 5em;
-	height: 5em;
-	background-color: #fff;
-	text-align: center;
-	font-size: 1em;
-	line-height: 5em;
-}
-
-.no-csstransforms .cn-wrapper li a {
-	display: block;
-	width: 100%;
-	height: 100%;
-	color: inherit;
-	text-decoration: none;
-}
-
-.no-csstransforms .cn-wrapper li a:hover,
-.no-csstransforms .cn-wrapper li a:active,
-.no-csstransforms .cn-wrapper li a:focus {
-	background-color: #f8f8f8;
-}
-
-.no-csstransforms .cn-wrapper li.active a{
-	background-color: #6F325C;
-	color: #fff;
-}
-
-.no-csstransforms .cn-button {
-	display: none;
-}
-
-@media only screen and (max-width: 620px) {
-	.no-csstransforms li {
-		width: 4em;
-		height: 4em;
-		line-height: 4em;
-	}
-}
-
-@media only screen and (max-width: 500px) {
-	.no-ccstransforms .cn-wrapper {
-		padding: .5em;
-	}
-
-	.no-csstransforms .cn-wrapper li {
-		width: 4em;
-		height: 4em;
-		font-size: .9em;
-		line-height: 4em;
-	}
-}
-
-@media only screen and (max-width: 480px) {
-	.csstransforms .cn-wrapper {
-		font-size: .68em;
-	}
-
-	.cn-button {
-		font-size: 1em;
-	}
-}
-
-@media only screen and (max-width:420px) {
-	.no-csstransforms .cn-wrapper li {
-		width: 100%;
-		height: 3em;
-		line-height: 3em;
-	}
+.polygon_bottom:nth-child(6) > a {
+  text-align: right;
+  line-height: 30px;
+  margin-top: -30px;
 }
 /*.menu*/
 
@@ -346,6 +237,7 @@
 .photo-book{
     width: 100%;
     text-align: center;
+    margin: 80px 0px 0px 0px;
 }
 
 
@@ -353,7 +245,7 @@
 	background: url("../../images/website/themes3/footer_bg.jpg") repeat-x top #3a7e76;
 	width: 100%;
 	height: 100px;
-	margin: 20px 0 0 0;
+	margin: 60px 0 0 0;
 	position: relative;
 }
 .footer-badge{
@@ -376,7 +268,7 @@
 	display: none;
 	width: 1%;
 	min-height: 400px;
-	margin: 10px 0 0 0;
+	margin: 25px 0;
 	float: left;
 }
 
@@ -385,7 +277,7 @@
 	display: none;
 	width: 1%;
 	min-height: 400px;
-	margin: 10px 0 0 0;
+	margin: 25px 0;
 	float: right;
 }
 
@@ -394,8 +286,12 @@
 	display: none;
 	width: 1%;
 	min-height: 400px;
-	margin: 10px 0 0 0;
+	margin: 25px 0;
 	float: right;
 }
+
+
+
+
 
 

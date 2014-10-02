@@ -43,23 +43,44 @@
 	      	{{WebsiteController::getDates()}}
 	    </div>
 		
-		<div class="col-md-12 container_menu">
-			<h2>thuna.vn</h2>
-			<!-- Start Nav Structure -->
-			<button class="cn-button" id="cn-button">Menu</button>
-			<div class="cn-wrapper" id="cn-wrapper">
-				<ul>
-					<li><a href="javascript:;" id="welcome"><span>Chào mừng</span></a></li>
-					<li><a href="javascript:;" id="about"><span>Giới thiệu</span></a></li>
-					<li><a href="javascript:;" id="event"><span>Sự kiện</span></a></li>
-					<li><a href="javascript:;" id="home"><span>Trang chủ</span></a></li>
-					<li><a href="javascript:;" id="travel"><span>Du lịch</span></a></li>
-					<li><a href="javascript:;" id="images"><span>Ảnh</span></a></li>
-					<li><a href="javascript:;" id="contact"><span>Liên hệ</span></a></li>
-				 </ul>
-			</div>
-			<!-- End of Nav Structure -->
+		 <div class='hexagon_p'>
+		  	<ul>
+		    	<li class='polygon_top'>
+		      		<a href="javascript:;" id="welcome"><span>Chào mừng</span></a>
+		    	</li>
+		   		<li class='polygon_top'></li>
+		    	<li class='polygon_top'>
+		      		<a href="javascript:;" id="about"><span>Giới thiệu</span></a>
+		    	</li>
+		    	<li class='polygon_bottom'>
+		      		<a href="javascript:;" id="event"><span>Sự kiện</span></a>
+		    	</li>
+		    	<li class='polygon_bottom'></li>
+		    	<li class='polygon_bottom'>
+		      		<a href="javascript:;" id="home"><span>Trang chủ</span></a>
+		    	</li>
+		  	</ul>
 		</div>
+
+		<div class='hexagon2_p'>
+		  	<ul>
+		    	<li class='polygon_top'>
+		      		<a href="javascript:;" id="travel"><span>Du lịch</span></a>
+		    	</li>
+		   		<li class='polygon_top'></li>
+		    	<li class='polygon_top'>
+		      		<a href="javascript:;" id="images"><span>Ảnh</span></a>
+		    	</li>
+		    	<li class='polygon_bottom'>
+		      		<a href="javascript:;" id="contact"><span>Liên hệ</span></a>
+		    	</li>
+		    	<li class='polygon_bottom'></li>
+		    	<li class='polygon_bottom'>
+		      		
+		    	</li>
+		  	</ul>
+		</div>
+		<!-- .menu -->
 		<!-- .menu -->
 
 	<div class="row margin-row">
@@ -176,6 +197,9 @@
 			<div class="col-md-12 text-center footer-badge" >
 				<span>{{$firstname}} wedding</span>
 			</div>
+			<p style="margin-top:30px;">@2014 thuna.vn<br />
+				Design by giangmd@thuna.vn
+			</p>
 		</div>
 	</div>
 	<!-- .footer -->
