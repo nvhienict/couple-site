@@ -48,6 +48,7 @@
 	<script src="{{Asset('assets/js/jquery-validate/jquery.validate.min.js')}}"></script>
 	<script src="{{Asset('assets/js/jquery.number.js')}}"></script>
 	<script src="{{Asset('assets/js/jquery.number.min.js')}}"></script>
+	<script src="{{Asset('assets/js/jquery.js')}}"></script>
 
 	<!-- ckeditor -->
 	<script src="{{Asset('assets/ckeditor/ckeditor.js')}}"></script>
