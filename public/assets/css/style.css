@@ -2144,7 +2144,6 @@ tr.even td{
 }
 
 .design_website_content_left_hide{
-	height: 570px;
 	border: 1px solid #ddd;
 	background-color: #F7F5F3;
 	float: left;
@@ -2172,7 +2171,8 @@ tr.even td{
 	border-bottom: 1px solid #ddd;
 }
 .page_design_home_item img{
-	width: 150px;
+	width: 100%;
+	border-radius: 3px;
 }
 .span_design_item{
 	margin-top: 10px;
@@ -2189,9 +2189,7 @@ tr.even td{
     padding: 5px;
     width: 150px;
 }
-.color_design{
-	margin-top: 5px;
-}
+
 
 
 .design_website_content_right{
