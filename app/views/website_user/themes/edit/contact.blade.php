@@ -1,8 +1,8 @@
 <div style="padding-bottom: 20px;">
     <div class="partion">	             
-          <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}}" id = "nameTitle{{$tabWeb->id}}">{{$tabWeb->title}}</h3> 
-          <div class="show-content phara{{$tabWeb->id}}">                           
-              {{$tabWeb->content}}
+          <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">{{$tabWeb->title}}</h3> 
+          <div class="show-content phara{{$tabWeb->id}}" > 
+            <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>                                     
           </div>
           <div class="edit-content editphara{{$tabWeb->id}}">
         	<textarea name="editor4" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1"></textarea>
@@ -30,7 +30,7 @@
     </div> 
     <div class="partion">
       <div class="row phara-margin">
-      	<div class="col-xs-6 ">
+      	<div class="col-xs-4 ">
                 <form  class="contact-website" action="" method="POST" role="form">
                
                    <div class="form-group">
@@ -52,7 +52,7 @@
                     <button type="submit" class="btn btn-primary send-contact">Send Mesages</button>                          
                </form> 
             </div>
-            <div class="col-xs-6"></div>
+            <div class="col-xs-8"></div>
          </div>
     </div> 
 </div> 

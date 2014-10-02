@@ -39,10 +39,10 @@
 	margin-left: -15px;
 	margin-right: 0px;
 	background-repeat:no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size:100%;
+  background-size: 100%;
   
 }
 .after-image-themes{
@@ -94,3 +94,8 @@
 .images-padding{
 	padding: 1px;
 }
+.partion{
+	padding-top: 40px;
+}
+
+/* Tabs comment */

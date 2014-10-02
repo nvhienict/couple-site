@@ -1,6 +1,6 @@
 <div class="partion">
 	<div class="row phara-margin">
-       	<h3 class="text-center title-tab" >{{$tabWeb->title}}</h3>
+       	<h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" >{{$tabWeb->title}}</h3>
         <div class="col-xs-6 float-right">
             <span>
                 <a href="#">
@@ -17,9 +17,9 @@
             </span>
         </div>
         <div class="show-content phara{{$tabWeb->id}}">
-        	<p>
-                {{$tabWeb->content}}
-			 </p>
+    
+                <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
+			
         </div>
     </div>
 

@@ -227,6 +227,23 @@
 					</div>
 			  	</div>
 			  	<div class="tab-pane" id="design_setup">
+			  		<div class="url">
+			  			<div class="header_url">Website URL<span style="color:#2A64B9;"><i  class='fa fa-info-circle fa-fw'></i></span>
+			  			</div>
+			  			<div class="url_link">
+			  				<a style="text-decoration: none;color:##2A64B9;" class="a_url" href="{{URL::route('view-previous', array('id'=>$id_tmp))}}">
+			  					@foreach( $website as $item_website )
+			  					http://www.thuna.vn/{{$item_website->url}}
+			  					@endforeach
+			  				</a>
+			  			</div>
+			  			
+			  			<div class="edit_url">
+			  				<span class="change_url "><a data-toggle="modal" data-target="#modal-url" style="text-decoration: none;color:##2A64B9;" href="javascript:;">Thay đổi URL»</a></span>
+			  				<span class="share_url"><a style="text-decoration: none;color:##2A64B9;" href="">Chia sẻ URL»</a></span>
+			  			</div>
+
+			  		</div>
 			  	
 			  	</div>
 			</div>
@@ -506,7 +523,7 @@
 				<div class="row">
 					<div class="col-xs-6 col-md-2 menu-image" >
 						
-								<a class="upload" style="text-align:center;text-decoration: none;" href="javascript:void(0);">Upload Ảnh</a></br>
+								<a class="upload" style="text-align:center;text-decoration: none;" href="javascript:void(0);">Upload Ảnh</a><br>
 								<a  class="text-center myalbum" style="text-decoration: none;" href="javascript:;">My Album</a>
 					</div>
 					<div class="col-xs-12 col-md-10 tab-image">
@@ -769,7 +786,7 @@
 			data:{color_design:color_design},
 			success: function(data){
 				$("h4").css("color","#"+data+"");
-				$("p").css("color","#"+data+"");
+				$("span").css("color","#"+data+"");
 			}
 		});
 	}

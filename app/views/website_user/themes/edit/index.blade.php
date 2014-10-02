@@ -82,14 +82,12 @@
 		         <span class="icon-bar"></span>
 		         <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#">Home</a>
 		   </div>
 		   <div style="background-color:#222222;" class="collapse navbar-collapse" id="example-navbar-collapse">
 		      <ul style="background-color:#222222;" class="nav navbar-nav">
-		         <li class=""><a href="#">Giới Thiệu</a></li>
-		         <li><a href="#">Thông Tin</a></li>
-		         <li><a href="#">Album</a></li>
-		         <li><a href="#">Liên Hệ</a></li>
+		      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
+		         <li><a href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
+		         @endforeach()
 		      </ul>
 		   </div>
 		</nav>
@@ -111,6 +109,14 @@
 		@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
 		<div id="section_{{$tabWeb->type}}">
 			@include('website_user.themes.edit.left')
+		</div>
+		<hr>
+		@endif
+
+		<!-- cau chuyen tinh yeu -->
+		@if($tabWeb->type=="love_story")
+		<div id="section_{{$tabWeb->type}}">
+		@include('website_user.themes.edit.text')
 		</div>
 		<hr>
 		@endif
@@ -166,6 +172,14 @@
         	@include('website_user.themes.edit.contact')
     	</div>
         @endif
+
+       <!--  Guest book -->
+       @if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
+        <div id="section_{{$tabWeb->type}}">
+        	@include('website_user.themes.edit.text')
+    	</div>
+        @endif
+
    
   	@endforeach  
           

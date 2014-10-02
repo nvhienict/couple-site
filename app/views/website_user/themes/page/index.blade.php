@@ -16,6 +16,24 @@
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
 
 </head>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1";
+			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<script type="text/javascript">
+			window.___gcfg = {lang: 'vi'};
+
+			(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/platform.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+		</script>
 @if($website)
 @foreach( $website as $website_item )
 <div class="background-themes" style="height: 700px; background-image: url({{Asset("{$backgrounds}")}});">
@@ -31,14 +49,12 @@
 		         <span class="icon-bar"></span>
 		         <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#">Home</a>
 		   </div>
 		   <div style="background-color:#222222;" class="collapse navbar-collapse" id="example-navbar-collapse">
 		      <ul style="background-color:#222222;" class="nav navbar-nav">
-		         <li class=""><a href="#">Giới Thiệu</a></li>
-		         <li><a href="#">Thông Tin</a></li>
-		         <li><a href="#">Album</a></li>
-		         <li><a href="#">Liên Hệ</a></li>
+		      	@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $menu_tab)
+		         <li><a href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
+		         @endforeach()
 		      </ul>
 		   </div>
 		</nav>
@@ -58,43 +74,72 @@
 	 @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
 		<!-- Welcome -->
 		@if($tabWeb->type =="welcome" )
+		<div id="section_{{$tabWeb->type}}">
 		@include('website_user.themes.page.left')
+		</div>
+		<hr>
+		@endif
+
+		<!-- cau chuyen tinh yeu -->
+		@if($tabWeb->type=="love_story")
+		<div id="section_{{$tabWeb->type}}">
+		@include('website_user.themes.page.text')
+		</div>
 		<hr>
 		@endif
 
 		<!-- About Us -->
 		@if($tabWeb->type=="about")
+		<div id="section_{{$tabWeb->type}}">
 		@include('website_user.themes.page.right')
+		</div>
 		<hr>
 		@endif
 
 		<!-- Wedding Event -->
 		@if($tabWeb->type=="wedding" )
+		<div id="section_{{$tabWeb->type}}">
 		@include('website_user.themes.page.right')
+		</div>
 		<hr>
 		@endif
 
 		<!-- Travaling -->
 		@if($tabWeb->type=="traval")
+		<div id="section_{{$tabWeb->type}}">
 		@include('website_user.themes.page.text')
+		</div>
         <hr>
         @endif
         <!-- Photo Album -->
         @if($tabWeb->type=="album" )
+        <div id="section_{{$tabWeb->type}}">
         @include('website_user.themes.page.photo')
+        </div>
         <hr>
         @endif
 
        <!--  Register -->
        @if($tabWeb->type=="register" )
-       @include('website_user.themes.page.text')       
+       <div id="section_{{$tabWeb->type}}">
+       @include('website_user.themes.page.text')  
+       </div>     
         <hr>
         @endif
 
         <!-- Contact Us -->
         @if($tabWeb->type=="contact")
+        <div id="section_{{$tabWeb->type}}">
         @include('website_user.themes.page.contact')
+        </div>
         <hr>
+        @endif
+
+         <!--  Guest book -->
+       @if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
+        <div id="section_{{$tabWeb->type}}">
+        	@include('website_user.themes.page.text')
+        	<hr>
         @endif
   	@endforeach  
           
