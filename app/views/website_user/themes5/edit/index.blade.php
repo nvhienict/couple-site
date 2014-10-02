@@ -73,7 +73,7 @@
 
 
 	</head>
-	
+	<div class="scrollIndex">
 		@if($website)
 		@foreach( $website as $website_item )
 		<section id="intro-portion">		
@@ -91,11 +91,9 @@
 					</div>
 					<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#ourstory">Chúng tôi</a></li>
-						<li><a href="#photo">Ảnh </a></li>
-						<li><a href="#festivities">Đám cưới</a></li>
-						<li><a href="#travel">Du lịch</a></li>
-						<li><a href="#rsvp">Liên hệ</a></li>
+						@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
+						<li><a href="#section_{{$tabWeb->type}}">{{$tabWeb->title}}</a></li>
+						@endforeach
 					</ul>
 					</div>
 				</div>
@@ -104,7 +102,7 @@
 			<!-- intro -->
 		</section>
 		
-				@include('website_user.themes5.edit.welcome')
+			@include('website_user.themes5.edit.welcome')
 			@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
 			<!-- Our story -->
 			@if($tabWeb->type =="about" && $tabWeb->visiable==0 )
@@ -167,6 +165,7 @@
 		
 	@endforeach
 	@endif
+
 	<footer >
 		<div class="col-xs-6 col-md-offset-3">
 			
@@ -177,5 +176,5 @@
 			
 		</div>
 	</footer>
-	
+	</div>
 </html>

@@ -1,4 +1,4 @@
-<section id="festivities">
+<section id="section_wedding">
 	<div class="container text-center">
 		<div class="row sptr-position">
 			<div class="col-md-12">

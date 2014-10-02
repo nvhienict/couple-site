@@ -1,4 +1,4 @@
-<section id="ourstory">
+<section id="section_about">
 	<div class="container text-center">
 		<div class="row sptr-position">
 			<div class="col-md-12">

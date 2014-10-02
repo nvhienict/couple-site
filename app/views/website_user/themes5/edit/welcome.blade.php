@@ -3,7 +3,46 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h2 style="padding-top: 100px;">Thái &amp; Thuỷ</h2>
-					<p><span></span>are getting married on {{WebsiteController::getDates()}}<span></span></p>
+					<!-- count datime to weddingdate -->
+		  					@if(empty($website_item->count_down))
+			  					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
+			  						<div id="getD{{$index}}" style="display:none;">
+			  							{{$dd}}
+			  						</div>
+			  					@endforeach
+			  				@else
+								@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
+			  						<div id="getD{{$index}}" style="display:none;">
+			  							{{$dd}}
+			  						</div>
+			  					@endforeach
+			  				@endif
+		  					
+		  				<div style="text-align:center; margin-bottom:100px; font-weight: bold; font-size: 50px;">
+		  				
+		  					<table align="center">
+			  				<script type="text/javascript" src="{{Asset("assets/js/count-down-time.js")}}"></script>
+			  				<!-- .end -->
+		  						<tr >
+		  							<td class="time_wedding" id="echo_dday"></td>
+		  							<td class="time_wedding_">:</td>
+		  							<td class="time_wedding" id="echo_dhour"></td>
+		  							<td class="time_wedding_">:</td>
+		  							<td class="time_wedding" id="echo_dmin"></td>
+		  							<td class="time_wedding_">:</td>
+		  							<td class="time_wedding" id="echo_dsec"></td>
+		  						</tr>
+		  						<tr >
+		  							<td class="time_txt">Ngày</td>
+		  							<td></td>
+		  							<td class="time_txt">Giờ</td>
+		  							<td></td>
+		  							<td class="time_txt">Phút</td>
+		  							<td></td>
+		  							<td class="time_txt">Giây</td>
+		  						</tr>
+		  					</table>
+		  				</div>
 				</div>
 				<div class="col-md-12">
 					<div class="key-icon">
@@ -28,7 +67,7 @@
 						</div>
 						<div class="abt-content">
 							<h2>Thuỷ</h2>
-							<p>Lorem ipsum dolor sit amet, conse ctetuer de adipiscing elit. Ae enean commodo ert ligula eget dolor.</p>
+							<p>{{$website_item->about_bride}}</p>
 						</div>
 					</div>
 				</div>
@@ -45,7 +84,7 @@
 						</div>
 						<div class="abt-content">
 							<h2>Thái</h2>
-							<p>Lorem ipsum dolor sit amet, conse ctetuer de adipiscing elit. Ae enean commodo ert ligula eget dolor.</p>
+							<p>{{$website_item->about_groom}}</p>
 						</div>
 					</div>
 				</div>

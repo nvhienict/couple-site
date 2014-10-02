@@ -1,4 +1,4 @@
-<section id="travel">
+<section id="section_traval">
 	<div class="container text-center">
 		<div class="row sptr-position">
 			<div class="col-md-12">

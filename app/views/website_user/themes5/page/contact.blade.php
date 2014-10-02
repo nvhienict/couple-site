@@ -1,4 +1,4 @@
-<section id="rsvp">
+<section id="section_contact">
 	<div class="container text-center">
 		<div class="row sptr-position">
 			<div class="col-md-12">

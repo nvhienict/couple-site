@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-<body style="overflow-x:hidden;">
+<body style="overflow:hidden;">
 	<div class="row design_website_heading">
 		<div class="col-xs-1">
 			<a href="{{URL::route('index')}}" class="thuna" >Thuna.vn</a>

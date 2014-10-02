@@ -20,8 +20,6 @@
     <link href="{{Asset("assets/css/owl.theme.css")}}" rel="stylesheet" media="screen" />
 	<link href="{{Asset("assets/css/flexslider.css")}}" rel="stylesheet" />
 	<link href="{{Asset("assets/css/animate.css")}}" rel="stylesheet" />
-
-	<link type='text/css' href="{{Asset("assets/css/style.php")}}" rel="stylesheet">
     <link href="{{Asset("assets/css/style.css")}}" rel="stylesheet">
     
     
@@ -83,11 +81,9 @@
 					</div>
 					<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#ourstory">Chúng tôi</a></li>
-						<li><a href="#photo">Ảnh </a></li>
-						<li><a href="#festivities">Đám cưới</a></li>
-						<li><a href="#travel">Du lịch</a></li>
-						<li><a href="#rsvp">Liên hệ</a></li>
+						@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
+						<li><a href="#section_{{$tabWeb->type}}">{{$tabWeb->title}}</a></li>
+						@endforeach
 					</ul>
 					</div>
 				</div>

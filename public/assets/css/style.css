@@ -410,34 +410,8 @@ hr.bold {
 --- Intro
 ============================ */
 
-.intro {
-	width:100%;
-	position:relative;
-	padding:0;
-}
-.intro-inner {
-	width:100%;
-	position:relative;
-	padding:120px 0 20px;
-}
-
 .brand-heading {
     font-size: 40px;
-}
-
-.intro-text {
-    font-size: 18px;
-}
-
-
-/* ====  slider ==== */
-
-/* Header */
-
-section#intro {
-	padding:0;
-	width: 100%;
-	background: #333;
 }
 
 /* Carousel Styles */
@@ -946,10 +920,6 @@ a.btn:focus{
         border-bottom: 1px solid rgba(255,255,255,.3);
     }
 	
-    .intro {
-        height: 100%;
-        padding: 0;
-    }
 
     .brand-heading {
         font-size: 100px;
