@@ -21,5 +21,6 @@
             </span>
             <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
         </div>
-    </div>                 
+    </div> 
+    <br>                
 </div>

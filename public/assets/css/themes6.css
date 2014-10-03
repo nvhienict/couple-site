@@ -1,5 +1,5 @@
 .circle-text {
-    width:30%;
+    width:30%;    
 }
 .circle-text:after {
     content: "";
@@ -27,7 +27,7 @@
 @media only screen and (max-device-width: 250px) {
    body
    {
-    padding-top: 50px;
+    padding-top: 4%;
    }
    .circle-text:after
    {
@@ -39,23 +39,23 @@
     width:43%;
     }
    .circle-text div {
-    padding-top: 10%;
-        margin-left: 25%;
+      padding-top: -2%;
+      margin-left: 25%;
    }
     .circle-text div  h1 
     {
-        font-size: 25%;  
+        font-size: 17%;  
     }
     .circle-text div  h2
     {
-        font-size: 25%;  
+        font-size: 17%;  
     }
       
 }
  @media only screen and (min-device-width: 251px) and (max-device-width: 300px) {
    body
    {
-    padding-top: 50px;
+    padding-top: 4%;
    }
    .circle-text:after
    {
@@ -70,22 +70,22 @@
     }
     .circle-text div  h1 
     {
-        font-size: 32%;  
+        font-size: 28%;  
     }
     .circle-text div  h2
     {
-        font-size: 35%;  
+        font-size: 28%;  
     }
       
 }
 @media only screen and (min-device-width: 301px) and (max-device-width: 350px) {
    body
    {
-    padding-top: 40px;
+    padding-top: 4%;
    }
    .circle-text:after
    {
-        margin-top: -12%;
+        margin-top: -30%;
         margin-left: 45%;
    }
    .circle-text {
@@ -97,11 +97,11 @@
    }
     .circle-text div  h1 
     {
-        font-size: 45%;  
+        font-size: 40%;  
     }
     .circle-text div  h2
     {
-        font-size: 45%;  
+        font-size: 40%;  
     }
       
 }
@@ -109,34 +109,36 @@
 @media only screen and (min-device-width: 351px) and (max-device-width: 400px) {
    body
    {
-    padding-top: 40px;
+    padding-top: 4%;
    }
    .circle-text:after
    {
-        margin-top: 0%;
+        margin-top: -24%;
         margin-left: 53%;
    }
    .circle-text div {
+        margin-top: -10%;
         margin-left: 53%;
+
    }
     .circle-text div  h1 
     {
-        font-size: 50%;  
+        font-size: 45%;  
     }
     .circle-text div  h2
     {
-        font-size: 50%;  
+        font-size: 45%;  
     }
       
 }
 @media only screen and (min-device-width: 401px) and (max-device-width: 450px) {
    body
    {
-    padding-top: 40px;
+    padding-top: 4%;
    }
    .circle-text:after
    {
-        margin-top: -5%;
+        margin-top: -28%;
         margin-left: 45%;
    }
    .circle-text {
@@ -159,11 +161,11 @@
 @media only screen and (min-device-width: 451px) and (max-device-width: 500px) {
    body
    {
-    padding-top: 40px;
+    padding-top: 4%;
    }
    .circle-text:after
    {
-        margin-top: -5%;
+        margin-top: -27%;
         margin-left: 47%;
    }
    .circle-text {
@@ -186,11 +188,11 @@
 @media only screen and (min-device-width: 501px) and (max-device-width: 550px) {
    body
    {
-    padding-top: 40px;
+    padding-top: 4%;
    }
    .circle-text:after
    {
-        margin-top: 2%;
+        margin-top: -24%;
         margin-left: 55%;
    }
    .circle-text div {
@@ -210,11 +212,11 @@
 @media only screen and (min-device-width: 551px) and (max-device-width: 600px) {
    body
    {
-    padding-top: 40px;
+    padding-top: 4%;
    }
    .circle-text:after
    {
-        margin-top: 2%;
+        margin-top: -24%;
         margin-left: 55%;
    }
    .circle-text div {
@@ -234,11 +236,11 @@
 @media only screen and (min-device-width: 601px) and (max-device-width: 650px) {
    body
    {
-    padding-top: 40px;
+    padding-top: 4%;
    }
    .circle-text:after
    {
-        margin-top: 2%;
+        margin-top: -24%;
         margin-left: 55%;
    }
    .circle-text div {
@@ -258,11 +260,11 @@
 @media only screen and (min-device-width: 651px) and (max-device-width: 700px) {
    body
    {
-    padding-top: 40px;
+    padding-top: 4%;
    }
    .circle-text:after
    {
-        margin-top: 2%;
+        margin-top: -22%;
         margin-left: 55%;
    }
    .circle-text div {
@@ -282,11 +284,11 @@
 @media only screen and (min-device-width: 701px) and (max-device-width: 750px) {
    body
    {
-    padding-top: 40px;
+    padding-top: 4%;
    }
    .circle-text:after
    {
-        margin-top: 2%;
+        margin-top: -22%;
         margin-left: 50%;
    }
    .circle-text div {
@@ -306,11 +308,11 @@
 @media only screen and (min-device-width: 751px) and (max-device-width: 800px) {
    body
    {
-    padding-top: 40px;
+    padding-top: 4%;
    }
    .circle-text:after
    {
-        margin-top: 2%;
+        margin-top: -20%;
         margin-left: 55%;
    }
    .circle-text div {
@@ -330,11 +332,11 @@
 @media only screen and (min-device-width: 801px) and (max-device-width: 850px) {
    body
    {
-    padding-top: 70px;
+    padding-top: 4%;
    }
    .circle-text:after
    {
-        margin-top: 7%;
+        margin-top: -14%;
         margin-left: 45%;
    }
    .circle-text div {
@@ -352,13 +354,13 @@
       
 }
 @media only screen and (min-device-width: 851px) and (max-device-width: 900px) {
-   body
-   {
-    padding-top: 70px;
+   
+   body{
+    padding-top: 4%;
    }
    .circle-text:after
    {
-        margin-top: 10%;
+        margin-top: -8%;
         margin-left: 40%;
    }
    .circle-text div {
@@ -376,16 +378,19 @@
       
 }
 @media only screen and (min-device-width: 901px) and (max-device-width: 950px) {
-   body
+   body{
+    padding-top: 3%;
+   }
+   .after-image-themes
    {
-    padding-top: 60px;
+      padding-top: 10%;
    }
    .circle-text {
     width:35%;
     }
    .circle-text:after
    {
-        margin-top: 10%;
+        margin-top: -11%;
         margin-left: 30%;
    }
    .circle-text div {
@@ -403,20 +408,20 @@
       
 }
 @media only screen and (min-device-width: 951px) and (max-device-width: 991px) {
-   body
-   {
-    padding-top: 40px;
-   }
+    body
+    {
+      padding-top: 4%;
+    }
     .circle-text {
     width:34%;
     }
    .circle-text:after
    {
-        margin-top: 10%;
+        margin-top: -8%;
         margin-left: 30%;
    }
    .circle-text div {
-        padding-top: 20%;
+        padding-top: 15%;
         margin-left: 30%;
    }
     .circle-text div  h1 
@@ -430,13 +435,12 @@
       
 }
 @media only screen and (min-device-width: 992px) and (max-device-width: 1200px) {
-   body
-   {
-    padding-top: 40px;
+   body{
+    padding-top: 2%;
    }
    .circle-text:after
    {
-        margin-top: 5%;
+        margin-top: -3%;
         margin-left: 47%;
    }
    .circle-text div {
@@ -453,14 +457,62 @@
     }
       
 }
-@media only screen and (min-device-width: 1201px) and (max-device-width: 1500px) {
+@media only screen and (min-device-width: 1201px) and (max-device-width: 1300px) {
    body
    {
     padding-top: 30px;
    }
    .circle-text:after
    {
-        margin-top: 12%;
+        margin-top: -12%;
+        margin-left: 52%;
+   }
+   .circle-text div {
+        padding-top: 20%;
+        margin-left: 52%;
+   }
+    .circle-text div  h1 
+    {
+        font-size: 160%;  
+    }
+    .circle-text div  h2
+    {
+        font-size: 160%;  
+    }
+      
+}
+@media only screen and (min-device-width: 1301px) and (max-device-width: 1400px) {
+   body
+   {
+    padding-top: 30px;
+   }
+   .circle-text:after
+   {
+        margin-top: -2%;
+        margin-left: 45%;
+   }
+   .circle-text div {
+        padding-top: 20%;
+        margin-left: 45%;
+   }
+    .circle-text div  h1 
+    {
+        font-size: 160%;  
+    }
+    .circle-text div  h2
+    {
+        font-size: 160%;  
+    }
+      
+}
+@media only screen and (min-device-width: 1401px) and (max-device-width: 1500px) {
+   body
+   {
+    padding-top: 30px;
+   }
+   .circle-text:after
+   {
+        margin-top: 6%;
         margin-left: 45%;
    }
    .circle-text div {
@@ -484,7 +536,7 @@
    }
    .circle-text:after
    {
-        margin-top: 40%;
+        margin-top: 10%;
         margin-left: 20%;
    }
    .circle-text div {
@@ -506,10 +558,7 @@
     background-color:white; opacity: 0.8;
 
 }
-.partion-contact
-{
-    background-color:white; opacity: 0.8;
-}
+
 .float-left{
     float: left;
 }
@@ -547,37 +596,32 @@
 
 .background-themes 
 { 
-    min-height: 700px;
-    height: auto;
-    overflow-y:auto;  
-    background-repeat:no-repeat center center fixed;
-  -webkit-background-size:100%;
+    position: relative;
+   z-index: -1;
+    height: 700px;    
+    background-repeat:no-repeat center center fixed; 
+    -webkit-background-size:100%;
   -moz-background-size: 100%;
   -o-background-size: 100%;
   background-size: 100%;
   
 }
-.contact-main
+body{
+  overflow: hidden;
+}
+.after-image-themes
 {
-    height: 500px;
-    overflow-y:auto;
-    
+  padding-top: 2%;
+  height: 700px;
+  overflow-y:auto;
+  overflow-x:hidden;
 
 }
-.love_story
+.container
 {
-   
-    overflow-y:auto;
+  padding-top: 2%;
 }
-.contact-content
-{
-    padding-top:30px;
-     padding-left:40px;
-}
-body
-{       
-    overflow: hidden;
-}
+
 
 .show-content{
     padding: 0px;
@@ -603,4 +647,9 @@ body
 }
 .images-padding{
     padding: 1px;
+}
+.contact-content
+{
+    padding-top:30px;
+     padding-left:40px;
 }

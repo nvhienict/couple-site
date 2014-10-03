@@ -77,9 +77,9 @@
 </head>
 @if($website)
 @foreach( $website as $website_item )
-<div class="background-themes"style="background-image: url({{Asset("{$backgrounds}")}});">
-	
-		<div class="container">
+
+<body class="background-themes"style="background-image: url({{Asset("{$backgrounds}")}});">		
+		
 		<br>		
 			<div class="navbar navbar-default navbar-fixed-top menu_tab" role="navigation" style="position:fixed; background-color:white; opacity: 0.8; ">
 		    	<div class="container-fluid ">
@@ -105,63 +105,63 @@
 		      		</div><!--/.nav-collapse -->
 		    	</div><!--/.container-fluid -->
 			</div>
-		
-		
-		
-		  	<div class="tab-content">
-		  		<div class="row tab-pane active" id="home">
-		  			
-		  				@include('website_user.themes6.edit.main')
-		  		
+
+		<div class="after-image-themes">
+			<div class="container">
+			  	<div class="tab-content">
+			  		<div class="row tab-pane active" id="home">
+			  			
+			  				@include('website_user.themes6.edit.main')
+			  		
+					</div>
+				@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)	
+
+			  			@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
+			  				<div class="tab-pane " id="{{$tabWeb->type}}">
+			  					@include('website_user.themes6.page.left')
+			  				</div>
+			  			@endif
+			  			
+			  			@if($tabWeb->type =="about" && $tabWeb->visiable==0 )	
+			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+			  					@include('website_user.themes6.page.right')
+			  				</div>
+		  				@endif
+		  				@if($tabWeb->type =="love_story" && $tabWeb->visiable==0 )
+							<div class="tab-pane" id="{{$tabWeb->type}}">
+								@include('website_user.themes6.page.love_story')
+							</div>						
+						@endif
+		  				@if($tabWeb->type =="wedding" && $tabWeb->visiable==0 )	
+			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+			  					@include('website_user.themes6.page.right')
+			  				</div>
+		  				@endif
+		  				@if($tabWeb->type =="traval" && $tabWeb->visiable==0 )	
+			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+			  					@include('website_user.themes6.page.text')
+			  				</div>
+		  				@endif
+		  				@if($tabWeb->type =="album" && $tabWeb->visiable==0 )
+			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+			  					@include('website_user.themes6.page.photo')
+			  				</div>
+			  			@endif
+			  			
+			  			@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
+			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+			  					@include('website_user.themes6.page.contact')
+			  				</div>	
+		  				@endif		
+					
+				@endforeach
 				</div>
-			@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)	
 
-		  			@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
-		  				<div class="tab-pane " id="{{$tabWeb->type}}">
-		  					@include('website_user.themes6.page.left')
-		  				</div>
-		  			@endif
-		  			
-		  			@if($tabWeb->type =="about" && $tabWeb->visiable==0 )	
-		  				<div class="tab-pane" id="{{$tabWeb->type}}">
-		  					@include('website_user.themes6.page.right')
-		  				</div>
-	  				@endif
-	  				@if($tabWeb->type =="love_story" && $tabWeb->visiable==0 )
-						<div class="tab-pane" id="{{$tabWeb->type}}">
-							@include('website_user.themes6.page.love_story')
-						</div>						
-					@endif
-	  				@if($tabWeb->type =="wedding" && $tabWeb->visiable==0 )	
-		  				<div class="tab-pane" id="{{$tabWeb->type}}">
-		  					@include('website_user.themes6.page.right')
-		  				</div>
-	  				@endif
-	  				@if($tabWeb->type =="traval" && $tabWeb->visiable==0 )	
-		  				<div class="tab-pane" id="{{$tabWeb->type}}">
-		  					@include('website_user.themes6.page.text')
-		  				</div>
-	  				@endif
-	  				@if($tabWeb->type =="album" && $tabWeb->visiable==0 )
-		  				<div class="tab-pane" id="{{$tabWeb->type}}">
-		  					@include('website_user.themes6.page.photo')
-		  				</div>
-		  			@endif
-		  			
-		  			@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
-		  				<div class="tab-pane" id="{{$tabWeb->type}}">
-		  					@include('website_user.themes6.page.contact')
-		  				</div>	
-	  				@endif		
-				
-			@endforeach
+
 			</div>
-
-
 		</div>
-
 	
-</div>
+</body>
 
 
 @endforeach

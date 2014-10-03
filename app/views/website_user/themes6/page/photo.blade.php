@@ -1,6 +1,6 @@
 
 
-<br>
+
 <head>
     <!--  Slide Album -->
 

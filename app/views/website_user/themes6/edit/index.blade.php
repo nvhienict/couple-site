@@ -78,10 +78,9 @@
 @if($website)
 @foreach( $website as $website_item )
 <div class="background-themes "style="background-image: url({{Asset("{$backgrounds}")}});">
-	
-		<div class="container main-template">
+			
 		<br>		
-			<div class="navbar navbar-default menu_tab" role="navigation" style=" background-color:white; opacity: 0.8;z-index:9999; clear:both; top:0;">
+			<div class="navbar navbar-default navbar-fixed-top menu_tab" role="navigation" style=" background-color:white;position:relative; opacity: 0.8;">
 		    	<div class="container-fluid ">
 		      		<div class="navbar-header">
 		        		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-themes_6">
@@ -105,57 +104,55 @@
 		      		</div><!--/.nav-collapse -->
 		    	</div><!--/.container-fluid -->
 			</div>
-		
-		
-		<br>
-		
-		  	<div class="tab-content">
-		  		<div class="row tab-pane active" id="home">
-		  			
-		  				@include('website_user.themes6.edit.main')
+		<div class="after-image-themes">
+			<div class="container">
+			  	<div class="tab-content">
+			  		<div class="row tab-pane active" id="home">
+			  			
+			  				@include('website_user.themes6.edit.main')
+					</div>
+				@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)	
+
+			  			@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
+			  				<div class="tab-pane " id="{{$tabWeb->type}}">
+			  					@include('website_user.themes6.edit.left')
+			  				</div>
+			  			@endif
+			  			
+			  			@if($tabWeb->type =="about" && $tabWeb->visiable==0 )	
+			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+			  					@include('website_user.themes6.edit.right')
+			  				</div>
+		  				@endif
+		  				@if($tabWeb->type =="love_story" && $tabWeb->visiable==0 )
+							<div class="tab-pane" id="{{$tabWeb->type}}">
+								@include('website_user.themes6.edit.love_story')
+							</div>						
+						@endif
+		  				@if($tabWeb->type =="wedding" && $tabWeb->visiable==0 )	
+			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+			  					@include('website_user.themes6.edit.right')
+			  				</div>
+		  				@endif
+		  				@if($tabWeb->type =="traval" && $tabWeb->visiable==0 )	
+			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+			  					@include('website_user.themes6.edit.text')
+			  				</div>
+		  				@endif
+		  				@if($tabWeb->type =="album" && $tabWeb->visiable==0 )
+			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+			  					@include('website_user.themes6.edit.photo')
+			  				</div>
+			  			@endif		  			
+			  			@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
+			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+			  					@include('website_user.themes6.edit.contact')
+			  				</div>	
+		  				@endif		
+					
+				@endforeach
 				</div>
-			@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)	
-
-		  			@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
-		  				<div class="tab-pane " id="{{$tabWeb->type}}">
-		  					@include('website_user.themes6.edit.left')
-		  				</div>
-		  			@endif
-		  			
-		  			@if($tabWeb->type =="about" && $tabWeb->visiable==0 )	
-		  				<div class="tab-pane" id="{{$tabWeb->type}}">
-		  					@include('website_user.themes6.edit.right')
-		  				</div>
-	  				@endif
-	  				@if($tabWeb->type =="love_story" && $tabWeb->visiable==0 )
-						<div class="tab-pane" id="{{$tabWeb->type}}">
-							@include('website_user.themes6.edit.love_story')
-						</div>						
-					@endif
-	  				@if($tabWeb->type =="wedding" && $tabWeb->visiable==0 )	
-		  				<div class="tab-pane" id="{{$tabWeb->type}}">
-		  					@include('website_user.themes6.edit.right')
-		  				</div>
-	  				@endif
-	  				@if($tabWeb->type =="traval" && $tabWeb->visiable==0 )	
-		  				<div class="tab-pane" id="{{$tabWeb->type}}">
-		  					@include('website_user.themes6.edit.text')
-		  				</div>
-	  				@endif
-	  				@if($tabWeb->type =="album" && $tabWeb->visiable==0 )
-		  				<div class="tab-pane" id="{{$tabWeb->type}}">
-		  					@include('website_user.themes6.edit.photo')
-		  				</div>
-		  			@endif		  			
-		  			@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
-		  				<div class="tab-pane" id="{{$tabWeb->type}}">
-		  					@include('website_user.themes6.edit.contact')
-		  				</div>	
-	  				@endif		
-				
-			@endforeach
 			</div>
-
 
 		</div>
 
