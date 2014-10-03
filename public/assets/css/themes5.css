@@ -126,7 +126,7 @@ p{
 	right: 0;
 	text-align: center;
 	top: 0;
-	z-index: 99997;
+	z-index: 999;
 	padding: 0px;
 }
 
@@ -139,7 +139,6 @@ p{
 /* Intro */
 
 .slider-top{
-	background:url(../images/header-bg.jpg) no-repeat center;
 	width:100%;
 }	
 	
@@ -402,8 +401,8 @@ p{
 
 
 .shape_org {
-	width: 230px;
-	height: 272px;
+	width: 170px;
+	height: 200px;
 	position: relative;
 	overflow:hidden;
 	display:inline-block;
@@ -419,14 +418,10 @@ p{
 	background-repeat: no-repeat;
 	outline:0;		
 }
-	
-.shape_org .overlay.hexagon_mask {
-	background: url(../images/hexagonal-mask_320_org.png);
-	background-size:cover;
-}	
 
 .shape_org img{
 	width:100%;
+	height: 100%;
 }
 
 
@@ -448,7 +443,6 @@ p{
 	background-repeat: no-repeat;
 	outline:0;		
 }
-	
 .shape_green .overlay.hexagon_mask {
 	background: url(../images/hexagonal-mask_320_green.png);
 	background-size:cover;
@@ -718,4 +712,16 @@ p{
 	height: 650px;
 	padding: 0px;
 	margin-left: -15px;
+}
+.about_groom:hover .icon_edit_about{
+	display: inline-block;
+}
+.about_bride:hover .icon_edit_about{
+	display: inline-block;
+}
+.icon_edit_about{
+	display: none;
+}
+.edit_ctn_about, .edit_ctn_about_bride{
+	display: none;
 }

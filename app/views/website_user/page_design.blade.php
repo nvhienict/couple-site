@@ -415,7 +415,6 @@
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-xs-6 col-md-2 menu-image" >
-						
 								<a style="text-align:center" href="javascript:void(0);">Upload Ảnh</a></li>
 					</div>
 					<div class="col-xs-12 col-md-10 tab-image">
@@ -477,7 +476,6 @@
 											     function send_id(id){
 													// var id_tab=$('#id_tab_web'+id).val();
 														$('input[name=id_tab]').val(id);
-														
 													
 												};			
 																																																

@@ -124,9 +124,7 @@
 			
 			
 			<!-- footer -->
-			
-			<div class="footer-top"></div>			
-			<div class="footer"></div>	
+			<div class="footer" style="background: url({{Asset("{$backgrounds}")}}) no-repeat center;"></div>	
 		
 		
 		<script src="{{Asset("assets/js/uikit.min.js")}}"></script>

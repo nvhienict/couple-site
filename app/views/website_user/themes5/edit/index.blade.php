@@ -68,7 +68,62 @@
 				$('.click-edit-hide'+id).show();
 		        $('.ok-edit-show'+id).hide();
 		} 
+		function edit_about_bride()
+		{
+			$('.edit_ctn_about_bride').show();
+			$('.about_bride').hide();
+		}
+		function update_about_bride()
+		{
+			$.ajax({
+				type:"post",
+				dataType: "html",
+				url:"{{URL::route('update_about_bride')}}",
+				data: {	content:CKEDITOR.instances['edit_about_bride'].getData()
+					},
+				success:function(data){
+					var obj = JSON.parse(data);
+					$('#about_bride1').text(obj.content);
+				}
+			});
 
+			$('.edit_ctn_about_bride').hide();
+			$('.about_bride').show();
+		}
+		function exit_edit_about_bride()
+		{
+			$('.edit_ctn_about_bride').hide();
+			$('.about_bride').show();
+		}
+
+
+		function edit_about_groom()
+		{
+			$('.edit_ctn_about').show();
+			$('.about_groom').hide();
+		}
+		function update_about_groom()
+		{
+			$.ajax({
+				type:"post",
+				dataType: "html",
+				url:"{{URL::route('update_about_groom')}}",
+				data: {	content:CKEDITOR.instances['edit_about_groom'].getData()
+					},
+				success:function(data){
+					var obj = JSON.parse(data);
+					$('#about_groom1').text(obj.content);
+				}
+			});
+
+			$('.edit_ctn_about').hide();
+			$('.about_groom').show();
+		}
+		function exit_edit_about_groom()
+		{
+			$('.edit_ctn_about').hide();
+			$('.about_groom').show();
+		}
 </script>
 
 

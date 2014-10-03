@@ -1,8 +1,8 @@
-<div class="slider-top text-center" style="background: url({{Asset('/images/website/themes5/header-bg.jpg')}}) no-repeat center;">		
+<div class="slider-top text-center" style="background: url({{Asset("{$backgrounds}")}}) no-repeat center;">		
 		<div class="container ">
 			<div class="row">
 				<div class="col-md-12">
-					<h2 style="padding-top: 100px;">Thái &amp; Thuỷ</h2>
+					<h2 style="padding-top: 100px;">{{$website_item->name_groom}} &amp; {{$website_item->name_bride}}</h2>
 					<!-- count datime to weddingdate -->
 		  					@if(empty($website_item->count_down))
 			  					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
@@ -18,7 +18,7 @@
 			  					@endforeach
 			  				@endif
 		  					
-		  				<div style="text-align:center; margin-bottom:100px; font-weight: bold; font-size: 50px;">
+		  				<div style="text-align:center; margin-bottom:100px; font-weight: bold; font-size: 50px; color:#0B03FF;">
 		  				
 		  					<table align="center">
 			  				<script type="text/javascript" src="{{Asset("assets/js/count-down-time.js")}}"></script>
@@ -58,16 +58,32 @@
 				<div class="col-md-6">
 					<div class="box-01">
 						<div class="box-left">
-							<div class="hexagon hexagon2">
-								<div class="hexagon-in1">
-									<div class="hexagon-in2" style="background-image: url({{Asset('images/website/themes5/img-01.png')}});">
-									</div>
-								</div>
-							</div>
+							<div class="shape_org">
+								<div class="overlay " style=" background-image: url({{Asset('images/website/themes5/hexagonal-mask_320_org.png')}}); background-size:cover;"></div>
+								<img class="img-responsive"  src="{{Asset("$website_item->avatar_bride")}}">
+							</div>	
 						</div>
 						<div class="abt-content">
-							<h2>Thuỷ</h2>
-							<p>{{$website_item->about_bride}}</p>
+							<h2>{{$website_item->name_bride}}</h2>
+							
+							<div class="about_bride">
+								<p id="about_bride1">{{$website_item->about_bride}}</p>
+								<span class="icon_edit_about">
+									<a onclick="edit_about_bride();" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a>
+									<button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+								</span>
+							</div>
+							<div class="edit_ctn_about_bride">
+								<textarea name="edit_about_bride" class="ckeditor form-control" cols="40" rows="10" tabindex="1">
+								   {{$website_item->about_bride}}
+								</textarea>
+
+								<span>
+									<a onclick="update_about_bride();" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
+								</span>
+								<span><a style="color:#e74c3c;" onclick="exit_edit_about_bride();" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
+
+							</div>
 						</div>
 					</div>
 				</div>
@@ -75,16 +91,32 @@
 				<div class="col-md-6">
 					<div class="dif-color box-01">
 						<div class="box-right">
-							<div class="hexagon hexagon2">
-								<div class="hexagon-in1">
-									<div class="hexagon-in2" style="background-image: url({{Asset('images/website/themes5/img-02.png')}});">
-									</div>
-								</div>
-							</div>
+							<div class="shape_org">
+								<div class="overlay " style=" background-image: url({{Asset('images/website/themes5/hexagonal-mask_320_green.png')}}); background-size:cover;"></div>
+								<img class="img-responsive"  src="{{Asset("$website_item->avatar_groom")}}">
+							</div>		
 						</div>
-						<div class="abt-content">
-							<h2>Thái</h2>
-							<p>{{$website_item->about_groom}}</p>
+						<div class="abt-content ">
+							<h2>{{$website_item->name_groom}}</h2>
+		  				<div class="about_groom ">
+							<p id="about_groom1">{{$website_item->about_groom}}</p>
+							<span class="icon_edit_about">
+								<a onclick="edit_about_groom();" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a>
+								<button  onclick="send_id(222)"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+							</span>
+						</div>
+
+						<div class="edit_ctn_about">
+							<textarea name="edit_about_groom" class="ckeditor form-control" cols="40" rows="10" tabindex="1">
+							   {{$website_item->about_groom}}
+							</textarea>
+
+							<span>
+								<a onclick="update_about_groom();" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
+							</span>
+							<span><a style="color:#e74c3c;" onclick="exit_edit_about_groom();" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
+
+						</div>
 						</div>
 					</div>
 				</div>
