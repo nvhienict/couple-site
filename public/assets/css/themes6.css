@@ -22,7 +22,23 @@
         text-align:center;
         color:#391902;     
     }
-
+.circle-text:after
+   {
+        margin-top: -20%;
+        margin-left: 45%;
+   }
+.circle-text div  h1 
+    {
+        font-size: 60%;  
+    }
+    .circle-text div {
+     
+      margin-left: 45%;
+   }
+    .circle-text div  h2
+    {
+        font-size: 60%;  
+    }
 
 @media only screen and (max-device-width: 250px) {
    body
