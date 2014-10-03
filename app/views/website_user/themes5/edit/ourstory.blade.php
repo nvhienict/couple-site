@@ -34,9 +34,7 @@
 				            </span>
 				        </div>
 				        <div class="show-content phara{{$tabWeb->id}}">
-				        	<p>
-				                {{$tabWeb->content}}
-							</p>
+				        	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
 				        </div>
 				    </div>
 				    <div class="edit-content editphara{{$tabWeb->id}}">

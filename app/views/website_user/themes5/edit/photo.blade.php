@@ -35,7 +35,7 @@
 		<div class="container partion">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 show-content phara{{$tabWeb->id}}">                            
-		        	<p> {{$tabWeb->content}}</p>
+		        	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
 		    	</div> 
 			</div>
 			<div class="row">

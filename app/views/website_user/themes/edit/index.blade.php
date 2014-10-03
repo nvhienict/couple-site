@@ -72,7 +72,7 @@
 @foreach( $website as $website_item )
 <div class="background-themes" style="background-image: url({{Asset("{$backgrounds}")}});">
 
-	<div >
+	<!-- <div >
 		<nav style="padding:0px;" class="navbar navbar-default" role="navigation">
 		   <div class="navbar-header">
 		      <button type="button" class="navbar-toggle" data-toggle="collapse" 
@@ -91,7 +91,7 @@
 		      </ul>
 		   </div>
 		</nav>
-	</div>
+	</div> -->
 	<div class="after-image-themes">
 
 		<!-- Themes Heading -->

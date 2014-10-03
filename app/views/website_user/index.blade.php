@@ -18,41 +18,37 @@ Website cưới
 	<!-- .row -->
 	<div class="row" style="margin-bottom: 50px;">
 		<div class="col-xs-1"></div>
-		<div class="col-xs-4 website_dashboard_left">
+		<div class="col-sm-4 col-lg-4 col-md-4 website_dashboard_left">
 			<div class="row website_dashboard_left_top">
-				<div class="col-xs-1"></div>
-				<div class="col-xs-5"><h6>Ảnh Website</h6></div>
-				<div class="col-xs-2">
+				<div class="col-sm-6 col-lg-6 col-md-6"><h6>Ảnh Website</h6></div>
+				<div class="col-sm-6 col-lg-6 col-md-6">
 					<a href="{{Asset('website/edit/pages')}}">
-						<button class="btn btn-primary" style="background: #19b5bc; border:none;">Chỉnh sửa Website</button>
+						<button class="btn btn-primary btn-responsive" style="background: #19b5bc; border:none;">Chỉnh sửa Website</button>
 					</a>
 				</div>
-				<div class="col-xs-1"></div>
 			</div>
 			<!-- .row -->
 			<div class="row website_dashboard_left_top">
-				<div class="col-xs-1"></div>
-				<div class="col-xs-5">
+				<div class="col-sm-6 col-lg-6 col-md-6">
 				
 				@if($img_tmp==3)
-						<img style="width:150px;" src="{{Asset('images/website/tmp/3.png')}}">
+						<img style="width:100%;" src="{{Asset('images/website/tmp/3.png')}}">
 				@endif
 				@if($img_tmp==2)
-						<img style="width:150px;" src="{{Asset('images/website/tmp/2.png')}}">
+						<img style="width:100%;" src="{{Asset('images/website/tmp/2.png')}}">
 				@endif
 				@if($img_tmp==1)
-						<img style="width:150px;" src="{{Asset('images/website/tmp/1.png')}}">
+						<img style="width:100%;" src="{{Asset('images/website/tmp/1.png')}}">
 				@endif
 				@if($img_tmp==6)
-						<img style="width:150px;" src="{{Asset('images/website/tmp/6.png')}}">
+						<img style="width:100%;" src="{{Asset('images/website/tmp/6.png')}}">
 				@endif
 
 				</div>
-				<div class="col-xs-6 ">
+				<div class="col-sm-6 col-lg-6 col-md-6 ">
 					Website được thiết kế bởi <a href="http://thuna.vn/" >thuna.vn</a><br />
 					<a href="{{Asset('change_temp')}}">Thay đổi giao diện <i class="fa fa-chevron-right fa-fw"></i></a>
 				</div>
-				<div class="col-xs-1"></div>
 			</div>
 			<!-- .row -->
 			<div class="row website_dashboard_left_top">
@@ -111,7 +107,7 @@ Website cưới
 			<!-- .row -->
 
 		</div>
-		<div class="col-xs-6 website_dashboard_left">
+		<div class="col-sm-6 col-lg-6 col-md-6 website_dashboard_left">
 			<div class="row website_dashboard_left_top">
 				<div class="col-xs-1"></div>
 				<div class="col-xs-6"><h6>Dịch vụ của bạn</h6>

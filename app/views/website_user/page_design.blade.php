@@ -37,7 +37,7 @@
 
 	<div class="row">
 
-		<div class="col-md-3 col-sm-3 col-lg-3 design_website_content_left">
+		<div class="col-sm-3 col-lg-3 col-md-3 design_website_content_left">
 			<div class="minus-plus">
 				<a href="javascript:;" onclick="design_website_minus_circle();"><i class='fa fa-minus-circle fa-fw'></i></a>
 			</div>
@@ -240,13 +240,13 @@
 		<!-- . left -->
 		
 		<!-- button hide content design left -->
-		<div class="col-md-1 col-sm-1 col-lg-1 design_website_content_left_hide">
+		<div class="col-sm-1 col-lg-1 col-md-1 design_website_content_left_hide">
 			<a href="javascript:;" onclick="design_website_plus_circle();" ><i class='fa fa-plus-circle fa-fw'></i></a>
 		</div>
 		<!-- .button -->
 
 		<!-- content right include from view -->
-		<div class="col-md-9 col-sm-9 col-lg-9 design_website_content_right">
+		<div class="col-sm-9 col-lg-9 col-md-9 design_website_content_right">
 			
 			@if($id_tmp==2)
 					@include('website_user.themes2.edit.index')
@@ -415,6 +415,7 @@
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-xs-6 col-md-2 menu-image" >
+						
 								<a style="text-align:center" href="javascript:void(0);">Upload Ảnh</a></li>
 					</div>
 					<div class="col-xs-12 col-md-10 tab-image">
@@ -774,7 +775,7 @@
 			data:{color_design:color_design},
 			success: function(data){
 				$("h4").css("color","#"+data+"");
-				$("span").css("color","#"+data+"");
+				$("span[name=phara]").css("color","#"+data+"");
 			}
 		});
 	}

@@ -247,6 +247,8 @@ class WebsiteController extends \BaseController {
 					"template"=>$id_tmp,
 					"about_bride"=>"Giới thiệu về cô dâu",
 					"about_groom"=>"Giới thiệu về chú rể",
+					"name_bride"=>"Tên cô dâu",
+					"name_groom"=>"Tên chú rể",
 					));
 		}
 			

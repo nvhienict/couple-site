@@ -14,6 +14,11 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <style type="text/css">
+    	body{
+			overflow: hidden;
+    	}
+	</style>
 
 </head>
 		<div id="fb-root"></div>

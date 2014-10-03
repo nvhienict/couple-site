@@ -2098,7 +2098,6 @@ tr.even td{
 	padding: 10px 10px 55px 40px;
 	margin: 0;
 	background-color: #19B5BC;
-	position: relative;
 }
 .thuna{
 	color: #fff;
@@ -2163,21 +2162,10 @@ tr.even td{
 
 
 .design_website_content_right{
-	/*height: 600px;*/
-	float: left;
-	margin: 0;
-	padding: 0px;
-
+	
 }
 .bodyScroll{
 	overflow-x: hidden;
-}
-.design_website_content_right {
-	
-	/*overflow-y: auto;*/
-	margin: 0px ;
-	padding-left: 0px;
-	z-index: 1000;
 }
 
 .website_tabs_input{
@@ -2275,6 +2263,22 @@ tr.even td{
 	padding: 0px;
 }
 
+@media (max-width: 768px) {
+  .btn-responsive {
+    /*padding:2px 4px;*/
+    font-size:80%;
+    line-height: 1;
+    border-radius:3px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .btn-responsive {
+    /*padding:4px 9px;*/
+    font-size:90%;
+    line-height: 1.2;
+  }
+}
 
 /**
 *view choose template
@@ -2292,6 +2296,7 @@ tr.even td{
 .span_choose_tmp img{
 	width: 100%;
 	height: 300px;
+	margin: 20px 0px;
 }
 .gird_ablum{
 	display: none;

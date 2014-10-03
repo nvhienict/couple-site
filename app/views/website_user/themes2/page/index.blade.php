@@ -19,6 +19,9 @@
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
+	
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	
 
 	<script src="{{Asset('assets/ckeditor/ckeditor.js')}}"></script>
 
@@ -82,8 +85,8 @@
 @if($website)
 @foreach( $website as $website_item )
 
-	<!-- Static navbar -->
-  	<div class="navbar navbar-default menu_tab" role="navigation" style="position:fixed; width:100%; z-index:99999; clear:both; top:0;">
+  	<!-- Static navbar -->
+  	<div class="navbar navbar-default menu_tab" role="navigation" style="position:fixed; width: 100%; z-index:1; clear:both; top:0; ">
     	<div class="container-fluid ">
       		<div class="navbar-header">
         		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -98,13 +101,9 @@
 
         		<ul class="nav navbar-nav">
         			<li class="active"><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
-        			<li><a href="#love_story" role="tab" data-toggle="tab">Chuyện tình</a></li>
-          			<li><a href="#welcome" role="tab" data-toggle="tab">Chào mừng</a></li>
-				  	<li><a href="#about" role="tab" data-toggle="tab">Giới thiệu</a></li>
-				  	<li><a href="#even" role="tab" data-toggle="tab">Sự kiện</a></li>
-				  	<li><a href="#travel" role="tab" data-toggle="tab">Du lịch</a></li>
-				  	<li><a href="#images" role="tab" data-toggle="tab">Ảnh</a></li>
-				  	<li><a href="#contact" role="tab" data-toggle="tab">Liên hệ</a></li>
+				  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
+        				<li><a href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>
+				  	@endforeach
           			<!-- <li class="dropdown">
                 		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
                 		<ul class="dropdown-menu" role="menu">
@@ -117,14 +116,16 @@
       		</div><!--/.nav-collapse -->
     	</div><!--/.container-fluid -->
 	</div>
+	<!-- .end Static navbar -->
 
-	<div class="row menu_tab_boder" style="position:fixed; width:100%; z-index:99999; top: 70px;">
+
+	<div class="row menu_tab_boder" style="position:fixed; width:100%; z-index:0; top: 70px;">
 		<div class="col-xs-12"></div>
 	</div>
 		
 
 <!-- Tab panes -->
-<div class="tab-content content_themes2" style="margin-top:150px;">
+<div class="tab-content responsive content_themes2" style="margin-top:150px;">
   	<div class="tab-pane active" id="home">
   		<div class="row" style="margin:0px;">
   			<div class="col-xs-1"></div>
@@ -263,6 +264,10 @@
   	@endforeach
 </div>
 <!-- .tab-content -->
+
+
+
+
 
 
 <!-- footer -->

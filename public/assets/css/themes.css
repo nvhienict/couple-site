@@ -116,3 +116,11 @@
 .navbar-nav > li > .a_menu:hover{
 	color: #3E29FF !important;
 }
+
+
+@media (min-width: 768px) {
+.nav-disappear {display: none !important;}}    
+
+@media (max-width: 768px) {
+.tab-disappear {display: none !important;}}
+

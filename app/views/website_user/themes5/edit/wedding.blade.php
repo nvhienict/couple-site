@@ -28,7 +28,7 @@
 						<div class="slide-txt">
 							<h2>Ceremony, 5pm</h2>
 							<h3>Cum sociis natoque penatibus</h3>
-							<p>{{$tabWeb->content}}</p>
+							<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
 
 						</div>									
 					</div>

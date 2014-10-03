@@ -6,9 +6,7 @@
         </h3>
 
         <div class="show-content phara{{$tabWeb->id}}">
-        	<p style="color: #{{$website_item->color3}}">
-                {{$tabWeb->content}}
-            </p>
+        	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
         </div>
         <div class="col-md-12 edit-content editphara{{$tabWeb->id}}">
         	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">

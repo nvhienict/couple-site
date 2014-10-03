@@ -2,7 +2,7 @@
     <div class="partion">	             
           <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">{{$tabWeb->title}}</h3> 
           <div class="show-content phara{{$tabWeb->id}}" > 
-            <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>                                     
+            <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>                                     
           </div>
           <div class="edit-content editphara{{$tabWeb->id}}">
         	<textarea name="editor4" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1"></textarea>
