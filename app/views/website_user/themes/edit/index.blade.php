@@ -103,8 +103,10 @@
             <h2 class="text-center" style="color: #{{$website_item->color2}}" >Chào bạn đến Website cưới của chúng tôi</h2>     
         </div>
 		<hr>
+		@include('website_user.themes.edit.circle')
 	 @foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
-	  
+
+	 	  
 		<!-- Welcome -->
 		@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
 		<div id="section_{{$tabWeb->type}}">

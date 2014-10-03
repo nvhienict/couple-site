@@ -15,6 +15,7 @@
 	right: 20px;
 	bottom: 5px;
 	display: none;
+
 }
 .click-edit{
 	display: none;
@@ -38,7 +39,7 @@
 	padding: 0px;
 	margin-left: -15px;
 	margin-right: 0px;
-	background-repeat:no-repeat center center fixed; 
+	background-repeat:no-repeat center fixed; 
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
   -o-background-size:100%;
@@ -99,3 +100,19 @@
 }
 
 /* Tabs comment */
+/*Circle image*/
+.div_circle1 button{
+	display: none;
+}
+.div_circle2 button{
+	display: none;
+} 
+.partion :hover button{
+	display: inline-block;
+}
+.a_menu{
+	font-size: 20px;
+}
+.navbar-nav > li > .a_menu:hover{
+	color: #3E29FF !important;
+}

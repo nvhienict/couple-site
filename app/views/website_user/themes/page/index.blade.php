@@ -50,10 +50,10 @@
 		         <span class="icon-bar"></span>
 		      </button>
 		   </div>
-		   <div style="background-color:#222222;" class="collapse navbar-collapse" id="example-navbar-collapse">
-		      <ul style="background-color:#222222;" class="nav navbar-nav">
+		   <div style="background-color:#EFEFEF;" class="collapse navbar-collapse" id="example-navbar-collapse">
+		      <ul style="background-color:#EFEFEF;" class="nav navbar-nav">
 		      	@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $menu_tab)
-		         <li><a href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
+		         <li><a class="a_menu" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
 		         @endforeach()
 		      </ul>
 		   </div>
@@ -71,6 +71,7 @@
             <h2 class="text-center" style="color: #{{$website_item->color2}}" >Chào bạn đến Website cưới của chúng tôi</h2>     
         </div>
 		<hr>
+		@include('website_user.themes.page.circle')
 	 @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
 		<!-- Welcome -->
 		@if($tabWeb->type =="welcome" )
