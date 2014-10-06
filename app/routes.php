@@ -259,6 +259,7 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('addTopic', array('as'=>'addTopic', 'uses'=>'WebsiteController@addTopic'));
 	Route::post('add_section', array('as'=>'add_section', 'uses'=>'WebsiteController@addSection'));
 	Route::post('reSort', array('as'=>'reSort', 'uses'=>'WebsiteController@reSort'));
+	
 	Route::post('update-content', array('as'=>'update_content_tab', 'uses'=>'WebsiteController@update'));
 
 	// template 2
@@ -266,6 +267,8 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::get('change_temp', array('as'=>'change_temp', 'uses'=>'WebsiteController@changeTemp'));
 	Route::post('update_about_groom', array('as'=>'update_about_groom', 'uses'=>'WebsiteController@updateAboutGroom'));
 	Route::post('update_about_bride', array('as'=>'update_about_bride', 'uses'=>'WebsiteController@updateAboutBride'));
+	Route::post('updateName', array('as'=>'updateName', 'uses'=>'WebsiteController@updateName'));
+	
 	// end template 2
 
 
@@ -274,6 +277,7 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('load_album',array('as'=>'load_album','uses'=>"WebsiteController@load_album"));
 	Route::post('del_album',array('as'=>'del_album','uses'=>"WebsiteController@del_album"));
 	Route::post('change_url',array('as'=>'change_url','uses'=>"WebsiteController@change_url"));
+
 	// Route::get('themes5', function(){
 	// $id_user = WebsiteController::id_user();
 	// $id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;

@@ -149,7 +149,7 @@
 						@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tab)
 							<tr class="odd" id="Tr{{$tab->id}}" >
 								<td><input type="text" size="2" value="{{$tab->sort}}"  onchange= "changeSort({{$tab->id}})" class="website_tabs_input" name="{{$tab->id}}Sort" id="{{$tab->id}}Sort" ></td>
-								<td id="TT{{$tab->id}}"><a href="#section_{{$tab->type}}">{{$tab->title}}</a></td>
+								<td ><a class="TT{{$tab->id}}" href="#section_{{$tab->type}}">{{$tab->title}}</a></td>
 								<input type="text" hidden id="tab{{$tab->id}}" value="{{$tab->id}}">
 								<td><span  class="glyphicon glyphicon-cog pop{{$tab->id}} popoverThis" style="color: #19B5BC; cursor: pointer;" onclick="titleTab({{$tab->id}})" ></span></td>
 							</tr>
@@ -281,7 +281,8 @@
 		    <label for="title" class="col-xs-5 control-label">Tiêu đề*:</label>
 		    <div class="col-xs-7">
 		    	<input type="text" class="form-control" name="title" id="title" placeholder="welcome" value="">
-		    	<input type="text" name="id_title" hidden id="id_title"   value=""> 	
+		    	<input type="text" name="id_title" hidden id="id_title"   value=""> 
+		    	<input type="text" name="id_type" hidden id="id_type"   value=""> 	
 	  		</div>
 	  	</div>
 	  	<div class="form-group row">
@@ -303,7 +304,7 @@
 			</div>
 	  	</div>
 	  	<div class="form-group row">
-		    <label class="col-xs-5 control-label"><a href="#"> Xoá trang</a></label>
+		    <label class="col-xs-5 control-label"><a href="#" onclick="deleteTab();"> Xoá trang</a></label>
 		    <div class="col-xs-7">
 		    	<a class="btn btn-primary"  href="javascript:;" onclick="submit_title();" >Lưu thay đổi</a>
 			</div>
@@ -812,6 +813,7 @@
 	}
 	function deleteTab(){
 		var id = $("input[name=id_title]").val();
+		var type = $("input[name=id_type]").val();
 		if(confirm("Bạn chắc chắn muốn xoá chủ để này này?")){
         	$.ajax({
 				type: "post",
@@ -820,8 +822,9 @@
 					id: id
 				},
 				success: function(data){
-					$("#section-welcome"+id).remove();
+					$("#section_"+type).remove();
 					$('#Tr'+id).remove();
+					$('.TT'+id).remove();
 				}
 			});
 			return true;
@@ -834,6 +837,7 @@
 		var id_title = $("input[name=id_title]").val();
 		var title = $("input[name=title]").val();
 		var Align_title = $("input[name=Align_title]").val();
+		var id_type = $("input[name=id_type]").val();
 		var hidetab = 0;
 		if ($("input[name=hideTitle]").is( ":checked" )) 
 			{
@@ -854,16 +858,16 @@
 	  			hideTitle: hidetab
   			},
   			success:function(data){
-  				$('#TT'+id_title).text(data['title']);
+  				$('.TT'+id_title).text(data['title']);
   				$('#nameTitle'+id_title).text(data['title']);
   				$('#nameTitle'+id_title).css('text-align',data['titlestyle']);
   				if (data['visiable'] == 1) 
   				{
-  					$("#section-welcome"+id_title).hide();
+  					$("#section_"+id_type).hide();
   				}
   				else
   				{
-  					$("#section-welcome"+id_title).show();
+  					$("#section_"+id_type).show();
   				};
   			}
 
@@ -906,7 +910,6 @@
 			},
 			success: function(data){
 				location.reload(true);
-				
 			}
 		});
 		
@@ -922,6 +925,7 @@
 				$('#title').val(result['title']);
 				$('#hideTitle').replaceWith(result['visiable']);
 				$('#id_title').val(result['id']);
+				$('#id_type').val(result['type']);
 				$('#Align_title').val(result['titlestyle']);
 				if(result['titlestyle'] == 'left')
 					{

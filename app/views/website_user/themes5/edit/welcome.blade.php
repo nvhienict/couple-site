@@ -2,7 +2,15 @@
 		<div class="container ">
 			<div class="row">
 				<div class="col-md-12">
-					<h2 style="padding-top: 100px;">{{$website_item->name_groom}} &amp; {{$website_item->name_bride}}</h2>
+					<h2 id="showName" onclick="editName();" style="padding-top: 100px;"><span id="topNameGroom">{{$website_item->name_groom}}</span> &amp; <span id="topNameBride">{{$website_item->name_bride}}</span></h2>
+					<div id="editName">
+						<input name="name_groom" value="{{$website_item->name_groom}}">
+						<input name="name_bride" value="{{$website_item->name_bride}}">
+						<span>
+							<a onclick="updateName();" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
+						</span>
+						<span><a style="color:#e74c3c;" onclick="exitEditName();" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
+					</div>
 					<!-- count datime to weddingdate -->
 		  					@if(empty($website_item->count_down))
 			  					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
@@ -64,7 +72,7 @@
 							</div>	
 						</div>
 						<div class="abt-content">
-							<h2>{{$website_item->name_bride}}</h2>
+							<h2 id="titleNameBride">{{$website_item->name_bride}}</h2>
 							
 							<div class="about_bride">
 								<p id="about_bride1">{{$website_item->about_bride}}</p>
@@ -97,7 +105,7 @@
 							</div>		
 						</div>
 						<div class="abt-content ">
-							<h2>{{$website_item->name_groom}}</h2>
+							<h2 id="titleNameGroom">{{$website_item->name_groom}}</h2>
 		  				<div class="about_groom ">
 							<p id="about_groom1">{{$website_item->about_groom}}</p>
 							<span class="icon_edit_about">

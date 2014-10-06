@@ -3,7 +3,7 @@
 		<div class="row sptr-position">
 			<div class="col-md-12">
 				<div class="separator" style="background: url({{Asset('/images/website/themes5/separetor.png')}}) no-repeat center;">
-					<h2 data-uk-scrollspy="{cls:'uk-animation-scale-up', repeat: true}">{{$tabWeb->title}}</h2>
+					<h2 data-uk-scrollspy="{cls:'uk-animation-scale-up', repeat: true}" class="TT{{$tabWeb->id}}">{{$tabWeb->title}}</h2>
 				</div>
 			</div>
 		</div>
@@ -13,8 +13,18 @@
 			<div class="row partion">
 				<div class="col-md-6">
 					<div class="shape">
-						<div class="overlay hexagon_mask"></div>
-						<img src="{{Asset('images/website/themes5/venue.jpg')}}" alt="" />
+						<div class="overlay hexagon_mask" style="background: url({{Asset('/images/website/themes5/hexagonal-maskorg.png')}});"></div>
+							<a href="#">
+			                    <?php 
+			                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
+			                     ?>
+			                @if($images)
+			                    <img  class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
+			                @else 
+			                    <img  class="img-responsive" src="{{Asset("images/website/themes1/tab_temp_1.jpg")}}" alt="">
+
+			                @endif
+			                </a>
 					</div>
 					<span>
 		                <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
@@ -23,7 +33,7 @@
 				
 				<div class="col-md-6 s_txt">
 					<div class="shape">
-						<div class="overlay hexagon_mask"></div>
+						<div class="overlay hexagon_mask" style="background: url({{Asset('/images/website/themes5/hexagonal-maskorg.png')}});"></div>
 						
 						<div class="slide-txt">
 							<h2>Ceremony, 5pm</h2>

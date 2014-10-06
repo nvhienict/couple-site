@@ -124,6 +124,37 @@
 			$('.edit_ctn_about').hide();
 			$('.about_groom').show();
 		}
+		function editName(){
+			$("#showName").hide();
+			$("#editName").show();
+		}
+		function updateName()
+		{
+			var nameBride = $('input[name=name_bride]').val();
+			var nameGroom = $('input[name=name_groom]').val();
+			$.ajax({
+				type:"post",
+				dataType: "html",
+				url:"{{URL::route('updateName')}}",
+				data: {nameBride: nameBride,
+						nameGroom: nameGroom},
+				success:function(data){
+					var obj = JSON.parse(data);
+					$('#topNameGroom').text(obj['name_groom']);
+					$('#topNameBride').text(obj['name_bride']);
+					$('#titleNameGroom').text(obj['name_groom']);
+					$('#titleNameBride').text(obj['name_bride']);
+				}
+			});
+
+			$("#showName").show();
+			$("#editName").hide();
+		}
+		function exitEditName()
+		{
+			$("#showName").show();
+			$("#editName").hide();
+		}
 </script>
 
 
@@ -147,7 +178,7 @@
 					<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
-						<li><a href="#section_{{$tabWeb->type}}">{{$tabWeb->title}}</a></li>
+						<li><a class="TT{{$tabWeb->id}}" href="#section_{{$tabWeb->type}}">{{$tabWeb->title}}</a></li>
 						@endforeach
 					</ul>
 					</div>

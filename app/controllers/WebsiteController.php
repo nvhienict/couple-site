@@ -239,16 +239,16 @@ class WebsiteController extends \BaseController {
 		if( $check_isset==0 ){
 			$new_website = new WeddingWebsite();
 			$new_website->user = $id_user;
-			$new_website->template = $id_tmp;			
+			$new_website->template = $id_tmp;
+			$new_website->name_bride="Tên cô dâu";
+			$new_website->name_groom="Tên chú rể";
+			$new_website->about_groom="Giới thiệu về chú rể";
+			$new_website->about_bride="Giới thiệu về cô dâu";
 			$new_website->save();
 		} else {
 			WeddingWebsite::where('user',$id_user)->update(
 				array(
-					"template"=>$id_tmp,
-					"about_bride"=>"Giới thiệu về cô dâu",
-					"about_groom"=>"Giới thiệu về chú rể",
-					"name_bride"=>"Tên cô dâu",
-					"name_groom"=>"Tên chú rể",
+					"template"=>$id_tmp
 					));
 		}
 			
@@ -458,6 +458,18 @@ class WebsiteController extends \BaseController {
 		 exit();
 		
 	}
+	public function updateName(){
+		$nameBride = Input::get('nameBride');
+		$nameGroom = Input::get('nameGroom');
+		WeddingWebsite::where('user', WebsiteController::id_user())->update(
+		array(
+			'name_groom'=>$nameGroom,
+			'name_bride'=>$nameBride
+			));
+
+		echo json_encode(array('name_groom'=>$nameGroom,'name_bride'=>$nameBride));
+		exit();	
+	}
 	// function change font for website
 	public function updateFontWebsite()
 	{
@@ -601,9 +613,12 @@ class WebsiteController extends \BaseController {
 		echo $color='';
 
 	}
-	
-
-public function getTab(){
+	public function delete_tab(){
+		$id = Input::get('id');
+		TabWebsite::find($id)->delete();
+		
+	}
+	public function getTab(){
 
 		$tab= TabWebsite::find(Input::get('id'));
 		$visiable = '<input type="checkbox" name="hideTitle" id="hideTitle">';
@@ -615,6 +630,7 @@ public function getTab(){
 		"id"=>$tab->id,
 		"title"=>$tab->title,
 		"content"=>$tab->content,
+		"type"=>$tab->type,
 		"visiable"=>$visiable,
 		"titlestyle"=>$tab->titlestyle
 		);
@@ -627,10 +643,20 @@ public function getTab(){
 		$idChange = Input::get('id');
 		$mang = array("k");
 		$oldSort = TabWebsite::where("id",$idChange)->get()->first()->sort;
-			try {
-					$idweb = input::get('id_web');
-					$tabwebsite = TabWebsite::where('website', $idweb)->get();
-
+		try {
+				$idweb = input::get('id_web');
+				$tabwebsite = TabWebsite::where('website', $idweb)->get();
+				$countTab = $tabwebsite->count();
+				if ($newSort>$countTab ) {
+					foreach ($tabwebsite as  $tab) {
+						if($tab->sort > $oldSort && $tab->sort <= $countTab){
+							TabWebsite::where("id",$tab->id)->update(array('sort'=>$tab->sort -1));
+						}
+					}
+					TabWebsite::where("id",$idChange)->update(array('sort'=>$countTab));
+				}
+				else
+				{
 					foreach ($tabwebsite as  $tab) {
 						if($oldSort > $newSort && $tab->sort < $oldSort && $tab->sort >= $newSort){
 							TabWebsite::where("id",$tab->id)->update(array('sort'=>$tab->sort + 1));
@@ -639,11 +665,14 @@ public function getTab(){
 							TabWebsite::where("id",$tab->id)->update(array('sort'=>$tab->sort - 1));
 						}
 					}
-			} catch (Exception $e) {
-					echo "lỗi update dữ liệu";
+					TabWebsite::where("id",$idChange)->update(array('sort'=>$newSort));
 				}
-		TabWebsite::where("id",$idChange)->update(array('sort'=>$newSort));
-		
+				
+		} catch (Exception $e) {
+				echo "lỗi update dữ liệu";
+			}
+		echo json_encode($countTab);
+		exit();
 	}
 public function Post_update_Tab(){
 

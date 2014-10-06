@@ -3,7 +3,7 @@
 		<div class="row sptr-position">
 			<div class="col-md-12">
 				<div class="separator" style="background: url({{Asset('/images/website/themes5/separetor.png')}}) no-repeat center;">
-					<h2 data-uk-scrollspy="{cls:'uk-animation-scale-up', repeat: true}"><span>{{$tabWeb->title}}</span></h2>
+					<h2 data-uk-scrollspy="{cls:'uk-animation-scale-up', repeat: true}"><span class="TT{{$tabWeb->id}}">{{$tabWeb->title}}</span></h2>
 				</div>
 			</div>
 		</div>

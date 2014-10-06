@@ -418,7 +418,12 @@ p{
 	background-repeat: no-repeat;
 	outline:0;		
 }
-
+#editName{
+	display: none;
+	padding-top: 100px;
+	background-color: white;
+	opacity: 0.9; 
+}
 .shape_org img{
 	width:100%;
 	height: 100%;
@@ -520,12 +525,13 @@ p{
 }
 	
 .shape .overlay.hexagon_mask {
-	background: url(../images/hexagonal-mask.png);
+	
 	background-size:cover;
 }	
 
 .shape img{
 	width:100%;
+	height: 100%;
 }
 
 /* Gifts */	
