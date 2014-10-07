@@ -941,7 +941,18 @@ public function up_images_album(){
 
 	} // end function timeCountDown()
 
-
+	public function changeMap()
+	{
+		$id_user = WebsiteController::id_user();			
+		$latitude=Input::get('latitude');
+		$longitude=Input::get('longitude');
+		WeddingWebsite::where('user',$id_user)->update(
+			array(
+					'latitude'=>$latitude,
+					'longitude'=>$longitude
+				));
+		
+	}
 
 
 } // end Controller

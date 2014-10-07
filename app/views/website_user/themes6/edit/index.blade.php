@@ -18,10 +18,10 @@
 	
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
-	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
-
+	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>	
 	<!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes6-edit.css")}}">
+	
 
 	<script type="text/javascript">
 		function showckeditor(id){

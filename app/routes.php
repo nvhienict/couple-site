@@ -291,7 +291,8 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('time_count_down', array('as'=>'time_count_down','uses'=>"WebsiteController@timeCountDown"));
 	// end time count down
 	
-	
+	//change Map//
+	Route::post('change-map',array('as'=>'change-map','uses'=>"WebsiteController@changeMap"));
 	
 });
 
