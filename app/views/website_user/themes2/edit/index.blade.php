@@ -139,21 +139,9 @@
 @foreach( $website as $website_item )
 <div class="background-themes" >
 
-	<!-- Static navbar -->
-  	<div class="navbar navbar-default menu_tab" role="navigation" style="position:fixed; width: 100%; z-index:1; clear:both; top:100; ">
-    	<div class="container-fluid ">
-      		<div class="navbar-header">
-        		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-         			<span class="sr-only">Toggle navigation</span>
-	              	<span class="icon-bar"></span>
-	              	<span class="icon-bar"></span>
-	              	<span class="icon-bar"></span>
-        		</button>
-        		<a class="navbar-brand" href="#">Thuna.vn</a>
-      		</div>
-      		<div class="navbar-collapse collapse">
+      		<div class="navbar-collapse collapse menu_tab" style="position:fixed; width: 74.5%; z-index:1; clear:both; top:100; ">
 
-        		<ul class="nav navbar-nav">
+        		<ul class="nav navbar-nav" style="background-color: #FFE6E6;">
         			<li class="active"><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
 				  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
         				<li><a href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>
@@ -168,9 +156,6 @@
         		</ul>
 
       		</div><!--/.nav-collapse -->
-    	</div><!--/.container-fluid -->
-	</div>
-	<!-- .end Static navbar -->
 
 	<!-- <div class="row menu_tab_boder"style="position:fixed; width: 100%; z-index:99999; top: 135px;" >
 		<div class="col-xs-12"></div>

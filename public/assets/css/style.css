@@ -2127,6 +2127,14 @@ tr.even td{
 	float: left;
 	position: relative;
 }
+.design_website_content_right{
+	height: 600px;
+	padding-right: 3px !important;
+	margin: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
 #page_design_home{
 	height: 500px;
 	overflow-y: auto;
