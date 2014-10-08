@@ -1,14 +1,14 @@
 
 <div class="col-xs-8 partion">
     <div class="row phara-margin">
-         <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-            {{$tabWeb->title}}
+         <h3 class="text-center title-tab" style="text-align: {{$tab->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tab->id}}">
+            {{$tab->title}}
         </h3>
         <div class="col-xs-6 float-left">
             <span> 
                 <a href="#">
                     <?php 
-                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
+                    $images=PhotoTab::where('tab',$tab->id)->get()->first();
                      ?>
                 @if($images)
                     <img  class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
@@ -19,8 +19,8 @@
                 </a>
             </span>           
         </div>
-         <div class="show-content phara{{$tabWeb->id}}">
-            <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
+         <div class="show-content phara{{$tab->id}}">
+            <span style="color: #{{$website_item->color3}}">{{$tab->content}}</span>
         </div>
         
     </div>

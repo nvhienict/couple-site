@@ -19,7 +19,6 @@
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
-
 	<!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes6.css")}}">
 
@@ -114,42 +113,42 @@
 			  				@include('website_user.themes6.edit.main')
 			  		
 					</div>
-				@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)	
+				@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tab)	
 
-			  			@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
-			  				<div class="tab-pane " id="{{$tabWeb->type}}">
+			  			@if($tab->type =="welcome" && $tab->visiable==0 )
+			  				<div class="tab-pane " id="{{$tab->type}}">
 			  					@include('website_user.themes6.page.left')
 			  				</div>
 			  			@endif
 			  			
-			  			@if($tabWeb->type =="about" && $tabWeb->visiable==0 )	
-			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+			  			@if($tab->type =="about" && $tab->visiable==0 )	
+			  				<div class="tab-pane" id="{{$tab->type}}">
 			  					@include('website_user.themes6.page.right')
 			  				</div>
 		  				@endif
-		  				@if($tabWeb->type =="love_story" && $tabWeb->visiable==0 )
-							<div class="tab-pane" id="{{$tabWeb->type}}">
+		  				@if($tab->type =="love_story" && $tab->visiable==0 )
+							<div class="tab-pane" id="{{$tab->type}}">
 								@include('website_user.themes6.page.love_story')
 							</div>						
 						@endif
-		  				@if($tabWeb->type =="wedding" && $tabWeb->visiable==0 )	
-			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+		  				@if($tab->type =="wedding" && $tab->visiable==0 )	
+			  				<div class="tab-pane" id="{{$tab->type}}">
 			  					@include('website_user.themes6.page.right')
 			  				</div>
 		  				@endif
-		  				@if($tabWeb->type =="traval" && $tabWeb->visiable==0 )	
-			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+		  				@if($tab->type =="traval" && $tab->visiable==0 )	
+			  				<div class="tab-pane" id="{{$tab->type}}">
 			  					@include('website_user.themes6.page.text')
 			  				</div>
 		  				@endif
-		  				@if($tabWeb->type =="album" && $tabWeb->visiable==0 )
-			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+		  				@if($tab->type =="album" && $tab->visiable==0 )
+			  				<div class="tab-pane" id="{{$tab->type}}">
 			  					@include('website_user.themes6.page.photo')
 			  				</div>
 			  			@endif
 			  			
-			  			@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
-			  				<div class="tab-pane" id="{{$tabWeb->type}}">
+			  			@if($tab->type=="contact" && $tab->visiable==0)
+			  				<div class="tab-pane" id="{{$tab->type}}">
 			  					@include('website_user.themes6.page.contact')
 			  				</div>	
 		  				@endif		

@@ -1,21 +1,21 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>    
-
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script> 
 
 <div class="col-xs-8 partion contact-main" >
   <div class="row phara-margin ">
         
-            <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}}" id = "nameTitle{{$tabWeb->id}}">{{$tabWeb->title}}</h3> 
+            <h3 class="text-center title-tab" style="text-align: {{$tab->titlestyle}}" id = "nameTitle{{$tab->id}}">{{$tab->title}}</h3> 
            <!-- -change map -->   
            <div class="text-center map-hove">
                 <p><input class="postcode" id="Postcode" name="Postcode" type="text"> <input type="submit" id="findbutton" value="Tìm địa điểm" /></p>        
-                  <div id="geomap" style="width:700px; height:400px;">
+                  <div id="geomap" style="width:600px; height:400px;">
                       <p>Loading Please Wait...</p>
                   </div>
                   <div id="cor"></div>
                   <input id="hidLat" name="hidLat" type="hidden" value="{{$website_item->latitude}}">
                   <input id="hidLong" name="hidLong" type="hidden" value="{{$website_item->longitude}}">  
+
            </div>                                   
             <!-- -end map -->  
     </div> 
@@ -59,7 +59,7 @@
 <br>
 <!-- -script change map -->
 <script type="text/javascript">
-        var PostCodeid = "#Postcode";
+       var PostCodeid = "#Postcode";
         var longval = "#hidLong";
         var latval = "#hidLat";
         var geocoder;
@@ -83,7 +83,7 @@
             
             var latlng = new google.maps.LatLng(initialLat, initialLong);
             var options = {
-                zoom: 18,
+                zoom: 12,
                 center: latlng,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
@@ -123,11 +123,11 @@
                 deleteOverlays();
 
                   marker = new google.maps.Marker({
-    position: event.latLng, 
-    title: 'Changer la position',
-    map: map,
-    draggable: true
-  });
+                      position: event.latLng, 
+                      title: 'Changer la position',
+                      map: map,
+                      draggable: true
+                    });
 
   
                   markersArray.push(marker);
@@ -172,7 +172,7 @@
 
                       });
                     } else {
-                        alert("Geocode was not successful for the following reason: " + status);
+                        alert("Vui lòng nhập tên địa điểm");
                     }
 
                 });

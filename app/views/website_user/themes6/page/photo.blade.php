@@ -30,9 +30,9 @@
 </head>
 <div class="col-xs-8 partion ">
     <div class="row phara-margin ">
-            <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}}" id = "nameTitle{{$tabWeb->id}}">{{$tabWeb->title}}</h3> 
-        <div class="show-content phara{{$tabWeb->id}}">                            
-            <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
+            <h3 class="text-center title-tab" style="text-align: {{$tab->titlestyle}}" id = "nameTitle{{$tab->id}}">{{$tab->title}}</h3> 
+        <div class="show-content phara{{$tab->id}}">                            
+            <span style="color: #{{$website_item->color3}}">{{$tab->content}}</span>
         </div>           
         
     </div>                   

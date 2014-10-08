@@ -672,7 +672,7 @@ body{
 /*-map*/
 .ui-autocomplete {
     background-color: white;
-    width: 400px;
+    width: 500px;
     border: 1px solid #cfcfcf;
     list-style-type: none;
     padding-left: 0px; font-family:Arial, Helvetica, sans-serif; cursor:pointer; font-size:12px;
