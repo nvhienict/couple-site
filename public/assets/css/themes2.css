@@ -1,6 +1,4 @@
 
-
-
 .menu_tab{
 	background-color: #FFE6E6;
 	padding: 10px;
@@ -11,6 +9,7 @@
 .navbar-nav li{
 	font-size: 17px;
 }
+
 
 .menu_tab_boder{
 	background-image: url("../../images/website/themes2/gifts-border-bottom.png");
