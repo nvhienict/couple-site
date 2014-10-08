@@ -13,7 +13,7 @@
 			<div class="row partion">
 				<div class="col-md-6">
 					<div class="shape">
-						<div class="overlay hexagon_mask" style="background: url({{Asset('/images/website/themes5/hexagonal-maskorg.png')}});"></div>
+						<div class="overlay hexagon_mask" style="background: url({{Asset('/images/website/themes5/hexagonal-maskorg.png')}}); background-size: cover;"></div>
 							<a href="#">
 			                    <?php 
 			                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();

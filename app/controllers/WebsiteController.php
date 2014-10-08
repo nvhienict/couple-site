@@ -415,47 +415,52 @@ class WebsiteController extends \BaseController {
 		 	array_unshift($type, $tab_type->type);
 		 }
 		 $typeTab = array_unique ($type);
-		 
-		 for($i=0; $i<=8; $i++)
-		 {
-		 	if (in_array($arrayValue[$i], $typeTab)) 
-		 	{
-		 		if ($arrayTab[$i]=="0") {
-		 			TabWebsite::where('type',$arrayValue[$i])->delete();
-		 			array_unshift($remove, $i);
-		 		}
-		 	}
-		 	else
-		 	{
-		 		
-		 		if ($arrayTab[$i]=="1") {
-		 			try {
-		 				array_unshift($addtop, $i);
-		 				// Add tab moi vao
-		 				$tab = Tab::where('type',$arrayValue[$i])->get()->first();
-			 			$tab_web = new TabWebsite();
-			 			$tab_web->title = $tab->title;
-			 			$tab_web->type = $arrayValue[$i];
-			 			$tab_web->website = $id_Web;
-			 			$tab_web->content = $tab->content;
-						$tab_web->visiable = $tab->visiable;
-						$tab_web->titlestyle = $tab->titlestyle;
-						$tab_web->video = $tab->video;
-						$tab_web->map = $tab->map;
-			 			$tab_web->sort = $i;
-			 			$tab_web-> save();
-
+		 $countTab = Tab::count();
+		 try {
+			 for($i=0; $i<=$countTab; $i++)
+			 {
+			 	if (in_array($arrayValue[$i], $typeTab)) 
+			 	{
+			 		if ($arrayTab[$i]=="0") {
+			 			TabWebsite::where('type',$arrayValue[$i])->delete();
+			 			array_unshift($remove, $i);
+			 		}
+			 	}
+			 	else
+			 	{
+			 		if ($arrayTab[$i]=="1") {
+			 			try {
+			 				array_unshift($addtop, $i);
+			 				// Add tab moi vao
+			 				$tab = Tab::where('type',$arrayValue[$i])->get()->first();
+				 			$tab_web = new TabWebsite();
+				 			$tab_web->title = $tab->title;
+				 			$tab_web->type = $arrayValue[$i];
+				 			$tab_web->website = $id_Web;
+				 			$tab_web->content = $tab->content;
+							$tab_web->visiable = $tab->visiable;
+							$tab_web->titlestyle = $tab->titlestyle;
+							$tab_web->video = $tab->video;
+							$tab_web->map = $tab->map;
+							$tab_web->sort = $countTab;
+				 			$tab_web-> save();
+			 			} catch (Exception $e) {
+			 				echo "khong luu du lieu dc";
+			 			}
 			 			
-		 			} catch (Exception $e) {
-		 				echo "khong luu du lieu dc";
-		 			}
-		 			
-		 		}
-		 	}
+			 		}
+			 	}
 
+			 }
+		 } catch (Exception $e) {
+		 	echo "không đc";
 		 }
+	 	foreach(TabWebsite::where('website', $id_Web)->get() as $index=>$tab){
+	 		TabWebsite::where('id', $tab->id)->update(array('sort'=>$index + 1));
+	 	}
+
 		 echo json_encode(array("removeid"=> $remove,"addid"=>$addtop));
-		 exit();
+		 die();
 		
 	}
 	public function updateName(){

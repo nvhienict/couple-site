@@ -800,16 +800,18 @@
 	}
 	function submitTopic(){
 		$.ajax({
-			type: "post",
+			type: "POST",
 			url: "{{URL::route('addTopic')}}",
 			data:{
 				id_tab: id_tab,
 				valueTab: valueTab
 			},
 			success:function(data){
-				var data = JSON.parse(data);
 				location.reload(true);
-			}
+			},
+			error: function (){
+                alert('Có lỗi xảy ra');
+            }
 		});
 	}
 	function deleteTab(){

@@ -715,9 +715,9 @@ p{
 }
 .scrollIndex{
 	overflow-y: auto; 
-	height: 650px;
+	height: 600px;
 	padding: 0px;
-	margin-left: -15px;
+	overflow-x:hidden;
 }
 .about_groom:hover .icon_edit_about{
 	display: inline-block;
