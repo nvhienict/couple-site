@@ -670,11 +670,5 @@ body{
      padding-left:40px;
 }
 /*-map*/
-.ui-autocomplete {
-    background-color: white;
-    width: 500px;
-    border: 1px solid #cfcfcf;
-    list-style-type: none;
-    padding-left: 0px; font-family:Arial, Helvetica, sans-serif; cursor:pointer; font-size:12px;
-}
+
 .ui-menu-item {padding:3px 0;}

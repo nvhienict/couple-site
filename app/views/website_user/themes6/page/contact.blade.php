@@ -1,6 +1,4 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script> 
 
 <div class="col-xs-8 partion contact-main" >
   <div class="row phara-margin ">
@@ -9,7 +7,7 @@
               
            <div class="text-center map-hove">
                 <!-- -change map -->       
-                  <div id="geomap" style="width:600px; height:400px;">
+                  <div id="geomap" style="width:700px; height:400px;">
                       <p>Loading Please Wait...</p>
                   </div>
                   <div id="cor" style="width:100%; height:100%;"></div>
@@ -81,13 +79,13 @@
             
             var latlng = new google.maps.LatLng(initialLat, initialLong);
             var options = {
-                zoom: 12,
+                zoom: 16,
                 center: latlng,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
         
             map = new google.maps.Map(document.getElementById("geomap"), options);
-        
+            google.maps.event.addDomListener(window, 'load', initialize);
             geocoder = new google.maps.Geocoder();    
         
             marker = new google.maps.Marker({
@@ -101,82 +99,14 @@
                 map.panTo(point);
             });
             markersArray.push(marker);
-  //              google.maps.event.addListener(map, "click",function(event){
-
-  //               var lat = event.latLng.lat();
-  //               var lng = event.latLng.lng();
-  //               $(latval).val(lat);
-  //               $(longval).val(lng);
-  //               $('#Postcode').val('');
-  //               $.ajax({
-  //                         type:"POST",
-  //                         url:"{{URL::route('change-map')}}",
-  //                         data:{
-  //                             latitude: $('#hidLat').val(),
-  //                             longitude: $('#hidLong').val()
-  //                         },
-
-  //                     });
-
-  //               deleteOverlays();
-
-  //                 marker = new google.maps.Marker({
-  //   position: event.latLng, 
-  //   title: 'Changer la position',
-  //   map: map,
-  //   draggable: true
-  // });
-
-  
-  //                 markersArray.push(marker);
-  //           });
+ 
         };
         
         $(document).ready(function () {
         
             initialize();
         
-            $(function () {
-                $(PostCodeid).autocomplete({
-                    //This bit uses the geocoder to fetch address values
-                    source: function (request, response) {
-                        geocoder.geocode({ 'address': request.term }, function (results, status) {
-                            response($.map(results, function (item) {
-                                return {
-                                    label: item.formatted_address,
-                                    value: item.formatted_address
-                                };
-                            }));
-                        });
-                    }
-                });
-            });
-        
-            // $('#findbutton').click(function (e) {
-            //     var address = $(PostCodeid).val();
-            //     geocoder.geocode({ 'address': address }, function (results, status) {
-            //         if (status == google.maps.GeocoderStatus.OK) {
-            //             map.setCenter(results[0].geometry.location);
-            //             marker.setPosition(results[0].geometry.location);
-            //             $(latval).val(marker.getPosition().lat());
-            //             $(longval).val(marker.getPosition().lng());
-            //             $.ajax({
-            //               type:"POST",
-            //               url:"{{URL::route('change-map')}}",
-            //               data:{
-            //                   latitude: $('#hidLat').val(),
-            //                   longitude: $('#hidLong').val()
-            //               },
-
-            //           });
-            //         } else {
-            //             alert("Geocode was not successful for the following reason: " + status);
-            //         }
-
-            //     });
-            //     e.preventDefault();
-            // });
-        
+           
             //Add listener to marker for reverse geocoding
             google.maps.event.addListener(marker, 'drag', function () {
                 geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {

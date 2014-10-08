@@ -1,6 +1,4 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script> 
 
 <div class="col-xs-8 partion contact-main" >
   <div class="row phara-margin ">
@@ -9,7 +7,7 @@
            <!-- -change map -->   
            <div class="text-center map-hove">
                 <p><input class="postcode" id="Postcode" name="Postcode" type="text"> <input type="submit" id="findbutton" value="Tìm địa điểm" /></p>        
-                  <div id="geomap" style="width:600px; height:400px;">
+                  <div id="geomap" style="width:700px; height:400px;">
                       <p>Loading Please Wait...</p>
                   </div>
                   <div id="cor"></div>
@@ -83,7 +81,7 @@
             
             var latlng = new google.maps.LatLng(initialLat, initialLong);
             var options = {
-                zoom: 12,
+                zoom: 16,
                 center: latlng,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
@@ -135,25 +133,10 @@
         };
         
         $(document).ready(function () {
-        
+            
             initialize();
         
-            $(function () {
-                $(PostCodeid).autocomplete({
-                    //This bit uses the geocoder to fetch address values
-                    source: function (request, response) {
-                        geocoder.geocode({ 'address': request.term }, function (results, status) {
-                            response($.map(results, function (item) {
-                                return {
-                                    label: item.formatted_address,
-                                    value: item.formatted_address
-                                };
-                            }));
-                        });
-                    }
-                });
-            });
-        
+          
             $('#findbutton').click(function (e) {
                 var address = $(PostCodeid).val();
                 geocoder.geocode({ 'address': address }, function (results, status) {
