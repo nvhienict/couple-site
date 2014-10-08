@@ -36,11 +36,11 @@
 }
 .background-themes 
 { 
-	height: 650px;
-	overflow-y:auto;
+	/*height: 650px;
+	overflow-y:auto;*/
 	padding: 0px;
 	margin-left: -15px;
-	margin-right: 0px;
+	margin-right: -4px;
 	background-repeat:no-repeat center fixed; 
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
@@ -52,7 +52,7 @@
 	padding-top: 30px;
 	padding-left: 0px;
 	padding-right: 0px;
-	margin: 100px 15px 25px 15px;
+	margin: 0px 15px 25px 15px;
 	background:rgba(255,255,255,0.7);
 	/*background-color: white;*/
 }
@@ -127,7 +127,7 @@
 .tab-disappear {display: none !important;}}
 .navbar_edits{
 	position: fixed;
-	width: 74.5% ;
+	width: 75.5% ;
 	z-index: 1;
 }
 

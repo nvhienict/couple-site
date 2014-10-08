@@ -2131,6 +2131,7 @@ tr.even td{
 	height: 600px;
 	padding-right: 3px !important;
 	margin: 0;
+	right: 15px;
 	overflow-y: auto;
 	overflow-x: hidden;
 }

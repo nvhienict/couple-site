@@ -64,21 +64,6 @@
 				$('.click-edit-hide'+id).show();
 		        $('.ok-edit-show'+id).hide();
 		} 
-		//menu scoll
-		// jQuery(document).ready(function($){
-
-		// 	 var nav = $('.navbar_edit');
-
-		// 	 $('.background-themes').scroll(function () {
-		// 	  if ($(this).scrollTop() >5) {
-		// 	   nav.addClass("scrollq");
-		// 	  } else {
-		// 	   nav.removeClass("scrollq");
-		// 	  }
-		// 	 });
-
-		// 	});
-
 
    jQuery(document).ready(function($) {
     $('a[href^="#"]').bind('click.smoothscroll',function (e) {
