@@ -1,6 +1,4 @@
 
-
-
 @extends('main_website')
 @section('title')
 {{$firstname}}'s Website cưới - http://thuna.vn
