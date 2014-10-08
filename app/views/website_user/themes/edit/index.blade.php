@@ -64,6 +64,37 @@
 				$('.click-edit-hide'+id).show();
 		        $('.ok-edit-show'+id).hide();
 		} 
+		//menu scoll
+		// jQuery(document).ready(function($){
+
+		// 	 var nav = $('.navbar_edit');
+
+		// 	 $('.background-themes').scroll(function () {
+		// 	  if ($(this).scrollTop() >5) {
+		// 	   nav.addClass("scrollq");
+		// 	  } else {
+		// 	   nav.removeClass("scrollq");
+		// 	  }
+		// 	 });
+
+		// 	});
+
+
+   jQuery(document).ready(function($) {
+    $('a[href^="#"]').bind('click.smoothscroll',function (e) {
+        e.preventDefault();
+        var target = this.hash,
+        $target = $(target);
+
+        $('html, body').stop().animate( {
+            'scrollTop': $target.offset().top-40
+        }, 900, 'swing', function () {
+            window.location.hash = target;
+        } );
+    } );
+} );
+
+
 
 </script>
 
@@ -72,7 +103,7 @@
 @foreach( $website as $website_item )
 <div class="background-themes" style="background-image: url({{Asset("{$backgrounds}")}});">
 
-	<!-- <div >
+	<div  class="navbar_edits">
 		<nav style="padding:0px;" class="navbar navbar-default" role="navigation">
 		   <div class="navbar-header">
 		      <button type="button" class="navbar-toggle" data-toggle="collapse" 
@@ -83,15 +114,27 @@
 		         <span class="icon-bar"></span>
 		      </button>
 		   </div>
-		   <div style="background-color:#222222;" class="collapse navbar-collapse" id="example-navbar-collapse">
-		      <ul style="background-color:#222222;" class="nav navbar-nav">
+		   <div style="background-color:#6EC7B6;" class="collapse navbar-collapse" id="example-navbar-collapse">
+		      <ul style="background-color:#6EC7B6;" class="nav navbar-nav">
 		      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
 		         <li><a href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
 		         @endforeach()
 		      </ul>
 		   </div>
 		</nav>
-	</div> -->
+	</div>
+		<!-- <nav id="menu_web" class="menu_web">
+		    <ul>
+		        <li><a href="">Home</a></li>
+		        <li><a href="">About</a></li>
+		        <li><a href="">Học PHP</a></li>
+		        <li><a href="">SEO</a></li>
+		        <li><a href="">jQuery</a></li>
+		        <li><a href="">Wordpress</a></li>
+		        <li><a href="">Blogger</a></li>
+		    </ul>
+		</nav>  -->
+	
 	<div class="after-image-themes">
 
 		<!-- Themes Heading -->
