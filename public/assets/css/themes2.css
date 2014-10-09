@@ -4,6 +4,18 @@
 	margin-right: 0px !important;
 }
 
+
+.menu_tab_edit{
+	background-color: #FFE6E6;
+	padding: 10px ;
+	margin: 0px; 
+	border-color: #FFE6E6;
+	width: 100%;
+	position: fixed;
+	z-index: 99999;
+	position:fixed; width: 74%; z-index:1; clear:both; top:100; 
+}
+
 .menu_tab{
 	background-color: #FFE6E6;
 	padding: 10px;
