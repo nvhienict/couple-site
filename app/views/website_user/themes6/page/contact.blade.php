@@ -7,7 +7,7 @@
               
            <div class="text-center map-hove">
                 <!-- -change map -->       
-                  <div id="geomap" style="width:700px; height:400px;">
+                  <div id="geomap">
                       <p>Loading Please Wait...</p>
                   </div>
                   <div id="cor" style="width:100%; height:100%;"></div>

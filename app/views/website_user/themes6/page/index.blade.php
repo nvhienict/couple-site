@@ -21,6 +21,15 @@
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
 	<!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes6.css")}}">
+	<!-- menu_tab -->
+    <link rel="stylesheet" href="{{Asset('assets/css/bootstrap-v3.1.1.min.css')}}">
+
+	<link rel="stylesheet" href="{{Asset('assets/css/bootstrap-v3.1.1-theme.min.css')}}">
+
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+	<script src="{{Asset('assets/js/bootstrap.3.1.1.min.js')}}"></script>
+	<script src="{{Asset('assets/js/jquery.droptabs.js')}}"></script>
 
 	<script type="text/javascript">
 		function showckeditor(id){
@@ -80,30 +89,28 @@
 <body class="background-themes"style="background-image: url({{Asset("{$backgrounds}")}});">		
 		
 		<br>		
-			<div class="navbar navbar-default navbar-fixed-top menu_tab" role="navigation" style="position:fixed; background-color:white; opacity: 0.8; ">
-		    	<div class="container-fluid ">
-		      		<div class="navbar-header">
-		        		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-themes_6">
-		         			<span class="sr-only">Toggle navigation</span>
-			              	<span class="icon-bar"></span>
-			              	<span class="icon-bar"></span>
-			              	<span class="icon-bar"></span>
-		        		</button>
-		        		
-		      		</div>
-		      		<div class="navbar-collapse collapse" id="menu-themes_6">
-
-		        		<ul class="nav navbar-nav">
-		        			<li class="active"><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
-		        			@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
-		        			<li><a href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>
-						  	@endforeach
-		          			
-		        		</ul>
-
-		      		</div><!--/.nav-collapse -->
-		    	</div><!--/.container-fluid -->
+			<div class="navbar navbar-default navbar-fixed-top container-fluid menu_tab" >
+				<ul class="nav nav-tabs droptabs " style="border: none;" >
+					<li class="active always-visible" ><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
+				  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
+						<li><a href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>
+				  	@endforeach
+					<li class="dropdown pull-right">
+						<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Xem thêm...<b class="caret"></b></a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+							
+						</ul>
+					 </li>
+				</ul>
+			
 			</div>
+			<script type="text/javascript">
+				$(".droptabs").droptabs({
+				    development:true
+				});
+			</script>
+			
+		  
 
 		<div class="after-image-themes">
 			<div class="container">

@@ -80,7 +80,7 @@
 <div class="background-themes "style="background-image: url({{Asset("{$backgrounds}")}});">
 			
 		<br>		
-			<div class="navbar-collapse collapse menu_tab" style="position:fixed; background-color:white;  width: 100%; z-index:1; clear:both; top:100;margin-top:-2%;">
+			<div class="navbar-collapse collapse menu_tab" style="position:fixed; background-color:white;  width: 100%; z-index:1;">
 		    	
 
 		        		<ul id="myTab"class="nav navbar-nav">

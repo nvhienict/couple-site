@@ -66,7 +66,10 @@
     {
         font-size: 17%;  
     }
-      
+      .map-hove #geomap
+    {
+      width:100px; height:80px;
+    }    
 }
  @media only screen and (min-device-width: 251px) and (max-device-width: 300px) {
    body
@@ -92,7 +95,10 @@
     {
         font-size: 28%;  
     }
-      
+    .map-hove #geomap
+    {
+      width:130px; height:100px;
+    }   
 }
 @media only screen and (min-device-width: 301px) and (max-device-width: 350px) {
    body
@@ -119,6 +125,10 @@
     {
         font-size: 40%;  
     }
+     .map-hove #geomap
+    {
+      width:160px; height:120px;
+    }    
       
 }
 
@@ -145,7 +155,10 @@
     {
         font-size: 45%;  
     }
-      
+    .map-hove #geomap
+    {
+      width:190px; height:150px;
+    }    
 }
 @media only screen and (min-device-width: 401px) and (max-device-width: 450px) {
    body
@@ -172,6 +185,10 @@
     {
         font-size: 50%;  
     }
+      .map-hove #geomap
+    {
+      width:230px; height:200px;
+    }    
       
 }
 @media only screen and (min-device-width: 451px) and (max-device-width: 500px) {
@@ -199,7 +216,10 @@
     {
         font-size: 60%;  
     }
-      
+     .map-hove #geomap
+    {
+      width:260px; height:200px;
+    }     
 }
 @media only screen and (min-device-width: 501px) and (max-device-width: 550px) {
    body
@@ -223,7 +243,10 @@
     {
         font-size: 75%;  
     }
-      
+    .map-hove #geomap
+    {
+      width:290px; height:220px;
+    }   
 }
 @media only screen and (min-device-width: 551px) and (max-device-width: 600px) {
    body
@@ -247,7 +270,10 @@
     {
         font-size: 100%;  
     }
-      
+    .map-hove #geomap
+    {
+      width:320px; height:250px;
+    }      
 }
 @media only screen and (min-device-width: 601px) and (max-device-width: 650px) {
    body
@@ -271,7 +297,10 @@
     {
         font-size: 100%;  
     }
-      
+    .map-hove #geomap
+    {
+      width:350px; height:250px;
+    }
 }
 @media only screen and (min-device-width: 651px) and (max-device-width: 700px) {
    body
@@ -294,6 +323,10 @@
     .circle-text div  h2
     {
         font-size: 100%;  
+    }
+       .map-hove #geomap
+    {
+      width:390px; height:250px;
     }
       
 }
@@ -319,6 +352,10 @@
     {
         font-size: 110%;  
     }
+      .map-hove #geomap
+    {
+      width:420px; height:300px;
+    }
       
 }
 @media only screen and (min-device-width: 751px) and (max-device-width: 800px) {
@@ -342,6 +379,10 @@
     .circle-text div  h2
     {
         font-size: 110%;  
+    }
+     .map-hove #geomap
+    {
+      width:450px; height:300px;
     }
       
 }
@@ -367,6 +408,10 @@
     {
         font-size: 110%;  
     }
+    .map-hove #geomap
+    {
+      width:450px; height:300px;
+    }
       
 }
 @media only screen and (min-device-width: 851px) and (max-device-width: 900px) {
@@ -391,6 +436,11 @@
     {
         font-size: 110%;  
     }
+    .map-hove #geomap
+    {
+      width:450px; height:300px;
+    }
+   
       
 }
 @media only screen and (min-device-width: 901px) and (max-device-width: 950px) {
@@ -421,6 +471,10 @@
     {
         font-size: 150%;  
     }
+     .map-hove #geomap
+    {
+      width:450px; height:300px;
+    }
       
 }
 @media only screen and (min-device-width: 951px) and (max-device-width: 991px) {
@@ -448,6 +502,11 @@
     {
         font-size: 150%;  
     }
+    .map-hove #geomap
+    {
+      width:450px; height:300px;
+    }
+      
       
 }
 @media only screen and (min-device-width: 992px) and (max-device-width: 1200px) {
@@ -470,6 +529,10 @@
     .circle-text div  h2
     {
         font-size: 160%;  
+    }
+    .map-hove #geomap
+    {
+      width:600px; height:300px;
     }
       
 }
@@ -495,6 +558,10 @@
     {
         font-size: 160%;  
     }
+    .map-hove #geomap
+    {
+      width:700px; height:400px;
+    }
       
 }
 @media only screen and (min-device-width: 1301px) and (max-device-width: 1400px) {
@@ -519,7 +586,10 @@
     {
         font-size: 160%;  
     }
-      
+    .map-hove #geomap
+    {
+      width:700px; height:400px;
+    }
 }
 @media only screen and (min-device-width: 1401px) and (max-device-width: 1500px) {
    body
@@ -543,7 +613,10 @@
     {
         font-size: 160%;  
     }
-      
+       .map-hove #geomap
+    {
+      width:700px; height:400px;
+    }
 }
 @media only screen and (min-device-width: 1501px){
      body
@@ -566,6 +639,10 @@
     .circle-text div  h2
     {
         font-size: 200%;  
+    }
+      .map-hove #geomap
+    {
+      width:700px; height:400px;
     }
       
 }
@@ -668,6 +745,15 @@ body{
 {
     padding-top:30px;
      padding-left:40px;
+}
+.nav-tabs > li > a {
+    color: #777;
+}
+.menu_tab
+{
+  position:fixed; 
+  background-color:white; 
+  opacity: 0.8;
 }
 /*-map*/
 

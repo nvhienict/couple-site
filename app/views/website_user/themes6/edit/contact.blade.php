@@ -5,9 +5,9 @@
         
             <h3 class="text-center title-tab" style="text-align: {{$tab->titlestyle}}" id = "nameTitle{{$tab->id}}">{{$tab->title}}</h3> 
            <!-- -change map -->   
-           <div class="text-center map-hove">
+           <div class="col-xs-8 text-center map-hove">
                 <p><input class="postcode" id="Postcode" name="Postcode" type="text"> <input type="submit" id="findbutton" value="Tìm địa điểm" /></p>        
-                  <div id="geomap" style="width:700px; height:400px;">
+                  <div id="geomap" >
                       <p>Loading Please Wait...</p>
                   </div>
                   <div id="cor"></div>
@@ -86,7 +86,8 @@
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
         
-            map = new google.maps.Map(document.getElementById("geomap"), options);
+            map = new google.maps.Map(document.getElementById("geomap"), options);  
+                
             geocoder = new google.maps.Geocoder();    
         
             marker = new google.maps.Marker({
@@ -94,7 +95,10 @@
                 draggable: true,
                 position: latlng
             });
-        
+             google.maps.event.addListener(marker, 'click', function() {      
+              infowindow.setContent(contentString);
+              infowindow.open(map, marker);              
+            });     
             google.maps.event.addListener(marker, "dragend", function (event) {
                 var point = marker.getPosition();
                 map.panTo(point);
@@ -133,17 +137,17 @@
         
         $(document).ready(function () {
             
-            initialize();
-            console.dir(map);
-            google.maps.event.trigger(map, 'resize');
+         
+            
           $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             google.maps.event.trigger(map, 'resize');
             
           });
-          $('#myTab a[href="#profile"]').on('shown', function(){
+          $('#myTab a[href="#contact"]').on('shown', function(){
             google.maps.event.trigger(map, 'resize');
-            map.setCenter(latlng);
-        });
+          });
+             initialize();
+           $("#geomap").css("width", 700).css("height", 400);
             $('#findbutton').click(function (e) {
                 var address = $(PostCodeid).val();
                 geocoder.geocode({ 'address': address }, function (results, status) {
