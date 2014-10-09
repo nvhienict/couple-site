@@ -87,7 +87,6 @@
             };
         
             map = new google.maps.Map(document.getElementById("geomap"), options);
-        
             geocoder = new google.maps.Geocoder();    
         
             marker = new google.maps.Marker({
@@ -135,8 +134,16 @@
         $(document).ready(function () {
             
             initialize();
-        
-          
+            console.dir(map);
+            google.maps.event.trigger(map, 'resize');
+          $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            google.maps.event.trigger(map, 'resize');
+            
+          });
+          $('#myTab a[href="#profile"]').on('shown', function(){
+            google.maps.event.trigger(map, 'resize');
+            map.setCenter(latlng);
+        });
             $('#findbutton').click(function (e) {
                 var address = $(PostCodeid).val();
                 geocoder.geocode({ 'address': address }, function (results, status) {

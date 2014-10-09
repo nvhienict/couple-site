@@ -570,6 +570,7 @@
 .partion
 {    
     background-color:white; opacity: 0.8;  
+    margin-top: 5%;
 }
 
 .partion-contact
@@ -670,6 +671,9 @@
 .container
 {
   padding-top:-1%;
+}
+.navbar-nav > li > a {
+    color: #777;
 }
 /*-map*/
 
