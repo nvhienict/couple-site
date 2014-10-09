@@ -1,10 +1,18 @@
 
+.row{
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+
 .menu_tab{
 	background-color: #FFE6E6;
 	padding: 10px;
 	margin: 0px; 
 	border-color: #FFE6E6;
-	
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 99999;
 }
 .navbar-nav li{
 	font-size: 15px;
@@ -16,11 +24,13 @@
 	padding: 5px 0 4px;
 	margin: 0px 0px 20px 0px; 
 	width: 100%;
+	position: fixed; 
+	z-index: 1;
+	top: 60px;
 }
 
 .content_themes2{
 	margin: 50px 0px;
-	
 }
 
 .tab-pane{

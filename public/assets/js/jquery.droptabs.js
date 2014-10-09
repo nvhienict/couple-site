@@ -13,7 +13,7 @@
 			dropdownMenuSelector		: "ul.dropdown-menu",
 			dropdownTabsSelector		: "li",
 			visibleTabsSelector			: ">li:not(.dropdown)",
-			developmentId				: "dt-devInfo",
+			// developmentId				: "dt-devInfo",
 			autoArrangeTabs				: true,
 			development					: false
         }, o);
@@ -55,7 +55,7 @@
 					if ($(dropdown).hasClass('active')) {
 						$('>a', dropdown).html(($('>li.active>a', dropdownMenu).html()).substring(0,10) + '... <b class="caret"></b>');
 					} else {
-						$('>a', dropdown).html('Dropdown <b class="caret"></b>'); 
+						$('>a', dropdown).html('Xem thêm... <b class="caret"></b>'); 
 					}
 				})
 				
@@ -63,7 +63,7 @@
 			
 			//Start Development info
 			if ( s.development ) {		
-				$('body').append('<div class="alert alert-success" id="'+ s.developmentId +'"></div>');
+				// $('body').append('<div class="alert alert-success" id="'+ s.developmentId +'"></div>');
 				var $developmentDiv = $('#' + s.developmentId);
 				$($developmentDiv).css('position','fixed').css('right','20px').css('bottom','20px');				
 				function devPrint(label, elem) {
