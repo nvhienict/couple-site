@@ -140,16 +140,16 @@
 @foreach( $website as $website_item )
 
 
-      		<div class="navbar-collapse collapse menu_tab" style="position:fixed; width: 74.5%; z-index:1; clear:both; top:100; ">
+	<div class="navbar-collapse collapse menu_tab_edit" >
 
-        		<ul class="nav navbar-nav" style="background-color: #FFE6E6;">
-        			<li class="active"><a href="#home" data-toggle="tab">Trang chủ</a></li>
-				  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
-        				<li><a class="{{$tab->id}}" href="#{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
-				  	@endforeach
-        		</ul>
+		<ul class="nav navbar-nav" style="background-color: #FFE6E6;">
+			<li class="active"><a href="#home" data-toggle="tab">Trang chủ</a></li>
+		  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
+				<li><a class="{{$tab->id}}" href="#{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
+		  	@endforeach
+		</ul>
 
-      		</div><!--/.nav-collapse -->
+	</div><!--/.nav-collapse -->
 
 	<!-- <div class="row menu_tab_boder"style="position:fixed; width: 100%; z-index:99999; top: 135px;" >
 		<div class="col-xs-12"></div>
