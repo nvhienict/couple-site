@@ -101,6 +101,7 @@
 		   </div>
 		   <div style="background-color:#6EC7B6;" class="collapse navbar-collapse" id="example-navbar-collapse">
 		      <ul style="background-color:#6EC7B6;" class="nav navbar-nav">
+		      	 <li><a href="#title_home">Trang Chủ</a></li>
 		      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
 		         <li><a class="{{$tab->id}}" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
 		         @endforeach()
@@ -123,7 +124,7 @@
 	<div class="after-image-themes">
 
 		<!-- Themes Heading -->
-		<div class="title-website">
+		<div class="title-website"id="title_home">
             <h2 class="text-center title-tab" style="color: #{{$website_item->color2}}" >{{WebsiteController::getDates()}}</h2>
             <h1 class="text-center" style="text-transform: uppercase; color: #{{$website_item->color1}}; font-family: {{$website_item->font}};">
                 {{$firstname}}'s wedding
