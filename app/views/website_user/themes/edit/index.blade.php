@@ -64,21 +64,6 @@
 				$('.click-edit-hide'+id).show();
 		        $('.ok-edit-show'+id).hide();
 		} 
-		//menu scoll
-		// jQuery(document).ready(function($){
-
-		// 	 var nav = $('.navbar_edit');
-
-		// 	 $('.background-themes').scroll(function () {
-		// 	  if ($(this).scrollTop() >5) {
-		// 	   nav.addClass("scrollq");
-		// 	  } else {
-		// 	   nav.removeClass("scrollq");
-		// 	  }
-		// 	 });
-
-		// 	});
-
 
    jQuery(document).ready(function($) {
     $('a[href^="#"]').bind('click.smoothscroll',function (e) {
@@ -117,7 +102,7 @@
 		   <div style="background-color:#6EC7B6;" class="collapse navbar-collapse" id="example-navbar-collapse">
 		      <ul style="background-color:#6EC7B6;" class="nav navbar-nav">
 		      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
-		         <li><a href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
+		         <li><a class="{{$tab->id}}" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
 		         @endforeach()
 		      </ul>
 		   </div>

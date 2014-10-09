@@ -137,22 +137,15 @@
 
 @if($website)
 @foreach( $website as $website_item )
-<div class="background-themes" >
+
 
       		<div class="navbar-collapse collapse menu_tab" style="position:fixed; width: 74.5%; z-index:1; clear:both; top:100; ">
 
         		<ul class="nav navbar-nav" style="background-color: #FFE6E6;">
-        			<li class="active"><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
+        			<li class="active"><a href="#home" data-toggle="tab">Trang chủ</a></li>
 				  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
-        				<li><a href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>
+        				<li><a class="{{$tab->id}}" href="#{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
 				  	@endforeach
-          			<!-- <li class="dropdown">
-                		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                		<ul class="dropdown-menu" role="menu">
-                  			<li class="active"><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
-						  	
-                		</ul>
-          			</li> -->
         		</ul>
 
       		</div><!--/.nav-collapse -->
@@ -163,9 +156,9 @@
 		
 
 <!-- Tab panes -->
-<div class="tab-content content_themes2" style="margin-top:150px;">
+<div class="tab-content content_themes2" style="margin: 0px;">
   	<div class="tab-pane active" id="home">
-  		<div class="row" style="margin:0px;">
+  		<div class="row" style="margin: 100px 0px 0px 0px;">
   			<div class="col-xs-1"></div>
   			<div class="col-xs-10">
   				<div class="row">
@@ -284,46 +277,47 @@
   	@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
 	  	
 	  	@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
-			<div class="tab-pane" id="welcome"
-			style="min-height: 240px;">
+			<div class="tab-pane" id="welcome" >
 		  		@include('website_user.themes2.edit.left')
 		  	</div>
 		  	<!-- .tab welcome -->
 	  	@endif
 
 	  	@if($tabWeb->type =="love_story" && $tabWeb->visiable==0 )
-			<div class="tab-pane" id="love_story" style="min-height: 240px;">
+			<div class="tab-pane" id="love_story" >
 				@include('website_user.themes2.edit.love_story')
 			</div>
 			<!-- .tab love_story -->
 		@endif
 
   		@if($tabWeb->type=="about" && $tabWeb->visiable==0)
-		  	<div class="tab-pane" id="about" style="min-height: 240px;">
+		  	<div class="tab-pane" id="about" >
 		  		@include('website_user.themes2.edit.right')
+
 		  	</div>
 		@endif
 
 		@if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
-		  	<div class="tab-pane" id="even" style="min-height: 240px;">
+		  	<div class="tab-pane" id="wedding" >
 		  		@include('website_user.themes2.edit.right')
+
 		  	</div>
 	  	@endif
 
 	  	@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
-			<div class="tab-pane" id="travel" style="min-height: 240px;">
+			<div class="tab-pane" id="traval" >
   				@include('website_user.themes2.edit.text')
   			</div>
   		@endif
 
   		@if($tabWeb->type=="album" && $tabWeb->visiable==0)
-  			<div class="tab-pane" id="images" style="min-height: 240px;">
+  			<div class="tab-pane" id="album" >
   				@include('website_user.themes2.edit.photo')
   			</div>
   		@endif
 
   		@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
-			<div class="tab-pane" id="contact" style="min-height: 240px;">
+			<div class="tab-pane" id="contact" >
   				@include('website_user.themes2.edit.contact')
   			</div>
   		@endif
@@ -363,7 +357,7 @@
 	</div>
 <!-- .footer -->
 
-</div>
+
 @endforeach
 @endif
 <!-- and image-themes -->

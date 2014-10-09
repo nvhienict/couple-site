@@ -24,6 +24,11 @@
 	
 }
 
+.tab-pane{
+	min-height: 350px;
+	margin: 20px 20px;
+}
+
 
 .about_groom:hover .icon_edit_about{
 	display: inline-block;
@@ -36,6 +41,13 @@
 }
 .edit_ctn_about, .edit_ctn_about_bride{
 	display: none;
+	width: 555px;
+}
+.edit_ctn_about{
+	float: right;
+}
+.edit_ctn_about_bride{
+	float: left;
 }
 
 .time_wedding{

@@ -31,55 +31,6 @@
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
 
-    <script type="text/javascript">
-		function showckeditor(id){
-		        var text=$('.phara'+id).html();
-		        $('.phara'+id).hide();
-		        CKEDITOR.instances['editor'+id].setData(text);
-
-		        $('.editphara'+id).addClass("col-xs-6");
-		        $('.editphara'+id).show();
-		        $('.click-edit-hide'+id).hide();
-		        $('.ok-edit-show'+id).show();
-		    }
-		function showckeditor_text(id){
-		        var text=$('.phara'+id).html();
-		        $('.phara'+id).hide();
-		        CKEDITOR.instances['editor'+id].setData(text);
-
-		        $('.editphara'+id).addClass("col-xs-12");
-		        $('.editphara'+id).show();
-		        $('.click-edit-hide'+id).hide();
-		        $('.ok-edit-show'+id).show();
-		    }
-		function updateckeditor(id){
-			//var t= CKEDITOR.instances['editor4'].getData();alert(t);
-			$.ajax({
-				type:"post",
-				dataType: "html",
-				url:"{{URL::route('update_content_tab')}}",
-				data: {	content:CKEDITOR.instances['editor'+id].getData(),
-						id_tab:$('.get_id'+id).val()
-					},
-				success:function(data){
-					var obj = JSON.parse(data);
-					$('.phara'+id).html(obj.content);	
-				}
-			});
-				$('.editphara'+id).hide();
-				$('.phara'+id).show();
-				$('.click-edit-hide'+id).show();
-		        $('.ok-edit-show'+id).hide();
-		}  
-		function exitckeditor(id){
-				$('.editphara'+id).hide();
-				$('.phara'+id).show();
-				$('.click-edit-hide'+id).show();
-		        $('.ok-edit-show'+id).hide();
-		} 
-
-	</script>
-
 </head>
 
 @if($website)
@@ -125,9 +76,9 @@
 		
 
 <!-- Tab panes -->
-<div class="tab-content responsive content_themes2" style="margin-top:150px;">
+<div class="tab-content responsive content_themes2" >
   	<div class="tab-pane active" id="home">
-  		<div class="row" style="margin:0px;">
+  		<div class="row" style="margin: 125px 0px 0px 0px;">
   			<div class="col-xs-1"></div>
   			<div class="col-xs-10">
   				<div class="row">
@@ -216,45 +167,45 @@
   	@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
 	  	
 	  	@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
-			<div class="tab-pane" id="welcome" style="min-height: 240px;">
+			<div class="tab-pane" id="welcome" >
 		  		@include('website_user.themes2.page.left')
 		  	</div>
 		  	<!-- .tab welcome -->
 	  	@endif
 
 	  	@if($tabWeb->type =="love_story" && $tabWeb->visiable==0 )
-			<div class="tab-pane" id="love_story" style="min-height: 240px;">
+			<div class="tab-pane" id="love_story" >
 				@include('website_user.themes2.page.love_story')
 			</div>
 			<!-- .tab love_story -->
 		@endif
 
   		@if($tabWeb->type=="about" && $tabWeb->visiable==0)
-		  	<div class="tab-pane" id="about" style="min-height: 240px;">
+		  	<div class="tab-pane" id="about" >
 		  		@include('website_user.themes2.page.right')
 		  	</div>
 		@endif
 
 		@if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
-		  	<div class="tab-pane" id="even" style="min-height: 240px;">
+		  	<div class="tab-pane" id="wedding" >
 		  		@include('website_user.themes2.page.right')
 		  	</div>
 	  	@endif
 
 	  	@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
-			<div class="tab-pane" id="travel" style="min-height: 240px;">
+			<div class="tab-pane" id="traval" >
   				@include('website_user.themes2.page.text')
   			</div>
   		@endif
 
   		@if($tabWeb->type=="album" && $tabWeb->visiable==0)
-			<div class="tab-pane" id="images" style="min-height: 240px;">
+			<div class="tab-pane" id="album" >
   				@include('website_user.themes2.page.photo')
   			</div>
   		@endif
 
   		@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
-			<div class="tab-pane" id="contact" style="min-height: 240px;">
+			<div class="tab-pane" id="contact" >
   				@include('website_user.themes2.page.contact')
   			</div>
   		@endif

@@ -178,7 +178,7 @@
 					<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
-						<li><a class="TT{{$tabWeb->id}}" href="#section_{{$tabWeb->type}}">{{$tabWeb->title}}</a></li>
+						<li><a class="{{$tab->id}}" class="TT{{$tabWeb->id}}" href="#section_{{$tabWeb->type}}">{{$tabWeb->title}}</a></li>
 						@endforeach
 					</ul>
 					</div>
