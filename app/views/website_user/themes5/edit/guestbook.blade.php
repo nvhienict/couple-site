@@ -1,4 +1,4 @@
-<section id="section_welcome" >
+<section id="section_guestbook" >
 	<div class="container text-center">
 		<div class="row sptr-position">
 			<div class="col-md-12">
@@ -8,10 +8,13 @@
 			</div>
 		</div>
 	</div>			
-	<div class="fest-portion text-center sptr-position">
-		<div class="container">	
-		    <div class="show-content phara{{$tabWeb->id}}">                            
-		    	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
+	<div class="travel-portion text-center sptr-position">
+		<div class="container">			
+			<div class="partion">
+			    <div class="show-content phara{{$tabWeb->id}}">                            
+			    	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
+				</div>
+				                
 			</div>
 		</div>
 	</div>	

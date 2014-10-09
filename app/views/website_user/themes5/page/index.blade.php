@@ -92,13 +92,19 @@
 			<!-- intro -->
 		</section>
 		
-				@include('website_user.themes5.page.welcome')
+				@include('website_user.themes5.page.background')
 			@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
 			<!-- Our story -->
 			@if($tabWeb->type =="about" && $tabWeb->visiable==0 )
 				@include('website_user.themes5.page.ourstory')
 			@endif
-			
+			@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
+				@include('website_user.themes5.page.welcome')
+			@endif
+			<!-- guestbook -->
+			@if($tabWeb->type =="guestbook" && $tabWeb->visiable==0 )
+				@include('website_user.themes5.edit.guestbook')
+			@endif
 			<!-- photo gallery -->
 			@if($tabWeb->type =="album" && $tabWeb->visiable==0 )
 				@include('website_user.themes5.page.photo')

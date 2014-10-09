@@ -1,4 +1,4 @@
-<section id="section_contact">
+<section id="section_contact" class="tab-pane">
 	<div class="container text-center">
 		<div class="row sptr-position">
 			<div class="col-md-12">

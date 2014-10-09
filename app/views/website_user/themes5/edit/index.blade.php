@@ -155,47 +155,63 @@
 			$("#showName").show();
 			$("#editName").hide();
 		}
+		jQuery(document).ready(function($) {
+		    $('a[href^="#"]').bind('click.smoothscroll',function (e) {
+		        e.preventDefault();
+		        var target = this.hash,
+		        $target = $(target);
+
+		        $('html, body').stop().animate( {
+		            'scrollTop': $target.offset().top-40
+		        }, 900, 'swing', function () {
+		            window.location.hash = target;
+		        } );
+		    } );
+		} );
 </script>
-
-
 	</head>
-	<div class="scrollIndex">
 		@if($website)
 		@foreach( $website as $website_item )
-		<section id="intro-portion">		
+		
 			<!-- Fixed navbar -->
-		<div id="nav-wrapper">
-			<div id="nav" class="navbar" style="position: relative;" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="index.html"><img src="{{Asset('images/website/themes5/key-icon.png')}}" alt="logo"></a>
-					</div>
-					<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav navbar-right">
-						@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
-						<li><a class="TT{{$tabWeb->id}}" href="#section_{{$tabWeb->type}}">{{$tabWeb->title}}</a></li>
-						@endforeach
-					</ul>
-					</div>
+			<div  class="navbar_edits">
+				<div id="nav-wrapper">
+					<nav id="nav" class="navbar" style="position: relative;" role="navigation">
+						<div class="container">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a class="navbar-brand" href="index.html"><img src="{{Asset('images/website/themes5/key-icon.png')}}" alt="logo"></a>
+							</div>
+							<div class="navbar-collapse collapse" id="example-navbar-collapse">
+							<ul class="nav navbar-nav navbar-right">
+								@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
+								<li><a class="TT{{$tabWeb->id}}" href="#section_{{$tabWeb->type}}" >{{$tabWeb->title}}</a></li>
+								@endforeach
+							</ul>
+							</div>
+						</div>
+					</nav>  	
 				</div>
-			</div>  	
-		</div>
-		
+			</div>
 			<!-- intro -->
-		</section>
 		
-			@include('website_user.themes5.edit.welcome')
+			@include('website_user.themes5.edit.background')
 			@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
 			<!-- Our story -->
 			@if($tabWeb->type =="about" && $tabWeb->visiable==0 )
 				@include('website_user.themes5.edit.ourstory')
 			@endif
-			
+			@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
+				@include('website_user.themes5.edit.welcome')
+			@endif
+			<!-- guestbook -->
+			@if($tabWeb->type =="guestbook" && $tabWeb->visiable==0 )
+				@include('website_user.themes5.edit.guestbook')
+			@endif
 			<!-- photo gallery -->
 			@if($tabWeb->type =="album" && $tabWeb->visiable==0 )
 				@include('website_user.themes5.edit.photo')
@@ -218,7 +234,6 @@
 			@endif
 			@endforeach
 			<!-- bridal party -->
-			
 		<script src="{{Asset("assets/js/uikit.min.js")}}"></script>
 		<script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
 		<script src="{{Asset("assets/js/jquery.nav.js")}}"></script>
@@ -255,13 +270,10 @@
 
 	<footer >
 		<div class="col-xs-6 col-md-offset-3">
-			
 			<div class="text-center">
 				<p>47 Đỗ Huy Uyển, Đà Nẵng<br>
 				© Copyright 2014 - <a href="http://thuna.vn">thuna.vn</a></p>
 			</div>
-			
 		</div>
 	</footer>
-	</div>
 </html>

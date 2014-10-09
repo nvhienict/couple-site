@@ -21,7 +21,7 @@
                     box-shadow: 0 0 50px #222;
                 }
             </style>
-<section id="section_album">
+<section id="section_album" class="tab-pane">
 	<div class="container text-center">
 		<div class="row sptr-position">
 			<div class="col-md-12">
