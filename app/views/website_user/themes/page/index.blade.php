@@ -41,11 +41,11 @@
 		</script>
 @if($website)
 @foreach( $website as $website_item )
-<div class="background-themes" style="height: 700px; background-image: url({{Asset("{$backgrounds}")}});">
+<div class="background-themes1" style="background-image: url({{Asset("{$backgrounds}")}});">
 	<!-- Thanh dieu huong -->
 
-	<div >
-		<nav style="padding:0px;" class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div>
+		<nav style="padding:0px;margin-right:16px;" class="navbar navbar-default navbar-fixed-top" role="navigation">
 		   <div class="navbar-header">
 		      <button type="button" class="navbar-toggle" data-toggle="collapse" 
 		         data-target="#example-navbar-collapse">
@@ -65,7 +65,7 @@
 		</nav>
 	</div>
 	
-	<div style="margin-left:30px;" class="after-image-themes">
+	<div style="margin-left:15px;padding-top:70px;" class="after-image-themes">
 
 		<!-- Themes Heading -->
 		<div class="title-website">
@@ -146,24 +146,26 @@
         <div id="section_{{$tabWeb->type}}">
         	@include('website_user.themes.page.text')
         	<hr>
+    	</div>
         @endif
   	@endforeach  
-          
-	</div>
 	<!-- and after-images-themes -->
-	<footer>
-		<div class="col-xs-6 col-md-offset-3">
-			
-			<div class="text-center">
-				<p>47 Đỗ Huy Uyển, Đà Nẵng<br>
-				© Copyright 2014 - <a href="http://thuna.vn">thuna.vn</a></p>
-			</div>
-			
-		</div>
-	</footer>
+	
 	
 </div>
 @endforeach
 @endif
 <!-- and image-themes -->
+<footer style="height:70px;">
+	<div class="col-xs-6 col-md-offset-3">
+		
+		<div class="text-center">
+			<p>47 Đỗ Huy Uyển, Đà Nẵng<br>
+			© Copyright 2014 - <a href="http://thuna.vn">thuna.vn</a></p>
+		</div>
+		
+	</div>
+</footer>
+</div>
+
 

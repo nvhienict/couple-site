@@ -208,28 +208,25 @@
         <div id="section_{{$tabWeb->type}}">
         	@include('website_user.themes.edit.text')
     	</div>
-        @endif
-
-   
+        @endif 
   	@endforeach  
-          
-	</div>
 	<hr>
-	<!-- and after-images-themes -->
 	
-	<footer >
-		<div class="col-xs-6 col-md-offset-3">
-			
-			<div class="text-center">
-				<p>47 Đỗ Huy Uyển, Đà Nẵng<br>
-				© Copyright 2014 - <a href="http://thuna.vn">thuna.vn</a></p>
-			</div>
-			
-		</div>
-	</footer>
 	
-</div>
+	
+</div> <!-- and after-images-themes -->
 @endforeach
 @endif
+<div style="height:70px;">
+	<div class="col-xs-6 col-md-offset-3">
+		
+		<div class="text-center">
+			<p>47 Đỗ Huy Uyển, Đà Nẵng<br>
+			© Copyright 2014 - <a href="http://thuna.vn">thuna.vn</a></p>
+		</div>
+		
+	</div>
+</div>
+</div>
 <!-- and image-themes -->
 
