@@ -440,7 +440,7 @@
     {
       width:450px; height:300px;
     }
-   
+
       
 }
 @media only screen and (min-device-width: 901px) and (max-device-width: 950px) {
@@ -646,6 +646,152 @@
     }
       
 }
+@media only screen and (max-device-height: 250px) {
+   .after-image-themes
+    {
+       height: 200px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+
+    } 
+}
+@media only screen and (min-device-height: 251px) and (max-device-height: 300px) {
+    .after-image-themes
+    {
+       height: 270px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 301px) and (max-device-height: 350px) {
+    .after-image-themes
+    {
+       height: 320px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 351px) and (max-device-height: 400px) {
+    .after-image-themes
+    {
+       height: 380px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 401px) and (max-device-height: 450px) {
+    .after-image-themes
+    {
+       height: 430px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 451px) and (max-device-height: 500px) {
+    .after-image-themes
+    {
+       height: 480px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 501px) and (max-device-height: 550px) {
+    .after-image-themes
+    {
+       height: 530px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 551px) and (max-device-height: 600px) {
+    .after-image-themes
+    {
+       height: 580px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+
+@media only screen and (min-device-height: 601px) and (max-device-height: 700px) {
+    .after-image-themes
+    {
+       height: 600px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 701px) and (max-device-height: 800px) {
+    .after-image-themes
+    {
+       height: 620px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 801px) and (max-device-height: 900px) {
+    .after-image-themes
+    {
+       height: 720px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 901px) and (max-device-height: 1000px) {
+    .after-image-themes
+    {
+       height: 820px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 1000px) and (max-device-height: 1100px) {
+    .after-image-themes
+    {
+       height: 920px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 1101px) and (max-device-height: 1200px) {
+    .after-image-themes
+    {
+       height: 1020px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 1201px) and (max-device-height: 1300px) {
+    .after-image-themes
+    {
+       height: 1120px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 1301px) and (max-device-height: 1400px) {
+    .after-image-themes
+    {
+       height: 1220px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 1401px) and (max-device-height: 1500px) {
+    .after-image-themes
+    {
+       height: 1320px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
+@media only screen and (min-device-height: 1501px) {
+    .after-image-themes
+    {
+       height: 1420px; 
+       overflow-y:auto;
+       overflow-x:hidden;
+    }
+}
 .partion
 {
     background-color:white; opacity: 0.8;
@@ -705,10 +851,7 @@ body{
 .after-image-themes
 {
   padding-top: 2%;
-  height: 520px;
-  overflow-y:auto;
-  overflow-x:hidden;
-
+  
 }
 .container
 {
