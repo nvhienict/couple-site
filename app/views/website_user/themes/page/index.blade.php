@@ -114,8 +114,7 @@
 		</div>
 		<div class="row phara-margin" style="padding-top:30px;">
            <!-- -change map --> 
-           	<div class="text-center map-hove " style='padding:20px 20px;'>         
-                <p><input class="postcode" id="Postcode" name="Postcode" type="text"> <input type="submit" id="findbutton" value="Tìm địa điểm" /></p>        
+           	<div class="text-center map-hove " style='padding:20px 20px;'> 
                   <div id="geomap" >
                       <p>Loading Please Wait...</p>
                   </div>
