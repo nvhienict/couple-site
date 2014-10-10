@@ -119,11 +119,12 @@
 			  						@endforeach
 			  					</select>
 						</span><br />
-			  			<span class="span_design_item">Nhấn mạnh:<select class="form-control" name="accent_website" onchange="style_website(this.value);" class="select_design2">
-						  							@for($i=1;$i<=3;$i++)
-						  								<option value="{{$i}}">Style {{$i}}</option>
-						  							@endfor
-						  						</select>
+			  			<span class="span_design_item">Nhấn mạnh:
+			  				<select class="form-control" name="accent_website" onchange="style_website(this.value);" class="select_design2">
+  							@for($i=1;$i<=3;$i++)
+  								<option value="{{$i}}">Style {{$i}}</option>
+  							@endfor
+  						</select>
 						</span>
 			  			<hr>
 			  			<span class="span_design_item">Màu: <a href="javascript:;" onclick="reset_color();" >Khôi phục mặc định</a></span><br />
@@ -830,6 +831,7 @@
 					$("#section_"+type).remove();
 					$('#Tr'+id).remove();
 					$('.TT'+id).remove();
+					location.reload(true);
 				}
 			});
 			return true;
@@ -863,17 +865,18 @@
 	  			hideTitle: hidetab
   			},
   			success:function(data){
-  				$('.TT'+id_title).text(data['title']);
-  				$('#nameTitle'+id_title).text(data['title']);
-  				$('#nameTitle'+id_title).css('text-align',data['titlestyle']);
-  				if (data['visiable'] == 1) 
-  				{
-  					$("#section_"+id_type).hide();
-  				}
-  				else
-  				{
-  					$("#section_"+id_type).show();
-  				};
+  				// $('.TT'+id_title).text(data['title']);
+  				// $('#nameTitle'+id_title).text(data['title']);
+  				// $('#nameTitle'+id_title).css('text-align',data['titlestyle']);
+  				// if (data['visiable'] == 1) 
+  				// {
+  				// 	$("#section_"+id_type).hide();
+  				// }
+  				// else
+  				// {
+  				// 	$("#section_"+id_type).show();
+  				// };
+  				location.reload(true);
   			}
 
   		});
