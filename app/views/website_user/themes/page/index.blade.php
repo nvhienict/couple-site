@@ -11,6 +11,10 @@
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
     <script src="{{Asset('assets/ckeditor/ckeditor.js')}}"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="{{Asset("assets/js/jquery.min.js")}}"></script>
+    <script src="{{Asset("assets/js/map-themes.js")}}"></script>
+   	
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
@@ -108,6 +112,18 @@
 		<div id="section_{{$tabWeb->type}}">
 		@include('website_user.themes.page.right')
 		</div>
+		<div class="row phara-margin" style="padding-top:30px;">
+           <!-- -change map --> 
+           	<div class="text-center map-hove " style='padding:20px 20px;'>         
+                <p><input class="postcode" id="Postcode" name="Postcode" type="text"> <input type="submit" id="findbutton" value="Tìm địa điểm" /></p>        
+                  <div id="geomap" >
+                      <p>Loading Please Wait...</p>
+                  </div>
+                  <input id="hidLat" name="hidLat" type="hidden" value="{{$website_item->latitude}}">
+                  <input id="hidLong" name="hidLong" type="hidden" value="{{$website_item->longitude}}">    
+            </div>                              
+            <!-- -end map -->  
+   		 </div> 
 		<hr>
 		@endif
 
