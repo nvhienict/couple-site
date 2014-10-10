@@ -86,50 +86,29 @@
 
 		<!-- Fixed navbar -->
     	<div class="col-xs-12 menu-top" >
-	      	<span>{{$firstname}} wedding</span><br />
-	      	{{WebsiteController::getDates()}}
+
+    		<ul class="nav navbar-nav col-xs-12" >
+		      	<li><a href="javascript:;" id="home">Trang Chủ</a></li>
+		      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $index => $menu_tab)
+		      		@if($index < 3)
+		        		<li><a class="{{$menu_tab->id}}" href="javascript:;" id="{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
+		        	@endif
+		        @endforeach()
+
+		        <li class="name_user">{{$firstname}} wedding<br />
+	      		{{WebsiteController::getDates()}}</li>
+
+	      		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $index => $menu_tab)
+		      		@if($index >= 3)
+		        		<li><a class="{{$menu_tab->id}}" href="javascript:;" id="{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
+		        	@endif
+		        @endforeach()
+	      	</ul>
+
 	    </div>
+		
 
-	    <div class='hexagon'>
-		  	<ul>
-		    	<li class='polygon_top'>
-		      		<a href="javascript:;" id="welcome"><span>Chào mừng</span></a>
-		    	</li>
-		   		<li class='polygon_top'></li>
-		    	<li class='polygon_top'>
-		      		<a href="javascript:;" id="about"><span>Giới thiệu</span></a>
-		    	</li>
-		    	<li class='polygon_bottom'>
-		      		<a href="javascript:;" id="event"><span>Sự kiện</span></a>
-		    	</li>
-		    	<li class='polygon_bottom'></li>
-		    	<li class='polygon_bottom'>
-		      		<a href="javascript:;" id="home"><span>Trang chủ</span></a>
-		    	</li>
-		  	</ul>
-		</div>
-
-		<div class='hexagon2'>
-		  	<ul>
-		    	<li class='polygon_top'>
-		      		<a href="javascript:;" id="travel"><span>Du lịch</span></a>
-		    	</li>
-		   		<li class='polygon_top'></li>
-		    	<li class='polygon_top'>
-		      		<a href="javascript:;" id="images"><span>Ảnh</span></a>
-		    	</li>
-		    	<li class='polygon_bottom'>
-		      		<a href="javascript:;" id="contact"><span>Liên hệ</span></a>
-		    	</li>
-		    	<li class='polygon_bottom'></li>
-		    	<li class='polygon_bottom'>
-		      		
-		    	</li>
-		  	</ul>
-		</div>
-		<!-- .menu -->
-
-	<div class="row margin-row" style="margin-top: 80px; margin-bottom: 50px;">
+	<div class="row margin-row" style="margin-bottom: 10px;">
 
 		<div class="col-sm-6 col-lg-6 col-md-6 photo-book" >
 
@@ -142,13 +121,16 @@
 
 			    <script src="{{Asset("assets/js_website_themes3/slide-respon.js")}}"></script>
 
-			    <div style="display: block; overflow: hidden; margin: 20px auto 0 auto; padding: 10px 5px 5px 10px; width: 96%; max-width:600px; min-width: 240px; border: 1px solid #ccc; background-color: #fff; box-shadow: 2px 2px 10px 2px #dddddd; -webkit-box-shadow: 0px 0px 5px 0px #dddddd; font-size: .8em; line-height: 1.5em;">
+			    <!-- about-bride -->
+
+			    <!-- end about-bride -->
+
+			    <div class="bg-slider" >
 			    <!-- Jssor Slider Begin -->
 			    <!-- You can move inline styles to css file or css block. -->
-			        <div id="slider2_container" style="position: relative; margin: 0px 5px 5px 0px; float: left; top: 0px; left: 0px; width: 600px;
-			            height: 300px; overflow: hidden;">
+			        <div id="slider2_container" >
 			            <!-- Slides Container -->
-			            <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px;
+			            <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 420px;
 			                overflow: hidden;">
 
 			                <?php $albums=PhotoTab::where('user',$website_item->user)->get()->count();?>
@@ -203,21 +185,28 @@
 			<!-- . page about-->
 
 			@if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
-				<div class="col-sm-12 col-lg-12 col-md-12 event">
+				<div class="col-sm-12 col-lg-12 col-md-12 wedding">
 					@include('website_user.themes3.edit.right')
 				</div>
 			@endif
 			<!-- . page event-->
 
+			@if($tabWeb->type =="love_story" && $tabWeb->visiable==0 )
+				<div class="col-sm-12 col-lg-12 col-md-12 love_story" >
+					@include('website_user.themes2.edit.love_story')
+				</div>
+			@endif
+			<!-- .tab love_story -->
+
 			@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
-				<div class="col-sm-12 col-lg-12 col-md-12 travel">
+				<div class="col-sm-12 col-lg-12 col-md-12 traval">
 					@include('website_user.themes3.edit.text')
 				</div>
 			@endif
 			<!-- . page travel-->
 
 			@if($tabWeb->type=="album" && $tabWeb->visiable==0)
-				<div class="col-sm-12 col-lg-12 col-md-12 images">
+				<div class="col-sm-12 col-lg-12 col-md-12 album">
 					@include('website_user.themes3.edit.photo')
 				</div>
 			@endif

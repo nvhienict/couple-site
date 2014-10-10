@@ -38,52 +38,29 @@
 <div class="container_themes3_page">
 
 		<!-- Fixed navbar -->
-    	<div class="navbar-fixed-top menu-top" >
-	      	<span>{{$firstname}} wedding</span><br />
-	      	{{WebsiteController::getDates()}}
+    	<div class="col-xs-12 menu-top-page" >
+
+    		<ul class="nav navbar-nav col-xs-12" >
+		      	<li><a href="javascript:;" id="home">Trang Chủ</a></li>
+		      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $index => $menu_tab)
+		      		@if($index < 3)
+		        		<li><a class="{{$menu_tab->id}}" href="javascript:;" id="{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
+		        	@endif
+		        @endforeach()
+
+		        <li class="name_user_page">{{$firstname}} wedding<br />
+	      		{{WebsiteController::getDates()}}</li>
+
+	      		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $index => $menu_tab)
+		      		@if($index >= 3)
+		        		<li><a class="{{$menu_tab->id}}" href="javascript:;" id="{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
+		        	@endif
+		        @endforeach()
+	      	</ul>
+
 	    </div>
-		
-		 <div class='hexagon_p'>
-		  	<ul>
-		    	<li class='polygon_top'>
-		      		<a href="javascript:;" id="welcome"><span>Chào mừng</span></a>
-		    	</li>
-		   		<li class='polygon_top'></li>
-		    	<li class='polygon_top'>
-		      		<a href="javascript:;" id="about"><span>Giới thiệu</span></a>
-		    	</li>
-		    	<li class='polygon_bottom'>
-		      		<a href="javascript:;" id="event"><span>Sự kiện</span></a>
-		    	</li>
-		    	<li class='polygon_bottom'></li>
-		    	<li class='polygon_bottom'>
-		      		<a href="javascript:;" id="home"><span>Trang chủ</span></a>
-		    	</li>
-		  	</ul>
-		</div>
 
-		<div class='hexagon2_p'>
-		  	<ul>
-		    	<li class='polygon_top'>
-		      		<a href="javascript:;" id="travel"><span>Du lịch</span></a>
-		    	</li>
-		   		<li class='polygon_top'></li>
-		    	<li class='polygon_top'>
-		      		<a href="javascript:;" id="images"><span>Ảnh</span></a>
-		    	</li>
-		    	<li class='polygon_bottom'>
-		      		<a href="javascript:;" id="contact"><span>Liên hệ</span></a>
-		    	</li>
-		    	<li class='polygon_bottom'></li>
-		    	<li class='polygon_bottom'>
-		      		
-		    	</li>
-		  	</ul>
-		</div>
-		<!-- .menu -->
-		<!-- .menu -->
-
-	<div class="row margin-row">
+	<div class="row margin-row" style="min-height: 565px;" >
 
 		<div class="col-sm-6 col-lg-6 col-md-6 photo-book">
 
@@ -158,21 +135,28 @@
 			@endif
 
 			@if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
-			  	<div class="col-sm-12 col-lg-12 col-md-12 event">
+			  	<div class="col-sm-12 col-lg-12 col-md-12 wedding">
 					@include('website_user.themes3.page.right')
 				</div>
 				<!-- . page event-->
 		  	@endif
 
+		  	@if($tabWeb->type =="love_story" && $tabWeb->visiable==0 )
+				<div class="col-sm-12 col-lg-12 col-md-12 love_story" >
+					@include('website_user.themes2.page.love_story')
+				</div>
+			@endif
+			<!-- .tab love_story -->
+
 		  	@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
-	  			<div class="col-sm-12 col-lg-12 col-md-12 travel">
+	  			<div class="col-sm-12 col-lg-12 col-md-12 traval">
 					@include('website_user.themes3.page.text')
 				</div>
 				<!-- . page travel-->
 	  		@endif
 
 	  		@if($tabWeb->type=="album" && $tabWeb->visiable==0)
-	  			<div class="col-sm-12 col-lg-12 col-md-12 images">
+	  			<div class="col-sm-12 col-lg-12 col-md-12 album">
 					@include('website_user.themes3.page.photo')
 				</div>
 				<!-- . page images-->
