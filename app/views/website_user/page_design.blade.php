@@ -105,7 +105,7 @@
 			  			<hr>
 			  			
 			  			<span class="span_design_item">Font chữ:</span><br />
-			  			<span class="span_design_item">Nội dung:
+			  			<span class="span_design_item">
 			  					<select class="form-control" name="font_website" onchange="font_website(this.value);" class="select_design1">
   									@foreach( $website as $item_website )
 	  									@foreach($arFont as $font_name)
@@ -119,25 +119,57 @@
 			  						@endforeach
 			  					</select>
 						</span><br />
-			  			<span class="span_design_item">Nhấn mạnh:
+			  			<!-- <span class="span_design_item">Nhấn mạnh:
 			  				<select class="form-control" name="accent_website" onchange="style_website(this.value);" class="select_design2">
   							@for($i=1;$i<=3;$i++)
   								<option value="{{$i}}">Style {{$i}}</option>
   							@endfor
   						</select>
-						</span>
+						</span> -->
 			  			<hr>
 			  			<span class="span_design_item">Màu: <a href="javascript:;" onclick="reset_color();" >Khôi phục mặc định</a></span><br />
 
 			  			@for($i=1;$i<=3;$i++)
 				  			@if((WebsiteController::returnColor($i)) )
-					  			<span class="span_design_item">Màu {{$i}}: 
-					  				<input type="text" name="color" value="#{{WebsiteController::returnColor($i)}}" onchange="color_design{{$i}}(this.value);" class="color color_design form-control">
-					  			</span><br />
+
+									@if( $i==1 )
+										<span class="span_design_item">Màu {{$i}}: <span style="color: #4B8DF9">Tiêu đề Website</span>
+							  				<input type="text" name="color" value="#{{WebsiteController::returnColor($i)}}" onchange="color_design{{$i}}(this.value);" class="color color_design form-control">
+							  			</span><br />
+									@endif
+
+									@if( $i==2 )
+										<span class="span_design_item">Màu {{$i}}: <span style="color: #4B8DF9">Tiêu đề các thành phần</span>
+							  				<input type="text" name="color" value="#{{WebsiteController::returnColor($i)}}" onchange="color_design{{$i}}(this.value);" class="color color_design form-control">
+							  			</span><br />
+									@endif
+
+									@if( $i==3 )
+										<span class="span_design_item">Màu {{$i}}: <span style="color: #4B8DF9">Tiêu đề nội dung</span>
+							  				<input type="text" name="color" value="#{{WebsiteController::returnColor($i)}}" onchange="color_design{{$i}}(this.value);" class="color color_design form-control">
+							  			</span><br />
+									@endif
+
+					  			
 					  		@else
-					  			<span class="span_design_item">Màu {{$i}}: 
-					  				<input type="text" name="color" value="" onchange="color_design{{$i}}(this.value);" class="color color_design form-control">
-					  			</span><br />
+					  			@if( $i==1 )
+									<span class="span_design_item">Màu {{$i}}: <span style="color: #4B8DF9">Tiêu đề Website</span>
+						  				<input type="text" name="color" value="#{{WebsiteController::returnColor($i)}}" onchange="color_design{{$i}}(this.value);" class="color color_design form-control">
+						  			</span><br />
+								@endif
+
+								@if( $i==2 )
+									<span class="span_design_item">Màu {{$i}}: <span style="color: #4B8DF9">Tiêu đề các thành phần</span>
+						  				<input type="text" name="color" value="#{{WebsiteController::returnColor($i)}}" onchange="color_design{{$i}}(this.value);" class="color color_design form-control">
+						  			</span><br />
+								@endif
+
+								@if( $i==3 )
+									<span class="span_design_item">Màu {{$i}}: <span style="color: #4B8DF9">Tiêu đề nội dung</span>
+						  				<input type="text" name="color" value="#{{WebsiteController::returnColor($i)}}" onchange="color_design{{$i}}(this.value);" class="color color_design form-control">
+						  			</span><br />
+								@endif
+
 					  		@endif
 				  		@endfor
 			  			
