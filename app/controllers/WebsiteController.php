@@ -611,8 +611,12 @@ class WebsiteController extends \BaseController {
 	}
 	public function delete_tab(){
 		$id = Input::get('id');
+		$id_Web = WeddingWebsite::where('user', WebsiteController::id_user())->get()->first()->id;
 		TabWebsite::find($id)->delete();
-		
+		foreach(TabWebsite::where('website', $id_Web)->get() as $index=>$tab)
+		{
+	 		TabWebsite::where('id', $tab->id)->update(array('sort'=>$index + 1));
+	 	}
 	}
 	public function getTab(){
 
