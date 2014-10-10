@@ -90,7 +90,7 @@
 		
 		<br>		
 			<div class="navbar navbar-default navbar-fixed-top container-fluid menu_tab" >
-				<ul class="nav nav-tabs droptabs " style="border: none;" >
+				<ul class="nav nav-tabs droptabss " style="border: none;" >
 					<li class="active always-visible" ><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
 				  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
 						<li><a href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>
@@ -105,7 +105,7 @@
 			
 			</div>
 			<script type="text/javascript">
-				$(".droptabs").droptabs({
+				$(".droptabss").droptabs({
 				    development:true
 				});
 			</script>
