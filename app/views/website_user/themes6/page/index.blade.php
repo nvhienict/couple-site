@@ -96,8 +96,8 @@
 						<li><a href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>
 				  	@endforeach
 					<li class="dropdown pull-right">
-						<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Xem thêm...<b class="caret"></b></a>
-						<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+						<a href="#" id="myTabDrop6" class="dropdown-toggle" data-toggle="dropdown">Xem thêm...<b class="carets"></b></a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop6">
 							
 						</ul>
 					 </li>
