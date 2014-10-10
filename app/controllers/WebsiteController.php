@@ -138,9 +138,7 @@ class WebsiteController extends \BaseController {
 			case 2:
 				$backgrounds='';
 				break;
-			case 3:
-				$backgrounds='';
-				break;
+			
 			case 5:
 				$backgrounds='images/website/themes5/header-bg.jpg';
 				break;
@@ -159,11 +157,7 @@ class WebsiteController extends \BaseController {
 																	->with('firstname', $firstname)
 																	->with('id_web', $id_Web);
 				break;
-			case 3:
-				return View::make('website_user.themes3.page.index')->with('website', $website)
-																	->with('firstname', $firstname)
-																	->with('id_web', $id_Web);
-				break;
+			
 			case 5:
 				return View::make('website_user.themes5.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
@@ -309,9 +303,7 @@ class WebsiteController extends \BaseController {
 			case 2:
 				$backgrounds='';
 				break;
-			case 3:
-				$backgrounds='';
-				break;
+			
 			case 5:
 				$backgrounds='images/website/themes5/header-bg.jpg';
 				break;
@@ -376,9 +368,8 @@ class WebsiteController extends \BaseController {
 			case 2:
 				$backgrounds='';
 				break;
-			case 3:
-				$backgrounds='';
-				break;
+			
+				
 			case 5:
 				$backgrounds='images/website/themes5/header-bg.jpg';
 				break;

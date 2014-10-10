@@ -145,7 +145,7 @@
 		<ul class="nav navbar-nav" style="background-color: #FFE6E6;">
 			<li class="active"><a href="#home" data-toggle="tab">Trang chủ</a></li>
 		  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
-				<li><a class="{{$tab->id}}" href="#{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
+				<li><a class="{{$tab->id}} TT{{$tab->id}}" href="#{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
 		  	@endforeach
 		</ul>
 
