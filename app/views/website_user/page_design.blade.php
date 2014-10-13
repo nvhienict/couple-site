@@ -340,7 +340,7 @@
 			</div>
 	  	</div>
 	  	<div class="form-group row">
-		    <label class="col-xs-5 control-label"><a href="#" onclick="deleteTab();"> Xoá trang</a></label>
+		     <label class="col-xs-5 control-label"><a href="#" data-toggle="modal" data-target="#deleteTabModal"> Xoá trang</a></label>
 		    <div class="col-xs-7">
 		    	<a class="btn btn-primary"  href="javascript:;" onclick="submit_title();" >Lưu thay đổi</a>
 			</div>
@@ -349,7 +349,24 @@
 	</div>
 
 
-
+<!-- Modal deleteTab -->
+	<div class="modal fade" id="deleteTabModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title">Xoá chủ đề</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p> Bạn chắc chắn muốn xoá chủ đề <strong id="titleDel"></strong>?</p>
+	      </div>
+	      <div class="modal-footer">
+	      	<button type="button" class="btn btn-primary" onclick="deleteTab();" data-dismiss="modal">Đồng ý</button>
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
 <!-- -modal change background -->
 	<div class="modal fade " id="modal-changebackground">
@@ -852,25 +869,16 @@
 	function deleteTab(){
 		var id = $("input[name=id_title]").val();
 		var type = $("input[name=id_type]").val();
-		if(confirm("Bạn chắc chắn muốn xoá chủ để này này?")){
-        	$.ajax({
-				type: "post",
-				url: "{{URL::route('delete-title')}}",
-				data:{
-					id: id
-				},
-				success: function(data){
-					$("#section_"+type).remove();
-					$('#Tr'+id).remove();
-					$('.TT'+id).remove();
-					location.reload(true);
-				}
-			});
-			return true;
-        }
-        else{
-            return false;
-        };
+    	$.ajax({
+			type: "post",
+			url: "{{URL::route('delete-title')}}",
+			data:{
+				id: id
+			},
+			success: function(data){
+				location.reload(true);
+			}
+		});
 	}
 	function submit_title(){
 		var id_title = $("input[name=id_title]").val();
