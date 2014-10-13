@@ -18,7 +18,7 @@ Trang chủ
 	  <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
 	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nhà cung cấp <b class="caret"></b></a>
+	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown">Nhà cung cấp <b class="caret"></b></a>
 	        <ul class="dropdown-menu oneUl" role="menu">
 	          <li role="presentation" class="dropdown-header"><span>Dịch vụ</span>
 	          <div class="row">
@@ -45,7 +45,7 @@ Trang chủ
 	        </ul>
 	      </li>
 	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Công cụ lập kế hoạch <b class="caret"></b></a>
+	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown">Công cụ lập kế hoạch <b class="caret"></b></a>
 	        <ul class="dropdown-menu " role="menu" >
 
 		        <li role="presentation" class="dropdown-header"><span>Công cụ</span>
@@ -62,7 +62,7 @@ Trang chủ
 	      </li>
 
 	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Âm nhạc<b class="caret"></b></a>
+	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown">Âm nhạc<b class="caret"></b></a>
 	        <ul class="dropdown-menu oneUl" role="menu">
 	          <li role="presentation" class="dropdown-header"><span>Nghi lễ</span>
 	            <div class="row">
@@ -164,7 +164,7 @@ Trang chủ
 	</section>
 	<!-- /Section: intro -->
 </div>
-	<!-- form search -->
+	<!-- <!-- <!-- form search -->
 		<div id="form-search-index" class="container">
 			<div class="row marginbot-80">
 				<div class="col-xs-8 col-md-8 col-md-offset-2">
@@ -246,7 +246,7 @@ Trang chủ
 		</div>
 	<!-- form search -->
 
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10" id="index-tool">
 			<div class="row tool-1" >
@@ -275,6 +275,30 @@ Trang chủ
 			</div>
 		</div>
 		<div class="col-xs-1"></div>
+	</div> -->
+ 
+	<!--  -->
+	<div class="col-xs-10 col-sm-11 col-md-10 col-lg-11" id="index-tool">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  tool-1">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-">
+				<h3>Danh sách công việc</h3>
+				<h5>Thuận lợi, sắp xếp một cách khoa học, chính xác thời gian trước ngày cưới...</h5>
+				<h6><a href="#">Sử dụng ngay</a></h6>
+			</div>
+			<div class="col-xs-12 col-sm- col-md-6 col-lg-6">
+				<img class="img-responsive" src="{{Asset('images/tool/tool-1.png')}}">
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  tool-1">		
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<img class="img-responsive" src="{{Asset('images/tool/tool-22.png')}}">
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<h3>Quản lý ngân sách</h3>
+				<h5>Sử dụng dễ dàng, tính toán một cách chính xác, phân bố ngân sách chi tiết, hợp lý...</h5>
+				<h6><a href="#">Sử dụng ngay</a></h6>
+			</div>
+		</div>
 	</div>
 
 

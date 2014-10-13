@@ -2013,7 +2013,7 @@ a.guest_list_icon_trash{
 #index-tool{
 	border: 1px solid #ffc790;
 	background-color: #fff8f2;
-	margin: 20px 5px 10px 5px;
+	margin: 20px 5px 10px 100px;
 }
 .tool-1{
 	padding: 5px;
@@ -2349,4 +2349,9 @@ tr.even td{
 }
 
 /*-- button login facebook --*/
+/*edit index*/
+.navbar-nav > li > .main_menu{
+	font-size: 17px;
+}
+
 
