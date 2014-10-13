@@ -106,12 +106,16 @@ Thông tin cá nhân
 						@endif
 					</div>	
 				</div>
+
+				@if( !empty(User::where('id', UserController::id_user())->get()->first()->password) )
 				<div class="row form-group">
 					<label for="password" class="col-xs-4 control-label">Mật khẩu cũ: </label>
 					<div class="col-xs-8">
 					   	<input type="password" class="form-control" name="password" id="password"  >
 					</div>
 				</div>
+				@endif
+
 			    <div class="row form-group">
 					<label for="new_password" class="col-xs-4 control-label">Mật khẩu mới: </label>
 					<div class="col-xs-8">
