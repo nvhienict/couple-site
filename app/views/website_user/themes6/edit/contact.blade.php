@@ -1,11 +1,10 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
 <div class="col-xs-8 partion contact-main" >
   <div class="row phara-margin ">
         
             <h3 class="text-center title-tab" style="text-align: {{$tab->titlestyle}}" id = "nameTitle{{$tab->id}}">{{$tab->title}}</h3> 
            <!-- -change map -->   
-           <div class="col-xs-8 text-center map-hove">
+           <!-- <div class="col-xs-8 text-center map-hove">
                 <p><input class="postcode" id="Postcode" name="Postcode" type="text"> <input type="submit" id="findbutton" value="Tìm địa điểm" /></p>        
                   <div id="geomap" >
                       <p>Loading Please Wait...</p>
@@ -14,7 +13,7 @@
                   <input id="hidLat" name="hidLat" type="hidden" value="{{$website_item->latitude}}">
                   <input id="hidLong" name="hidLong" type="hidden" value="{{$website_item->longitude}}">  
 
-           </div>                                   
+           </div>         -->                           
             <!-- -end map -->  
     </div> 
 <br><br>
@@ -62,8 +61,8 @@
         var latval = "#hidLat";
         var geocoder;
         var map;
-        var marker;
-  var markersArray = [];
+        var marker;      
+      var markersArray = [];
           function deleteOverlays() {
             if (markersArray) {
                 for (i in markersArray) {
@@ -94,15 +93,13 @@
                 map: map,
                 draggable: true,
                 position: latlng
-            });
-             google.maps.event.addListener(marker, 'click', function() {      
-              infowindow.setContent(contentString);
-              infowindow.open(map, marker);              
-            });     
+                
+            });            
             google.maps.event.addListener(marker, "dragend", function (event) {
                 var point = marker.getPosition();
                 map.panTo(point);
             });
+
             markersArray.push(marker);
                google.maps.event.addListener(map, "click",function(event){
 
@@ -135,10 +132,8 @@
             });
         };
         
-        $(document).ready(function () {
-            
+        $(document).ready(function () {           
          
-            
           $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             google.maps.event.trigger(map, 'resize');
             

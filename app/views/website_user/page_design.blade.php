@@ -711,13 +711,12 @@
         	@foreach($website as $website)
         	<input type="text" class="url_website" name="url_website" value="{{$website->url}}">
         	@endforeach()
-        	<p class='p_error'></p>
         </div>
         
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        <button  onclick="save_url()" type="button" class="btn btn-primary">Save changes</button>
+        <button onclick="save_url()" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -735,10 +734,8 @@
 				url_website:$('.url_website').val()
 			},
 			success: function(data){
-				var result=JSON.parse(data);
-				$('.p_error').text(result.error_url);
-				$('.p_error').css('color',result.color)
-				$('.a_url').text("http://www.thuna.vn/"+result.res_url);				
+
+				$('.a_url').text("http://www.thuna.vn/"+$('.url_website').val())
 			}
 		});
 	}

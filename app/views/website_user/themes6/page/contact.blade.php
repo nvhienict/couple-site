@@ -7,12 +7,12 @@
               
            <div class="text-center map-hove">
                 <!-- -change map -->       
-                  <div id="geomap">
+                 <!--  <div id="geomap">
                       <p>Loading Please Wait...</p>
                   </div>
                   <div id="cor" style="width:100%; height:100%;"></div>
                   <input id="hidLat" name="hidLat" type="hidden" value="{{$website_item->latitude}}">
-                  <input id="hidLong" name="hidLong" type="hidden" value="{{$website_item->longitude}}"> 
+                  <input id="hidLong" name="hidLong" type="hidden" value="{{$website_item->longitude}}">  -->
                <!-- -end map -->
            </div>                                   
               
