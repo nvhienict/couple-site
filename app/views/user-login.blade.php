@@ -6,7 +6,7 @@
 @include('nav')
 @endsection
 @section('content')
-<div class="row">
+<div class="row" >
   <div class="col-xs-8 col-md-offset-2">
     @if(isset($messages)) <p class="text-center alert alert-danger">{{$messages}}</p>
     @endif	
@@ -15,7 +15,10 @@
       @endif  
   </div>
 </div>
-<form role="form" action="{{Asset('login')}}" method="post" id="user_login">
+
+
+
+<form role="form" action="{{Asset('login')}}" method="post" id="user_login" >
   <div class="form-group">
     <label for="txMail">Địa chỉ email</label>
     <input type="email" class="form-control" name="txMail"id="txMail" placeholder="example@gmail.com"> 	
@@ -31,6 +34,13 @@
   </div>
   <button type="submit" class="btn btn-large btn-primary">Đăng nhập</button>
   <a href="{{URL::route('register')}}"> Đăng ký</a>
+
+<div id="login_facebook">
+  <span class="button-signin-facebook"><div class="facebook_connect_wrap small"><a href="{{URL::to('login/facebook')}}">Đăng nhập bằng tài khoản Facebook</a></div></span>
+</div>
+
 </form>
+
+
 
 @endsection

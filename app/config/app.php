@@ -122,7 +122,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Maatwebsite\Excel\ExcelServiceProvider',
-		'Intervention\Image\ImageServiceProvider'
+		'Intervention\Image\ImageServiceProvider',
+		'Artdarek\OAuth\OAuthServiceProvider'
 	),
 
 	/*
@@ -191,7 +192,8 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
 		'Carbon' => 'Carbon\Carbon',
-		'Image' => 'Intervention\Image\Facades\Image'
+		'Image' => 'Intervention\Image\Facades\Image',
+		'OAuth' => 'Artdarek\OAuth\Facade\OAuth'
 
 	),
 

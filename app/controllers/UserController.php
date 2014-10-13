@@ -277,6 +277,7 @@ class UserController extends \BaseController {
 			$avatar_default = User::where('role_id', '=', 1)->get()->first()->avatar;
 
 			$weddingdate = Input::get('weddingdate');
+
 			$user = new User();
 			$user->firstname=Input::get('first_name');
 			$user->lastname=Input::get('last_name');
@@ -291,6 +292,7 @@ class UserController extends \BaseController {
 			//kiểm tra nếu startdate so với hiện tại đã qua, thì lưu startdate của user bằng startdate hiện tại
 			$dateNow = New DateTime('now');
 			$date_wedding = new DateTime($weddingdate);
+
 			if(date_timestamp_get($dateNow) > date_timestamp_get($date_wedding))
 			{
 				$NowToWedding = (date_timestamp_get($dateNow)- date_timestamp_get($date_wedding))/(3600*24);
@@ -329,21 +331,132 @@ class UserController extends \BaseController {
 
 			Session::put("email",Input::get('email'));
 
-			if (!Session::has('url')) {
-				return Redirect::to('index');
-			}else{
-				$view_request = Session::get('url');
-				Session::forget('url');
-
-				return Redirect::to($view_request);
-			}
+			// go to view request
+			return Redirect::to(URL::previous());
 			
 		}else{
 			$errors=$validator->messages();
 			return Redirect::route("register")->with("errors",$errors);
 		}
 	}
+
 	public function check_user_email(){
 		return (User::where("email",Input::get('email'))->count()==0? "true": "false");
 	}
+
+	public function loginFacebook($action = "")
+	{
+		// get data from input
+	    $code = Input::get( 'code' );
+
+	    // get fb service
+	    $fb = OAuth::consumer( 'Facebook' );
+
+	    // check if code is valid
+
+	    // if code is provided get user data and sign in
+	    if ( !empty( $code ) ) {
+
+	        // This was a callback request from facebook, get the token
+	        $token = $fb->requestAccessToken( $code );
+
+	        // Send a request with it
+	        $result = json_decode( $fb->request( '/me' ), true );
+	        // $result['id'];
+	        $email = $result['email'];
+	        $firstname = $result['first_name'];
+	        $lastname = $result['last_name'];
+	        // $result['name'];
+
+	        if( User::where("email", $email)->count()==0 )
+	        {
+	        	// get avatar default
+				$avatar_default = User::where('role_id', '=', 1)->get()->first()->avatar;
+
+				$date_wedding_fb = New DateTime('now');
+				$date_wedding_fb_cv = $date_wedding_fb->format('Y-m-d');
+
+				$user = new User();
+				$user->firstname = $firstname;
+				$user->lastname = $lastname;
+				$user->email = $email;
+				$user->avatar = $avatar_default;
+				$user->weddingdate = $date_wedding_fb_cv;
+				$user->role_id = 2;
+				$user->budget = 0;
+				$user->save();
+
+		        
+				//kiểm tra nếu startdate so với hiện tại đã qua, thì lưu startdate của user bằng startdate hiện tại
+				$dateNow = New DateTime('now');
+				$date_wedding = new DateTime($date_wedding_fb_cv);
+
+				if(date_timestamp_get($dateNow) > date_timestamp_get($date_wedding))
+				{
+					$NowToWedding = (date_timestamp_get($dateNow)- date_timestamp_get($date_wedding))/(3600*24);
+				}
+				else
+				{
+					$NowToWedding = (date_timestamp_get($date_wedding)- date_timestamp_get($dateNow))/(3600*24);
+				}
+					
+					//truyền dữ liệu sang bảng usertask
+					$id_user = User::where('email','=',$email)->get()->first()->id; 
+						
+						$tasks = Task::get();
+						foreach($tasks as $task){
+							if( $NowToWedding > $task->startdate){
+								$startdate = $task->startdate;
+							}
+							else
+							{
+								$startdate = $NowToWedding+1;
+							}
+							
+
+							$usertask = new UserTask();
+							$usertask->title = $task->title;
+							$usertask->user = $id_user;
+							$usertask->startdate = $startdate;
+							$usertask->category = $task->category;
+							$usertask->description = $task->description;
+							$usertask->todo = 0;
+							$usertask->save();
+
+						}
+
+				$IdUser=User::where('email','=',$email)->get()->first()->id;
+
+				Session::put("email", $email);
+
+				// go to view request
+				return Redirect::to(URL::previous());
+				
+	        } else {
+	        	$IdUser=User::where('email','=',$email)->get()->first()->id;
+
+				Session::put("email", $email);
+
+				// go to view request
+				return Redirect::to(URL::previous());
+	        }
+
+	        
+
+
+	        //Var_dump
+	        //display whole array().
+	        // dd($result);
+
+	    }
+	    // if not ask for permission first
+	    else {
+	        // get fb authorization
+	        $url = $fb->getAuthorizationUri();
+
+	        // return to facebook login url
+	        return Redirect::to( (string)$url );
+	    }
+	} // end function loginFacebook
+
 }

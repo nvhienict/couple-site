@@ -2,6 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
 
 <head>
+
+	<script type="text/javascript">
+    // Get rid of the Facebook residue hash in the URI
+    // Must be done in JS cuz hash only exists client-side
+    // IE and Chrome version of the hack
+    if (String(window.location.hash).substring(0,1) == "#") {
+            window.location.hash = "";
+            window.location.href=window.location.href.slice(0, -1);
+            }
+    // Firefox version of the hack
+    if (String(location.hash).substring(0,1) == "#") {
+            location.hash = "";
+            location.href=location.href.substring(0,location.href.length-3);
+            }
+    </script>
+
 	<title>@yield('title')</title>
 	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
 	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logo.png")}}">
@@ -52,7 +68,7 @@
 
 </head>
 @include('social')
-<body>
+<body style="padding-right: 15px;">
 	<!--Header login-->
 	<div class="row user-header">
 		<div class="col-lg-3 col-xs-12 pull-right wedding-user-logged">
@@ -118,6 +134,7 @@
 		</div>
 	</div>	
 	<!-- .row -->
+
 
 
 </body>
