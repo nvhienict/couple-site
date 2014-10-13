@@ -6,7 +6,7 @@
     <meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
     <meta name="author" content="Thuna.vn">
 
-    <title>Nguyen's wedding</title>
+    <title>{{$firstname}}'s wedding</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
@@ -74,7 +74,13 @@
 
 		<!-- Themes Heading -->
 		<div class="title-website" id="title_home">
-            <h2 class="text-center title-tab" style="color: #{{$website_item->color2}}" >{{WebsiteController::getDates()}}</h2>
+            <h2 class="text-center title-tab" style="color: #{{$website_item->color2}}" >
+            	@if(Session::has('email'))
+            		{{WebsiteController::getDates()}}
+            	@else
+            		{{$date_url}}
+            	@endif
+            </h2>
             <h1 class="text-center" style="text-transform: uppercase; color: #{{$website_item->color1}}; font-family: {{$website_item->font}};">
                 {{$firstname}}'s wedding
             </h1>

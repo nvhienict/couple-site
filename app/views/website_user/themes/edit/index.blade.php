@@ -6,7 +6,7 @@
     <meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
     <meta name="author" content="Thuna.vn">
 
-    <title>Nguyen's wedding</title>
+    <title>{{$firstname}}'s wedding</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">

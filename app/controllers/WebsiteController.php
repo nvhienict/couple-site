@@ -52,6 +52,8 @@ class WebsiteController extends \BaseController {
 		return Carbon::parse(User::find($id_user)->weddingdate)->format('d-m-Y');
 	}
 
+
+
 	// format time count down
 	public static function getCountDown(){
 		$id_user = WebsiteController::id_user();
@@ -891,13 +893,104 @@ public function up_images_album(){
 	public function template_6()
 	{
 		return View::make('website_user.themes6.page.index');
-	}	
+	}
+	//url_website
 
 	public function change_url(){
-		$change_url=Input::get('url_website');
 		$id_user=WebsiteController::id_user();
-		WeddingWebsite::where('user',$id_user)->update(array('url'=>$change_url));
+		$change_url=Input::get('url_website');
+		$recent_url=WeddingWebsite::where('user',$id_user)->get()->first()->url;
+		if (WeddingWebsite::where('url',$change_url)->get()->count()) {
+			echo json_encode(array('error_url'=>'Url đã tồn tại, nhập vào url khác.','res_url'=>$recent_url, 'color'=>'red'));
+			exit();
+		} else {			
+			WeddingWebsite::where('user',$id_user)->update(array('url'=>$change_url));
+			echo json_encode(array('res_url'=>$change_url,'error_url'=>'Url đã cập nhật thành công.','color'=>'#5574C9'));
+			exit();
+		}		
 	}
+
+	public function url_website($url){
+		// get data from table website
+		$website_tamp=WeddingWebsite::where('url',$url)->get()->first();
+		$id_website=$website_tamp->id;
+		$template=$website_tamp->template;
+		$user=$website_tamp->user;
+		$firstname = User::where('id',$user)->get()->first()->firstname;
+		$email=User::where('id',$user)->get()->first()->email;
+		$date_url=Carbon::parse(User::find($user)->weddingdate)->format('d-m-Y');
+		$count_down_url=Carbon::parse(WeddingWebsite::where('user', $user)->get()->first()->count_down)->format('d-m-Y');
+		$website=WeddingWebsite::where('url',$url)->get();		
+		// get data from table 'tabs'
+		$arTab = TabWebsite::where('website',$id_website)->get();
+
+		
+		$check=WeddingWebsite::where('user',$user)->get()->first()->background;
+		if(!empty($check))
+		{
+			$backgrounds=WeddingWebsite::where('user',$user)->get()->first()->background;
+		}
+		else
+		{
+			switch ($template) {
+			case 1:
+				$backgrounds='images/website/themes1/template_1.jpg';
+				break;
+			case 2:
+				$backgrounds='';
+				break;
+			
+			case 5:
+				$backgrounds='images/website/themes5/header-bg.jpg';
+				break;
+
+			case 6:
+			$backgrounds='images/website/themes6/template_6.jpg';
+			break;
+			
+			}			
+			
+		}
+
+		switch ($template) {
+			case 2:
+				return View::make('website_user.themes2.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('id_web', $id_website)
+																	->with('date_url',$date_url)
+																	->with('email',$email)
+																	->with('count_down_url',$count_down_url);
+				break;
+			
+			case 5:
+				return View::make('website_user.themes5.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
+																	->with('id_web', $id_website)
+																	->with('date_url',$date_url)
+																	->with('count_down_url',$count_down_url);
+				break;
+
+			case 6:
+				return View::make('website_user.themes6.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
+																	->with('id_web', $id_website)
+																	->with('date_url',$date_url);
+				break;	
+			
+			default:
+				return View::make('website_user.themes.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('id_web', $id_website)
+																	->with('backgrounds',$backgrounds)
+																	->with('date_url',$date_url);
+				break;
+		}
+
+
+	}
+
 
 
 

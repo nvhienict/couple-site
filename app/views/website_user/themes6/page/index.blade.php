@@ -117,7 +117,7 @@
 			  	<div class="tab-content">
 			  		<div class="row tab-pane active" id="home">
 			  			
-			  				@include('website_user.themes6.edit.main')
+			  				@include('website_user.themes6.page.main')
 			  		
 					</div>
 				@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tab)	

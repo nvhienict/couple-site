@@ -5,19 +5,35 @@
 					<h2 style="padding-top: 100px;">{{$website_item->name_groom}} &amp; {{$website_item->name_bride}}</h2>
 					<!-- count datime to weddingdate -->
 		  					@if(empty($website_item->count_down))
-			  					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
-			  						<div id="getD{{$index}}" style="display:none;">
-			  							{{$dd}}
-			  						</div>
-			  					@endforeach
+		  						@if(Session::has('email'))
+				  					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
+				  						<div id="getD{{$index}}" style="display:none;">
+				  							{{$dd}}
+				  						</div>
+				  					@endforeach
+				  				@else
+				  					@foreach( $date = explode('-',$date_url) as $index=>$dd )
+				  						<div id="getD{{$index}}" style="display:none;">
+				  							{{$dd}}
+				  						</div>
+				  					@endforeach
+				  						
+			  					@endif
 			  				@else
-								@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
-			  						<div id="getD{{$index}}" style="display:none;">
-			  							{{$dd}}
-			  						</div>
-			  					@endforeach
-			  				@endif
-		  					
+			  					@if(Session::has('email'))
+									@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
+				  						<div id="getD{{$index}}" style="display:none;">
+				  							{{$dd}}
+				  						</div>
+				  					@endforeach
+			  					@else
+			  						@foreach( $date = explode('-',$count_down_url) as $index=>$dd )
+				  						<div id="getD{{$index}}" style="display:none;">
+				  							{{$dd}}
+				  						</div>
+				  					@endforeach
+		  						@endif
+			  				@endif		  					
 		  				<div style="text-align:center; margin-bottom:100px; font-weight: bold; font-size: 50px;color:#0B03FF;">
 		  				
 		  					<table align="center">

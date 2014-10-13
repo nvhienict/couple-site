@@ -278,6 +278,7 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('del_album',array('as'=>'del_album','uses'=>"WebsiteController@del_album"));
 	Route::post('change_url',array('as'=>'change_url','uses'=>"WebsiteController@change_url"));
 
+
 	// Route::get('themes5', function(){
 	// $id_user = WebsiteController::id_user();
 	// $id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;
@@ -295,6 +296,7 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('change-map',array('as'=>'change-map','uses'=>"WebsiteController@changeMap"));
 	
 });
+Route::get('website/{url}',array('as'=>'url_website','uses'=>"WebsiteController@url_website"));
 
 
 

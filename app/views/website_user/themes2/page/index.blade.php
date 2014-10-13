@@ -94,17 +94,34 @@
 		  					<table align="center">
 		  					<!-- count datime to weddingdate -->
 		  					@if(empty($website_item->count_down))
-			  					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
-			  						<div id="getD{{$index}}" style="display:none;">
-			  							{{$dd}}
-			  						</div>
-			  					@endforeach
+		  						@if(Session::has('email'))
+				  					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
+				  						<div id="getD{{$index}}" style="display:none;">
+				  							{{$dd}}
+				  						</div>
+				  					@endforeach
+				  				@else
+				  					@foreach( $date = explode('-',$date_url) as $index=>$dd )
+				  						<div id="getD{{$index}}" style="display:none;">
+				  							{{$dd}}
+				  						</div>
+				  					@endforeach
+				  						
+			  					@endif
 			  				@else
-								@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
-			  						<div id="getD{{$index}}" style="display:none;">
-			  							{{$dd}}
-			  						</div>
-			  					@endforeach
+			  					@if(Session::has('email'))
+									@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
+				  						<div id="getD{{$index}}" style="display:none;">
+				  							{{$dd}}
+				  						</div>
+				  					@endforeach
+			  					@else
+			  						@foreach( $date = explode('-',$count_down_url) as $index=>$dd )
+				  						<div id="getD{{$index}}" style="display:none;">
+				  							{{$dd}}
+				  						</div>
+				  					@endforeach
+		  						@endif
 			  				@endif
 		  					
 			  				<script type="text/javascript" src="{{Asset("assets/js/count-down-time.js")}}"></script>
@@ -217,14 +234,23 @@
   			<div class="col-xs-1"></div>
   			<div class="col-xs-10">
   				<div class="col-sm-4 col-lg-4 col-md-4">
-					Chào mừng đến dự đám cưới vào ngày {{WebsiteController::getDates()}}
+					Chào mừng đến dự đám cưới vào ngày 
+					@if(Session::has('email'))
+		            	{{WebsiteController::getDates()}}
+		            @else
+		            	{{$date_url}}
+	            	@endif
 				</div>
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					<img width="100%" src="{{Asset('images/website/themes2/couple.png')}}">
 				</div>
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					Mọi vấn đề xin liên hệ cho chúng tôi <br />
-					{{WebsiteController::getEmail()}}
+					@if(Session::has('email'))
+		            	{{WebsiteController::getDates()}}
+		            @else
+		            	{{$email}}
+	            	@endif
 				</div>
   			</div>
 				
