@@ -3,21 +3,6 @@
 
 <head>
 
-	<script type="text/javascript">
-    // Get rid of the Facebook residue hash in the URI
-    // Must be done in JS cuz hash only exists client-side
-    // IE and Chrome version of the hack
-    if (String(window.location.hash).substring(0,1) == "#") {
-            window.location.hash = "";
-            window.location.href=window.location.href.slice(0, -1);
-            }
-    // Firefox version of the hack
-    if (String(location.hash).substring(0,1) == "#") {
-            location.hash = "";
-            location.href=location.href.substring(0,location.href.length-3);
-            }
-    </script>
-
 	<title>@yield('title')</title>
 	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
 	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logo.png")}}">
@@ -27,6 +12,30 @@
 	<meta property="og:image" content="{{Asset("assets/img/logo.png")}}" />
 	<meta property="fb:app_id" content="692038267552175" />
 	
+	<script type="text/javascript">
+		// Test for the ugliness.
+		if (window.location.hash == '#_=_'){
+
+		    // Check if the browser supports history.replaceState.
+		    if (history.replaceState) {
+
+		        // Keep the exact URL up to the hash.
+		        var cleanHref = window.location.href.split('#')[0];
+
+		        // Replace the URL in the address bar without messing with the back button.
+		        history.replaceState(null, null, cleanHref);
+
+		    } else {
+
+		        // Well, you're on an old browser, we can get rid of the _=_ but not the #.
+		        window.location.hash = '';
+
+		    }
+
+		}
+	</script>
+	
+
 	<!-- css -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
@@ -42,6 +51,7 @@
 	
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
+
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/main.js")}}"></script>	 
 	<script src="{{Asset("assets/js/jquery.sticky.js")}}"></script>

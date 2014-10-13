@@ -202,23 +202,31 @@ Danh sách Dịch vụ
 											        <input checked type="checkbox" name="chk[]" value="{{$vendor->id}}" id="checkbox-photo{{$vendor->id}}" class='compare-title'> Compare
 											        <input type="hidden" name="checkbox-{{$vendor->id}}" value="{{$vendor->id}}" >
 										        </label>
+
 										        <script type="text/javascript" src="{{Asset('assets/js/count-compare.js')}}"></script>
 											        
 											</div>
 										@else
 											<div class="compare-photo">
-				                        			<label>
-												        <input type="checkbox" name="chk[]" value="{{$vendor->id}}" id="checkbox-photo{{$vendor->id}}" class='compare-title'> Compare
-												        <input type="hidden" name="checkbox-{{$vendor->id}}" value="" >
-											        </label>
-											        
-											        <script type="text/javascript" src="{{Asset('assets/js/count-compare.js')}}"></script>
-											        
+			                        			<label>
+											        <input type="checkbox" name="chk[]" value="{{$vendor->id}}" id="checkbox-photo{{$vendor->id}}" class='compare-title'> Compare
+											        <input type="hidden" name="checkbox-{{$vendor->id}}" value="" >
+										        </label>
+										        
+										        <script type="text/javascript" src="{{Asset('assets/js/count-compare.js')}}"></script>
+										        
 											</div>
 									    @endif
 									    <script type="text/javascript">
-											$('#checkbox-photo{{$vendor->id}}').click(function(){
-												$('#checkbox-list{{$vendor->id}}').trigger('click');
+											$('#checkbox-photo{{$vendor->id}}').on("click", function(){
+												if( $(this).prop('checked') ){
+													$('#gh').prop("checked", true);
+													$('#checkbox-list{{$vendor->id}}').prop("checked", true);
+												} else {
+													$('#gh').prop("checked", false);
+													$('#checkbox-list{{$vendor->id}}').prop("checked", false);
+												};
+												
 											});
 										</script>
 				                    </div> <!-- end div thumbnail -->
@@ -287,11 +295,18 @@ Danh sách Dịch vụ
 										        <input type="checkbox" name="chk[]" value="{{$vendor->id}}" id="checkbox-photo{{$vendor->id}}" class='compare-title'> Compare
 										        <input type="hidden" name="checkbox-{{$vendor->id}}" value="" >
 									        </label>
+
 									        <input type="hidden" id="count" name="a" value="0">
 
 										    <script type="text/javascript">
-												$('#checkbox-photo{{$vendor->id}}').click(function(){
-													$('#checkbox-list{{$vendor->id}}').trigger('click');
+												$('#checkbox-photo{{$vendor->id}}').on("click", function(){
+													if( $(this).prop('checked') ){
+														$('#gh').prop("checked", true);
+														$('#checkbox-list{{$vendor->id}}').prop("checked", true);
+													} else {
+														$('#gh').prop("checked", false);
+														$('#checkbox-list{{$vendor->id}}').prop("checked", false);
+													};
 												});
 											</script>
 									        <script type="text/javascript" src="{{Asset('assets/js/count-compare.js')}}"></script>
@@ -394,8 +409,8 @@ Danh sách Dịch vụ
 							    @endif
 
 							    <script type="text/javascript">
-								    $('#checkbox-list{{$vendor->id}}').click(function(){
-								    	$('#checkbox-photo{{$vendor->id}}').trigger('click');
+								    $('#checkbox-list{{$vendor->id}}').on("click", function(){
+								    	$('#checkbox-photo{{$vendor->id}}').click();
 								    });
 							    </script>
 							</div>
@@ -474,8 +489,8 @@ Danh sách Dịch vụ
 							        </label>
 
 							        <script type="text/javascript">
-									    $('#checkbox-list{{$vendor->id}}').click(function(){
-									    	$('#checkbox-photo{{$vendor->id}}').trigger('click');
+									    $('#checkbox-list{{$vendor->id}}').on("click", function(){
+									    	$('#checkbox-photo{{$vendor->id}}').click();
 									    });
 								    </script>
 							    </div>
