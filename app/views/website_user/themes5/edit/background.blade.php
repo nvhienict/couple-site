@@ -2,7 +2,7 @@
 		<div class="container ">
 			<div class="row">
 				<div class="col-md-12">
-					<h2 id="showName" onclick="editName();" style="padding-top: 100px;"><span id="topNameGroom">{{$website_item->name_groom}}</span> &amp; <span id="topNameBride">{{$website_item->name_bride}}</span></h2>
+					<h2 id="showName" onclick="editName();" style="padding-top: 100px; color: #{{$website_item->color2}}"><span id="topNameGroom">{{$website_item->name_groom}}</span> &amp; <span id="topNameBride">{{$website_item->name_bride}}</span></h2>
 					<div id="editName">
 						<input name="name_groom" value="{{$website_item->name_groom}}">
 						<input name="name_bride" value="{{$website_item->name_bride}}">
@@ -26,7 +26,7 @@
 			  					@endforeach
 			  				@endif
 		  					
-		  				<div style="text-align:center; margin-bottom:100px; font-weight: bold; font-size: 50px; color:#0B03FF;">
+		  				<div id="dateTime" style="text-align:center; margin-bottom:100px; font-weight: bold; font-size: 50px; color: #{{$website_item->color1}};">
 		  				
 		  					<table align="center">
 			  				<script type="text/javascript" src="{{Asset("assets/js/count-down-time.js")}}"></script>

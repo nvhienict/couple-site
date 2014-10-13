@@ -2,7 +2,7 @@
 		<div class="container ">
 			<div class="row">
 				<div class="col-md-12">
-					<h2 style="padding-top: 100px;">{{$website_item->name_groom}} &amp; {{$website_item->name_bride}}</h2>
+					<h2 style="padding-top: 100px; color: #{{$website_item->color2}}">{{$website_item->name_groom}} &amp; {{$website_item->name_bride}}</h2>
 					<!-- count datime to weddingdate -->
 		  					@if(empty($website_item->count_down))
 		  						@if(Session::has('email'))
