@@ -2351,4 +2351,9 @@ tr.even td{
 	font-size: 17px;
 }
 
-
+/*Alert**********/
+.sweet-alert {
+	
+	border: 1px solid;
+	
+}

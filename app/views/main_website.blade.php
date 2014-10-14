@@ -21,11 +21,12 @@
 	<link href="{{Asset("assets/css/flexslider.css")}}" rel="stylesheet" />
 	<link href="{{Asset("assets/css/animate.css")}}" rel="stylesheet" />
     <link href="{{Asset("assets/css/style.css")}}" rel="stylesheet">
-
+    <link href="{{Asset("assets/css/sweet-alert.css")}}" rel="stylesheet">
 	<link href="{{Asset("assets/color/default.css")}}" rel="stylesheet">
 	
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
+	<script src="{{Asset("assets/js/sweet-alert.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/main.js")}}"></script>	 
 	<script src="{{Asset("assets/js/jquery.sticky.js")}}"></script>
