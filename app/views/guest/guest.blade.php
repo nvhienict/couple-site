@@ -71,7 +71,7 @@ Danh sách khách mời
 									var obj = JSON.parse(data);
 									if(obj.counts==0)
 									{	
-										alert('Chưa có nhóm');
+										swal("Chưa có nhóm!");																				        	
 										window.location.href="{{URL::route('guest-list')}}";
 									}
 									
@@ -113,7 +113,7 @@ Danh sách khách mời
 										</div>
 									</div>
 									<div class="row form-group">
-										<label for="group" class="col-xs-3 control-label">Group:</label>
+										<label for="group" class="col-xs-3 control-label">Nhóm:</label>
 										<div class="col-xs-9">
 										   	<select name="group" class="form-control">
 						                    	@foreach(Groups::where('user',GuestController::id_user())->get() as $group)
