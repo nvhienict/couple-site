@@ -845,6 +845,11 @@ form.search-form input:focus {
 }
 
 /* menu */
+.dropdown-header
+{
+	font-size: 20px;
+	color: black;
+}
 ul.footer-menu {
 	list-style: none;
 }

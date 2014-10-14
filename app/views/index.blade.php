@@ -8,7 +8,7 @@ Trang chủ
 	<div class="col-xs-12">
 	<div class="navbar" style="z-index: 99999;">
 	  <div class="">
-	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+	    <button type="button" style="background-color:#404040;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
