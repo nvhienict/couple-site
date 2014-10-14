@@ -128,7 +128,9 @@ class UserBudgetController extends \BaseController {
 			</td>
 			
 			<td>
-				<a href="javascript:void(0);" onclick="item_del('.$item->id.')" class="confirm budget_icon_trash item_del'.$item->id.'"><i class="glyphicon glyphicon-trash"></i></a>
+				<a href="javascript:void(0);" onclick="get_budget('.$item->id.')" data-toggle="modal" data-target="#modalDeleteBudget" class="confirm budget_icon_trash item_del'.$item->id.'">
+ 					<i class="glyphicon glyphicon-trash"></i>
+ 				</a>
 			    <input type="hidden"  name="'.$item->item.'" value="'.$item->id.'" >
  			</td>
  			
@@ -190,6 +192,15 @@ class UserBudgetController extends \BaseController {
 		$budget->save();
 		
 	}
+	public function get_budget(){
+		$id_user=UserBudgetController::id_user();
+		$id_budget=Input::get('id');
+		$budget=UserBudget::where('user',$id_user)->where('id',$id_budget)->get()->first();
+		$item=$budget->item;
+		echo json_encode(array('item'=>$item));
+		exit();
+	}
+
 	public function delete()
 	{
 	    $id_user =UserBudgetController::id_user();

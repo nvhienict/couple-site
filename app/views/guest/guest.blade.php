@@ -453,16 +453,16 @@ Danh sách khách mời
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		        <h4 class="modal-title text-center">Xóa khách mời</h4>
+		        <button style="color:red" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 style="color:#3276B1;" class="modal-title text-center">Xóa khách mời</h4>
 		      </div>
 		      <div class="modal-body">
-		        <p class="text-center message_guest"></p>
+		        <p style="color:red;" class="text-center message_guest"></p>
 		        <input type="hidden" class="modal_delete_guest" value="">
 		      </div>
-		      <div class="modal-footer">
-		        <button onclick="del_guest()" data-dismiss="modal" type="button" class="btn btn-primary">Xóa</button>
-		        <button data-dismiss="modal" type="button" class="btn btn-primary" data-dismiss="modal">Thoát</button>
+		      <div class="modal-footer" style="text-align:center;">
+		        <button onclick="del_guest()" data-dismiss="modal" type="button" class="btn btn-primary">Ok</button>
+		        <button data-dismiss="modal" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
@@ -539,7 +539,7 @@ Danh sách khách mời
         			},
         			success:function(data){
     					var obj = JSON.parse(data);
-    					$('.message_guest').text('Bạn chắc chắn muốn xóa khách mời '+obj.fullname);
+    					$('.message_guest').text('Bạn chắc chắn muốn xóa khách mời '+obj.fullname+' ?');
         			}
         		});
         	};

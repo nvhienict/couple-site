@@ -291,7 +291,9 @@ Quản lý ngân sách
 					 				</div>
 					 			</td><!-- Due -->
 					 			<td>
-					 				<a href="javascript:void(0);" onclick="item_del({{$budget->id}})" class="confirm budget_icon_trash item_del{{$budget->id}}"><i class="glyphicon glyphicon-trash"></i></a>
+					 				<a href="javascript:void(0);" onclick="get_budget({{$budget->id}})" data-toggle="modal" data-target="#modalDeleteBudget" class="confirm budget_icon_trash item_del{{$budget->id}}">
+					 					<i class="glyphicon glyphicon-trash"></i>
+					 				</a>
 					 				<input type="hidden"  name="{{$budget->item}}" value="{{$budget->id}}" >
 					 			</td>
 									
@@ -345,6 +347,26 @@ Quản lý ngân sách
 			{{'<img width="195px;" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',VendorController::last_vendor()-1)->get()->first()->avatar) . '" />'}}
 			<span style="color: #68ceee">{{Vendor::where('id',VendorController::last_vendor()-1)->get()->first()->name}}</span>
 		</div>
+
+			<!-- Modal Delete Budget -->
+		<div class="modal fade" id="modalDeleteBudget">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button style="color:red;" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 style="color:#3276B1;" class="modal-title text-center">Xóa Items</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p style='color:red;' class="text-center message_budget"></p>
+		        <input type="hidden" class="modal_delete_budget" value="">
+		      </div>
+		      <div class="modal-footer text-center" style="text-align:center;">
+		        <button onclick="del_budget()" data-dismiss="modal" type="button" class="btn btn-primary">Ok</button>
+		        <button data-dismiss="modal" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 		<script type="text/javascript">
 	            //item
 				function item_click(id){
@@ -411,53 +433,61 @@ Quản lý ngân sách
 						}											
 					});
 			 	};	
-			 	function item_del(id){
-									
-                                    if(confirm("Bạn chắc chắn muốn xoá chi tiêu này?")){
-                                    	$.ajax({
-											type: "post",
-											url: "{{URL::route('delete')}}",
-											data: { 								    
-											       id:$(".item_del"+id).next().val()
-											},
-											success: function(data){
-												$("#budget_item_cat"+id).remove();
-												     var obj = JSON.parse(data);
-				                                   
-				                                    $("#totalEstimate"+obj.id_cate).text(obj.sumEstimate_cate.format(0,3,',') + " VND");
-				                                    $("#totalEstimate"+obj.id_cate).show();
-				                                    $("#totalCat"+obj.id_cate).text(obj.sumActual_cate.format(0,3,',') + " VND");
-				                                    $("#totalCat"+obj.id_cate).show();
-				                                    $("#totalCatPay"+obj.id_cate).text(obj.sumPay_cate.format(0,3,',') + " VND");
-				                                    $("#totalCatPay"+obj.id_cate).show();
-				                                    $("#totalCatDue"+obj.id_cate).text(obj.sumDue_cate.format(0,3,',') + " VND");
-				                                    $("#totalCatDue"+obj.id_cate).show();
-				                                    $("#rowSumExpected").text(obj.re_estimate.format(0,3,',') + " VND");
-				                                    $("#rowSumExpected").show(); 
-				                                    $("#rowSumActual").text(obj.sumActual.format(0,3,',') + " VND");
-				                                    $("#rowSumActual").show();
-				                                    $("#rowSumPay").text(obj.sumPay.format(0,3,',') + " VND");
-				                                    $("#rowSumPay").show();
-				                                    $("#rowSumDue").text(obj.sumDue.format(0,3,',') + " VND");
-				                                    $("#rowSumDue").show();
-				                                    
-				                                    $("#ubsDuKien").text(obj.re_estimate.format(0,3,',') + " VND");
-				                                    $("#ubsDuKien").show();
-				                                    $("#ubsThucTe").text(obj.sumActual.format(0,3,',') + " VND");
-				                                    $("#ubsThucTe").show();
-				                                    $("#ubsThanhToan").text(obj.sumPay.format(0,3,',') + " VND");
-				                                    $("#ubsThanhToan").show();
-				                                    $("#ubsConNo").text(obj.sumDue.format(0,3,',') + " VND");
-				                                    $("#ubsConNo").show();
-											}												
-											});
-                                        return true;
-                                    }
-                                    else{
-                                        return false;
-                                    };
-                                
-								};
+			 	function get_budget(id){
+			 		var id_budget=$('.item_del'+id).next().val();
+	        		$('.modal_delete_budget').val(id_budget);
+	        		$.ajax({
+	        			type: "post",
+	        			url: "{{URL::route('get_budget')}}",
+	        			data:{
+	        				id:id_budget
+	        			},
+	        			success:function(data){
+	    					var obj = JSON.parse(data);
+	    					$('.message_budget').text('Bạn chắc chắn muốn xóa Item '+obj.item+' ?');
+	        			}
+	        		});
+			 	};
+			 	function del_budget(){
+			 		var id_budget=$('.modal_delete_budget').val();
+			 		$.ajax({
+							type: "post",
+							url: "{{URL::route('delete')}}",
+							data: { 								    
+							       id:id_budget
+							},
+							success: function(data){
+								$("#budget_item_cat"+id_budget).remove();
+								     var obj = JSON.parse(data);
+                                   
+                                    $("#totalEstimate"+obj.id_cate).text(obj.sumEstimate_cate.format(0,3,',') + " VND");
+                                    $("#totalEstimate"+obj.id_cate).show();
+                                    $("#totalCat"+obj.id_cate).text(obj.sumActual_cate.format(0,3,',') + " VND");
+                                    $("#totalCat"+obj.id_cate).show();
+                                    $("#totalCatPay"+obj.id_cate).text(obj.sumPay_cate.format(0,3,',') + " VND");
+                                    $("#totalCatPay"+obj.id_cate).show();
+                                    $("#totalCatDue"+obj.id_cate).text(obj.sumDue_cate.format(0,3,',') + " VND");
+                                    $("#totalCatDue"+obj.id_cate).show();
+                                    $("#rowSumExpected").text(obj.re_estimate.format(0,3,',') + " VND");
+                                    $("#rowSumExpected").show(); 
+                                    $("#rowSumActual").text(obj.sumActual.format(0,3,',') + " VND");
+                                    $("#rowSumActual").show();
+                                    $("#rowSumPay").text(obj.sumPay.format(0,3,',') + " VND");
+                                    $("#rowSumPay").show();
+                                    $("#rowSumDue").text(obj.sumDue.format(0,3,',') + " VND");
+                                    $("#rowSumDue").show();
+                                    
+                                    $("#ubsDuKien").text(obj.re_estimate.format(0,3,',') + " VND");
+                                    $("#ubsDuKien").show();
+                                    $("#ubsThucTe").text(obj.sumActual.format(0,3,',') + " VND");
+                                    $("#ubsThucTe").show();
+                                    $("#ubsThanhToan").text(obj.sumPay.format(0,3,',') + " VND");
+                                    $("#ubsThanhToan").show();
+                                    $("#ubsConNo").text(obj.sumDue.format(0,3,',') + " VND");
+                                    $("#ubsConNo").show();
+							}												
+							});
+			 	};
 			 	//Estimate 
 			 	function estimate_click(id){
 			 		if ($("."+id+"InputEstimate").val()==0) {

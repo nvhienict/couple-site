@@ -16,6 +16,17 @@ class GuestController extends \BaseController {
 		$id_user = User::where( 'email', Session::get('email') )->get()->first()->id;
 		return $id_user;
 	}
+
+	public function get_guest(){
+		$id_user=GuestController::id_user();
+		$id_guest=Input::get('id');
+		$guest=Guests::where('user',$id_user)->where('id',$id_guest)->get()->first();
+		$fullname=$guest->fullname;
+		echo json_encode(array('fullname'=>$fullname));
+		exit();
+
+	}
+	
 	public function delete()
 		{
 			$id=Input::get('id');
@@ -214,15 +225,7 @@ public function update_name()
 	{
 		//
 	}
-	public function get_guest(){
-		$id_user=GuestController::id_user();
-		$id_guest=Input::get('id');
-		$guest=Guests::where('user',$id_user)->where('id',$id_guest)->get()->first();
-		$fullname=$guest->fullname;
-		echo json_encode(array('fullname'=>$fullname));
-		exit();
-
-	}
+	
 
 
 	/**

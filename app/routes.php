@@ -171,6 +171,7 @@ Route::post('money_budget', array('as'=>"money_budget", "uses"=>"BudgetControlle
 //-------Budget CUong-----
 Route::get('reset-budget', array("before"=>"check_login","as"=>"reset-budget","uses"=>"BudgetController@resetBudget"));
 Route::post('budget/create',array('before'=>'check_login','as'=>'create','uses'=>'UserBudgetController@create'));
+Route::post('budget/get_budget',array('as'=>'get_budget','uses'=>'UserBudgetController@get_budget'));
 Route::post('budget/delete',array('as'=>'delete','uses'=>'UserBudgetController@delete'));
 Route::post('budget/update',array('as'=>'update','uses'=>'UserBudgetController@update'));
 // Route::post('budget/update1',array('as'=>'update1','uses'=>'ItemController@update1'));
