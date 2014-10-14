@@ -171,10 +171,10 @@ Trang chủ
 						<form id="form-search" class="wow bounceInUp form-homepage" data-wow-offset="10" data-wow-delay="0.2s" action="{{Asset('list-vendor/search')}}" method="get">
 							<div class="row marginbot-20">
 								<div class=" col-xs-6 col-md-6 xs-marginbot-20">
-									<input type="text" name="name" class="form-control input-lg" placeholder="Từ tìm kiếm" />
+									<input type="text" name="name" class="form-control input-lg input_s btn-responsive" placeholder="Từ tìm kiếm" />
 								</div>
 								<div class="col-xs-6 col-md-6">
-									<select name="location" class="form-control input-lg" onchange="get_location(this.value)" >
+									<select name="location" class="form-control input-lg input_s btn-responsive" onchange="get_location(this.value)" >
 							    		@foreach(Location::get() as $location)
 
 							    			@if(!Session::has('location'))
@@ -193,13 +193,13 @@ Trang chủ
 							</div>
 							<div class="row xs-marginbot-20">
 								<div class="col-xs-12 col-md-12">
-									<input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Danh mục" readonly style="cursor:pointer;">
+									<input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg input_s btn-responsive" placeholder="Danh mục" readonly style="cursor:pointer;">
 							    	<input id="searchId" name="category_id" type="hidden">
-							    	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							    	<ul class="dropdown-menu " role="menu" aria-labelledby="dropdownMenu1">
 									    <li role="presentation">
 									    	<div class="row" id="menu">
 										    	<div class="col-xs-6">
-										      		<ul class="list-unstyled">
+										      		<ul class="list-unstyled  btn-responsive">
 											      		@foreach (Category::get() as $index=> $category)
 							    						@if($index<7)
 										      			<li class="budget-column-icon images_li" style="background-image:url({{Asset("icon/cat/{$category->images}")}})"><span style="cursor:pointer;">{{$category['name']}}</span>
@@ -210,7 +210,7 @@ Trang chủ
 										      		</ul>
 										      	</div>
 										      	<div class="col-xs-6">
-										      		<ul class="list-unstyled">
+										      		<ul class="list-unstyled btn-responsive">
 										      			@foreach (Category::get() as $index=> $category)
 						    							@if($index>=7)
 										      			<li class="budget-column-icon images_li" style="background-image:url({{Asset("icon/cat/{$category->images}")}})"><span style="cursor:pointer;">{{$category['name']}}</span>
@@ -237,7 +237,7 @@ Trang chủ
 							</div>
 							<div class="row">
 								<div class=" col-xs-12 col-md-12">
-									<button type="submit" class="btn btn-skin btn-lg btn-block">Tìm kiếm</button>
+									<button type="submit" class="btn btn-skin btn-lg btn-block btn-responsive">Tìm kiếm</button>
 								</div>
 							</div>
 						</form>
@@ -285,7 +285,7 @@ Trang chủ
 				<h5>Thuận lợi, sắp xếp một cách khoa học, chính xác thời gian trước ngày cưới...</h5>
 				<h6><a href="#">Sử dụng ngay</a></h6>
 			</div>
-			<div class="col-xs-12 col-sm- col-md-6 col-lg-6">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<img class="img-responsive" src="{{Asset('images/tool/tool-1.png')}}">
 			</div>
 		</div>

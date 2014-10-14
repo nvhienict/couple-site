@@ -540,6 +540,88 @@ hr.bold {
 	left: 6%;
 	z-index: 10000;
 }
+@media only screen and (min-device-width: 250px) and (max-device-width: 450px){
+#form-search-index{
+	position: absolute;
+	top: 13%;
+	left: 18%;
+	z-index: 10000;
+}
+.input_s{
+	height: 30px !important;
+	font-size: 10px !important;
+	padding: 0 0px !important;
+}
+.marginbot-20{
+	margin-bottom: 10px !important;
+}
+#form-search{
+	margin-bottom: 0px !important;
+	width: 180px;
+}
+.xs-marginbot-20{
+	margin-bottom: 0px !important;
+}
+.item{
+	margin-right: 0px !important;
+}
+
+}
+
+@media only screen and (min-device-width: 450px) and (max-device-width: 650px){
+#form-search-index{
+	position: absolute;
+	top: 23%;
+	left: 22%;
+	z-index: 10000;
+}
+.input_s{
+	height: 30px !important;
+	font-size: 12px !important;
+	padding: 0 0px !important;
+}
+.marginbot-20{
+	margin-bottom: 10px !important;
+}
+#form-search{
+	margin-bottom: 0px !important;
+	width: 320px;
+}
+.xs-marginbot-20{
+	margin-bottom: 0px !important;
+}
+.item{
+	margin-right: 0px !important;
+}
+
+}
+@media only screen and (min-device-width: 650px) and (max-device-width: 765px){
+#form-search-index{
+position: absolute;
+top: 29%;
+left: 26%;
+z-index: 10000;
+}
+.input_s{
+	height: 30px !important;
+	font-size: 15px !important;
+	padding: 0 0px !important;
+}
+.marginbot-20{
+	margin-bottom: 10px !important;
+}
+#form-search{
+	margin-bottom: 0px !important;
+	width: 320px;
+}
+.xs-marginbot-20{
+	margin-bottom: 0px !important;
+
+}
+.item{
+	margin-right: 0px !important;
+}
+}
 
 /* ===========================
 --- About
