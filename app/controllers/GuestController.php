@@ -114,7 +114,9 @@ class GuestController extends \BaseController {
 	 				<input type="hidden" name="'.$guest->id.'" value="'.$guest->id.'">
 	 			</td>
 	 			<td style="width:10%;">	 				
-	 				<a onclick="guest_del('.$guest_add->id.')" href="javascript:void(0)"  class="confirm guest_list_icon_trash guest_del'.$guest_add->id.'"><i class="glyphicon glyphicon-trash"></i></a>
+	 				<a onclick="get_guest('.$guest_add->id.')" href="javascript:void(0)" data-toggle="modal" data-target="#modalDeleteGuest" class="guest_list_icon_trash guest_del'.$guest_add->id.'">
+	 					<i class="glyphicon glyphicon-trash"></i>
+	 				</a>
 	 				<input type="hidden"  name="'.$guest_add->id.'" value="'.$guest_add->id.'" >
 	 			</td>								
 	 		</tr>';
@@ -211,6 +213,15 @@ public function update_name()
 	public function store()
 	{
 		//
+	}
+	public function get_guest(){
+		$id_user=GuestController::id_user();
+		$id_guest=Input::get('id');
+		$guest=Guests::where('user',$id_user)->where('id',$id_guest)->get()->first();
+		$fullname=$guest->fullname;
+		echo json_encode(array('fullname'=>$fullname));
+		exit();
+
 	}
 
 

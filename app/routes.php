@@ -221,6 +221,7 @@ Route::post("guest-list/add_group", array("as"=>"add_group", "uses"=>"GroupsCont
 Route::post("guest-list/edit_group", array("as"=>"edit_group", "uses"=>"GroupsController@post_edit_Group"));
 Route::post("guest-list/delete_group", array("as"=>"delete_group", "uses"=>"GroupsController@post_delete_Group"));
 Route::post("checkName", array("as"=>"checkName", "uses"=>"GroupsController@checkName"));
+Route::post('get_guest',array('as'=>'get_guest','uses'=>'GuestController@get_guest'));
 
 
 /**

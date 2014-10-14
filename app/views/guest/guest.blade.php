@@ -410,7 +410,9 @@ Danh sách khách mời
 					 			</td>
 					 			
 					 			<td style="width:10%;">
-					 				<a onclick="guest_del({{$guest->id}})" href="javascript:void(0)" class="confirm guest_list_icon_trash guest_del{{$guest->id}}"><i class="glyphicon glyphicon-trash"></i></a>
+					 				<a onclick="get_guest({{$guest->id}})" href="javascript:void(0)" data-toggle="modal" data-target="#modalDeleteGuest" class="guest_list_icon_trash guest_del{{$guest->id}}">
+					 					<i class="glyphicon glyphicon-trash"></i>
+					 				</a>
 					 				<input type="hidden"  name="{{$guest->id}}" value="{{$guest->id}}" >
 
 					 			</td>								
@@ -446,6 +448,25 @@ Danh sách khách mời
 				<div>Chưa mời:<span class="total_noinvited">{{Guests::where('user',GuestController::id_user())->where('invited',false)->get()->count()}}</span></div>
 				
 		</div>
+			<!-- Modal xoa thanh vien -->
+		<div class="modal fade" id="modalDeleteGuest">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title text-center">Xóa khách mời</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p class="text-center message_guest"></p>
+		        <input type="hidden" class="modal_delete_guest" value="">
+		      </div>
+		      <div class="modal-footer">
+		        <button onclick="del_guest()" data-dismiss="modal" type="button" class="btn btn-primary">Xóa</button>
+		        <button data-dismiss="modal" type="button" class="btn btn-primary" data-dismiss="modal">Thoát</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 	<script type="text/javascript">
 	        function invited1_click(id){
  				$('#invited1'+id).hide();
@@ -507,29 +528,41 @@ Danh sách khách mời
 				});
 		    };
 		    //dell
-            function guest_del(id){
-            	if(confirm("Bạn chắc chắn muốn xoá khách mời này?")){
-                	$.ajax({
+            function get_guest(id){
+        		var id_guest=$('.guest_del'+id).next().val();
+        		$('.modal_delete_guest').val(id_guest);
+        		$.ajax({
+        			type: "post",
+        			url: "{{URL::route('get_guest')}}",
+        			data:{
+        				id:id_guest
+        			},
+        			success:function(data){
+    					var obj = JSON.parse(data);
+    					$('.message_guest').text('Bạn chắc chắn muốn xóa khách mời '+obj.fullname);
+        			}
+        		});
+        	};
+    
+      		function del_guest(){
+      			var id_guest=$('.modal_delete_guest').val();
+      			$.ajax({
 						type: "post",
 						url: "{{URL::route('delete_guest')}}",
 						data: { 								    
-						       id:$(".guest_del"+id).next().val()
+						       id:$('.modal_delete_guest').val()
 						},
 						success: function(data){
 							var obj = JSON.parse(data);
-							$(".guest_list"+id).remove();
+							$(".guest_list"+id_guest).remove();
 							$(".total_guest").text(obj.total_guest); 
 							$(".total_invited").text(obj.total_invited);   
 							$(".total_noinvited").text(obj.total_noinvited); 
 							$(".total_group_guest"+obj.id_group).text(obj.total_group_guest);                        
 						}												
 						});
-                    return true;
-                }
-                else{
-                    return false;
-                };
-            };
+
+      		}
             //name
             function name_click(id){
             	if ($("."+id+"name").val()=="New Guest") {
