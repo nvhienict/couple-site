@@ -177,7 +177,7 @@ class UserController extends \BaseController {
 
         $path = asset($destinationPath.$filename);
 
-        $avatar = base64_encode($path);
+        $avatar = $destinationPath.$filename;
 
 		// return $size = Input::file('photo')->getSize();
 

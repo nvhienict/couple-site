@@ -35,7 +35,7 @@
   <button type="submit" class="btn btn-large btn-primary">Đăng nhập</button>
   <a href="{{URL::route('register')}}"> Đăng ký</a>
 
-  <div>
+  <div style="padding-top: 5px;">
    <a href="{{URL::to('login/facebook')}}">Đăng nhập bằng Facebook</a> 
   </div>
 

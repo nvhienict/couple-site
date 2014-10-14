@@ -20,13 +20,10 @@ Thông tin cá nhân
 		
 		<div class="col-xs-5 info_user_dashboard">
 			<div class="info_user_avatar">
-				<?php $user_avatar = base64_decode($user_item->avatar); ?>
-				<!-- {{'<img alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}} -->
-				<img src="{{$user_avatar}}">
+				
+				<img src="{{Asset("{$user_item->avatar}")}}">
 				<a href="javascript:;" onclick="update_avatar();" title="Thay đổi"><i class="fa fa-pencil-square-o fa-fw"></i></a>
 				
-				<!-- <input type="file" name="file" style="display:none;" >
-				<input type="hidden" name="img" value="" > -->
 				<form id="update" enctype="multipart/form-data" method="post" action="{{ url('update_avatar') }}" autocomplete="off" style="display:none;">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <input type="file" name="file" id="image" /> 
