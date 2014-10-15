@@ -76,7 +76,7 @@
         $target = $(target);
 
         $('html, body').stop().animate( {
-            'scrollTop': $target.offset().top-40
+            'scrollTop': $target.offset().top
         }, 900, 'swing', function () {
             window.location.hash = target;
         } );
@@ -104,9 +104,9 @@
 		   </div>
 		   <div style="background-color:#6EC7B6;" class="collapse navbar-collapse" id="example-navbar-collapse">
 		      <ul style="background-color:#6EC7B6;" class="nav navbar-nav">
-		      	 <li><a href="#title_home">Trang Chủ</a></li>
+		      	 <li><a href="#title_home" style="padding:15px 8px;">Trang Chủ</a></li>
 		      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
-		         <li><a class="{{$tab->id}}" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
+		         <li><a style="padding:15px 8px;" class="{{$tab->id}}" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
 		         @endforeach()
 		      </ul>
 		   </div>
