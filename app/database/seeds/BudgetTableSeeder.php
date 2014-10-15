@@ -1,4 +1,5 @@
 
+
 <?php
 class BudgetTableSeeder extends Seeder {
 

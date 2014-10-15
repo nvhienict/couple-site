@@ -1,4 +1,5 @@
 
+
 <?php
 class TabsTableSeeder extends Seeder {
 
