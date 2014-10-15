@@ -421,7 +421,7 @@ Danh sách khách mời
 						 		                                											  						     
 						 		@endforeach
 						 	@endif	
-						 		<tr class="guest_list_item_cat" id="guest_list_item_cat">
+						 		<tr class="guest_list_item_cat{{$group->id}}" id="guest_list_item_cat{{$group->id}}">
 						 			
 						 			<td style="text-align: left;" colspan="7"><a onclick="add_guest({{$group->id}})" href="javascript:void(0)" class="guest_list_add{{$group->id}}" style="cursor:pointer;">
 											<i class="glyphicon glyphicon-plus"></i>&nbsp Thêm Khách
@@ -516,7 +516,7 @@ Danh sách khách mời
 					if (obj.guest_last) {
 						$('.guest_list'+obj.guest_last).after(obj.html);
 					} else{
-						$('.guest_cat'+id).after(obj.html);
+						$('.guest_list_item_cat'+id).before(obj.html);
 					};	
 					id_gr=$(".guest_list_add"+id).next().val();		
 					$(".total_guest").text(obj.total_guest); 
