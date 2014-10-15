@@ -15,6 +15,7 @@ class CreateUser extends Migration {
 		Schema::create('users',function($table)
 			{
 				$table->increments("id");
+				$table->string('avatar');
 				$table->string('email');
 				$table->string('password');
 				$table->string('firstname');
@@ -22,7 +23,7 @@ class CreateUser extends Migration {
 				$table->date('weddingdate');
 				$table->integer('role_id');
 				$table->string('remember_me');
-				$table->integer('budget');
+				$table->float('budget');
 				$table->timestamps();
 			});
 	}

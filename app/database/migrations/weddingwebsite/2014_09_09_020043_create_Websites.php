@@ -23,6 +23,16 @@ class CreateWebsites extends Migration {
 			$table->string("color2");
 			$table->string("color3");
 			$table->string("font");
+			$table->float("latitude");
+			$table->float("longitude");
+			$table->float("longitude");
+			$table->date("count_down");
+			$table->string("avatar_bride");
+			$table->string("avatar_groom");
+			$table->string("about_bride");
+			$table->string("about_groom");
+			$table->string("name_bride");
+			$table->string("name_groom");
 			$table->string("style");
 			$table->timestamps();
 		});
