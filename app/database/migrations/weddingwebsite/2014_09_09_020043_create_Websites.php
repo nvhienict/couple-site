@@ -17,7 +17,7 @@ class CreateWebsites extends Migration {
 			$table->increments("id");
 			$table->integer("user");
 			$table->integer("template");
-			$table->string("url")
+			$table->string("url");
 			$table->integer("tab");
 			$table->string("background");
 			$table->string("color1");
@@ -25,7 +25,6 @@ class CreateWebsites extends Migration {
 			$table->string("color3");
 			$table->string("font");
 			$table->float("latitude");
-			$table->float("longitude");
 			$table->float("longitude");
 			$table->date("count_down");
 			$table->string("avatar_bride");
