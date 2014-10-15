@@ -234,7 +234,8 @@ Quản lý ngân sách
 									            </div>
 									            <div class="col-md-10">
 									            	<input type="text" hidden name='id' value="{{$budget->id}}">
-									          	<textarea id="note" name="note" rows="8" cols="35" class="form-control note" >{{$budget->note}}</textarea>
+									          	<textarea id="note" name="note"style="height=100%;resize: none;" rows="8" cols="35" class="form-control note" >{{$budget->note}}</textarea>
+
 									            </div>
 									            
 									          </div>
@@ -242,7 +243,8 @@ Quản lý ngân sách
 									      </div>
 									      <div class="modal-footer">
 									        <button type="submit" class="btn btn-primary">Lưu Note</button>
-									        <a href=""> Huỷ </a>
+									        <button type="submit" class="btn btn-primary">Huỷ </button>
+									       
 									      </div>
 									  </form>
 									    </div>
