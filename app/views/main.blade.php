@@ -77,7 +77,7 @@
 	<script src="{{Asset('assets/ckeditor/ckeditor.js')}}"></script>
 
 </head>
-@include('social')
+
 <body style="padding-right: 15px;">
 	<!--Header login-->
 	<div class="row user-header">

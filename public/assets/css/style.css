@@ -625,6 +625,34 @@ z-index: 10000;
 }
 }
 
+@media only screen and (min-device-width: 765px) and (max-device-width: 995px){
+#form-search-index{
+position: absolute;
+top: 43%;
+left: 23%;
+z-index: 10000;
+}
+.input_s{
+	height: 30px !important;
+	font-size: 15px !important;
+	padding: 0 0px !important;
+}
+.marginbot-20{
+	margin-bottom: 10px !important;
+}
+#form-search{
+	margin-bottom: 0px !important;
+	width: 400px;
+}
+.xs-marginbot-20{
+	margin-bottom: 0px !important;
+
+}
+.item{
+	margin-right: 0px !important;
+}
+}
+
 /* ===========================
 --- About
 ============================ */
@@ -2102,7 +2130,7 @@ a.guest_list_icon_trash{
 #index-tool{
 	border: 1px solid #ffc790;
 	background-color: #fff8f2;
-	margin: 20px 5px 10px 100px;
+	margin: 20px 5px 10px 5px;
 }
 .tool-1{
 	padding: 5px;

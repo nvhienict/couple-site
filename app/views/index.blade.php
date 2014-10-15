@@ -278,7 +278,7 @@ Trang chủ
 	</div> -->
  
 	<!--  -->
-	<div class="col-xs-10 col-sm-11 col-md-10 col-lg-11" id="index-tool">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="index-tool">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  tool-1">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-">
 				<h3>Danh sách công việc</h3>
