@@ -302,7 +302,7 @@ Quản lý ngân sách
 						 		                                											  						     
 						 		@endforeach
 						 		@endif
-						 		<tr class="budget_item_cat" id="budget_item_cat">
+						 		<tr class="budget_item_cat{{$category->id}}" id="budget_item_cat{{$category->id}}">
 						 			<td></td>
 						 			<td colspan="7"><a href="javascript:void(0);" onclick="item_add({{$category->id}})" class="item-add{{$category->id}}" style="cursor:pointer;">
 											<i class="glyphicon glyphicon-plus"></i>&nbsp Thêm chi tiêu
@@ -427,7 +427,7 @@ Quản lý ngân sách
 						if (obj.item_last) {
 							$('#budget_item_cat'+obj.item_last).after(obj.html);
 						} else{
-							$('#cate'+id).after(obj.html);
+							$('.budget_item_cat'+id).before(obj.html);
 						};
 						$('#budget_item_cat'+obj.item).show();												
 						}											
