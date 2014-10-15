@@ -18,7 +18,7 @@ Trang chủ
 	  <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
 	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown">Nhà cung cấp <b class="caret"></b></a>
+	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown"><span>Nhà cung cấp</span><b class="caret"></b></a>
 	        <ul class="dropdown-menu oneUl" role="menu">
 	          <li role="presentation" class="dropdown-header"><span>Dịch vụ</span>
 	          <div class="row">
@@ -45,7 +45,7 @@ Trang chủ
 	        </ul>
 	      </li>
 	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown">Công cụ lập kế hoạch <b class="caret"></b></a>
+	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown"><span>Công cụ lập kế hoạch </span><b class="caret"></b></a>
 	        <ul class="dropdown-menu " role="menu" >
 
 		        <li role="presentation" class="dropdown-header"><span>Công cụ</span>
@@ -62,7 +62,7 @@ Trang chủ
 	      </li>
 
 	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown">Âm nhạc<b class="caret"></b></a>
+	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown"><span>Âm nhạc</span><b class="caret"></b></a>
 	        <ul class="dropdown-menu oneUl" role="menu">
 	          <li role="presentation" class="dropdown-header"><span>Nghi lễ</span>
 	            <div class="row">

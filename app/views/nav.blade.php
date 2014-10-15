@@ -13,7 +13,7 @@
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nhà cung cấp <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Nhà cung cấp</span><b class="caret"></b></a>
         <ul class="dropdown-menu oneUl">
           <li role="presentation" class="dropdown-header"><span>Dịch vụ</span>
           <div class="row">
@@ -40,7 +40,7 @@
         </ul>
       </li>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Công cụ lập kế hoạch<b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Công cụ lập kế hoạch </span><b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li role="presentation" class="dropdown-header"><span>Công cụ</span>
           <div class="row">
@@ -69,7 +69,7 @@
       </li>
 
       <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Âm nhạc<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Âm nhạc</span><b class="caret"></b></a>
           <ul class="dropdown-menu oneUl">
             <li role="presentation" class="dropdown-header"><span>Nghi lễ</span>
               <div class="row">

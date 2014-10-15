@@ -202,7 +202,9 @@ blockquote strong {
     transition: all .2s ease-in-out;
 	color: #fff;
 }
-
+.nav > li > a {
+	font-size: 17px;
+}
 .navbar-custom ul.nav ul.dropdown-menu {
 	  border-radius: 0;	
 	margin-top: 21px;
@@ -1088,7 +1090,7 @@ a.btn:focus{
 }
 
 #nav-bar .dropdown-menu a{
-	font-size: 20px;
+	font-size: 17px;
 }
 #nav-bar .navbar-nav .active a{
 	background: #3399ff; 
@@ -1455,9 +1457,7 @@ div.vendor_content button{
 .oneUl{
 	width: 300%;
 }
-#nav-bar .dropdown-menu a{
-	font-size: 20px;
-}
+
 #nav-bar .navbar-nav .active a{
 	background: #3399ff; 
 	color: #fff;
