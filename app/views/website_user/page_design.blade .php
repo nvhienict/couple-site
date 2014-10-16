@@ -2,6 +2,7 @@
 @section('title')
 {{$firstname}}'s Website cưới - http://thuna.vn
 @endsection
+
 @section('content')
 <body style="overflow:hidden;">
 	<div class="row design_website_heading">
