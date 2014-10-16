@@ -1466,11 +1466,22 @@ div.vendor_content button{
 **/
 .user-header{
 	background: #404040;
+	height: 30px;
+}
+.fb-like{
+	color: #fff;
+    margin-left: 5%;
+    margin-top: 0.3%;
+    z-index: 99999;
+}
+.wedding-user-logged{
+
 }
 .wedding-user-logged li{
 	float: left;
 	margin-right: 20px;
 	list-style: none;
+	margin-top: 5px;
 }
 .wedding-user-logged li a{
 	color: white;

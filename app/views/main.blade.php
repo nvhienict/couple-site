@@ -79,8 +79,20 @@
 </head>
 
 <body style="padding-right: 15px;">
+
+
+
 	<!--Header login-->
 	<div class="row user-header">
+	
+	<script>
+	    $(document).ready(function() {
+	        $('.fb-like').attr("data-href", document.URL);
+	    });
+	</script>
+
+	<div class="fb-like" data-href="" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
+
 		<div class="col-lg-3 col-xs-12 pull-right wedding-user-logged">
 				@if(Session::has('email'))
 				<ul class="user_profile">
@@ -145,6 +157,15 @@
 	</div>	
 	<!-- .row -->
 
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=943743042306339&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 </body>
