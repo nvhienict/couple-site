@@ -334,69 +334,69 @@ class LocationTableSeeder extends Seeder {
     {
         DB::table('location')->delete();
 
-        location::create(array('name'=>'An Giang'));
-        location::create(array('name'=>'Bà Rịa-Vũng Tàu'));
-        location::create(array('name'=>'Bạc Liêu'));
-        location::create(array('name'=>'Bắc Cạn'));
-        location::create(array('name'=>'Bắc Giang'));
-        location::create(array('name'=>'Bắc Ninh'));
-        location::create(array('name'=>'Bến Tre'));
-        location::create(array('name'=>'Bình Dương'));
-        location::create(array('name'=>'Bình Định'));
-        location::create(array('name'=>'Bình Phước'));
-        location::create(array('name'=>'Bình Thuận'));
-        location::create(array('name'=>'Cà Mau'));
-        location::create(array('name'=>'Cao Bằng'));
-        location::create(array('name'=>'Cần Thơ(TP)'));
-        location::create(array('name'=>'Đà Nẵng(TP)'));
-        location::create(array('name'=>'Đắk Lắk'));
-        location::create(array('name'=>'Đắk Nông'));
-        location::create(array('name'=>'Điện Biên'));
-        location::create(array('name'=>'Đồng Nai'));
-        location::create(array('name'=>'Đồng Tháp'));
-        location::create(array('name'=>'Gia Lai'));
-        location::create(array('name'=>'Hà Giang'));
-        location::create(array('name'=>'Hà Nam'));
-        location::create(array('name'=>'Hà Nội(TP)'));
-        location::create(array('name'=>'Hà Tĩnh'));
-        location::create(array('name'=>'Hải Dương'));
-        location::create(array('name'=>'Hải Phòng(TP)'));
-        location::create(array('name'=>'Hòa Bình'));
-        location::create(array('name'=>'Hồ Chí Minh(TP)'));
-        location::create(array('name'=>'Hậu Giang'));
-        location::create(array('name'=>'Hưng Yên'));
-        location::create(array('name'=>'Khánh Hòa'));
-        location::create(array('name'=>'Kiên Giang'));
-        location::create(array('name'=>'Kon Tum'));
-        location::create(array('name'=>'Lai Châu'));
-        location::create(array('name'=>'Lào Cai'));
-        location::create(array('name'=>'Lạng Sơn'));
-        location::create(array('name'=>'Lâm Đồng'));
-        location::create(array('name'=>'Long An'));
-        location::create(array('name'=>'Nam Định'));
-        location::create(array('name'=>'Nghệ An'));
-        location::create(array('name'=>'Ninh Bình'));
-        location::create(array('name'=>'Ninh Thuận'));
-        location::create(array('name'=>'Phú Thọ'));
-        location::create(array('name'=>'Phú Yên'));
-        location::create(array('name'=>'Quảng Bình'));
-        location::create(array('name'=>'Quảng Nam'));
-        location::create(array('name'=>'Quảng Ngãi'));
-        location::create(array('name'=>'Quảng Ninh'));
-        location::create(array('name'=>'Quảng Trị'));
-        location::create(array('name'=>'Sóc Trăng'));
-        location::create(array('name'=>'Sơn La'));
-        location::create(array('name'=>'Tây Ninh'));
-        location::create(array('name'=>'Thái Bình'));
-        location::create(array('name'=>'Thái Nguyên'));
-        location::create(array('name'=>'Thanh Hóa'));
-        location::create(array('name'=>'Thừa Thiên-Huế'));
-        location::create(array('name'=>'Tiền Giang'));
-        location::create(array('name'=>'Trà Vinh'));
-        location::create(array('name'=>'Tuyên Quang'));
-        location::create(array('name'=>'Vĩnh Long'));
-        location::create(array('name'=>'Vĩnh Phúc'));
-        location::create(array('name'=>'Yên Bái'));
+        Location::create(array('name'=>'An Giang'));
+        Location::create(array('name'=>'Bà Rịa-Vũng Tàu'));
+        Location::create(array('name'=>'Bạc Liêu'));
+        Location::create(array('name'=>'Bắc Cạn'));
+        Location::create(array('name'=>'Bắc Giang'));
+        Location::create(array('name'=>'Bắc Ninh'));
+        Location::create(array('name'=>'Bến Tre'));
+        Location::create(array('name'=>'Bình Dương'));
+        Location::create(array('name'=>'Bình Định'));
+        Location::create(array('name'=>'Bình Phước'));
+        Location::create(array('name'=>'Bình Thuận'));
+        Location::create(array('name'=>'Cà Mau'));
+        Location::create(array('name'=>'Cao Bằng'));
+        Location::create(array('name'=>'Cần Thơ(TP)'));
+        Location::create(array('name'=>'Đà Nẵng(TP)'));
+        Location::create(array('name'=>'Đắk Lắk'));
+        Location::create(array('name'=>'Đắk Nông'));
+        Location::create(array('name'=>'Điện Biên'));
+        Location::create(array('name'=>'Đồng Nai'));
+        Location::create(array('name'=>'Đồng Tháp'));
+        Location::create(array('name'=>'Gia Lai'));
+        Location::create(array('name'=>'Hà Giang'));
+        Location::create(array('name'=>'Hà Nam'));
+        Location::create(array('name'=>'Hà Nội(TP)'));
+        Location::create(array('name'=>'Hà Tĩnh'));
+        Location::create(array('name'=>'Hải Dương'));
+        Location::create(array('name'=>'Hải Phòng(TP)'));
+        Location::create(array('name'=>'Hòa Bình'));
+        Location::create(array('name'=>'Hồ Chí Minh(TP)'));
+        Location::create(array('name'=>'Hậu Giang'));
+        Location::create(array('name'=>'Hưng Yên'));
+        Location::create(array('name'=>'Khánh Hòa'));
+        Location::create(array('name'=>'Kiên Giang'));
+        Location::create(array('name'=>'Kon Tum'));
+        Location::create(array('name'=>'Lai Châu'));
+        Location::create(array('name'=>'Lào Cai'));
+        Location::create(array('name'=>'Lạng Sơn'));
+        Location::create(array('name'=>'Lâm Đồng'));
+        Location::create(array('name'=>'Long An'));
+        Location::create(array('name'=>'Nam Định'));
+        Location::create(array('name'=>'Nghệ An'));
+        Location::create(array('name'=>'Ninh Bình'));
+        Location::create(array('name'=>'Ninh Thuận'));
+        Location::create(array('name'=>'Phú Thọ'));
+        Location::create(array('name'=>'Phú Yên'));
+        Location::create(array('name'=>'Quảng Bình'));
+        Location::create(array('name'=>'Quảng Nam'));
+        Location::create(array('name'=>'Quảng Ngãi'));
+        Location::create(array('name'=>'Quảng Ninh'));
+        Location::create(array('name'=>'Quảng Trị'));
+        Location::create(array('name'=>'Sóc Trăng'));
+        Location::create(array('name'=>'Sơn La'));
+        Location::create(array('name'=>'Tây Ninh'));
+        Location::create(array('name'=>'Thái Bình'));
+        Location::create(array('name'=>'Thái Nguyên'));
+        Location::create(array('name'=>'Thanh Hóa'));
+        Location::create(array('name'=>'Thừa Thiên-Huế'));
+        Location::create(array('name'=>'Tiền Giang'));
+        Location::create(array('name'=>'Trà Vinh'));
+        Location::create(array('name'=>'Tuyên Quang'));
+        Location::create(array('name'=>'Vĩnh Long'));
+        Location::create(array('name'=>'Vĩnh Phúc'));
+        Location::create(array('name'=>'Yên Bái'));
     }
 
 }
@@ -1515,7 +1515,7 @@ class VendorTableSeeder extends Seeder {
             'video' => '//www.youtube.com/embed/dHOEGpEesFQ',
             'map' => 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15336.413512326777!2d108.18041501773152!3d16.060124383696355!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219aa3f8eab53%3A0xc9345ed6d99ccdc!2zMTkyIEjDoCBIdXkgVOG6rXAsIEjDsmEgS2jDqiwgVGhhbmggS2jDqiwgxJDDoCBO4bq1bmcsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1413430487957',
             'category' => 1,
-            'location' => 1
+            'Location' => 1
 
           ));
         }
@@ -1533,7 +1533,7 @@ class VendorTableSeeder extends Seeder {
             'video' => '//www.youtube.com/embed/dHOEGpEesFQ',
             'map' => 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15336.413512326777!2d108.18041501773152!3d16.060124383696355!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219aa3f8eab53%3A0xc9345ed6d99ccdc!2zMTkyIEjDoCBIdXkgVOG6rXAsIEjDsmEgS2jDqiwgVGhhbmggS2jDqiwgxJDDoCBO4bq1bmcsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1413430487957',
             'category' => 2,
-            'location' => 1
+            'Location' => 1
 
           ));
         }
@@ -1551,7 +1551,7 @@ class VendorTableSeeder extends Seeder {
             'video' => '//www.youtube.com/embed/dHOEGpEesFQ',
             'map' => 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15336.413512326777!2d108.18041501773152!3d16.060124383696355!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219aa3f8eab53%3A0xc9345ed6d99ccdc!2zMTkyIEjDoCBIdXkgVOG6rXAsIEjDsmEgS2jDqiwgVGhhbmggS2jDqiwgxJDDoCBO4bq1bmcsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1413430487957',
             'category' => 3,
-            'location' => 1
+            'Location' => 1
 
           ));
         }
@@ -1569,7 +1569,7 @@ class VendorTableSeeder extends Seeder {
             'video' => '//www.youtube.com/embed/dHOEGpEesFQ',
             'map' => 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15336.413512326777!2d108.18041501773152!3d16.060124383696355!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219aa3f8eab53%3A0xc9345ed6d99ccdc!2zMTkyIEjDoCBIdXkgVOG6rXAsIEjDsmEgS2jDqiwgVGhhbmggS2jDqiwgxJDDoCBO4bq1bmcsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1413430487957',
             'category' => 4,
-            'location' => 2
+            'Location' => 2
 
           ));
         }
