@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
     <meta name="author" content="Thuna.vn">
-
+	@if($firstname)
     <title>{{$firstname}}'s wedding</title>
+    @endif
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
@@ -89,7 +90,9 @@
 </head>
 @if($website)
 @foreach( $website as $website_item )
+	@if($backgrounds)
 <div class="background-themes" style="background-image: url({{Asset("{$backgrounds}")}});">
+	@endif
 
 	<div  class="navbar_edits">
 		<nav style="padding:0px;" class="navbar navbar-default" role="navigation">
@@ -105,37 +108,32 @@
 		   <div style="background-color:#6EC7B6;" class="collapse navbar-collapse" id="example-navbar-collapse">
 		      <ul style="background-color:#6EC7B6;" class="nav navbar-nav">
 		      	 <li><a href="#title_home" style="padding:15px 8px;">Trang Chủ</a></li>
+	      	 @if(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get())
 		      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
 		         <li><a style="padding:15px 8px;" class="{{$tab->id}}" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
 		         @endforeach()
+	         @endif
 		      </ul>
 		   </div>
 		</nav>
 	</div>
-		<!-- <nav id="menu_web" class="menu_web">
-		    <ul>
-		        <li><a href="">Home</a></li>
-		        <li><a href="">About</a></li>
-		        <li><a href="">Học PHP</a></li>
-		        <li><a href="">SEO</a></li>
-		        <li><a href="">jQuery</a></li>
-		        <li><a href="">Wordpress</a></li>
-		        <li><a href="">Blogger</a></li>
-		    </ul>
-		</nav>  -->
-	
 	<div class="after-image-themes">
 
 		<!-- Themes Heading -->
 		<div class="title-website"id="title_home">
+			@if(WebsiteController::getDates())
             <h2 class="text-center title-tab" style="color: #{{$website_item->color2}}" >{{WebsiteController::getDates()}}</h2>
+            @endif
             <h1 class="text-center" style="text-transform: uppercase; color: #{{$website_item->color1}}; font-family: {{$website_item->font}};">
+                @if($firstname)
                 {{$firstname}}'s wedding
+                @endif
             </h1>
             <h2 class="text-center" style="color: #{{$website_item->color2}}" >Chào bạn đến Website cưới của chúng tôi</h2>     
         </div>
 		<hr>
 		@include('website_user.themes.edit.circle')
+	@if(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get())	
 	 @foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
 
 	 	  
@@ -227,6 +225,7 @@
     	</div>
         @endif 
   	@endforeach  
+ @endif
 	<hr>
 	
 	

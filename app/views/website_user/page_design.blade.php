@@ -10,7 +10,7 @@
 		</div>
 		<div class="col-xs-8"></div>
 		<div class="col-xs-2">
-
+		@if($id_tmp)
 			@if($id_tmp==2)
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
@@ -24,6 +24,7 @@
 			@if($id_tmp==6)
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
+		@endif
 			
 		</div>
 		<div class="col-xs-1">
@@ -63,7 +64,9 @@
 			  			<hr>
 						<span class="span_design_item">Ngày tổ chức tiệc cưới</span><br />
 						<span class="span_design_item">
+							@if(WebsiteController::getCountDown())
 			  				<input class="form-control" type="text" name="count_down" id="count_down" value="{{WebsiteController::getCountDown()}}">
+			  				@endif
 			  				<script type="text/javascript">
 								jQuery('#count_down').datetimepicker({
 									lang:'en',
@@ -105,6 +108,7 @@
 			  			<span class="span_design_item">Font chữ:</span><br />
 			  			<span class="span_design_item">
 			  					<select class="form-control" name="font_website" onchange="font_website(this.value);" class="select_design1">
+			  					@if($website)
   									@foreach( $website as $item_website )
 	  									@foreach($arFont as $font_name)
 	  										@if( ($item_website->font)==($font_name) )
@@ -115,6 +119,7 @@
 				  							<option <?php echo $str?> value="{{$font_name}}">{{$font_name}}</option>
 				  						@endforeach
 			  						@endforeach
+		  						@endif
 			  					</select>
 						</span><br />
 			  			<!-- <span class="span_design_item">Nhấn mạnh:
@@ -127,7 +132,8 @@
 			  			<hr>
 			  			<span class="span_design_item">Màu: <a href="javascript:;" onclick="reset_color();" >Khôi phục mặc định</a></span><br />
 
-			  			@for($i=1;$i<=3;$i++)
+		  			@for($i=1;$i<=3;$i++)
+			  			@if(WebsiteController::returnColor($i))
 				  			@if((WebsiteController::returnColor($i)) )
 
 									@if( $i==1 )
@@ -169,7 +175,8 @@
 								@endif
 
 					  		@endif
-				  		@endfor
+						@endif  		
+			  		@endfor
 			  			
 			  		</div>
 			  		
@@ -177,6 +184,7 @@
 			  	<div class="tab-pane active" id="design_page">
 			  		<table class="website_tabs">
 			  			<input type="text" hidden value="{{$id_web}}" name="idweb">
+		  			@if(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get())
 						@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tab)
 							<tr class="odd" id="Tr{{$tab->id}}" >
 								<td><input type="text" size="2" value="{{$tab->sort}}"  onchange= "changeSort({{$tab->id}})" class="website_tabs_input" name="{{$tab->id}}Sort" id="{{$tab->id}}Sort" ></td>
@@ -208,6 +216,7 @@
 
 							</script>
 						@endforeach
+				@endif
 					</table>
 					<div>
 						<a class="btn btn-primary"  href="#" data-toggle="modal" data-target="#addpage">Thêm chủ đề mới</a>
@@ -220,6 +229,7 @@
 							    </div>
 							    <div class="modal-body">
 							        <div class="row">
+						        	@if(Tab::get())
 							        	@foreach(Tab::get() as $index=>$tab)
 								        	@if($index < 4)
 								        	<div class="col-xs-6">
@@ -240,6 +250,7 @@
 								        	</div>
 								        	@endif
 							        	@endforeach
+						        	@endif
 							        </div>
 							    </div>
 							    <div class="modal-footer">
@@ -257,9 +268,11 @@
 			  			</div>
 			  			<div class="url_link">
 			  				<a style="text-decoration: none;color:##2A64B9;" class="a_url" href="{{URL::route('view-previous', array('id'=>$id_tmp))}}">
+		  					@if($website)
 			  					@foreach( $website as $item_website )
 			  					http://www.thuna.vn/{{$item_website->url}}
 			  					@endforeach
+		  					@endif
 			  				</a>
 			  			</div>
 			  			
@@ -283,7 +296,7 @@
 
 		<!-- content right include from view -->
 		<div class="col-xs-12 col-sm-9 col-lg-9 col-md-9 design_website_content_right">
-			
+		@if($id_tmp)	
 			@if($id_tmp==2)
 					@include('website_user.themes2.edit.index')
 			@else
@@ -302,6 +315,7 @@
 					@endif
 
 			@endif
+		@endif
 			
 
 		</div>

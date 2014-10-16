@@ -325,6 +325,7 @@ class WebsiteController extends \BaseController {
 													->with('id_web', $id_Web)
 													->with('backgrounds',$backgrounds)
 													->with('id_tmp', $id_tmp);
+		
 	}
 
 	public function editPage()
