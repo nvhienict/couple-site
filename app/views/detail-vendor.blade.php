@@ -61,15 +61,18 @@
 								</div>
 								<div id="content-photo">
 									<h4>Ảnh</h4>
-										<ul id="thumbs-main">
-											@if(!empty($photoslides))	
+										@if(!empty($photoslides))	
+										<ul id="thumbs-main">											
 												@foreach($photoslides as $index => $photoslide)
 												<li rel="{{$index+1}}">{{'<img alt="" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
-												@endforeach
-											@endif	   
+												@endforeach											   
 										</ul>
+											<a href="#photos" class="outside-link"data-toggle="tab">Xem thêm</a>
+										@else
+												<p></p>;
+										@endif	
 										   
-									<a href="#photos" class="outside-link"data-toggle="tab">Xem thêm</a>
+									
 										<script type="text/javascript">
 										   $(".outside-link").click(function() {
 											    $(".nav li").removeClass("active");
@@ -85,7 +88,7 @@
 
 								<div id="content-video">
 									<h4> Video</h4>
-									{{$vendor->video}}	
+									<iframe width="560" height="315" src="{{$vendor->video}}" frameborder="0" allowfullscreen></iframe>	
 								</div>
 						  	</div>
 						  	<div class="tab-pane" id="review">
@@ -380,7 +383,9 @@
 						  <div class="tab-pane" id="video">
 						  		
 						  			<h4>Video</h4>
-						  			{{$vendor->video}}	
+						  			<iframe width="560" height="315" src="{{$vendor->video}}" frameborder="0" allowfullscreen></iframe>
+						  			
+						  				
 						  </div>
 						  <div class="tab-pane" id="FAQ">
 						  		@yield('tab-FAQ')
@@ -389,7 +394,9 @@
 						  </div>
 						  <div class="tab-pane" id="map">	  		
 						  			<h4>{{Lang::get('messages.Map')}}</h4>
-						  			{{$vendor->map}}
+						  			<iframe src="{{$vendor->map}}" width="600" height="450" frameborder="0" style="border:0"></iframe>
+						  			
+						  			
 						  </div>
 
 						 
