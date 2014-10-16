@@ -35,14 +35,6 @@ Thông tin cá nhân
 					}
 					$('input[name=file]').change(function() {
 							
-						// $('input[name=img]').val($(this).val());
-
-						// var img_avatar = $(this).val();
-						// $.ajax({
-						// 	type: "post",
-						// 	url: "{{URL::route('update_avatar')}}",
-						// 	data: {img_avatar:img_avatar}
-						// });
 						$('#update').submit();
 
 					});
@@ -179,6 +171,11 @@ Thông tin cá nhân
 			        <div class="col-xs-8">
 			            <div class="form-group">
 			            	<input type='text' class="form-control" id="weddingdate-edit" name="weddingdate" value="{{UserController::getDates()}}" >
+			            	<script type="text/javascript">
+			            		$('#weddingdate-edit').bind("mousewheel", function() {
+							         return false;
+							     });
+			            	</script>
 			            	<script type="text/javascript" src="{{Asset('assets/js/script-giang.js')}}"></script>
 			            </div>
 			        </div>

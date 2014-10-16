@@ -36,6 +36,11 @@
           
             <div  class="input-append form-group">
               <input data-format="yyyy-MM-dd" type="text" readonly name="weddingdate" id="weddingdate" class="form-control input-lg " placeholder="Ngày cưới" tabindex="3">
+              <script type="text/javascript">
+                    $('#weddingdate').bind("mousewheel", function() {
+                     return false;
+                 });
+              </script>
               <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span> -->
               @foreach ($errors->get('weddingdate') as $message)
                 <p class="text-left alert alert-danger">{{$message}}</p>
