@@ -256,11 +256,11 @@
 			  			<div class="header_url">Website URL<span style="color:#2A64B9;"><i  class='fa fa-info-circle fa-fw'></i></span>
 			  			</div>
 			  			<div class="url_link">
-			  				<a style="text-decoration: none;color:##2A64B9;" class="a_url" href="{{URL::route('view-previous', array('id'=>$id_tmp))}}">
-			  					@foreach( $website as $item_website )
-			  					http://www.thuna.vn/{{$item_website->url}}
-			  					@endforeach
+			  				@foreach( $website as $item_website )
+			  				<a style="text-decoration: none;color:##2A64B9;" target="_blank" class="a_url" href="{{URL::route('url_website',array('url'=>$item_website->url))}}">				
+			  					http://www.thuna.vn/website/{{$item_website->url}}	  					
 			  				</a>
+			  				@endforeach
 			  			</div>
 			  			
 			  			<div class="edit_url">
@@ -698,23 +698,28 @@
 <div class="modal fade" id="modal-url">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">Website URL</h4>
+      <div class="modal-header" >
+        <button style="color:red;" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title">Website URL</h3>
       </div>
       <div class="modal-body">
-        <p>Thay đổi URL Website</p>
-        <div>
-        	<label>http://www.thuna.vn/</label>
-        	@foreach($website as $website)
-        	<input type="text" class="url_website" name="url_website" value="{{$website->url}}">
-        	@endforeach()
+        <h4>Thay đổi URL Website :</h4>
+        <div class="col-xs-12">
+        	<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 " style="padding-left:0px;">
+	        	<h4 style="color:#3276B1; font-size:16px;">http://www.thuna.vn/website/</h4>
+	        </div>
+	        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7" style="padding-left:0px;">
+	        	@foreach($website as $website)
+	        	<input type="text" class="form-control url_website " name="url_website" value="{{$website->url}}">
+	        	@endforeach()
+        	</div>        	
         </div>
+        <p class="url_error"></p>
         
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        <button onclick="save_url()" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      <div class="modal-footer" style="text-align:center;margin-top:100px;">
+      	<button onclick="save_url()" type="button" class="btn btn-primary" >Save</button>
+        <button onclick="remove_error()" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>       
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -732,11 +737,19 @@
 				url_website:$('.url_website').val()
 			},
 			success: function(data){
-
-				$('.a_url').text("http://www.thuna.vn/"+$('.url_website').val())
+				var obj = JSON.parse(data);
+				$('.url_error').text(obj.error_url);
+				$('.url_error').css('color',obj.color);
+				$('.a_url').text('http://www.thuna.vn/website/'+obj.res_url);
+			 	$('.a_url').attr("href",'http://www.thuna.vn/website/'+obj.res_url);				
 			}
 		});
-	}
+	};
+
+	function remove_error(){
+			$('.url_error').text('');
+			$('.url_error').css('color','#fff');
+	};
 	// get font design
 	function font_website(font_name){
 		$.ajax({
