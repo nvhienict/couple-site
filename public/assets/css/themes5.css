@@ -28,7 +28,7 @@ Boshonto Responsive Wedding Template
 
 body{
 	background:#fff;
-	font-family: 'Roboto Slab', serif;
+	
 	color:#222;
 	font-weight:normal;
 }
@@ -97,6 +97,7 @@ p{
 	position: fixed;
 	width: 75.5% ;
 	z-index: 99;
+	clear: both;
 }
 
 .navbar-right > li > a:focus{
@@ -114,10 +115,41 @@ p{
 	color:#fff;
 
 }
+.border_map{
+	background: #34495e;
+	margin: 50px;
+	width: 95%;
+	float: center;
+	vertical-align: middle;
+}
+.inputInfo{
+	border: 5px ridge white;
+	height: 400px;
+	padding: 30px;
+	margin: auto;
+	background: #34495e;
+	border-radius: 8px;
+}
+.inputInfo label {
+	padding: 10px;
+}
+.mapEvent:hover .editMap {
+	display: inline-block;
+}
+.editMap{
+	display: none;
+}
+.updateMap{
+	display: none;
+}
+.ckEditMap{
+	display: none;
+}
 #geomap{
 	width: 100%;
 	height: 100%;
 	border: 5px ridge white;
+	padding-left: 100px;
 	margin: 3px;
 }
 .navbar-toggle{
@@ -196,6 +228,7 @@ p{
 	padding-bottom:10px;
 	min-height:240px;
 	box-shadow: -10px 10px 20px 0px rgba(0,0,0,0.30);
+	margin-top: -124px ;
 }		
 		
 .box-left{
@@ -213,7 +246,7 @@ p{
 }
 
 .move-up{
-	margin-top:-124px ;
+	
 	display:block;
 }
 	
@@ -266,9 +299,6 @@ p{
        -moz-transform: rotate(-60deg);
          -o-transform: rotate(-60deg);
             transform: rotate(-60deg);
-}
-	
-.hexagon-in2:hover {
 }
 
 .hexagon2 {
@@ -459,10 +489,6 @@ p{
 	background-repeat: no-repeat;
 	outline:0;		
 }
-.shape_green .overlay.hexagon_mask {
-	background: url(../images/hexagonal-mask_320_green.png);
-	background-size:cover;
-}	
 
 .shape_green img{
 	width:100%;
@@ -536,8 +562,9 @@ p{
 }
 	
 .shape .overlay.hexagon_mask {
+	background: url('../../images/website/themes5/hexagonal-maskorg.png'); 
+	background-size: cover;
 	
-	background-size:cover;
 }	
 
 .shape img{

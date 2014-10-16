@@ -14,7 +14,7 @@
 			<div class="row partion">
 				<div class="col-md-6">
 					<div class="shape">
-						<div class="overlay hexagon_mask" style="background: url({{Asset('/images/website/themes5/hexagonal-maskorg.png')}}); background-size: cover;"></div>
+						<div class="overlay hexagon_mask" ></div>
 							<a href="#">
 			                    <?php 
 			                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
@@ -34,49 +34,50 @@
 				
 				<div class="col-md-6 s_txt">
 					<div class="shape">
-						<div class="overlay hexagon_mask" style="background: url({{Asset('/images/website/themes5/hexagonal-maskorg.png')}});"></div>
-						
+						<div class="overlay hexagon_mask" ></div>\
 						<div class="slide-txt">
-							<h2>Ceremony, 5pm</h2>
-							<h3>Cum sociis natoque penatibus</h3>
-							<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
-
+              <h2> đi chơi đi ku</h2>
+              <h3>là sao day?</h3>
+							<p name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</p>
 						</div>									
 					</div>
 					<div class="edit-content editphara{{$tabWeb->id}}">
 					        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-					               {{$tabWeb->content}}
-					            </textarea>
+				               {{$tabWeb->content}}
+				            </textarea>
 					        </div>
 					        <div class="row phara-margin">
 						    	<div class="col-xs-11"></div>
 						    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-						    		<span> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
-						            <span><a class="glyphicon glyphicon-cog icon-site" href=""></a></span>
+						    		<span> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a>
+						          <a class="glyphicon glyphicon-cog icon-site" href=""></a></span>
 						    	</div>
 						    </div>
 						    <div class="row phara-margin">
 						    	<div class="col-xs-11"></div>
 						    	<div class="col-xs-1 ok-edit ok-edit-show{{$tabWeb->id}}">
 						    		<span>
-						                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-						                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-						            </span>
-						            <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
+			                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
+			                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
+				            </span>
+						        <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
 						    	</div>
 						    </div>															
 				</div>
 			</div>
 		</div>	
-		<div class="col-xs-8 col-xs-offset-2 text-center map-hove">
-	        <p><input class="postcode" id="Postcode" name="Postcode" type="text"> <input type="submit" id="findbutton" value="Tìm địa điểm" /></p>        
-	        <div id="geomap" >
-	          <p>Loading Please Wait...</p>
-	        </div>
-	        <div id="cor"></div>
-	        <input id="hidLat" name="hidLat" type="hidden" value="{{$website_item->latitude}}">
-	        <input id="hidLong" name="hidLong" type="hidden" value="{{$website_item->longitude}}">  
-	   </div> 
+    <div class="row">
+      <div class="border_map">
+    		<div class="col-xs-8 col-md-offset-2 text-center map-hove">
+          <p><input class="postcode" id="Postcode" name="Postcode" type="text"> <input type="submit" id="findbutton" value="Tìm địa điểm" /></p>        
+          <div id="geomap" >
+            <p>Loading Please Wait...</p>
+          </div>
+          <div id="cor"></div>
+          <input id="hidLat" name="hidLat" type="hidden" value="{{$website_item->latitude}}">
+          <input id="hidLong" name="hidLong" type="hidden" value="{{$website_item->longitude}}">  
+    	   </div> 
+    </div>
 	</div>
 		<script type="text/javascript">
        var PostCodeid = "#Postcode";
@@ -169,7 +170,7 @@
             google.maps.event.trigger(map, 'resize');
           });
              initialize();
-           $("#geomap").css("width", 700).css("height", 400);
+           $("#geomap").css("height", 400);
             $('#findbutton').click(function (e) {
                 var address = $(PostCodeid).val();
                 geocoder.geocode({ 'address': address }, function (results, status) {
@@ -182,6 +183,7 @@
                           type:"POST",
                           url:"{{URL::route('change-map')}}",
                           data:{
+                              address : address,
                               latitude: $('#hidLat').val(),
                               longitude: $('#hidLong').val()
                           },

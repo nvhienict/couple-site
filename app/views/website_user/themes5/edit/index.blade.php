@@ -155,6 +155,7 @@
 			$("#showName").show();
 			$("#editName").hide();
 		}
+		
 		jQuery(document).ready(function($) {
 		    $('a[href^="#"]').bind('click.smoothscroll',function (e) {
 		        e.preventDefault();
@@ -162,9 +163,9 @@
 		        $target = $(target);
 
 		        $('html, body').stop().animate( {
-		            'scrollTop': $target.offset().top-40
+		            'scrollTop': $target.offset().top -50
 		        }, 900, 'swing', function () {
-		            window.location.hash = target;
+		            location.hash = target;
 		        } );
 		    } );
 		} );
@@ -239,31 +240,6 @@
 		<script src="{{Asset("assets/js/jquery.nav.js")}}"></script>
 		<script src="{{Asset("assets/js/jquery.nivo.slider.js")}}"></script>
 		
-		<script type="text/javascript">
-		
-		(function () {
-			"use strict";	
-			
-			/*global jQuery */	
-		
-			jQuery(document).ready(function(){	
-			
-				jQuery('.nav').onePageNav({
-					scrollOffset: 250		
-				});
-				
-				jQuery('#nav').affix({
-					offset: { top: jQuery('#nav').offset().top }
-				});		
-
-				jQuery(window).load(function() {
-					jQuery('#slider').nivoSlider();
-				});
-			});	
-
-		}());
-		
-	    </script>		
 		
 	@endforeach
 	@endif

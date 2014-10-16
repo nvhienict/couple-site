@@ -34,7 +34,7 @@
 				  					@endforeach
 		  						@endif
 			  				@endif		  					
-		  				<div style="text-align:center; margin-bottom:100px; font-weight: bold; font-size: 50px;color:#0B03FF;">
+		  				<div style="text-align:center; margin-bottom:100px; font-weight: bold; font-size: 50px;color: #{{$website_item->color1}};">
 		  				
 		  					<table align="center">
 			  				<script type="text/javascript" src="{{Asset("assets/js/count-down-time.js")}}"></script>
