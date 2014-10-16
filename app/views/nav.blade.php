@@ -41,11 +41,11 @@
       </li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Công cụ lập kế hoạch </span><b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li role="presentation" class="dropdown-header"><span>Công cụ</span>
+        <ul class="dropdown-menu" style="width:100%;">
+          <li role="presentation" class="dropdown-header" style="padding-left:5px;"><span>Công cụ</span>
           <div class="row">
             <!-- <div class="col-xs-6"> -->
-              <ul class="list-unstyled">
+              <ul class="list-unstyled" style="padding-left:15px; ">
                 <!-- <li><a href="#">Website cưới</a></li> -->
                 <li><a href="{{URL::route('guest-list')}}" >Danh sách khách mời</a></li>
                 <!-- <li><a href="#">Sơ đồ ghế ngồi</a></li> -->

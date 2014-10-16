@@ -46,7 +46,7 @@ Trang chủ
 	      </li>
 	      <li class="dropdown">
 	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown"><span>Công cụ lập kế hoạch </span><b class="caret"></b></a>
-	        <ul class="dropdown-menu " role="menu" >
+	        <ul class="dropdown-menu " role="menu" style="width:100%;">
 
 		        <li role="presentation" class="dropdown-header"><span>Công cụ</span>
 			        <ul class="list-unstyled">
