@@ -13,7 +13,7 @@ class CreateTabWebsite extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('tabWebsite',function($table){
+		Schema::create('tabwebsite',function($table){
 
 			$table->increments("id");
 			$table->string("type");
