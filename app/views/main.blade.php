@@ -84,14 +84,16 @@
 
 	<!--Header login-->
 	<div class="row user-header">
-	
+
 	<script>
 	    $(document).ready(function() {
 	        $('.fb-like').attr("data-href", document.URL);
 	    });
 	</script>
 
-	<div class="fb-like" data-href="" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
+	<!-- <div class="fb-like" data-href="" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div> -->
+
+	<div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
 
 		<div class="col-lg-3 col-xs-12 pull-right wedding-user-logged">
 				@if(Session::has('email'))
