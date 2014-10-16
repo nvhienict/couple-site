@@ -55,7 +55,7 @@ Danh sách khách mời
 							<script type="text/javascript" src="{{Asset('assets/js/script_thuy.js')}}"></script>
 				</div>
 				<div class="col-xs-2">
-					<a href="" onclick="showHideAddGuest()" id="add-guest-wedding" style="cursor:pointer;" data-toggle="modal" data-target="#myModalAddGuest" data-backdrop="static">
+					<a href="" onclick="showHideAddGuest()" id="add-guest-wedding" style="cursor:pointer;" data-toggle="modal" data-target="" data-backdrop="static">
 					<i class="glyphicon glyphicon-plus"></i>
 					&nbsp Thêm Khách 
 
@@ -72,7 +72,11 @@ Danh sách khách mời
 									if(obj.counts==0)
 									{	
 										swal("Chưa có nhóm!");																				        	
-										window.location.href="{{URL::route('guest-list')}}";
+										
+									}
+									else
+									{
+										$("#add-guest-wedding").attr("data-target","#myModalAddGuest");
 									}
 									
 								}

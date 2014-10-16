@@ -34,8 +34,7 @@
 							<p id="right-infor service"><b>Dịch vụ</b>:
 								{{Vendor::find($vendor->id)->category()->get()->first()->name}}
 							</p>
-							<p id="right-infor catering"><b>Phục vụ</b>: Vui chơi, ẩm thức, giải trí, thư giãn...Sức chứa 200 người lớn.</p>
-							<p id="right-infor capaty"><b>Sức chứa</b>: 200 người lớn.</p>
+							
 						</div>
 
 					</div><!-- -End infor vendor -->
