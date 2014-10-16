@@ -36,8 +36,7 @@
 					<div class="shape">
 						<div class="overlay hexagon_mask" ></div>\
 						<div class="slide-txt">
-              <h2> đi chơi đi ku</h2>
-              <h3>là sao day?</h3>
+              
 							<p name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</p>
 						</div>									
 					</div>

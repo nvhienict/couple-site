@@ -14,9 +14,6 @@
 			    <div class="show-content phara{{$tabWeb->id}}">                            
 			    	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
 				</div>
-				<div class="show-content phara{{$tabWeb->id}}">
-		        	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
-		        </div>
 			    <div class="edit-content editphara{{$tabWeb->id}}">
 		        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
 		               {{$tabWeb->content}}

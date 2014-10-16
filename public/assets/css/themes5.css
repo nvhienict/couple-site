@@ -515,7 +515,9 @@ p{
 .img-slide img{
 	width:100%;
 }
-
+.padding_top_img{
+	padding-top: 15px;
+}
 .slide-content{
 	position:relative;
 }
@@ -525,6 +527,7 @@ p{
 	top:0;
 	left:0;
 	right:0;
+	margin: 150px auto;
 }
 
 .slide-txt h2{

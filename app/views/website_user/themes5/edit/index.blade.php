@@ -185,7 +185,9 @@
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
-								<a class="navbar-brand" href="index.html"><img src="{{Asset('images/website/themes5/key-icon.png')}}" alt="logo"></a>
+								<a  href="index.html">
+									<img  class="padding_top_img" src="{{Asset('images/website/themes5/key-icon.png')}}" alt="logo">
+								</a>
 							</div>
 							<div class="navbar-collapse collapse" id="example-navbar-collapse">
 							<ul class="nav navbar-nav navbar-right">
