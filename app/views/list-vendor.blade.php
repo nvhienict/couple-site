@@ -337,7 +337,31 @@ Danh sách Dịch vụ
 							<div class="col-sm-8 col-lg-8 col-md-8">
 								<div class="caption-list">
 		                            <div class="name"><a href="{{URL::to('vendor',array($vendor->id))}}">{{$vendor->name}}</a></div>
-		                         
+		                         	<?php
+		                            	
+		                            	$about=$vendor->about;
+		                            	if($about)
+		                            	{	
+		                            		$lengthstr=strlen($about);
+		                            		if($lengthstr<410)
+		                            		{
+		                            			$shortContent=$about;
+		                            		}
+		                            		else
+		                            		{
+		                            			$pos=strpos($about, ' ', 410);	                            		
+		                						$shortContent=substr($about,0,$pos )."..."; 	
+		                            		}	
+		                            		                            	
+		                            	}
+		                            	else
+		                            	{
+		                            		$shortContent="Chưa có mô tả về Dịch vụ này.";
+		                            	}	
+		                            	
+
+		                            ?>
+		                            <p>{{ $shortContent }}</p>
 		                            <div class="website">http://{{$vendor->website}}</div>
 		                        </div>
 								<div class="ratings">
