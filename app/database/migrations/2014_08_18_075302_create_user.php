@@ -24,7 +24,7 @@ class CreateUser extends Migration {
 				$table->date('weddingdate');
 				$table->integer('role_id');
 				$table->string('remember_me');
-				$table->float('budget', 0, 0);
+				$table->float('budget', 15, 0);
 				$table->timestamps();
 			});
 	}

@@ -19,11 +19,11 @@ class CreateUserBudget extends Migration {
 				$table->integer('user');
 				$table->integer('category');
 				$table->string('item');
-				$table->float('estimate', 0, 0);
-				$table->float('actual', 0, 0);
-				$table->float('pay', 0, 0);
+				$table->float('estimate', 15, 0);
+				$table->float('actual', 15, 0);
+				$table->float('pay', 15, 0);
 				$table->longText('note');
-				$table->float("range", 0, 0);
+				$table->float("range", 15, 2);
 				$table->timestamps();
 			});
 	}
