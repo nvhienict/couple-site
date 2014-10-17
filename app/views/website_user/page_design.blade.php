@@ -254,7 +254,7 @@
 			  	<div class="tab-pane" id="design_setup">
 		  		@foreach( $website as $item_website )
 			  		<div class="url">
-			  			<div class="header_url">Website URL<span style="color:#2A64B9;"><i  class='fa fa-info-circle fa-fw'></i></span>
+			  			<div class=" header_url">Website URL<span style="color:#2A64B9;"><i  class='fa fa-info-circle fa-fw'></i></span>
 			  			</div>
 			  			<div class="url_link">
 			  				
@@ -751,6 +751,7 @@
 				var obj = JSON.parse(data);
 				$('.url_error').text(obj.error_url);
 				$('.url_error').css('color',obj.color);
+				$('..url_link').css('overflow','hidden').css('text-overflow','ellipsis');
 				$('.a_url').text('http://www.thuna.vn/website/'+obj.res_url);
 			 	$('.a_url').attr("href",'http://www.thuna.vn/website/'+obj.res_url);				
 			}
