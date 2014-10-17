@@ -80,8 +80,6 @@
 
 <body style="padding-right: 15px;">
 
-
-
 	<!--Header login-->
 	<div class="row user-header">
 
