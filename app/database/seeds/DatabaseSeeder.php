@@ -355,7 +355,7 @@ class LocationTableSeeder extends Seeder {
         // Location::create(array('name'=>'Cà Mau'));
         // Location::create(array('name'=>'Cao Bằng'));
         // Location::create(array('name'=>'Cần Thơ(TP)'));
-        Location::create(array('name'=>'Đà Nẵng(TP)'));
+        Location::create(array('name'=>'Đà Nẵng'));
         Location::create(array('name'=>'Huế'));
         // Location::create(array('name'=>'Đắk Lắk'));
         // Location::create(array('name'=>'Đắk Nông'));
