@@ -11,7 +11,17 @@
 |
 */
 
+Route::get('gh', function(){
+	return 'url: '.URL::previous();
+});
+
+
 Route::get('/',array("as"=>"index", function()
+{
+	return View::make('index');
+}));
+
+Route::get('index',array("as"=>"index", function()
 {
 	return View::make('index');
 }));

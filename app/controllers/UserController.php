@@ -327,13 +327,20 @@ class UserController extends \BaseController {
 
 					}
 
+
+
 			$IdUser=User::where('email','=',Input::get('email'))->get()->first()->id;
 
 			Session::put("email",Input::get('email'));
 
 			// go to view request
-			$url = Session::get('url');
-			return Redirect::route($url);
+			if ( Session::get('url')==NULL ) {
+				return Redirect::route('index');
+			} else {
+				$url = Session::get('url');
+				return Redirect::route($url);
+			}
+			
 			
 		}else{
 			$errors=$validator->messages();
