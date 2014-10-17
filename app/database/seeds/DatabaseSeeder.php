@@ -206,7 +206,7 @@ class CategoriesTableSeeder extends Seeder {
         	'range3'=>0.01,
         	'range4'=>'',
         	'range5'=>'',
-            'images'=>'cake.png'
+            'images'=>'cake.svg'
 	    )
 	    );
 	    Category::create(array(
@@ -228,7 +228,7 @@ class CategoriesTableSeeder extends Seeder {
         	'range3'=>0.03,
         	'range4'=>'',
         	'range5'=>'',
-            'images'=>'makeup.png'
+            'images'=>'makeup.svg'
 	    )
 	    );
 	    Category::create(array(
@@ -305,7 +305,7 @@ class CategoriesTableSeeder extends Seeder {
         	'range3'=>0.02,
         	'range4'=>'',
         	'range5'=>'',
-            'images'=>'music.png'
+            'images'=>'music.svg'
 	    )
 	    );
 	    Category::create(array(
@@ -1509,12 +1509,12 @@ class VendorTableSeeder extends Seeder {
     {
         DB::table('vendors')->delete();
 
-        for ($i = 0; $i < 10; $i++)
+        for ($i = 0; $i < 1; $i++)
         {
           $vendor = Vendor::create(array(
             'name' => 'Monte Cristo Ballroom',
             'address' => '1507 Wall Street' ,
-            'phone' => 099966654,
+            'phone' => '099966654',
             'website' => 'thuna.vn',
             'email' => 'info@montecristoballroom.com',
             'avatar' => '',
@@ -1527,12 +1527,12 @@ class VendorTableSeeder extends Seeder {
 
           ));
         }
-        for ($i = 0; $i < 10; $i++)
+        for ($i = 0; $i < 1; $i++)
         {
           $vendor = Vendor::create(array(
             'name' => 'Lord Hill Farms',
             'address' => '1507 Wall Street' ,
-            'phone' => 099966654,
+            'phone' => '099966654',
             'website' => 'thuna.vn',
             'email' => 'info@montecristoballroom.com',
             'avatar' => '',
@@ -1545,12 +1545,12 @@ class VendorTableSeeder extends Seeder {
 
           ));
         }
-        for ($i = 0; $i < 10; $i++)
+        for ($i = 0; $i < 1; $i++)
         {
           $vendor = Vendor::create(array(
             'name' => 'Belle Chapel',
             'address' => '1507 Wall Street' ,
-            'phone' => 099966654,
+            'phone' => '099966654',
             'website' => 'thuna.vn',
             'email' => 'info@montecristoballroom.com',
             'avatar' => '',
@@ -1563,12 +1563,12 @@ class VendorTableSeeder extends Seeder {
 
           ));
         }
-        for ($i = 0; $i < 10; $i++)
+        for ($i = 0; $i < 1; $i++)
         {
           $vendor = Vendor::create(array(
             'name' => 'Pickering Barn',
             'address' => '1507 Wall Street' ,
-            'phone' => 099966654,
+            'phone' => '099966654',
             'website' => 'thuna.vn',
             'email' => 'info@montecristoballroom.com',
             'avatar' => '',
