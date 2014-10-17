@@ -72,7 +72,7 @@
 							</div>	
 						</div>
 						<div class="abt-content">
-							<h2 id="titleNameBride">{{$website_item->name_bride}}</h2>
+							<h2 id="titleNameBride" style="color: #{{$website_item->color2}}">{{$website_item->name_bride}}</h2>
 							
 							<div class="about_bride">
 								<p id="about_bride1">{{$website_item->about_bride}}</p>
@@ -105,7 +105,7 @@
 							</div>		
 						</div>
 						<div class="abt-content ">
-							<h2 id="titleNameGroom">{{$website_item->name_groom}}</h2>
+							<h2 id="titleNameGroom"  style="color: #{{$website_item->color2}}">{{$website_item->name_groom}}</h2>
 		  				<div class="about_groom ">
 							<p id="about_groom1">{{$website_item->about_groom}}</p>
 							<span class="icon_edit_about">

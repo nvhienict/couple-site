@@ -815,6 +815,7 @@
 			data:{color_design:color_design},
 			success: function(data){
 				$("h1").css("color","#"+data+"");
+				$("#dateTime").css("color","#"+data+"");
 			}
 		});
 
