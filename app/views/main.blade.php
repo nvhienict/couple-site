@@ -88,7 +88,6 @@
 	        $('.fb-like').attr("data-href", document.URL);
 	    });
 	</script>
-
 	<!-- <div class="fb-like" data-href="" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div> -->
 
 	<div class="col-lg-7 col-xs-12 fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
