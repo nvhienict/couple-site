@@ -328,7 +328,6 @@ class UserController extends \BaseController {
 					}
 
 
-
 			$IdUser=User::where('email','=',Input::get('email'))->get()->first()->id;
 
 			Session::put("email",Input::get('email'));
