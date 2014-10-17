@@ -896,19 +896,35 @@ public function up_images_album(){
 		return View::make('website_user.themes6.page.index');
 	}
 	//url_website
+	public function load_url(){
+		$id_user=WebsiteController::id_user();	
+		$recent_url=WeddingWebsite::where('user',$id_user)->get()->first()->url;	
+		echo json_encode(array('url'=>$recent_url));
+		exit();
+	}
 
 	public function change_url(){
 		$id_user=WebsiteController::id_user();
 		$change_url=Input::get('url_website');
 		$recent_url=WeddingWebsite::where('user',$id_user)->get()->first()->url;
-		if (WeddingWebsite::where('url',$change_url)->get()->count()) {
+		if (empty($change_url))
+		 {
+			echo json_encode(array('error_url'=>'Url không được trống.','res_url'=>$recent_url, 'color'=>'red'));
+			exit();
+		}
+		else
+		{
+			if (WeddingWebsite::where('url',$change_url)->get()->count()) {
 			echo json_encode(array('error_url'=>'Url đã tồn tại, nhập vào url khác.','res_url'=>$recent_url, 'color'=>'red'));
 			exit();
-		} else {			
+			} 
+			else
+		 	{			
 			WeddingWebsite::where('user',$id_user)->update(array('url'=>$change_url));
 			echo json_encode(array('res_url'=>$change_url,'error_url'=>'Url đã cập nhật thành công.','color'=>'#5574C9'));
 			exit();
-		}		
+			}				
+		}							
 	}
 
 	public function url_website($url){

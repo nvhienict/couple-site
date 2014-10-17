@@ -1,4 +1,4 @@
-<div class="slider-top text-center" style="background: url({{Asset("{$backgrounds}")}}) no-repeat center;">		
+<div class="slider-top text-center" style="background: url({{Asset("{$backgrounds}")}}) no-repeat center; padding-top: 60px;">		
 		<div class="container ">
 			<div class="row">
 				<div class="col-md-12">
