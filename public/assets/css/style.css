@@ -2466,6 +2466,8 @@ tr.even td{
 .url_link{
 	margin-top: 10px;
 	padding-left: 10px;
+	overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
