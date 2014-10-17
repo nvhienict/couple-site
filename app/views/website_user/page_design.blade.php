@@ -252,23 +252,24 @@
 					</div>
 			  	</div>
 			  	<div class="tab-pane" id="design_setup">
+		  		@foreach( $website as $item_website )
 			  		<div class="url">
 			  			<div class="header_url">Website URL<span style="color:#2A64B9;"><i  class='fa fa-info-circle fa-fw'></i></span>
 			  			</div>
 			  			<div class="url_link">
-			  				@foreach( $website as $item_website )
+			  				
 			  				<a style="text-decoration: none;color:##2A64B9;" target="_blank" class="a_url" href="{{URL::route('url_website',array('url'=>$item_website->url))}}">				
 			  					http://www.thuna.vn/website/{{$item_website->url}}	  					
 			  				</a>
-			  				@endforeach
+			  				
 			  			</div>
 			  			
 			  			<div class="edit_url">
-			  				<span class="change_url "><a data-toggle="modal" data-target="#modal-url" style="text-decoration: none;color:##2A64B9;" href="javascript:;">Thay đổi URL»</a></span>
+			  				<span class="change_url "><a onclick="load_url()" data-backdrop="static" data-toggle="modal" data-target="#modal-url" style="text-decoration: none;color:##2A64B9;" href="javascript:;">Thay đổi URL»</a></span>
 			  				<span class="share_url"><a style="text-decoration: none;color:##2A64B9;" href="">Chia sẻ URL»</a></span>
 			  			</div>
-
 			  		</div>
+			  		@endforeach
 			  	
 			  	</div>
 			</div>
@@ -699,7 +700,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" >
-        <button style="color:red;" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <button onclick="remove_error()" style="color:red;" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h3 class="modal-title">Website URL</h3>
       </div>
       <div class="modal-body">
@@ -714,7 +715,7 @@
 	        	@endforeach()
         	</div>        	
         </div>
-        <p class="url_error"></p>
+        <h4 class="url_error"></h4>
         
       </div>
       <div class="modal-footer" style="text-align:center;margin-top:100px;">
@@ -729,6 +730,16 @@
 
 <script type="text/javascript">
 	// Save Url
+	 function load_url(){
+	 	$.ajax({
+			type:'post',
+			url:"{{URL::route('load_url')}}",
+			success: function(data){
+				var obj = JSON.parse(data);
+				$('.url_website').val(obj.url);				
+			}
+		});
+	 };
 	function save_url(){
 		$.ajax({
 			type:'post',
