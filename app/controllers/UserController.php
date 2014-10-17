@@ -332,7 +332,8 @@ class UserController extends \BaseController {
 			Session::put("email",Input::get('email'));
 
 			// go to view request
-			return Redirect::to(URL::previous());
+			$url = Session::get('url');
+			return Redirect::route($url);
 			
 		}else{
 			$errors=$validator->messages();

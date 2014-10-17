@@ -51,9 +51,6 @@ Route::post('get_location', array('as'=>'get_location', function(){
 	Session::put('location',$id);
 }));
 
-Route::get('gh', function(){
-	return "location la: ".Session::get('location');
-});
 
 Route::get('category-vendor',array('as'=>'category-vendor', "uses"=>"VendorController@index"));
 
