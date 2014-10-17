@@ -33,8 +33,7 @@
 						<div class="overlay hexagon_mask" style="background: url({{Asset('/images/website/themes5/hexagonal-maskorg.png')}});"></div>
 						
 						<div class="slide-txt">
-							<h2>Ceremony, 5pm</h2>
-							<h3>Cum sociis natoque penatibus</h3>
+					
 							<p>{{$tabWeb->content}}</p>
 						</div>									
 					</div>															

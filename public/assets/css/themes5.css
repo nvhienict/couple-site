@@ -47,6 +47,7 @@ p{
 	line-height:28px;
 }
 
+
 /* Menu */
 .container{
 	width: 100%;
@@ -346,6 +347,9 @@ p{
 
 #section_about{
 	line-height:0px;
+}
+#section_about span{
+	line-height:18px;
 }
 	
 .story-left{

@@ -3,7 +3,7 @@
 		<div class="row sptr-position">
 			<div class="col-md-12">
 				<div class="separator" style="background: url({{Asset('/images/website/themes5/separetor.png')}}) no-repeat center;">
-					<h2 data-uk-scrollspy="{cls:'uk-animation-scale-up', repeat: true}"><span>{{$tabWeb->title}}</span></h2>
+					<h2 style="color: #{{$website_item->color2}}" data-uk-scrollspy="{cls:'uk-animation-scale-up', repeat: true}">{{$tabWeb->title}}</h2>
 				</div>
 			</div>
 		</div>
@@ -35,7 +35,7 @@
 							</p>
 				        </div> -->
 				        <div class="show-content phara{{$tabWeb->id}}">
-				        	<p name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</p>
+				        	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
 				        </div>
 					    <div class="edit-content editphara{{$tabWeb->id}}">
 				        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
