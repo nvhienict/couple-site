@@ -42,7 +42,7 @@ class UserBudgetController extends \BaseController {
 		$budget->pay="0";
 		$budget->note="";
 		$budget->save(); 
-		$item=UserBudget::get()->last();
+		$item=UserBudget::where('user',$id_user)->get()->last();
 		if(!empty($item->note)){
 			$itemHtml='<a href="#" class="budget_icon_notes" data-toggle="modal"  data-target="#'.$item->id.'" ><i class="glyphicon glyphicon-comment"></i></a>';
 		}
@@ -208,13 +208,13 @@ class UserBudgetController extends \BaseController {
 		$item=UserBudget::find($id);
 		$id_cate=$item->category;
 		$item->delete();
-		$sumEstimate_cate= UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('estimate');
-		$sumActual_cate= UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('actual');
-		$sumPay_cate= UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('pay');
+		$sumEstimate_cate= round((UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('estimate')),5);
+		$sumActual_cate= round((UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('actual')),5);
+		$sumPay_cate= round((UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('pay')),5);
 		$sumDue_cate=$sumActual_cate-$sumPay_cate;
-		$sumEstimate=UserBudget::where('user',$id_user)->sum('estimate');
-		$sumActual=UserBudget::where('user',$id_user)->sum('actual');
-		$sumPay=UserBudget::where('user',$id_user)->sum('pay');
+		$sumEstimate=round((UserBudget::where('user',$id_user)->sum('estimate')),5);
+		$sumActual=round((UserBudget::where('user',$id_user)->sum('actual')),5);
+		$sumPay=round((UserBudget::where('user',$id_user)->sum('pay')),5);
 		$sumDue=$sumActual-$sumPay;
 
 
@@ -271,19 +271,19 @@ class UserBudgetController extends \BaseController {
 		$budgetEstimate = $userBudget->estimate;		
 		$budgetActual = $userBudget->actual;
 		$budgetPay = $userBudget->pay;
-		$budgetDue = $budgetActual - $budgetPay;
+		$budgetDue = round(($budgetActual - $budgetPay),5);
 
 		//current Category
 		$budgetDK = array('user'=>$userID, 'category'=>$categoryID);
-		$totalEstimate = UserBudget::where($budgetDK)->sum('estimate');
-		$totalActual = UserBudget::where($budgetDK)->sum('actual');
-		$totalPay = UserBudget::where($budgetDK)->sum('pay');
+		$totalEstimate = round((UserBudget::where($budgetDK)->sum('estimate')),5);
+		$totalActual = round((UserBudget::where($budgetDK)->sum('actual')),5);
+		$totalPay = round((UserBudget::where($budgetDK)->sum('pay')),5);
 		$totalDue = $totalActual - $totalPay;
 
 		//all summary
-		$sumExpected = UserBudget::where('user',$userID)->sum('estimate');
-		$sumActual = UserBudget::where('user',$userID)->sum('actual');
-		$sumPay = UserBudget::where('user',$userID)->sum('pay');
+		$sumExpected = round((UserBudget::where('user',$userID)->sum('estimate')),5);
+		$sumActual = round((UserBudget::where('user',$userID)->sum('actual')),5);
+		$sumPay = round((UserBudget::where('user',$userID)->sum('pay')),5);
 		$sumDue = $sumActual - $sumPay;
 
 		$task=array(
