@@ -304,7 +304,7 @@ Quản lý ngân sách
 						 		                                											  						     
 						 		@endforeach
 						 		@endif
-						 		<tr class="budget_item_cat{{$category->id}}" id="budget_item_cat{{$category->id}}">
+						 		<tr class="budget_item_cat_add{{$category->id}}" id="budget_item_cat_add{{$category->id}}">
 						 			<td></td>
 						 			<td colspan="7"><a href="javascript:void(0);" onclick="item_add({{$category->id}})" class="item-add{{$category->id}}" style="cursor:pointer;">
 											<i class="glyphicon glyphicon-plus"></i>&nbsp Thêm chi tiêu
@@ -319,7 +319,7 @@ Quản lý ngân sách
 					 	<tr>
 					 		<th><i class="glyphicon glyphicon-gbp"></i></th>
 					 		<th>Tổng cộng chi phí</th>
-					 		<th class="TienVND" id="rowSumExpected">{{number_format(UserBudget::where('user',UserBudgetController::id_user())->sum('estimate'), 0, '.', ',')}} VND</th>
+					 		<th class="TienVND" id="rowSumExpected">{{number_format(round((UserBudget::where('user',UserBudgetController::id_user())->sum('estimate')),5), 0, '.', ',')}} VND</th>
 					 		<th class="TienVND" id="rowSumActual">{{number_format(UserBudget::where('user',UserBudgetController::id_user())->sum('actual'), 0, '.', ',')}} VND</th>
 					 		<th class="TienVND" id="rowSumPay">{{number_format(UserBudget::where('user',UserBudgetController::id_user())->sum('pay'), 0, '.', ',')}} VND</th>
 					 		<th class="TienVND" id="rowSumDue" colspan="2">{{number_format((UserBudget::where('user',UserBudgetController::id_user())->sum('actual'))-(UserBudget::where('user',UserBudgetController::id_user())->sum('pay')), 0, '.', ',')}} VND</th>
@@ -332,7 +332,7 @@ Quản lý ngân sách
 			<h3>Tóm tắt:</h3>
 			<p>
 				<div>Dự kiến</div>
-				<strong id="ubsDuKien">{{number_format(UserBudget::where('user',UserBudgetController::id_user())->sum('estimate'), 0, '.', ',')}} VND</strong>
+				<strong id="ubsDuKien">{{number_format(round((UserBudget::where('user',UserBudgetController::id_user())->sum('estimate')),5), 0, '.', ',')}} VND</strong>
 				<div>Thực tế</div>
 				<strong id="ubsThucTe">{{number_format(UserBudget::where('user',UserBudgetController::id_user())->sum('actual'), 0, '.', ',')}} VND</strong>
 				<div title="Đã thanh toán">Thanh toán</div>
@@ -429,7 +429,7 @@ Quản lý ngân sách
 						if (obj.item_last) {
 							$('#budget_item_cat'+obj.item_last).after(obj.html);
 						} else{
-							$('.budget_item_cat'+id).before(obj.html);
+							$('.budget_item_cat_add'+id).before(obj.html);
 						};
 						$('#budget_item_cat'+obj.item).show();												
 						}											
