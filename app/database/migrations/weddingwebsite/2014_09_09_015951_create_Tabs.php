@@ -17,7 +17,7 @@ class CreateTabs extends Migration {
 			$table->increments("id");
 			$table->string("type");
 			$table->string("title");
-			$table->string("content");
+			$table->text("content");
 			$table->boolean("visiable");
 			$table->string("titlestyle");
 			$table->string("video");

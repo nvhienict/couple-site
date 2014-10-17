@@ -20,7 +20,7 @@ class CreateTabWebsite extends Migration {
 			$table->integer("website");
 			$table->integer("tab");
 			$table->string("title");
-			$table->string("content");
+			$table->text("content");
 			$table->boolean("visiable");
 			$table->string("titlestyle");
 			$table->integer("sort");
@@ -37,7 +37,7 @@ class CreateTabWebsite extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tabWebsite');
+		Schema::drop('tabwebsite');
 	}
 
 }
