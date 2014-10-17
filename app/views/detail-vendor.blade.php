@@ -295,23 +295,28 @@
 									});
 
 									function post_comment (id_user) {
-										
 										var cmt = $("#vendor_comment").val(); 
-										$("#vendor_comment").val("");
+										if(cmt == ""){
+											return false;
+										}
+										else
+										{
+											
+											$("#vendor_comment").val("");
 
-										$.ajax({
-											type: "post",
-											url: "{{URL::route('vendor_comment', array('id_vendor'=>$vendor['id']))}}",
-											data: {
-												id_user:id_user,
-												cmt:cmt
-											},
-											success: function(data){
-												$('#your_cmt').replaceWith(data);
-											}
+											$.ajax({
+												type: "post",
+												url: "{{URL::route('vendor_comment', array('id_vendor'=>$vendor['id']))}}",
+												data: {
+													id_user:id_user,
+													cmt:cmt
+												},
+												success: function(data){
+													$('#your_cmt').replaceWith(data);
+												}
 
-										});
-
+											});
+										}
 									}
 								</script>
 						  	</div>
