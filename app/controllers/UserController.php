@@ -249,7 +249,7 @@ class UserController extends \BaseController {
 		
 		$view=View::make('index');
 		return Response::make($view);
-		
+	
 	}
 
 	// if user deleted in database destroy session and redirect to view index

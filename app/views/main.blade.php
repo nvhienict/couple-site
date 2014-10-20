@@ -124,7 +124,6 @@
 	<!-- .row user-header -->
 @yield('nav-bar')
 @yield('content')
-
 	<!-- footer -->
 	<div class="row footer">
 		<div class="col-md-6 col-md-offset-3">
