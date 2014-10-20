@@ -88,6 +88,13 @@ class UserController extends \BaseController {
 		return $id_user;
 	}
 
+	// count data to check user isset in database
+	public static function isset_user(){
+		$isset_user = User::where( 'email', Session::get('email') )->count();
+		return $isset_user;
+	}
+
+
 	// format weddingdate
 	public static function getDates(){
 		$id_user = ChecklistController::id_user();
@@ -237,6 +244,16 @@ class UserController extends \BaseController {
 		}
 	}
 	public function get_logout()
+	{
+		Session::flush();
+		
+		$view=View::make('index');
+		return Response::make($view);
+		
+	}
+
+	// if user deleted in database destroy session and redirect to view index
+	public static function get_logout_2()
 	{
 		Session::flush();
 		

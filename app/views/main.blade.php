@@ -93,7 +93,7 @@
 	<div class="col-lg-7 col-xs-12 fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
 
 		<div class="col-lg-3 col-xs-12 pull-right wedding-user-logged">
-				@if(Session::has('email'))
+				@if( (Session::has('email')) && (UserController::isset_user())!=0 )
 				<ul class="user_profile">
 					<li >
 						<a href="{{Asset('profile')}}">
@@ -111,6 +111,10 @@
 			  		<li><a href="{{URL::route('logout')}}">Thoát</a></li>
 					
 				</ul>
+		  		@elseif( (Session::has('email')) && (UserController::isset_user())==0 )
+		  			<?php UserController::get_logout_2(); ?>
+		  			<li><a href="{{URL::route('login')}}" >Đăng nhập</a></li>
+		  			<li><a href="{{URL::route('register')}}">Đăng ký</a></li>
 		  		@else
 		  		<li><a href="{{URL::route('login')}}" >Đăng nhập</a></li>
 		  		<li><a href="{{URL::route('register')}}">Đăng ký</a></li>
@@ -120,6 +124,9 @@
 	<!-- .row user-header -->
 @yield('nav-bar')
 @yield('content')
+
+	
+
 	<!-- footer -->
 	<div class="row footer">
 		<div class="col-md-6 col-md-offset-3">
