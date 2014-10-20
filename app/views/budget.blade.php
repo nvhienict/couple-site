@@ -341,15 +341,7 @@ Quản lý ngân sách
 				<strong id="ubsConNo"> {{number_format((UserBudget::where('user',UserBudgetController::id_user())->sum('actual')-UserBudget::where('user',UserBudgetController::id_user())->sum('pay')), 0, '.', ',')}} VND</strong>
 			</p>
 		</div>
-		<div class="budget_vendor">
-			{{'<img width="195px;" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',VendorController::last_vendor())->get()->first()->avatar) . '" />'}}
-			<span style="color: #68ceee">{{Vendor::where('id',VendorController::last_vendor())->get()->first()->name}}</span>
-		</div>
-		<div class="budget_vendor">
-			{{'<img width="195px;" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',VendorController::last_vendor()-1)->get()->first()->avatar) . '" />'}}
-			<span style="color: #68ceee">{{Vendor::where('id',VendorController::last_vendor()-1)->get()->first()->name}}</span>
-		</div>
-
+		
 			<!-- Modal Delete Budget -->
 		<div class="modal fade" id="modalDeleteBudget">
 		  <div class="modal-dialog">

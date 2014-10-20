@@ -356,20 +356,6 @@ Danh sách công việc
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-xs-12">
-				{{'<img width="100%;" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',VendorController::last_vendor())->get()->first()->avatar) . '" />'}}
-				<span style="color: #68ceee">{{Vendor::where('id',VendorController::last_vendor())->get()->first()->name}}</span>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-xs-12">
-				{{'<img width="100%;" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',VendorController::last_vendor()-1)->get()->first()->avatar) . '" />'}}
-				<span style="color: #68ceee">{{Vendor::where('id',VendorController::last_vendor()-1)->get()->first()->name}}</span>
-			</div>
-		</div>
-
 	</div>
 
 </div> <!-- end row -->
