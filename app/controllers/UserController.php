@@ -259,7 +259,7 @@ class UserController extends \BaseController {
 		
 		$view=View::make('index');
 		return Response::make($view);
-		
+	
 	}
 
 	public function get_register()

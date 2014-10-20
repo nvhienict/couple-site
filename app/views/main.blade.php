@@ -125,7 +125,6 @@
 @yield('nav-bar')
 @yield('content')
 
-	
 
 	<!-- footer -->
 	<div class="row footer">
