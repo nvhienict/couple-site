@@ -8,7 +8,7 @@
 @section('content')
 		<div class="row" id="infor-vendor">
 			<div class="container body-detailvendor">
-			<div class="col-xs-12 col-sm-6 col-md-9" id="body-left">
+			<div class="col-xs-12 col-sm-12 col-md-9" id="body-left">
 				<div class="row" id="top-left">
 						<div class="col-xs-6 col-sm-4" id="left-infor">
 							<a href="" onclick="history.go(-1);return false" id="left-infor title-infor">{{Vendor::find($vendor->id)->category()->get()->first()->name}} tại {{Vendor::find($vendor->id)->location()->get()->first()->name}}:</a>
@@ -64,7 +64,7 @@
 										@if(!empty($photoslides))	
 										<ul id="thumbs-main">											
 												@foreach($photoslides as $index => $photoslide)
-												<li rel="{{$index+1}}">{{'<img alt="" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
+												<li rel="{{$index+1}}">{{'<img alt="" class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
 												@endforeach											   
 										</ul>
 											<a href="#photos" class="outside-link"data-toggle="tab">Xem thêm</a>
@@ -88,7 +88,7 @@
 
 								<div id="content-video">
 									<h4> Video</h4>
-									<iframe width="560" height="315" src="{{$vendor->video}}" frameborder="0" allowfullscreen></iframe>	
+									<iframe width="600" height="400" src="{{$vendor->video}}" frameborder="0" allowfullscreen></iframe>	
 								</div>
 						  	</div>
 						  	<div class="tab-pane" id="review">
@@ -289,8 +289,7 @@
 									  fjs.parentNode.insertBefore(js, fjs);
 									}(document, 'script', 'facebook-jssdk'));
 								</script>
-
-								<div class="fb-comments" data-href="" data-width="830" data-numposts="5" data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>
+								<div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>												
 
 								<script>
 								    $(document).ready(function() {
@@ -340,24 +339,27 @@
 									}
 								</script>
 						  	</div>
-						  	<div class="tab-pane" id="photos">
+						  	<div class="col-xs-12 col-sm-12 col-md-12 tab-pane" id="photos">
 						  			<h4>{{Lang::get('messages.Photo')}}</h4>
 						  			  <!-- Wrapper for slides -->
 								<div id="bigPic">
 									@if(!empty($photoslides))
 										@foreach($photoslides as $index => $photoslide)
-												{{'<img alt="" src="data:image/jpeg;base64,' . base64_encode($photoslide->bigpic) . '">'}}
+												{{'<img alt="" class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($photoslide->bigpic) . '">'}}
 										@endforeach
 									@endif			    
 								</div>
+								<div id="smallPic">
+									<ul id="thumbs">
+										@if(!empty($photoslides))
+											@foreach($photoslides as $index => $photoslide)
+													<li rel="{{$index+1}}">{{'<img alt="" class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
+											@endforeach
+										@endif			   
+									</ul>
 
-								<ul id="thumbs">
-									@if(!empty($photoslides))
-										@foreach($photoslides as $index => $photoslide)
-												<li rel="{{$index+1}}">{{'<img alt="" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
-										@endforeach
-									@endif			   
-								</ul>
+								</div>
+								
 								<!-- script slides		 -->		
 								<script type="text/javascript"> 
 									var currentImage;
@@ -402,7 +404,7 @@
 						  </div>
 						  <div class="tab-pane" id="video">
 				  			<h4>Video</h4>
-				  			<iframe width="560" height="315" src="{{$vendor->video}}" frameborder="0" allowfullscreen></iframe>
+				  			<iframe width="600" height="400" src="{{$vendor->video}}" frameborder="0" allowfullscreen></iframe>
 				  			
 						  </div>
 						  <div class="tab-pane" id="FAQ">
@@ -411,14 +413,14 @@
 						  </div>
 						  <div class="tab-pane" id="map">	  		
 						  	<h4>{{Lang::get('messages.Map')}}</h4>
-						  	<iframe src="{{$vendor->map}}" width="600" height="450" frameborder="0" style="border:0"></iframe>
+						  	<iframe src="{{$vendor->map}}" width="600" height="400" frameborder="0" style="border:0"></iframe>
 						  </div>
 						</div>
 					</div>
 				</div>
 			
 			</div>
-			<div class="col-xs-6 col-md-3" id="right-contact">
+			<div class="col-xs-12 col-sm-8 col-md-3" id="right-contact">
 					<div class="contact-me">
 						<h4> <i class="glyphicon glyphicon-earphone"></i> 01234 856 856 </h4>
 						<p>Xin vui lòng cho biết nhà cung cấp này bạn tìm thấy trên Thuna.vn</p>
