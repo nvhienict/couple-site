@@ -68,14 +68,14 @@ Trang chủ
 	            <div class="row">
 	              <div class="col-xs-6">
 	                <ul class="list-unstyled">
-	                  <li><a href="{{URL::route('songs', array(1))}}">Mở đầu</a></li>
-	                  <li><a href="{{URL::route('songs', array(2))}}">Đoàn rước</a></li>
+	                  <li><a href="{{URL::route('songs', array('mo-dau'))}}">Mở đầu</a></li>
+	                  <li><a href="{{URL::route('songs', array('doan-ruoc'))}}">Đoàn rước</a></li>
 	                </ul>
 	              </div>
 	              <div class="col-xs-6">
 	                <ul class="list-unstyled">
-	                  <li><a href="{{URL::route('songs', array(3))}}">Nghi thức</a></li>
-	                  <li><a href="{{URL::route('songs', array(4))}}">Kết thúc</a></li>
+	                  <li><a href="{{URL::route('songs', array('nghi-thuc'))}}">Nghi thức</a></li>
+	                  <li><a href="{{URL::route('songs', array('ket-thuc'))}}">Kết thúc</a></li>
 	                </ul>
 	              </div>
 	            </div>
@@ -84,9 +84,9 @@ Trang chủ
 	            <div class="row">
 	              <div class="col-xs-6">
 	                <ul class="list-unstyled">
-	                  <li><a href="{{URL::route('songs', array(5))}}">Khai tiệc</a></li>
-	                  <li><a href="{{URL::route('songs', array(6))}}">Phát biểu</a></li>
-	                  <li><a href="{{URL::route('songs', array(7))}}">Cắt bánh</a></li>
+	                  <li><a href="{{URL::route('songs', array('khai-tiec'))}}">Khai tiệc</a></li>
+	                  <li><a href="{{URL::route('songs', array('phat-bieu'))}}">Phát biểu</a></li>
+	                  <li><a href="{{URL::route('songs', array('cat-banh'))}}">Cắt bánh</a></li>
 	                </ul>
 	              </div>
 	              <div class="col-xs-6">

@@ -7,9 +7,10 @@ class SongController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index($id)
+	public function index($slug)
 	{
 		//
+		$id=SongCategory::where('slug',$slug)->get()->first()->id;
 		$cats = SongCategory::where('id', $id)->get();
 		$songs = Song::where('category', $id)->get();
 
@@ -89,7 +90,7 @@ class SongController extends \BaseController {
 
 
 	// play songs
-	public function play($id)
+	public function play($slug,$slug_song)
 	{
 		if(!Session::has('email')){
 			$firstname="";
@@ -104,8 +105,8 @@ class SongController extends \BaseController {
 			$user_name = $firstname.' '.$lastname;
 			$user_avatar = User::where('id',$id_user)->get()->first()->avatar;
 		}
-		
-		$songs = Song::where('id', $id)->get();
+		$id_song=Song::where('slug',$slug_song)->get()->first()->id;
+		$songs = Song::where('id', $id_song)->get();
 		return View::make('song.play_song')->with('songs', $songs)
 											->with('user_name', $user_name)
 											->with('user_avatar', $user_avatar);

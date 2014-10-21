@@ -1,7 +1,16 @@
 <?php
-
-class Song extends Eloquent {
-
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
+ 
+class Song extends Eloquent implements SluggableInterface
+{
+ 
+    use SluggableTrait;
+ 
+    protected $sluggable = array(
+        'build_from' => 'name',
+        'save_to'    => 'slug',
+    );
 
 	/**
 	 * The database table used by the model.

@@ -123,7 +123,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Maatwebsite\Excel\ExcelServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
-		'Artdarek\OAuth\OAuthServiceProvider'
+		'Artdarek\OAuth\OAuthServiceProvider',
+		'Cviebrock\EloquentSluggable\SluggableServiceProvider'
 	),
 
 	/*

@@ -21,8 +21,8 @@
 				</tr>
 				@foreach( $songs as $key=>$song )
 				<tr>
-					<td><a href="{{URL::route('play_song', array($song['id']))}}" onclick="get_song({{$song['id']}});">{{$song['name']}}</a></td>
-					<td><a href="{{URL::route('play_song', array($song['id']))}}" onclick="get_song({{$song['id']}});">{{$song['artist']}}</a></td>
+					<td><a href="{{URL::route('play_song', array($cat['slug'],$song['slug']))}}" onclick="get_song({{$song['id']}});">{{$song['name']}}</a></td>
+					<td><a href="{{URL::route('play_song', array($cat['slug'],$song['slug']))}}" onclick="get_song({{$song['id']}});">{{$song['artist']}}</a></td>
 					<td class="last">{{SongComment::where('song',$song['id'])->count()}} <i class="fa fa-comment"></i></td>
 				</tr>
 				@endforeach
@@ -39,18 +39,18 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-6">
-					<a href="{{URL::route('songs', array(1))}}">Mở đầu</a>
+					<a href="{{URL::route('songs', array('mo-dau'))}}">Mở đầu</a>
 				</div>
 				<div class="col-xs-6">
-					<a href="{{URL::route('songs', array(2))}}">Đoàn rước</a>
+					<a href="{{URL::route('songs', array('doan-ruoc'))}}">Đoàn rước</a>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-6">
-					<a href="{{URL::route('songs', array(3))}}">Nghi thức</a>
+					<a href="{{URL::route('songs', array('nghi-thuc'))}}">Nghi thức</a>
 				</div>
 				<div class="col-xs-6">
-					<a href="{{URL::route('songs', array(4))}}">Kết thúc</a>
+					<a href="{{URL::route('songs', array('ket-thuc'))}}">Kết thúc</a>
 				</div>
 			</div>
 
@@ -59,26 +59,26 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-6">
-					<a href="{{URL::route('songs', array(5))}}">Khai tiệc</a>
+					<a href="{{URL::route('songs', array('khai-tiec'))}}">Khai tiệc</a>
 				</div>
 				<div class="col-xs-6">
-					<a href="{{URL::route('songs', array(6))}}">Phát biểu</a>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6">
-					<a href="{{URL::route('songs', array(7))}}">Cắt bánh</a>
-				</div>
-				<div class="col-xs-6">
-					<a href="{{URL::route('songs', array(8))}}">Vào tiệc</a>
+					<a href="{{URL::route('songs', array('phat-bieu'))}}">Phát biểu</a>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-6">
-					<a href="{{URL::route('songs', array(9))}}">Chúc mừng</a>
+					<a href="{{URL::route('songs', array('cat-banh'))}}">Cắt bánh</a>
 				</div>
 				<div class="col-xs-6">
-					<a href="{{URL::route('songs', array(10))}}">Cuối tiệc</a>
+					<a href="{{URL::route('songs', array('vao-tiec'))}}">Vào tiệc</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6">
+					<a href="{{URL::route('songs', array('chuc-mung'))}}">Chúc mừng</a>
+				</div>
+				<div class="col-xs-6">
+					<a href="{{URL::route('songs', array('cuoi-tuan'))}}">Cuối tiệc</a>
 				</div>
 			</div>
 		</div>
