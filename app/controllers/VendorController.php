@@ -254,6 +254,7 @@ class VendorController extends \BaseController {
 		$name=Input::get('name');
 		$location=Input::get('location');
 		$category=Input::get('category_id');
+		
 		$vendor= new Vendor();
 		
 		if(empty($name)&&empty($category))
@@ -275,10 +276,11 @@ class VendorController extends \BaseController {
 			$results=$vendor->where('location',$location)->where('name', 'LIKE', "%$name%")->where('category',$category)->get();
 		}
 		
-				
+		$slug_cat=Category::where('id',$category)->get()->first()->slug;	
 		return View::make('list-vendor')->with("results",$results)
 										->with("location",$location)
-										->with("compares", $compares);
+										->with("compares", $compares)
+										->with('slug_cat',$slug_cat);
 		
 	}
 
