@@ -278,6 +278,26 @@
 								</div>
 						
 								@endif
+								<br><br>
+							<!-- -facebookcommnet -->	
+								<div id="fb-root"></div>
+								<script>(function(d, s, id) {
+									  var js, fjs = d.getElementsByTagName(s)[0];
+									  if (d.getElementById(id)) return;
+									  js = d.createElement(s); js.id = id;
+									  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
+									  fjs.parentNode.insertBefore(js, fjs);
+									}(document, 'script', 'facebook-jssdk'));
+								</script>
+
+								<div class="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/" data-width="830" data-numposts="5" data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>
+
+								<script>
+								    $(document).ready(function() {
+								        $('.fb-comments').attr("data-href", document.URL);
+								    });
+								</script>
+							<!-- -End facebookcommnet -->	
 								<script type="text/javascript">
 
 									$(document).ready(function(){
