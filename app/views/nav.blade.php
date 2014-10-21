@@ -21,7 +21,7 @@
               <ul class="list-unstyled">
                   @foreach (Category::get() as $index=> $category)
                   @if($index < 7)
-                    <li><a href="{{URL::route('category', array($category->id))}}">{{$category['name']}}</a></li>
+                    <li><a href="{{URL::route('category', array($category->slug))}}">{{$category['name']}}</a></li>
                   @endif
                   @endforeach
               </ul>
@@ -30,7 +30,7 @@
               <ul class="list-unstyled">
                   @foreach (Category::get() as $index=> $category)
                   @if($index >= 7)
-                    <li><a href="{{URL::route('category', array($category->id))}}">{{$category['name']}}</a></li>
+                    <li><a href="{{URL::route('category', array($category->slug))}}">{{$category['name']}}</a></li>
                   @endif
                   @endforeach
               </ul>

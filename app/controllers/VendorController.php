@@ -80,9 +80,9 @@ class VendorController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($slug_cate,$slug_vendor)
 	{
-
+		$id_vendor=Vendor::where('slug',$slug_vendor)->get()->first()->id;
 		if (!Session::has('email')) {
 			$firstname = "";
 			$lastname = "";
@@ -101,10 +101,11 @@ class VendorController extends \BaseController {
 			$weddingdate=VendorController::getDates();
 		}
 		if(Session::has('email'))
-		{
-			$check_rating= Rating::where('user',$id_user)->where('vendor',$id)->get()->count();
+		{	
+			
+			$check_rating= Rating::where('user',$id_user)->where('vendor',$id_vendor)->get()->count();
 			if($check_rating>0){
-				$ratings=Rating::where('user',$id_user)->where('vendor',$id)->get()->first()->rating;
+				$ratings=Rating::where('user',$id_user)->where('vendor',$id_vendor)->get()->first()->rating;
 			}
 			else
 			{
@@ -117,10 +118,10 @@ class VendorController extends \BaseController {
 		}
 		
 
-		$photoslides=PhotoSlide::where('vendor',$id)->get();	
-		$vendor=Vendor::where('id',$id)->get()->first();
+		$photoslides=PhotoSlide::where('vendor',$id_vendor)->get();	
+		$vendor=Vendor::where('id',$id_vendor)->get()->first();
 		
-		$rating_avg=Rating::where('vendor',$id)->get()->count();
+		$rating_avg=Rating::where('vendor',$id_vendor)->get()->count();
 		if($rating_avg>0)
 		{
 			$check_rating_avg=true;
@@ -229,7 +230,7 @@ class VendorController extends \BaseController {
 		//
 	//}
 
-	public function category($id){
+	public function category($slug){
 
 		$compares = Session::get('compare');
 		if(!Session::has('location')){
@@ -238,12 +239,13 @@ class VendorController extends \BaseController {
 			$id_location = Session::get('location');
 		}
 
-						
-							
-		$results = Vendor::where('category',$id)->where('location',$id_location)->get();
+		$id_cat=Category::where('slug',$slug)->get()->first()->id;				
+								
+		$results = Vendor::where('category',$id_cat)->where('location',$id_location)->get();
 		return View::make('list-vendor')->with('results', $results)
-											->with('category_id', $id)
-											->with('compares', $compares);
+											->with('category_id', $id_cat)
+											->with('compares', $compares)
+											->with('slug_cat',$slug);
 	}
 	public function search()
 	{

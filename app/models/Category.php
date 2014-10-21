@@ -1,15 +1,16 @@
 <?php
-
-class Category extends Eloquent {
-
-
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'categories';
-
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
+ 
+class Category extends Eloquent implements SluggableInterface
+{
+ 
+    use SluggableTrait;
+ 
+    protected $sluggable = array(
+        'build_from' => 'name',
+        'save_to'    => 'slug',
+    );
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

@@ -1,15 +1,17 @@
 <?php
 
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableInterface;
-
-class Vendor extends Eloquent{
-
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
+ 
+class Vendor extends Eloquent implements SluggableInterface
+{
+ 
+    use SluggableTrait;
+ 
+    protected $sluggable = array(
+        'build_from' => 'name',
+        'save_to'    => 'slug',
+    );
 	protected $table = 'vendors';
 
 	/**

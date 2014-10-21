@@ -59,7 +59,7 @@ Route::post('get_location', array('as'=>'get_location', function(){
 
 Route::get('category-vendor',array('as'=>'category-vendor', "uses"=>"VendorController@index"));
 
-Route::get('category/{id}', array('as'=>'category', "uses"=>"VendorController@category"));
+Route::get('category/{slug}', array('as'=>'category', "uses"=>"VendorController@category"));
 
 
 Route::get('list-vendor/search', array('as'=>'home-page',"uses"=>"VendorController@search"));
@@ -70,7 +70,7 @@ Route::post('check_vendor_compare',array("as"=>"check_vendor_compare", "uses"=>"
 
 Route::post('remove_vendor_compare/{id}',array("as"=>"remove_vendor_compare", "uses"=>"VendorController@post_RemoveCompare"));
 
-Route::get('vendor/{id}', array('as'=>'vendor', 'uses'=>'VendorController@show'));
+Route::get('{slug_cate}/{slug_vendor}', array('as'=>'vendor', 'uses'=>'VendorController@show'));
 
 Route::post('vendor_comment/{id_vendor}', array("as"=>"vendor_comment", "uses"=>"VendorController@vendor_comment"));
 
