@@ -290,7 +290,7 @@
 									}(document, 'script', 'facebook-jssdk'));
 								</script>
 
-								<div class="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/" data-width="830" data-numposts="5" data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>
+								<div class="fb-comments" data-href="" data-width="830" data-numposts="5" data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>
 
 								<script>
 								    $(document).ready(function() {
