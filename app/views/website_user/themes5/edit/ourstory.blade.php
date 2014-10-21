@@ -15,7 +15,7 @@
 				<div class="partion">
 					<div class="phara-margin">
 				        <div class="col-xs-6 float-right">
-				            <span>
+				            <span id="prev_output{{$tabWeb->id}}" >
 				                <a href="#">
 				                    <?php 
 				                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
@@ -27,6 +27,9 @@
 
 				                @endif
 				                </a>
+				            </span>
+				            <span>
+				                <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
 				            </span>
 				        </div>
 				        <!-- <div class="show-content phara{{$tabWeb->id}}">

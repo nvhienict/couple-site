@@ -13,8 +13,9 @@
 		<div class="container text-center ">
 			<div class="row partion">
 				<div class="col-md-6">
-					<div class="shape">
+					<div class="shape" id="prev_output{{$tabWeb->id}}" >
 						<div class="overlay hexagon_mask" ></div>
+
 							<a href="#">
 			                    <?php 
 			                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();

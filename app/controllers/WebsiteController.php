@@ -1065,5 +1065,76 @@ public function up_images_album(){
 	}
 
 
+	// upload images ajax
+	public function upload_images_ajax()
+	{
+
+		$id_user = WebsiteController::id_user();	
+		$id_tab = Input::get('id_tab');
+
+		//
+		$file = Input::file('image');
+		$input = array('image' => $file);
+		$rules = array(
+			'image' => 'image'
+		);
+		$validator = Validator::make($input, $rules);
+		if ( $validator->fails() )
+		{
+			return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);
+
+		}
+		else 
+		{
+
+			$check_photo=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->count();
+			if($check_photo>0)
+			{	$name=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->first()->photo;
+				$years=date("Y");
+				$months=date('m');
+				$path_delete=public_path($name);
+				File::delete($path_delete);
+				File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
+				$image = Input::file('image');
+				$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
+				$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+				$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
+				Image::make($image->getRealPath())->resize(800, 600)->save($path);
+				PhotoTab::where('user',$id_user)->where('tab',$id_tab)->update(
+					array('photo'=>$pathsave)					
+					);
+			    						
+			}
+			else
+			{
+				$phototab = new PhotoTab();
+				$years = date("Y");
+				$months = date('m');	
+				File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);					
+				$image = Input::file('image');
+			  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
+				$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+				$pathsave = 'images/website/'.$years.'/'.$months.'/'.$filename;
+				Image::make($image->getRealPath())->resize(800, 600)->save($path);
+				$phototab->user = $id_user;
+				$phototab->photo = $pathsave;
+				$phototab->tab = $id_tab;
+				$phototab->save();
+			    					
+				
+			}
+
+			return Response::json(
+				['success' => true, 
+				'id_tab' => $id_tab, 
+				'file' => asset($pathsave)]
+			);
+		}
+	}
+
+	// end upload images ajax
+
+
+
 } // end Controller
 

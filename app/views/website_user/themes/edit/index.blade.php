@@ -112,17 +112,6 @@
 		   </div>
 		</nav>
 	</div>
-		<!-- <nav id="menu_web" class="menu_web">
-		    <ul>
-		        <li><a href="">Home</a></li>
-		        <li><a href="">About</a></li>
-		        <li><a href="">Học PHP</a></li>
-		        <li><a href="">SEO</a></li>
-		        <li><a href="">jQuery</a></li>
-		        <li><a href="">Wordpress</a></li>
-		        <li><a href="">Blogger</a></li>
-		    </ul>
-		</nav>  -->
 	
 	<div class="after-image-themes">
 

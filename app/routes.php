@@ -321,4 +321,11 @@ Route::get('website/{url}',array('as'=>'url_website','uses'=>"WebsiteController@
 
 Route::get('login/facebook', array("as" => "facebook", "uses" => "UserController@loginFacebook"));
 
+// upload images ajax
+Route::post('upload_images', array(
+	"as" => "upload_images",
+	"uses" =>"WebsiteController@upload_images_ajax"
+	)
+);
+// end upload images ajax
 

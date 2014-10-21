@@ -4,6 +4,7 @@
 @endsection
 @section('content')
 <body style="overflow:hidden;">
+
 	<div class="row design_website_heading">
 		<div class="col-xs-1">
 			<a href="{{URL::route('index')}}" class="thuna" >Thuna.vn</a>
@@ -269,7 +270,7 @@
 			  				<span class="share_url"><a style="text-decoration: none;color:##2A64B9;" href="">Chia sẻ URL»</a></span>
 			  			</div>
 			  		</div>
-			  		@endforeach
+			  	@endforeach
 			  	
 			  	</div>
 			</div>
@@ -362,7 +363,7 @@
 				<div class="row">
 					<div class="col-xs-6 col-md-2 menu-image" >
 						
-								<a style="text-align:center" href="javascript:void(0);">Upload Ảnh</a></li>
+						<a style="text-align:center" href="javascript:void(0);">Upload Ảnh</a></li>
 					</div>
 					<div class="col-xs-12 col-md-10 tab-image">
 						<br>
@@ -437,105 +438,42 @@
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
 <!-- -end modal change background -->
 
-<!-- -modal change image -->
-	<div class="modal fade " id="modal-changeimage">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content ">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Chọn Ảnh</h4>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-xs-6 col-md-2 menu-image" >
-						
-								<a style="text-align:center" href="javascript:void(0);">Upload Ảnh</a></li>
-					</div>
-					<div class="col-xs-12 col-md-10 tab-image">
-						<br>
-							<div class="tab-pane " id="tab-modal-image">
-									<div class="upload-image-tab">
-											
-											<form action="{{URL::route('change-image-tab')}}" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >																																		
-												<br>
-												<br>
-												<br>
-												<br>
-												
-												<div class="form-group">
-													<div class="text-center "><img id="image-preview" ></div>
-													<div class="text-center"><a onclick="chose_image()" style="cursor:pointer;" id="chose_image" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br></div>
-													<input id="input_image" name="input_image"  type="file" class="file" accept="image/*" required>
-													<input type="hidden" name="id_tab" id="id_tab" value="">
-												</div>
-												<div class="form-group">
-													<button type="submit" style="float:right"class="btn btn-primary">Upload</button> 
-												</div>
-												<br>
-												<br>
-																								
-																																																																																
-											<script type="text/javascript">
-											
-												function chose_image()
-												{
-													 $('#input_image').trigger('click');
-												};
-												
-												 function readURL_image(input) {
-													        if (input.files && input.files[0]) {
-													            var reader = new FileReader();
-													            
-													            reader.onload = function (e) {
-													                $('#image-preview').attr('src', e.target.result);
-													            }
-													            
-													            reader.readAsDataURL(input.files[0]);
-													        }
-													    }
-													     $("#input_image").change(function(){
-													     	 var fileName = $("#input_image").val().toLowerCase();
-															    if(fileName.lastIndexOf("png")===fileName.length-3 | fileName.lastIndexOf("jpeg")===fileName.length-3 |fileName.lastIndexOf("gif")===fileName.length-3|fileName.lastIndexOf("jpg")===fileName.length-3)
-															        readURL_image(this);
-															    else
-															    {
-															    	$("#input_image").val("");
-															    	$("#image-preview").removeAttr('src');
-															    	swal("Vui lòng chọn đúng định dạng file Ảnh!");																						        	
 
-															    }																				    	
-														        																				        	
-														    });
-													     
-											     function send_id(id){
-													// var id_tab=$('#id_tab_web'+id).val();
-														$('input[name=id_tab]').val(id);
-													
-												};			
-																																																
-											</script>
 
-										</form>
-									</div><br>
+<!-- Change URL -->
 
-							</div>
-							
-																																									
-					</div>
-
-				</div>
-				
-			</div>
-			
-				
-			
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
+<div class="modal fade" id="modal-url">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+        <button onclick="remove_error()" style="color:red;" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title">Website URL</h3>
+      </div>
+      <div class="modal-body">
+        <h4>Thay đổi URL Website :</h4>
+        <div class="col-xs-12">
+        	<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 " style="padding-left:0px;">
+	        	<h4 style="color:#3276B1; font-size:16px;">http://www.thuna.vn/website/</h4>
+	        </div>
+	        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7" style="padding-left:0px;">
+	        	@foreach($website as $website)
+	        	<input type="text" class="form-control url_website " name="url_website" value="{{$website->url}}">
+	        	@endforeach()
+        	</div>        	
+        </div>
+        <h4 class="url_error"></h4>
+        
+      </div>
+      <div class="modal-footer" style="text-align:center;margin-top:100px;">
+      	<button onclick="save_url()" type="button" class="btn btn-primary" >Save</button>
+        <button onclick="remove_error()" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>       
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<!-- -end modal change image -->	
+
 
 <div class="modal fade " id="modal-up_images">
 	<div class="modal-dialog modal-lg">
@@ -694,37 +632,18 @@
 </div><!-- /.modal -->
 
 
-<!-- Change URL -->
 
-<div class="modal fade" id="modal-url">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header" >
-        <button onclick="remove_error()" style="color:red;" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h3 class="modal-title">Website URL</h3>
-      </div>
-      <div class="modal-body">
-        <h4>Thay đổi URL Website :</h4>
-        <div class="col-xs-12">
-        	<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 " style="padding-left:0px;">
-	        	<h4 style="color:#3276B1; font-size:16px;">http://www.thuna.vn/website/</h4>
-	        </div>
-	        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7" style="padding-left:0px;">
-	        	@foreach($website as $website)
-	        	<input type="text" class="form-control url_website " name="url_website" value="{{$website->url}}">
-	        	@endforeach()
-        	</div>        	
-        </div>
-        <h4 class="url_error"></h4>
-        
-      </div>
-      <div class="modal-footer" style="text-align:center;margin-top:100px;">
-      	<button onclick="save_url()" type="button" class="btn btn-primary" >Save</button>
-        <button onclick="remove_error()" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>       
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+<!-- upload ajax -->
+<script src="{{Asset("assets/js/jquery-ajax-upload-images.js")}}"></script>
+
+<!-- upload ajax -->
+	<form style="display:none;" class="form-horizontal" id="upload" action="{{ url('upload_images') }}" enctype="multipart/form-data" method="post" autocomplete="off">
+	    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+	    <input type="file" name="image" id="image" /> 
+	    <input type="hidden" name="id_tab" id="id_tab" value="" />
+	</form>
+<!-- end upload ajax -->
+
 
 <script type="text/javascript" src="{{Asset('assets/js/design_color_font.js')}}"></script>
 
@@ -1014,6 +933,56 @@
 			}
 		});
 	}
+
+
+	// upload images ajax
+
+    function send_id(id_tab) {
+
+    	$('input[name=id_tab]').val(id_tab);
+
+        $('#image').trigger('click');
+
+        var options = { 
+            beforeSubmit: showRequest,
+            success: showResponse,
+            dataType: 'json' 
+            }; 
+        
+        $('body').delegate('#image','change', function(){
+            $('#upload').ajaxForm(options).submit(); 
+        }); 
+    }
+
+    function showRequest(formData, jqForm, options) { 
+        $("#validation-errors").hide().empty();
+        $("#output").css('display','none');
+        return true; 
+    } 
+
+    function showResponse(response, statusText, xhr, $form)  { 
+        if(response.success == false)
+        {
+            var arr = response.errors;
+            $.each(arr, function(index, value)
+            {
+                if (value.length != 0)
+                {
+                    // $("#validation-errors").append('<div style="color: #FB1A6B" class="alert alert-error"><strong>'+ value +'</strong><div>');
+                    swal("Định dạng ảnh chưa đúng");
+                }
+            });
+            // $("#validation-errors").show();
+            return false;
+        } else {
+            // $("#output").html("<img src='"+response.file+"' />");
+            $("#prev_output"+response.id_tab+" a").html("<img class='img-responsive' src='"+response.file+"' />");
+            // $("#output").css('display','block');
+        }
+    }
+
+    // end upload images ajax
+
 
 </script>
 

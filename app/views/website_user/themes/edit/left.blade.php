@@ -4,7 +4,7 @@
             {{$tabWeb->title}}
         </h3>
         <div class="col-xs-6 float-left">
-            <span> 
+            <span id="prev_output{{$tabWeb->id}}"> 
                 <a href="#">
                     <?php 
                     $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
