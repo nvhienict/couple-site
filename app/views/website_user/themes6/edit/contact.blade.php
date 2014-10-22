@@ -19,7 +19,7 @@
 <br><br>
      <div class="row phara-margin">
         <div class="row contact-content">
-            <div class="col-xs-6">
+            <div class="col-xs-12">
                 <form  class="contact-website" action="" method="POST" role="form">
                
                    <div class="form-group">
