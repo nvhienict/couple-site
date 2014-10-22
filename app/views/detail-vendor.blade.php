@@ -501,7 +501,7 @@
 										<h6 style="margin-left:-45px; font-weight:bold " >Thời gian tốt nhất để liên lạc:</h6>
 										<div id="check-call">											
 												<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-													<div class="checkbox" >
+													<div class="checkbox" style="margin-right: -24px;"  >
 													
 													    <input type="checkbox" value="" >
 														Bất kì thời gian
@@ -522,7 +522,7 @@
 														Mỗi đêm
 													
 													</div>
-													<div class="checkbox">
+													<div class="checkbox"style="margin-right: -15px;">
 													 
 													    <input type="checkbox" value="">
 														Mỗi cuối tuần
