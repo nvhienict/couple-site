@@ -83,28 +83,7 @@ Route::post('vendor/rating',array('as'=>'rating','uses'=>'VendorController@ratin
 
 
 
-Route::get('about',array('as'=>'about',function(){
-	return View::make('about');
-}));
-Route::get('work',array('as'=>'work',function(){
-	return View::make('work');
-}));
-Route::get('question',array('as'=>'question',function(){
-	return View::make('question');
-}));
 
-Route::get('wedding',array('as'=>'wedding',function(){
-	return View::make('wedding');
-}));
-Route::get('birthday',array('as'=>'birthday',function(){
-	return View::make('birthday');
-}));
-Route::get('event',array('as'=>'event',function(){
-	return View::make('event');
-}));
-Route::get('product',array('as'=>'product',function(){
-	return View::make('product');
-}));
 
 Route::get('sortBy/{name}',array("before"=>"check_login","as"=>"sortby","uses"=>"ChecklistController@sortBy"));
 Route::get("user-checklist", array("before"=>"check_login","as"=>"user-checklist", "uses"=>"ChecklistController@get_UserChecklist"));
