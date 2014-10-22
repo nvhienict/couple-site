@@ -59,7 +59,7 @@ Route::post('get_location', array('as'=>'get_location', function(){
 
 Route::get('category-vendor',array('as'=>'category-vendor', "uses"=>"VendorController@index"));
 
-Route::get('category/{slug}', array('as'=>'category', "uses"=>"VendorController@category"));
+Route::get('category/{slug_cate}', array('as'=>'category', "uses"=>"VendorController@category"));
 
 
 Route::get('list-vendor/search', array('as'=>'home-page',"uses"=>"VendorController@search"));
@@ -195,24 +195,10 @@ Route::post('update_avatar', array("before"=>"check_login", 'as'=>'update_avatar
 Route::get('update_avatar', array("before"=>"check_login", 'as'=>'update_avatar', 'uses'=>'UserController@change_avatar'));
 
 // SONGS
-// Route::bind('post', function($value, $route) 
-// { 
-// // search the slug column, find the first one or fail. 
-//   return Post::where('slug', $value)->firstOrFail();
-// }); 
- 
-// // if we hit /post/{post} and a value exist, return it's value
-// Route::get('post/{post}', function($value)
-// {
-//     return $value;
-// });
-// Route::bind('id', function($value, $route) 
-// { 
-//     return SongCategory::where('slug', $value)->firstOrFail(); 
-// }); 
+
 Route::get('songs/{slug}', array('as'=>'songs', 'uses'=>'SongController@index'));
 
-Route::get('songs/{slug}/{slug_song}', array('as'=>'play_song', 'uses'=>'SongController@play'));
+//Route::get('songs/{slug}/{slug_song}', array('as'=>'play_song', 'uses'=>'SongController@play'));
 
 Route::post('song_comment/{slug_song}',array('as'=>'song_comment', 'uses'=>'SongController@post_comment'));
 

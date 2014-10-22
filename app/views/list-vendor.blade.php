@@ -144,11 +144,11 @@ Danh sách Dịch vụ
 							@foreach($results as $key=>$vendor)
 								<div class="col-sm-4 col-lg-4 col-md-4">
 				                    <div class="thumbnail">
-				                        <a href="{{URL::route('vendor',array($slug_cat,$vendor->slug))}}">{{'<img class="list_vendor_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a>
+				                        <a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="list_vendor_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a>
 				                        <div class="category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
 				                        <div class="caption">
-				                            <div class="name"><a href="{{URL::route('vendor',array($slug_cat,$vendor->slug))}}">{{$vendor->name}}</a></div>
-				                            
+				                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{$vendor->name}}</a></div>
+				                
 				                        </div>
 				                        <div class="ratings">
 				                            <span class="pull-right">{{VendorComment::where('vendor',$vendor->id)->get()->count()}} Nhận xét</span>
@@ -241,10 +241,10 @@ Danh sách Dịch vụ
 							
 								<div class="col-sm-4 col-lg-4 col-md-4">
 				                    <div class="thumbnail">
-				                        <a href="{{URL::route('vendor',array($slug_cat,$vendor->slug))}}">{{'<img class="list_vendor_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a>
+				                        <a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="list_vendor_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a>
 				                        <div class="category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
 				                        <div class="caption">
-				                            <div class="name"><a href="{{URL::route('vendor',array($slug_cat,$vendor->slug))}}">{{$vendor->name}}</a></div>
+				                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{$vendor->name}}</a></div>
 				                            
 				                        </div>
 				                        <div class="ratings">
@@ -331,12 +331,12 @@ Danh sách Dịch vụ
 						@foreach($results as $key=>$vendor)
 						<div class="row" id="show-list">
 							<div class="col-sm-4 col-lg-4 col-md-4">
-								<div class="list-avatar"><a href="{{URL::route('vendor',array($slug_cat,$vendor->slug))}}">{{'<img class="gh" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a></div>
+								<div class="list-avatar"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="gh" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a></div>
 								<div class="list-category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
 							</div>
 							<div class="col-sm-8 col-lg-8 col-md-8">
 								<div class="caption-list">
-		                            <div class="name"><a href="{{URL::route('vendor',array($slug_cat,$vendor->slug))}}">{{$vendor->name}}</a></div>
+		                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{$vendor->name}}</a></div>
 		                         	<?php
 		                            	
 		                            	$about=$vendor->about;
@@ -441,12 +441,12 @@ Danh sách Dịch vụ
 						@foreach($results as $key=>$vendor)
 						<div class="row" id="show-list">
 							<div class="col-sm-4 col-lg-4 col-md-4">
-								<div class="list-avatar"><a href="{{URL::route('vendor',array($slug_cat,$vendor->slug))}}">{{'<img class="gh" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a></div>
+								<div class="list-avatar"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="gh" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a></div>
 								<div class="list-category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
 							</div>
 							<div class="col-sm-8 col-lg-8 col-md-8">
 								<div class="caption-list">
-		                            <div class="name"><a href="{{URL::route('vendor',array($slug_cat,$vendor->slug))}}">{{$vendor->name}}</a></div>
+		                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{$vendor->name}}</a></div>
 		                            <?php
 		                            	
 		                            	$about=$vendor->about;
