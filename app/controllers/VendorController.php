@@ -80,9 +80,15 @@ class VendorController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+	public static function getIdVendor($vendor_slug){
+
+		return	Vendor::where('slug',$vendor_slug)->get()->first()->id;
+	}
+
 	public function show($slug_cate,$slug_vendor)
-	{
-		$id_vendor=Vendor::where('slug',$slug_vendor)->get()->first()->id;
+	{  
+		$id=VendorController::getIdVendor($slug_vendor);
+		// $id=VendorController::getIdVendor($slug_vendor);
 		if (!Session::has('email')) {
 			$firstname = "";
 			$lastname = "";
@@ -102,9 +108,9 @@ class VendorController extends \BaseController {
 		}
 		if(Session::has('email'))
 		{
-			$check_rating= Rating::where('user',$id_user)->where('vendor',$id_vendor)->get()->count();
+			$check_rating= Rating::where('user',$id_user)->where('vendor',$id)->get()->count();
 			if($check_rating>0){
-				$ratings=Rating::where('user',$id_user)->where('vendor',$id_vendor)->get()->first()->rating;
+				$ratings=Rating::where('user',$id_user)->where('vendor',$id)->get()->first()->rating;
 			}
 			else
 			{
@@ -117,14 +123,14 @@ class VendorController extends \BaseController {
 		}
 		
 
-		$photoslides=PhotoSlide::where('vendor',$id_vendor)->get();	
-		$vendor=Vendor::where('id',$id_vendor)->get()->first();
+		$photoslides=PhotoSlide::where('vendor',$id)->get();	
+		$vendor=Vendor::where('id',$id)->get()->first();
 		
-		$rating_avg=Rating::where('vendor',$id_vendor)->get()->count();
+		$rating_avg=Rating::where('vendor',$id)->get()->count();
 		if($rating_avg>0)
 		{
 			$check_rating_avg=true;
-			$avg_rating=round(Rating::where('vendor',$vendor->id_vendor)->avg('rating'),1);
+			$avg_rating=round(Rating::where('vendor',$vendor->id)->avg('rating'),1);
 		}
 		else
 		{

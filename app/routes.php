@@ -59,24 +59,24 @@ Route::post('get_location', array('as'=>'get_location', function(){
 
 Route::get('category-vendor',array('as'=>'category-vendor', "uses"=>"VendorController@index"));
 
-Route::get('category/{slug}', array('as'=>'category', "uses"=>"VendorController@category"));
+Route::get('vendor/{slug_cate}', array('as'=>'category', "uses"=>"VendorController@category"));
 
 
 Route::get('list-vendor/search', array('as'=>'home-page',"uses"=>"VendorController@search"));
 
 Route::get('compare',array("as"=>"compare", "uses"=>"VendorController@post_Compare"));
 
-Route::post('check_vendor_compare',array("as"=>"check_vendor_compare", "uses"=>"VendorController@post_AddCompare"));
+Route::post('check-vendor_compare',array("as"=>"check_vendor_compare", "uses"=>"VendorController@post_AddCompare"));
 
-Route::post('remove_vendor_compare/{id}',array("as"=>"remove_vendor_compare", "uses"=>"VendorController@post_RemoveCompare"));
+Route::post('remove-vendor_compare/{id}',array("as"=>"remove_vendor_compare", "uses"=>"VendorController@post_RemoveCompare"));
 
-// Route::get('{slug_cate}/{slug_vendor}', array('as'=>'vendor', 'uses'=>'VendorController@show'));
+Route::get('vendor/{slug_cate}/{slug_vendor}', array('as'=>'vendor', 'uses'=>'VendorController@show'));
 
-Route::post('vendor_comment/{id_vendor}', array("as"=>"vendor_comment", "uses"=>"VendorController@vendor_comment"));
+Route::post('vendor-comment/{id_vendor}', array("as"=>"vendor_comment", "uses"=>"VendorController@vendor_comment"));
 
-Route::get('vendor/{id}/comments', array("before"=>"check_login", 'as'=>'cmt_vendor', 'uses'=>'VendorController@show'));
+Route::get('comment-vendor/{slug_cate}/{slug_vendor}', array("before"=>"check_login", 'as'=>'cmt_vendor', 'uses'=>'VendorController@show'));
 
-Route::get('vendor/{id}/reviews', array("before"=>"check_login", 'as'=>'reviews', 'uses'=>'VendorController@show'));
+Route::get('reviews/{slug_cate}/{slug_vendor}', array("before"=>"check_login", 'as'=>'reviews', 'uses'=>'VendorController@show'));
 
 Route::post('vendor/rating',array('as'=>'rating','uses'=>'VendorController@ratingVendor'));
 /* End Route vendor */
@@ -195,28 +195,14 @@ Route::post('update_avatar', array("before"=>"check_login", 'as'=>'update_avatar
 Route::get('update_avatar', array("before"=>"check_login", 'as'=>'update_avatar', 'uses'=>'UserController@change_avatar'));
 
 // SONGS
-// Route::bind('post', function($value, $route) 
-// { 
-// // search the slug column, find the first one or fail. 
-//   return Post::where('slug', $value)->firstOrFail();
-// }); 
- 
-// // if we hit /post/{post} and a value exist, return it's value
-// Route::get('post/{post}', function($value)
-// {
-//     return $value;
-// });
-// Route::bind('id', function($value, $route) 
-// { 
-//     return SongCategory::where('slug', $value)->firstOrFail(); 
-// }); 
+
 Route::get('songs/{slug}', array('as'=>'songs', 'uses'=>'SongController@index'));
 
 Route::get('songs/{slug}/{slug_song}', array('as'=>'play_song', 'uses'=>'SongController@play'));
 
-Route::post('song_comment/{slug_song}',array('as'=>'song_comment', 'uses'=>'SongController@post_comment'));
+Route::post('song-comment/{id}',array('as'=>'song_comment', 'uses'=>'SongController@post_comment'));
 
-Route::get('song/{id}/play-songs', array("before"=>"check_login", 'as'=>'cmt_song', 'uses'=>'SongController@play'));
+Route::get('comment-song/{slug_cat}/{slug_song}', array("before"=>"check_login", 'as'=>'cmt_song', 'uses'=>'SongController@play'));
 
 //Guest list
 Route::get('guest-list',array("before"=>"check_login",'as'=>'guest-list','uses'=>'GuestController@index'));
