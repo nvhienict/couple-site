@@ -2,7 +2,7 @@
 <div class="col-xs-8 partion">
     <div class="row phara-margin">
         <h3 class="text-center title-tab" style="text-align: {{$tab->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}"  id = "nameTitle{{$tab->id}}" >{{$tab->title}}</h3>
-        <div class="col-xs-6 float-right">
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 float-right">
             <span > 
                 <a href="#">
                     <?php 

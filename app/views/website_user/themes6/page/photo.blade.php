@@ -45,7 +45,7 @@
                 <div class="row phara-margin">
                     <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
                     @foreach($albums as $album)
-                        <div class="col-xs-3 images-padding">
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
                             <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
                                 <img style="width:100%;height:100px;" src="{{Asset("{$album->photo}")}}" alt="" />
                             </a>
@@ -55,22 +55,22 @@
                 
                 @else
                         
-                        <div class="col-xs-3 images-padding">
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
                             <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes6/1.jpg")}}">
                                 <img class="img-responsive" src="{{Asset("images/website/themes6/1.jpg")}}" alt="" />
                             </a>
                         </div>
-                        <div class="col-xs-3 images-padding">
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
                             <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes6/2.jpg")}}">
                                 <img class="img-responsive" src="{{Asset("images/website/themes6/2.jpg")}}" alt="" />
                             </a>
                         </div>
-                        <div class="col-xs-3 images-padding">
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
                             <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes6/3.jpg")}}">
                                 <img class="img-responsive" src="{{Asset("images/website/themes6/3.jpg")}}" alt="" />
                             </a>
                         </div>
-                        <div class="col-xs-3 images-padding">
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
                             <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes6/4.jpg")}}">
                                 <img class="img-responsive" src="{{Asset("images/website/themes6/4.jpg")}}" alt="" />
                             </a>
