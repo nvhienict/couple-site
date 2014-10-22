@@ -976,7 +976,9 @@
             return false;
         } else {
             // $("#output").html("<img src='"+response.file+"' />");
+
             $("#prev_output"+response.id_tab+" a").html("<img class='img-responsive' src='"+response.file+"' />");
+            
             // $("#output").css('display','block');
         }
     }

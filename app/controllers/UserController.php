@@ -176,32 +176,41 @@ class UserController extends \BaseController {
 	public function update_avatar()
 	{
 
-		$file = Input::file('file');
+		//
+		$file = Input::file('image');
+		$input = array('image' => $file);
+		$rules = array(
+			'image' => 'image'
+		);
+		$validator = Validator::make($input, $rules);
+		if ( $validator->fails() )
+		{
+			return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);
 
-		$destinationPath = 'update/';
-        $filename = $file->getClientOriginalName();
-        Input::file('file')->move($destinationPath, $filename);
+		}
+		else 
+		{
 
-        $path = asset($destinationPath.$filename);
+			$destinationPath = 'update/';
+	        $filename = $file->getClientOriginalName();
+	        Input::file('image')->move($destinationPath, $filename);
 
-        $avatar = $destinationPath.$filename;
+        	$path = asset($destinationPath.$filename);
 
-		// return $size = Input::file('photo')->getSize();
+        	$avatar = $destinationPath.$filename;
 
-		// return Image::make(Input::get('img_avatar')->getRealPath())->encode('jpg',80);
 
-		// $avatar = Image::make(Input::file('img_avatar')->getRealPath())->encode('jpg',80);
+			// update to database
+			User::where("id", UserController::id_user())->update(
+					array("avatar"=>$avatar));
 
-		// return $avatar;
+			return Response::json(
+				['success' => true,
+				'file' => asset($avatar)]
+			);
 
-		// update to database
-		User::where("id", UserController::id_user())->update(
-				array("avatar"=>$avatar));
-
-		$user=User::where('id', UserController::id_user())->get();
-		return View::make('user.profile')->with('user',$user);
-
-	}
+		}
+	} // end update_avatar
 
 
 	// return view for user login

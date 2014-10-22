@@ -164,12 +164,16 @@
   			<div class="col-xs-10">
   				<div class="row">
   					<div class="col-sm-4 col-lg-4 col-md-4">
-  						@if(!empty($website_item->avatar_bride))
-		  					<img width="100%;" src="{{Asset("$website_item->avatar_bride")}}">
-						@else
-							<img width="100%;" src="{{Asset('images/website/themes2/avatar/wedding17.jpg')}}">
-						@endif
-			            <button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+	  					<span id="prev_output111">
+	  						<a href="#">
+		  						@if(!empty($website_item->avatar_bride))
+				  					<img width="100%;" src="{{Asset("$website_item->avatar_bride")}}">
+								@else
+									<img width="100%;" src="{{Asset('images/website/themes2/avatar/wedding17.jpg')}}">
+								@endif
+							</a>
+	  						<button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+			            </span>
 
 		  				<div class="about_bride">
 							{{$website_item->about_bride}}
@@ -243,13 +247,19 @@
 		  				</div>
 		  			</div>
 		  			<div class="col-sm-4 col-lg-4 col-md-4">
-		  				@if(!empty($website_item->avatar_groom))
-		  					<img width="100%;" src="{{Asset("$website_item->avatar_groom")}}">
-						@else
-							<img width="100%;" src="{{Asset('images/website/themes2/avatar/wedding17.jpg')}}">
-						@endif
-			            <button onclick="send_id(222)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
-
+		  				<span id="prev_output222">
+		  					<a href="#">
+				  				@if(!empty($website_item->avatar_groom))
+				  					<img width="100%;" src="{{Asset("$website_item->avatar_groom")}}">
+								@else
+									<img width="100%;" src="{{Asset('images/website/themes2/avatar/wedding17.jpg')}}">
+								@endif
+							</a>
+							<button onclick="send_id(222)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+		  				</span>
+		  				
+			           	
+			            
 		  				<div class="about_groom">
 							{{$website_item->about_groom}}
 							<span class="icon_edit_about"><a onclick="edit_about_groom();" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>

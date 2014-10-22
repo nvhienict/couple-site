@@ -677,103 +677,25 @@ class WebsiteController extends \BaseController {
 		echo json_encode($countTab);
 		exit();
 	}
-public function Post_update_Tab(){
 
-	$id = Input::get('id_title');
-	$title = Input::get('title');
-	$titlestyle = Input::get('Align_title');
-	$visiable = Input::get('hideTitle');
+	public function Post_update_Tab(){
 
-	$Tab = TabWebsite::where('id',$id)->update(
-		array(
-			'title'=>$title,
-			'titlestyle'=>$titlestyle,
-			'visiable'=>$visiable
-			));
-	$tab = array('title'=>$title,'titlestyle'=>$titlestyle,'visiable'=>$visiable);
-	return $tab;
-} 
+		$id = Input::get('id_title');
+		$title = Input::get('title');
+		$titlestyle = Input::get('Align_title');
+		$visiable = Input::get('hideTitle');
+
+		$Tab = TabWebsite::where('id',$id)->update(
+			array(
+				'title'=>$title,
+				'titlestyle'=>$titlestyle,
+				'visiable'=>$visiable
+				));
+		$tab = array('title'=>$title,'titlestyle'=>$titlestyle,'visiable'=>$visiable);
+		return $tab;
+	} 
 	
-	public function changeImage()
-	{
 
-		$id_user = WebsiteController::id_user();	
-		$id_tab=Input::get('id_tab');
-
-
-		if(Input::hasFile('input_image'))
-				{
-					switch ($id_tab) {
-						case 111:
-							$image=Input::file('input_image');
-							$filename = $id_user.'bride' . '.' .$image->getClientOriginalExtension();
-							$path = 'images/website/themes2/avatar/'.$filename;
-							Image::make($image->getRealPath())->resize(800, 600)->save($path);
-							WeddingWebsite::where('user',$id_user)->update(
-								array('avatar_bride'=>$path)					
-								);
-
-							return Redirect::route('website/edit/pages');
-							break;
-
-						case 222:
-							$image=Input::file('input_image');
-							$filename = $id_user.'groom' . '.' .$image->getClientOriginalExtension();
-							$path = 'images/website/themes2/avatar/'.$filename;
-							Image::make($image->getRealPath())->resize(800, 600)->save($path);
-							WeddingWebsite::where('user',$id_user)->update(
-								array('avatar_groom'=>$path)					
-								);
-
-							return Redirect::route('website/edit/pages');
-							break;
-						
-						default:
-							$check_photo=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->count();
-							if($check_photo>0)
-							{	$name=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->first()->photo;
-								$years=date("Y");
-								$months=date('m');
-								$path_delete=public_path($name);
-								File::delete($path_delete);
-								File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
-								$image=Input::file('input_image');
-								$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
-								$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
-								$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
-								Image::make($image->getRealPath())->resize(800, 600)->save($path);
-								PhotoTab::where('user',$id_user)->where('tab',$id_tab)->update(
-									array('photo'=>$pathsave)					
-									);
-							    return Redirect::route('website/edit/pages');						
-							}
-							else
-							{
-								$phototab=new PhotoTab();
-								$years=date("Y");
-								$months=date('m');	
-								File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);					
-								$image=Input::file('input_image');
-							  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
-								$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
-								$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
-								Image::make($image->getRealPath())->resize(800, 600)->save($path);
-								$phototab->user=$id_user;
-								$phototab->photo=$pathsave;
-								$phototab->tab = $id_tab;
-								$phototab->save();
-							    return Redirect::route('website/edit/pages');					
-								
-							}
-							break;
-					}
-					
-
-				} //end if
-				
-			
-				
-	}
 	public function updateImagebackground()
 	{	
 		
@@ -1087,42 +1009,71 @@ public function up_images_album(){
 		else 
 		{
 
-			$check_photo=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->count();
-			if($check_photo>0)
-			{	$name=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->first()->photo;
-				$years=date("Y");
-				$months=date('m');
-				$path_delete=public_path($name);
-				File::delete($path_delete);
-				File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
-				$image = Input::file('image');
-				$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
-				$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
-				$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
-				Image::make($image->getRealPath())->resize(800, 600)->save($path);
-				PhotoTab::where('user',$id_user)->where('tab',$id_tab)->update(
-					array('photo'=>$pathsave)					
-					);
-			    						
-			}
-			else
-			{
-				$phototab = new PhotoTab();
-				$years = date("Y");
-				$months = date('m');	
-				File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);					
-				$image = Input::file('image');
-			  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
-				$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
-				$pathsave = 'images/website/'.$years.'/'.$months.'/'.$filename;
-				Image::make($image->getRealPath())->resize(800, 600)->save($path);
-				$phototab->user = $id_user;
-				$phototab->photo = $pathsave;
-				$phototab->tab = $id_tab;
-				$phototab->save();
-			    					
-				
-			}
+			// upload images for bride and groom
+			switch ($id_tab) {
+				case 111:
+					$image = Input::file('image');
+					$filename = $id_user.'_bride_'.str_random(10) . '.' .$image->getClientOriginalExtension();
+					$pathsave = 'images/website/themes2/avatar/'.$filename;
+					Image::make($image->getRealPath())->resize(800, 600)->save($pathsave);
+					WeddingWebsite::where('user',$id_user)->update(
+						array('avatar_bride'=>$pathsave)					
+						);
+
+					break;
+
+				case 222:
+					$image = Input::file('image');
+					$filename = $id_user.'_groom_'.str_random(10) . '.' .$image->getClientOriginalExtension();
+					$pathsave = 'images/website/themes2/avatar/'.$filename;
+					Image::make($image->getRealPath())->resize(800, 600)->save($pathsave);
+					WeddingWebsite::where('user',$id_user)->update(
+						array('avatar_groom'=>$pathsave)					
+						);
+
+					break;
+			// end load images for bride and groom
+
+			default:
+
+				$check_photo=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->count();
+				if($check_photo>0)
+				{	$name=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->first()->photo;
+					$years=date("Y");
+					$months=date('m');
+					$path_delete=public_path($name);
+					File::delete($path_delete);
+					File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
+					$image = Input::file('image');
+					$filename = str_random(10) . '.' .$image->getClientOriginalExtension();
+					$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+					$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
+					Image::make($image->getRealPath())->resize(800, 600)->save($path);
+					PhotoTab::where('user',$id_user)->where('tab',$id_tab)->update(
+						array('photo'=>$pathsave)					
+						);
+				    						
+				}
+				else
+				{
+					$phototab = new PhotoTab();
+					$years = date("Y");
+					$months = date('m');	
+					File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);					
+					$image = Input::file('image');
+				  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
+					$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+					$pathsave = 'images/website/'.$years.'/'.$months.'/'.$filename;
+					Image::make($image->getRealPath())->resize(800, 600)->save($path);
+					$phototab->user = $id_user;
+					$phototab->photo = $pathsave;
+					$phototab->tab = $id_tab;
+					$phototab->save();
+				    					
+					
+				}
+				break;
+			} // end switch()
 
 			return Response::json(
 				['success' => true, 

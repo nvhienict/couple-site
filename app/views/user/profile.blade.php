@@ -15,24 +15,60 @@ Thông tin cá nhân
 		
 		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 info_user_dashboard">
 			<div class="info_user_avatar">
-				
-				<img src="{{Asset("{$user_item->avatar}")}}">
+				<span id="prev_output">
+					<img src="{{Asset("{$user_item->avatar}")}}">
+				</span>
 				<a href="javascript:;" onclick="update_avatar();" title="Thay đổi"><i class="fa fa-pencil-square-o fa-fw"></i></a>
 				
-				<form id="update" enctype="multipart/form-data" method="post" action="{{ url('update_avatar') }}" autocomplete="off" style="display:none;">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                    <input type="file" name="file" id="image" /> 
-                </form>
-
+                <!-- upload ajax -->
+					<form style="display:none;" class="form-horizontal" id="upload" action="{{ url('update_avatar') }}" enctype="multipart/form-data" method="post" autocomplete="off">
+					    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+					    <input type="file" name="image" id="image" /> 
+					</form>
+				<!-- end upload ajax -->
+				<!-- upload ajax -->
+				<script src="{{Asset("assets/js/jquery-ajax-upload-images.js")}}"></script>
+				
 				<script type="text/javascript">
 					function update_avatar(){
-						$('input[name=file]').trigger('click');
-					}
-					$('input[name=file]').change(function() {
-							
-						$('#update').submit();
+						
+						$('#image').trigger('click');
 
-					});
+						var options = { 
+				            beforeSubmit: showRequest,
+				            success: showResponse,
+				            dataType: 'json' 
+				            }; 
+				        
+				        $('body').delegate('#image','change', function(){
+				            $('#upload').ajaxForm(options).submit(); 
+				        }); 
+				    }
+
+				    function showRequest(formData, jqForm, options) { 
+				        $("#validation-errors").hide().empty();
+				        $("#output").css('display','none');
+				        return true; 
+				    } 
+
+				    function showResponse(response, statusText, xhr, $form)  { 
+				        if(response.success == false)
+				        {
+				            var arr = response.errors;
+				            $.each(arr, function(index, value)
+				            {
+				                if (value.length != 0)
+				                {
+				                    swal("Định dạng ảnh chưa đúng");
+				                }
+				            });
+				            return false;
+				        } else {
+				            $("#prev_output").html("<img src='"+response.file+"' />");
+				        }
+				    }
+
+				    // end upload images ajax
 				</script>
 				<p>
 					<a href="javascript:;" id="user_info" ><i class="fa fa-info-circle fa-fw"></i> THÔNG TIN CÁ NHÂN </a><br />

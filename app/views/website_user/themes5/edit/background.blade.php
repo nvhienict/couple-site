@@ -68,7 +68,11 @@
 						<div class="box-left">
 							<div class="shape_org">
 								<div class="overlay " style=" background-image: url({{Asset('images/website/themes5/hexagonal-mask_320_org.png')}}); background-size:cover;"></div>
-								<img class="img-responsive"  src="{{Asset("$website_item->avatar_bride")}}">
+								<span id="prev_output111">
+		  							<a href="#">
+										<img class="img-responsive"  src="{{Asset("$website_item->avatar_bride")}}">
+									</a>
+								</span>
 							</div>	
 						</div>
 						<div class="abt-content">
@@ -101,7 +105,12 @@
 						<div class="box-right">
 							<div class="shape_org">
 								<div class="overlay " style=" background-image: url({{Asset('images/website/themes5/hexagonal-mask_320_green.png')}}); background-size:cover;"></div>
-								<img class="img-responsive"  src="{{Asset("$website_item->avatar_groom")}}">
+								
+								<span id="prev_output222">
+		  							<a href="#">
+										<img class="img-responsive"  src="{{Asset("$website_item->avatar_groom")}}">
+									</a>
+								</span>
 							</div>		
 						</div>
 						<div class="abt-content ">
