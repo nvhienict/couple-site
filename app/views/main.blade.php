@@ -80,19 +80,20 @@
 
 <body style="padding-right: 15px;">
 
-	<!--Header login-->
+	<!--Header login-->	
 	<div class="row user-header">
-
+	
 	<script>
 	    $(document).ready(function() {
 	        $('.fb-like').attr("data-href", document.URL);
 	    });
 	</script>
-	<!-- <div class="fb-like" data-href="" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div> -->
-
-	<div class="col-lg-7 col-xs-12 fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
-
-		<div class="col-lg-3 col-xs-12 pull-right wedding-user-logged">
+	
+		<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+			<div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+		</div>
+		
+		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 pull-right wedding-user-logged">
 				@if( (Session::has('email')) && (UserController::isset_user())!=0 )
 				<ul class="user_profile">
 					<li >
@@ -101,11 +102,7 @@
 							{{User::where('email',Session::get('email'))->get()->first()->firstname}} 
 							{{User::where('email',Session::get('email'))->get()->first()->lastname}}
 						</a>
-						<!-- <ul class="list-unstyled">
-							<li><a href="#">Quản lý nội dung</a></li>
-							<li><a href="{{Asset('profile')}}">Thông tin cá nhân</a></li>
-							<li><a href="#">Cài đặt tài khoản</a></li>
-						</ul> -->
+						
 					</li>  
 
 			  		<li><a href="{{URL::route('logout')}}">Thoát</a></li>

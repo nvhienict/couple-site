@@ -4,8 +4,8 @@ Trang chủ
 @endsection
 @section('nav-bar')
 <!-- Navigation -->
-<div id="nav-bar" class="row">
-	<div class="col-xs-12">
+<div id="nav-bar" class="row">	
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">			
 	<div class="navbar" style="z-index: 99000;">
 	  <div class="">
 	    <button type="button" style="background-color:#404040;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -125,7 +125,7 @@ Trang chủ
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 			    <div class="item active">
-			    	<img src="{{Asset("assets/img/1.jpg")}}" alt="First slide">
+			    	<img  class="image-responsive" src=" {{Asset("assets/img/1.jpg")}}" alt="First slide">
                     <!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -134,7 +134,7 @@ Trang chủ
                     </div><!-- /header-text -->
 			    </div>
 			    <div class="item">
-			    	<img src="{{Asset("assets/img/2.jpg")}}" alt="Second slide">
+			    	<img class="image-responsive" src="{{Asset("assets/img/2.jpg")}}" alt="Second slide">
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -143,7 +143,7 @@ Trang chủ
                     </div><!-- /header-text -->
 			    </div>
 			    <div class="item">
-			    	<img src="{{Asset("assets/img/3.jpg")}}" alt="Third slide">
+			    	<img class="image-responsive" src="{{Asset("assets/img/3.jpg")}}" alt="Third slide">
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -244,41 +244,8 @@ Trang chủ
 				</div>
 			</div>	
 		</div>
-	<!-- form search -->
-
-	<!-- <div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-10" id="index-tool">
-			<div class="row tool-1" >
-				<div class="col-xs-4">
-					<h3>Danh sách công việc</h3>
-					<h5>Thuận lợi, sắp xếp một cách khoa học, chính xác thời gian trước ngày cưới...</h5>
-					<h6><a href="#">Sử dụng ngay</a></h6>
-				</div>
-				<div class="col-xs-1"></div>
-				<div class="col-xs-5">
-					<img src="{{Asset('images/tool/tool-1.png')}}">
-				</div>
-			</div>
-			<div class="row tool-1" >
-
-				<div class="col-xs-6">
-					<img src="{{Asset('images/tool/tool-22.png')}}">
-				</div>
-
-				<div class="col-xs-4">
-					<h3>Quản lý ngân sách</h3>
-					<h5>Sử dụng dễ dàng, tính toán một cách chính xác, phân bố ngân sách chi tiết, hợp lý...</h5>
-					<h6><a href="#">Sử dụng ngay</a></h6>
-				</div>
-				
-			</div>
-		</div>
-		<div class="col-xs-1"></div>
-	</div> -->
- 
-	<!--  -->
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="index-tool">
+	
+	<div class="row" id="index-tool">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  tool-1">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-">
 				<h3>Danh sách công việc</h3>
