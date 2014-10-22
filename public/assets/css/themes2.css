@@ -110,3 +110,9 @@
 	background-color: #FFE6E6;
 	padding: 5px;
 }
+.float-left{
+    float: left !important;
+}
+.float-right{
+    float: right !important;
+}

@@ -3,7 +3,7 @@
     <div class="row phara-margin">
         <h3 class="text-center title-tab" style="text-align: {{$tab->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}"  id = "nameTitle{{$tab->id}}" >{{$tab->title}}</h3>
         <div class="col-xs-6 float-right">
-            <span id="prev_output{{$tabWeb->id}}"> 
+            <span id="prev_output{{$tab->id}}"> 
                 <a href="#">
                     <?php 
                     $images=PhotoTab::where('tab',$tab->id)->get()->first();
