@@ -8,7 +8,7 @@
 @section('content')
 		<div class="row" id="infor-vendor">
 			<div class="container body-detailvendor">
-			<div class="col-xs-12 col-sm-12 col-md-9" id="body-left">
+			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-9" id="body-left">
 				<div class="row" id="top-left">
 						<div class="col-xs-6 col-sm-4" id="left-infor">
 							<a href="" onclick="history.go(-1);return false" id="left-infor title-infor">{{Vendor::find($vendor->id)->category()->get()->first()->name}} tại {{Vendor::find($vendor->id)->location()->get()->first()->name}}:</a>
@@ -142,8 +142,8 @@
 						  		</div><br><br>
 
 						  	@if(!Session::has('email'))
-						  		<span><a href="{{URL::route('reviews',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->id))}}">Đánh giá,</a></span>
-								<span><a href="{{URL::route('cmt_vendor', array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor['slug']))}}" >Đăng nhận xét!</a></span>
+						  		<span><a href="{{URL::route('reviews',array($vendor->id))}}">Đánh giá,</a></span>
+								<span><a href="{{URL::route('cmt_vendor', array($vendor['id']))}}" >Đăng nhận xét!</a></span>
 							@endif
 
 								@if(Session::has('email'))
@@ -420,7 +420,7 @@
 				</div>
 			
 			</div>
-			<div class="col-xs-12 col-sm-8 col-md-3" id="right-contact">
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3" id="right-contact">
 					<div class="contact-me">
 						<h4> <i class="glyphicon glyphicon-earphone"></i> 01234 856 856 </h4>
 						<p>Xin vui lòng cho biết nhà cung cấp này bạn tìm thấy trên Thuna.vn</p>
@@ -488,41 +488,41 @@
 									  <option value="3"> Đặt một câu hỏi</option>
 								  </select>
 							    </div><br/>
-							    <ul id="options" style="margin-left:10px">
+							    <div>
+							    <ul style="width:100%;"id="options" >
 							  		<li style="display:none;list-style:none;list-style-position:inside; "><div id="number1" calss="number" ></div></li>
-								    <li style="display:none;list-style:none;list-style-position:inside;width:300px;margin-left: -20px;"><div id="number2" calss="number" >
+								    <li style="display:none;list-style:none;list-style-position:inside;"><div id="number2" calss="number" >
 								    	 <div class="form-group">
 											<div class="">
-												   <input type="text" class="form-control" id="Input-phonenumber" value="" style="width:80%; margin-left: -31px;">
+												   <input  style="margin-left: -19px;" type="text" class="form-control" id="Input-phonenumber" value="" >
 											</div>
 										</div>
 										<p style="margin-left:35px; ">e.g.xxx.xxx.xxxx</p>
 										<h6 style="margin-left:-45px; font-weight:bold " >Thời gian tốt nhất để liên lạc:</h6>
-										<div id="check-call">
-											<div class="row">
-												<div class="col-xs-6 col-md-5">
-													<div class="checkbox" style="margin-left:0px;">
+										<div id="check-call">											
+												<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+													<div class="checkbox" >
 													
 													    <input type="checkbox" value="" >
 														Bất kì thời gian
 												
 													</div>
 
-													<div class="checkbox" style="margin-left:0px;">
+													<div class="checkbox" >
 													
 													    <input type="checkbox" value="">
 														Hằng ngày
 													  
 													</div>
 												</div>
-												<div class="col-xs-6 col-md-5" >
-													<div class="checkbox" style="margin-left:5px;">
+												<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" >
+													<div class="checkbox">
 													  
 													    <input type="checkbox" value="">
 														Mỗi đêm
 													
 													</div>
-													<div class="checkbox" style="margin-left:5px;">
+													<div class="checkbox">
 													 
 													    <input type="checkbox" value="">
 														Mỗi cuối tuần
@@ -530,20 +530,22 @@
 													</div>
 
 												</div>
-											</div>
+											
 										</div>
 
 								    </div></li><!-- -endcall-div -->
 								    
-								    <li style="display:none ; list-style:none"><div id="number3" class="number">
-								    	<textarea rows="7" cols="31" style="margin-left:-68px; resize: none" >
-								    	</textarea>
-
-								    </div></li>
+								    <li style="display:none ; list-style:none">
+								    	<div id="number3" class="number">
+								    	 	<div class="form-group">								    	
+								    			<textarea class="form-control" style="margin-left: -17px;width:100%;height:100px;resize: none;"></textarea> 
+								    		</div>
+								   		 </div>
+									</li>
 								 </ul>
-
+								 </div>
 								    <!-- -script show select -->
-									
+								<br>	
 								  <script >
 
 									$("#selection-contact").change(function(){
@@ -552,9 +554,9 @@
 										});
 
 				        			</script>
-							  <div class="form-group" style="margin-left: 62px">
+							  <div class="form-group" style="margin-left: 60px">
 							    <div class="">
-							      <button type="button" class="btn btn-skin btn-lg" id="btn-contact"> Liên lạc</button>
+							      <button type="button" style="margin-top: 14px;" class="btn btn-skin btn-lg" id="btn-contact"> Liên lạc</button>
 							  </div>
 							</div>
 							 <div class="form-group"style="margin-left:72px">

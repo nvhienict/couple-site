@@ -2594,3 +2594,10 @@ tr.even td{
 		padding-top: 280px;
 	}
 }
+@media only screen and (min-device-width: 750px) and (max-device-width: 1000px) {
+   iframe{
+   	width:450px;
+   	height: 300px;
+   } 
+    
+}
