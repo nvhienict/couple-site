@@ -7,18 +7,13 @@ Thông tin cá nhân
 @endsection
 @section('content')
 <div class="container">
-<div class="row">
-	<div class="col-xs-2">
-		{{'<img width="100%;" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',VendorController::last_vendor())->get()->first()->avatar) . '" />'}}
-		<span style="color: #68ceee">{{Vendor::where('id',VendorController::last_vendor())->get()->first()->name}}</span>
-
-		{{'<img width="100%;" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',VendorController::last_vendor()-1)->get()->first()->avatar) . '" />'}}
-		<span style="color: #68ceee">{{Vendor::where('id',VendorController::last_vendor()-1)->get()->first()->name}}</span>
-	</div>
+<div >
+	
 	@foreach($user as $key=>$user_item)
-	<div class="col-xs-8">
+	
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		
-		<div class="col-xs-5 info_user_dashboard">
+		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 info_user_dashboard">
 			<div class="info_user_avatar">
 				
 				<img src="{{Asset("{$user_item->avatar}")}}">
@@ -83,7 +78,7 @@ Thông tin cá nhân
 			</div>
 		</div>
 
-		<div class="col-xs-7 update_password" style="display:none;">
+		<div class="col-xs-12 col-sm-6 col-md-5 col-lg-5 update_password" style="display:none;">
 			<form action="{{Asset('profile_password')}}" id="frmEditProfilePassword" method="post">
 				<div class="row form-group">
 					<label class="col-xs-12 control-label info_user">MẬT KHẨU</label>
@@ -97,30 +92,30 @@ Thông tin cá nhân
 				</div>
 
 				@if( !empty(User::where('id', UserController::id_user())->get()->first()->password) )
-				<div class="row form-group">
-					<label for="password" class="col-xs-4 control-label">Mật khẩu cũ: </label>
-					<div class="col-xs-8">
+				<div class="form-group">
+					<label for="password" class="col-xs-12 control-label">Mật khẩu cũ: </label>
+					<div class="col-xs-12">
 					   	<input type="password" class="form-control" name="password" id="password"  >
 					</div>
 				</div>
 				@endif
 
-			    <div class="row form-group">
-					<label for="new_password" class="col-xs-4 control-label">Mật khẩu mới: </label>
-					<div class="col-xs-8">
+			    <div class="form-group">
+					<label for="new_password" class="col-xs-12 control-label">Mật khẩu mới: </label>
+					<div class="col-xs-12">
 					   	<input type="password" class="form-control" name="new_password" id="new_password"  >
 					</div>
 				</div>
-				<div class="row form-group">
-					<label for="confim_new_password" class="col-xs-4 control-label">Xác nhận mật khẩu: </label>
-					<div class="col-xs-8">
+				<div class="form-group">
+					<label for="confim_new_password" class="col-xs-12 control-label">Xác nhận mật khẩu: </label>
+					<div class="col-xs-12">
 					   	<input type="password" class="form-control" name="confim_new_password" id="confim_new_password" >
 					</div>
 				</div>
-			    <div class="row form-group">
-			  		<div class="col-xs-4"></div>
-			  		<div class="col-xs-4">
-				    	<button type="submit" class="btn btn-primary" id="update_profile_password" > THAY ĐỔI </button>
+
+			    <div class="form-group">			  		
+			  		<div class="col-xs-12">
+				    	<button type="submit" style="margin-top:14px;"class="btn btn-primary" id="update_profile_password" > THAY ĐỔI </button>
 				    	
 				    	<script type="text/javascript">
 			  				$('#update_profile_password').click(function(){
@@ -128,7 +123,7 @@ Thông tin cá nhân
 			  				});
 			  			</script>
 			  		</div>
-			  		<div class="col-xs-4"></div>
+			  		
 			  	</div>
 			</form>
 			<!-- .form -->
@@ -136,7 +131,7 @@ Thông tin cá nhân
 		<!-- .form edit -->
 
 
-		<div class="col-xs-7 user_info">
+		<div class="col-xs-12 col-sm-6 col-md-5 col-lg-5 user_info">
 			<form action="{{Asset('profile')}}" id="frmEditProfile" method="post">
 				<div class="row form-group">
 					<label class="col-xs-12 control-label info_user">THÔNG TIN CÁ NHÂN</label>
@@ -148,27 +143,27 @@ Thông tin cá nhân
 						@endif
 					</div>	
 				</div>
-				<div class="row form-group">
-					<label for="firstname" class="col-xs-4 control-label">Họ: </label>
-					<div class="col-xs-8">
+				<div class="form-group">
+					<label for="firstname" class="col-xs-8 control-label">Họ: </label>
+					<div class="col-xs-12">
 					   	<input type="text" class="form-control" name="firstname" id="firstname" value="{{$user_item->firstname}}" >
 					</div>
 				</div>
-				<div class="row form-group">
-					<label for="lastname" class="col-xs-4 control-label">Tên: </label>
-					<div class="col-xs-8">
+				<div class="form-group">
+					<label for="lastname" class="col-xs-8 control-label">Tên: </label>
+					<div class="col-xs-12">
 					   	<input type="text" class="form-control" name="lastname" id="lastname" value="{{$user_item->lastname}}" >
 					</div>
 				</div>
-				<div class="row form-group">
-					<label for="email" class="col-xs-4 control-label">Email: </label>
-					<div class="col-xs-8">
+				<div class="form-group">
+					<label for="email" class="col-xs-8 control-label">Email: </label>
+					<div class="col-xs-12">
 					   	<input type="email" class="form-control" name="email" id="email" value="{{$user_item->email}}" >
 					</div>
 				</div>
-				<div class="row form-group">
-					<label for="weddingdate-edit" class="col-xs-4 control-label">Ngày cưới: </label>
-			        <div class="col-xs-8">
+				<div class="form-group">
+					<label for="weddingdate-edit" class="col-xs-12 control-label">Ngày cưới: </label>
+			        <div class="col-xs-12">
 			            <div class="form-group">
 			            	<input type='text' class="form-control" id="weddingdate-edit" name="weddingdate" value="{{UserController::getDates()}}" >
 			            	<script type="text/javascript">
@@ -180,8 +175,8 @@ Thông tin cá nhân
 			            </div>
 			        </div>
 			    </div>
-			    <div class="row form-group">
-			  		<div class="col-xs-4"></div>
+			    <br>
+			    <div class="form-group">			  		
 			  		<div class="col-xs-8">
 				    	<button type="submit" class="btn btn-primary" id="update_profile" > CẬP NHẬT </button>
 
@@ -191,7 +186,7 @@ Thông tin cá nhân
 			  				});
 			  			</script>
 			  		</div>
-			  		<div class="col-xs-2"></div>
+			  		
 			  	</div>
 			</form>
 			<!-- .form -->
@@ -201,13 +196,7 @@ Thông tin cá nhân
 		
 	</div>
 	@endforeach
-	<div class="col-xs-2">
-		{{'<img width="100%;" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',VendorController::last_vendor()-2)->get()->first()->avatar) . '" />'}}
-		<span style="color: #68ceee">{{Vendor::where('id',VendorController::last_vendor()-2)->get()->first()->name}}</span>
-
-		{{'<img width="100%;" alt="" src="data:image/jpeg;base64,' . base64_encode(Vendor::where('id',VendorController::last_vendor()-3)->get()->first()->avatar) . '" />'}}
-		<span style="color: #68ceee">{{Vendor::where('id',VendorController::last_vendor()-3)->get()->first()->name}}</span>
-	</div>
+	
 </div>
 
 <script type="text/javascript">
