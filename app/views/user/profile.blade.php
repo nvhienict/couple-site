@@ -173,6 +173,11 @@ Thông tin cá nhân
 					<label class="col-xs-12 control-label info_user">THÔNG TIN CÁ NHÂN</label>
 				</div>
 				<div class="row form-group">
+					<div class="col-xs-12">
+						Bạn hãy cập nhật thông tin để sử dụng tốt nhất các công cụ của thuna.vn
+					</div>	
+				</div>
+				<div class="row form-group">
 					<div class="col-xs-12 msg_info_user">
 						@if(isset($msg))
 							{{$msg}}

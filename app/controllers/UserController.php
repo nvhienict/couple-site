@@ -377,8 +377,15 @@ class UserController extends \BaseController {
 		return (User::where("email",Input::get('email'))->count()==0? "true": "false");
 	}
 
-	public function loginFacebook($action = "")
+	public static function loginFacebook($action = "")
 	{
+
+		// $email = Input::get('email');
+		// $firstname = Input::get('firstname');
+		// $lastname = Input::get('lastname');
+
+		// return $email.'***'.$firstname.'***'.$lastname;
+
 		// get data from input
 	    $code = Input::get( 'code' );
 
@@ -396,10 +403,13 @@ class UserController extends \BaseController {
 	        // Send a request with it
 	        $result = json_decode( $fb->request( '/me' ), true );
 	        // $result['id'];
+
+
+
 	        $email = $result['email'];
 	        $firstname = $result['first_name'];
 	        $lastname = $result['last_name'];
-	        // $result['name'];
+	        $result['name'];
 
 	        if( User::where("email", $email)->count()==0 )
 	        {
@@ -463,7 +473,10 @@ class UserController extends \BaseController {
 				Session::put("email", $email);
 
 				// go to view request
-				return Redirect::to(URL::previous());
+				// return Redirect::to(URL::previous());
+
+				$user=User::where('id', UserController::id_user())->get();
+				return View::make('user.profile')->with('user',$user);
 				
 	        } else {
 	        	$IdUser=User::where('email','=',$email)->get()->first()->id;

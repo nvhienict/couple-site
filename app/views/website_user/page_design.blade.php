@@ -66,7 +66,13 @@
 						<span class="span_design_item">
 			  				<input class="form-control" type="text" name="count_down" id="count_down" value="{{WebsiteController::getCountDown()}}">
 			  				<script type="text/javascript">
-								jQuery('#count_down').datetimepicker({
+			  					$("input[name=count_down]").bind("mousewheel", function() {
+							        return false;
+							    });
+			  				</script>
+			  				<script type="text/javascript">
+			  					
+			  					jQuery('#count_down').datetimepicker({
 									lang:'en',
 									i18n:{
 									en:{
