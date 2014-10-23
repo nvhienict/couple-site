@@ -21,8 +21,8 @@
 				</tr>
 				@foreach( $songs as $key=>$song )
 				<tr>
-					<td><a href="{{URL::route('play_song', array($cat['slug'],$song['slug']))}}" onclick="get_song({{$song['id']}});">{{$song['name']}}</a></td>
-					<td><a href="{{URL::route('play_song', array($cat['slug'],$song['slug']))}}" onclick="get_song({{$song['id']}});">{{$song['artist']}}</a></td>
+					<td><a href="{{URL::route('play_song', array(SongCategory::where('id',Song::where('id',$song->id)->get()->first()->category)->get()->first()->slug,$song['slug']))}}" onclick="get_song({{$song['id']}});">{{$song['name']}}</a></td>
+					<td><a href="{{URL::route('play_song', array(SongCategory::where('id',Song::where('id',$song->id)->get()->first()->category)->get()->first()->slug,$song['slug']))}}" onclick="get_song({{$song['id']}});">{{$song['artist']}}</a></td>
 					<td class="last">{{SongComment::where('song',$song['id'])->count()}} <i class="fa fa-comment"></i></td>
 				</tr>
 				@endforeach

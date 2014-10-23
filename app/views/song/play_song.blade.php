@@ -33,7 +33,7 @@
 					
 
 					@if(!Session::has('email'))
-						<span><a href="{{URL::route('cmt_song', array($song['slug']))}}" >Đăng nhận xét!</a></span>
+						<span><a href="{{URL::route('cmt_song', array(SongCategory::where('id',Song::where('id',$song->id)->get()->first()->category)->get()->first()->slug,$song['slug']))}}" >Đăng nhận xét!</a></span>
 						{{SongCategory::where('id',Song::where()->get()->first()->category)->get()->first()->slug}}
 					@endif
 					
