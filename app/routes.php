@@ -243,7 +243,7 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('addTopic', array('as'=>'addTopic', 'uses'=>'WebsiteController@addTopic'));
 	Route::post('add_section', array('as'=>'add_section', 'uses'=>'WebsiteController@addSection'));
 	Route::post('reSort', array('as'=>'reSort', 'uses'=>'WebsiteController@reSort'));
-	
+	Route::post('sortable', array('as'=>'sortable', 'uses'=>'WebsiteController@sortable'));
 	Route::post('update-content', array('as'=>'update_content_tab', 'uses'=>'WebsiteController@update'));
 
 	// template 2

@@ -110,6 +110,51 @@ p{
 	color:#fff;
 
 }
+.sorted_table tr {
+  cursor: pointer; }
+/* line 96, /Users/jonasvonandrian/jquery-sortable/source/css/application.css.sass */
+.sorted_table tr.placeholder {
+  display: block;
+  background: red;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: none; }
+  /* line 103, /Users/jonasvonandrian/jquery-sortable/source/css/application.css.sass */
+  .sorted_table tr.placeholder:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-left-color: red;
+    margin-top: -5px;
+    left: -5px;
+    border-right: none; }
+
+/* line 114, /Users/jonasvonandrian/jquery-sortable/source/css/application.css.sass */
+.sorted_head th {
+  cursor: pointer; }
+/* line 116, /Users/jonasvonandrian/jquery-sortable/source/css/application.css.sass */
+.sorted_head th.placeholder {
+  display: block;
+  background: red;
+  position: relative;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0; }
+  /* line 124, /Users/jonasvonandrian/jquery-sortable/source/css/application.css.sass */
+  .sorted_head th.placeholder:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top-color: red;
+    top: -6px;
+    margin-left: -5px;
+    border-bottom: none; }
 
 .navbar-right > li.current a{
 	background:#FF9B83;

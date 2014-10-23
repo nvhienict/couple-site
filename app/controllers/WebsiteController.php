@@ -640,7 +640,20 @@ class WebsiteController extends \BaseController {
 		
 		echo json_encode($title); exit();
 	}
-
+	public function sortable(){
+		$newSort = Input::get('newSort');
+		$arraySort = array();
+		$sortTab = 0;
+		foreach ($newSort as $key => $value) {
+			if ($value != "") 
+			{
+				$sortTab = $sortTab + 1;
+				TabWebsite::where("id",$value)->update(array('sort'=>$sortTab));
+			}
+		}
+		echo json_encode($arraySort);
+		exit();
+	}
 	public function reSort(){
 		$newSort = Input::get('position');
 		$idChange = Input::get('id');
