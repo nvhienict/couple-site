@@ -41,9 +41,7 @@
 							
 							<div class="song_comment">
 								<div class="song_avatar">
-									<!-- {{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}} -->
-									<?php $avatar = base64_decode($user_avatar); ?>
-									<img src="{{$avatar}}">
+									<img src="{{Asset("{$user_avatar}")}}">
 								</div>
 								<div class="song_content">
 									<span style="color: #428bca;">{{$cmt['user_name']}}</span> nói rằng:<br />
@@ -57,9 +55,7 @@
 
 							<div class="song_comment">
 								<div class="song_avatar">
-									<!-- {{'<img class="user_avatar" alt="" src="data:image/jpeg;base64,' . base64_encode($user_avatar) . '" />'}}<br /> -->
-									<?php $avatar = base64_decode($user_avatar); ?>
-									<img src="{{$avatar}}">
+									<img src="{{Asset("{$user_avatar}")}}">
 									<span style="color: #428bca;">{{$user_name}}</span>
 								</div>
 								<div class="song_content">
