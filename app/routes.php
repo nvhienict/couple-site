@@ -244,6 +244,7 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('add_section', array('as'=>'add_section', 'uses'=>'WebsiteController@addSection'));
 	Route::post('reSort', array('as'=>'reSort', 'uses'=>'WebsiteController@reSort'));
 	Route::post('sortable', array('as'=>'sortable', 'uses'=>'WebsiteController@sortable'));
+	// kéo thả chuột để sắp xếp lại
 	Route::post('update-content', array('as'=>'update_content_tab', 'uses'=>'WebsiteController@update'));
 
 	// template 2
