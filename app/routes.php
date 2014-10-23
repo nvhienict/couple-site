@@ -263,7 +263,7 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('del_album',array('as'=>'del_album','uses'=>"WebsiteController@del_album"));
 	Route::post('change_url',array('as'=>'change_url','uses'=>"WebsiteController@change_url"));
 	Route::post('load_url',array('as'=>'load_url','uses'=>'WebsiteController@load_url'));
-
+	Route::post('check_image_album',array('as'=>'check_image_album','uses'=>'WebsiteController@checkImageAlbum'));
 	// Route::get('themes5', function(){
 	// $id_user = WebsiteController::id_user();
 	// $id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;

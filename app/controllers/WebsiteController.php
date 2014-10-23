@@ -770,29 +770,38 @@ class WebsiteController extends \BaseController {
 	}
 
 	/* end template 2 */
-public function up_images_album(){
-		$id_user = WebsiteController::id_user();	
-		$id_tab=Input::get('id_tab_album');
-		if(Input::hasFile('input_image_album'))
-			{
-				$phototab=new PhotoTab();
-				$years=date("Y");
-				$months=date('m');	
-				File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);					
-				$image=Input::file('input_image_album');
-			  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
-				$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
-				$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
-				Image::make($image->getRealPath())->resize(800, 600)->save($path);
-				$phototab->user=$id_user;
-				$phototab->photo=$pathsave;
-				$phototab->tab = $id_tab;
-				$phototab->save();
-			    return Redirect::route('website/edit/pages');	
-
-			}
-
+	public function checkImageAlbum()
+		{
+			$id_user = WebsiteController::id_user();			
+			$check=PhotoTab::where('user',$id_user)->get()->count();
+			echo json_encode(array('check'=>$check));
+			exit;
 	}
+	public function up_images_album(){
+				$id_user = WebsiteController::id_user();	
+				$id_tab=Input::get('id_tab_album');
+				if(Input::hasFile('input_image_album'))
+					{	$images=Input::file('input_image_album');
+						foreach ($images as $image) 
+						{
+							$phototab=new PhotoTab();
+							$years=date("Y");
+							$months=date('m');	
+							File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);					
+						  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
+							$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+							$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
+							Image::make($image->getRealPath())->resize(800, 600)->save($path);
+							$phototab->user=$id_user;
+							$phototab->photo=$pathsave;
+							$phototab->tab = $id_tab;
+							$phototab->save();
+						}
+						return Redirect::route('website/edit/pages');
+					   
+					}
+	
+			}
 	public function load_album(){
 		try {
 			$id_user = WebsiteController::id_user();

@@ -559,23 +559,19 @@
 									<div class="upload-image-tab">
 											
 											<form action="{{URL::route('up_images_album')}}" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >																																		
-												<br>
-												<br>
-												<br>
-												<br>
+												<br><br><br>																							
 												
 												<div class="form-group">
 													<div class="text-center "><img id="image-preview_album" ></div>
-													<div class="text-center"><a onclick="chose_image_album()" style="cursor:pointer;" id="chose_image_album" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br></div>
-													<input style="display:none;" id="input_image_album" name="input_image_album"  type="file" class="file" accept="image/*" required>
+													<div class="text-center"><a onclick="chose_image_album()" style="cursor:pointer;" id="chose_image_album" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a></div>
+													<h5 style="color:red;" class="text-center message_album_image"></h5>
+													<input style="display:none;" id="input_image_album" name="input_image_album[]"  multiple="true" type="file" class="file" accept="image/*" autocomplete="off" required>
 													<input type="hidden" name="id_tab_album" id="id_tab_album" value="">
 												</div>
 												<div class="form-group">
 													<button type="submit" style="float:right"class="btn btn-primary">Upload</button> 
 												</div>
-												<br>
-												<br>
-																								
+												<br><br>																																			
 																																																																																
 											<script type="text/javascript">
 											
@@ -584,30 +580,44 @@
 													 $('#input_image_album').trigger('click');
 												};
 												
-												 function readURL_image_album(input) {
-													        if (input.files && input.files[0]) {
-													            var reader = new FileReader();
-													            
-													            reader.onload = function (e) {
-													                $('#image-preview_album').attr('src', e.target.result);
-													            }
-													            
-													            reader.readAsDataURL(input.files[0]);
-													        }
-													    }
-													     $("#input_image_album").change(function(){
-													     	 var fileName = $("#input_image_album").val().toLowerCase();
-															    if(fileName.lastIndexOf("png")===fileName.length-3 | fileName.lastIndexOf("jpeg")===fileName.length-3 |fileName.lastIndexOf("gif")===fileName.length-3|fileName.lastIndexOf("jpg")===fileName.length-3)
-															        readURL_image_album(this);
-															    else
-															    {
-															    	$("#input_image_album").val("");
-															    	$("#image-preview_album").removeAttr('src');
-															    	swal("Vui lòng chọn đúng định dạng file Ảnh!");																						        	
+												$("#input_image_album").change(function(){
+								                   var files = $(this)[0].files;
+								                    if(files.length > 30){
+								                        swal("Chỉ được upload tối đa 30 ảnh!");
+								                        $("#input_image_album").val("");
+								                    }else{
+								                        var fileName = $("#input_image_album").val().toLowerCase();
+								                        if(fileName.lastIndexOf("png")===fileName.length-3 | fileName.lastIndexOf("jpeg")===fileName.length-3 |fileName.lastIndexOf("gif")===fileName.length-3|fileName.lastIndexOf("jpg")===fileName.length-3)
+								                         {   $.ajax({
+								                                type:"POST",
+								                                url:"{{URL::route('check_image_album')}}",								                                
+								                                success:function(data)
+								                                {
+								                                    var obj=JSON.parse(data);
+								                                    if(obj.check+files.length>=30)
+								                                    {
+								                                        $("#input_image_album").val("");
+								                                        swal("Tổng số ảnh của bạn lớn 30, vui lòng chọn lại!"); 
+								                                    }
+								                                    else
+								                                    {
+								                                    	var str="Ảnh đã được chọn!";
+								                                    	$(".message_album_image").text(str);
+								                                    }
 
-															    }																				    	
-														        																				        	
-														    });
+								                                }
+								                            });
+								                           } 
+								                        else
+								                        {
+								                            $("#input_image_album").val("");                        
+								                            swal("Vui lòng chọn đúng định dạng file Ảnh!");                                                                                 
+								                            
+								                        }                                 
+								                    }                                               
+													    																		    	
+									       																				        	
+												});
 													     
 											     function send_id_album(id){
 													// var id_tab=$('#id_tab_web'+id).val();
