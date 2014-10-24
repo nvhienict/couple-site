@@ -14,7 +14,7 @@
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="{{Asset("assets/js/jquery.min.js")}}"></script>
     <script src="{{Asset("assets/js/map-themes.js")}}"></script>
-   	
+   	<script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
@@ -23,26 +23,17 @@
 			overflow: hidden;
     	}
 	</style>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+    		$('a.scrollTo').click(function () {
+	        $('.background-themes1').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
+	        return false;
+			    });
+			});
+	</script>
 
 </head>
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1";
-			fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
-		<script type="text/javascript">
-			window.___gcfg = {lang: 'vi'};
-
-			(function() {
-			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-			po.src = 'https://apis.google.com/js/platform.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-			})();
-		</script>
+		
 @if($website)
 @foreach( $website as $website_item )
 <div class="background-themes1" style="background-image: url({{Asset("{$backgrounds}")}});">
@@ -61,9 +52,9 @@
 		   </div>
 		   <div style="background-color:#6EC7B6;" class="collapse navbar-collapse" id="example-navbar-collapse">
 		      <ul style="background-color:#6EC7B6;" class="nav navbar-nav">
-		      	 <li><a class="a_menu" href="#title_home">Trang Chủ</a></li>
+		      	 <li><a class="a_menu scrollTo" href="#title_home">Trang Chủ</a></li>
 		      	@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $menu_tab)
-		         <li><a class="a_menu" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
+		         <li><a class="a_menu scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
 		         @endforeach()
 		      </ul>
 		   </div>

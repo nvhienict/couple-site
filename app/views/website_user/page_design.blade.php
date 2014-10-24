@@ -6,12 +6,10 @@
 <body style="overflow:hidden;">
 
 	<div class="row design_website_heading">
-		<div class="col-xs-1">
+		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">			
 			<a href="{{URL::route('index')}}" class="thuna" >Thuna.vn</a>
 		</div>
-		<div class="col-xs-8"></div>
-		<div class="col-xs-2">
-
+		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-md-offset-8">			
 			@if($id_tmp==2)
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
@@ -27,7 +25,7 @@
 			@endif
 			
 		</div>
-		<div class="col-xs-1">
+		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 			<a href="{{Asset('website')}}" class="thuna2" ><i class="glyphicon glyphicon-log-out"></i></a>
 		</div>
 	</div>
@@ -188,7 +186,7 @@
 						@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tab)
 							<tr class="odd" id="{{$tab->id}}" >
 								<td><input type="text" size="2" value="{{$tab->sort}}" onchange= "changeSort({{$tab->id}})" class="website_tabs_input" name="{{$tab->id}}Sort" id="{{$tab->id}}Sort" ></td>
-								<td><a class="TT{{$tab->id}}" href="#section_{{$tab->type}}" onclick="tab_click({{$tab->id}});" >{{$tab->title}}</a></td>
+								<td><a style="text-decoration: none;" class="TT{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" onclick="tab_click({{$tab->id}});" >{{$tab->title}}</a></td>
 								<td><input type="text" hidden="hidden" id="tab{{$tab->id}}" value="{{$tab->id}}"><span  class="glyphicon glyphicon-cog pop{{$tab->id}} popoverThis" style="color: #19B5BC; cursor: pointer;" onclick="titleTab({{$tab->id}})" ></span></td>
 							</tr>
 							<script type="text/javascript">
@@ -1021,6 +1019,5 @@
 	});//ready
 </script>
 <script src="{{Asset("assets/js/jquery-ui.js")}}"></script>
-
 @endsection
 

@@ -19,6 +19,8 @@
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 	<script src="{{Asset("assets/js/map-themes.js")}}"></script>
+	<script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
+	
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
@@ -69,52 +71,42 @@
 		        $('.ok-edit-show'+id).hide();
 		} 
 
-   jQuery(document).ready(function($) {
-    $('a[href^="#"]').bind('click.smoothscroll',function (e) {
-        e.preventDefault();
-        var target = this.hash,
-        $target = $(target);
-
-        $('html, body').stop().animate( {
-            'scrollTop': $target.offset().top
-        }, 900, 'swing', function () {
-            window.location.hash = target;
-        } );
-    } );
-} );
-
-
-
+	jQuery(document).ready(function($) {
+	    // Call & Apply function scrollTo
+	    $('a.scrollTo').click(function () {
+	        $('.design_website_content_right').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
+	        return false;
+	    });
+	});
 </script>
 </head>
 @if($website)
 @foreach( $website as $website_item )
+<div class="navbar_edits">
+	<nav style="padding:0px; ;background-color:#6EC7B6;" class="navbar navbar-default" role="navigation">
+	   <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" 
+	         data-target="#example-navbar-collapse">
+	         <span class="sr-only">Toggle navigation</span>
+	         <span class="icon-bar"></span>
+	         <span class="icon-bar"></span>
+	         <span class="icon-bar"></span>
+	      </button>
+	   </div>
+	   <div style="background-color:#6EC7B6;margin-top: 15px;" class="collapse navbar-collapse" id="example-navbar-collapse">
+	      <ul style="background-color:#6EC7B6;" class="nav navbar-nav">
+	      	<!--  <li><a class="scrollTo" href="#title_home" style="padding:15px 8px;">Trang Chủ</a></li> -->
+	      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
+	         <span><a style="padding:15px 8px;text-decoration: none;" class="{{$tab->id}} scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></span>
+	         @endforeach()
+	      </ul>
+	   </div>
+	</nav>
+</div>
 <div class="background-themes" style="background-image: url({{Asset("{$backgrounds}")}});">
-
-	<div  class="navbar_edits">
-		<nav style="padding:0px;" class="navbar navbar-default" role="navigation">
-		   <div class="navbar-header">
-		      <button type="button" class="navbar-toggle" data-toggle="collapse" 
-		         data-target="#example-navbar-collapse">
-		         <span class="sr-only">Toggle navigation</span>
-		         <span class="icon-bar"></span>
-		         <span class="icon-bar"></span>
-		         <span class="icon-bar"></span>
-		      </button>
-		   </div>
-		   <div style="background-color:#6EC7B6;" class="collapse navbar-collapse" id="example-navbar-collapse">
-		      <ul style="background-color:#6EC7B6;" class="nav navbar-nav">
-		      	 <li><a href="#title_home" style="padding:15px 8px;">Trang Chủ</a></li>
-		      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
-		         <li><a style="padding:15px 8px;" class="{{$tab->id}}" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
-		         @endforeach()
-		      </ul>
-		   </div>
-		</nav>
-	</div>
+	
 	
 	<div class="after-image-themes">
-
 		<!-- Themes Heading -->
 		<div class="title-website"id="title_home">
             <h2 class="text-center title-tab" style="color: #{{$website_item->color2}}" >{{WebsiteController::getDates()}}</h2>
