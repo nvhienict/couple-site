@@ -6,13 +6,15 @@
 @include('nav')
 @endsection
 @section('content')
+
+
 <div class="row" >
   <div class="col-xs-8 col-md-offset-2">
     @if(isset($messages)) <p class="text-center alert alert-danger">{{$messages}}</p>
     @endif	
 
       @if(isset($msg)) <p class="alert text-center alert-success">{{$msg}}</p>
-      @endif  
+    @endif  
   </div>
 </div>
 
@@ -39,7 +41,10 @@
    <a href="{{URL::to('login/facebook')}}">Đăng nhập bằng Facebook</a> 
   </div>
 
+
+
 </form>
+
 
 
 

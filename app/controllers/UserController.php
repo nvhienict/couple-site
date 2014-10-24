@@ -199,7 +199,6 @@ class UserController extends \BaseController {
 
         	$avatar = $destinationPath.$filename;
 
-
 			// update to database
 			User::where("id", UserController::id_user())->update(
 					array("avatar"=>$avatar));
@@ -377,7 +376,7 @@ class UserController extends \BaseController {
 		return (User::where("email",Input::get('email'))->count()==0? "true": "false");
 	}
 
-	public static function loginFacebook($action = "")
+	public function loginFacebook($action = "")
 	{
 
 		// $email = Input::get('email');
@@ -472,11 +471,18 @@ class UserController extends \BaseController {
 
 				Session::put("email", $email);
 
+				// get url then create Session
+				$url = URL::previous();
+
+				$arStr = explode("/", $url);
+				$count = count($arStr);
+				$url = $arStr[$count-1];
+				Session::put('url',$url);
+
+				return View::make('after-login-fb');
+
 				// go to view request
 				// return Redirect::to(URL::previous());
-
-				$user=User::where('id', UserController::id_user())->get();
-				return View::make('user.profile')->with('user',$user);
 				
 	        } else {
 	        	$IdUser=User::where('email','=',$email)->get()->first()->id;
@@ -504,5 +510,24 @@ class UserController extends \BaseController {
 	        return Redirect::to( (string)$url );
 	    }
 	} // end function loginFacebook
+
+	public function loginFacebookUpdate(){
+		$weddingdateInput = Input::get("weddingdate");
+		$cover_weddingdate = Carbon::parse($weddingdateInput)->format('Y-m-d');
+
+		// update to database
+		User::where("id", UserController::id_user())->update(
+			array("weddingdate"=>$cover_weddingdate)
+			);
+
+		// go to view request
+		if ( (Session::get('url')==NULL)||(Session::get('url')=='public') ) {
+			return Redirect::route('index');
+		} else {
+			$url = Session::get('url');
+			return Redirect::route($url);
+		}
+
+	} // end loginFacebookUpdate
 
 }

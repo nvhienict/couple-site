@@ -287,6 +287,8 @@ Route::get('website/{url}',array('as'=>'url_website','uses'=>"WebsiteController@
 
 Route::get('login/facebook', array("as" => "facebook", "uses" => "UserController@loginFacebook"));
 
+Route::post('change_weddingdate', array("as" => "change_weddingdate", "uses" => "UserController@loginFacebookUpdate"));
+
 // upload images ajax
 Route::post('upload_images', array(
 	"as" => "upload_images",
