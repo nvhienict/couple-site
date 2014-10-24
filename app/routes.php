@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/',array("as"=>"index", function()
 {
 	return View::make('index');

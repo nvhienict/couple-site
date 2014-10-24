@@ -7,7 +7,6 @@
 @endsection
 @section('content')
 
-
 <form role="form" action="{{Asset('change_weddingdate')}}" method="post" id="user_login" style="margin: 22px auto 70px;" >
   
   <div class="form-group">
