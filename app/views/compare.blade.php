@@ -76,8 +76,8 @@ So sánh dịch vụ
 										</script>
 									</div>
 									<div class="compare_add_vendor_show">
-										<a href="{{URL::to('vendor',array($vendor->id))}}">{{'<img class="img-responsive img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a>
-										<a href="{{URL::to('vendor',array($vendor->id))}}">{{$vendor->name}}</a>
+										<a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="img-responsive img-thumbnail" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a>
+										<a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{$vendor->name}}</a>
 									</div>
 								</div>
 								<div class="compare_tr22">
