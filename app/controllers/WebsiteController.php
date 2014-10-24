@@ -229,6 +229,7 @@ class WebsiteController extends \BaseController {
 		$id_tmp = $id;
 
 		$id_user = WebsiteController::id_user();
+		$lastname=User::where('id',$id_user)->get()->first()->lastname;
 		$check_isset = WeddingWebsite::where('user', $id_user)->get()->count();
 
 		// check when not data
@@ -240,6 +241,7 @@ class WebsiteController extends \BaseController {
 			$new_website->name_groom="Tên chú rể";
 			$new_website->about_groom="Giới thiệu về chú rể";
 			$new_website->about_bride="Giới thiệu về cô dâu";
+			$new_website->url=$lastname.'-'.$id_user;
 			$new_website->save();
 		} else {
 			WeddingWebsite::where('user',$id_user)->update(
@@ -858,7 +860,7 @@ class WebsiteController extends \BaseController {
 		}
 		else
 		{
-			if (WeddingWebsite::where('url',$change_url)->get()->count()) {
+			if (WeddingWebsite::where('user','!=',$id_user)->where('url',$change_url)->get()->count()) {
 			echo json_encode(array('error_url'=>'Url đã tồn tại, nhập vào url khác.','res_url'=>$recent_url, 'color'=>'red'));
 			exit();
 			} 
