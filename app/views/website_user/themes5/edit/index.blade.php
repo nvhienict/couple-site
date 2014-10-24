@@ -17,6 +17,7 @@
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
+	<script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
 	
 	<!-- style css -->
 	
@@ -157,18 +158,12 @@
 		}
 		
 		jQuery(document).ready(function($) {
-		    $('a[href^="#"]').bind('click.smoothscroll',function (e) {
-		        e.preventDefault();
-		        var target = this.hash,
-		        $target = $(target);
-
-		        $('html, body').stop().animate( {
-		            'scrollTop': $target.offset().top -50
-		        }, 900, 'swing', function () {
-		            location.hash = target;
-		        } );
-		    } );
-		} );
+	    // Call & Apply function scrollTo
+	    $('a.scrollTo').click(function () {
+	        $('.design_website_content_right').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
+	        return false;
+	    });
+	});
 </script>
 	</head>
 		@if($website)
@@ -192,7 +187,7 @@
 							<div class="navbar-collapse collapse" id="example-navbar-collapse">
 							<ul class="nav navbar-nav navbar-right">
 								@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
-								<li><a class="TT{{$tabWeb->id}}" href="#section_{{$tabWeb->type}}" >{{$tabWeb->title}}</a></li>
+								<span class="re_li"><a class="TT{{$tabWeb->id}} scrollTo" href="#section_{{$tabWeb->type}}" >{{$tabWeb->title}}</a></span>
 								@endforeach
 							</ul>
 							</div>

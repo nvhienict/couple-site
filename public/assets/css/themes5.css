@@ -821,3 +821,44 @@ p{
 .edit_ctn_about, .edit_ctn_about_bride{
 	display: none;
 }
+.nav > span.re_li {
+  position: relative;
+  display: block;
+}
+.nav > span.re_li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+.nav > span.re_li > a:hover,
+.nav > span.re_li > a:focus {
+  text-decoration: none;
+  background-color: #eee;
+}
+.nav > li.disabled > a {
+  color: #999;
+}
+.nav > li.disabled > a:hover,
+.nav > li.disabled > a:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: not-allowed;
+  background-color: transparent;
+}
+.navbar-nav > span.re_li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+}
+.navbar-nav > span.re_li {
+    float: left;
+  }
+  .navbar-nav > span.re_li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .navbar-right > span:active a{
+	background:#FF9B83;
+	color:#fff;
+
+}

@@ -95,7 +95,7 @@
 	   </div>
 	   <div style="background-color:#6EC7B6;margin-top: 15px;" class="collapse navbar-collapse" id="example-navbar-collapse">
 	      <ul style="background-color:#6EC7B6;" class="nav navbar-nav">
-	      	<!--  <li><a class="scrollTo" href="#title_home" style="padding:15px 8px;">Trang Chủ</a></li> -->
+	      	 <span><a class="scrollTo" href="#title_home" style="padding:15px 8px; text-decoration: none;">Trang Chủ</a></span>
 	      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
 	         <span><a style="padding:15px 8px;text-decoration: none;" class="{{$tab->id}} scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></span>
 	         @endforeach()
