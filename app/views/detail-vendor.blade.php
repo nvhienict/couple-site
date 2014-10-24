@@ -29,7 +29,7 @@
 								
 						<div calss="col-xs-12 col-sm-4" id="right-infor">
 							<h3 id="right-infor name">{{$vendor->name}}</h3>
-							<p id="right-infor address">{{$vendor->address}} {{Vendor::find($vendor->id)->location()->get()->first()->name}}<a href="#map" data-toggle="tab" class="outside-link"> |Map.</a></p>
+							<p id="right-infor address">{{$vendor->address}} {{Vendor::find($vendor->id)->location()->get()->first()->name}}<a href="#map" data-toggle="tab" class="outside-link" id="show_map_detail" onclick="show_map_detail()"> |Map.</a></p>
 							<p id="right-infor web"><b>Website</b>:<a href="http://{{$vendor->website}}"id="right-infor link" target="_blank"> Ghé thăm Website của tôi</a></p>
 							<p id="right-infor service"><b>Dịch vụ</b>:
 								{{Vendor::find($vendor->id)->category()->get()->first()->name}}
@@ -407,9 +407,9 @@
 						  		@yield('tab-FAQ')
 						  		<h4>{{Lang::get('messages.FAQ')}}</h4>
 						  </div>
-						  <div class="tab-pane" id="map">	  		
+						  <div class="tab-pane" id="map" data-src="{{$vendor->map}}">	  		
 						  	<h4>{{Lang::get('messages.Map')}}</h4>
-						  	<iframe src="{{$vendor->map}}" width="600" height="400" frameborder="0" style="border:0"></iframe>
+						  	<iframe src="" width="600" height="400" frameborder="0" style="border:0"></iframe>
 						  </div>
 						</div>
 					</div>
@@ -574,5 +574,26 @@
 				</div>
 			</div>
 			</div>
+			<script type="text/javascript">
+				$('#vendor-menu').click('show', function(e) {  
+				    paneID = $(e.target).attr('href');
+				    src = $(paneID).attr('data-src');
+				    // if the iframe hasn't already been loaded once
+				    if($(paneID+" iframe").attr("src")=="")
+				    {
+				        $(paneID+" iframe").attr("src",src);
+				    }
+				});
+				function show_map_detail()
+				{
+					
+				    src = $('#map').attr('data-src');
+				    // if the iframe hasn't already been loaded once
+				    if($("#map"+" iframe").attr("src")=="")
+				    {
+				        $("#map"+" iframe").attr("src",src);
+				    }
+				};
+			</script>
 		</div>
 @endsection
