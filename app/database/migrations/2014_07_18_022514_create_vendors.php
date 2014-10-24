@@ -27,6 +27,7 @@ class CreateVendors extends Migration {
 			$table->longText('map');
 			$table->integer('category');
 			$table->integer('location');
+			$table->string('slug')->nullable();;
 			$table->timestamps();
 		});
 	}
