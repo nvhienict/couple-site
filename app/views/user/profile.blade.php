@@ -90,7 +90,7 @@ Thông tin cá nhân
 
 					<span>Ứng dụng của bạn</span>
 					<ul class="list-unstyled info_user_ul">
-		                <li><a href="#"><i class="fa fa-arrow-right fa-fw"></i>Website cưới</a></li>
+		                <li><a href="{{URL::route('website')}}"><i class="fa fa-arrow-right fa-fw"></i>Website cưới</a></li>
 		                <li><a href="{{URL::route('guest-list')}}" ><i class="fa fa-arrow-right fa-fw"></i>Danh sách khách mời</a></li>
 		                <li><a href="#"><i class="fa fa-arrow-right fa-fw"></i>Sơ đồ ghế ngồi</a></li>
 		                <li><a href="{{URL::route('user-checklist')}}"  ><i class="fa fa-arrow-right fa-fw"></i>Danh sách công việc</a></li>
