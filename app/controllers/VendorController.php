@@ -22,7 +22,8 @@ class VendorController extends \BaseController {
 	// get location last
 	public static function location_last()
 	{
-		return Location::get()->last();
+		// return Location::get()->last();
+		return Location::get()->first();
 	}
 
 
@@ -238,18 +239,20 @@ class VendorController extends \BaseController {
 	public function category($slug_cate){
 
 		$compares = Session::get('compare');
+
 		if(!Session::has('location')){
 			$id_location = VendorController::location_last()->id;
 		}else{
 			$id_location = Session::get('location');
 		}
 
-		$id_cate=Category::where('slug',$slug_cate)->get()->first()->id;				
+		$id_cate = Category::where('slug', $slug_cate)->get()->first()->id;				
 							
-		$results = Vendor::where('category',$id_cate)->where('location',$id_location)->get();
+		$results = Vendor::where('category', $id_cate)->where('location',$id_location)->get();
 		return View::make('list-vendor')->with('results', $results)
 											->with('category_id', $id_cate)
 											->with('compares', $compares);
+		// return $results;
 	}
 	public function search()
 	{

@@ -55,14 +55,7 @@
                 <li><a href="{{URL::route('website')}}"  >Website cưới</a></li>
 
               </ul>
-            <!-- </div> -->
-            <!-- <div class="col-xs-6">
-              <ul class="list-unstyled">
-                <li><a href="#">Viết nhật ký</a></li>
-                <li><a href="#">Thiết kế thiệp cưới</a></li>
-                <li><a href="#">Làm video</a></li>
-              </ul>
-            </div> -->
+     
           </div>
           </li>
         </ul>
