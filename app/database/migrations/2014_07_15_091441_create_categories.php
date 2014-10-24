@@ -23,6 +23,7 @@ class CreateCategories extends Migration {
 			$table->float("range4");
 			$table->float("range5");
 			$table->string('images');
+			$table->string('slug')->nullable();
 			$table->timestamps();
 		});
 	}
