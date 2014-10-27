@@ -297,4 +297,24 @@ Route::post('upload_images', array(
 	)
 );
 // end upload images ajax
+// documents
+
+Route::get('introduce',array('as'=>'introduce',function(){
+	return View::make('documents.introduce');
+}));
+Route::get('term',array('as'=>'term',function(){
+	return View::make('documents.term');
+}));
+Route::get('policy',array('as'=>'policy',function(){
+	return View::make('documents.policy');
+}));
+Route::get('question',array('as'=>'question',function(){
+	return View::make('documents.question');
+}));
+Route::get('contact',array('as'=>'contact',function(){
+	return View::make('documents.contact');
+}));
+Route::get('sitemap',array('as'=>'sitemap',function(){
+	return View::make('documents.sitemap');
+}));
 

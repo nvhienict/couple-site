@@ -123,14 +123,62 @@
 @yield('content')
 	<!-- footer -->
 	<div class="row footer">
-		<div class="col-md-6 col-md-offset-3">
+		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 menu-footer">
+			<ul >
+				<li>
+					<a href="{{URL::route('introduce')}}" target="_blank">Giới thiệu</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 
+					<a href="{{URL::route('term')}}" target="_blank">Điều khoản sử dụng</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="{{URL::route('policy')}}" target="_blank">Chính sách riêng tư</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="{{URL::route('question')}}" target="_blank">Câu hỏi thường gặp</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="{{URL::route('contact')}}" target="_blank">Liên hệ</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="{{URL::route('sitemap')}}" target="_blank">SiteMap</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+				</li>		
+			</ul>			
+			<div class="infor-company" >
+                Số 47 , Đường Đỗ Huy Uyển, Phường An Hải, Quận Sơn Trà, Tp. Đà Nẵng<br>
+               	Điện thoại: (08) 3940 5071 | Email:
+                <a class="contact-admin" href="mailto:admin@thuna.vn">admin@thuna.vn</a><br>
+                Chịu trách nhiệm quản lý nội dung: thuna.vn<br>
+                Giấy phép hoạt động trang thông tin điện tử tổng hợp số 101/GP-STTTT, HCM ngày 09/12/2011<br>
+                Giấy xác nhận cung cấp dịch vụ mạng xã hội trực tuyến số 13/GXN-TTĐT - Bộ TTTT, HN ngày 03/02/2012<br>
+                <a class="thuna-title" href="http://www.thuna.vn" title="Đám cưới, Ảnh cưới, Áo cưới - Trang thông tin dịch vụ cưới hàng đầu Việt Nam">Đám cưới, Ảnh cưới, Áo cưới - Trang thông tin dịch vụ cưới hàng đầu Việt Nam.</a></h2><br>  
+                <div class="site-author">Bản quyền thuộc về ThunaWedding © 2014</div>         
+            </div>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<p style="font-size: 12px;color: black;" href="http://www.thuna.vn">Kết nối với ThunaWedding</p>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 connect-thuna">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<img class="img-responsive" src="{{Asset('assets/img/logo.png')}}">
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<img class="img-responsive" src="{{Asset('assets/img/logo.png')}}">
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<img class="img-responsive" src="{{Asset('assets/img/logo.png')}}">
+				</div>	
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<img class="img-responsive" src="{{Asset('assets/img/logo.png')}}">
+				</div>			
+			</div>			
+		</div>
+
+		<!-- <div class="">
 			
 			<div class="text-center">
 				<p>47 Đỗ Huy Uyển, Đà Nẵng<br />
 				&copy; Copyright 2014 - <a href="http://thuna.vn">thuna.vn</a></p>
 			</div>
 			
-		</div>
+		</div> -->
 		<div class="col-md-3">
 			<a href="javascript:void(0);" class="btn btn-top" id="go_top">
 				<!-- <img src="{{Asset('icon/top3.png')}}" id="back-top" > -->
