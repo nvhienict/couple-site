@@ -992,6 +992,7 @@
             // $("#output").html("<img src='"+response.file+"' />");
 
             $("#prev_output"+response.id_tab+" a").html("<img class='img-responsive' src='"+response.file+"' />");
+            $("#prev_outputcc"+response.id_tab+" a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+response.file+"' />");
             
             // $("#output").css('display','block');
         }
