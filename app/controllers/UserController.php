@@ -253,7 +253,7 @@ class UserController extends \BaseController {
 	}
 	public function get_logout()
 	{
-		Session::flush();
+		Session::forget('email');
 		
 		$view=View::make('index');
 		return Response::make($view);
@@ -263,7 +263,7 @@ class UserController extends \BaseController {
 	// if user deleted in database destroy session and redirect to view index
 	public static function get_logout_2()
 	{
-		Session::flush();
+		Session::forget('email');
 		
 		$view=View::make('index');
 		return Response::make($view);
