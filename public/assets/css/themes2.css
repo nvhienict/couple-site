@@ -1,4 +1,14 @@
 
+
+.navbar-nav > span > a {
+  	padding: 10px;
+  	line-height: 50px;
+  	text-decoration: none;
+}
+.navbar-nav > span > a:hover, .navbar-nav > span > a:focus{
+  	background-color: #ffffff;
+}
+
 .row{
 	margin-left: 0px !important;
 	margin-right: 0px !important;

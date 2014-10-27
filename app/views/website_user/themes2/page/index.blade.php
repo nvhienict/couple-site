@@ -36,19 +36,17 @@
 @foreach( $website as $website_item )
 
   	<div class="container-fluid menu_tab">
-		<ul class="nav nav-tabs droptabs " style="border: none;" >
-
+		<ul class="nav nav-tabs droptabs " style="border: none; " >
 			<li class="active always-visible" ><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
-		  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
+		  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $tab)
 				<li><a href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>
 		  	@endforeach
-
 			<li class="dropdown pull-right">
-				<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Xem thêm...<b class="caret"></b></a>
+				<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Xem thêm...<b class="carets"></b></a>
 				<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
-					<li class="always-dropdown" ><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
+					
 				</ul>
-		 </li>
+			</li>
 		</ul>
 			
 	</div>

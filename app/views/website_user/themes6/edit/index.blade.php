@@ -83,10 +83,10 @@
 			<div class="navbar-collapse collapse menu_tab" style="position:fixed; background-color:white;  width: 100%; z-index:1;">
 		    	
 
-		        		<ul id="myTab"class="nav navbar-nav">
-		        			<li class="active"><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
+		        		<ul id="myTab" class="nav navbar-nav">
+		        			<span class="active"><a style="padding: 10px; line-height: 50px; text-decoration: none;" href="#home" role="tab" data-toggle="tab">Trang chủ</a></span>
 		        			@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
-		        			<li><a class="{{$tab->id}} TT{{$tab->id}}" href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>
+		        			<span><a style="padding: 10px; line-height: 50px; text-decoration: none;" class="{{$tab->id}} TT{{$tab->id}}" href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></span>
 						  	@endforeach
 		          			
 		        		</ul>
