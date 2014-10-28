@@ -1,5 +1,5 @@
 
-<div class="col-xs-8 partion contact-main" >
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 partion contact-main" >
   <div class="row phara-margin ">
         
             <h3 class="text-center title-tab" style="text-align: {{$tab->titlestyle}}" id = "nameTitle{{$tab->id}}">{{$tab->title}}</h3> 

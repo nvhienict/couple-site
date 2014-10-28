@@ -37,7 +37,7 @@
             <span><a class="glyphicon glyphicon-cog icon-site" href="javascript:void(0);"></a></span>
         </div>
     </div>
-    <div class="row phara-margin float-right">    
+    <div class="row phara-margin float-left">    
         <div class="ok-edit ok-edit-show{{$tab->id}}">
             <span>
                 <a onclick="updateckeditor({{$tab->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
