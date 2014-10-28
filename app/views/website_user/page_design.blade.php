@@ -563,7 +563,7 @@
 													<div class="text-center "><img id="image-preview_album" ></div>
 													<div class="text-center"><a onclick="chose_image_album()" style="cursor:pointer;" id="chose_image_album" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a></div>
 													<h5 style="color:red;" class="text-center message_album_image"></h5>
-													<input style="display:none;" id="input_image_album" name="input_image_album[]"  multiple="true" type="file" class="file" accept="image/*" autocomplete="off" required>
+													<input style="display:none;" id="input_image_album" name="input_image_album[]"  multiple="true" type="file" class="file" accept="image/*" autocomplete="off" data-max-size="2097152" required>
 													<input type="hidden" name="id_tab_album" id="id_tab_album" value="">
 												</div>
 												<div class="form-group">
@@ -580,13 +580,18 @@
 												
 												$("#input_image_album").change(function(){
 								                   var files = $(this)[0].files;
+								                   var fileInput = $('#input_image_album');
+   												   var maxSize = fileInput.data('max-size');   												   									
 								                    if(files.length > 30){
 								                        swal("Chỉ được upload tối đa 30 ảnh!");
 								                        $("#input_image_album").val("");
-								                    }else{
+								                    }
+								                    else{
+								                    	
 								                        var fileName = $("#input_image_album").val().toLowerCase();
 								                        if(fileName.lastIndexOf("png")===fileName.length-3 | fileName.lastIndexOf("jpeg")===fileName.length-3 |fileName.lastIndexOf("gif")===fileName.length-3|fileName.lastIndexOf("jpg")===fileName.length-3)
-								                         {   $.ajax({
+								                         {   
+								                         	$.ajax({
 								                                type:"POST",
 								                                url:"{{URL::route('check_image_album')}}",								                                
 								                                success:function(data)
@@ -599,12 +604,29 @@
 								                                    }
 								                                    else
 								                                    {
-								                                    	var str="Ảnh đã được chọn!";
-								                                    	$(".message_album_image").text(str);
+								                                    	for (var j=0; j<files.length; j++) 
+											                         	{		   												   
+															            var fileSize = files[j].size; // in bytes
+																            if(fileSize<maxSize){
+																            	var str="Ảnh đã được chọn!";
+								                                    			$(".message_album_image").text(str);
+																                
+																            }
+																            else
+																            {
+																            	swal("Dung lượng của mỗi bức ảnh phải nhỏ hơn 2MB(mega byte), vui lòng chọn lại!"); 
+																                $("#input_image_album").val("");
+																                $(".message_album_image").text("");
+																                
+																            }												            												       
+			        													}		
+								                                    	
 								                                    }
 
 								                                }
 								                            });
+								                         	
+								                         	
 								                           } 
 								                        else
 								                        {
@@ -623,7 +645,7 @@
 														
 														
 													
-												};			
+												};						
 																																																
 											</script>
 

@@ -12,15 +12,15 @@
 .sweet-alert {
   background-color: white;
   font-family: 'arial', sans-serif;
-  width: 478px;
+  width: 550px;
   padding: 17px;
   border-radius: 5px;
   text-align: center;
   position: fixed;
   left: 50%;
-  top: 50%;
+  top: 20%;
   margin-left: -256px;
-  margin-top: -200px;
+ 
   overflow: hidden;
   display: none;
   z-index: 2000; }
