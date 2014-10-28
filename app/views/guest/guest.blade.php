@@ -18,7 +18,7 @@ Danh sách khách mời
 		<div class="submenu">
 			<div class="row">
 				<div class="col-xs-2">
-					<a href="" id="add-group-webding" style="cursor:pointer;" data-toggle="modal" data-target="#myGroup" data-backdrop="static">
+					<a href="" id="add-group-webding" style="cursor:pointer;" data-toggle="modal" data-target="#myGroup" >
 						<i class="glyphicon glyphicon-plus"></i>
 						&nbsp Thêm Nhóm
 					</a>
@@ -28,26 +28,24 @@ Danh sách khách mời
 						    <div class="modal-content">
 						      <div class="modal-header">
 						        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-						        <h3 class="modal-title" id="myGrouplable">Thêm nhóm mới</h3>
+						        <h4 style="color:#3276B1;" class="modal-title text-center">Thêm nhóm mới</h4>
 						      </div>
 						      <div class="modal-body">
 						        <form id="form_add_group" action="{{Asset('guest-list/add_group')}}" method="post">
-								    <div class="row form-group">
-										<label for="name" class="col-xs-3 control-label">Tên nhóm </label>
-										<div class="col-xs-9">
-										   	<input type="text" class="form-control" name="name" id="name" placeholder="Tên nhóm mới">
-										</div>
-									</div>
-								  	<div class="row form-group">
-								  		<div class="col-xs-4"></div>
-								  		<div class="col-xs-4">
-									    	<button type="submit" class="btn btn-primary" id="submit_add"> Thêm </button>
-									    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
-								  		</div>
-								  		<div class="col-xs-4"></div>
-								  	</div>
-								</form>
-							   </div> <!-- end modal body -->
+								    
+										<label for="name" class="control-label">Tên nhóm:</label>
+										
+										<input type="text" class="form-control" name="name" id="name" placeholder="Tên nhóm mới">
+										
+								
+								  	
+								
+							   </div>
+							   <div class="modal-footer" style="text-align:center;">								  		
+							    	<button type="submit" class="btn btn-primary" id="submit_add"> Thêm </button>
+							    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>								  										  		
+								</div> <!-- end modal body -->
+							</form>	
 							</div> <!-- end modal content -->
 							</div> <!-- end modal dialog -->
 							</div> <!-- end modal fade -->
@@ -55,7 +53,7 @@ Danh sách khách mời
 							<script type="text/javascript" src="{{Asset('assets/js/script_thuy.js')}}"></script>
 				</div>
 				<div class="col-xs-2">
-					<a href="" onclick="showHideAddGuest()" id="add-guest-wedding" style="cursor:pointer;" data-toggle="modal" data-target="" data-backdrop="static">
+					<a href="" onclick="showHideAddGuest()" id="add-guest-wedding" style="cursor:pointer;" data-toggle="modal" data-target="" >
 					<i class="glyphicon glyphicon-plus"></i>
 					&nbsp Thêm Khách 
 
@@ -88,7 +86,7 @@ Danh sách khách mời
 						    <div class="modal-content">
 						      <div class="modal-header">
 						        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-						        <h3 class="modal-title" id="myGrouplable">Thêm Khách Mời</h3>
+						        <h4 style="color:#3276B1;" class="modal-title text-center">Thêm Khách Mời</h4>
 						      </div>
 						      <div class="modal-body">
 						        <form id="form_add_guest" action="{{URL::route('guest-list/add-guest')}}" method="post">
@@ -132,16 +130,16 @@ Danh sách khách mời
 										   	<input type="number" class="form-control" name="attending" id="attending" value="1" min="0"placeholder="">
 										</div>
 									</div>
-								  	<div class="row form-group">
-								  		<div class="col-xs-4"></div>
-								  		<div class="col-xs-4">
-									    	<button type="submit" class="btn btn-primary" id=""> Thêm </button>
-									    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
-								  		</div>
-								  		<div class="col-xs-4"></div>
-								  	</div>
-								</form>
+								  	
+								
 							   </div> <!-- end modal body -->
+							   <div class="modal-footer" style="text-align:center;">
+							  		
+								    	<button type="submit" class="btn btn-primary" id=""> Thêm </button>
+								    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
+							  		
+							  	</div>
+							  </form>
 							</div> <!-- end modal content -->
 							</div> <!-- end modal dialog -->
 							</div> <!-- end modal fade -->
@@ -198,7 +196,7 @@ Danh sách khách mời
 					 @if((Groups::where('user',GuestController::id_user())->get()))
 					 	@foreach(Groups::where('user',GuestController::id_user())->get() as $key=>$group)
 					 		<tr class="guest_cat{{$group->id}} guest_cat" id="cate{{$group->id}}">					 						 			
-					 			<td style="width:18%;text-align: left;"><a href="javascript:void(0);" style="color:#555555;"onclick="show_hide({{$group->id}})" ><i id="show-hide-group{{$group->id}}" class=" fa fa-minus-square-o"></i><strong> {{$group->name}}</strong>(<span class="total_group_guest{{$group->id}}">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()->count()}}</span>)</a></td>					 								 		
+					 			<td style="width:18%;text-align: left;"><a href="javascript:void(0);" style="color:#555555;"onclick="show_hide({{$group->id}})" ><i id="show-hide-group{{$group->id}}" class=" fa fa-minus-square-o"></i><strong class="name_group_edit{{$group->id}}"> {{$group->name}}</strong>(<span class="total_group_guest{{$group->id}}">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->sum('attending')}}</span>)</a></td>
 					 			<td style="width:14%;text-align: left;"></td>
 					 			<td style="width:18%;"></td>
 					 			<td style="width:18%;"></td>
@@ -258,97 +256,14 @@ Danh sách khách mời
 									</script>
 									
 
-					 				<a href="#" id="edit-group-webding{{$group->id}}" class="icon-delete-group"data-toggle="modal" data-target="#editGroup-guest{{$group->id}}" data-backdrop="static">
+					 				<a href="#" id="edit-group-webding{{$group->id}}" onclick="sent_id_group_edit({{$group->id}})" class="icon-delete-group"data-toggle="modal" data-target="#editGroup-guest" data-backdrop="static">
 										<span class="fa fa-edit "></span>
 									</a>
-									<!-- Modal edit group guest -->
-										<div class="modal fade" id="editGroup-guest{{$group->id}}" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
-										  <div class="modal-dialog">
-										    <div class="modal-content">
-										      <div class="modal-header">
-										        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-										        <h3 class="modal-title" id="myGrouplable">Sửa nhóm "{{$group->name}} "</h3>
-										      </div>
-										      <div class="modal-body">
-										        <form id="form_edit_group{{$group->id}}" action="{{Asset('guest-list/edit_group')}}" method="post">
-												    <div class="row form-group">
-														<label for="name" class="col-xs-3 control-label">Tên nhóm </label>
-														<div class="col-xs-9">
-														   	<input type="text" class="form-control" name="name" id="name" placeholder="Tên nhóm" value="{{$group->name}}">
-															<input type="text" hidden name="id_group" value="{{$group->id}}">
-														</div>
-													</div>
-												  	<div class="row form-group">
-												  		<div class="col-xs-4"></div>
-												  		<div class="col-xs-4">
-													    	<button type="submit" class="btn btn-primary" id="submit_edit"> Lưu </button>
-													    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
-												  		</div>
-												  		<div class="col-xs-4"></div>
-												  	</div>
-												</form>
-											   </div> <!-- end modal body -->
-											</div> <!-- end modal content -->
-											</div> <!-- end modal dialog -->
-											</div> <!-- end modal fade -->
-											<!-- end modal edit -->
-											<script type="text/javascript">
-
-												$("#form_edit_group{{$group->id}}").validate({
-												rules:{
-													name:{
-														required:true,
-														remote:{
-															url: "{{URL::route('checkName')}}",
-															type:"POST",
-														}
-													}
-												},
-												messages:{
-													name:{
-														required:"Bạn chưa nhập tên nhóm",
-														remote: "Đã tồn tại nhóm này"
-													}
-												}
-											})
-											
-										</script>
-					 				<a href="#" id="delete-group-webding{{$group->id}} " class="icon-delete-group" data-toggle="modal" data-target="#deleteGroup-guest{{$group->id}}" data-backdrop="static" style="margin-right: 10px;" >
+									
+					 				<a href="#" onclick="sent_id_group({{$group->id}})" id="delete-group-webding{{$group->id}} " class="icon-delete-group" data-toggle="modal" data-target="#deleteGroup-guest" data-backdrop="static" style="margin-right: 10px;" >
 										<span class="fa fa-trash-o "></span>
 									</a>
-									<!-- Modal delete group guest -->
-										<div class="modal fade" id="deleteGroup-guest{{$group->id}}" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
-										  <div class="modal-dialog">
-										    <div class="modal-content">
-										      <div class="modal-header">
-										        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-										        <h3 class="modal-title" id="myGrouplable">Xoá nhóm khách mời</h3>
-										      </div>
-										      <div class="modal-body">
-										        <form id="form_delete_group" action="{{Asset('guest-list/delete_group')}}" method="post">
-												    <div class="row form-group algin-delete">
-														 Bạn chắc chắn muốn xoá nhóm <h3 style="color: red;">{{$group->name}}?</h3>
-															<small>*Tấc cả các thành viên trong nhóm cũng bị xoá</small>
-														<div class="col-xs-9">
-														   	<input type="text" hidden name="id_group" id="id_group" value="{{$group->id}}" >
-														</div>
-													</div>
-												  	<div class="row form-group">
-												  		<div class="col-xs-4"></div>
-												  		<div class="col-xs-4">
-													    	<button type="submit" class="btn btn-primary" id="submit_delete"> Xoá </button>
-													    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
-												  		</div>
-												  		<div class="col-xs-4"></div>
-												  	</div>
-												</form>
-											   </div> <!-- end modal body -->
-											</div> <!-- end modal content -->
-											</div> <!-- end modal dialog -->
-											</div> <!-- end modal fade -->
-											<!-- end modal delete -->
-					 				<!-- _Item up-down -->
-					 				
+									
 					 			</td>
 					 		</tr>
 					 		<tbody class="guest_list_show_cat{{$group->id}} guest_list_show_cat">
@@ -393,8 +308,8 @@ Danh sách khách mời
 					 			<td style="width:10%;">
 					 				<div>
 						 				<a onclick="attend_click({{$guest->id}})" class="{{$guest->id}}show_attend">{{$guest->attending}}</a> 										 	
-									    <input onblur="attend_change({{$guest->id}})" ondblclick="attend_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}attend form-control input-edit-guest" name="attending" value="{{$guest->attending}}">   
-										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
+									    <input onblur="attend_change({{$guest->id}})" ondblclick="attend_dblclick({{$guest->id}})" onchange="sum_attending({{$guest->id}})" type="text" class="{{$guest->id}}attend form-control input-edit-guest" name="attending" value="{{$guest->attending}}">   
+										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">	
 					 				</div>
 					 				
 					 			</td><!-- Due -->
@@ -445,13 +360,184 @@ Danh sách khách mời
 		<div class="col-xs-2" id="guest_summary">
 			<h3>Tóm tắt:</h3>
 			<p>
-				<div>Tổng số khách:<span class="total_guest">{{Guests::where('user',GuestController::id_user())->get()->count()}}</span></div>
+				<div>Tổng số khách:<span class="total_guest">{{Guests::where('user',GuestController::id_user())->sum('attending')}}</span></div>
 				
-				<div>Đã mời:<span class="total_invited">{{Guests::where('user',GuestController::id_user())->where('invited',true)->get()->count()}}</span></div>
+				<div>Đã mời:<span class="total_invited">{{Guests::where('user',GuestController::id_user())->where('invited',true)->sum('attending')}}</span></div>
 				
-				<div>Chưa mời:<span class="total_noinvited">{{Guests::where('user',GuestController::id_user())->where('invited',false)->get()->count()}}</span></div>
+				<div>Chưa mời:<span class="total_noinvited">{{Guests::where('user',GuestController::id_user())->where('invited',false)->sum('attending')}}</span></div>
 				
 		</div>
+		<!-- Modal edit group guest -->
+		<div class="modal fade" id="editGroup-guest" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 style="color:#3276B1;" class="modal-title text-center">Sửa nhóm </h4>
+		      </div>
+		      <div class="modal-body">		       				  
+					<label for="name" >Tên nhóm: </label>						
+					<input type="text" class="form-control name_group_edit" onchange="change_input_group()"name="name_group_edit" id="name_group_edit" placeholder="Tên nhóm" value="" required>
+					<p style="color:red;text-align:center;" class="message_edit_group"></p>
+					<input type="hidden"  class="id_group_edit" name="id_group_edit" value="">					
+				  					  		
+				</div>
+				<div class="modal-footer" style="text-align:center;">				  		
+				   <button data-dismiss="modal" onclick="update_group()" class="btn btn-primary" id="submit_edit"> Lưu </button>
+				    <a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>
+				 </div>
+			
+			   </div> <!-- end modal body -->
+			</div> <!-- end modal content -->
+			</div> <!-- end modal dialog -->
+			</div> <!-- end modal fade -->
+			<!-- end modal edit -->
+			<script type="text/javascript">
+				function sent_id_group_edit(id)
+				{
+					$('.id_group_edit').val(id);
+					$('.message_edit_group').text("");
+					$.ajax({
+							type:"POST",
+							url:"{{URL::route('sent-name-edit')}}",
+							data:
+							{
+								id_group:(id)
+							},
+							success:function(data)
+							{
+								var obj=JSON.parse(data);
+								$('.name_group_edit').val(obj.name_group);
+							}
+						});
+				}
+				function change_input_group()
+				{	
+					if($('.name_group_edit').val()=="")
+					{
+						$('.message_edit_group').text("Vui lòng nhập tên Nhóm!");
+					}
+					else
+					{
+						
+						$('.message_edit_group').text("");					
+						$.ajax({
+							type:"POST",
+							url:"{{URL::route('checkName')}}",							
+							data:
+							{
+								name_group:$('.name_group_edit').val(),								
+							},
+							success:function(data)
+							{
+								var obj=JSON.parse(data);								
+								if(obj.check===true)
+								{
+									$('.name_group_edit').val("");							
+									$('.message_edit_group').text("Tên Nhóm đã tồn tại!");
+									
+								}
+								else
+								{
+									$('.message_edit_group').text("");
+								}
+								
+								
+							}
+						});
+					}
+				}
+				function update_group()
+				{
+					$.ajax({
+						type:"POST",
+						url:"{{URL::route('edit_group')}}",
+						data:{
+							name_group:$('.name_group_edit').val(),id_group:$('.id_group_edit').val()
+						},
+						success:function(data)
+						{
+							var obj =JSON.parse(data);
+							$('.name_group_edit'+obj.id_group).text(obj.name_group_new);
+							
+						}
+					});
+				}
+
+			
+		</script>
+		<!-- Modal delete group guest -->
+		<div class="modal fade" id="deleteGroup-guest" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		    	<div class="modal-header">
+		        <button style="color:red" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 style="color:#3276B1;" class="modal-title text-center">Xoá nhóm khách mời</h4>
+		      </div>		      
+		      <div class="modal-body">										        
+				    <div class="row form-group algin-delete">
+						 <h5 class="message_modal_delete_group"style="color: red;"></h5>
+						<p style="text-align:center;">*Tất cả các khách mời trong nhóm sẽ mất</p>
+						<div class="col-xs-9">
+						   	<input type="hidden"  name="id_group" id="id_group_modal" value="" >
+						</div>
+					</div>
+				  	<div class="modal-footer" style="text-align:center;">
+				  		
+					    	<button data-dismiss="modal" onclick="delete_group()" class="btn btn-primary" id="submit_delete"> Có </button>
+					    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Không</a>
+				  	</div>
+				  		
+				  	</div>												
+			   </div> <!-- end modal body -->
+			</div> <!-- end modal content -->
+			</div> <!-- end modal dialog -->
+			</div> <!-- end modal fade -->
+			<!-- end modal delete -->
+					 				
+				<script type="text/javascript">
+
+
+				// delete group 
+					function sent_id_group(id)
+					{	
+						$("#id_group_modal").val(id);
+						$.ajax({
+							type:"POST",
+							url:"{{URL::route('sent-name-group')}}",
+							data:
+							{
+								id_group:(id)
+							},
+							success:function(data)
+							{
+								var obj=JSON.parse(data);
+								$('.message_modal_delete_group').text("Bạn có muốn xóa nhóm "+obj.name_group+" ?");
+							}
+						});
+					}
+					function delete_group()
+					{
+						$.ajax({
+							type:"POST",
+							url:"{{URL::route('delete_group')}}",
+							data:
+							{
+								id_group:$("#id_group_modal").val()
+							},
+							success:function(data)
+							{
+								var obj=JSON.parse(data);
+								$('.guest_cat'+obj.id_group).remove();
+								$('.guest_list_add'+obj.id_group).remove();
+								$('.guest_list_show_cat'+obj.id_group).remove();
+								
+							}	
+						});
+					}
+				// end delete group	
+				</script>
+				
 			<!-- Modal xoa thanh vien -->
 		<div class="modal fade" id="modalDeleteGuest">
 		  <div class="modal-dialog">
@@ -461,17 +547,35 @@ Danh sách khách mời
 		        <h4 style="color:#3276B1;" class="modal-title text-center">Xóa khách mời</h4>
 		      </div>
 		      <div class="modal-body">
-		        <p style="color:red;" class="text-center message_guest"></p>
+		        <h5 style="color:red;" class="text-center message_guest"></h5>
 		        <input type="hidden" class="modal_delete_guest" value="">
 		      </div>
 		      <div class="modal-footer" style="text-align:center;">
-		        <button onclick="del_guest()" data-dismiss="modal" type="button" class="btn btn-primary">Ok</button>
-		        <button data-dismiss="modal" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+		        <button onclick="del_guest()" data-dismiss="modal" type="button" class="btn btn-primary">Có</button>
+		        <a dismiss="modal"   style="cursor:pointer; margin-left: 10px;" data-dismiss="modal">Không</a>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 	<script type="text/javascript">
+			function sum_attending(id)
+				{						 						
+					$.ajax({
+						type:"POST",
+						url:"{{URL::route('sum_attending')}}",
+						data:
+						{
+							id_guest:id,attending:$('.'+id+'attend').val()
+						},
+						success: function(data)
+						{	var obj=JSON.parse(data);
+							$(".total_guest").text(obj.total_guest); 
+							$(".total_invited").text(obj.total_invited); 
+							$(".total_noinvited").text(obj.total_noinvited); 
+							$(".total_group_guest"+obj.id_group).text(obj.total_group_guest); 
+						},
+					});
+				}	
 	        function invited1_click(id){
  				$('#invited1'+id).hide();
  				$('#invited2'+id).show();
@@ -479,7 +583,7 @@ Danh sách khách mời
 				type: "post",
 				url: "{{URL::route('update_invited1')}}",
 				data: {
-				id:$("#invited1"+id).next().val()
+				id:$("#invited1"+id).next().val(),attending:$('.'+id+'attend').val()
 				},
 				success: function(data){
 					var obj=JSON.parse(data);
@@ -496,7 +600,7 @@ Danh sách khách mời
 				type: "post",
 				url: "{{URL::route('update_invited2')}}",
 				data: {
-				id:$("#invited2"+id).next().val()
+				id:$("#invited2"+id).next().val(),attending:$('.'+id+'attend').val()
 				},
 				success: function(data){
 					var obj = JSON.parse(data);
@@ -543,7 +647,7 @@ Danh sách khách mời
         			},
         			success:function(data){
     					var obj = JSON.parse(data);
-    					$('.message_guest').text('Bạn chắc chắn muốn xóa khách mời '+obj.fullname+' ?');
+    					$('.message_guest').text('Bạn có muốn xóa khách mời '+obj.fullname+' ?');
         			}
         		});
         	};
@@ -797,26 +901,12 @@ Danh sách khách mời
             function attend_change(id){
             	if ($("."+id+"attend").val()=="") {
             		$("."+id+"attend").val("1");
-            		$.ajax({
-					type: "post",
-					url: "{{URL::route('update_attend')}}",
-					data: {
-					attend:$("."+id+"attend").val(),	
-					id:$("."+id+"attend").next().val()
-					}							
-				});
+    
 					$('.'+id+'show_attend').text($("."+id+"attend").val());
 					$("."+id+"attend").hide();
 					$('.'+id+'show_attend').show();
             	} else{
-            		$.ajax({
-					type: "post",
-					url: "{{URL::route('update_attend')}}",
-					data: {
-					attend:$("."+id+"attend").val(),	
-					id:$("."+id+"attend").next().val()
-					}							
-				});
+    
 				$('.'+id+'show_attend').text($("."+id+"attend").val());
 				$("."+id+"attend").hide();
 				$('.'+id+'show_attend').show();

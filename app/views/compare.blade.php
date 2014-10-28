@@ -14,11 +14,7 @@ So sánh dịch vụ
 			<div class="col-xs-6">
 				<h3>So sánh dịch vụ nhà cung cấp</h3>
 			</div>
-			<div class="col-xs-4"></div>
-			<div class="col-xs-2">
-				<a href=""><i class="fa fa-print"></i> In trang</a>
-				<a href=""><i class="fa fa-export"></i> Xuất file</a>
-			</div>
+			
 		</div>
 	</div>
 	<div class="col-xs-1"></div>

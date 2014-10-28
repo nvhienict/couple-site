@@ -186,14 +186,13 @@ Route::get('comment-song/{slug_cat}/{slug_song}', array("before"=>"check_login",
 
 //Guest list
 Route::get('guest-list',array("before"=>"check_login",'as'=>'guest-list','uses'=>'GuestController@index'));
-
+Route::post('sum_attending',array("as"=>"sum_attending","uses"=>"GuestController@sumAttending"));
 Route::post('check-email-guest',array('as'=>'check-email-guest','uses'=>'GuestController@check_guest_email'));
 Route::post('guest-list/add-guest',array('as'=>'guest-list/add-guest','uses'=>'GuestController@post_Add_Guest'));
 Route::post('guest-list/update_name',array('as'=>'update_name','uses'=>'GuestController@update_name'));
 Route::post('guest-list/update_phone',array('as'=>'update_phone','uses'=>'GuestController@update_phone'));
 Route::post('guest-list/update_address',array('as'=>'update_address','uses'=>'GuestController@update_address'));
 Route::post('guest-list/update_email',array('as'=>'update_email','uses'=>'GuestController@update_email'));
-Route::post('guest-list/update_attend',array('as'=>'update_attend','uses'=>'GuestController@update_attend'));
 Route::post('guest-list/create',array('before'=>'check_login','as'=>'create_guest','uses'=>'GuestController@create'));
 Route::post('guest-list/delete',array('before'=>'check_login','as'=>'delete_guest','uses'=>'GuestController@delete'));
 Route::post('guest-list/update_invited1',array('as'=>'update_invited1','uses'=>'GuestController@update_invited1'));
@@ -201,10 +200,12 @@ Route::post('guest-list/update_invited2',array('as'=>'update_invited2','uses'=>'
 Route::get('guest-list/exportfile',array("as"=>"guest-list/exportfile", "uses"=>"GuestController@exportfile"));
 Route::post('check_group',array('as'=>'check_group','uses'=>'GuestController@check_group'));
 // Group Thuỷ
-Route::post("guest-list/add_group", array("as"=>"add_group", "uses"=>"GroupsController@post_Add_Group"));
-Route::post("guest-list/edit_group", array("as"=>"edit_group", "uses"=>"GroupsController@post_edit_Group"));
-Route::post("guest-list/delete_group", array("as"=>"delete_group", "uses"=>"GroupsController@post_delete_Group"));
-Route::post("checkName", array("as"=>"checkName", "uses"=>"GroupsController@checkName"));
+Route::post("guest-list/add_group", array("as"=>"add_group", "uses"=>"GuestController@post_Add_Group"));
+Route::post("guest-list/edit_group", array("as"=>"edit_group", "uses"=>"GuestController@post_edit_Group"));
+Route::post("sent-name-edit",array("as"=>"sent-name-edit","uses"=>"GuestController@sentNameGroupEdit"));
+Route::post("guest-list/delete_group", array("as"=>"delete_group", "uses"=>"GuestController@post_delete_Group"));
+Route::post("sent-name-group",array("as"=>"sent-name-group","uses"=>"GuestController@sentNameGroup"));
+Route::post("checkName", array("as"=>"checkName", "uses"=>"GuestController@checkName"));
 Route::post('get_guest',array('as'=>'get_guest','uses'=>'GuestController@get_guest'));
 
 
@@ -256,15 +257,6 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('updateName', array('as'=>'updateName', 'uses'=>'WebsiteController@updateName'));
 	
 	// end template 2
-
-	// template 3
-	Route::get('template-tab', array('as'=>'template-tab', 'uses'=>'WebsiteController@templateTabIndex'));
-	Route::get('change_temp', array('as'=>'change_temp', 'uses'=>'WebsiteController@changeTemp'));
-	Route::post('update_about_groom', array('as'=>'update_about_groom', 'uses'=>'WebsiteController@updateAboutGroom'));
-	Route::post('update_about_bride', array('as'=>'update_about_bride', 'uses'=>'WebsiteController@updateAboutBride'));
-	Route::post('updateName', array('as'=>'updateName', 'uses'=>'WebsiteController@updateName'));
-	
-	// end template 3
 
 
 	// Upload Album
@@ -326,8 +318,4 @@ Route::get('contact',array('as'=>'contact',function(){
 Route::get('sitemap',array('as'=>'sitemap',function(){
 	return View::make('documents.sitemap');
 }));
-
-// end documents
-
-
 
