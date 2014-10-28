@@ -126,47 +126,55 @@
 		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 menu-footer">
 			<ul >
 				<li>
-					<a href="{{URL::route('introduce')}}" target="_blank">Giới thiệu</a>
-					&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 
-					<a href="{{URL::route('term')}}" target="_blank">Điều khoản sử dụng</a>
-					&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="{{URL::route('policy')}}" target="_blank">Chính sách riêng tư</a>
-					&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="{{URL::route('question')}}" target="_blank">Câu hỏi thường gặp</a>
-					&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="{{URL::route('contact')}}" target="_blank">Liên hệ</a>
-					&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="{{URL::route('sitemap')}}" target="_blank">SiteMap</a>
-					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="{{URL::route('introduce')}}" >Giới thiệu</a>
+					&nbsp;&nbsp;|&nbsp;&nbsp; 
+					<a href="{{URL::route('term')}}" >Điều khoản sử dụng</a>
+					&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="{{URL::route('policy')}}" >Chính sách riêng tư</a>
+					&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="{{URL::route('question')}}" >Câu hỏi thường gặp</a>
+					&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="{{URL::route('contact')}}" >Liên hệ</a>
+					&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="{{URL::route('sitemap')}}" >SiteMap</a>
+					&nbsp;&nbsp;
 				</li>		
 			</ul>			
 			<div class="infor-company" >
                 Số 47 , Đường Đỗ Huy Uyển, Phường An Hải, Quận Sơn Trà, Tp. Đà Nẵng<br>
-               	Điện thoại: (08) 3940 5071 | Email:
-                <a class="contact-admin" href="mailto:admin@thuna.vn">admin@thuna.vn</a><br>
+               	Điện thoại: 0966 666 886 | Email:
+                <a class="contact-admin" href="mailto:thanh@thuna.vn">thanh@thuna.vn</a><br>
                 Chịu trách nhiệm quản lý nội dung: thuna.vn<br>
-                Giấy phép hoạt động trang thông tin điện tử tổng hợp số 101/GP-STTTT, HCM ngày 09/12/2011<br>
-                Giấy xác nhận cung cấp dịch vụ mạng xã hội trực tuyến số 13/GXN-TTĐT - Bộ TTTT, HN ngày 03/02/2012<br>
+                Giấy phép hoạt động trang thông tin điện tử tổng hợp<br>
+                Giấy xác nhận cung cấp dịch vụ mạng xã hội trực tuyến<br>
                 <a class="thuna-title" href="http://www.thuna.vn" title="Đám cưới, Ảnh cưới, Áo cưới - Trang thông tin dịch vụ cưới hàng đầu Việt Nam">Đám cưới, Ảnh cưới, Áo cưới - Trang thông tin dịch vụ cưới hàng đầu Việt Nam.</a></h2><br>  
-                <div class="site-author">Bản quyền thuộc về ThunaWedding © 2014</div>         
+                <div class="site-author">Bản quyền thuộc về thuna.vn © 2014</div>         
             </div>
 		</div>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-				<p style="font-size: 12px;color: black;" href="http://www.thuna.vn">Kết nối với ThunaWedding</p>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-left: -73px; margin-top: 20px;">
+				<p style="font-size: 12px;color: black; font-weight: bold;" href="http://www.thuna.vn">Kết nối với Thuna.vn</p>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 connect-thuna">
-				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					<img class="img-responsive" src="{{Asset('assets/img/logo.png')}}">
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					<a href="https://www.facebook.com/thuna.weddingplaner?fref=ts" target="_blank">
+						<img class="img-responsive" src="{{Asset('icon/fb.jpg')}}">
+					</a>
 				</div>
-				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					<img class="img-responsive" src="{{Asset('assets/img/logo.png')}}">
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					<a href="https://www.youtube.com/channel/UCiKbAYqN2YUUKRkRHukt7SA" target="_blank">
+					<img class="img-responsive" src="{{Asset('icon/social-youtube.png')}}">
+					</a>
 				</div>
-				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					<img class="img-responsive" src="{{Asset('assets/img/logo.png')}}">
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					<a href="https://plus.google.com/u/0/+Thunaplannerwedding" target="_blank">
+					<img class="img-responsive" src="{{Asset('icon/g+.jpg')}}">
+					</a>
 				</div>	
-				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					<img class="img-responsive" src="{{Asset('assets/img/logo.png')}}">
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					<a href="https://plus.google.com/u/0/+Thunaplannerwedding" target="_blank">
+					<img class="img-responsive" src="{{Asset('icon/tw.jpg')}}">
+					</a>
 				</div>			
 			</div>			
 		</div>
@@ -184,26 +192,25 @@
 				<!-- <img src="{{Asset('icon/top3.png')}}" id="back-top" > -->
 				<i class="fa fa-angle-up fa-3x text-center"></i>
 			</a>
-			<script type="text/javascript">
-			(function(){
-			    // Cuộn trang lên với scrollTop
-			    $('#go_top').click(function(){
-			        $('body,html').animate({scrollTop:0},400);
-			        return false;
-			    })
-			})(jQuery)
-            $(window).scroll(function(){
-			    if( $(window).scrollTop() > 500 ) {
-			        $('#go_top').stop(false,true).fadeIn(300);
-			    }else{
-			        $('#go_top').hide();
-			    }
-			});
-			</script>
-			
 		</div>
 	</div>	
 	<!-- .row -->
+	<script type="text/javascript">
+		(function(){
+		    // Cuộn trang lên với scrollTop
+		    $('#go_top').click(function(){
+		        $('body,html').animate({scrollTop:0},400);
+		        return false;
+		    })
+		})(jQuery)
+        $(window).scroll(function(){
+		    if( $(window).scrollTop() > 500 ) {
+		        $('#go_top').stop(false,true).fadeIn(300);
+		    }else{
+		        $('#go_top').hide();
+		    }
+		});
+	</script>
 
 
 <div id="fb-root"></div>
