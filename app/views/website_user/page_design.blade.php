@@ -10,13 +10,19 @@
 			<a href="{{URL::route('index')}}" class="thuna" >Thuna.vn</a>
 		</div>
 		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-md-offset-8">			
-			@if($id_tmp==2)
-				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
-			@endif
 			
 			@if($id_tmp==1)
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
+
+			@if($id_tmp==2)
+				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+			@endif
+
+			@if($id_tmp==3)
+				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+			@endif
+
 			@if($id_tmp==5)
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
@@ -297,7 +303,9 @@
 						@include('website_user.themes.edit.index')
 					@endif
 
-					
+					@if($id_tmp==3)
+						@include('website_user.themes3.edit.index')
+					@endif
 
 					@if($id_tmp==6)
 						@include('website_user.themes6.edit.index')
@@ -1015,7 +1023,8 @@
 
             $("#prev_output"+response.id_tab+" a").html("<img class='img-responsive' src='"+response.file+"' />");
             $("#prev_outputcc"+response.id_tab+" a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+response.file+"' />");
-            
+
+            $("#prev_output_themes3"+response.id_tab+" a").html("<img style='width: 100%;height: 100%;' class='img-responsive' src='"+response.file+"' />");
             // $("#output").css('display','block');
         }
     }

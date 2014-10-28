@@ -257,6 +257,15 @@ Route::group(array('before'=>'check_login'), function(){
 	
 	// end template 2
 
+	// template 3
+	Route::get('template-tab', array('as'=>'template-tab', 'uses'=>'WebsiteController@templateTabIndex'));
+	Route::get('change_temp', array('as'=>'change_temp', 'uses'=>'WebsiteController@changeTemp'));
+	Route::post('update_about_groom', array('as'=>'update_about_groom', 'uses'=>'WebsiteController@updateAboutGroom'));
+	Route::post('update_about_bride', array('as'=>'update_about_bride', 'uses'=>'WebsiteController@updateAboutBride'));
+	Route::post('updateName', array('as'=>'updateName', 'uses'=>'WebsiteController@updateName'));
+	
+	// end template 3
+
 
 	// Upload Album
 	Route::post('up_images_album',array('as'=>'up_images_album','uses'=>"WebsiteController@up_images_album"));
@@ -317,4 +326,8 @@ Route::get('contact',array('as'=>'contact',function(){
 Route::get('sitemap',array('as'=>'sitemap',function(){
 	return View::make('documents.sitemap');
 }));
+
+// end documents
+
+
 

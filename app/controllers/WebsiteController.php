@@ -137,8 +137,13 @@ class WebsiteController extends \BaseController {
 			case 1:
 				$backgrounds='images/website/themes1/template_1.jpg';
 				break;
+
 			case 2:
 				$backgrounds='';
+				break;
+
+			case 3:
+				$backgrounds='images/website/themes3/body_image_1.jpg';
 				break;
 			
 			case 5:
@@ -157,6 +162,13 @@ class WebsiteController extends \BaseController {
 			case 2:
 				return View::make('website_user.themes2.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
+																	->with('id_web', $id_Web);
+				break;
+
+			case 3:
+				return View::make('website_user.themes3.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_Web);
 				break;
 			
@@ -237,8 +249,8 @@ class WebsiteController extends \BaseController {
 			$new_website = new WeddingWebsite();
 			$new_website->user = $id_user;
 			$new_website->template = $id_tmp;
-			$new_website->name_bride="Tên cô dâu";
-			$new_website->name_groom="Tên chú rể";
+			$new_website->name_bride="Cô dâu";
+			$new_website->name_groom="Chú rể";
 			$new_website->about_groom="Giới thiệu về chú rể";
 			$new_website->about_bride="Giới thiệu về cô dâu";
 			$new_website->url=$lastname.'-'.$id_user;
@@ -290,8 +302,9 @@ class WebsiteController extends \BaseController {
 		{
 		 	array_unshift($type, $tab_type->type);
 		}
-		$typeTab = array_unique ($type);	
-// get data from table 'tabs'
+		$typeTab = array_unique ($type);
+
+		// get data from table 'tabs'
 		$arTab = TabWebsite::where('website',$id_Web)->get();
 		$check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
 		if(!empty($check))
@@ -307,6 +320,9 @@ class WebsiteController extends \BaseController {
 			case 2:
 				$backgrounds='';
 				break;
+			case 3:
+				$backgrounds='images/website/themes3/body_image_1.jpg';
+				break;
 			
 			case 5:
 				$backgrounds='images/website/themes5/header-bg.jpg';
@@ -319,6 +335,7 @@ class WebsiteController extends \BaseController {
 					
 			
 		}
+
 		return View::make('website_user.page_design')->with('firstname', $firstname)
 													->with('arFont', $arFont)
 													->with('website', $website)
@@ -370,15 +387,18 @@ class WebsiteController extends \BaseController {
 			case 1:
 				$backgrounds='images/website/themes1/template_1.jpg';
 				break;
+
 			case 2:
 				$backgrounds='';
 				break;
-			
+
+			case 3:
+				$backgrounds='images/website/themes3/body_image_1.jpg';
+				break;
 				
 			case 5:
 				$backgrounds='images/website/themes5/header-bg.jpg';
 				break;
-
 
 			case 6:
 				$backgrounds='images/website/themes6/template_6.jpg';

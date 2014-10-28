@@ -43,4 +43,5 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
   	{
   		return $this->hasMany("Phototab","phototab");
   	}
-}
+
+} // end class User

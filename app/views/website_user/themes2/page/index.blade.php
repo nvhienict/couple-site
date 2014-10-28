@@ -256,7 +256,8 @@
 	</div>
 	<div class="row footer">
 		<div class="col-xs-12" style="text-align:center;">
-			&copy 2014 bởi <a href="http://thuna.vn">thuna.vn</a>. All rights reserved.
+			&copy 2014 <a href="http://thuna.vn">thuna.vn</a>. All rights reserved.<br />
+			Design by giangmd@thuna.vn
 		</div>
 	</div>
 <!-- .footer -->

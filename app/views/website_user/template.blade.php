@@ -26,8 +26,8 @@ Giao diện Website cưới
 							<img src="{{Asset('images/website/tmp/1.png')}}">
 						</a>
 					</div>
-	  				
 	  			</div>
+
 	  			<div class="col-sm-4 col-lg-4 col-md-4">
 	  				<div class="span_choose_tmp">
 						<a href="{{URL::route('template-website', array('id'=>2))}}">
@@ -37,20 +37,29 @@ Giao diện Website cưới
 	  			</div>
 	  			
 		  	
-		  	<div class="col-sm-4 col-lg-4 col-md-4">
-  				<div class="span_choose_tmp">
-					<a href="{{URL::route('template-website', array('id'=>5))}}">
-						<img src="{{Asset('images/website/tmp/5.png')}}">
-					</a>
-				</div>
-  			</div>
-		  	<div class="col-sm-4 col-lg-4 col-md-4">
-  				<div class="span_choose_tmp">
-					<a href="{{URL::route('template-website', array('id'=>6))}}">
-						<img src="{{Asset('images/website/tmp/6.png')}}">
-					</a>
-				</div>
-  			</div>
+			  	<div class="col-sm-4 col-lg-4 col-md-4">
+	  				<div class="span_choose_tmp">
+						<a href="{{URL::route('template-website', array('id'=>5))}}">
+							<img src="{{Asset('images/website/tmp/5.png')}}">
+						</a>
+					</div>
+	  			</div>
+
+			  	<div class="col-sm-4 col-lg-4 col-md-4">
+	  				<div class="span_choose_tmp">
+						<a href="{{URL::route('template-website', array('id'=>6))}}">
+							<img src="{{Asset('images/website/tmp/6.png')}}">
+						</a>
+					</div>
+	  			</div>
+
+	  			<div class="col-sm-4 col-lg-4 col-md-4">
+	  				<div class="span_choose_tmp">
+						<a href="{{URL::route('template-website', array('id'=>3))}}">
+							<img src="{{Asset('images/website/tmp/3.png')}}">
+						</a>
+					</div>
+	  			</div>
 		  	</div>
 		  	<!-- .row -->
 		</div>
