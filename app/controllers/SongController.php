@@ -139,18 +139,20 @@ class SongController extends \BaseController {
 
 		// get avatar user
 		$user_avatar = User::where('id',$id_user)->get()->first()->avatar;
-		$avatar = base64_decode($user_avatar);
+		// $avatar = base64_decode($user_avatar);
 
 		// get data for show 
 		$arComment = SongComment::get()->last();
 
+		$url = $_SERVER["DOCUMENT_ROOT"];
+
 		$html = '';
 		$html .="<div class='song_comment'>
 					<div class='song_avatar'>
-						<img src=".$avatar.">
+						<img src='".$url."/couple-site/public/".$user_avatar."'>
 					</div>
 					<div class='song_content'>
-						<span style='color: #428bca;''>".$arComment->user_name."</span> nói rằng:<br />
+						<span style='color: #428bca;''>".$arComment->user_name."</span> nhận xét:<br />
 						
 						".$arComment->content."
 					</div>
