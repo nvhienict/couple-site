@@ -144,12 +144,12 @@ class SongController extends \BaseController {
 		// get data for show 
 		$arComment = SongComment::get()->last();
 
-		$url=public_path();
+		$url="/couple-site/public/";
 
 		$html = '';
 		$html .="<div class='song_comment'>
 					<div class='song_avatar'>
-						<img src='".$url."/".$user_avatar."'>
+						<img src='".$url."".$user_avatar."'>
 					</div>
 					<div class='song_content'>
 						<span style='color: #428bca;''>".$arComment->user_name."</span> nhận xét:<br />
