@@ -10,10 +10,10 @@
 			<div class="container body-detailvendor">
 			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-9" id="body-left">
 				<div class="row" id="top-left">
-						<div class="col-xs-12 col-sm-4" id="left-infor">
+						<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5" id="left-infor">
 							<a href="" onclick="history.go(-1);return false" id="left-infor title-infor">{{Vendor::find($vendor->id)->category()->get()->first()->name}} tại {{Vendor::find($vendor->id)->location()->get()->first()->name}}:</a>
 							<div id="left-infor avata-vendor" >
-								{{'<img class="img-responsive" style="height:200px;" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}
+								{{'<img class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}
 								<div class="fb-like" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
 						</div>
 							</div>
@@ -27,7 +27,7 @@
 								}(document, 'script', 'facebook-jssdk'));
 								</script>
 								
-						<div calss="col-xs-12 col-sm-4" id="right-infor">
+						<div calss="col-xs-12 col-sm-7 col-md-7 col-lg-7" id="right-infor">
 							<h3 id="right-infor name">{{$vendor->name}}</h3>
 							<p id="right-infor address">{{$vendor->address}} {{Vendor::find($vendor->id)->location()->get()->first()->name}}<a href="#map" data-toggle="tab" class="outside-link" id="show_map_detail" onclick="show_map_detail()"> |Map.</a></p>
 							<p id="right-infor web"><b>Website</b>:<a href="http://{{$vendor->website}}"id="right-infor link" target="_blank"> Ghé thăm Website của tôi</a></p>
