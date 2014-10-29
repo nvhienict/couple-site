@@ -206,6 +206,37 @@ Danh sách công việc
 				</div> <!-- end modal dialog -->
 				</div> <!-- end modal fade -->
 				<!-- end modal Add -->
+				<script type="text/javascript">
+					$("#form_addChecklist").validate({
+						rules:{
+							task:{
+								required:true,
+								remote:{
+									url:"{{URL::to('check_task_add')}}",
+									type:"post"
+								}
+							},
+							startdate:{
+								required:true
+							},
+							category:{
+								required:true
+							}
+						},
+						messages:{
+							task:{
+								required:"Bạn phải nhập tên công việc",
+								remote:"Công việc đã tồn tại"
+							},
+							startdate:{
+								required:"Bạn phải chọn ngày làm"
+							},
+							category:{
+								required:"Bạn phải chọn danh mục"
+							}
+						}
+					});
+				</script>
 
 				<!-- Modal Edit checklist -->
 					<div class="modal fade" id="myModalEditChecklist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
