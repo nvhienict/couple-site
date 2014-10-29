@@ -248,7 +248,10 @@
 								
 								<div class="vendor_comment">
 									<div class="vendor_avatar">
-										<img src="{{Asset("{$user_avatar}")}}">
+										<?php
+										$user_avatar_old = User::where('id', $cmt['user'])->get()->first()->avatar;
+										?>
+										<img src="{{Asset("{$user_avatar_old}")}}">
 									</div>
 									<div class="vendor_content">
 										<span style="color: #428bca;">{{$cmt['user_name']}}</span> nhận xét:<br />

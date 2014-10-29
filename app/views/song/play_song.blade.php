@@ -40,7 +40,10 @@
 							
 							<div class="song_comment">
 								<div class="song_avatar">
-									<img src="{{Asset("{$user_avatar}")}}">
+									<?php
+										$user_avatar_old = User::where('id', $cmt['user'])->get()->first()->avatar;
+									?>
+									<img src="{{Asset("{$user_avatar_old}")}}">
 								</div>
 								<div class="song_content">
 									<span style="color: #428bca;">{{$cmt['user_name']}}</span> nói rằng:<br />
