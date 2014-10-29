@@ -184,12 +184,10 @@ class VendorController extends \BaseController {
 		// get data for show 
 		$arComment = vendorComment::get()->last();
 
-		$url="/couple-site/public/";
-
 		$html = '';
 		$html .="<div class='vendor_comment'>
 					<div class='vendor_avatar'>
-						<img src='".$url."".$user_avatar."'>
+						<img src='/".$user_avatar."'>
 					</div>
 					<div class='vendor_content'>
 						<span style='color: #428bca;''>".$arComment->user_name."</span> nói rằng:<br />
