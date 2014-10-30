@@ -8,7 +8,7 @@
             {{$tabWeb->title}}
         </h3>
 
-        <div class="col-md-12 show-content phara{{$tabWeb->id}}">
+        <div onclick="showckeditor({{$tab->id}})" class="col-md-12 show-content phara{{$tabWeb->id}}">
         	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
         </div>
         <div class="col-md-12 edit-content editphara{{$tabWeb->id}}">

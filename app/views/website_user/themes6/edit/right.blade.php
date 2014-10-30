@@ -20,7 +20,7 @@
                 <button  onclick="send_id({{$tab->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
             </span>
         </div>
-        <div class="show-content phara{{$tab->id}}">
+        <div onclick="showckeditor({{$tab->id}})" class="show-content phara{{$tab->id}}">
            <span name="phara" style="color: #{{$website_item->color3}}">{{$tab->content}}</span>
         </div>
         <div class="edit-content editphara{{$tab->id}}">

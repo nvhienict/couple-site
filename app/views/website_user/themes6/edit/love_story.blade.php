@@ -5,7 +5,7 @@
             {{$tab->title}}
         </h3>
 
-        <div class="show-content phara{{$tab->id}}">
+        <div onclick="showckeditor({{$tab->id}})" class="show-content phara{{$tab->id}}">
         	<span name="phara" style="color: #{{$website_item->color3}}">{{$tab->content}}</span>
         </div>
         <div class="col-md-12 edit-content editphara{{$tab->id}}">
