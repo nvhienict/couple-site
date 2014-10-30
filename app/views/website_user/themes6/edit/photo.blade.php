@@ -60,7 +60,7 @@
                 <div class="row phara-margin">
                     <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
                     @foreach($albums as $album)
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding remove_image{{$album->id}}">
                             <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
                                 <img style="width:100%;height:100px;" src="{{Asset("{$album->photo}")}}" alt="" />
                             </a>
