@@ -391,7 +391,7 @@
 												<div class="form-group">
 													<div class="text-center "><img id="image-preview-website" ></div>
 													<div class="text-center"><a onclick="chose_image_backgound()" style="cursor:pointer;" id="chose_image_background" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br></div>
-													<input id="input_image_modal" name="input_image_modal"  type="file" class="file" accept="image/*" required>
+													<input id="input_image_modal" name="input_image_modal"  type="file" class="file" accept="image/*" data-max-size="2097152" required>
 												</div>
 												<div class="form-group">
 													<button type="submit" style="float:right"class="btn btn-primary">Upload</button> 
@@ -419,9 +419,22 @@
 													        }
 													    }
 													     $("#input_image_modal").change(function(){
+													     	 var files = $(this)[0].files;
+									                         var fileInput = $('#input_image_modal');
+									                         var maxSize = fileInput.data('max-size'); 
 													     	 var fileName = $("#input_image_modal").val().toLowerCase();
 															    if(fileName.lastIndexOf("png")===fileName.length-3 | fileName.lastIndexOf("jpeg")===fileName.length-3 |fileName.lastIndexOf("gif")===fileName.length-3|fileName.lastIndexOf("jpg")===fileName.length-3)
-															        readURL(this);
+															    {
+															    	var fileSize = files[0].size; // in bytes
+							                                        if(fileSize>maxSize){
+							                                            swal("Dung lượng của mỗi bức ảnh phải nhỏ hơn 2MB(mega byte), vui lòng chọn lại!"); 
+							                                            $("#input_image_modal").val("");							                                            
+							                                        }
+							                                        else
+							                                        {
+							                                        	readURL(this);
+							                                        }
+															     }   
 															    else
 															    {
 															    	$("#input_image_modal").val("");
@@ -683,7 +696,7 @@
 <!-- upload ajax -->
 	<form style="display:none;" class="form-horizontal" id="upload" action="{{ url('upload_images') }}" enctype="multipart/form-data" method="post" autocomplete="off">
 	    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-	    <input type="file" name="image" id="image" /> 
+	    <input type="file" name="image" id="image" accept="image/*" data-max-size="2097152" required/> 
 	    <input type="hidden" name="id_tab" id="id_tab" value="" />
 	</form>
 <!-- end upload ajax -->
@@ -994,7 +1007,19 @@
             }; 
         
         $('body').delegate('#image','change', function(){
-            $('#upload').ajaxForm(options).submit(); 
+        	var files = $(this)[0].files;
+           	var fileInput = $('#image');
+           	var maxSize = fileInput.data('max-size'); 
+           	var fileSize = files[0].size; // in bytes
+            if(fileSize>maxSize){
+                swal("Dung lượng của mỗi bức ảnh phải nhỏ hơn 2MB(mega byte), vui lòng chọn lại!"); 
+                $("#image").val("");                
+            }
+            else
+            {
+            	$('#upload').ajaxForm(options).submit(); 
+            }
+            
         }); 
     }
 
@@ -1012,20 +1037,17 @@
             {
                 if (value.length != 0)
                 {
-                    // $("#validation-errors").append('<div style="color: #FB1A6B" class="alert alert-error"><strong>'+ value +'</strong><div>');
+                    
                     swal("Định dạng ảnh chưa đúng");
                 }
             });
-            // $("#validation-errors").show();
+            
             return false;
         } else {
-            // $("#output").html("<img src='"+response.file+"' />");
-
             $("#prev_output"+response.id_tab+" a").html("<img class='img-responsive' src='"+response.file+"' />");
             $("#prev_outputcc"+response.id_tab+" a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+response.file+"' />");
-
             $("#prev_output_themes3"+response.id_tab+" a").html("<img style='width: 100%;height: 100%;' class='img-responsive' src='"+response.file+"' />");
-            // $("#output").css('display','block');
+           
         }
     }
 
