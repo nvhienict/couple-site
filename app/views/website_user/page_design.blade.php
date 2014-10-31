@@ -29,6 +29,9 @@
 			@if($id_tmp==6)
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
+			@if($id_tmp==8)
+				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+			@endif
 			
 		</div>
 		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
@@ -299,6 +302,7 @@
 			@if($id_tmp==2)
 					@include('website_user.themes2.edit.index')
 			@else
+
 					@if($id_tmp==1)
 						@include('website_user.themes.edit.index')
 					@endif
@@ -307,12 +311,16 @@
 						@include('website_user.themes3.edit.index')
 					@endif
 
+					@if($id_tmp==5)
+						@include('website_user.themes5.edit.index')
+					@endif
+
 					@if($id_tmp==6)
 						@include('website_user.themes6.edit.index')
 					@endif
 
-					@if($id_tmp==5)
-						@include('website_user.themes5.edit.index')
+					@if($id_tmp==8)
+						@include('website_user.themes8.edit.index')
 					@endif
 
 			@endif

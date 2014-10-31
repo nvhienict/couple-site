@@ -43,6 +43,9 @@ Website cưới
 				@if($img_tmp==6)
 						<img style="width:100%;" src="{{Asset('images/website/tmp/6.png')}}">
 				@endif
+				@if($img_tmp==8)
+						<img style="width:100%;" src="{{Asset('images/website/tmp/8.png')}}">
+				@endif
 
 				</div>
 				<div class="col-sm-6 col-lg-6 col-md-6 ">

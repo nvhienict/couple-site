@@ -1,0 +1,257 @@
+
+body {
+	background: #FFFFFF;
+	width: 100%;
+	border: none;
+	max-width: 100%;
+}
+
+
+#container{
+	padding-left: 13%;
+    padding-right: 13%;
+}
+
+#header {
+	width: 74%;
+	height: 100px;
+	position: fixed;
+	z-index: 99;
+	background: transparent url(../../images/website/themes8/header-bg.png) repeat-x;
+	background-position: bottom left;
+}
+
+.logo {
+	position: absolute;
+	top: 0;
+	z-index: 99;
+	padding-left: 2% !important;
+	/*color: #FFFFFF;*/
+}
+.logo-image img {
+	width: 100%;
+}
+
+
+.name-bride, .name-groom {
+	text-transform: uppercase;
+	color: #676468;
+	font-size: 25px;
+	display: inline-block;
+}
+.name-bride {
+	position: relative;
+	z-index: 100;
+	top: -97px;
+	left: 0;
+	/*margin-left: 5px;*/
+}
+.name-groom{
+	position: relative;
+	z-index: 100;
+	top: -97px;
+	/*margin-right: 5px;*/
+	right: -20px;
+}
+
+/*menu*/
+#topmenu{
+	background-color: #742C5B;
+	/*width: 100%;*/
+	float: right;
+	border: none;
+	margin-top: 20px;
+}
+
+
+.li-menu a {
+	text-transform: uppercase !important;
+	color: #FFFFFF !important;
+}
+.li-menu a:hover {
+	font-size: 15px !important;
+	background-color: #FFFFFF !important;
+	color: #742C5B !important;
+}
+
+
+/*end menu*/
+
+
+/*slide*/
+.slider {
+	clear: both;
+	position: relative;
+	top: 85px;
+	z-index: 9;
+
+}
+.slider img{
+	max-width: 100%;
+}
+/*end slide*/
+
+/*3 option info*/
+#info-panel {
+	float: none;
+	position: relative;
+	z-index: 10;
+	margin: 25px auto 0 auto;
+	padding: 0 0 1px 0;
+	min-height: 120px;
+}
+.time-count-down, .date-wedding, .contact{
+	height: 130px;
+	padding: 25px;
+	color: #FFFFFF;
+	text-align: center;
+	border-bottom: 5px solid #D6D4BD;
+	background: #742C5B;
+	font-size: 17px;
+}
+/*.time-count-down{
+	margin-left: 12%;
+}*/
+.date-wedding{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+/*.contact{
+	margin: 0px;
+}*/
+#info-panel-top1, #info-panel-top2, #info-panel-top3 {
+	position: relative;
+    top: -22px;
+    left: -25px;
+}
+
+
+/*end 3 option info*/
+
+.line-hr{
+	height: 0px;
+	padding-top: 80px;
+	padding-bottom: 20px;
+	text-align: center;
+	text-decoration: none;
+	color: #666666;
+	outline: none;
+	background: #FFFFFF;
+
+}
+
+.line-hr-left, .line-hr-right{
+	width: 41%;
+	height: 15px;
+	background: transparent url(../../images/website/themes8/line-pattern.png);
+	display: inline-block;
+}
+
+.line-hr-shape{
+	width: 159px;
+	height: 35px;
+	margin-top: -10px;
+	background: transparent url(../../images/website/themes8/floral.png) center center no-repeat;
+	display: inline-block;
+}
+
+
+.title-content{
+	margin-top: 0;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	padding: 50px;
+	text-align: center;
+	background: transparent url(../../images/website/themes8/title-bg.png) center center no-repeat;
+	color: #6B686B;
+	font-size: 25px;
+}
+.about-content{
+	text-align: center;
+}
+.about-content img{
+	width: 100%;
+}
+.name-content{
+	margin-top: -6px;
+	margin-bottom: 20px;
+	padding: 10px;
+	position: relative;
+	background: #742C5B;
+	font-size: 20px;
+	color: #FFFFFF;
+}
+.detail-content{
+	width: 100%;
+	text-align: justify;
+}
+
+
+
+
+#footer{
+	width: 100%;
+	height: 80px;
+	background: #D6D4BD;
+	color: #65749A;
+	text-align: center;
+	padding: 5px;
+	margin-top: 100px;
+}
+
+
+
+/*PAGE EDIT*/
+
+.container_edit{
+	padding-left: 13%;
+    padding-right: 13%;
+}
+
+#topmenu_edit{
+	background-color: #742C5B;
+	float: right;
+	border: none;
+	height: 20px;
+}
+
+.li-menu-edit a{
+	text-transform: uppercase;
+	color: #FFFFFF !important;
+	background-color: #742C5B;
+	font-size: 15px !important;
+}
+.li-menu-edit a:hover{
+	font-size: 15px !important;
+	background-color: #FFFFFF !important;
+	color: #742C5B !important;
+}
+
+.name-groom-edit{
+	position: relative;
+	z-index: 100;
+	top: -130px;
+	/*margin-right: 5px;*/
+	right: -20px;
+	text-transform: uppercase;
+	color: #676468;
+	font-size: 25px;
+	display: inline-block;
+}
+
+.edit_name_groom {
+	left: -132px;
+    position: relative;
+    top: -65px;
+    z-index: 9999;
+}
+.edit_name_bride{
+	left: 169px;
+    position: relative;
+    top: -133px;
+    z-index: 9999;
+}
+
+/*end*/
+
+
