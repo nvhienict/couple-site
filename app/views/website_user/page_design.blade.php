@@ -23,6 +23,10 @@
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
 
+			@if($id_tmp==4)
+				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+			@endif
+
 			@if($id_tmp==5)
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
@@ -60,6 +64,9 @@
 			  		<span>Website được design bởi <a href="http://thuna.vn">thuna.vn</a> </span>
 			  		<p>
 			  			<a href="{{Asset('change_temp')}}">Thay đổi giao diện <i class="fa fa-chevron-right fa-fw"></i></a>
+			  		</p>
+			  		<p>
+			  			<a  onclick="getInfor()" href="" data-backdrop="static" data-toggle="modal" data-target='#modal-infor'>Nhập thông tin cô dâu, chú rể <i class="fa fa-chevron-right fa-fw"></i></a>
 			  		</p>
 			  		<div class="page_design_home_item">
 			  			<span class="span_design_item">Hình nền:</span><br />
@@ -319,8 +326,11 @@
 						@include('website_user.themes6.edit.index')
 					@endif
 
-					@if($id_tmp==8)
-						@include('website_user.themes8.edit.index')
+					@if($id_tmp==5)
+						@include('website_user.themes5.edit.index')
+					@endif
+					@if($id_tmp==4)
+						@include('website_user.themes4.edit.index')	
 					@endif
 
 			@endif
@@ -506,6 +516,93 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<div class="modal fade" id="modal-infor">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+        <button onclick="removeMessage()" style="color:red;" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 style="color:#3276B1;" class="modal-title text-center">Thông tin cô dâu-chú rể</h3>
+      </div>
+      <div class="modal-body">
+        <div class="col-xs-12">
+        	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" >
+        		<h5 style="font-weight: bold;color:#F52052;">Chú rể</h5>
+        		<input type="text" id="name_groom" class="form-control" value="" placeholder="Tên chú rể">
+        		<textarea style="margin-top: 15px;" type="text" id="about_groom" class="form-control" value="" placeholder="Thông tin về chú rể"></textarea>
+	        	
+	        </div>
+	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        		<h5 style="font-weight: bold;color:#F52052;">Cô dâu</h5>
+        		<input type="text" id="name_bride" class="form-control" value="" placeholder="Tên cô dâu">
+        		<textarea style="margin-top: 15px;" type="text" id="about_bride" class="form-control" value="" placeholder="Thông tin về cô dâu"></textarea> 
+        	</div>     
+        	<p style="font-weight: bold;color:#3276B1;" class="text-center success-infor "></p>   	
+        </div>       
+      </div>
+      <div class="modal-footer" style="text-align:center;margin-top:170px;">
+      	<button onclick="update_infor()" type="button" class="btn btn-primary" >Save</button>
+        <button onclick="removeMessage()" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>       
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- ajax update infor of groom and brid -->
+<script type="text/javascript">
+	function update_infor(){
+		$.ajax({
+			type:"POST",
+			url:"{{URL::route('update_infor')}}",
+			data:{
+				name_groom:$('#name_groom').val(),
+				name_bride:$('#name_bride').val(),
+				about_groom:$('#about_groom').val(),
+				about_bride:$('#about_bride').val()
+
+			},
+			success:function(data){
+				var name_groom=$('#name_groom').val();
+				var name_bride=$('#name_bride').val();
+				var about_bride=$('#about_bride').val();
+				var about_groom=$('#about_groom').val();
+				var obj=JSON.parse(data);
+				$('.name-infor').text(name_groom+' & '+name_bride);
+				$('.success-infor').text(obj.message_infor);
+				$('.name-g').text(name_groom);
+				$('.name-b').text(name_bride);
+				$('.about-g').text(about_groom);
+				$('about-b').text(about_bride);
+
+
+			}
+		});
+	}
+
+	function getInfor(){
+		$.ajax({
+			type:"POST",
+			url:"{{URL::route('getInfor')}}",
+			data:{
+				name_groom:$('#name_groom').val(),
+				name_bride:$('#name_bride').val(),
+				about_groom:$('#about_groom').val(),
+				about_bride:$('#about_bride').val()
+
+			},
+			success:function(data){
+			   var obj=JSON.parse(data);
+				$('#name_groom').val(obj.name_groom);
+				$('#name_bride').val(obj.name_bride);
+				$('#about_groom').val(obj.about_groom);
+				$('#about_bride').val(obj.about_bride);
+
+			}
+		});
+	}
+	function removeMessage(){
+		$('.success-infor').text("");
+	}
+</script>
 
 
 <div class="modal fade " id="modal-up_images">
