@@ -147,7 +147,7 @@ Danh sách Dịch vụ
 		<div class="tab-content">
 
 			<!-- tab-photo -->
-			<div class="col-md-7 tab-pane active" id="display-photo" style="min-height: 370px;">
+			<div class="col-md-7 tab-pane active" id="display-photo" class="margin-footer">
 				<div class="row">
 					@if( count($results)==0 )
 						<h2>
