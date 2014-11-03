@@ -145,6 +145,10 @@ class WebsiteController extends \BaseController {
 			case 3:
 				$backgrounds='images/website/themes3/body_image_1.jpg';
 				break;
+			case 4:
+			$backgrounds='';
+			break;
+
 			
 			case 5:
 				$backgrounds='images/website/themes5/header-bg.jpg';
@@ -175,6 +179,12 @@ class WebsiteController extends \BaseController {
 																	->with('firstname', $firstname)
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_Web);
+				break;
+			case 4:
+				return View::make('website_user.themes4.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('id_web', $id_Web)
+																	->with('backgrounds',$backgrounds);
 				break;
 			
 			case 5:
@@ -335,7 +345,10 @@ class WebsiteController extends \BaseController {
 			case 3:
 				$backgrounds='images/website/themes3/body_image_1.jpg';
 				break;
-			
+			case 4: 
+				$backgrounds='';
+				break;	
+
 			case 5:
 				$backgrounds='images/website/themes5/header-bg.jpg';
 				break;
@@ -411,7 +424,10 @@ class WebsiteController extends \BaseController {
 			case 3:
 				$backgrounds='images/website/themes3/body_image_1.jpg';
 				break;
-				
+			case 4:
+				$backgrounds='';
+				break;
+
 			case 5:
 				$backgrounds='images/website/themes5/header-bg.jpg';
 				break;
@@ -942,6 +958,10 @@ class WebsiteController extends \BaseController {
 			case 3:
 				$backgrounds='images/website/themes3/body_image_1.jpg';
 				break;
+
+			case 4:
+				$backgrounds='';
+				break;
 			
 			case 5:
 				$backgrounds='images/website/themes5/header-bg.jpg';
@@ -975,6 +995,15 @@ class WebsiteController extends \BaseController {
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_website)
 																	->with('date_url',$date_url)
+																	->with('count_down_url',$count_down_url);
+				break;
+
+			case 4:
+				return View::make('website_user.themes4.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('id_web', $id_website)
+																	->with('date_url',$date_url)
+																	->with('email',$email)
 																	->with('count_down_url',$count_down_url);
 				break;
 			
@@ -1169,6 +1198,29 @@ class WebsiteController extends \BaseController {
 	}
 
 	// end upload images ajax
+
+	// update infor about groom and bride
+	public function update_infor(){
+		$name_groom=Input::get('name_groom');
+		$name_bride=Input::get('name_bride');
+		$about_groom=Input::get('about_groom');
+		$about_bride=Input::get('about_bride');
+		$id_user=WebsiteController::id_user();
+		WeddingWebsite::where('user',$id_user)->update(
+			array('name_groom'=>$name_groom,'name_bride'=>$name_bride,
+				'about_groom'=>$about_groom,'about_bride'=>$about_bride));
+		echo json_encode(array('message_infor'=>'Cập nhật thông tin thành công'));
+		exit();
+		
+	}
+
+	public function getInfor(){
+		$id_user=WebsiteController::id_user();
+		$infor=WeddingWebsite::where('user',$id_user)->get()->first();
+		echo json_encode(array('name_groom'=>$infor->name_groom,'name_bride'=>$infor->name_bride,
+								'about_bride'=>$infor->about_bride,'about_groom'=>$infor->about_groom));
+		exit();
+	}
 
 
 

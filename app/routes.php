@@ -290,6 +290,11 @@ Route::group(array('before'=>'check_login'), function(){
 	
 	//change Map//
 	Route::post('change-map',array('as'=>'change-map','uses'=>"WebsiteController@changeMap"));
+
+	// infor about groom and update_about_bride
+
+	Route::post('update_infor',array('as'=>'update_infor','uses'=>'WebsiteController@update_infor'));
+	Route::post('getInfor',array('as'=>'getInfor','uses'=>'WebsiteController@getInfor'));
 	
 });
 
