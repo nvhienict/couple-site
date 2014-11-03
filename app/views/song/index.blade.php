@@ -9,7 +9,7 @@
 <div class="container user-checklist">
 	@foreach($cats as $index=>$cat)
 	<div class="row">
-		<div class="col-xs-9">
+		<div class="col-xs-9 margin-footer">
 			<h2>Âm nhạc: {{$cat['name']}}</h2>
 			<h6>{{$cat['description']}}</h6>
 

@@ -2717,5 +2717,8 @@ a.contact-admin:hover{
 	padding-top: 30px;
 	text-align: center;
 }
+.margin-footer{
+	min-height: 370px;
+}
 
 
