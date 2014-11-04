@@ -329,25 +329,6 @@
 	</div>
 	<!-- end line-hr -->
 
-
-
-		<!-- <div class="title-content">
-			Cô dâu
-		</div> -->
-		<!-- end title-content -->
-		<!-- <div class="about-content">
-			<img src="{{Asset('images/website/themes8/bride2.jpg')}}">
-			<div class="name-content">
-				Kelly Taylor
-			</div>
-			<div class="detail-content">
-				Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Aenean sagittis diam vel enim tempus sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Morbi fringilla feugiat tortor suscipit accumsan.
-			</div>
-		</div> -->
-		<!-- end about-content -->
-
-
-
 	@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
 
 	 	<!-- Welcome -->
@@ -457,25 +438,7 @@
 
 
   	@endforeach
-
-
-	<!-- <div class="title-content">
-		Chú rể
-	</div> -->
-	<!-- end title-content -->
-	<!-- <div class="about-content">
-		<img src="{{Asset('images/website/themes8/groom.jpg')}}">
-		<div class="name-content">
-			John Doe
-		</div>
-		<div class="detail-content">
-			Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Aenean sagittis diam vel enim tempus sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Morbi fringilla feugiat tortor suscipit accumsan.
-		</div>
-	</div> -->
-	<!-- end about-content -->
-
-
-
+  	
 	<div id="footer">
 		&copy 2014 <a href="thuna.vn">thuna.vn</a> <br />
 		Design by giangmd@thuna.vn

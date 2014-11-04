@@ -145,6 +145,7 @@ class WebsiteController extends \BaseController {
 			case 3:
 				$backgrounds='images/website/themes3/body_image_1.jpg';
 				break;
+
 			case 4:
 			$backgrounds='';
 			break;
@@ -160,9 +161,15 @@ class WebsiteController extends \BaseController {
 			case 7:
 				$backgrounds='images/website/themes7/template_7.jpg';
 			break;
+
 			case 8:
 				$backgrounds='images/website/themes8/kiss1.jpg';
 				break;
+
+			case 9:
+				$backgrounds='';
+				break;
+
 			}			
 			
 		}
@@ -171,10 +178,18 @@ class WebsiteController extends \BaseController {
 			case 2:
 				return View::make('website_user.themes2.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_Web);
 				break;
 
 			case 3:
+				return View::make('website_user.themes3.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
+																	->with('id_web', $id_Web);
+				break;
+
+			case 4:
 				return View::make('website_user.themes3.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
 																	->with('backgrounds',$backgrounds)
@@ -193,7 +208,8 @@ class WebsiteController extends \BaseController {
 																	->with('firstname', $firstname)
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_Web);
-				break;	
+				break;
+
 			case 7:
 			return View::make('website_user.themes7.page.index')->with('website', $website)
 																->with('firstname', $firstname)
@@ -203,6 +219,13 @@ class WebsiteController extends \BaseController {
 			
 			case 8:
 				return View::make('website_user.themes8.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
+																	->with('id_web', $id_Web);
+				break;
+
+			case 9:
+				return View::make('website_user.themes9.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_Web);
@@ -345,7 +368,6 @@ class WebsiteController extends \BaseController {
 			case 3:
 				$backgrounds='images/website/themes3/body_image_1.jpg';
 				break;
-			
 			case 4: 
 				$backgrounds='';
 				break;	
@@ -358,10 +380,13 @@ class WebsiteController extends \BaseController {
 			case 7:
 				$backgrounds='images/website/themes7/template_7.jpg';
 				break;
-			
 			case 8:
 				$backgrounds='images/website/themes8/kiss1.jpg';
 				break;
+			case 9:
+				$backgrounds='images/website/themes8/kiss1.jpg';
+				break;
+
 			}
 					
 			
@@ -439,8 +464,16 @@ class WebsiteController extends \BaseController {
 				break;
 
 			case 7:
-			$backgrounds='images/website/themes7/template_7.jpg';
-			break;					
+				$backgrounds='images/website/themes7/template_7.jpg';
+			break;
+
+			case 8:
+				$backgrounds='images/website/themes8/kiss1.jpg';
+			break;
+
+			case 9:
+				$backgrounds='';
+			break;
 			
 			}
 			
@@ -979,9 +1012,15 @@ class WebsiteController extends \BaseController {
 			case 7:
 				$backgrounds='images/website/themes7/template_7.jpg';
 			break;
+
 			case 8:
 				$backgrounds='images/website/themes8/kiss1.jpg';
 			break;
+
+			case 9:
+				$backgrounds='';
+				break;
+
 			}			
 			
 		}
@@ -1043,7 +1082,15 @@ class WebsiteController extends \BaseController {
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_website)
 																	->with('date_url',$date_url);
-				break;			
+				break;
+
+			case 9:
+				return View::make('website_user.themes9.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
+																	->with('id_web', $id_website)
+																	->with('date_url',$date_url);
+				break;
 			
 			default:
 				return View::make('website_user.themes.page.index')->with('website', $website)
@@ -1140,7 +1187,7 @@ class WebsiteController extends \BaseController {
 			switch ($id_tab) {
 				case 111:
 					$image = Input::file('image');
-					$filename = $id_user.'_bride_'.str_random(10) . '.' .$image->getClientOriginalExtension();
+					$filename = $id_user.'bride' . '.' .$image->getClientOriginalExtension();
 					$pathsave = 'images/website/themes2/avatar/'.$filename;
 					Image::make($image->getRealPath())->resize(800, 600)->save($pathsave);
 					WeddingWebsite::where('user',$id_user)->update(
@@ -1151,7 +1198,7 @@ class WebsiteController extends \BaseController {
 
 				case 222:
 					$image = Input::file('image');
-					$filename = $id_user.'_groom_'.str_random(10) . '.' .$image->getClientOriginalExtension();
+					$filename = $id_user.'groom' . '.' .$image->getClientOriginalExtension();
 					$pathsave = 'images/website/themes2/avatar/'.$filename;
 					Image::make($image->getRealPath())->resize(800, 600)->save($pathsave);
 					WeddingWebsite::where('user',$id_user)->update(
@@ -1159,7 +1206,6 @@ class WebsiteController extends \BaseController {
 						);
 
 					break;
-				
 			// end load images for bride and groom
 
 			default:

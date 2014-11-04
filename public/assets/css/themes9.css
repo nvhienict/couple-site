@@ -1,0 +1,410 @@
+
+.clear {
+	clear: both;
+}
+
+body {
+	background-attachment: fixed;
+	background: url(../../images/website/themes9/body.png) repeat #faf9f6;
+}
+
+.icon-go_top{
+	background-color: #575350;
+	position: fixed;
+	bottom: 10%;
+	right: 3%;
+	display: none;
+	border-radius: 2.5em;
+}
+
+#container {
+	margin: 20px 0 0 15em;
+	max-width: 960px;
+	box-shadow: inset 0 0 50px #dbcbba, 0 0 20px #b6b0a9;
+	border: 1px solid #f1ece6;
+	background: url(images/paper.png) repeat #faf9f6;
+}
+
+#container-edit{
+	margin: 20px 0 0 3em;
+	max-width: 960px;
+	box-shadow: inset 0 0 50px #dbcbba, 0 0 20px #b6b0a9;
+	border: 1px solid #f1ece6;
+	background: url(images/paper.png) repeat #faf9f6;
+}
+
+.bouquet {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 240px;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	z-index: 99;
+}
+.bouquet img {
+	height: auto;
+	width: 100%;
+	text-align: center;
+	border: 0;
+}
+
+.lim-with {
+	max-width: 960px !important;
+}
+.container-frame {
+	border: 4px double #d2c1b4;
+	margin: 30px;
+	padding: 20px;
+	background: url(../../images/website/themes9/top_left.svg) left top no-repeat, url(../../images/website/themes9/top_right.svg) right top no-repeat, url(../../images/website/themes9/bottom_left.svg) left bottom no-repeat, url(../../images/website/themes9/bottom_right.svg) right bottom no-repeat;
+	background-size: 135px 155px, 135px 155px, 135px 155px, 135px 155px;
+}
+.header {
+	margin: 0;
+	position: relative;
+}
+.groom-bride {
+	margin: 20px 0;
+	position: relative;
+	text-align: center;
+}
+.groom-bride .groom-photo {
+	position: relative;
+	display: inline-block;
+}
+.groom-bride .bride-photo {
+	position: relative;
+	display: inline-block;
+}
+.groom-bride img {
+	border: 4px double #dfd1bb;
+	display: table-cell;
+	vertical-align: middle;
+	max-width: 142px;
+	height: 142px;
+	border-radius: 142px;
+}
+
+.groom-bride-name {
+	margin: -20px 0 0 0;
+	padding: 0 0.5em 0.2em 0.5em;
+	font-size: 4.5em !important;
+	color: #575350;
+	position: relative;
+	text-shadow: 0 2px 0 #fff;
+	display: block;
+	text-align: center;
+	font-family: 'Great Vibes', 'Marck Script', 'PT Sans', sans-serif;
+	position: relative;
+	line-height: 1em;
+}
+.groom-bride-name-edit {
+	margin: -5px 0 0 0;
+	padding: 0 0.5em 0.2em 0.5em;
+	font-size: 4.5em !important;
+	color: #575350;
+	position: relative;
+	text-shadow: 0 2px 0 #fff;
+	display: block;
+	text-align: center;
+	font-family: 'Great Vibes', 'Marck Script', 'PT Sans', sans-serif;
+	position: relative;
+	line-height: 1em;
+}
+
+.info-description {
+	font-size: 1.1em;
+	text-transform: uppercase;
+	color: #999;
+	text-align: center;
+	display: block;
+	margin: 20px 0;
+	padding: 0;
+	text-shadow: 0 2px 0 #fff;
+}
+
+#menu-tiny:before{
+	content: '';
+	height: 1px;
+	border-top: 3px solid #575350;
+	border-bottom: 1px solid #575350;
+	display: block;
+	margin: 0 -31px 2px;
+	padding-top: 1px;
+}
+#menu-tiny{
+	z-index: 9999;
+	font-size: 1.125em;
+	list-style-type: none;
+	text-align: center;
+	padding: 0 30px;
+	margin: 20px 0 0 0;
+	display: block;
+	background: url(../../images/website/themes9/diamonds.png) left center no-repeat, url(../../images/website/themes9/diamonds.png) right center no-repeat #fff;
+	box-shadow: inset 0 0 10px #ccc;
+}
+#menu-tiny:after{
+	content: '';
+	height: 1px;
+	border-top: 1px solid #575350;
+	border-bottom: 3px solid #575350;
+	display: block;
+	margin: 0 -31px 2px;
+	padding-top: 1px;
+}
+
+/*slide*/
+
+.featured-img {
+	position: relative;
+	height: 500px;
+	font-size: 2.5em;
+	color: #f5e6ce;
+	background: url(../../images/website/themes9/bg_slider.png) no-repeat transparent;
+	background-size: 100% 100%;
+	margin-top: 20px;
+	text-align: center;
+	padding-top: 5%;
+	padding-left: 5.7%;
+}
+
+.slide{
+	width: 90%;
+	max-height: 365px;
+}
+.carousel-inner{
+	max-height: 365px;
+}
+.carousel-indicators .active{
+	border: 1px solid #EB0000;
+	background-color: #EB0000;
+}
+.carousel-control.left span, .carousel-control.right span {
+	color: #EB0000;
+}
+
+/*slide*/
+
+/* ornament */
+.ornament {
+	background: url(../../images/website/themes9/ornament.svg) center center no-repeat;
+	background-size: auto 50px;
+	width: 100%;
+	height: 40px;
+	padding: 40px 0;
+}
+
+/* ornament */
+
+.wrapper {
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+}
+
+.top-widget {
+	max-width: 619px;
+	margin: 0 auto 20px auto;
+	min-height: 0;
+	clear: both;
+}
+
+.top-widget-title {
+	padding: 0;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 0;
+	font-size: 1.5em;
+	font-weight: 400;
+}
+
+.time-count-down {
+	width: 100%;
+	margin: 0 auto;
+	padding: 12px 0 10px 0;
+	text-align: center;
+}
+
+.feature-content {
+	background-color: #fff;
+	width: 99%;
+	min-height: 400px;
+	clear: both;
+	display: inline-block;
+	margin-bottom: 20%;
+}
+
+.item-left, .item-right {
+    min-height: 300px;
+    width: 48%;
+    display: inline-block;
+    clear: both;
+}
+.item-left {
+	margin-left: 2%;
+	padding-right: 2%;
+    border-right: 3px dotted #CFB7A6;
+    border-bottom: 3px dotted #CFB7A6;
+}
+.item-right {
+	padding-left: 2%;
+    border-bottom: 3px dotted #CFB7A6;
+}
+.item-center {
+	min-height: 300px;
+    width: 96.5%;
+    display: inline-block;
+    clear: both;
+    margin-left: 2%;
+	/*padding-right: 3.5%;*/
+    border-bottom: 3px dotted #CFB7A6;
+}
+
+.item-title {
+	width: 100%;
+	text-align: center;
+	padding: 5px;
+	text-transform: uppercase;
+	color: #575350;
+	padding-left: 0;
+    padding-right: 0;
+    margin-top: 5%;
+    font-size: 20px;
+}
+.item-title:after{
+	border-bottom: 1px solid #575350;
+    border-top: 3px solid #575350;
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    padding-top: 1px;
+}
+
+.item-left img, .item-right img, .item-center img {
+	padding: 9px;
+	box-shadow: inset 0 0 40px #dbcbba, 0 0 9px #dbd4cb;
+	border: 1px solid #dbd4cb;
+	background: #faf9f6;
+	width: 100%;
+}
+
+.item-content {
+	width: 100%;
+	margin: 10px 0;
+	text-align: justify;
+}
+
+.item-2 {
+	margin-left: 2%;
+    min-height: 300px;
+    height: auto;
+    width: 30%;
+    display: inline-block;
+}
+
+
+/*footer*/
+.sosical{
+	background-color: transparent;
+	border-top: 1px solid #DEC6AD;
+	min-height: 100px;
+	text-align: center;
+}
+.contact{
+	width: 100%;
+	text-align: center;
+
+}
+
+.copy-right{
+	background-color: transparent;
+	width: 50%;
+	min-height: 25px;
+	text-align: center;
+	position: relative;
+	top: 0;
+	left: 25%;
+}
+
+/*end footer*/
+
+
+@media (max-width: 980px) {
+  	#container {
+		margin: 20px 0 0 0.7em;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.navbar-header {
+	    float: none;
+	}
+	.navbar-toggle {
+	    display: block;
+	}
+	.navbar-collapse {
+	    border-top: 1px solid transparent;
+	    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+	}
+	.navbar-collapse.collapse {
+	    display: none!important;
+	}
+	.navbar-collapse.collapse.in {
+	    display: block!important;
+	}
+	.navbar-nav {
+	    float: none!important;
+	}
+	.navbar-nav>li {
+	    float: none;
+	}
+	.navbar-nav>li>a {
+	    padding-top: 10px !important;
+	    padding-bottom: 10px !important;
+	}
+
+  	#container {
+		margin: 0px 0 0 0em;
+	}
+
+	.featured-img {
+		padding-top: 7%;
+	}
+
+}
+
+@media (max-width: 360px) {
+  	.groom-bride img {
+		max-width: 100px;
+		height: 100px;
+	}
+
+	.groom-bride-name {
+		font-size: 200% !important;
+		margin: -5px 0 0 0;
+	}
+
+	.featured-img {
+		max-height: 190px;
+	}
+	.contact{
+		font-size: 120%;
+	}
+	.copy-right{
+		font-size: 95%;
+	}
+	.item-left, .item-right{
+		min-height: 200px;
+	}
+}
+
+@media (max-width: 320px) {
+  	
+	.featured-img {
+		max-height: 165px;
+	}
+}
+
+

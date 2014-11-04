@@ -275,14 +275,7 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('change_url',array('as'=>'change_url','uses'=>"WebsiteController@change_url"));
 	Route::post('load_url',array('as'=>'load_url','uses'=>'WebsiteController@load_url'));
 	Route::post('check_image_album',array('as'=>'check_image_album','uses'=>'WebsiteController@checkImageAlbum'));
-	// Route::get('themes5', function(){
-	// $id_user = WebsiteController::id_user();
-	// $id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;
-	// $website = WeddingWebsite::where('user',$id_user)->get();
-	// $firstname = User::where('id', $id_user)->get()->first()->firstname;
-	// return View::make('website_user.themes5.page.index')->with('website', $website)
-	// 													->with('firstname', $firstname)
-	// 													->with('id_web', $id_Web);
+	
 
 	// start time count down
 	Route::post('time_count_down', array('as'=>'time_count_down','uses'=>"WebsiteController@timeCountDown"));
@@ -334,7 +327,5 @@ Route::get('sitemap',array('as'=>'sitemap',function(){
 }));
 
 // end documents
-
-
 
 

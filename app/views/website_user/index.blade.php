@@ -30,26 +30,14 @@ Website cưới
 			<div class="row website_dashboard_left_top">
 				<div class="col-sm-6 col-lg-6 col-md-6">
 				
-				@if($img_tmp==3)
-						<img style="width:100%;" src="{{Asset('images/website/tmp/3.png')}}">
+				<?php
+					$arIdThemes = array(1,2,3,4,5,6,7,8,9);
+				?>
+
+				@if( in_array($img_tmp, $arIdThemes) )
+					<img style="width:100%;" src="{{Asset("images/website/tmp/{$img_tmp}.png")}}">
 				@endif
-				@if($img_tmp==2)
-						<img style="width:100%;" src="{{Asset('images/website/tmp/2.png')}}">
-				@endif
-				@if($img_tmp==1)
-						<img style="width:100%;" src="{{Asset('images/website/tmp/1.png')}}">
-				@endif
-				@if($img_tmp==6)
-						<img style="width:100%;" src="{{Asset('images/website/tmp/6.png')}}">
-				@endif
-				
-				@if($img_tmp==7)
-						<img style="width:100%;" src="{{Asset('images/website/tmp/7.png')}}">
-				@endif
-				
-				@if($img_tmp==8)
-						<img style="width:100%;" src="{{Asset('images/website/tmp/8.png')}}">
-				@endif
+
 				</div>
 				<div class="col-sm-6 col-lg-6 col-md-6 ">
 					Website được thiết kế bởi <a href="http://thuna.vn/" >thuna.vn</a><br />
@@ -61,17 +49,12 @@ Website cưới
 				<div class="col-xs-1"></div>
 				<div class="col-xs-5">Trang web:</div>
 				<div class="col-xs-5 ">
-					@if($img_tmp==3)
-						<a href="{{URL::route('view-previous', array('id'=>$img_tmp))}}" target="_blank">Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
-					@endif
-					@if($img_tmp==2)
-						<a href="{{URL::route('view-previous', array('id'=>$img_tmp))}}" target="_blank">Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
-					@endif
-					@if($img_tmp==1)
-						<a href="{{URL::route('view-previous', array('id'=>$img_tmp))}}" target="_blank">Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
-					@endif
-					@if($img_tmp==6)
-						<a href="{{URL::route('view-previous', array('id'=>$img_tmp))}}" target="_blank">Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+					<?php
+						$arIdThemes = array(1,2,3,4,5,6,7,8,9);
+					?>
+
+					@if( in_array($img_tmp, $arIdThemes) )
+						<a href="{{URL::route('view-previous', array('id'=>$img_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 					@endif
 				</div>
 				<div class="col-xs-1"></div>

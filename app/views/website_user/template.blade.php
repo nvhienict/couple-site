@@ -20,65 +20,20 @@ Giao diện Website cưới
 		<div class="col-md-1"></div>
 		<div class="col-md-10 choose_temp">
 
-				<div class="col-sm-4 col-lg-4 col-md-4">
-					<div class="span_choose_tmp">
-						<a href="{{URL::route('template-website', array('id'=>1))}}">
-							<img src="{{Asset('images/website/tmp/1.png')}}">
-						</a>
-					</div>
-	  			</div>
+				@for($i=1; $i<=9; $i++)
 
-	  			<div class="col-sm-4 col-lg-4 col-md-4">
-	  				<div class="span_choose_tmp">
-						<a href="{{URL::route('template-website', array('id'=>2))}}">
-							<img src="{{Asset('images/website/tmp/2.png')}}">
-						</a>
-					</div>
-	  			</div>
-	  			
-		  	
-			  	<div class="col-sm-4 col-lg-4 col-md-4">
-	  				<div class="span_choose_tmp">
-						<a href="{{URL::route('template-website', array('id'=>5))}}">
-							<img src="{{Asset('images/website/tmp/5.png')}}">
-						</a>
-					</div>
-	  			</div>
+					<div class="col-sm-4 col-lg-4 col-md-4">
+						<div class="span_choose_tmp">
+							<a href="{{URL::route('template-website', array('id'=>"{$i}"))}}">
+								<img src="{{Asset("images/website/tmp/{$i}.png")}}">
+							</a>
+						</div>
+		  			</div>
 
-			  	<div class="col-sm-4 col-lg-4 col-md-4">
-	  				<div class="span_choose_tmp">
-						<a href="{{URL::route('template-website', array('id'=>6))}}">
-							<img src="{{Asset('images/website/tmp/6.png')}}">
-						</a>
-					</div>
-	  			</div>
+				@endfor
 
-	  			<div class="col-sm-4 col-lg-4 col-md-4">
-	  				<div class="span_choose_tmp">
-						<a href="{{URL::route('template-website', array('id'=>3))}}">
-							<img src="{{Asset('images/website/tmp/3.png')}}">
-						</a>
-					</div>
-	  			</div>
-	  			<div class="col-sm-4 col-lg-4 col-md-4">
-	  				<div class="span_choose_tmp">
-						<a href="{{URL::route('template-website', array('id'=>7))}}">
-							<img src="{{Asset('images/website/tmp/7.png')}}">
-						</a>
-					</div>
-	  			</div>
-				
-				<div class="col-sm-4 col-lg-4 col-md-4">
-	  				<div class="span_choose_tmp">
-						<a href="{{URL::route('template-website', array('id'=>8))}}">
-							<img src="{{Asset('images/website/tmp/8.png')}}">
-						</a>
-					</div>
-	  			</div>
-		  	</div>
-		  	<!-- .row -->
 		</div>
-		<div class="col-xs-1"></div>
+		<div class="col-md-1"></div>
 	</div>
 	<!-- .row -->
 </div>

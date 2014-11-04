@@ -11,33 +11,14 @@
 		</div>
 		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-md-offset-8">			
 			
-			@if($id_tmp==1)
+			<?php
+				$arIdThemes = array(1,2,3,4,5,6,7,8,9);
+			?>
+
+			@if( in_array($id_tmp, $arIdThemes) )
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
 
-			@if($id_tmp==2)
-				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
-			@endif
-
-			@if($id_tmp==3)
-				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
-			@endif
-
-			@if($id_tmp==4)
-				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
-			@endif
-			@if($id_tmp==5)
-				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
-			@endif
-			@if($id_tmp==6)
-				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
-			@endif
-			@if($id_tmp==7)
-				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
-			@endif
-			@if($id_tmp==8)
-				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
-			@endif
 		</div>
 		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 			<a href="{{Asset('website')}}" class="thuna2" ><i class="glyphicon glyphicon-log-out"></i></a>
@@ -139,13 +120,6 @@
 			  						@endforeach
 			  					</select>
 						</span><br />
-			  			<!-- <span class="span_design_item">Nhấn mạnh:
-			  				<select class="form-control" name="accent_website" onchange="style_website(this.value);" class="select_design2">
-  							@for($i=1;$i<=3;$i++)
-  								<option value="{{$i}}">Style {{$i}}</option>
-  							@endfor
-  						</select>
-						</span> -->
 			  			<hr>
 			  			<span class="span_design_item">Màu: <a href="javascript:;" onclick="reset_color();" >Khôi phục mặc định</a></span><br />
 
@@ -307,11 +281,12 @@
 		<!-- content right include from view -->
 		<div class="col-xs-12 col-sm-9 col-lg-9 col-md-9 design_website_content_right">
 			
-			@if($id_tmp==2)
-					@include('website_user.themes2.edit.index')
+			<!-- viet theo thu tu cho de kiem soat =>Giang -->
+			@if($id_tmp==1)
+					@include('website_user.themes.edit.index')
 			@else
-					@if($id_tmp==1)
-						@include('website_user.themes.edit.index')
+					@if($id_tmp==2)
+						@include('website_user.themes2.edit.index')
 					@endif
 
 					@if($id_tmp==3)
@@ -321,15 +296,25 @@
 					@if($id_tmp==4)
 						@include('website_user.themes4.edit.index')	
 					@endif
-					@if($id_tmp==6)
-						@include('website_user.themes6.edit.index')
-					@endif
 
 					@if($id_tmp==5)
 						@include('website_user.themes5.edit.index')
 					@endif
+
+					@if($id_tmp==6)
+						@include('website_user.themes6.edit.index')
+					@endif
+
 					@if($id_tmp==7)
 						@include('website_user.themes7.edit.index')
+					@endif
+
+					@if($id_tmp==8)
+						@include('website_user.themes8.edit.index')
+					@endif
+
+					@if($id_tmp==9)
+						@include('website_user.themes9.edit.index')
 					@endif
 
 			@endif
