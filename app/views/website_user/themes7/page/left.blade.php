@@ -96,7 +96,7 @@
                     google.maps.event.trigger(map, 'resize');
                   });
                      initialize();
-                   $("#geomap").css("width","100%").css("height", "40%");
+                   $("#geomap").css("width","100%").css("height", "70%");
                     
                 
                     //Add listener to marker for reverse geocoding
