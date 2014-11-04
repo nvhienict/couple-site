@@ -12,7 +12,7 @@
 		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-md-offset-8">			
 			
 			<?php
-				$arIdThemes = array(1,2,3,4,5,6,7,8,9);
+				$arIdThemes = array(1,2,3,4,5,6,7,8,9,10);
 			?>
 
 			@if( in_array($id_tmp, $arIdThemes) )
@@ -316,7 +316,9 @@
 					@if($id_tmp==9)
 						@include('website_user.themes9.edit.index')
 					@endif
-
+					@if($id_tmp==10)
+						@include('website_user.themes10.edit.index')
+					@endif
 			@endif
 			
 

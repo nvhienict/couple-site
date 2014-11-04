@@ -31,7 +31,7 @@ Website cưới
 				<div class="col-sm-6 col-lg-6 col-md-6">
 				
 				<?php
-					$arIdThemes = array(1,2,3,4,5,6,7,8,9);
+					$arIdThemes = array(1,2,3,4,5,6,7,8,9,10);
 				?>
 
 				@if( in_array($img_tmp, $arIdThemes) )
@@ -50,7 +50,7 @@ Website cưới
 				<div class="col-xs-5">Trang web:</div>
 				<div class="col-xs-5 ">
 					<?php
-						$arIdThemes = array(1,2,3,4,5,6,7,8,9);
+						$arIdThemes = array(1,2,3,4,5,6,7,8,9,10);
 					?>
 
 					@if( in_array($img_tmp, $arIdThemes) )

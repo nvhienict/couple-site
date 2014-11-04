@@ -20,7 +20,7 @@ Giao diện Website cưới
 		<div class="col-md-1"></div>
 		<div class="col-md-10 choose_temp">
 
-				@for($i=1; $i<=9; $i++)
+				@for($i=1; $i<=10; $i++)
 
 					<div class="col-sm-4 col-lg-4 col-md-4">
 						<div class="span_choose_tmp">
