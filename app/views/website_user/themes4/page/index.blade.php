@@ -19,7 +19,30 @@
 		 <script type="text/javascript" src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script src="{{Asset("assets/js/map-themes.js")}}"></script>
-		 <script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
+		 
+		 <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
+    
+
+        <!-- Add mousewheel plugin (this is optional) -->
+        <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
+
+        <!-- Add fancyBox main JS and CSS files -->
+        <script type="text/javascript" src="{{Asset("assets/slide/source/jquery.fancybox.js?v=2.1.3")}}"></script>
+        <link rel="stylesheet" type="text/css"  href="{{Asset("assets/slide/source/jquery.fancybox.css?v=2.1.2")}}" media="screen" />
+
+        <!-- Add Button helper (this is optional) -->
+        <link rel="stylesheet" type="text/css" href="{{Asset("assets/slide/source/helpers/jquery.fancybox-buttons.css?v=1.0.5")}}" />
+        <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-buttons.js?v=1.0.5")}}"></script>
+
+        <!-- Add Media helper (this is optional) -->
+        <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-media.js?v=1.0.5")}}"></script>
+        <script type="text/javascript" src="{{Asset("assets/slide/f-slide.js")}}"></script>
+        <script src="{{Asset('assets/js/jquery.scrollTo.js')}}"></script>
+        <style type="text/css">
+            .fancybox-custom .fancybox-skin {
+                box-shadow: 0 0 50px #222;
+            }
+        </style>
 		 <script type="text/javascript">
 		jQuery(document).ready(function($) {
     		$('a.scrollTo').click(function () {
@@ -93,7 +116,7 @@
 										@endif
 									</a>
 								</figure>
-								<h3 style="font-family: 'Great Vibes',cursive;" class="title-bg name-g">{{$website_item->name_groom}}</h3>
+								<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="title-bg name-g">{{$website_item->name_groom}}</h3>
 								<p class="about-g">{{$website_item->about_groom}} </p>
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 text-center">
@@ -106,7 +129,7 @@
 										@endif
 									</a>
 								</figure>
-								<h3 style="font-family: 'Great Vibes',cursive;" class="title-bg name-b">{{$website_item->name_bride}}</h3>
+								<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
 								<p class="about-b">{{$website_item->about_bride}}</p>
 							</div>
 						</div>
@@ -125,6 +148,11 @@
 			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 			                    </h2>
+			                    <div class="row line-hr">
+			                    	<div class="col-xs-5 line-hr-left"></div>
+			                    	<div class="col-xs-2 line-hr-shape"></div>
+			                    	<div class="col-xs-5 line-hr-right"></div>
+			                    </div>
 			                </div>
 		            	</div>               		
 		            </div>
@@ -163,6 +191,11 @@
 			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 			                    </h2>
+			                    <div class="row line-hr">
+			                    	<div class="col-xs-5 line-hr-left"></div>
+			                    	<div class="col-xs-2 line-hr-shape"></div>
+			                    	<div class="col-xs-5 line-hr-right"></div>
+			                    </div>
 			                </div>
 		            	</div>               		
 		            </div>
@@ -201,6 +234,11 @@
 			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 			                    </h2>
+			                    <div class="row line-hr">
+			                    	<div class="col-xs-5 line-hr-left"></div>
+			                    	<div class="col-xs-2 line-hr-shape"></div>
+			                    	<div class="col-xs-5 line-hr-right"></div>
+			                    </div>
 			                </div>
 		            	</div>               		
 		            </div>
@@ -232,6 +270,11 @@
 			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 			                    </h2>
+			                    <div class="row line-hr">
+			                    	<div class="col-xs-5 line-hr-left"></div>
+			                    	<div class="col-xs-2 line-hr-shape"></div>
+			                    	<div class="col-xs-5 line-hr-right"></div>
+			                    </div>
 			                </div>
 		            	</div>               		
 		            </div>
@@ -288,6 +331,11 @@
 			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 			                    </h2>
+			                    <div class="row line-hr">
+			                    	<div class="col-xs-5 line-hr-left"></div>
+			                    	<div class="col-xs-2 line-hr-shape"></div>
+			                    	<div class="col-xs-5 line-hr-right"></div>
+			                    </div>
 			                </div>
 		            	</div>               		
 		            </div>
@@ -320,6 +368,11 @@
 			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 			                    </h2>
+			                    <div class="row line-hr">
+			                    	<div class="col-xs-5 line-hr-left"></div>
+			                    	<div class="col-xs-2 line-hr-shape"></div>
+			                    	<div class="col-xs-5 line-hr-right"></div>
+			                    </div>
 			                </div>
 		            	</div>               		
 		            </div>
@@ -352,6 +405,11 @@
 			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 			                    </h2>
+			                    <div class="row line-hr">
+			                    	<div class="col-xs-5 line-hr-left"></div>
+			                    	<div class="col-xs-2 line-hr-shape"></div>
+			                    	<div class="col-xs-5 line-hr-right"></div>
+			                    </div>
 			                </div>
 		            	</div>               		
 		            </div>
@@ -394,7 +452,14 @@
 					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two">{{$tabWeb->title}}</h2>
+			                    <h2 class="hr-white-two">
+			                    	{{$tabWeb->title}}
+			                    </h2>
+			                    <div class="row line-hr">
+			                    	<div class="col-xs-5 line-hr-left"></div>
+			                    	<div class="col-xs-2 line-hr-shape"></div>
+			                    	<div class="col-xs-5 line-hr-right"></div>
+			                    </div>
 			                </div>
 		            	</div>               		
 		            </div>

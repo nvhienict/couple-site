@@ -1,3 +1,34 @@
+
+.line-hr{
+	height: 0px;
+	padding-top: 80px;
+	padding-bottom: 20px;
+	text-align: center;
+	text-decoration: none;
+	color: #666666;
+	outline: none;
+	background: #FFFFFF;
+	margin-top: 40px;
+	margin-right: 0px;
+	margin-left: 40px;
+
+}
+
+.line-hr-left, .line-hr-right{
+	width: 41%;
+	height: 15px;
+	background: transparent url(../../images/website/themes4/line-pattern.png);
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.line-hr-shape{
+	width: 159px;
+	height: 35px;
+	margin-top: 10px;
+	background: transparent url(../../images/website/themes4/floral.png) center center no-repeat;
+	display: inline-block;
+}
 #geomap{
 	width:100%; height:80px;
 }
