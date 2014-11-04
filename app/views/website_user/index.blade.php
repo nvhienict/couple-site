@@ -5,7 +5,6 @@ Website cưới
 @section('nav-bar')
 @include('nav')
 @endsection
-
 @section('content')
 <div id='container'>
 	<div class="row" style="margin: 0px;">
@@ -43,10 +42,14 @@ Website cưới
 				@if($img_tmp==6)
 						<img style="width:100%;" src="{{Asset('images/website/tmp/6.png')}}">
 				@endif
+				
+				@if($img_tmp==7)
+						<img style="width:100%;" src="{{Asset('images/website/tmp/7.png')}}">
+				@endif
+				
 				@if($img_tmp==8)
 						<img style="width:100%;" src="{{Asset('images/website/tmp/8.png')}}">
 				@endif
-
 				</div>
 				<div class="col-sm-6 col-lg-6 col-md-6 ">
 					Website được thiết kế bởi <a href="http://thuna.vn/" >thuna.vn</a><br />

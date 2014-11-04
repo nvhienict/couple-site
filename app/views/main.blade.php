@@ -188,8 +188,7 @@
 			
 		</div> -->
 		<div class="col-md-3">
-			<a href="javascript:void(0);" class="btn btn-top" id="go_top">
-				<!-- <img src="{{Asset('icon/top3.png')}}" id="back-top" > -->
+			<a href="javascript:void(0);" class="btn btn-top" id="go_top">				
 				<i class="fa fa-angle-up fa-3x text-center"></i>
 			</a>
 		</div>

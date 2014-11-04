@@ -26,17 +26,18 @@
 			@if($id_tmp==4)
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
-
 			@if($id_tmp==5)
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
 			@if($id_tmp==6)
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
+			@if($id_tmp==7)
+				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+			@endif
 			@if($id_tmp==8)
 				<a href="{{URL::route('view-previous', array('id'=>$id_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 			@endif
-			
 		</div>
 		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 			<a href="{{Asset('website')}}" class="thuna2" ><i class="glyphicon glyphicon-log-out"></i></a>
@@ -65,7 +66,7 @@
 			  		<p>
 			  			<a href="{{Asset('change_temp')}}">Thay đổi giao diện <i class="fa fa-chevron-right fa-fw"></i></a>
 			  		</p>
-			  		<p>
+					<p>
 			  			<a  onclick="getInfor()" href="" data-backdrop="static" data-toggle="modal" data-target='#modal-infor'>Nhập thông tin cô dâu, chú rể <i class="fa fa-chevron-right fa-fw"></i></a>
 			  		</p>
 			  		<div class="page_design_home_item">
@@ -309,7 +310,6 @@
 			@if($id_tmp==2)
 					@include('website_user.themes2.edit.index')
 			@else
-
 					@if($id_tmp==1)
 						@include('website_user.themes.edit.index')
 					@endif
@@ -317,11 +317,10 @@
 					@if($id_tmp==3)
 						@include('website_user.themes3.edit.index')
 					@endif
-
-					@if($id_tmp==5)
-						@include('website_user.themes5.edit.index')
+					
+					@if($id_tmp==4)
+						@include('website_user.themes4.edit.index')	
 					@endif
-
 					@if($id_tmp==6)
 						@include('website_user.themes6.edit.index')
 					@endif
@@ -329,8 +328,8 @@
 					@if($id_tmp==5)
 						@include('website_user.themes5.edit.index')
 					@endif
-					@if($id_tmp==4)
-						@include('website_user.themes4.edit.index')	
+					@if($id_tmp==7)
+						@include('website_user.themes7.edit.index')
 					@endif
 
 			@endif
@@ -516,7 +515,6 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
 <div class="modal fade" id="modal-infor">
   <div class="modal-dialog">
     <div class="modal-content">
