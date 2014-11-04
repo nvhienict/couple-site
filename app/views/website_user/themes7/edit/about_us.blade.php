@@ -19,7 +19,7 @@
 		</span>		
 			
 			<div class="about_grooms show-content ">
-				<span>Thua 2/3 vòng đầu tiên tại La Liga khiến đội bóng Hoàng gia có sự khởi đầu mùa giải không thể tệ hại hơn. Những ánh mắt nghi ngờ hướng vào Cristiano Ronaldo, vào Carlo Ancelotti, vào những tân binh đắt tiền mà đội bóng Hoàng gia vừa tậu.</span>
+				<span class="about-g">{{$website_item->about_groom}}</span>
 			</div>
 		</div>	
 		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -34,7 +34,7 @@
 		<button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
 		</span>		
 			<div class="about_bride show-content ">
-				<span>Thua 2/3 vòng đầu tiên tại La Liga khiến đội bóng Hoàng gia có sự khởi đầu mùa giải không thể tệ hại hơn. Những ánh mắt nghi ngờ hướng vào Cristiano Ronaldo, vào Carlo Ancelotti, vào những tân binh đắt tiền mà đội bóng Hoàng gia vừa tậu.</span>
+				<span class="about-b">{{$website_item->about_bride}}</span>
 			</div>
 		</div>
 		<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">

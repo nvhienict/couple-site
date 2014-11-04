@@ -14,8 +14,6 @@
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="{{Asset("assets/js/jquery.min.js")}}"></script>
     <script src="{{Asset("assets/js/map-themes.js")}}"></script>
-    <script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
-
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes7-edit.css")}}">
   <script type="text/javascript">
@@ -128,11 +126,11 @@
                         @endforeach()
                       </ul>
                    </div>
-                </div>
-        </nav>
+            </nav>
+         </div>    
      </div>
     <div class="container main_template_7">        
-        <div class="row ">
+        <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11">
             @foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
 
                 <!-- Welcome -->
