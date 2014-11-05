@@ -1,10 +1,8 @@
-
 <head>
     <!--  Slide Album -->
 
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
-            <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
-
+            
             <!-- Add mousewheel plugin (this is optional) -->
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
 
@@ -26,19 +24,18 @@
             </style>
 
 </head>
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 phara-temp wedding-photo">
-    <div class="content-photo-temp">
-       <h2 class="text-center section-title section-title-photo" >
-            Album ảnh
-        </h2>
+<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 phara-temp wedding-photo">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content-photo-temp">
+        
         <div class="show-content phara{{$tabWeb->id}}" >
             <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>                                      
         </div>      
         
                      
     </div>
-  <br><br>  
- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 photoslide-temp ">     
+  
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 photoslide-temp ">     
         <?php $check=PhotoTab::where('user',$website_item->user)->get()->count();?>
             @if($check>0)
             <div class="row phara-margin">
@@ -55,23 +52,23 @@
             @else
                     
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
-                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes7/1.jpg")}}">
-                            <img class="img-responsive" src="{{Asset("images/website/themes7/1.jpg")}}" alt="" />
+                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes10/1.jpg")}}">
+                            <img class="img-responsive" src="{{Asset("images/website/themes10/1.jpg")}}" alt="" />
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
-                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes7/2.jpg")}}">
-                            <img class="img-responsive" src="{{Asset("images/website/themes7/2.jpg")}}" alt="" />
+                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes10/2.jpg")}}">
+                            <img class="img-responsive" src="{{Asset("images/website/themes10/2.jpg")}}" alt="" />
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
-                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes7/3.jpg")}}">
-                            <img class="img-responsive" src="{{Asset("images/website/themes7/3.jpg")}}" alt="" />
+                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes10/3.jpg")}}">
+                            <img class="img-responsive" src="{{Asset("images/website/themes10/3.jpg")}}" alt="" />
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
-                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes7/4.jpg")}}">
-                            <img class="img-responsive" src="{{Asset("images/website/themes7/4.jpg")}}" alt="" />
+                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes10/4.jpg")}}">
+                            <img class="img-responsive" src="{{Asset("images/website/themes10/4.jpg")}}" alt="" />
                         </a>
                     </div>
                
@@ -80,8 +77,6 @@
 
          
           
-                       
-              
-     </div>     
+    </div>     
 
 </div>
