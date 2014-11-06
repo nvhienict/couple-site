@@ -8,7 +8,10 @@ h2{
     font-weight: normal;
     line-height: 1.5;
 }
-
+.nav.navbar-nav
+{
+	background-color: rgba(253, 226, 224, 1);
+}
 
 .side-nav a:hover {
     color: #ec6d65 !!important;
