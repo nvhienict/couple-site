@@ -40,4 +40,3 @@ Giao diện Website cưới
 <!-- .container -->
 
 @endsection
-	

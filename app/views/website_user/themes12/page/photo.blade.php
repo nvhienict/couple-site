@@ -23,7 +23,6 @@
                     box-shadow: 0 0 50px #222;
                 }
             </style>
-
 </head>
 <div>
     <div class="partion">
