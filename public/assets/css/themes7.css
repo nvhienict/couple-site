@@ -53,16 +53,18 @@ h2{
 {
 	margin-top: 100px;
 }
+
 .section-title
 {
 	line-height: 1.2;
     text-align: center;
-    font-size: 6em;   
+    font-size: 4em;   
     border-bottom: 4px double #c9b29b;
-    width: auto;
-    margin: 0 20%;
+    width: auto;   
+    margin-top: 20px;
+    text-transform: uppercase ;
+    margin: 0 25%;
 }
-
 .section-title span
 {
 	text-transform: uppercase ;
@@ -88,42 +90,33 @@ h2{
     font-family: 'Patrick Hand', cursive;
 }
 
-.section-title
-{
-	line-height: 1.2;
-    text-align: center;
-    font-size: 6em;   
-    border-bottom: 4px double #c9b29b;
-    width: auto;   
-    margin-top: 20px;
-    text-transform: uppercase ;
-}
+
 .section-title-about
 {
-	 margin: 0 10%;
+	 margin: 0 25%;
        
 }
 
 .section-title-wedding
 {
-	margin: 0 30%;
+	margin: 0 35%;
    
 }
 .section-title-traval
 {
-	margin: 0 30%;
+	margin: 0 35%;
 }
 .section-title-photo
 {
-	margin: 0 20%;
+	margin: 0 35%;
 }
 .section-title-contact
 {
-	margin: 0 20%;
+	margin: 0 35%;
 }
 .section-title-love_story
 {
-	margin: 0 15%;
+	margin: 0 25%;
 }
 .image-couple
 {
@@ -220,6 +213,38 @@ body
 	text-align:center !important; 
 	font-family: 'Roboto Slab', serif !important;
 	font-weight: bold !important; 
-	font-size: 50px !important; 
+	font-size: 30px !important; 
 	color: #de675f !important;
+}
+@media only screen and (max-device-width: 980px) {
+
+	.count_table_dateTime{
+		font-size: 20px !important;
+	}
+	.section-title
+	{
+		font-size: 4em;
+	}
+	.section-title em
+	{
+		font-size: 20px;
+	}
+}
+@media only screen and (max-device-width: 360px) {
+
+	.count_table_dateTime{
+		font-size: 14px !important;
+	}
+	.section-title
+	{
+		font-size: 2em;
+	}
+	.section-title em
+	{
+		font-size: 14px;
+	}
+	.subline
+	{
+		font-size: 14px;
+	}
 }

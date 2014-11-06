@@ -55,16 +55,18 @@
 {
 	margin-top: 100px;
 }
+
 .section-title
 {
 	line-height: 1.2;
     text-align: center;
-    font-size: 6em;   
+    font-size: 4em;   
     border-bottom: 4px double #c9b29b;
-    width: auto;
-    margin: 0 20%;
+    width: auto;   
+    margin-top: 20px;
+    margin: 0 25%;
+    text-transform: uppercase ;
 }
-
 .section-title span
 {
 	text-transform: uppercase ;
@@ -73,7 +75,7 @@
 .section-title em
 {
 	color: #987c61;
-	font-size: 50px;
+	font-size: 30px;
 }
 .main-page
 {
@@ -82,7 +84,7 @@
 .subline
 {
 	padding: 0.5em 0.5em 0;
-	font-size: 2em;
+	font-size: 1.5em !important;
     font-weight: normal;
     line-height: 1.6;
     margin-bottom: 1.25em;    
@@ -90,42 +92,33 @@
     font-family: 'Patrick Hand', cursive;
 }
 
-.section-title
-{
-	line-height: 1.2;
-    text-align: center;
-    font-size: 6em;   
-    border-bottom: 4px double #c9b29b;
-    width: auto;   
-    margin-top: 20px;
-    text-transform: uppercase ;
-}
+
 .section-title-about
 {
-	 margin: 0 10%;
+	 margin: 0 25%;
        
 }
 
 .section-title-wedding
 {
-	margin: 0 25%;
+	margin: 0 35%;
    
 }
 .section-title-traval
 {
-	margin: 0 30%;
+	margin: 0 35%;
 }
 .section-title-photo
 {
-	margin: 0 20%;
+	margin: 0 30%;
 }
 .section-title-contact
 {
-	margin: 0 20%;
+	margin: 0 35%;
 }
 .section-title-love_story
 {
-	margin: 0 10%;
+	margin: 0 25%;
 }
 .image-couple
 {
@@ -241,5 +234,5 @@ body
 }
 #count_dateTime
 {
-	text-align:center; font-family: 'Roboto Slab', serif;font-weight: bold; font-size: 50px; color: #de675f;
+	text-align:center; font-family: 'Roboto Slab', serif;font-weight: bold; font-size: 30px; color: #de675f;
 }
