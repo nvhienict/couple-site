@@ -100,8 +100,12 @@
 				        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 about">
 				        	<hgroup>
 				        		<h2 class="text-center" style="text-transform: uppercase; color: #{{$website_item->color1}}; font-family: {{$website_item->font}};"> Ours Wedding </h2>
-				        		<h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-infor">
-				        			{{$website_item->name_groom}} &amp; {{$website_item->name_bride}}
+				        		<h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-g">
+				        			{{$website_item->name_groom}}
+				        		</h1>
+				        		<h6 class="text-center" style="font-size:20px;">&</h6>
+				        		<h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-b">
+				        			 {{$website_item->name_bride}}
 				        		</h1>
 				        		<h6>on</h6>
 				        		<h3 class="text-center title-tab" style="color: #{{$website_item->color1}}">
@@ -139,7 +143,7 @@
 									</a>
 									<button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
 								</figure>
-								<h3 style="font-family: 'Great Vibes',cursive;#{{$website_item->color2}}" class="title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
+								<h3 style="font-family: 'Great Vibes',cursive; color:#{{$website_item->color2}}" class="title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
 								<p class="about-b">{{$website_item->about_bride}}</p>
 							</div>
 						</div>
@@ -148,14 +152,14 @@
 				    <div class="hr_invisible medium"></div>
 				    <div class="page-bottom-bg"></div>
 				</section>
-			@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
-				@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
+			@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
+				@if($tabWeb->type =="welcome" )
 				<!-- chao mung -->
 				<section class="our-history" id="section_{{$tabWeb->type}}">
 					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
+			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 			                    </h2>
 			                    <div class="row line-hr">
@@ -228,7 +232,7 @@
 					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
+			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 			                    </h2>
 			                    <div class="row line-hr">
@@ -296,13 +300,13 @@
 				@endif
 
 		<!-- About Us -->
-				@if($tabWeb->type=="about" && $tabWeb->visiable==0)
+				@if($tabWeb->type=="about")
 				<!-- about -->
 				<section class="our-history" id="section_{{$tabWeb->type}}">
 					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
+			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 			                    </h2>
 			                    <div class="row line-hr">
@@ -364,12 +368,12 @@
 				@endif
 
 		<!-- Wedding Event -->
-				@if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
+				@if($tabWeb->type=="wedding" )
 				<section class="our-history" id="section_{{$tabWeb->type}}">
 					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
+			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 			                    	
 			                    </h2>
@@ -453,13 +457,13 @@
 				@endif
 
 		<!-- Travaling -->
-			@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
+			@if($tabWeb->type=="traval")
 				<!-- traval -->
 				<section class="our-history"id="section_{{$tabWeb->type}}">
 					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
+			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 			                    	
 			                    </h2>
@@ -523,12 +527,12 @@
 				<!-- album -->
 				@endif
         <!-- Photo Album -->
-    		    @if($tabWeb->type=="album" && $tabWeb->visiable==0)
+    		    @if($tabWeb->type=="album")
 				<section class="our-history" id="section_{{$tabWeb->type}}">
 					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
+			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 			                    	
 			                    </h2>
@@ -596,13 +600,13 @@
 				@endif
 
         <!-- Contact Us -->
-        		@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
+        		@if($tabWeb->type=="contact")
 				<!-- contact -->
 				<section class="our-history" id="section_{{$tabWeb->type}}">
 					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
+			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 			         
 			                    </h2>
@@ -676,12 +680,12 @@
 				@endif
 
        <!--  Guest book -->
-     			 @if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
+     			 @if($tabWeb->type=="guestbook")
 				<section class="our-history" id="section_{{$tabWeb->type}}">
 					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
+			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
 			                    	{{$tabWeb->title}}
 
 			                    </h2>

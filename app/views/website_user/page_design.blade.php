@@ -12,7 +12,7 @@
 		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-md-offset-8">			
 			
 			<?php
-				$arIdThemes = array(1,2,3,4,5,6,7,8,9,10);
+				$arIdThemes = array(1,2,3,4,5,6,7,8,9,10,11);
 			?>
 
 			@if( in_array($id_tmp, $arIdThemes) )
@@ -319,6 +319,10 @@
 					@if($id_tmp==10)
 						@include('website_user.themes10.edit.index')
 					@endif
+
+					@if($id_tmp==11)
+						@include('website_user.themes11.edit.index')
+					@endif
 			@endif
 			
 
@@ -551,7 +555,6 @@
 				var about_bride=$('#about_bride').val();
 				var about_groom=$('#about_groom').val();
 				var obj=JSON.parse(data);
-				$('.name-infor').text(name_groom+' & '+name_bride);
 				$('.success-infor').text(obj.message_infor);
 				$('.name-g').text(name_groom);
 				$('.name-b').text(name_bride);

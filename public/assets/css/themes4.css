@@ -2,6 +2,12 @@
 	background: white;
 	
 }
+.font-name{
+	 font-family: "Great Vibes" !important ,cursive;
+}
+.name-infor{
+	display: block;
+}
 
 .menuVertical > li > a{
 	color: white;
