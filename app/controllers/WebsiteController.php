@@ -429,7 +429,6 @@ class WebsiteController extends \BaseController {
 				$backgrounds='';
 				break;
 
-
 			}
 					
 			
