@@ -327,5 +327,3 @@ Route::get('sitemap',array('as'=>'sitemap',function(){
 }));
 
 // end documents
-
-

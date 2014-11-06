@@ -169,13 +169,21 @@ class WebsiteController extends \BaseController {
 			case 9:
 				$backgrounds='';
 				break;
+
 			case 10:
 				$backgrounds='';
 				break;
+
 			case 11:
 				$backgrounds='';
 				break;
-			}			
+
+			case 12:
+				$backgrounds='';
+				break;
+
+
+			}
 			
 		}
 
@@ -247,7 +255,14 @@ class WebsiteController extends \BaseController {
 																	->with('firstname', $firstname)
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_Web);
-				break;		
+				break;
+
+			case 12:
+				return View::make('website_user.themes12.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
+																	->with('id_web', $id_Web);
+				break;
 			
 			default:
 				return View::make('website_user.themes.page.index')->with('website', $website)
@@ -410,6 +425,10 @@ class WebsiteController extends \BaseController {
 			case 11:
 				$backgrounds='';
 				break;
+			case 12:
+				$backgrounds='';
+				break;
+
 
 			}
 					
@@ -503,8 +522,12 @@ class WebsiteController extends \BaseController {
 			break;	
 			
 			case 11:
-			$backgrounds='';
-			break;		
+				$backgrounds='';
+			break;
+
+			case 12:
+				$backgrounds='';
+			break;
 			
 			}
 			
@@ -1051,10 +1074,20 @@ class WebsiteController extends \BaseController {
 			case 9:
 				$backgrounds='';
 				break;
+
 			case 10:
 				$backgrounds='';
 			break;
-			}			
+
+			case 11:
+				$backgrounds='';
+			break;
+
+			case 12:
+				$backgrounds='';
+			break;
+
+			}
 			
 		}
 
@@ -1141,7 +1174,17 @@ class WebsiteController extends \BaseController {
 																->with('date_url',$date_url)
 																->with('email',$email)
 																->with('count_down_url',$count_down_url);
+				break;
+
+			case 12:
+				return View::make('website_user.themes12.page.index')->with('website', $website)
+																->with('firstname', $firstname)
+																->with('id_web', $id_website)
+																->with('date_url',$date_url)
+																->with('email',$email)
+																->with('count_down_url',$count_down_url);
 				break;	
+
 			default:
 				return View::make('website_user.themes.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
@@ -1237,8 +1280,8 @@ class WebsiteController extends \BaseController {
 			switch ($id_tab) {
 				case 111:
 					$image = Input::file('image');
-					$filename = $id_user.'bride' . '.' .$image->getClientOriginalExtension();
-					$pathsave = 'images/website/themes2/avatar/'.$filename;
+					$filename = $id_user.'_bride_' .str_random(10).'.' .$image->getClientOriginalExtension();
+					$pathsave = 'images/website/avatar/'.$filename;
 					Image::make($image->getRealPath())->resize(800, 600)->save($pathsave);
 					WeddingWebsite::where('user',$id_user)->update(
 						array('avatar_bride'=>$pathsave)					
@@ -1248,8 +1291,8 @@ class WebsiteController extends \BaseController {
 
 				case 222:
 					$image = Input::file('image');
-					$filename = $id_user.'groom' . '.' .$image->getClientOriginalExtension();
-					$pathsave = 'images/website/themes2/avatar/'.$filename;
+					$filename = $id_user.'_groom_' .str_random(10).'.' .$image->getClientOriginalExtension();
+					$pathsave = 'images/website/avatar/'.$filename;
 					Image::make($image->getRealPath())->resize(800, 600)->save($pathsave);
 					WeddingWebsite::where('user',$id_user)->update(
 						array('avatar_groom'=>$pathsave)					
