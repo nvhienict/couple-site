@@ -192,12 +192,9 @@
 						<td class="time_txt">Giây</td>
 					</tr>
 				</table>
-				<p class="date-time-title">
-					@if(Session::has('email'))
-	            		{{WebsiteController::getDates()}}
-	            	@else
-	            		{{$date_url}}
-	            	@endif
+				<p class="date-time-title">				
+	           		{{WebsiteController::getDates()}}
+	            
 	            </p>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 image-title-temp text-center">
