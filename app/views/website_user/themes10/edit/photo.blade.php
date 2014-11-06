@@ -2,6 +2,7 @@
     <!--  Slide Album -->
 
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
+             <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
             
             <!-- Add mousewheel plugin (this is optional) -->
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>

@@ -9,12 +9,12 @@
     <meta name="author" content="Thuna.vn">
 	
 	<title>{{$firstname}}'s wedding</title>
-	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
+  
+	 <script src="{{Asset("assets/js/jquery.min.js")}}"></script>
     <script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
-    
-    
-   	
+   
+   
+  	
    	<!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
 
@@ -36,8 +36,9 @@
     </style>
 
     <!-- Custom CSS -->
+      <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes10-edit.css")}}">
-   
+  
 </head>
 <script type="text/javascript">
         function showckeditor(id){
@@ -129,8 +130,8 @@
 <body>
 @if($website)
 @foreach( $website as $website_item )
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="position:fixed; z-index=1000">
-        <nav style="padding:0px;"class="navbar navbar-default navbar-fixed-top side-nav-menu" role="navigation">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="position:fixed;">
+        <nav class="navbar navbar-default navbar-fixed-top side-nav-menu" role="navigation">
            <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" 
                  data-target="#example-navbar-collapse">
