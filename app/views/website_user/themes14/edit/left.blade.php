@@ -18,11 +18,34 @@
                
             </a>
         </span >     
+         <span>
+            <button  onclick="send_id({{$tabWeb->id}})"  class="btn " data-toggle="modal" data-target='#modal-changeimage' style="background: #fff;color:black; border:none;">Đổi Ảnh</button>
+        </span>   
             
     </div>
-    <div class="show-content phara{{$tabWeb->id}}" style="margin-right:5%;">
+    <div onclick="showckeditor({{$tabWeb->id}})" class="show-content phara{{$tabWeb->id}}" style="margin-right:5%;">
             <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>        
     </div>
+    <div class="edit-content editphara{{$tabWeb->id}}" >
+        <textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="30" rows="10" tabindex="1">
+               {{$tabWeb->content}}
+        </textarea>      
+    </div>
+    <div class="phara-margin float-right" >      
+        <div class="click-edit click-edit-hide{{$tabWeb->id}}" >            
+            <span> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+            
+        </div>
+    </div>
+    <div class="phara-margin float-right"  >    
+        <div class="ok-edit ok-edit-show{{$tabWeb->id}}">
+            <span>
+                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
+                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
+            </span>
+            <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
+        </div>
+    </div> 
        
 </div>
 

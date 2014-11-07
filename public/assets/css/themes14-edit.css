@@ -103,7 +103,39 @@ body
     font-family: 'Roboto Slab', serif;
     font-size: 16px;
 }
+.ok-edit{
+  display: none;
+}
+.edit-content{
+  display: none;
+  margin-top:2%
+}
 
+.float-left button{
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+  
+}
+.float-right button{
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+
+}
+.icon-site{
+  color: #fff;
+  line-height: 2.75em;
+  font-size: 1.5em;
+
+}
+.icon-site:hover{
+  text-decoration: none;
+
+}
+.icon-site:active{
+  text-decoration: none;
+}
 
 /*-slide*/
 	a.slidesjs-next,

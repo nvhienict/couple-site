@@ -24,7 +24,7 @@
                        <span for="">Mesages</span>
                        <input type="text" class="form-control" id="" placeholder=Messages>
                    </div>  
-                    <button type="submit" class="btn  send-contact">Send Mesages</button>                          
+                    <button type="submit" style="background: #fff;color:black;"class="btn  send-contact">Send Mesages</button>                          
                </form>                            
             </div>
 
