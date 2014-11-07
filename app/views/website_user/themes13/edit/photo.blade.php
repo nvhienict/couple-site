@@ -43,9 +43,9 @@
                 <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
                 @if($albums)
                     @foreach($albums as $album)
-                        <div class="col-xs-3 images-padding">
+                        <div class="col-xs-6 col-md-3 col-sm-3 col-lg-3 images-padding">
                             <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
-                                <img style="width:100%;height:170px;" src="{{Asset("{$album->photo}")}}" alt="" />
+                                <img class="img-responsive" src="{{Asset("{$album->photo}")}}" alt="" />
                             </a>
                         </div>
                     @endforeach
