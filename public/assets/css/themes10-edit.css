@@ -8,10 +8,6 @@ h2{
     font-weight: normal;
     line-height: 1.5;
 }
-.nav.navbar-nav
-{
-	background-color: rgba(253, 226, 224, 1);
-}
 
 .side-nav a:hover {
     color: #ec6d65 !!important;
@@ -25,6 +21,7 @@ h2{
 
 .side-nav
 {
+	background-color: rgba(253, 226, 224, 1) !important;
 	margin: 0 !important;
 	padding: 0 !important;
 	font-weight: bold !important;
