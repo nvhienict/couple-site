@@ -1,0 +1,137 @@
+#page1{
+	background-image: url('../../images/website/themes13/bg.jpg');
+	background-repeat: #D9ECF2;	
+	background-attachment: fixed;
+}
+.menu-theme-13{
+	/*display: none;*/
+	background: url('../../images/website/themes13/menu_bg.png') center center no-repeat;
+	/*background-position: right;*/
+	width: 58%;
+	height: 93px;
+	float: right;
+	position: fixed;
+	margin-top: 3%;
+    position: fixed;
+    right: 10%;
+    width: 58%;
+    z-index: 1000;
+
+	
+}
+.menu-ul{
+	margin-right: 8%;margin-top: 2%;
+}
+.slide-menu{
+	border: none;
+	background: none !important;
+
+}
+#menu li:hover a{
+	color: #3CBBF8;
+}
+#menu span:hover a{
+	color: #3CBBF8;
+}
+.dropdown-menu span{
+	display: block;
+	height: 25px;
+
+}
+.dropdown-menu span a{
+	padding: 0px !important;
+}
+#menu li a{
+	color: #FF2BC0;
+}
+#menu span a{
+	color: #FF2BC0;
+}
+#menu li {
+    background: url("../../images/website/themes13/menu_line.png") no-repeat scroll 0 16px rgba(0, 0, 0, 0);
+    float: left;
+    padding-bottom: 0px;
+    padding-left: 2px;
+    padding-top: 0px;
+}
+
+.slider_box{
+	margin-top: 12%;
+	min-height: 450px;
+	background: url('../../images/website/themes13/bg_image.png');
+	background-repeat: no-repeat;
+	background-position: left top;
+	padding: 2%;
+}
+.body2 {
+    background: none repeat scroll 0 0 #fff;
+    margin-top:20px;
+}
+.float-left{
+	float: left !important;
+}
+.float-right{
+	float: right !important;
+}
+.pad-left{
+	padding-left: 20%;
+}
+.pad-right{
+	padding-left: 60%;
+}
+
+.border-r{
+	
+	border-radius: 20px; 
+	border: 1px solid white ;
+	background:#FAFCFD; 
+	padding: 20px;
+}
+.images-padding{
+	min-height: 170px;
+}
+.bg-line{
+	background: url('../../images/website/themes13/line.png');
+	background-repeat: repeat-x;
+	height: 62px;
+	margin-left: -15px;
+	margin-right: -15px;
+	margin-top: 25px;
+}
+.bg-infor{
+	background-color: white;
+	margin-top: 12%;
+	min-height: 450px;
+}
+.li-theme13 a{
+	color: #FF2BC0;
+}
+.edit-content{
+    display: none;
+}
+.click-edit{
+    font-size: 22px;
+}
+.click-edit span a{
+    text-decoration: none;
+}
+.ok-edit{
+    font-size: 22px;
+    display: none;
+}
+.ok-edit span a {
+    text-decoration: none;
+}
+.phara-margin{
+    display: inline;
+    padding-bottom: 10px;
+}
+.dropdown-menu > span > a:hover,
+.dropdown-menu > span > a:focus {
+  color: #262626;
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+#geomap{
+	width:100%; height:80px;
+}

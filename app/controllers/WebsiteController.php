@@ -181,6 +181,9 @@ class WebsiteController extends \BaseController {
 			case 12:
 				$backgrounds='';
 				break;
+			case 13:
+				$backgrounds='';
+				break;
 
 
 			}
@@ -259,6 +262,13 @@ class WebsiteController extends \BaseController {
 
 			case 12:
 				return View::make('website_user.themes12.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
+																	->with('id_web', $id_Web);
+				break;
+							
+			case 13:
+				return View::make('website_user.themes13.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_Web);
@@ -428,6 +438,9 @@ class WebsiteController extends \BaseController {
 			case 12:
 				$backgrounds='';
 				break;
+			case 13:
+				$backgrounds='';
+				break;
 
 			}
 					
@@ -527,6 +540,12 @@ class WebsiteController extends \BaseController {
 			case 12:
 				$backgrounds='';
 			break;
+
+			case 13:
+			$backgrounds='';
+			break;	
+			
+			
 			
 			}
 			
@@ -1086,6 +1105,10 @@ class WebsiteController extends \BaseController {
 				$backgrounds='';
 			break;
 
+			case 13:
+				$backgrounds='';
+			break;
+
 			}
 			
 		}
@@ -1183,6 +1206,15 @@ class WebsiteController extends \BaseController {
 																->with('email',$email)
 																->with('count_down_url',$count_down_url);
 				break;	
+
+			case 13:
+				return View::make('website_user.themes13.page.index')->with('website', $website)
+																->with('firstname', $firstname)
+																->with('id_web', $id_website)
+																->with('date_url',$date_url)
+																->with('email',$email)
+																->with('count_down_url',$count_down_url);
+				break;
 
 			default:
 				return View::make('website_user.themes.page.index')->with('website', $website)
