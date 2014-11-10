@@ -133,7 +133,12 @@
 <div class="row content_temp_slide">
   @if($website)
   @foreach( $website as $website_item )
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+ 
+     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+      
+          <!-- Wrapper for slides -->
+        <div class="carousel-inner slide_edit_temp">
+           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
             <nav class="navbar navbar-default side-nav-menu" role="navigation" style="position:fixed;width:100%;" >
                <div class="navbar-header">
                   <button type="button" class="navbar-toggle" data-toggle="collapse" 
@@ -155,10 +160,6 @@
            
           </nav>
       </div>
-     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-      
-          <!-- Wrapper for slides -->
-        <div class="carousel-inner slide_edit_temp">
           
             <div class="item active">
                   
