@@ -11,8 +11,8 @@
                         <img  class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
                     </a>
                 @else 
-                    <a class="fancybox" rel="gallery1" href="{{Asset("images/website/themes14/tab_temp_traval_14.jpg")}}" >
-                        <img  class="img-responsive" src="{{Asset("images/website/themes14/tab_temp_traval_14.jpg")}}" alt="">          
+                    <a class="fancybox" rel="gallery1" href="{{Asset("images/website/themes14/tab_temp_14.jpg")}}" >
+                        <img  class="img-responsive" src="{{Asset("images/website/themes14/tab_temp_14.jpg")}}" alt="">          
                     </a>
                 @endif            
                
