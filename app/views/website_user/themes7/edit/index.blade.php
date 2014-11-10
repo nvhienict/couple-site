@@ -14,6 +14,8 @@
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="{{Asset("assets/js/jquery.min.js")}}"></script>
     <script src="{{Asset("assets/js/map-themes.js")}}"></script>
+    <script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes7-edit.css")}}">
   <script type="text/javascript">
@@ -63,12 +65,6 @@
                 $('.ok-edit-show'+id).hide();
         } 
 
-    jQuery(document).ready(function($) {
-            $('a.scrollTo').click(function () {
-            $('.design_website_content_right').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
-            return false;
-        });
-    });
 
     
     $('.side-nav li').click(function(e) {
@@ -78,6 +74,14 @@
             $this.addClass('active');
         }
         e.preventDefault();
+    });
+
+    jQuery(document).ready(function($) {
+        // Call & Apply function scrollTo
+        $('a.scrollTo').click(function () {
+            $('.design_website_content_right').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
+            return false;
+        });
     });
 
     function updateName()
@@ -121,8 +125,8 @@
                    </div>
                    <div  class="collapse navbar-collapse" id="example-navbar-collapse" >
                       <ul class="nav navbar-nav side-nav" style="background-color:#EE7B74;">
-                        @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
-                         <li><a class="{{$tab->id}} scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>                
+                        @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
+                            <li><a href="#{{$tab->type}}" class="scrollTo {{$tab->id}} TT{{$tab->id}}" >{{$tab->title}}</a></li>                
                         @endforeach()
                       </ul>
                    </div>
