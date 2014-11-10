@@ -133,8 +133,8 @@
 <div class="row content_temp_slide">
   @if($website)
   @foreach( $website as $website_item )
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="position:fixed;" >
-            <nav class="navbar navbar-default side-nav-menu" role="navigation">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+            <nav class="navbar navbar-default side-nav-menu" role="navigation" style="position:fixed;width:100%;" >
                <div class="navbar-header">
                   <button type="button" class="navbar-toggle" data-toggle="collapse" 
                      data-target="#example-navbar-collapse">
@@ -148,7 +148,7 @@
                   <ul style="width:100%;" class="nav navbar-nav side-nav">
                         <li data-target="#myCarousel" data-slide-to="0" class="active always-visible"><a href="#" role="tab"  data-toggle="tab">Trang chủ</a></li>                                               
                         @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $index=>$tab)
-                            <li data-target="#myCarousel" class="{{$tab->id}} TT{{$tab->id}}" data-slide-to="{{$index+1}}"><a href="#"  role="tab" data-toggle="tab">{{$tab->title}}</a></li> 
+                            <li data-target="#myCarousel"  data-slide-to="{{$index+1}}"><a class="{{$tab->id}} TT{{$tab->id}}" href="#{{$tab->type}}"  role="tab" data-toggle="tab">{{$tab->title}}</a></li> 
                         @endforeach()
                   </ul>
                </div>

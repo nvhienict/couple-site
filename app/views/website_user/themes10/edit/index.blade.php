@@ -130,7 +130,7 @@
 <body>
 @if($website)
 @foreach( $website as $website_item )
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="position:fixed;">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
         <nav class="navbar navbar-default navbar-fixed-top side-nav-menu" role="navigation">
            <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" 

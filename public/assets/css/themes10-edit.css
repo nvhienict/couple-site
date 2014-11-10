@@ -16,7 +16,7 @@ h2{
 {
 	background: none repeat scroll 0 0 rgba(253, 226, 224, 1) !important;
 	position: relative;
-	padding:0px; z-index:100;
+	padding:0px; z-index:1000;
 }
 
 .side-nav
