@@ -6,5 +6,14 @@ $(function(){
 		$(this).removeClass("open");
 		$("ul.dropdown-menu", this).fadeOut("slow");
 	});
+
+	$("ul.nav span.dropdown").hover(function(){
+		$(this).addClass("open");
+		$("ul.dropdown-menu", this).fadeIn();
+	},function(){
+		$(this).removeClass("open");
+		$("ul.dropdown-menu", this).fadeOut("slow");
+	});
+
 });
 

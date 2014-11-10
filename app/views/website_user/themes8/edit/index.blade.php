@@ -247,8 +247,6 @@
 		<!-- end menu -->
 
 		
-
-		
 	</header>
 	<!-- end header -->
 

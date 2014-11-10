@@ -1,0 +1,411 @@
+
+body {
+	background: url(../../images/website/themes15/bg_pic.jpg) center center no-repeat;
+	background-attachment: fixed;
+}
+a{
+	color: #0088cc;
+    text-decoration: none;
+}
+
+/*-------menu-----*/
+.animate,
+.animate:hover {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.span2 {
+    width: 170px;
+    margin-left: 30px;
+    margin-top: 0px;
+    min-height: 1px;
+    position: fixed;
+    top: 0;
+}
+.span2-edit{
+  position: fixed;
+  z-index: -1;
+  top: 100px;
+  width: 200px;
+  height: 200px;
+}
+.span2-edit img{
+  width: 100%;
+}
+.menuTitle {
+  font: bold 18px/18px Georgia, "Times New Roman", Times, serif;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  display: block;
+  width: 140px;
+  height: 52px;
+  z-index: 15;
+}
+.menuTitle a {
+  position: relative;
+  display: block;
+  padding: 12px 0 4px;
+  color: #e9e9e9;
+  background: #d2797e;
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+}
+.menuTitle a:hover {
+  text-decoration: none;
+  color: #d2797e;
+  background: #f6f7e5;
+}
+.menuTitle a span {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 8px;
+  background: url(../../images/website/themes15/arr_menu.png) 50% 0 no-repeat;
+}
+.menuMov {
+  position: relative;
+  width: 140px;
+  margin-top: 0;
+  z-index: 10;
+}
+.menu {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: inline-block;
+  text-transform: uppercase;
+}
+.sf-menu {
+  z-index: 3;
+  position: relative;
+  display: inline-block;
+  margin-left: 0;
+  width: 100%;
+  padding-left: 0;
+}
+.sf-menu .first {
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  margin-top: 7px;
+}
+.sf-menu .last {
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+  border-bottom: none;
+}
+.sf-menu > li {
+  position: relative;
+  color: #383636;
+  width: 100%;
+  height: 50px;
+  list-style: none;
+  text-align: center;
+  background: url(../../images/website/themes15/bg_menu.png) 0 0 repeat;
+  border-bottom: 1px solid #b9bdac;
+}
+.sf-menu > li > a {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+}
+.sf-menu > li > a:hover {
+  text-decoration: none;
+}
+.sf-menu > li.active > a {
+  text-decoration: none;
+}
+.submenu_1 {
+  position: absolute;
+  top: 0;
+  left: 142px;
+  width: 140px;
+  z-index: 5;
+  background: url(../../images/website/themes15/bg_menu.png) 0 0 repeat;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin: 0;
+}
+.submenu_1 li {
+  position: relative;
+  list-style: none;
+  text-align: center;
+  height: 40px;
+  border-bottom: 1px solid #b9bdac;
+}
+.submenu_1 li.last {
+  border-bottom: none;
+}
+.submenu_1 a {
+  font: bold 15px/18px Georgia, "Times New Roman", Times, serif;
+  letter-spacing: -1px;
+  color: #665a67;
+  position: relative;
+  display: inline-block;
+  padding: 12px 0 1px  !important;
+  text-decoration: none;
+  z-index: 1;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.submenu_1 a:hover {
+  color: #cc666d !important;
+}
+.submenu_1 li > a:hover,
+.submenu_1 li .hoverItem {
+  color: #cc666d !important;
+}
+.submenu_2 {
+  position: absolute;
+  width: 140px;
+  left: 142px;
+  top: 0;
+  z-index: 10;
+  margin: 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background: url('../img/bg_menu.png') 0 0 repeat;
+}
+.submenu_2 .marTop {
+  margin: 10px 0 0;
+}
+.submenu_2 .marBot {
+  margin: 0 0 0px;
+}
+.submenu_2 a {
+  color: #665a67;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.submenu_2 a:hover {
+  color: #cc666d !important;
+}
+.submenu_2 li > a:hover,
+.submenu_2 li .hoverItem {
+  color: #cc666d !important;
+}
+.mText {
+  font: bold 15px/18px Georgia, "Times New Roman", Times, serif;
+  letter-spacing: -1px;
+  color: #665a67;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+  left: 0;
+  padding-top: 12px;
+}
+.mTextOver {
+  font: bold 15px/18px Georgia, "Times New Roman", Times, serif;
+  letter-spacing: -1px;
+  color: #ffffff;
+  position: relative;
+  width: 100%;
+  z-index: 3;
+  text-align: center;
+  top: -100px;
+}
+._area {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 5;
+  left: 0;
+  display: block;
+}
+._overPl {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  bottom: 100px;
+  z-index: 2;
+  left: 0;
+  display: block;
+  background: #cc666d;
+}
+._overLine {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  top: 0;
+  z-index: 10;
+  left: 0;
+  display: none;
+  background: #43c5e9;
+  opacity: 0;
+}
+.first ._overPl {
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+.last ._overPl {
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+}
+/*--- menu end ------*/
+
+
+.span3{
+  width: 10px;
+  position: fixed;
+  top: 10px;
+  left: 0.1%;
+  display: none;
+}
+.span3 ul{
+  list-style: none;
+}
+.span3 ul li a img{
+  padding: 3px;
+}
+
+@media (max-width: 980px) {
+  .span3{
+    display: block;
+  }
+  .span2{
+    display: none;
+  }
+}
+
+
+
+.logo{
+	width: 625px;
+	height: 272px;
+	background: url(../../images/website/themes15/logo.png) center center no-repeat;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+.wedding-date{
+	width: 100%;
+	height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	color: #C5A68A;
+	font-size: 20px;
+	text-align: center;
+	position: relative;
+	top: 60px;
+}
+.name{
+	width: 100%;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	color: #CC6677;
+	font-size: 35px;
+	text-transform: uppercase;
+	text-align: left;
+	position: relative;
+	top: 55px;
+}
+.name > .name-groom{
+	position: relative;
+	left: 110px;
+}
+.name > .name-bride{
+	position: relative;
+	left: 245px;
+}
+.name > .name-groom-edit{
+  position: relative;
+  left: 130px;
+}
+.name > .name-bride-edit{
+  position: relative;
+  left: 290px;
+}
+
+
+.item-1{
+	width: 900px;
+	min-height: 500px;
+	background-color: #EEE8DC;
+	border-radius: 5px;
+	margin: -100px auto 100px auto;
+	text-align: center;
+	padding-top: 120px;
+	padding-bottom: 20px;
+}
+
+.item-title{
+	width: 100%;
+	text-align: center;
+	color: #DC756D;
+	font-size: 25px;
+	font-weight: bold;
+}
+.hr-line{
+	height: 2px;
+	width: 70%;
+	margin: 0 auto;
+	background: url(../../images/website/themes15/line_hor.jpg) center center repeat-x;
+}
+.sep-1, .sep-2{
+	width: 25px;
+	height: 18px;
+	display: inline-block;
+	position: relative;
+	top: -7px;
+	z-index: 9;
+}
+.sep-1{
+	background: url(../../images/website/themes15/sep_1.png) left top no-repeat;
+	left: -300px;
+}
+.sep-2{
+	background: url(../../images/website/themes15/sep_2.png) right top no-repeat;
+	left: 300px;
+}
+.img{
+	width: 500px;
+	height: 300px;
+	border: 1px solid #ddd;
+	background-color: #ffffff;
+	padding: 5px;
+	border-radius: 3px;
+	margin: 10px auto;
+}
+.img img, .img-groom img, .img-bride img {
+	width: 100%;
+	height: 100%;
+}
+.img-groom, .img-bride{
+  width: 250px;
+  height: 200px;
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+  padding: 5px;
+  border-radius: 3px;
+  margin: 10px auto;
+  display: inline-block;
+}
+.item-content{
+	width: 500px;
+	margin: 10px auto;
+	text-align: justify;
+	font-size: 17px;
+}
+
+

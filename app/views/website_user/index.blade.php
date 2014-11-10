@@ -31,7 +31,7 @@ Website cưới
 				<div class="col-sm-6 col-lg-6 col-md-6">
 				
 				<?php
-					$arIdThemes = array(1,2,3,4,5,6,7,8,9,10,11,12,14);
+					$arIdThemes = array(1,2,3,4,5,6,7,8,9,10,11,12,14,15);
 				?>
 
 				@if( in_array($img_tmp, $arIdThemes) )
