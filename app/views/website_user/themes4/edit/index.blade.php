@@ -77,9 +77,9 @@
                 <div class=" ">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 navbar-left ">
                     	<ul style="padding-left: 0px;">
-                    		<li style="padding-left: 10px; padding-right: 10px;"><a class="a_menu scrollTo" href="#title_home" >Trang Chủ</a></li>
+                    		<li style="padding-left: 5px; padding-right: 5px;"><a class="a_menu scrollTo" href="#title_home" >Trang Chủ</a></li>
                     		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
-                    		<li style="padding-left: 10px; padding-right: 10px;">
+                    		<li style="padding-left: 5px; padding-right: 5px;">
                     			<a class="{{$tab->id}} scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a>
                     		</li>
                     		@endforeach()
@@ -179,7 +179,8 @@
 		            <div class="row partion " >
 		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
 		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		            			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+		            			<div id="prev_output{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+		            				 <a href="#">
 		            				<?php 
 					                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
 					                     ?>
@@ -189,6 +190,7 @@
 					                    <img  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
 					                @endif
+					            	</a>
 		            			</div>			
 		            		</div>
 		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -260,7 +262,7 @@
 				        </div>
 		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
 		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		            			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+		            			<div id="prev_output{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
 		          					<?php 
 					                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
 					                     ?>
@@ -332,7 +334,7 @@
 				               {{$tabWeb->content}}
 			            </textarea>
 				        </div>
-	            		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-part part-image">
+	            		<div id="prev_output{{$tabWeb->id}}" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-part part-image">
 		            		<?php 
 		                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
 		                     ?>
@@ -387,7 +389,7 @@
 		            </div>
 		            <div class="row partion bg-event" >
 
-		            	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 part-image">
+		            	<div id="prev_output{{$tabWeb->id}}" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 part-image">
 		            		<?php 
 			                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
 			                     ?>
@@ -409,7 +411,7 @@
 				               {{$tabWeb->content}}
 				            </textarea>
 				        </div>
-		            	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 part-image">
+		            	<div id="prev_output{{$tabWeb->id}}" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 part-image">
 		            		<?php 
 			                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
 			                     ?>
@@ -482,7 +484,7 @@
 		            	</div>               		
 		            </div>
 		            <div class="row partion bg-traval" >
-		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
+		            	<div id="prev_output{{$tabWeb->id}}" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
 		            		<?php 
 			                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
 			                     ?>
@@ -575,7 +577,7 @@
 				            <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
 				    	</div>
 				    </div>
-		            <div class="row partion " >
+		            <div id="prev_output{{$tabWeb->id}}" class="row partion " >
 		            	<?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
 			            @if($albums)
 			                @foreach($albums as $album)
