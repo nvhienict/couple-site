@@ -40,9 +40,9 @@
 				</table>
 			</div>
 			<h2 class="section-title " id="showName" onclick="editName();">
-				<span id="topNameGroom">{{$website_item->name_groom}}</span>
+				<span class="name-g" id="topNameGroom">{{$website_item->name_groom}}</span>
 					<em>&</em>
-				<span id="topNameBride">{{$website_item->name_bride}}</span>
+				<span class="name-b" id="topNameBride">{{$website_item->name_bride}}</span>
 			</h2>
 			<div id="editName">
 				<input name="name_groom" value="{{$website_item->name_groom}}">
