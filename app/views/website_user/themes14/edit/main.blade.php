@@ -52,9 +52,9 @@
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 image-title-temp text-center">
             
             <h2 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 section-title" id="showName" >
-              <span id="topNameGroom">{{$website_item->name_groom}}</span>
+              <span class="name-g" id="topNameGroom">{{$website_item->name_groom}}</span>
                 <em>&</em>
-              <span id="topNameBride">{{$website_item->name_bride}}</span>
+              <span class="name-b" id="topNameBride">{{$website_item->name_bride}}</span>
               
             </h2>
             
@@ -104,7 +104,7 @@
         // [string] Can be either "slide" or "fade".
       interval: 4000,
         // [number] Time spent on each slide in milliseconds.
-      auto: true,
+      auto: false,
         // [boolean] Start playing the slideshow on load.
       swap: true,
         // [boolean] show/hide stop and play buttons

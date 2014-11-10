@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes11.css")}}">
 
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
-    <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
+    
 
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
@@ -230,11 +230,17 @@
                 @if($tabWeb->type=="album")
                 <div class="item">                  
                     <div id="slide6" class="masonry container margin-partion">
-                        <div class="post-box6 col-sx-12 col-lg-12 col-md-12 col-sm-12"> 
+                        <div class="post-box6 col-sx-12 col-lg-12 col-md-12 col-sm-12 "> 
+                            <h3 class="title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+                                {{$tabWeb->title}}
+                            </h3>
+                             <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> 
+                        </div>
+                        <div class="post-box6 col-sx-12 col-lg-12 col-md-12 col-sm-12" style="margin-top:20px;"> 
                            <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
                                 @if($albums)
                                     @foreach($albums as $album)
-                                        <div class="col-xs-2 images-padding remove_image{{$album->id}}">
+                                        <div class="col-sx-4 col-lg-3 col-md-3 col-sm-3 images-padding remove_image{{$album->id}}">
                                             <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
                                                 <img class="img-responsive" src="{{Asset("{$album->photo}")}}" alt="" />
                                             </a>
@@ -242,12 +248,7 @@
                                     @endforeach
                                 @endif
                         </div>
-                        <div class="post-box6 col-sx-12 col-lg-12 col-md-12 col-sm-12 "> 
-                            <h3 class="title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-                                {{$tabWeb->title}}
-                            </h3>
-                             <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> 
-                        </div>
+                        
                     </div>
                 </div>
                 @endif

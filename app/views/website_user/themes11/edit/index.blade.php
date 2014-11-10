@@ -72,15 +72,15 @@
 @if($website)
     @foreach( $website as $website_item )
 
-        <div class="row header " style="width: 100%; margin: 0px; padding-left: 0px; padding-right: 0px;  position: fixed;z-index: 1000;">
+        <div class="row header navbar_edits" style="width: 75.5%; margin: 0px; padding-left: 0px; padding-right: 0px;  position: fixed;z-index: 1000;">
                 <!-- narbar -->
             <nav class="navbar-main "  id="" >
                 <div class=" ">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 navbar-left nav-themes11">
                         <ul style="padding-left: 0px;">
-                            <li style="padding-left: 10px; padding-right: 10px;"><a href="#" data-target="#myCarousel" data-slide-to="0" class="active" >Trang Chủ</a></li>
+                            <li style="padding-left: 5px; padding-right: 5px;"><a href="#" data-target="#myCarousel" data-slide-to="0" class="active" >Trang Chủ</a></li>
                             @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $i=>$menu_tab)
-                            <li style="padding-left: 10px; padding-right: 10px;" id="{{$i+2}}" class="clink">
+                            <li style="padding-left: 5px; padding-right: 5px;" id="{{$i+2}}" class="clink">
                                 <a href="#" data-target="#myCarousel" data-slide-to="{{$i+1}}">{{$menu_tab->title}}</a>
                             </li>
                             @endforeach()
@@ -93,7 +93,7 @@
         </div>
 
     <div id="home" class="header">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 0px; top: 53px;">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" style="margin-top: 0px; top: 53px;">
             <div class="carousel-inner bg-slide" style="margin-top: 0px;">
 
                 <div class="item active">                   

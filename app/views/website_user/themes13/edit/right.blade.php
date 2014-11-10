@@ -8,7 +8,7 @@
 	</div> -->
 	<div class="wrapper">
 		<div class="row phara-margin">
-           	<h3 id = "nameTitle{{$tabWeb->id}}" class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" >
+           	<h3 id = "nameTitle{{$tabWeb->id}}" class=" title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" >
                 {{$tabWeb->title}}
             </h3>
             
@@ -23,7 +23,7 @@
 
             </div>
             <div class="col-xs-12 col-md-5 col-sm-5 col-lg-5 border-r ">
-                <span>
+                <span id="prev_output{{$tabWeb->id}}">
                     <a href="#">
                         <?php 
                         $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
