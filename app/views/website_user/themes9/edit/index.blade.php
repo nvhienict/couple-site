@@ -238,24 +238,24 @@
 					   	</div>
 					   	<div class="collapse navbar-collapse" id="example-navbar-collapse">
 					      	<ul class="nav navbar-nav">
-						      	<li><a href="#home" data-toggle="tab">Trang Chủ</a></li>
+						      	<span class="li-menu-edit"><a href="#home" data-toggle="tab">Trang Chủ</a></span>
 						      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
 						      		@if($index<4)
-						      		<li class="li-menu-edit"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
+						      		<span class="li-menu-edit"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></span>
 						      		@endif
 						      	@endforeach
-								<li class="li-menu-edit dropdown">
+								<span class="li-menu-edit dropdown">
 								    <a data-toggle="dropdown" href="#">
 								      Xem thêm <span class="caret"></span>
 								    </a>
 								    <ul class="dropdown-menu text-left" role="menu" >
 								   		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
 									    	@if($index>=4)
-									    	<li class="li-menu-edit"><a class=" {{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
+									    	<span class="li-menu-edit-2"><a class=" {{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></span>
 									    	@endif
 									    @endforeach
 								    </ul>
-								</li>
+								</span>
 								
 					      	</ul>
 					      	
@@ -431,6 +431,12 @@
 </div>
 <!-- end container -->
 
+<div class="float-right icon-go_top" >
+    <a href="javascript:void(0);" class="btn btn-top" id="go_top">              
+        <i class="fa fa-angle-up fa-3x text-center"></i>
+    </a>
+</div>
+
 @endforeach
 @endif
 
@@ -441,20 +447,22 @@
 	})
 </script>
 <script type="text/javascript">
-	(function(){
-	    // Cuộn trang lên với scrollTop
-	    $('#go_top').click(function(){
-	        $('body,html').animate({scrollTop:0}, 10);
-	        return false;
-	    })
-	})(jQuery)
+    (function(){
+        // Cuộn trang lên với scrollTop
+        $('#go_top').click(function(){
+            $('body,html').animate({scrollTop:0},200);
+            return false;
+        })
+    })(jQuery)
     $(window).scroll(function(){
-	    if( $(window).scrollTop() > 5 ) {
-	        $('#go_top').stop(false,true).fadeIn(300);
-	    }else{
-	        $('#go_top').hide();
-	    }
-	});
+        if( $(window).scrollTop() > 200 ) {
+        	$('.icon-go_top').show();
+            $('#go_top').stop(false,true).fadeIn(200);
+        }else{
+            $('#go_top').hide();
+            $('.icon-go_top').hide();
+        }
+    });
 </script>
 
 </body>

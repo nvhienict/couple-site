@@ -185,6 +185,16 @@ body {
 
 /*slide*/
 
+.li-menu-edit, .li-menu-edit-2{
+	color: #FAF9F6 !important;
+	font-size: 17px !important;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+.li-menu-edit-2{
+	display: block;
+}
+
 /* ornament */
 .ornament {
 	background: url(../../images/website/themes9/ornament.svg) center center no-repeat;
