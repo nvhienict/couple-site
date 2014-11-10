@@ -104,7 +104,7 @@
         // [string] Can be either "slide" or "fade".
       interval: 4000,
         // [number] Time spent on each slide in milliseconds.
-      auto: true,
+      auto: false,
         // [boolean] Start playing the slideshow on load.
       swap: true,
         // [boolean] show/hide stop and play buttons
