@@ -21,7 +21,6 @@ class WebsiteController extends \BaseController {
 
 	}
 
-
 	public function index()
 	{
 		$id_user = WebsiteController::id_user();

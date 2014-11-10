@@ -328,9 +328,3 @@ Route::get('sitemap',array('as'=>'sitemap',function(){
 
 // end documents
 
-
-Route::get('themes15', function(){
-	return View::make('website_user.themes15.page.index');
-});
-
-

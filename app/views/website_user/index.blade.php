@@ -6,6 +6,7 @@ Website cưới
 @include('nav')
 @endsection
 @section('content')
+
 <div id='container'>
 	<div class="row" style="margin: 0px;">
 		<div class="col-xs-1"></div>
