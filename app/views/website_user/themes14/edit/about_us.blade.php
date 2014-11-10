@@ -9,8 +9,8 @@
                         <img src="{{Asset('$website_item->avatar_groom')}}" class="img-responsive" alt="Image">                         
                     </a>                           
                     @else
-                    <a class="fancybox" rel="gallery1" href="{{Asset('images/website/themes10/groom.jpg')}}" >
-                        <img src="{{Asset('images/website/themes10/groom.jpg')}}" class="img-responsive" alt="Image">        
+                    <a class="fancybox" rel="gallery1" href="{{Asset('images/website/themes14/groom.jpg')}}" >
+                        <img src="{{Asset('images/website/themes14/groom.jpg')}}" class="img-responsive" alt="Image">        
                      </a>   
                     @endif 
                 </a>
@@ -28,8 +28,8 @@
                         <img src="{{Asset('$website_item->avatar_bride')}}" class="img-responsive" alt="Image">                         
                     </a>    
                     @else
-                    <a class="fancybox" rel="gallery1" href="{{Asset('images/website/themes10/bride.jpg')}}" >
-                        <img src="{{Asset('images/website/themes10/bride.jpg')}}" class="img-responsive" alt="Image">        
+                    <a class="fancybox" rel="gallery1" href="{{Asset('images/website/themes14/bride.jpg')}}" >
+                        <img src="{{Asset('images/website/themes14/bride.jpg')}}" class="img-responsive" alt="Image">        
                      </a>   
                     @endif
                 </a>    
