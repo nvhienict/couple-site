@@ -223,24 +223,24 @@
 		   	</div>
 		   	<div class="collapse navbar-collapse" id="example-navbar-collapse">
 		      	<ul class="nav navbar-nav">
-			      	<li class="li-menu-edit"><a class="scrollTo" href="#home" data-toggle="tab">Trang Chủ</a></li>
+			      	<span class="li-menu-edit"><a class="scrollTo" href="#home" data-toggle="tab">Trang Chủ</a></span>
 			      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
 			      		@if($index<2)
-			      		<li class="li-menu-edit"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
+			      		<span class="li-menu-edit"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></span>
 			      		@endif
 			      	@endforeach
-					<li class="li-menu-edit dropdown">
+					<span class="li-menu-edit dropdown">
 					    <a data-toggle="dropdown" href="#">
 					      Xem thêm <span class="caret"></span>
 					    </a>
 					    <ul class="dropdown-menu" role="menu" style="background: #742C5B;">
 					   		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
 						    	@if($index>=2)
-						    	<li class="li-menu-edit"><a class=" {{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
+						    	<span class="li-menu-edit-2"><a class=" {{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></span>
 						    	@endif
 						    @endforeach
 					    </ul>
-					</li>
+					</span>
 		      	</ul>
 		   	</div>
 		</nav>

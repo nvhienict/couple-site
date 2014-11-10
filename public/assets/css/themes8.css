@@ -214,12 +214,23 @@ body {
 	border: none;
 	height: 20px;
 }
-
+.navbar-nav{
+	background-color: #742C5B !important;
+}
+span.li-menu-edit{
+	padding: 10px !important;
+	color: #FFFFFF !important;
+	background-color: #742C5B !important;
+}
+span.li-menu-edit-2{
+	display: block !important;
+}
 .li-menu-edit a{
 	text-transform: uppercase;
 	color: #FFFFFF !important;
 	background-color: #742C5B;
 	font-size: 15px !important;
+
 }
 .li-menu-edit a:hover{
 	font-size: 15px !important;
