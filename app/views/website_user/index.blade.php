@@ -35,7 +35,7 @@ Website cưới
 				?>
 
 				@if( in_array($img_tmp, $arIdThemes) )
-					<img style="width:100%;" src="{{Asset("images/website/tmp/{$img_tmp}.png")}}">
+					<img style="width:100%;" src="{{Asset("images/website/tmp/{$img_tmp}.jpg")}}">
 				@endif
 
 				</div>

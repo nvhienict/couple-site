@@ -109,7 +109,7 @@
 @foreach( $website as $website_item )
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-                <nav class="navbar navbar-default navbar-fixed-top side-nav-menu" role="navigation" style="border-top-width: 0px; padding-top: 0px; padding-bottom: 0px;">
+                <nav class="navbar navbar-default  side-nav-menu" role="navigation" style="position:fixed;width:100%; border-top-width: 0px; padding-top: 0px; padding-bottom: 0px;">
                    <div class="navbar-header">
                       <button type="button" class="navbar-toggle" data-toggle="collapse" 
                          data-target="#example-navbar-collapse">

@@ -75,17 +75,17 @@
                  </div>
                 @else
                    <div id="slides">     
-                    <a class="fancybox" rel="gallery1" href="{{Asset("images/website/themes10/1.jpg")}}" >
-                        <img class="img-responsive"  src="{{Asset("images/website/themes10/1.jpg")}}">
+                    <a class="fancybox" rel="gallery1" href="{{Asset("images/website/themes14/1.jpg")}}" >
+                        <img class="img-responsive"  src="{{Asset("images/website/themes14/1.jpg")}}">
                     </a>
-                     <a class="fancybox" rel="gallery1" href="{{Asset("images/website/themes10/2.jpg")}}" >
-                        <img class="img-responsive"  src="{{Asset("images/website/themes10/2.jpg")}}">
+                     <a class="fancybox" rel="gallery1" href="{{Asset("images/website/themes14/2.jpg")}}" >
+                        <img class="img-responsive"  src="{{Asset("images/website/themes14/2.jpg")}}">
                     </a>
-                    <a class="fancybox" rel="gallery1" href="{{Asset("images/website/themes10/3.jpg")}}" >
-                        <img class="img-responsive"  src="{{Asset("images/website/themes10/3.jpg")}}">
+                    <a class="fancybox" rel="gallery1" href="{{Asset("images/website/themes14/3.jpg")}}" >
+                        <img class="img-responsive"  src="{{Asset("images/website/themes14/3.jpg")}}">
                     </a>  
-                            <a class="fancybox" rel="gallery1" href="{{Asset("images/website/themes10/4.jpg")}}" >
-                        <img class="img-responsive"  src="{{Asset("images/website/themes10/4.jpg")}}">
+                            <a class="fancybox" rel="gallery1" href="{{Asset("images/website/themes14/4.jpg")}}" >
+                        <img class="img-responsive"  src="{{Asset("images/website/themes14/4.jpg")}}">
                     </a>    
                   </div>      
                 @endif
