@@ -141,7 +141,8 @@
 	
 </head>
 
-<body>
+<body style="background: url({{Asset("{$backgrounds}")}});">
+
 
 @if($website)
 @foreach( $website as $website_item )

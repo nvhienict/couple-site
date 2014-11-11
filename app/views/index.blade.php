@@ -13,7 +13,9 @@ Trang chủ
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </button>
-	    <a href="{{URL::route('index')}}" class="navbar-brand brand">Thuna.vn</a>
+	    <a href="{{URL::route('index')}}" class="navbar-brand brand">
+	    	<img class="img-logo" src="{{Asset('icon/logo-thuna.png')}}">
+	    </a>
 	  </div>
 	  <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
@@ -112,7 +114,7 @@ Trang chủ
 @section('content')
     <!-- /Navigation -->
 <div class="row">
-	<section id="intro" class="home-slide text-light">
+	<section id="intro" class="home-slide text-light hidden-xs">
 
 		<!-- Carousel -->
     	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -125,29 +127,45 @@ Trang chủ
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 			    <div class="item active">
-			    	<img  class="image-responsive" src=" {{Asset("assets/img/1.jpg")}}" alt="First slide">
+			    	<img  class="image-responsive" src=" {{Asset("images/slide-main/1-1.jpg")}}" alt="">
                     <!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
-                            <h2><span>Chào mừng bạn đến với Thuna.vn</span></h2>
+                            <h2><span>Liên hệ ngay !!! <br /> Để được tư vấn miễn phí</span></h2>
                         </div>
                     </div><!-- /header-text -->
 			    </div>
 			    <div class="item">
-			    	<img class="image-responsive" src="{{Asset("assets/img/2.jpg")}}" alt="Second slide">
+			    	<img  class="image-responsive" src=" {{Asset("images/slide-main/2.jpg")}}" alt="">
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
-                        <div class="col-md-12 text-center">
-                            <h2><span>Dịch vụ đa dạng, phong phú</span></h2>
+                        <div class="col-md-12 text-left">
+                            <h2><span>Niềm vui trọn vẹn</span></h2>
                         </div>
                     </div><!-- /header-text -->
 			    </div>
 			    <div class="item">
-			    	<img class="image-responsive" src="{{Asset("assets/img/3.jpg")}}" alt="Third slide">
+			    	<img  class="image-responsive" src=" {{Asset("images/slide-main/3.jpg")}}" alt="">
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
-                            <h2><span>Cộng đồng sử dụng rộng rãi</span></h2>
+                            <h2><span>Hạnh phúc vĩnh cữu</span></h2>
+
+                        </div>
+                    </div><!-- /header-text -->
+			    </div>
+			    <div class="item">
+			    	<img  class="image-responsive" src=" {{Asset("images/slide-main/4.jpg")}}" alt="">
+			    	<!-- Static Header -->
+                    <div class="header-text hidden-xs">
+                        <div class="col-md-12 text-center">
+                            <h2><span>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            Happy 
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                             Ending ♥</span></h2>
 
                         </div>
                     </div><!-- /header-text -->
@@ -164,17 +182,22 @@ Trang chủ
 	</section>
 	<!-- /Section: intro -->
 </div>
-	<!-- <!-- <!-- form search -->
-		<div id="form-search-index" class="container">
-			<div class="row marginbot-80">
-				<div class="col-xs-8 col-md-8 col-md-offset-2">
+
+
+<div class="bg-slide-mobile">
+	
+</div>
+
+	<!-- form search -->
+		<div id="form-search-index" class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2">
+			
 						<form id="form-search" class="wow bounceInUp form-homepage" data-wow-offset="10" data-wow-delay="0.2s" action="{{Asset('list-vendor/search')}}" method="get">
 							<div class="row marginbot-20">
-								<div class=" col-xs-6 col-md-6 xs-marginbot-20">
-									<input type="text" name="name" class="form-control input-lg input_s btn-responsive" placeholder="Từ tìm kiếm" />
+								<div class="col-md-6 col-lg-6 col-sm-6 xs-marginbot-20">
+									<input type="text" name="name" class="form-control input-lg input_s" placeholder="Từ tìm kiếm" />
 								</div>
-								<div class="col-xs-6 col-md-6">
-									<select name="location" class="form-control input-lg input_s btn-responsive" onchange="get_location(this.value)" >
+								<div class="col-md-6 col-lg-6 col-sm-6 xs-marginbot-5" >
+									<select name="location" class="form-control input-lg input_s" onchange="get_location(this.value)" >
 							    		@foreach(Location::get() as $location)
 
 							    			@if(!Session::has('location'))
@@ -191,8 +214,8 @@ Trang chủ
 							    	</select>
 								</div>
 							</div>
-							<div class="row xs-marginbot-20">
-								<div class="col-xs-12 col-md-12">
+							<div class="row xs-marginbot-5">
+								<div class="col-md-12">
 									<input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg input_s btn-responsive" placeholder="Danh mục" readonly style="cursor:pointer;">
 							    	<input id="searchId" name="category_id" type="hidden">
 							    	<ul class="dropdown-menu " role="menu" aria-labelledby="dropdownMenu1">
@@ -236,34 +259,54 @@ Trang chủ
 								</div>
 							</div>
 							<div class="row">
-								<div class=" col-xs-12 col-md-12">
+								<div class="col-md-12">
 									<button type="submit" class="btn btn-skin btn-lg btn-block btn-responsive">Tìm kiếm</button>
 								</div>
 							</div>
 						</form>
-				</div>
-			</div>	
+			
 		</div>
+		<!-- end form-search-index -->
 	
 	<div class="row" id="index-tool">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  tool-1">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-">
 				<h3>Danh sách công việc</h3>
 				<h5>Thuận lợi, sắp xếp một cách khoa học, chính xác thời gian trước ngày cưới...</h5>
-				<h6><a href="#">Sử dụng ngay</a></h6>
+				<h6><a href="{{URL::route('user-checklist')}}" >Sử dụng ngay</a></h6>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<img class="img-responsive" src="{{Asset('images/tool/tool-1.png')}}">
+				<img class="img-responsive" src="{{Asset('images/tool/checklist.png')}}">
 			</div>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  tool-1">		
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<img class="img-responsive" src="{{Asset('images/tool/tool-22.png')}}">
+				<img class="img-responsive" src="{{Asset('images/tool/budget.png')}}">
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<h3>Quản lý ngân sách</h3>
 				<h5>Sử dụng dễ dàng, tính toán một cách chính xác, phân bố ngân sách chi tiết, hợp lý...</h5>
-				<h6><a href="#">Sử dụng ngay</a></h6>
+				<h6><a href="{{URL::route('budget')}}" >Sử dụng ngay</a></h6>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  tool-1">		
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<img class="img-responsive" src="{{Asset('images/tool/guestlist.png')}}">
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<h3>Danh sách khách mời</h3>
+				<h5>Có thể thêm nhóm khách, từng khách riêng lẻ, kiểm tra tình trạng khách mời cho buổi tiệc, thật tiện ích...</h5>
+				<h6><a href="{{URL::route('guest-list')}}" >Sử dụng ngay</a></h6>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  tool-1">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-">
+				<h3>Website cưới</h3>
+				<h5>Lưu giữ những câu chuyện tình lãng mạng, chia sẻ những bức ảnh đáng nhớ, những dòng tâm sự hạnh phúc của 2 bạn...với khả năng tạo website cưới cá nhân đơn giản, đẹp và hoàn toàn miễn phí.</h5>
+				<h6><a href="{{URL::route('website')}}" >Sử dụng ngay</a></h6>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<img class="img-responsive" src="{{Asset('images/tool/website.png')}}">
 			</div>
 		</div>
 	</div>
