@@ -589,26 +589,75 @@ hr.bold {
 	}
 }
 
-@media (max-width: 360px) {
-  	#form-search-index{
-  		width: 90% !important;
-	    top: 14% !important;
-	}
-
-	.img-logo {
-		height: 45px !important;
-	}
-
+@media (max-width: 568px) {
+  	
 	.dropdown {
 		width: 100% !important;
-		background-color: #E75280;
+		background-color: #E75280 !important;
 	}
 
 	.dropdown a {
 		color: #fff !important;
 	}
 
-	
+	.nav .open > a,
+	.nav .open > a:hover,
+	.nav .open > a:focus {
+	  background-color: #E75280 !important;
+	  border-color: #428bca !important;
+	}
+}
+
+
+@media (max-width: 375px) {
+  	#form-search-index{
+  		width: 90% !important;
+	    top: 14% !important;
+	}
+
+}
+@media (max-width: 667px) {
+  	#form-search-index{
+  		width: 90% !important;
+	    top: 20% !important;
+	}
+}
+
+@media (max-width: 414px) {
+	#form-search-index{
+  		width: 90% !important;
+	    top: 12% !important;
+	}
+}
+@media (max-width: 736px) {
+	#form-search-index{
+  		width: 90% !important;
+	    top: 20% !important;
+	}
+
+	.dropdown {
+		width: 100% !important;
+		background-color: #E75280 !important;
+	}
+
+	.dropdown a {
+		color: #fff !important;
+	}
+
+	.nav .open > a,
+	.nav .open > a:hover,
+	.nav .open > a:focus {
+	  background-color: #E75280 !important;
+	  border-color: #428bca !important;
+	}
+}
+
+@media (max-width: 360px) {
+  	#form-search-index{
+  		width: 90% !important;
+	    top: 14% !important;
+	}
+
 }
 
 @media (max-width: 320px) {
@@ -617,9 +666,17 @@ hr.bold {
 	    top: 20% !important;
 	    left: 0% !important;
 	}
-
-	.img-logo {
-		height: 45px !important;
+}
+@media (max-width: 240px) {
+  	#form-search-index{
+  		width: 95% !important;
+	    top: 30% !important;
+	}
+}
+@media (max-width: 320px) and (max-height: 240px) {
+  	#form-search-index{
+  		width: 95% !important;
+	    top: 30% !important;
 	}
 }
 
