@@ -154,22 +154,22 @@
 				<p style="font-size: 12px;color: black; font-weight: bold;" href="http://www.thuna.vn">Kết nối với Thuna.vn</p>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 connect-thuna">
-				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+				<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
 					<a href="https://www.facebook.com/thuna.weddingplaner?fref=ts" target="_blank">
 						<img class="img-responsive" src="{{Asset('icon/fb.jpg')}}">
 					</a>
 				</div>
-				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+				<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
 					<a href="https://www.youtube.com/channel/UCiKbAYqN2YUUKRkRHukt7SA" target="_blank">
 					<img class="img-responsive" src="{{Asset('icon/social-youtube.png')}}">
 					</a>
 				</div>
-				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+				<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
 					<a href="https://plus.google.com/u/0/+Thunaplannerwedding" target="_blank">
 					<img class="img-responsive" src="{{Asset('icon/g+.jpg')}}">
 					</a>
 				</div>	
-				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+				<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
 					<a href="https://plus.google.com/u/0/+Thunaplannerwedding" target="_blank">
 					<img class="img-responsive" src="{{Asset('icon/tw.jpg')}}">
 					</a>
