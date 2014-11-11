@@ -3,7 +3,8 @@
   <div class="col-xs-12">
 <div class="navbar">
   <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+    <button style="background-color: #E75280;" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="sr-only">Toggle navigation</span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -19,26 +20,26 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Nhà cung cấp</span><b class="caret"></b></a>
         <ul class="dropdown-menu oneUl">
           <li role="presentation" class="dropdown-header"><span>Dịch vụ</span>
-          <div class="row">
-            <div class="col-xs-6">
-              <ul class="list-unstyled">
-                  @foreach (Category::get() as $index=> $category)
-                  @if($index < 7)
-                    <li><a href="{{URL::route('category', array($category->slug))}}">{{$category['name']}}</a></li>
-                  @endif
-                  @endforeach
-              </ul>
+            <div class="row">
+              <div class="col-xs-6">
+                <ul class="list-unstyled">
+                    @foreach (Category::get() as $index=> $category)
+                    @if($index < 7)
+                      <li><a href="{{URL::route('category', array($category->slug))}}">{{$category['name']}}</a></li>
+                    @endif
+                    @endforeach
+                </ul>
+              </div>
+              <div class="col-xs-6">
+                <ul class="list-unstyled">
+                    @foreach (Category::get() as $index=> $category)
+                    @if($index >= 7)
+                      <li><a href="{{URL::route('category', array($category->slug))}}">{{$category['name']}}</a></li>
+                    @endif
+                    @endforeach
+                </ul>
+              </div>
             </div>
-            <div class="col-xs-6">
-              <ul class="list-unstyled">
-                  @foreach (Category::get() as $index=> $category)
-                  @if($index >= 7)
-                    <li><a href="{{URL::route('category', array($category->slug))}}">{{$category['name']}}</a></li>
-                  @endif
-                  @endforeach
-              </ul>
-            </div>
-          </div>
           </li>
         </ul>
       </li>

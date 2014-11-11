@@ -7,12 +7,13 @@ Trang chủ
 <div id="nav-bar" class="row">	
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">			
 	<div class="navbar" style="z-index: 99000;">
-	  <div class="">
-	    <button type="button" style="background-color:#404040;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	    </button>
+	  <div class="navbar-header">
+	    <button style="background-color: #E75280;" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        	<span class="sr-only">Toggle navigation</span>
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+      	</button>
 	    <a href="{{URL::route('index')}}" class="navbar-brand brand">
 	    	<!-- <img class="img-logo" src="{{Asset('icon/logo-thuna.png')}}"> -->
 	    	Thuna.vn
@@ -25,7 +26,7 @@ Trang chủ
 	        <ul class="dropdown-menu oneUl" role="menu">
 	          <li role="presentation" class="dropdown-header"><span>Dịch vụ</span>
 	          <div class="row">
-	            <div class="col-md-6 col-xs-12">
+	            <div class="col-md-6">
 	              <ul class="list-unstyled ">
 	                  @foreach (Category::get() as $index=> $category)
 	                  @if($index < 7)
@@ -150,7 +151,7 @@ Trang chủ
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
-                            <h2><span>Hạnh phúc vĩnh cữu</span></h2>
+                            <h2><span>Hạnh phúc vĩnh cửu</span></h2>
 
                         </div>
                     </div><!-- /header-text -->

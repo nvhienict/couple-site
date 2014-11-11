@@ -552,7 +552,7 @@ hr.bold {
 
 #form-search-index{
 	position: absolute;
-	top: 40%;
+	top: 42%;
 	left: 0%;
 	z-index: 10000;
 }
@@ -562,6 +562,10 @@ hr.bold {
 		width: 90% !important;
     	top: 18% !important;
     	left: 4% !important;
+	}
+
+	.header-text h2 span {
+		font-size: 98% !important;
 	}
 }
 
@@ -594,6 +598,17 @@ hr.bold {
 	.img-logo {
 		height: 45px !important;
 	}
+
+	.dropdown {
+		width: 100% !important;
+		background-color: #E75280;
+	}
+
+	.dropdown a {
+		color: #fff !important;
+	}
+
+	
 }
 
 @media (max-width: 320px) {
@@ -606,129 +621,6 @@ hr.bold {
 	.img-logo {
 		height: 45px !important;
 	}
-}
-
-
-
-/* ===========================
---- Bottom
-============================ */
-/*
-.boxcol-25 {
-	width: 100%;
-}
-
-.box-social {
-	list-style: none;
-}
-
-.box-social li {
-	width: 25%;
-	float: left;
-}
-
-
-.box-social .social-facebook a { 
-	display: block;
-	background: #3873ae;
-}
-*/
-
-/* ==== Sidebar ==== */
-/*.sidebar .widget h5 {
-	font-size: 18px;
-	font-weight: 700;
-	margin-bottom: 20px;
-	text-transform: uppercase;
-}
-.sidebar .widget {
-	margin-bottom: 50px;
-}
-
-.widget ul {
-	list-style: none;
-	margin-left:0;
-	padding-left:0;
-}
-.sidebar .widget ul li {
-	margin-left:0;
-	padding-left:0;
-	margin-bottom: 10px;
-}
-.sidebar .widget ul li a {
-	color: #666;
-}
-
-
-.widget.widget_categories ul li:before {
-	display: inline-block;
-	font-family: 'Pe-icon-7-stroke';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;*/
-
-	/* Better Font Rendering =========== */
-	/*-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	content: "\e684";
-	margin-right: 10px;
-}*/
-
-/*
-.widget.widget_recent_post ul li figure {
-	float: left;
-	margin: 0 20px 0 0;
-}
-
-.widget.widget_recent_post ul li {
-	margin-bottom: 25px;
-}
-
-.widget.widget_recent_post ul li:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
-.widget.widget_recent_post ul li h6 {
-	margin-bottom: 10px;
-}
-.widget.widget_recent_post ul li span {
-	font-size: 14px;
-}
-
-.widget .tagcloud a {
-	padding: 4px 10px;
-	color: #fff;
-	display:inline-block;
-	margin: 0 10px 10px 0;
-	font-size: 14px;
-	border-radius: 2px;
-}
-
-.widget .tagcloud a:hover {
-	color: #fff;
-	background: #333;
-}*/
-
-/* --- widget --- */
-
-form.search-form input {
-	font-size: 18px;
-	line-height: 1.6em;
-	border: 1px solid #eee;
-  -webkit-box-shadow: none;
-          box-shadow:  none;
-	border-radius: 2px;
-}
-
-form.search-form input:focus {
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
 }
 
 
