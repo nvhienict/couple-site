@@ -29,7 +29,7 @@
 
 </head>
 
-<body style="background-image: url({{Asset("{$backgrounds}")}});">
+<body style="background: url({{Asset("{$backgrounds}")}});">
 
 @if($website)
 @foreach( $website as $website_item )
@@ -82,7 +82,11 @@
 
 	<div class="logo">
 		<div class="wedding-date">
-			{{WebsiteController::getDates()}}
+			@if(Session::has('email'))
+        		{{WebsiteController::getDates()}}
+        	@else
+        		{{$date_url}}
+        	@endif
 		</div>
 		<!-- end wedding-date -->
 
