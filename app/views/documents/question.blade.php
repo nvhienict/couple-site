@@ -112,7 +112,7 @@ Trang chủ
 @section('content')
 
 <div class="row main-content-footer">
-	 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 box-menu ">
+	 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 box-menu ">
 	 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center you-know">
 	 			Bạn cần biết		 		
 	 	</div>
@@ -123,11 +123,10 @@ Trang chủ
 		 		<li><a href="{{URL::route('policy')}}">Chính sách riêng tư</a></li>
 		 		<li><a class="active-a" href="{{URL::route('question')}}">Câu hỏi thuờng gặp</a></li>
 		 		<li><a href="{{URL::route('contact')}}">Liên hệ</a></li>
-		 		<li><a href="{{URL::route('sitemap')}}">SiteMap</a></li>
 		 	</ul>
 	 	</div>			 				 	
 	 </div>
-	 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 content-footer">
+	 <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 content-footer">
 	 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 title-content-footer text-center">
 	 		Câu hỏi thường gặp
 	 	</div>

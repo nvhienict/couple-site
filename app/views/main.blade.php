@@ -134,10 +134,7 @@
 					&nbsp;&nbsp;|&nbsp;&nbsp;
 					<a href="{{URL::route('question')}}" >Câu hỏi thường gặp</a>
 					&nbsp;&nbsp;|&nbsp;&nbsp;
-					<a href="{{URL::route('contact')}}" >Liên hệ</a>
-					&nbsp;&nbsp;|&nbsp;&nbsp;
-					<a href="{{URL::route('sitemap')}}" >SiteMap</a>
-					&nbsp;&nbsp;
+					<a href="{{URL::route('contact')}}" >Liên hệ</a>				
 				</li>		
 			</ul>			
 			<div class="infor-company" >
@@ -152,7 +149,7 @@
             </div>
 		</div>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-left: -73px; margin-top: 20px;">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-left: -14%; margin-top: 15%;">
 				<p style="font-size: 12px;color: black; font-weight: bold;" href="http://www.thuna.vn">Kết nối với Thuna.vn</p>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 connect-thuna">
@@ -178,15 +175,6 @@
 				</div>			
 			</div>			
 		</div>
-
-		<!-- <div class="">
-			
-			<div class="text-center">
-				<p>47 Đỗ Huy Uyển, Đà Nẵng<br />
-				&copy; Copyright 2014 - <a href="http://thuna.vn">thuna.vn</a></p>
-			</div>
-			
-		</div> -->
 		<div class="col-md-3">
 			<a href="javascript:void(0);" class="btn btn-top" id="go_top">				
 				<i class="fa fa-angle-up fa-3x text-center"></i>
