@@ -9,7 +9,8 @@
       <span class="icon-bar"></span>
     </button>
     <a href="{{URL::route('index')}}" class="navbar-brand brand">
-      <img class="img-logo" src="{{Asset('icon/logo-thuna.png')}}">
+      <!-- <img class="img-logo" src="{{Asset('icon/logo-thuna.png')}}"> -->
+      Thuna.vn
     </a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
