@@ -87,7 +87,11 @@
 					<h2 class="info-description">
 						Chúng tôi đang chuẩn bị đám cưới
 						<br />
-						{{WebsiteController::getDates()}}
+						@if(Session::has('email'))
+		            		{{WebsiteController::getDates()}}
+		            	@else
+		            		{{$date_url}}
+		            	@endif
 					</h2>
 					<!-- end h2 -->
 					<div class="clear"></div>

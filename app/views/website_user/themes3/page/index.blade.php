@@ -49,7 +49,11 @@
 					Đám cưới của chúng tôi
 				</h1>
 				<p class="sub_head_title">
-					{{WebsiteController::getDates()}}
+					@if(Session::has('email'))
+	            		{{WebsiteController::getDates()}}
+	            	@else
+	            		{{$date_url}}
+	            	@endif
 				</p>
 			</div>
 			<!-- end head_title -->

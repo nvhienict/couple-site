@@ -14,8 +14,6 @@
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="{{Asset("assets/js/jquery.min.js")}}"></script>
     <script src="{{Asset("assets/js/map-themes.js")}}"></script>
-    <script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
-    
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes7-edit.css")}}">
   <script type="text/javascript">
@@ -76,14 +74,6 @@
         e.preventDefault();
     });
 
-    jQuery(document).ready(function($) {
-        // Call & Apply function scrollTo
-        $('a.scrollTo').click(function () {
-            $('.design_website_content_right').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
-            return false;
-        });
-    });
-
     function updateName()
         {
             var nameBride = $('input[name=name_bride]').val();
@@ -125,72 +115,77 @@
                    </div>
                    <div  class="collapse navbar-collapse" id="example-navbar-collapse" >
                       <ul class="nav navbar-nav side-nav" style="background-color:#EE7B74;">
+                        <li class="active always-visible" ><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
                         @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
-                            <li><a href="#{{$tab->type}}" class="scrollTo {{$tab->id}} TT{{$tab->id}}" >{{$tab->title}}</a></li>                
+                            <li><a href="#{{$tab->type}}" class="{{$tab->id}} TT{{$tab->id}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>                
                         @endforeach()
                       </ul>
                    </div>
             </nav>
          </div>    
-     </div>
-    <div class="container main_template_7">        
-        <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11">
-            @foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
+     </div>  
+     <div class="container"> 
+        <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11 tab-content "> 
+                    <div class="row tab-pane active" id="home">                     
+                        @include('website_user.themes7.edit.main')                 
+                    </div>     
+                    @foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
 
-                <!-- Welcome -->
-                @if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
-                    <div id="section_{{$tabWeb->type}}">
-                        @include('website_user.themes7.edit.main')
-                    </div>                
-                @endif
+                    <!-- Welcome -->
+                    @if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
+                        <div class="tab-pane" id="{{$tabWeb->type}}">
+                            @include('website_user.themes7.edit.left')
+                        </div>                
+                    @endif
 
-                <!-- About Us -->
-                @if($tabWeb->type=="about" && $tabWeb->visiable==0)
-                    <div id="section_{{$tabWeb->type}}">
-                        @include('website_user.themes7.edit.about_us')
-                    </div>               
-                @endif
+                    <!-- About Us -->
+                    @if($tabWeb->type=="about" && $tabWeb->visiable==0)
+                        <div class="tab-pane" id="{{$tabWeb->type}}">
+                            @include('website_user.themes7.edit.about_us')
+                        </div>               
+                    @endif
 
-                <!-- Wedding Event -->
-                @if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
-                    <div id="section_{{$tabWeb->type}}">
-                        @include('website_user.themes7.edit.left')
-                    </div>              
-                @endif
+                    <!-- Wedding Event -->
+                    @if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
+                       <div class="tab-pane" id="{{$tabWeb->type}}">
+                            @include('website_user.themes7.edit.left')
+                        </div>              
+                    @endif
 
-                 <!-- Travaling -->
-                @if($tabWeb->type=="traval" && $tabWeb->visiable==0)
-                    <div id="section_{{$tabWeb->type}}">
-                     @include('website_user.themes7.edit.right')
-                    </div>           
-                 @endif
+                     <!-- Travaling -->
+                    @if($tabWeb->type=="traval" && $tabWeb->visiable==0)
+                        <div class="tab-pane" id="{{$tabWeb->type}}">
+                         @include('website_user.themes7.edit.right')
+                        </div>           
+                     @endif
 
-                <!-- Photo Album -->
-                @if($tabWeb->type=="album" && $tabWeb->visiable==0)
-                    <div id="section_{{$tabWeb->type}}">
-                        @include('website_user.themes7.edit.photo')
-                    </div>                              
-                @endif   
+                    <!-- Photo Album -->
+                    @if($tabWeb->type=="album" && $tabWeb->visiable==0)
+                        <div class="tab-pane" id="{{$tabWeb->type}}">
+                            @include('website_user.themes7.edit.photo')
+                        </div>                              
+                    @endif   
 
-                <!-- Contact Us -->
-                @if($tabWeb->type=="contact" && $tabWeb->visiable==0)
-                <div id="section_{{$tabWeb->type}}">
-                    @include('website_user.themes7.edit.contact')
-                </div>
-                @endif
+                    <!-- Contact Us -->
+                    @if($tabWeb->type=="contact" && $tabWeb->visiable==0)
+                    <div class="tab-pane" id="{{$tabWeb->type}}">
+                        @include('website_user.themes7.edit.contact')
+                    </div>
+                    @endif
 
-                <!-- cau chuyen tinh yeu -->
-                @if($tabWeb->type=="love_story")
-                    <div id="section_{{$tabWeb->type}}">
-                        @include('website_user.themes7.edit.text')
-                    </div>               
-                @endif            
-                                                        
-             
+                    <!-- cau chuyen tinh yeu -->
+                    @if($tabWeb->type=="love_story")
+                        <div class="tab-pane" id="{{$tabWeb->type}}">
+                            @include('website_user.themes7.edit.text')
+                        </div>               
+                    @endif            
+                                                            
+                 
 
-            @endforeach                    
-            
-        </div>       
+                @endforeach                    
+                
+          
+        </div>
     </div>
   @endforeach
   @endif    

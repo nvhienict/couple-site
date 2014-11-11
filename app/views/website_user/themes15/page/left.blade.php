@@ -1,5 +1,5 @@
 
-        <div class="item-title" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
+        <div class="item-title" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} ">
             {{$tabWeb->title}}
         </div>
 
@@ -10,7 +10,11 @@
 
         <div class="img">
             <?php $images = PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
-            <img class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
+            @if($images)
+                <img class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
+            @else 
+                <img src="{{Asset('images/website/themes15/page2_pic1.jpg')}}">
+            @endif
         </div>
         <!-- end frame_box frame_big frame_center -->
 

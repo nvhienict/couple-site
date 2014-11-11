@@ -28,7 +28,7 @@
 <div>
     <div class="partion">
                  
-        <div class="item-title" style="text-align: {{$tabWeb->titlestyle}}" id = "nameTitle{{$tabWeb->id}}" > {{$tabWeb->title}}</div>
+        <div class="item-title" style="text-align: {{$tabWeb->titlestyle}}" > {{$tabWeb->title}}</div>
         <div class="item-content">                            
             <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
         </div>
