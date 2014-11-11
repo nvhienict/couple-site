@@ -29,7 +29,7 @@
 								
 						<div calss="col-xs-12 col-sm-7 col-md-7 col-lg-7" id="right-infor">
 							<h3 id="right-infor name">{{$vendor->name}}</h3>
-							<p id="right-infor address">{{$vendor->address}} {{Vendor::find($vendor->id)->location()->get()->first()->name}}<a href="#map" data-toggle="tab" class="outside-link" id="show_map_detail" onclick="show_map_detail()"> |Map.</a></p>
+							<p id="right-infor address">{{$vendor->address}}<a href="#map" data-toggle="tab" class="outside-link" id="show_map_detail" onclick="show_map_detail()"> |Map.</a></p>
 							<p id="right-infor address"><b>Điện thoại:</b> {{$vendor->phone}}</p>
 							<p id="right-infor web"><b>Website</b>:<a href="{{$vendor->website}}"id="right-infor link" target="_blank"> Ghé thăm Website của tôi</a></p>
 							<p id="right-infor service"><b>Dịch vụ</b>:
