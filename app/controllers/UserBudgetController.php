@@ -137,7 +137,7 @@ class UserBudgetController extends \BaseController {
 				
 								
 		</tr>';
-		echo json_encode(array('item_last'=>$item_last,'item'=>$item->id,'html'=>$html));
+		echo json_encode(array('item_last'=>$item_last,'html'=>$html));
 		exit();
 	}
 

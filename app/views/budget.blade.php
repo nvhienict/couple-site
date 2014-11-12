@@ -422,8 +422,7 @@ Quản lý ngân sách
 							$('#budget_item_cat'+obj.item_last).after(obj.html);
 						} else{
 							$('.budget_item_cat_add'+id).before(obj.html);
-						};
-						$('#budget_item_cat'+obj.item).show();												
+						};												
 						}											
 					});
 			 	};	
