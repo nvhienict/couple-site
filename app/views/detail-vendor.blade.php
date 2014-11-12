@@ -422,8 +422,7 @@
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3" id="right-contact">
 					<div class="contact-me">
-						<h4> <i class="glyphicon glyphicon-earphone"></i> {{$vendor->phone}} </h4>
-						<p>Xin vui lòng cho biết nhà cung cấp này bạn tìm thấy trên Thuna.vn</p>
+						<h6> <i class="glyphicon glyphicon-earphone"></i> {{$vendor->phone}} </h6>						
 					<div  class="form">
 							<form class="form-horizontal" role="form">
 							  <div class="form-group">
