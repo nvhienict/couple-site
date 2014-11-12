@@ -143,8 +143,6 @@
                	Điện thoại: 0966 666 886 | Email:
                 <a class="contact-admin" href="mailto:thanh@thuna.vn">thanh@thuna.vn</a><br>
                 Chịu trách nhiệm quản lý nội dung: thuna.vn<br>
-                Giấy phép hoạt động trang thông tin điện tử tổng hợp<br>
-                Giấy xác nhận cung cấp dịch vụ mạng xã hội trực tuyến<br>
                 <a class="thuna-title" href="http://www.thuna.vn" title="Đám cưới, Ảnh cưới, Áo cưới - Trang thông tin dịch vụ cưới hàng đầu Việt Nam">Đám cưới, Ảnh cưới, Áo cưới - Trang thông tin dịch vụ cưới hàng đầu Việt Nam.</a></h2><br>  
                 <div class="site-author">Bản quyền thuộc về thuna.vn © 2014</div>         
             </div>
