@@ -29,19 +29,28 @@ class UserBudgetController extends \BaseController {
 		$count=UserBudget::where('user',$id_user)->where('category',$id)->count();
 		if ($count) {
 			$item_last=UserBudget::where('user',$id_user)->where('category',$id)->get()->last()->id;
+			$budget=new UserBudget();
+			$budget->item="New Item";
+			$budget->user=$id_user;
+			$budget->category=$id;
+			$budget->estimate="0";
+			$budget->actual="0";
+			$budget->pay="0";
+			$budget->note="";
+			$budget->save(); 
 		} else {
 			$item_last=0;
-               
+			$budget=new UserBudget();
+			$budget->item="New Item";
+			$budget->user=$id_user;
+			$budget->category=$id;
+			$budget->estimate="0";
+			$budget->actual="0";
+			$budget->pay="0";
+			$budget->note="";
+			$budget->save();              
 		}
-		$budget=new UserBudget();
-		$budget->item="New Item";
-		$budget->user=$id_user;
-		$budget->category=$id;
-		$budget->estimate="0";
-		$budget->actual="0";
-		$budget->pay="0";
-		$budget->note="";
-		$budget->save(); 
+		
 		$item=UserBudget::where('user',$id_user)->where('category',$id)->get()->last();
 		if(!empty($item->note)){
 			$itemHtml='<a href="#" class="budget_icon_notes" data-toggle="modal"  data-target="#'.$item->id.'" ><i class="glyphicon glyphicon-comment"></i></a>';
