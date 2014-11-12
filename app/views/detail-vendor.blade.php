@@ -422,7 +422,7 @@
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3" id="right-contact">
 					<div class="contact-me">
-						<h4> <i class="glyphicon glyphicon-earphone"></i> 01234 856 856 </h4>
+						<h4> <i class="glyphicon glyphicon-earphone"></i> {{$vendor->phone}} </h4>
 						<p>Xin vui lòng cho biết nhà cung cấp này bạn tìm thấy trên Thuna.vn</p>
 					<div  class="form">
 							<form class="form-horizontal" role="form">
