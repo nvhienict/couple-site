@@ -359,7 +359,7 @@ class WebsiteController extends \BaseController {
 			$new_website->name_groom="Tên Chú rể";
 			$new_website->about_groom="Giới thiệu về chú rể";
 			$new_website->about_bride="Giới thiệu về cô dâu";
-			$new_website->url=$lastname.'-'.$id_user;
+			$new_website->url=Str::slug($lastname.'-'.$id_user);
 			$new_website->save();
 		} else {
 			WeddingWebsite::where('user',$id_user)->update(
@@ -1041,7 +1041,7 @@ class WebsiteController extends \BaseController {
 
 	public function change_url(){
 		$id_user=WebsiteController::id_user();
-		$change_url=Input::get('url_website');
+		$change_url=Str::slug(Input::get('url_website'));
 		$recent_url=WeddingWebsite::where('user',$id_user)->get()->first()->url;
 		if (empty($change_url))
 		 {
