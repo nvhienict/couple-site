@@ -133,7 +133,7 @@ Trang chủ
                     <!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
-                            <h2><span>Liên hệ ngay !!! <br /> Để được tư vấn miễn phí</span></h2>
+                            <!-- <h2><span>Liên hệ ngay !!! <br /> Để được tư vấn miễn phí</span></h2> -->
                         </div>
                     </div><!-- /header-text -->
 			    </div>
