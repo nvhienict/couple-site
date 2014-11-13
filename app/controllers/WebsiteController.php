@@ -979,7 +979,7 @@ class WebsiteController extends \BaseController {
 							$phototab=new PhotoTab();
 							$years=date("Y");
 							$months=date('m');	
-							File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);					
+							File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
 						  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
 							$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
 							$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
@@ -1356,6 +1356,7 @@ class WebsiteController extends \BaseController {
 			switch ($id_tab) {
 				case 111:
 					$image = Input::file('image');
+					File::makeDirectory(public_path('images/website/avatar/'),$mode = 0775,true,true);
 					$filename = $id_user.'_bride_' .str_random(10).'.' .$image->getClientOriginalExtension();
 					$pathsave = 'images/website/avatar/'.$filename;
 					Image::make($image->getRealPath())->resize(800, 600)->save($pathsave);
@@ -1367,6 +1368,7 @@ class WebsiteController extends \BaseController {
 
 				case 222:
 					$image = Input::file('image');
+					File::makeDirectory(public_path('images/website/avatar/'),$mode = 0775,true,true);
 					$filename = $id_user.'_groom_' .str_random(10).'.' .$image->getClientOriginalExtension();
 					$pathsave = 'images/website/avatar/'.$filename;
 					Image::make($image->getRealPath())->resize(800, 600)->save($pathsave);

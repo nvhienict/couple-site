@@ -984,8 +984,8 @@ a.btn:focus{
 
 
 .list_vendor_avatar{
-	width: 320px;
-	height: 100px;
+	width: 320px !important;
+	height: 100px !important;
 }
 
 .caption {
@@ -1060,7 +1060,8 @@ a.btn:focus{
 	padding: 10px 10px 10px 0px;
 	margin: 0px 0px 20px 0px; 
 }
-.list-avatar img{
+.list-avatar a img{
+	height: 200px;
 	width: 100%;
 }
 .list-category-name{
