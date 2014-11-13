@@ -1359,7 +1359,8 @@ class WebsiteController extends \BaseController {
 					File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
 					$filename = $id_user.'_bride_' .str_random(10).'.' .$image->getClientOriginalExtension();
 					$pathsave = 'images/website/avatar/'.$filename;
-					Image::make($image->getRealPath())->resize(800, 600)->save($pathsave);
+					$path = public_path('images/website/avatar/'.$filename);
+					Image::make($image->getRealPath())->resize(800, 600)->save($path);
 					WeddingWebsite::where('user',$id_user)->update(
 						array('avatar_bride'=>$pathsave)					
 						);
@@ -1371,7 +1372,8 @@ class WebsiteController extends \BaseController {
 					File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
 					$filename = $id_user.'_groom_' .str_random(10).'.' .$image->getClientOriginalExtension();
 					$pathsave = 'images/website/avatar/'.$filename;
-					Image::make($image->getRealPath())->resize(800, 600)->save($pathsave);
+					$path = public_path('images/website/avatar/'.$filename);
+					Image::make($image->getRealPath())->resize(800, 600)->save($path);
 					WeddingWebsite::where('user',$id_user)->update(
 						array('avatar_groom'=>$pathsave)					
 						);
