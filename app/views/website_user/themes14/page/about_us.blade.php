@@ -3,8 +3,8 @@
     <div class="image-couple">        
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content-broom">        
             @if(!empty($website_item->avatar_groom))
-            <a class="fancybox" rel="gallery1" href="{{Asset('$website_item->avatar_groom')}}" >
-                <img src="{{Asset('$website_item->avatar_groom')}}" class="img-responsive" alt="Image">                         
+            <a class="fancybox" rel="gallery1" href="{{Asset("$website_item->avatar_groom")}}" >
+                <img src="{{Asset("$website_item->avatar_groom")}}" class="img-responsive" alt="Image">                         
             </a>                           
             @else
             <a class="fancybox" rel="gallery1" href="{{Asset('images/website/themes14/groom.jpg')}}" >
@@ -17,8 +17,8 @@
         </div>  
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             @if(!empty($website_item->avatar_bride))
-            <a class="fancybox" rel="gallery1" href="{{Asset('$website_item->avatar_bride')}}" >
-                <img src="{{Asset('$website_item->avatar_bride')}}" class="img-responsive" alt="Image">                         
+            <a class="fancybox" rel="gallery1" href="{{Asset("$website_item->avatar_bride")}}" >
+                <img src="{{Asset("$website_item->avatar_bride")}}" class="img-responsive" alt="Image">                         
             </a>    
             @else
             <a class="fancybox" rel="gallery1" href="{{Asset('images/website/themes14/bride.jpg')}}" >

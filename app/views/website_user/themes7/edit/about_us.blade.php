@@ -10,7 +10,7 @@
 		<span id="prev_output222">
 			<a href="#">
 				@if(!empty($website_item->avatar_groom))
-				<img src="{{Asset('$website_item->avatar_groom')}}" class="img-responsive" alt="Image">							
+				<img src="{{Asset("$website_item->avatar_groom")}}" class="img-responsive" alt="Image">							
 			@else
 				<img src="{{Asset('images/website/themes7/groom.jpg')}}" class="img-responsive" alt="Image">		
 			@endif
@@ -26,7 +26,7 @@
 			<span id="prev_output111">
 			<a href="#">
 				@if(!empty($website_item->avatar_bride))
-				<img src="{{Asset('$website_item->avatar_bride')}}" class="img-responsive" alt="Image">							
+				<img src="{{Asset("$website_item->avatar_bride")}}" class="img-responsive" alt="Image">							
 			@else
 				<img src="{{Asset('images/website/themes7/bride.jpg')}}" class="img-responsive" alt="Image">		
 			@endif
