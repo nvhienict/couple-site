@@ -119,7 +119,7 @@
 				        </div>
 				        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 text-center">
-								<figure class="">
+								<figure id="prev_outputcc222" class="">
 									<a href="#">
 										@if(($website_item->avatar_groom))
 										<img style="width: 350px;height: 350px;" class="img-responsive img-circle" src="{{Asset("$website_item->avatar_groom")}}">
@@ -133,7 +133,7 @@
 								<p class="about-g">{{$website_item->about_groom}} </p>
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 text-center">
-								<figure class="theme-border-big border">
+								<figure id="prev_outputcc111" class="theme-border-big border">
 									<a href="#">
 										@if(($website_item->avatar_bride))
 										<img style="width: 350px;height: 350px;" class="img-responsive img-circle" src="{{Asset("$website_item->avatar_bride")}}">
