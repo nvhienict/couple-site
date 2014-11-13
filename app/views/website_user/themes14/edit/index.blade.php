@@ -180,6 +180,11 @@
                     @include('website_user.themes14.edit.text')
                 </div><!-- End Item -->
             @endif
+            @if($tabWeb->type =="guestbook" && $tabWeb->visiable==0 )
+                 <div class="item">
+                    @include('website_user.themes14.edit.text')
+                </div><!-- End Item -->
+            @endif
             @if($tabWeb->type =="wedding" && $tabWeb->visiable==0 ) 
             <div class="item">
               @include('website_user.themes14.edit.left')

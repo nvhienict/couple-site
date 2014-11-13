@@ -71,6 +71,11 @@
 				          	@include('website_user.themes14.page.text')
 				        </div><!-- End Item -->
 				    @endif
+				    @if($tabWeb->type =="guestbook" && $tabWeb->visiable==0 )
+	                 	<div class="item">
+	                    	@include('website_user.themes14.page.text')
+	                	</div><!-- End Item -->
+	            	@endif
 				    @if($tabWeb->type =="wedding" && $tabWeb->visiable==0 )	
 						<div class="item">
 							@include('website_user.themes14.page.left')
