@@ -123,7 +123,7 @@ class VendorController extends \BaseController {
 			$ratings=0;
 		}
 		
-
+		$check_photoslide=PhotoSlide::where('vendor',$id)->count();
 		$photoslides=PhotoSlide::where('vendor',$id)->get();	
 		$vendor=Vendor::where('id',$id)->get()->first();
 		
@@ -149,6 +149,7 @@ class VendorController extends \BaseController {
 										->with('ratings',$ratings)
 										->with('avg_rating',$avg_rating)
 										->with('weddingdate',$weddingdate)
+										->with('check_photoslide',$check_photoslide)
 										->with('photoslides',$photoslides);
 				
 	}

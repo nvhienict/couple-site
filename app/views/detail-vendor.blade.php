@@ -62,15 +62,15 @@
 								</div>
 								<div id="content-photo">
 									<h4>Ảnh</h4>
-										@if(!empty($photoslides))	
+										@if($check_photoslide>0)	
 										<ul id="thumbs-main">											
 												@foreach($photoslides as $index => $photoslide)
 												<li rel="{{$index+1}}">{{'<img alt="" class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
 												@endforeach											   
 										</ul>
-											<a href="#photos" class="outside-link"data-toggle="tab">Xem thêm</a>
+											<a style="margin-left:2%;" href="#photos" class="outside-link"data-toggle="tab">Xem thêm</a>
 										@else
-												<p></p>;
+												
 										@endif	
 										   
 									
@@ -339,7 +339,7 @@
 									}
 								</script>
 						  	</div>
-						  	<div class="col-xs-12 col-sm-12 col-md-12 tab-pane" id="photos">
+						  	<div class=" tab-pane" id="photos">
 						  			<h4>{{Lang::get('messages.Photo')}}</h4>
 						  			  <!-- Wrapper for slides -->
 								<div id="bigPic">
@@ -349,17 +349,14 @@
 										@endforeach
 									@endif			    
 								</div>
-								<div id="smallPic">
-									<ul id="thumbs">
+								<ul id="thumbs">
 										@if(!empty($photoslides))
 											@foreach($photoslides as $index => $photoslide)
-													<li rel="{{$index+1}}">{{'<img alt="" class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
+												<li rel="{{$index+1}}">{{'<img alt="" class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
 											@endforeach
 										@endif			   
-									</ul>
-
-								</div>
-								
+								</ul>
+																
 								<!-- script slides		 -->		
 								<script type="text/javascript"> 
 									var currentImage;
@@ -372,7 +369,7 @@
 												if(currentImage != indexImage ){
 													$(currentImage).css('z-index',2);
 														clearTimeout(myTimer);
-													$(currentImage).fadeOut(250, function() 
+													$(currentImage).fadeIn(250, function() 
 													{
 														myTimer = setTimeout("showNext()", 3000);
 													$(this).css({'display':'none','z-index':1})
