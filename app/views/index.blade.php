@@ -95,9 +95,9 @@ Trang chủ
 	              </div>
 	              <div class="col-xs-6">
 	                <ul class="list-unstyled">
-	                  <li><a href="{{URL::route('songs', array(8))}}">Vào tiệc</a></li>
-	                  <li><a href="{{URL::route('songs', array(9))}}">Chúc mừng</a></li>
-	                  <li><a href="{{URL::route('songs', array(10))}}">Cuối tiệc</a></li>
+	                  <li><a href="{{URL::route('songs', array('vao-tiec'))}}">Vào tiệc</a></li>
+	                  <li><a href="{{URL::route('songs', array('chuc-mung'))}}">Chúc mừng</a></li>
+	                  <li><a href="{{URL::route('songs', array('cuoi-tiec'))}}">Cuối tiệc</a></li>
 	                </ul>
 	              </div>
 	            </div>
