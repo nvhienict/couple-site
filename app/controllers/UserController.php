@@ -191,21 +191,19 @@ class UserController extends \BaseController {
 		else 
 		{
 
-			$destinationPath = 'update/';
-	        $filename = $file->getClientOriginalName();
-	        Input::file('image')->move($destinationPath, $filename);
-
-        	$path = asset($destinationPath.$filename);
-
-        	$avatar = $destinationPath.$filename;
+        	File::makeDirectory(public_path('images/user/avatar'),$mode = 0775,true,true);
+			$filename = $id_user.'_' .str_random(10).'.' .$file->getClientOriginalExtension();
+			$pathsave = 'images/user/avatar/'.$filename;
+			$path = public_path('images/user/avatar/'.$filename);
+			Image::make($image->getRealPath())->resize(200, 200)->save($path);
 
 			// update to database
 			User::where("id", UserController::id_user())->update(
-					array("avatar"=>$avatar));
+					array("avatar"=>$pathsave));
 
 			return Response::json(
 				['success' => true,
-				'file' => asset($avatar)]
+				'file' => asset($pathsave)]
 			);
 
 		}
