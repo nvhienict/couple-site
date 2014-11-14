@@ -317,11 +317,11 @@ Trang chủ
 
 <script type="text/javascript">
 
-	function get_location(id){
+	function get_location(name){
 		$.ajax({
 			type: "post",
 			url: "{{URL::route('get_location')}}",
-			data:{id:id}
+			data:{name:name}
 		});
 	};
 
