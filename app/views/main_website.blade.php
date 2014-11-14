@@ -14,9 +14,7 @@
 	<!-- css -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
-	<link href="{{Asset("assets/css/owl.carousel.css")}}" rel="stylesheet" media="screen" />
-    <link href="{{Asset("assets/css/owl.theme.css")}}" rel="stylesheet" media="screen" />
-	
+		
 	<link href="{{Asset("assets/css/animate.css")}}" rel="stylesheet" />
     <link href="{{Asset("assets/css/style.css")}}" rel="stylesheet">
     <link href="{{Asset("assets/css/sweet-alert.css")}}" rel="stylesheet">
