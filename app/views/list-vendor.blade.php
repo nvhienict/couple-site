@@ -161,7 +161,7 @@ Danh sách Dịch vụ
 								@foreach($results as $key=>$vendor)
 									<div class="col-sm-4 col-lg-4 col-md-4">
 					                    <div class="thumbnail">
-					                        <a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="img-responsive" alt="" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a>
+					                        <!-- <a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="img-responsive" alt="" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a> -->
 					                        <div class="category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
 					                        <div class="caption">
 					                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{$vendor->name}}</a></div>
@@ -259,7 +259,7 @@ Danh sách Dịch vụ
 								
 									<div class="col-sm-4 col-lg-4 col-md-4">
 					                    <div class="thumbnail">
-					                        <a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="img-responsive" alt="" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a>
+					                        <!-- <a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="img-responsive" alt="" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a> -->
 					                        <div class="category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
 					                        <div class="caption">
 					                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{$vendor->name}}</a></div>
@@ -357,7 +357,7 @@ Danh sách Dịch vụ
 							@foreach($results as $key=>$vendor)
 							<div class="row" id="show-list">
 								<div class="col-sm-4 col-lg-4 col-md-4">
-									<div class="list-avatar"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a></div>
+									<!-- <div class="list-avatar"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a></div> -->
 									<div class="list-category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
 								</div>
 								<div class="col-sm-8 col-lg-8 col-md-8">
@@ -467,7 +467,7 @@ Danh sách Dịch vụ
 							@foreach($results as $key=>$vendor)
 							<div class="row" id="show-list">
 								<div class="col-sm-4 col-lg-4 col-md-4">
-									<div class="list-avatar"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a></div>
+									<!-- <div class="list-avatar"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a></div> -->
 									<div class="list-category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
 								</div>
 								<div class="col-sm-8 col-lg-8 col-md-8">
