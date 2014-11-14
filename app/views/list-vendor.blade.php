@@ -344,10 +344,11 @@ Danh sách Dịch vụ
 
 			<!-- tab-list -->
 			<div class="col-md-7 tab-pane " id="display-list">
-				@if( count($results)==0 )
-					<h2>
-						Không có kết quả nào được tìm thấy
-					</h2>
+
+			@if( count($results)==0 )
+				<h2>
+					Không có kết quả nào được tìm thấy
+				</h2>
 				@else
 					@if(!empty($compares))
 					<input type="hidden" id="count" name="a" value="{{count($compares)}}">
@@ -363,17 +364,17 @@ Danh sách Dịch vụ
 			                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{$vendor->name}}</a></div>
 			                         	<?php
 			                            	
-			                            	$about=$vendor->about;
+			                            	$about=strip_tags($vendor->about);
 			                            	if($about)
 			                            	{	
 			                            		$lengthstr=strlen($about);
-			                            		if($lengthstr<410)
+			                            		if($lengthstr<210)
 			                            		{
 			                            			$shortContent=$about;
 			                            		}
 			                            		else
 			                            		{
-			                            			$pos=strpos($about, ' ', 410);	                            		
+			                            			$pos=strpos($about, ' ', 210);	                            		
 			                						$shortContent=substr($about,0,$pos )."..."; 	
 			                            		}	
 			                            		                            	
@@ -471,20 +472,22 @@ Danh sách Dịch vụ
 								<div class="col-sm-8 col-lg-8 col-md-8">
 									<div class="caption-list">
 			                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{$vendor->name}}</a></div>
+			                            
 			                            <?php
 			                            	
-			                            	$about=$vendor->about;
+			                            	$about=strip_tags($vendor->about);
 			                            	if($about)
 			                            	{	
 			                            		$lengthstr=strlen($about);
-			                            		if($lengthstr<410)
+			                            		if($lengthstr<210)
 			                            		{
 			                            			$shortContent=$about;
 			                            		}
 			                            		else
 			                            		{
-			                            			$pos=strpos($about, ' ', 410);	                            		
-			                						$shortContent=substr($about,0,$pos )."..."; 	
+			                            			$pos=strpos($about, '.', 210);
+			                						$shortContent=substr($about,0,$pos )."...";
+			                						// $shortContent=$about;
 			                            		}	
 			                            		                            	
 			                            	}
@@ -498,6 +501,8 @@ Danh sách Dịch vụ
 			                            <p>{{ $shortContent }}</p>
 			                            <div class="website">http://{{$vendor->website}}</div>
 			                        </div>
+			                        <!-- end caption-list -->
+
 									<div class="ratings">
 			                            <span class="pull-right">{{VendorComment::where('vendor',$vendor->id)->get()->count()}} Nhận xét</span>
 					   				             <p>
@@ -541,6 +546,7 @@ Danh sách Dịch vụ
 					                                @endif
 					                            </p>
 			                        </div>
+			                        <!-- end ratings -->
 
 								    <div class="compare-list">
 								    	<label>
@@ -554,19 +560,24 @@ Danh sách Dịch vụ
 										    });
 									    </script>
 								    </div>
+								    <!-- end compare-list -->
 
 								</div>
+								<!-- end col-sm-8 col-lg-8 col-md-8 -->
+
 							</div>
+							<!-- end show-list -->
 							@endforeach
+							<!-- end results -->
 
 						@endif
-						<!-- end check isset vendor in compare -->
+						<!-- end not in $compares -->
 
 				@endif
-				<!-- end check empty result -->
-				
+				<!-- end $results != 0 -->
 			</div>
-			<!-- .tab-list -->
+			<!-- end .tab-list -->
+
 	</div>
 	<!-- .tab-content -->
 
