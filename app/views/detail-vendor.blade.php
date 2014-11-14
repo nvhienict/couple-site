@@ -65,7 +65,7 @@
 										@if($check_photoslide>0)	
 										<ul id="thumbs-main">											
 												@foreach($photoslides as $index => $photoslide)
-												<li rel="{{$index+1}}">{{'<img alt="" class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
+												<li  rel="{{$index+1}}"><a href="#photos" class="image-outside-link" data-toggle="tab">{{'<img alt="" class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</a></li>
 												@endforeach											   
 										</ul>
 											<a style="margin-left:2%;" href="#photos" class="outside-link"data-toggle="tab">Xem thêm</a>
@@ -76,6 +76,10 @@
 									
 										<script type="text/javascript">
 										   $(".outside-link").click(function() {
+											    $(".nav li").removeClass("active");
+											    $($(this).attr("data-toggle-tab")).parent("li").addClass("active");
+											});
+										   $(".image-outside-link").click(function() {
 											    $(".nav li").removeClass("active");
 											    $($(this).attr("data-toggle-tab")).parent("li").addClass("active");
 											});
@@ -342,14 +346,14 @@
 						  	<div class=" tab-pane" id="photos">
 						  			<h4>{{Lang::get('messages.Photo')}}</h4>
 						  			  <!-- Wrapper for slides -->
-								<div id="bigPic">
+								<div  id="bigPic">
 									@if(!empty($photoslides))
 										@foreach($photoslides as $index => $photoslide)
-												{{'<img alt="" class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($photoslide->bigpic) . '">'}}
+												{{'<img alt="" class="container img-responsive" src="data:image/jpeg;base64,' . base64_encode($photoslide->bigpic) . '">'}}
 										@endforeach
 									@endif			    
 								</div>
-								<ul id="thumbs">
+								<ul  id="thumbs">
 										@if(!empty($photoslides))
 											@foreach($photoslides as $index => $photoslide)
 												<li rel="{{$index+1}}">{{'<img alt="" class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($photoslide->smallpic) . '">'}}</li>
