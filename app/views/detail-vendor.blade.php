@@ -283,6 +283,7 @@
 						
 								@endif
 								<br><br>
+							@if(Session::has('email'))	
 							<!-- -facebookcommnet -->	
 								<div id="fb-root"></div>
 								<script>(function(d, s, id) {
@@ -300,7 +301,8 @@
 								        $('.fb-comments').attr("data-href", document.URL);
 								    });
 								</script>
-							<!-- -End facebookcommnet -->	
+							<!-- -End facebookcommnet -->
+							@endif	
 								<script type="text/javascript">
 
 									$(document).ready(function(){
