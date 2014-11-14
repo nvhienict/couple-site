@@ -162,9 +162,9 @@ Danh sách Dịch vụ
 									<div class="col-sm-4 col-lg-4 col-md-4">
 					                    <div class="thumbnail">
 					                        <!-- <a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="img-responsive" alt="" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a> -->
-					                        <div class="category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
+					                        <div class="category-name">dhjfdhf</div>
 					                        <div class="caption">
-					                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{$vendor->name}}</a></div>
+					                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">hjdhsdjs</a></div>
 					                
 					                        </div>
 					                        <div class="ratings">
@@ -260,9 +260,9 @@ Danh sách Dịch vụ
 									<div class="col-sm-4 col-lg-4 col-md-4">
 					                    <div class="thumbnail">
 					                        <!-- <a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="img-responsive" alt="" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a> -->
-					                        <div class="category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
+					                        <div class="category-name">jfdkjfdkf</div>
 					                        <div class="caption">
-					                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{$vendor->name}}</a></div>
+					                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">hdfjdhfd</a></div>
 					                            
 					                        </div>
 					                        <div class="ratings">
@@ -358,11 +358,14 @@ Danh sách Dịch vụ
 							<div class="row" id="show-list">
 								<div class="col-sm-4 col-lg-4 col-md-4">
 									<!-- <div class="list-avatar"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a></div> -->
-									<div class="list-category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
+									 <div class="list-avatar"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}"></a></div>
+
+									<!-- <div class="list-category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div> -->
+									<div class="list-category-name">nguyen</div>
 								</div>
 								<div class="col-sm-8 col-lg-8 col-md-8">
 									<div class="caption-list">
-			                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{$vendor->name}}</a></div>
+			                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">hdjhdjdhsjdshd</a></div>
 			                         	<?php
 			                            	
 			                            	$about=strip_tags($vendor->about);
@@ -387,8 +390,10 @@ Danh sách Dịch vụ
 			                            	
 
 			                            ?>
-			                            <p>{{ $shortContent }}</p>
-			                            <div class="website">http://{{$vendor->website}}</div>
+			                            <!-- <p>{{ $shortContent }}</p> -->
+			                             <p>dfhdfmdfkdjfkd</p>
+			                            <!-- <div class="website">http://{{$vendor->website}}</div> -->
+			                            <div class="website">http://thuna.vn</div>
 			                        </div>
 									<div class="ratings">
 			                           <span class="pull-right">{{VendorComment::where('vendor',$vendor->id)->get()->count()}} Nhận xét</span>
@@ -468,11 +473,11 @@ Danh sách Dịch vụ
 							<div class="row" id="show-list">
 								<div class="col-sm-4 col-lg-4 col-md-4">
 									<!-- <div class="list-avatar"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{'<img class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}</a></div> -->
-									<div class="list-category-name">{{Vendor::find($vendor->id)->location()->get()->first()->name}}</div>
+									<div class="list-category-name">djsdskdjsdk</div>
 								</div>
 								<div class="col-sm-8 col-lg-8 col-md-8">
 									<div class="caption-list">
-			                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">{{$vendor->name}}</a></div>
+			                            <div class="name"><a href="{{URL::route('vendor',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">fhdkfdfdk</a></div>
 			                            
 			                            <?php
 			                            	
@@ -499,8 +504,8 @@ Danh sách Dịch vụ
 			                            	
 
 			                            ?>
-			                            <p>{{ $shortContent }}</p>
-			                            <div class="website">http://{{$vendor->website}}</div>
+			                            <p>fhdfjd</p>
+			                            <div class="website">http://fdfjhd</div>
 			                        </div>
 			                        <!-- end caption-list -->
 
