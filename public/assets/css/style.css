@@ -1220,7 +1220,7 @@ ul#thumbs, ul#thumbs li{
 	
 ul#thumbs li{
 	float:left;	
-	margin-bottom:10%;
+	margin-bottom:2%;
 	border:1px solid #CCC;	
 	padding:3px;
 	cursor:pointer;
