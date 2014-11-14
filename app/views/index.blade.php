@@ -203,12 +203,12 @@ Trang chủ
 							    		@foreach(Location::get() as $location)
 
 							    			@if(!Session::has('location'))
-							    				<option  value="{{$location->id}}" >{{$location->name}}</option>
+							    				<option  value="{{$location->name}}" >{{$location->name}}</option>
 								    		@else
 								    			@if(Session::get('location')==$location->id)
-								    				<option  selected="selected" value="{{$location->id}}" >{{$location->name}}</option>
+								    				<option  selected="selected" value="{{$location->name}}" >{{$location->name}}</option>
 								    			@else
-								    				<option  value="{{$location->id}}" >{{$location->name}}</option>
+								    				<option  value="{{$location->name}}" >{{$location->name}}</option>
 								    			@endif
 								    		@endif
 
@@ -219,7 +219,7 @@ Trang chủ
 							<div class="row xs-marginbot-5">
 								<div class="col-md-12">
 									<input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg input_s btn-responsive" placeholder="Danh mục" readonly style="cursor:pointer;">
-							    	<input id="searchId" name="category_id" type="hidden">
+							    	<!-- <input id="searchId" name="category_id" type="hidden"> -->
 							    	<ul class="dropdown-menu " role="menu" aria-labelledby="dropdownMenu1">
 									    <li role="presentation">
 									    	<div class="row" id="menu">
@@ -228,7 +228,7 @@ Trang chủ
 											      		@foreach (Category::get() as $index=> $category)
 							    						@if($index<7)
 										      			<li class="budget-column-icon images_li" style="background-image:url({{Asset("icon/cat/{$category->images}")}})"><span style="cursor:pointer;">{{$category['name']}}</span>
-										      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
+										      			<!-- <input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}"> -->
 										      			</li>
 										      			@endif
 						      							@endforeach
@@ -239,7 +239,7 @@ Trang chủ
 										      			@foreach (Category::get() as $index=> $category)
 						    							@if($index>=7)
 										      			<li class="budget-column-icon images_li" style="background-image:url({{Asset("icon/cat/{$category->images}")}})"><span style="cursor:pointer;">{{$category['name']}}</span>
-										      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
+										      			<!-- <input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}"> -->
 										      			</li>
 										      			@endif
 						      							@endforeach

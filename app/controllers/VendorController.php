@@ -260,10 +260,25 @@ class VendorController extends \BaseController {
 		$compares = Session::get('compare');
 
 		$name=Input::get('name');
-		$location=Input::get('location');
-		$category=Input::get('category_id');
+
+		$location_name = Input::get('location');
+		if ($location_name==NULL) {
+			$location=NULL;
+		}
+		else{
+			$location = Location::where('name', $location_name)->get()->first()->id;
+		}
+
+		$category_name = Input::get('category');
+		if ($category_name==NULL) {
+			$category=NULL;
+		}
+		else{
+			$category = Category::where('name', $category_name)->get()->first()->id;
+		}
+
 		
-		$vendor= new Vendor();
+		$vendor = new Vendor();
 		
 		if(empty($name)&&empty($category))
 		{

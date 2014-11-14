@@ -25,7 +25,7 @@ Danh sách Dịch vụ
 			   		<span style="color: #19B5BC">
 			   			
 			   			@if( !empty(Input::get('location')) )
-			   				{{Location::where("id",Input::get('location'))->get()->first()->name}}
+			   				{{Input::get('location')}}
 			   			@else
 			   				@if( Session::has('location') )
 			   					{{Location::where("id",Session::get('location'))->get()->first()->name}}
@@ -74,12 +74,12 @@ Danh sách Dịch vụ
 			    		@foreach(Location::get() as $location)
 
 			    			@if(!Session::has('location'))
-			    				<option value="{{$location->id}}" >{{$location->name}}</option>
+			    				<option value="{{$location->name}}" >{{$location->name}}</option>
 				    		@else
 				    			@if(Session::get('location')==$location->id)
-				    				<option selected="selected" value="{{$location->id}}" >{{$location->name}}</option>
+				    				<option selected="selected" value="{{$location->name}}" >{{$location->name}}</option>
 				    			@else
-				    				<option value="{{$location->id}}" >{{$location->name}}</option>
+				    				<option value="{{$location->name}}" >{{$location->name}}</option>
 				    			@endif
 				    		@endif
 
@@ -98,7 +98,7 @@ Danh sách Dịch vụ
 				   		
 			   		?>
 	                <input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg" placeholder="Danh mục" value="{{$nameCategory}}" readonly style="cursor:pointer;" >
-			    	<input id="searchId" name="category_id" type="hidden">
+			    	<!-- <input id="searchId" name="category_id" type="hidden"> -->
 			    	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 					    <li role="presentation">
 					    	<div class="row" id="menu">
@@ -107,7 +107,7 @@ Danh sách Dịch vụ
 							      		@foreach (Category::get() as $index => $category)
 			    						@if($index<7)
 						      			<li><span style="cursor:pointer;" >{{$category['name']}}</span>
-						      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
+						      			<!-- <input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}"> -->
 						      			</li>
 						      			@endif
 		      							@endforeach
@@ -118,7 +118,7 @@ Danh sách Dịch vụ
 						      			@foreach (Category::get() as $index=> $category)
 		    							@if($index>=7)
 						      			<li><span style="cursor:pointer;" >{{$category['name']}}</span>
-						      			<input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}">
+						      			<!-- <input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}"> -->
 						      			</li>
 						      			@endif
 		      							@endforeach
