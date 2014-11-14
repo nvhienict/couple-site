@@ -18,7 +18,7 @@
 	<link href="{{Asset("assets/css/nivo-lightbox-theme/default/default.css")}}" rel="stylesheet" type="text/css" />
 	<link href="{{Asset("assets/css/owl.carousel.css")}}" rel="stylesheet" media="screen" />
     <link href="{{Asset("assets/css/owl.theme.css")}}" rel="stylesheet" media="screen" />
-	<link href="{{Asset("assets/css/flexslider.css")}}" rel="stylesheet" />
+	
 	<link href="{{Asset("assets/css/animate.css")}}" rel="stylesheet" />
     <link href="{{Asset("assets/css/style.css")}}" rel="stylesheet">
     <link href="{{Asset("assets/css/sweet-alert.css")}}" rel="stylesheet">
@@ -30,7 +30,7 @@
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/main.js")}}"></script>	 
 	<script src="{{Asset("assets/js/jquery.sticky.js")}}"></script>
-	<script src="{{Asset("assets/js/jquery.flexslider-min.js")}}"></script>
+	
     <script src="{{Asset("assets/js/jquery.easing.min.js")}}"></script>	
 	<script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
 	<script src="{{Asset("assets/js/jquery.appear.js")}}"></script>
@@ -38,8 +38,7 @@
 	<script src="{{Asset("assets/js/wow.min.js")}}"></script>
 	<script src="{{Asset("assets/js/owl.carousel.min.js")}}"></script>
 	<script src="{{Asset("assets/js/nivo-lightbox.min.js")}}"></script>
-	<script src="{{Asset("assets/js/custom.js")}}"></script>
-
+	
 	<!-- checklist -->
 	
 	<script src="{{Asset('assets/js/jquery-validate/jquery.validate.min.js')}}"></script>

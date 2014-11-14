@@ -64,7 +64,6 @@
 	<script src="{{Asset("assets/js/wow.min.js")}}"></script>
 	<script src="{{Asset("assets/js/owl.carousel.min.js")}}"></script>
 	<script src="{{Asset("assets/js/nivo-lightbox.min.js")}}"></script>
-	<script src="{{Asset("assets/js/custom.js")}}"></script>
 	<script src="{{Asset('assets/js/jquery-validate/jquery.validate.js')}}"></script>
 	<!-- checklist -->
 	<link href="{{Asset("assets/css/jquery.datetimepicker.css")}}" rel="stylesheet">
