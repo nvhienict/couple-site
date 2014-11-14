@@ -147,8 +147,8 @@
 						  		</div><br><br>
 
 						  	@if(!Session::has('email'))
-						  		<span><a href="{{URL::route('reviews',array($vendor->id))}}">Đánh giá,</a></span>
-								<span><a href="{{URL::route('cmt_vendor', array($vendor['id']))}}" >Đăng nhận xét!</a></span>
+						  		<span><a href="{{URL::route('reviews',array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor->slug))}}">Đánh giá,</a></span>
+								<span><a href="{{URL::route('cmt_vendor', array(Category::where('id',Vendor::where('id',$vendor->id)->get()->first()->category)->get()->first()->slug,$vendor['slug']))}}" >Đăng nhận xét!</a></span>
 							@endif
 
 								@if(Session::has('email'))
