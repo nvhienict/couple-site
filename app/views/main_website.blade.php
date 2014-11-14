@@ -14,8 +14,6 @@
 	<!-- css -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
-	<link href="{{Asset("assets/css/nivo-lightbox.css")}}" rel="stylesheet" />
-	<link href="{{Asset("assets/css/nivo-lightbox-theme/default/default.css")}}" rel="stylesheet" type="text/css" />
 	<link href="{{Asset("assets/css/owl.carousel.css")}}" rel="stylesheet" media="screen" />
     <link href="{{Asset("assets/css/owl.theme.css")}}" rel="stylesheet" media="screen" />
 	
@@ -33,11 +31,7 @@
 	
     <script src="{{Asset("assets/js/jquery.easing.min.js")}}"></script>	
 	<script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
-	<script src="{{Asset("assets/js/jquery.appear.js")}}"></script>
-	<script src="{{Asset("assets/js/stellar.js")}}"></script>
-	<script src="{{Asset("assets/js/wow.min.js")}}"></script>
-	<script src="{{Asset("assets/js/owl.carousel.min.js")}}"></script>
-	<script src="{{Asset("assets/js/nivo-lightbox.min.js")}}"></script>
+	
 	
 	<!-- checklist -->
 	
