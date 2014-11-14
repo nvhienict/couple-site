@@ -1207,20 +1207,22 @@ display: block;
 	
 	display:none;
 }
+#thumbs{
+	margin-left: 2%;
+}
 ul#thumbs li.active{
 	border:2px solid #000;	
 	background:#fff;
 	padding:2px;
 }
-ul#thumbs, ul#thumbs li{
-	margin:0;
+ul#thumbs, ul#thumbs li{	
 	padding:0;
 	list-style:none;
 }
 	
 ul#thumbs li{
 	float:left;	
-	margin-bottom:2%;
+	margin-bottom:1.2%;
 	border:1px solid #CCC;	
 	padding:3px;
 	cursor:pointer;
@@ -1247,7 +1249,7 @@ ul#thumbs img{
 
 ul#thumbs-main li{
 	float:left;
-	margin-bottom:2%;
+	margin-bottom:1.2%;
 	border:1px solid #CCC;	
 	padding:3px;
 	cursor:pointer;
