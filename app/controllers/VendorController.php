@@ -349,4 +349,17 @@ class VendorController extends \BaseController {
 	}
 
 
+	// get Location Name
+	public static function getLocationName($id_vendor)
+	{
+		return Vendor::find($id_vendor)->location()->get()->first()->name;
+	}
+
+	// get Vendor Category
+	public static function getVendorCategory($id_vendor)
+	{
+		return Vendor::where('id', $id_vendor)->get()->first()->category;
+	}
+
+
 }
