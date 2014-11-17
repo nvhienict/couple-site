@@ -156,7 +156,8 @@ Danh sách Dịch vụ
 
 					                    	<!-- Images -->
 					                        <a href="#">
-					                        	{{'<img class="img-responsive" alt="" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}
+					                        	<!-- {{'<img class="img-responsive" alt="" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}} -->
+					                        	<img src="{{Asset('images/slide-main/2.jpg')}}">
 					                        </a>
 					                        
 					                        <!-- Location Name -->
