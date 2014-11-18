@@ -311,7 +311,7 @@ Danh sách Dịch vụ
 							<!-- Vendor Images -->
 							<div class="list-avatar">
 								<a href="{{URL::route('vendor',array(VendorController::getCategorySlug( VendorController::getVendorCategory($vendor->id) ),$vendor->slug))}}">
-									{{'<img class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}
+									{{VendorController::getImagesVendor($vendor->photo)}}
 								</a>
 							</div>
 							
