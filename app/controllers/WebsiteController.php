@@ -1329,6 +1329,21 @@ class WebsiteController extends \BaseController {
 		
 	}
 
+	// get images avatar Bride and Groom
+	public static function avatarBrideGroom($id)
+	{
+		$id_user = WebsiteController::id_user();
+
+		switch ($id) {
+			case 111:
+				return WeddingWebsite::where('user', $id_user)->get()->first()->avatar_bride;
+				break;
+			
+			default:
+				return WeddingWebsite::where('user', $id_user)->get()->first()->avatar_groom;
+				break;
+		}
+	}
 
 	// upload images ajax
 	public function upload_images_ajax()
@@ -1354,8 +1369,14 @@ class WebsiteController extends \BaseController {
 
 			// upload images for bride and groom
 			switch ($id_tab) {
+
 				case 111:
 					$image = Input::file('image');
+					$imagesBrideGroom = WebsiteController::avatarBrideGroom(111);
+					if (!empty($imagesBrideGroom)) {
+						$path_delete=public_path($imagesBrideGroom);
+						File::delete($path_delete);
+					}
 					File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
 					$filename = $id_user.'_bride_' .str_random(10).'.' .$image->getClientOriginalExtension();
 					$pathsave = 'images/website/avatar/'.$filename;
@@ -1369,6 +1390,11 @@ class WebsiteController extends \BaseController {
 
 				case 222:
 					$image = Input::file('image');
+					$imagesBrideGroom = WebsiteController::avatarBrideGroom(222);
+					if (!empty($imagesBrideGroom)) {
+						$path_delete=public_path($imagesBrideGroom);
+						File::delete($path_delete);
+					}
 					File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
 					$filename = $id_user.'_groom_' .str_random(10).'.' .$image->getClientOriginalExtension();
 					$pathsave = 'images/website/avatar/'.$filename;

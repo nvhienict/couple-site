@@ -282,7 +282,6 @@ class VendorController extends \BaseController {
 		if(empty($name)&&empty($category))
 		{
 			$results=$vendor->where('location',"=",$location)->get();
-
 		}
 		elseif(empty($name)&&!empty($category))
 		{
@@ -360,6 +359,39 @@ class VendorController extends \BaseController {
 	{
 		return Vendor::where('id', $id_vendor)->get()->first()->category;
 	}
+
+	// get Category Slug
+	public static function getCategorySlug($id_category)
+	{
+		return Category::where('id', $id_category)->get()->first()->slug;
+	}
+
+	// get Vendor About
+	public static function getVendorAbout($inputData)
+	{
+		$about=strip_tags($inputData);
+    	if($about)
+    	{
+    		$lengthstr=strlen($about);
+    		if($lengthstr<410)
+    		{
+    			return $about;
+    		}
+    		else
+    		{
+    			$pos=strpos($about, ' ', 410);
+				return substr($about,0,$pos )."...";
+    		}	
+    		                            	
+    	}
+    	else
+    	{
+    		return "Chưa có mô tả về Dịch vụ này.";
+    	}
+	}
+
+
+	
 
 
 }

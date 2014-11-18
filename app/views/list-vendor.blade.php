@@ -143,120 +143,360 @@ Danh sách Dịch vụ
             </div>
         </div>
 
+        <form id="form-compare" method="get" action="{{Asset('compare')}}">
+        <!-- Tab panes -->
 		<div class="tab-content">
 
 			<!-- tab-photo -->
 			<div class="col-md-7 tab-pane active" id="display-photo" class="margin-footer">
 				<div class="row">
-					
-					        	@foreach($results as $key=>$vendor)
-								
-									<div class="col-sm-4 col-lg-4 col-md-4">
-					                    <div class="thumbnail">
+					@if( count($results)==0 )
+						<h2>
+							Không có kết quả nào được tìm thấy
+						</h2>
+					@else
 
-					                    	<!-- Images -->
-					                        <a href="#">
-					                        	<!-- {{'<img class="img-responsive" alt="" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}} -->
-					                        	<img src="{{Asset('images/slide-main/2.jpg')}}">
-					                        </a>
-					                        
-					                        <!-- Location Name -->
-					                        <div class="category-name">
-					                        	{{VendorController::getLocationName($vendor->id)}}
-					                        </div>
-					                        
-					                        <!-- Vendor Name -->
-					                        <div class="caption">
+						@foreach($results as $key=>$vendor)
+							<div class="col-sm-4 col-lg-4 col-md-4">
+			                    <div class="thumbnail">
+			                        
+			                        <!-- Vendor Images -->
+			                        <a href="{{URL::route('vendor',array(VendorController::getCategorySlug( VendorController::getVendorCategory($vendor->id) ),$vendor->slug))}}">
+			                        	{{'<img class="img-responsive" alt="" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}
+			                        </a>
+			                        
+			                        <!-- Location Name -->
+			                        <div class="category-name">
+			                        	{{VendorController::getLocationName($vendor->id)}}
+			                        </div>
+			                        
+			                        <!-- Vendor Name -->
+			                        <div class="caption">
+			                            <div class="name">
+				                            <a href="{{URL::route('vendor',array(VendorController::getCategorySlug( VendorController::getVendorCategory($vendor->id) ),$vendor->slug))}}">
+				                            	{{$vendor->name}}
+				                            </a>
+			                            </div>
+			                        </div>
 
-					                            <div class="name">
-						                            <a href="#">
-						                            	{{$vendor->name}}
-						                            </a>
-					                            </div>
-					                            
-					                        </div>
+			                        <!-- Vendor Ratings -->
+			                        <div class="ratings">
+			                            <span class="pull-right">{{VendorComment::where('vendor',$vendor->id)->get()->count()}} Nhận xét</span>
+			   				            <p>
+			                                @if(Rating::where('vendor',$vendor->id)->get()->count()>0)
+			                                	@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1)==0)
+						  							<img src="{{Asset('images/star/0.jpg')}}" class="img-responsive agv-rating " alt="">
+						  						@else
+							  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 0 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 1)
+							  							<img src="{{Asset('images/star/0.5.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 1)
+							  							<img src="{{Asset('images/star/1.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 1 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 2)
+							  							<img src="{{Asset('images/star/1.5.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 2)
+							  							<img src="{{Asset('images/star/2.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 2 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 3)
+							  							<img src="{{Asset('images/star/2.5.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 3)
+							  							<img src="{{Asset('images/star/3.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 3 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 4)
+							  							<img src="{{Asset('images/star/3.5.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 4)
+							  							<img src="{{Asset('images/star/4.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 4 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 5)
+							  							<img src="{{Asset('images/star/4.5.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+							  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 5)
+							  							<img src="{{Asset('images/star/5.jpg')}}" class="img-responsive agv-rating" alt="">
+							  						@endif
+						  						@endif
+			                                	@else
+			                                		<img src="{{Asset('images/star/0.jpg')}}" class="img-responsive agv-rating " alt="">
+			                                @endif
+			                            </p>
+			                            
+			                        </div>
+			                        <!-- end ratings -->
 
-					                        <!-- Vendor Rating -->
-					                        <div class="ratings">
-					                            <span class="pull-right">{{VendorComment::where('vendor',$vendor->id)->get()->count()}} Nhận xét</span>
-					   				             <p>
-					                                @if(Rating::where('vendor',$vendor->id)->get()->count()>0)
-					                                	@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1)==0)
-								  							<img src="{{Asset('images/star/0.jpg')}}" class="img-responsive agv-rating " alt="">
-								  						@else
-									  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 0 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 1)
-									  							<img src="{{Asset('images/star/0.5.jpg')}}" class="img-responsive agv-rating" alt="">
-									  						@endif
-									  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 1)
-									  							<img src="{{Asset('images/star/1.jpg')}}" class="img-responsive agv-rating" alt="">
-									  						@endif
-									  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 1 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 2)
-									  							<img src="{{Asset('images/star/1.5.jpg')}}" class="img-responsive agv-rating" alt="">
-									  						@endif
-									  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 2)
-									  							<img src="{{Asset('images/star/2.jpg')}}" class="img-responsive agv-rating" alt="">
-									  						@endif
-									  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 2 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 3)
-									  							<img src="{{Asset('images/star/2.5.jpg')}}" class="img-responsive agv-rating" alt="">
-									  						@endif
-									  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 3)
-									  							<img src="{{Asset('images/star/3.jpg')}}" class="img-responsive agv-rating" alt="">
-									  						@endif
-									  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 3 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 4)
-									  							<img src="{{Asset('images/star/3.5.jpg')}}" class="img-responsive agv-rating" alt="">
-									  						@endif
-									  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 4)
-									  							<img src="{{Asset('images/star/4.jpg')}}" class="img-responsive agv-rating" alt="">
-									  						@endif
-									  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 4 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 5)
-									  							<img src="{{Asset('images/star/4.5.jpg')}}" class="img-responsive agv-rating" alt="">
-									  						@endif
-									  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 5)
-									  							<img src="{{Asset('images/star/5.jpg')}}" class="img-responsive agv-rating" alt="">
-									  						@endif
-								  						@endif
-					                                	@else
-					                                		<img src="{{Asset('images/star/0.jpg')}}" class="img-responsive agv-rating " alt="">
-					                                @endif
-					                            </p>
-					                        </div>
+			                        @if(!empty($compares))
+										<input type="hidden" id="count" name="a" value="{{count($compares)}}">
 
-					                        <!-- Checkbox Compare -->
-					                        <div class="compare-photo">
-										        <label>
-											        <input type="checkbox" name="chk[]" value="{{$vendor->id}}" id="checkbox-photo{{$vendor->id}}" class='compare-title'> Compare
-											        <input type="hidden" name="checkbox-{{$vendor->id}}" value="" >
-										        </label>
+											<!-- Checkbox Compare -->
+					                        @if( in_array($vendor->id, $compares) )
+						                        <div class="compare-photo">
+				                        			<label>
+												        <input checked type="checkbox" name="chk[]" value="{{$vendor->id}}" id="checkbox-photo{{$vendor->id}}" class='compare-title'> Compare
+												        <input type="hidden" name="checkbox-{{$vendor->id}}" value="{{$vendor->id}}" >
+											        </label>
 
-										        <input type="hidden" id="count" name="a" value="0">
+											        <script type="text/javascript" src="{{Asset('assets/js/count-compare.js')}}"></script>
+												        
+												</div>
+											@else
+												<div class="compare-photo">
+				                        			<label>
+												        <input type="checkbox" name="chk[]" value="{{$vendor->id}}" id="checkbox-photo{{$vendor->id}}" class='compare-title'> Compare
+												        <input type="hidden" name="checkbox-{{$vendor->id}}" value="" >
+											        </label>
+											        
+											        <script type="text/javascript" src="{{Asset('assets/js/count-compare.js')}}"></script>
+											        
+												</div>
+										    @endif
+									@else
+					        			<input type="hidden" id="count" name="a" value="0">
 
-											    <script type="text/javascript">
-													$('#checkbox-photo{{$vendor->id}}').on("click", function(){
-														if( $(this).prop('checked') ){
-															$('#gh').prop("checked", true);
-															$('#checkbox-list{{$vendor->id}}').prop("checked", true);
-														} else {
-															$('#gh').prop("checked", false);
-															$('#checkbox-list{{$vendor->id}}').prop("checked", false);
-														};
-													});
-												</script>
-										        <script type="text/javascript" src="{{Asset('assets/js/count-compare.js')}}"></script>
-										    </div>
+					        			<!-- Checkbox Compare -->
+					        			<div class="compare-photo">
+		                        			<label>
+										        <input type="checkbox" name="chk[]" value="{{$vendor->id}}" id="checkbox-photo{{$vendor->id}}" class='compare-title'> Compare
+										        <input type="hidden" name="checkbox-{{$vendor->id}}" value="" >
+									        </label>
+									        
+									        <script type="text/javascript" src="{{Asset('assets/js/count-compare.js')}}"></script>
+									        
+										</div>
+									@endif
+									<!-- end check isset session compare -->
 
-					                    </div> <!-- end div thumbnail -->
-					                </div>
-					                @endforeach
+								    <script type="text/javascript">
+										$('#checkbox-photo{{$vendor->id}}').on("click", function(){
+											if( $(this).prop('checked') ){
+												$('#checkbox-list{{$vendor->id}}').prop("checked", true);
+											} else {
+												$('#checkbox-list{{$vendor->id}}').prop("checked", false);
+											};
+										});
+									</script>
 
 
-				</div> <!-- end div row -->
+			                    </div>
+			                    <!-- end div thumbnail -->
+			                </div>
+			                <!-- end div col-sm-4 col-lg-4 col-md-4 -->
 
-	</div>
-	</div>
-			
+			            @endforeach
+			            <!-- end foreach $result -->
+					@endif
+					<!-- end check empty rusult -->
+
+				</div>
+				<!-- end div row -->
+			</div>
+			<!-- end div tab-photo -->
+
+
+
+			<!-- tab-list -->
+			<div class="col-md-7 tab-pane " id="display-list">
+
+			@if( count($results)==0 )
+				<h2>
+					Không có kết quả nào được tìm thấy
+				</h2>
+				@else
+
+					@foreach($results as $key=>$vendor)
+					<div class="row" id="show-list">
+						<div class="col-sm-4 col-lg-4 col-md-4">
+
+							<!-- Vendor Images -->
+							<div class="list-avatar">
+								<a href="{{URL::route('vendor',array(VendorController::getCategorySlug( VendorController::getVendorCategory($vendor->id) ),$vendor->slug))}}">
+									{{'<img class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}
+								</a>
+							</div>
+							
+							<!-- Location Name -->
+	                        <div class="category-name">
+	                        	{{VendorController::getLocationName($vendor->id)}}
+	                        </div>
+
+						</div>
+						<!-- edn div col-sm-4 col-lg-4 col-md-4 -->
+						
+						<div class="col-sm-8 col-lg-8 col-md-8">
+
+							<!-- Vendor About -->
+							<div class="caption-list">
+								<!-- Vendor Name -->
+	                            <div class="name">
+		                            <a href="{{URL::route('vendor',array(VendorController::getCategorySlug( VendorController::getVendorCategory($vendor->id) ),$vendor->slug))}}">
+		                            	{{$vendor->name}}
+		                            </a>
+	                            </div>
+
+	                            <!-- Vendor About -->
+	                            <p>{{VendorController::getVendorAbout($vendor->about)}}</p>
+
+	                            <!-- Vendor Website -->
+	                            <div class="website">
+	                            	{{$vendor->website}}
+	                            </div>
+	                        </div>
+
+	                        <!-- Vendor Ratings -->
+							<div class="ratings">
+	                           	<span class="pull-right">{{VendorComment::where('vendor',$vendor->id)->get()->count()}} Nhận xét</span>
+		   				            <p>
+		                                @if(Rating::where('vendor',$vendor->id)->get()->count()>0)
+		                                	@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1)==0)
+					  							<img src="{{Asset('images/star/0.jpg')}}" class="img-responsive agv-rating " alt="">
+					  						@else
+						  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 0 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 1)
+						  							<img src="{{Asset('images/star/0.5.jpg')}}" class="img-responsive agv-rating" alt="">
+						  						@endif
+						  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 1)
+						  							<img src="{{Asset('images/star/1.jpg')}}" class="img-responsive agv-rating" alt="">
+						  						@endif
+						  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 1 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 2)
+						  							<img src="{{Asset('images/star/1.5.jpg')}}" class="img-responsive agv-rating" alt="">
+						  						@endif
+						  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 2)
+						  							<img src="{{Asset('images/star/2.jpg')}}" class="img-responsive agv-rating" alt="">
+						  						@endif
+						  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 2 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 3)
+						  							<img src="{{Asset('images/star/2.5.jpg')}}" class="img-responsive agv-rating" alt="">
+						  						@endif
+						  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 3)
+						  							<img src="{{Asset('images/star/3.jpg')}}" class="img-responsive agv-rating" alt="">
+						  						@endif
+						  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 3 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 4)
+						  							<img src="{{Asset('images/star/3.5.jpg')}}" class="img-responsive agv-rating" alt="">
+						  						@endif
+						  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 4)
+						  							<img src="{{Asset('images/star/4.jpg')}}" class="img-responsive agv-rating" alt="">
+						  						@endif
+						  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) > 4 & round(Rating::where('vendor',$vendor->id)->avg('rating'),1) < 5)
+						  							<img src="{{Asset('images/star/4.5.jpg')}}" class="img-responsive agv-rating" alt="">
+						  						@endif
+						  						@if(round(Rating::where('vendor',$vendor->id)->avg('rating'),1) == 5)
+						  							<img src="{{Asset('images/star/5.jpg')}}" class="img-responsive agv-rating" alt="">
+						  						@endif
+					  						@endif
+		                                	@else
+		                                		<img src="{{Asset('images/star/0.jpg')}}" class="img-responsive agv-rating " alt="">
+		                                @endif
+		                            </p>
+	                    	</div>
+
+	                        @if(!empty($compares))
+								<input type="hidden" id="count" name="a" value="{{count($compares)}}">
+		                        <!-- case vendor had in session compare -->
+			                    @if( in_array($vendor->id, $compares) )
+								<div class="compare-list">
+							        <label>
+								        <input checked type="checkbox" name="" value="" id="checkbox-list{{$vendor->id}}" class='compare-title'> Compare
+								        <input type="hidden" name="checkbox-{{$vendor->id}}" value="" >
+							        </label>
+							    </div>
+							    @else
+							    <div class="compare-list">
+							    	<label>
+								        <input type="checkbox" name="" value="" id="checkbox-list{{$vendor->id}}" class='compare-title'> Compare
+								        <input type="hidden" name="checkbox-{{$vendor->id}}" value="{{$vendor->id}}" >
+							        </label>
+							    </div>
+							    @endif
+							@else
+								<input type="hidden" id="count" name="a" value="0">
+								<div class="compare-list">
+							    	<label>
+								        <input type="checkbox" name="" value="" id="checkbox-list{{$vendor->id}}" class='compare-title'> Compare
+								        <input type="hidden" name="checkbox-{{$vendor->id}}" value="" >
+							        </label>
+							    </div>
+							    <!-- end compare-list -->
+							@endif
+							<!-- check session compares -->
+						    <script type="text/javascript">
+							    $('#checkbox-list{{$vendor->id}}').on("click", function(){
+							    	$('#checkbox-photo{{$vendor->id}}').click();
+							    });
+						    </script>
+
+						</div>
+						<!-- end div col-sm-8 col-lg-8 col-md-8 -->
+					</div>
+					<!-- end div show-list -->
+
+					@endforeach
+					<!-- end foreach results -->
+				@endif
+				<!-- end $results != 0 -->
+
+			</div>
+			<!-- end .tab-list -->
 	</div>
 	<!-- .tab-content -->
 
+	</form>
+	<!-- form compare -->
 
+
+	
+	<!-- modal note when check for checkbox in each vendor -->
+	<button id="toida" style="display:none;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalToiDa" data-backdrop="static"></button>
+		<div class="modal fade" id="ModalToiDa" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title">Thông báo</h4>
+		      </div>
+		      <div class="modal-body">
+		        <span style="color: #ff2642; font-size: 25px;">Bạn đã chọn đủ 5 dịch vụ để so sánh</span>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="submit" id="compare_submit_modal" class="btn btn-primary" data-dismiss="modal" data-backdrop="static">So sánh</button>
+		        <script type="text/javascript">
+		        	$('#compare_submit_modal').click(function(){
+		        		$("#form-compare").submit();
+		        	});
+		        </script>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<button id="chuachon" style="display:none;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalChuaChon" data-backdrop="static"></button>
+		<div class="modal fade" id="ModalChuaChon" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title">Thông báo</h4>
+		      </div>
+		      <div class="modal-body">
+		        <span style="color: #ff2642; font-size: 25px;">Bạn phải chọn ít nhất 1 dịch vụ</span>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="submit" class="btn btn-primary" data-dismiss="modal">Đóng</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+</div>
+
+<script type="text/javascript">
+
+	function get_location(name){
+		$.ajax({
+			type: "post",
+			url: "{{URL::route('get_location')}}",
+			data:{name:name}
+		});
+	};
+
+</script>	
 
 @endsection
