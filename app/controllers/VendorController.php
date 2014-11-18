@@ -390,6 +390,22 @@ class VendorController extends \BaseController {
     	}
 	}
 
+	// get images
+	public static function getImagesVendor($image)
+	{
+		$path = storage_path().'/'.$image;
+		
+		// Read image path, convert to base64 encoding
+		$imageData = base64_encode(file_get_contents($path));
+
+		// Format the image SRC:  data:{mime};base64,{data};
+		$src = 'data: '.mime_content_type($path).';base64,'.$imageData;
+
+		// Echo out a sample image
+		echo '<img class="img-responsive" src="',$src,'">';
+
+	}
+
 
 	
 
