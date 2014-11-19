@@ -1234,7 +1234,8 @@ class WebsiteController extends \BaseController {
 																->with('firstname', $firstname)
 																->with('id_web', $id_website)
 																->with('date_url',$date_url)
-															->with('email',$email)
+																->with('backgrounds',$backgrounds)
+																->with('email',$email)
 																->with('count_down_url',$count_down_url);
 				break;
 
@@ -1268,6 +1269,7 @@ class WebsiteController extends \BaseController {
 																->with('firstname', $firstname)
 																->with('id_web', $id_website)
 																->with('date_url',$date_url)
+																->with('backgrounds',$backgrounds)
 																->with('email',$email)
 																->with('count_down_url',$count_down_url);
 				break;
@@ -1286,6 +1288,7 @@ class WebsiteController extends \BaseController {
 																->with('id_web', $id_website)
 																->with('date_url',$date_url)
 																->with('email',$email)
+																->with('backgrounds',$backgrounds)
 																->with('count_down_url',$count_down_url);
 				break;
 
