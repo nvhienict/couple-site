@@ -13,7 +13,7 @@
 						<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5" id="left-infor">
 							<a href="" onclick="history.go(-1);return false" id="left-infor title-infor">{{Vendor::find($vendor->id)->category()->get()->first()->name}} tại {{Vendor::find($vendor->id)->location()->get()->first()->name}}:</a>
 							<div id="left-infor avata-vendor" >
-								{{'<img class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}
+								{{VendorController::getImagesVendor($vendor->photo)}}
 								<div class="fb-like" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
 						</div>
 							</div>
