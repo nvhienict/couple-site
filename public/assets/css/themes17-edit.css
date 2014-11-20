@@ -2,40 +2,28 @@
 @import url(http://fonts.googleapis.com/css?family=Patrick+Hand&subset=latin,vietnamese);
 @import url(http://fonts.googleapis.com/css?family=Courgette);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab&subset=latin,vietnamese);
-h1, h2, h3, h4, h5, h6 {
-    color: #fff;
+h2 {
+    color: #DA382C;
     font-family: 'Courgette', cursive;
     font-weight: normal;
     line-height: 1.5;
 }
-h1 {
-	font-size: 38px;
-}
-h2 {
-	font-size: 36px;
-}
-h3 {
-	font-size: 32px;
-}
-h4 {
-	font-size: 28px;
-}
-h5 {
-	font-size: 24px;
-}
-h6 {
-	font-size: 20px;
-}
-
 
 .side-nav-menu
 {
-	background: none repeat scroll 0% 0% rgba(34, 34, 32, 0.7); 
-
+	background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.1); 
+  position: relative;
+  z-index: 100;
+  padding:0px;
 }
-
+.slide_edit_temp .item
+{
+  padding-top: 10%;
+  z-index: 50;
+}
 .side-nav
 {
+  background-color: rgba(255, 255, 255, 0.1)!important;
 	margin: 0 !important;
 	padding: 0 !important;
 	font-weight: bold !important;
@@ -43,33 +31,32 @@ h6 {
 }
 .side-nav .active > a:focus 
 {
-	background-color: #fff !important;
-	color: #222220 !important;
+	background-color: #DA382C !important;
+	color: #fff !important;
 }
 .side-nav li.active a 
 {
-	background-color: #fff !important;
-	color: #222220 !important;
+	background-color: #DA382C !important;
+	color: #fff !important;
 }
 .side-nav li a {
     color: #fff !important;
     display: block !important;
     padding: 1.25em !important;
     transition: all 300ms ease-out 0s;
+    font-size: 12px;
 }
 .side-nav li a:hover {
-    background-color: #fff !important;
-    color: #222220!important;
+    background-color: #DA382C !important;
+    color: #fff!important;
 }
 
-p
+
+.background-themes
 {
-	color: #fff;
-    line-height: 1.6;
-    font-family: 'Roboto Slab', serif;
-    font-size: 20px;
+  width: 100%;
+  min-height:700px; 
 }
-
 
 .date-time-title
 {
@@ -77,7 +64,7 @@ p
 	font-family: 'Roboto Slab', serif !important;
 	font-weight: bold !important; 
 	font-size: 20px !important; 
-	color: #fff !important;
+	color: #DA382C !important;
 }
 .float-left
 {
@@ -92,7 +79,7 @@ p
 	font-family: 'Roboto Slab', serif !important;
 	font-weight: bold !important; 
 	font-size: 20px !important; 
-	color: #fff !important;
+	color: #DA382C !important;
 }
 
 body
@@ -103,7 +90,7 @@ body
 {
 	padding-top: 2%;
 	padding-bottom: 2%;
-	background-color:#222220;
+	background-color:#fff;
 }
 .show-content
 {
@@ -112,15 +99,43 @@ body
 }
 .show-content span
 {
-	color: #fff;
+	color: #DA382C;
     line-height: 1.6;
     font-family: 'Roboto Slab', serif;
     font-size: 16px;
 }
-.background-themes
-{
-	padding-top: 10%;
-	padding-bottom:10%;
+.ok-edit{
+  display: none;
+}
+.edit-content{
+  display: none;
+  margin-top:2%
+}
+
+.float-left button{
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+  
+}
+.float-right button{
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+
+}
+.icon-site{
+  color: #47A447;
+  line-height: 2.75em;
+  font-size: 1.5em;
+
+}
+.icon-site:hover{
+  text-decoration: none;
+
+}
+.icon-site:active{
+  text-decoration: none;
 }
 
 /*-slide*/
