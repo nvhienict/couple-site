@@ -194,6 +194,9 @@ class WebsiteController extends \BaseController {
 			case 17:
 				$backgrounds='';
 				break;
+			case 18:
+				$backgrounds='';
+				break;
 
 			}
 			
@@ -296,6 +299,12 @@ class WebsiteController extends \BaseController {
 				break;
 			case 17:
 				return View::make('website_user.themes17.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
+																	->with('id_web', $id_Web);
+				break;
+			case 18:
+				return View::make('website_user.themes18.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_Web);
@@ -477,7 +486,10 @@ class WebsiteController extends \BaseController {
 				break;
 			case 17:
 				$backgrounds='';
-				break;		
+				break;
+			case 18:
+				$backgrounds='';
+				break;
 
 			}
 					
@@ -586,6 +598,9 @@ class WebsiteController extends \BaseController {
 				$backgrounds='images/website/themes15/bg_pic.jpg';
 				break;
 			case 17:
+				$backgrounds='';
+				break;
+			case 18:
 				$backgrounds='';
 				break;
 			
@@ -1157,6 +1172,9 @@ class WebsiteController extends \BaseController {
 			case 17:
 				$backgrounds='';
 				break;
+			case 18:
+				$backgrounds='';
+				break;
 
 			}
 			
@@ -1284,6 +1302,16 @@ class WebsiteController extends \BaseController {
 
 			case 17:
 				return View::make('website_user.themes17.page.index')->with('website', $website)
+																->with('firstname', $firstname)
+																->with('id_web', $id_website)
+																->with('date_url',$date_url)
+																->with('email',$email)
+																->with('backgrounds',$backgrounds)
+																->with('count_down_url',$count_down_url);
+				break;
+
+			case 18:
+				return View::make('website_user.themes18.page.index')->with('website', $website)
 																->with('firstname', $firstname)
 																->with('id_web', $id_website)
 																->with('date_url',$date_url)

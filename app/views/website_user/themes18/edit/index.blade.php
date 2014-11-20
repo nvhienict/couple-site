@@ -16,7 +16,7 @@
 	
 
 	<!-- style css -->
-	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes18.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes18-edit.css")}}">
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
 
@@ -32,14 +32,118 @@
 	<script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
 
 	<script type="text/javascript">
+		function showckeditor(id){
+		        var text=$('.phara'+id).html();
+		        $('.phara'+id).hide();
+		        CKEDITOR.instances['editor'+id].setData(text);
+
+		        $('.editphara'+id).addClass("col-xs-6");
+		        $('.editphara'+id).show();
+		        $('.click-edit-hide'+id).hide();
+		        $('.ok-edit-show'+id).show();
+		    }
+		function showckeditor_text(id){
+		        var text=$('.phara'+id).html();
+		        $('.phara'+id).hide();
+		        CKEDITOR.instances['editor'+id].setData(text);
+
+		        $('.editphara'+id).addClass("col-xs-12");
+		        $('.editphara'+id).show();
+		        $('.click-edit-hide'+id).hide();
+		        $('.ok-edit-show'+id).show();
+		    }
+		function updateckeditor(id){
+			//var t= CKEDITOR.instances['editor4'].getData();alert(t);
+			$.ajax({
+				type:"post",
+				dataType: "html",
+				url:"{{URL::route('update_content_tab')}}",
+				data: {	content:CKEDITOR.instances['editor'+id].getData(),
+						id_tab:$('.get_id'+id).val()
+					},
+				success:function(data){
+					var obj = JSON.parse(data);
+					$('.phara'+id).html(obj.content);
+				}
+			});
+				$('.editphara'+id).hide();
+				$('.phara'+id).show();
+				$('.click-edit-hide'+id).show();
+		        $('.ok-edit-show'+id).hide();
+		}  
+		function exitckeditor(id){
+				$('.editphara'+id).hide();
+				$('.phara'+id).show();
+				$('.click-edit-hide'+id).show();
+		        $('.ok-edit-show'+id).hide();
+		} 
+
+		
+		function edit_about_bride()
+		{
+			$('.edit_ctn_about_bride').show();
+			$('.about_bride').hide();
+		}
+		function update_about_bride()
+		{
+			$.ajax({
+				type:"post",
+				dataType: "html",
+				url:"{{URL::route('update_about_bride')}}",
+				data: {	content:CKEDITOR.instances['edit_about_bride'].getData()
+					},
+				success:function(data){
+					var obj = JSON.parse(data);
+					$('.about_bride').html(obj.content);
+				}
+			});
+
+			$('.edit_ctn_about_bride').hide();
+			$('.about_bride').show();
+		}
+		function exit_edit_about_bride()
+		{
+			$('.edit_ctn_about_bride').hide();
+			$('.about_bride').show();
+		}
+
+
+		function edit_about_groom()
+		{
+			$('.edit_ctn_about').show();
+			$('.about_groom').hide();
+		}
+		function update_about_groom()
+		{
+			$.ajax({
+				type:"post",
+				dataType: "html",
+				url:"{{URL::route('update_about_groom')}}",
+				data: {	content:CKEDITOR.instances['edit_about_groom'].getData()
+					},
+				success:function(data){
+					var obj = JSON.parse(data);
+					$('.about_groom').html(obj.content);
+				}
+			});
+
+			$('.edit_ctn_about').hide();
+			$('.about_groom').show();
+		}
+		function exit_edit_about_groom()
+		{
+			$('.edit_ctn_about').hide();
+			$('.about_groom').show();
+		}
 
 		jQuery(document).ready(function($) {
 		    // Call & Apply function scrollTo
 		    $('a.scrollTo').click(function () {
-		        $('body').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
+		        $('.design_website_content_right').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
 		        return false;
 		    });
 		});
+
 
 	</script>
 
@@ -51,7 +155,6 @@
 @foreach( $website as $website_item )
 
 	<div id="header">
-
 		<div class="logo">
 			<p>
 				{{$website_item->name_groom}}
@@ -77,24 +180,24 @@
 			   	</div>
 			   	<div class="collapse navbar-collapse" id="example-navbar-collapse">
 			      	<ul class="nav navbar-nav">
-				      	<li><a class="scrollTo" href="#home" >Trang Chủ</a></li>
-					      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
-					      		@if($index<3)
-					      		<li><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}">{{$tab->title}}</a></li>
-					      		@endif
-					      	@endforeach
-				      	<li class="li-menu dropdown">
+				      	<span><a class="scrollTo" href="#home" >Trang Chủ</a></span>
+				      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
+				      		@if($index<2)
+				      		<span><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}">{{$tab->title}}</a></span>
+				      		@endif
+				      	@endforeach
+				      	<span class="li-menu dropdown">
 						    <a data-toggle="dropdown" href="#">
 						      Xem thêm <span class="caret"></span>
 						    </a>
 						    <ul class="dropdown-menu text-left" role="menu">
 						   		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
-							    	@if($index>=3)
-							    	<li><a class=" {{$tab->id}} scrollTo" href="#section_{{$tab->type}}" >{{$tab->title}}</a></li>
+							    	@if($index>=2)
+							    	<span><a class=" {{$tab->id}} scrollTo" href="#section_{{$tab->type}}" >{{$tab->title}}</a></span>
 							    	@endif
 							    @endforeach
 						    </ul>
-						</li>
+						</span>
 						
 			      	</ul>
 			      	
@@ -109,109 +212,52 @@
 	<div class="clear"></div>
 
 	<div id="content">
-		<div class="slider">
-
-				<!-- Carousel -->
-		    	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-					  	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-					    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-					    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-					</ol>
-					<!-- Wrapper for slides -->
-					<div class="carousel-inner">
-
-						<?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
-			            @if($albums)
-			                @foreach($albums as $index => $album)
-			                	@if($index==0)
-			                    	<div class="item active">
-								    	<img src="{{Asset("{$album->photo}")}}" alt="" />
-								    </div>
-			                    @else
-			                    	<div class="item">
-								    	<img src="{{Asset("{$album->photo}")}}" alt="" />
-								    </div>
-			                    @endif
-
-			                @endforeach
-			            @else
-
-						    <div class="item active">
-						    	<img  class="img-responsive" src=" {{Asset("images/slide-main/1-1.jpg")}}" alt="">
-			                </div>
-						    <div class="item">
-						    	<img  class="img-responsive" src=" {{Asset("images/slide-main/2.jpg")}}" alt="">
-						    </div>
-						    <div class="item">
-						    	<img  class="img-responsive" src=" {{Asset("images/slide-main/3.jpg")}}" alt="">
-						  	</div>
-						    <div class="item">
-						    	<img  class="img-responsive" src=" {{Asset("images/slide-main/4.jpg")}}" alt="">
-						    </div>
-						@endif
-
-					</div>
-					<!-- Controls -->
-					<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-				    	<span class="glyphicon glyphicon-chevron-left"></span>
-					</a>
-					<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-				    	<span class="glyphicon glyphicon-chevron-right"></span>
-					</a>
-				</div><!-- /carousel -->
-
-		</div>
-		<!-- end slider -->
-
-		<div class="line-hr"></div>
-
 		<div id="home" style="display:none;"></div>
+
 		@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
 			<!-- Welcome -->
 			@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
 				<div id="section_{{$tabWeb->type}}" class="item-des">
-					@include('website_user.themes18.page.tab')
+					@include('website_user.themes18.edit.tab')
 				</div>
 			@endif
 			<!-- About Us -->
 			@if($tabWeb->type=="about" && $tabWeb->visiable==0)
 				<div id="section_{{$tabWeb->type}}" class="item-des">
-					@include('website_user.themes18.page.tab')
+					@include('website_user.themes18.edit.tab')
 				</div>
 			@endif
 
 			<!-- cau chuyen tinh yeu -->
 			@if($tabWeb->type=="love_story")
 				<div id="section_{{$tabWeb->type}}" class="item-des">
-					@include('website_user.themes18.page.text')
+					@include('website_user.themes18.edit.text')
 				</div>
 			@endif
 
 			<!-- Wedding Event -->
 			@if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
 				<div id="section_{{$tabWeb->type}}" class="item-des">
-					@include('website_user.themes18.page.tab')
+					@include('website_user.themes18.edit.tab')
 				</div>
 			@endif
 
 			<!-- Travaling -->
 			@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
 				<div id="section_{{$tabWeb->type}}" class="item-des">
-					@include('website_user.themes18.page.tab')
+					@include('website_user.themes18.edit.tab')
 				</div>
 	        @endif
 	        <!-- Photo Album -->
 	        @if($tabWeb->type=="album" && $tabWeb->visiable==0)
 		        <div id="section_{{$tabWeb->type}}" class="item-des">
-		        	@include('website_user.themes18.page.photo')
+		        	@include('website_user.themes18.edit.photo')
 		        </div>
 	        @endif
 
 	       	@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
 		        <div id="section_{{$tabWeb->type}}" class="item-des">
-		        	@include('website_user.themes18.page.contact')
+		        	@include('website_user.themes18.edit.contact')
 		        </div>
 	        @endif
 
@@ -221,6 +267,7 @@
 
 	</div>
 	<!-- end content -->
+
 
 @endforeach
 @endif
