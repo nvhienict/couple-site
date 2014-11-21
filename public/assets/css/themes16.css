@@ -54,7 +54,8 @@
 	}
 
 	.bg-pro img.img-infor{
-	height: 205px ;
+		/*width: 300px;*/
+		height: 222px ;
 	}
 }
 @media screen and (width:980px ){
@@ -62,7 +63,7 @@
 		height: 400px ;
 	}
 	.bg-pro img.img-infor{
-	height: 280px ;
+	height: 224px ;
 	}
 }
 @media screen and (width:1280px ){
