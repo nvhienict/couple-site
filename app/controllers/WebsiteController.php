@@ -191,6 +191,9 @@ class WebsiteController extends \BaseController {
 			case 15:
 				$backgrounds='images/website/themes15/bg_pic.jpg';
 				break;
+			case 16:
+				$backgrounds='';
+				break;	
 			case 17:
 				$backgrounds='';
 				break;
@@ -293,6 +296,12 @@ class WebsiteController extends \BaseController {
 
 			case 15:
 				return View::make('website_user.themes15.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
+																	->with('id_web', $id_Web);
+				break;
+			case 16:
+				return View::make('website_user.themes16.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_Web);
@@ -484,6 +493,9 @@ class WebsiteController extends \BaseController {
 			case 15:
 				$backgrounds='images/website/themes15/bg_pic.jpg';
 				break;
+			case 16:
+				$backgrounds='';
+				break;
 			case 17:
 				$backgrounds='';
 				break;
@@ -597,6 +609,10 @@ class WebsiteController extends \BaseController {
 			case 15:
 				$backgrounds='images/website/themes15/bg_pic.jpg';
 				break;
+			
+			case 16:
+				$backgrounds='';
+			break;	
 			case 17:
 				$backgrounds='';
 				break;
@@ -1168,6 +1184,9 @@ class WebsiteController extends \BaseController {
 			case 15:
 				$backgrounds='images/website/themes15/bg_pic.jpg';
 				break;
+			case 16:
+				$backgrounds='';
+			break;
 
 			case 17:
 				$backgrounds='';
@@ -1293,6 +1312,14 @@ class WebsiteController extends \BaseController {
 				break;
 			case 15:
 				return View::make('website_user.themes15.page.index')->with('website', $website)
+																->with('firstname', $firstname)
+																->with('id_web', $id_website)
+																->with('date_url',$date_url)
+																->with('email',$email)
+																->with('count_down_url',$count_down_url);
+				break;	
+			case 16:
+				return View::make('website_user.themes16.page.index')->with('website', $website)
 																->with('firstname', $firstname)
 																->with('id_web', $id_website)
 																->with('date_url',$date_url)
