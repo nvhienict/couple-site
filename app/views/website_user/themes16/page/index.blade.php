@@ -62,9 +62,9 @@
 			      </button>
 			   </div>
 			   <div  class="collapse navbar-collapse navbar-left " id="example-navbar-collapse">
-			      <ul  class="nav navbar-nav nav-themes16" style="margin-left:13.5%;">
+			      <ul  class="nav navbar-nav nav-themes16">
 			      	 <li><a class="a_menu scrollTo" href="#title_home" >Trang Chủ</a></li>
-			      	@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $menu_tab)
+			      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
 			         <li><a class="a_menu scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
 			         @endforeach()
 			      </ul>
