@@ -85,7 +85,7 @@ h2 {
   font-weight: bold !important; 
   font-size: 40px !important; 
   color: #FFFFFF !important;
-  margin-top: 45%; 
+  margin-top: 2%; 
 }
 
 body
@@ -101,6 +101,11 @@ body
 {
   padding: 0 5px;
   
+}
+.count-time-wedding
+{
+  position: absolute;
+  margin-top: 40%;
 }
 .show-content span
 {
@@ -130,7 +135,7 @@ body
   .count_table_dateTime
   {
     font-size: 10px !important;
-    margin-top: 60%;
+    
   }
   .date-time-title
   {

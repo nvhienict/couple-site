@@ -85,7 +85,7 @@ h2 {
 	font-weight: bold !important; 
 	font-size: 40px !important; 
 	color: #FFFFFF !important;
-  margin-top: 45%; 
+  margin-top: 2%; 
 }
 
 body
@@ -109,6 +109,12 @@ body
   font-size: 16px;
 
 }
+.count-time-wedding
+{
+  position: absolute;
+  margin-top: 40%;
+}
+
 .background-item
 {
   padding-top: 2%;
