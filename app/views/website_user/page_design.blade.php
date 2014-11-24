@@ -13,7 +13,7 @@
 		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-md-offset-8">			
 			
 			<?php
-				$arIdThemes = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18);
+				$arIdThemes = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21);
 			?>
 
 			@if( in_array($id_tmp, $arIdThemes) )
@@ -347,6 +347,16 @@
 					@endif
 
 					@if($id_tmp==18)
+						@include('website_user.themes18.edit.index')
+					@endif
+
+					@if($id_tmp==19)
+						@include('website_user.themes18.edit.index')
+					@endif
+					@if($id_tmp==20)
+						@include('website_user.themes18.edit.index')
+					@endif
+					@if($id_tmp==21)
 						@include('website_user.themes18.edit.index')
 					@endif
 

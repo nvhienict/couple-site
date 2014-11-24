@@ -201,6 +201,18 @@ class WebsiteController extends \BaseController {
 				$backgrounds='';
 				break;
 
+			case 19:
+				$backgrounds='';
+				break;
+
+			case 20:
+				$backgrounds='';
+				break;
+
+			case 21:
+				$backgrounds='';
+				break;
+
 			}
 			
 		}
@@ -313,6 +325,27 @@ class WebsiteController extends \BaseController {
 																	->with('id_web', $id_Web);
 				break;
 			case 18:
+				return View::make('website_user.themes18.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
+																	->with('id_web', $id_Web);
+				break;
+
+			case 19:
+				return View::make('website_user.themes18.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
+																	->with('id_web', $id_Web);
+				break;
+
+			case 20:
+				return View::make('website_user.themes18.page.index')->with('website', $website)
+																	->with('firstname', $firstname)
+																	->with('backgrounds',$backgrounds)
+																	->with('id_web', $id_Web);
+				break;
+
+			case 21:
 				return View::make('website_user.themes18.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
 																	->with('backgrounds',$backgrounds)
@@ -503,6 +536,15 @@ class WebsiteController extends \BaseController {
 				$backgrounds='';
 				break;
 
+			case 19:
+				$backgrounds='';
+				break;
+			case 20:
+				$backgrounds='';
+				break;
+			case 21:
+				$backgrounds='';
+				break;
 			}
 					
 			
@@ -617,6 +659,16 @@ class WebsiteController extends \BaseController {
 				$backgrounds='';
 				break;
 			case 18:
+				$backgrounds='';
+				break;
+
+			case 19:
+				$backgrounds='';
+				break;
+			case 20:
+				$backgrounds='';
+				break;
+			case 21:
 				$backgrounds='';
 				break;
 			
@@ -1195,6 +1247,16 @@ class WebsiteController extends \BaseController {
 				$backgrounds='';
 				break;
 
+			case 19:
+				$backgrounds='';
+				break;
+			case 20:
+				$backgrounds='';
+				break;
+			case 21:
+				$backgrounds='';
+				break;
+
 			}
 			
 		}
@@ -1347,6 +1409,35 @@ class WebsiteController extends \BaseController {
 																->with('count_down_url',$count_down_url);
 				break;
 
+			case 19:
+				return View::make('website_user.themes18.page.index')->with('website', $website)
+																->with('firstname', $firstname)
+																->with('id_web', $id_website)
+																->with('date_url',$date_url)
+																->with('email',$email)
+																->with('backgrounds',$backgrounds)
+																->with('count_down_url',$count_down_url);
+				break;
+
+			case 20:
+				return View::make('website_user.themes18.page.index')->with('website', $website)
+																->with('firstname', $firstname)
+																->with('id_web', $id_website)
+																->with('date_url',$date_url)
+																->with('email',$email)
+																->with('backgrounds',$backgrounds)
+																->with('count_down_url',$count_down_url);
+				break;
+
+			case 21:
+				return View::make('website_user.themes18.page.index')->with('website', $website)
+																->with('firstname', $firstname)
+																->with('id_web', $id_website)
+																->with('date_url',$date_url)
+																->with('email',$email)
+																->with('backgrounds',$backgrounds)
+																->with('count_down_url',$count_down_url);
+				break;
 			default:
 				return View::make('website_user.themes.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
