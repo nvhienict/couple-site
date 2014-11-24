@@ -332,21 +332,21 @@ class WebsiteController extends \BaseController {
 				break;
 
 			case 19:
-				return View::make('website_user.themes18.page.index')->with('website', $website)
+				return View::make('website_user.themes19.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_Web);
 				break;
 
 			case 20:
-				return View::make('website_user.themes18.page.index')->with('website', $website)
+				return View::make('website_user.themes20.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_Web);
 				break;
 
 			case 21:
-				return View::make('website_user.themes18.page.index')->with('website', $website)
+				return View::make('website_user.themes21.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_Web);
@@ -1410,7 +1410,7 @@ class WebsiteController extends \BaseController {
 				break;
 
 			case 19:
-				return View::make('website_user.themes18.page.index')->with('website', $website)
+				return View::make('website_user.themes19.page.index')->with('website', $website)
 																->with('firstname', $firstname)
 																->with('id_web', $id_website)
 																->with('date_url',$date_url)
@@ -1420,7 +1420,7 @@ class WebsiteController extends \BaseController {
 				break;
 
 			case 20:
-				return View::make('website_user.themes18.page.index')->with('website', $website)
+				return View::make('website_user.themes20.page.index')->with('website', $website)
 																->with('firstname', $firstname)
 																->with('id_web', $id_website)
 																->with('date_url',$date_url)
@@ -1430,7 +1430,7 @@ class WebsiteController extends \BaseController {
 				break;
 
 			case 21:
-				return View::make('website_user.themes18.page.index')->with('website', $website)
+				return View::make('website_user.themes21.page.index')->with('website', $website)
 																->with('firstname', $firstname)
 																->with('id_web', $id_website)
 																->with('date_url',$date_url)

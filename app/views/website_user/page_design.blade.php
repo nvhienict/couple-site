@@ -351,13 +351,13 @@
 					@endif
 
 					@if($id_tmp==19)
-						@include('website_user.themes18.edit.index')
+						@include('website_user.themes19.edit.index')
 					@endif
 					@if($id_tmp==20)
-						@include('website_user.themes18.edit.index')
+						@include('website_user.themes20.edit.index')
 					@endif
 					@if($id_tmp==21)
-						@include('website_user.themes18.edit.index')
+						@include('website_user.themes21.edit.index')
 					@endif
 
 
