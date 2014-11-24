@@ -52,7 +52,7 @@ return array(
 	|
 	*/
 
-	// 'storage' => __DIR__.'/../app/storage',
+	'storage' => __DIR__.'/../app/storage',
 
 	// 'storage' => '/opt/lampp/htdocs/images_thuna/storage/path',
 

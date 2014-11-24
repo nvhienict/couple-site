@@ -206,7 +206,7 @@ class WebsiteController extends \BaseController {
 				break;
 
 			case 20:
-				$backgrounds='';
+				$backgrounds='images/website/themes20/template_20.jpg';
 				break;
 
 			case 21:
@@ -540,7 +540,7 @@ class WebsiteController extends \BaseController {
 				$backgrounds='';
 				break;
 			case 20:
-				$backgrounds='';
+				$backgrounds='images/website/themes20/template_20.jpg';
 				break;
 			case 21:
 				$backgrounds='';
@@ -666,7 +666,7 @@ class WebsiteController extends \BaseController {
 				$backgrounds='';
 				break;
 			case 20:
-				$backgrounds='';
+				$backgrounds='images/website/themes20/template_20.jpg';
 				break;
 			case 21:
 				$backgrounds='';
@@ -1251,7 +1251,7 @@ class WebsiteController extends \BaseController {
 				$backgrounds='';
 				break;
 			case 20:
-				$backgrounds='';
+				$backgrounds='images/website/themes20/template_20.jpg';
 				break;
 			case 21:
 				$backgrounds='';
