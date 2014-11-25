@@ -55,7 +55,7 @@ Website cưới
 					?>
 
 					@if( in_array($img_tmp, $arIdThemes) )
-						<a href="{{URL::route('view-previous', array('id'=>$img_tmp))}}" target="_blank" class="thuna2" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
+						<a href="{{URL::route('view-previous', array('id'=>$img_tmp))}}" target="_blank" >Xem trước <i class="fa fa-chevron-right fa-fw"></i></a>
 					@endif
 				</div>
 				<div class="col-xs-1"></div>

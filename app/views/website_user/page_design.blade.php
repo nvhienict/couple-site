@@ -1178,6 +1178,7 @@
             $("#prev_output"+response.id_tab+" a").html("<img class='img-responsive' src='"+response.file+"' />");
             $("#prev_outputcc"+response.id_tab+" a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+response.file+"' />");
             $("#prev_output_themes3"+response.id_tab+" a").html("<img style='width: 100%;height: 100%;' class='img-responsive' src='"+response.file+"' />");
+            $("#prev_output_themes21"+response.id_tab+" a").html("<img class='tab-text-img' src='"+response.file+"' />");
            
         }
     }
