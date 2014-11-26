@@ -1,0 +1,531 @@
+
+
+body{
+	background: url(../../images/website/themes19/bg.svg) no-repeat center top fixed;
+	background-color: transparent;
+	background-size: auto;
+
+}
+@media screen and ( width:320px ){
+	.header-name{
+		margin-top: 15% !important;
+	}
+	.time-until{
+		height: 125px !important;
+	}
+	.fix-slide{
+		width:250px !important;
+		height: 250px !important;
+		margin: 0 2% !important;
+	}
+	.item-slide{
+		padding-left: 5% !important
+	}
+	.img-infor{
+		height: 250px !important;
+		width: 250px !important;
+	}
+	.tr td.time_wedding{
+		font-size: 1em !important;
+	}
+	tr td.time_txt{
+		font-size: 1em !important;
+	}
+	.margin-time{
+		margin-top: 10% !important;
+	}
+	.part-photo{
+		height: 111px !important;
+	}
+	.bg-footer{
+		height: 345px !important;
+	}
+	.infor{
+		padding-left: 10% !important;
+	}
+
+
+}
+@media screen and ( width:360px ){
+	.header-name{
+		margin-top: 15% !important;
+	}
+	.time-until{
+		height: 125px !important;
+	}
+	.fix-slide{
+		width:300px !important;
+		height: 300px !important;
+		margin: 0 7% !important;
+	}
+	.img-infor{
+		height: 300px !important;
+		width: 300px !important;
+	}
+	.tr td.time_wedding{
+		font-size: 1em !important;
+	}
+	tr td.time_txt{
+		font-size: 1em !important;
+	}
+	.margin-time{
+		margin-top: 14% !important;
+	}
+	.part-photo{
+		height: 120px !important;
+	}
+	.bg-footer{
+		height: 350px !important;
+	}
+	.infor{
+		padding-left: 10% !important;
+	}
+
+}
+
+@media screen and ( width:480px ){
+	.header-name{
+		margin-top: 15% !important;
+	}
+	.time-until{
+		height: 125px !important;
+	}
+	.fix-slide{
+		width:385px !important;
+		height: 385px !important;
+		margin: 0 7% !important;
+	}
+	.img-infor{
+		height: 385px !important;
+		width: 385px !important;
+	}
+	.tr td.time_wedding{
+		font-size: 1em !important;
+	}
+	tr td.time_txt{
+		font-size: 1em !important;
+	}
+	.margin-time{
+		margin-top: 10% !important;
+	}
+	.part-photo{
+		height: 172px !important;
+	}
+	.bg-footer{
+		height: 364px !important;
+	}
+	.infor{
+		padding-left: 10% !important;
+	}
+
+}
+
+@media screen and ( width:568px ){
+	.header-name{
+		margin-top: 15% !important;
+	}
+	.time-until{
+		height: 125px !important;
+	}
+	.fix-slide{
+		width:480px !important;
+		height: 480px !important;
+		margin: 0 5% !important;
+	}
+	.img-infor{
+		height: 480px !important;
+		width: 480px !important;
+	}
+	.tr td.time_wedding{
+		font-size: 1em !important;
+	}
+	tr td.time_txt{
+		font-size: 1em!important;
+	}
+	.margin-time{
+		margin-top: 10% !important;
+	}
+	.part-photo{
+		height: 205px !important;
+	}
+	.bg-footer{
+		height: 364px !important;
+	}
+	.infor{
+		padding-left: 8% !important;
+	}
+
+}
+
+@media screen and ( width:600px ){
+	.header-name{
+		margin-top: 15%!important;
+	}
+	.time-until{
+		height: 125px !important;
+	}
+	.fix-slide{
+		width:480px !important;
+		height: 480px !important;
+		margin: 0 8% !important;
+	}
+	.img-infor{
+		height: 480px!important;
+		width: 480px !important;
+	}
+	.tr td.time_wedding{
+		font-size: 1em !important;
+	}
+	tr td.time_txt{
+		font-size: 1em !important;
+	}
+	.margin-time{
+		margin-top: 6%!important;
+	}
+	.part-photo{
+		height: 217px !important;
+	}
+	.bg-footer{
+		height: 364px!important;
+	}
+	.infor{
+		margin-left: 3% !important;
+	}
+
+}
+@media screen and ( width:768px ){
+	.header-name{
+		margin-top: 15% !important;
+	}
+	.time-until{
+		height: 125px !important;
+	}
+	.fix-slide{
+		width:300px !important;
+		height: 300px !important;
+	}
+	.img-infor{
+		height: 200px !important;
+		width: 200px !important;
+	}
+	.tr td.time_wedding{
+		font-size: 2em !important;
+	}
+	tr td.time_txt{
+		font-size: 2em !important;
+	}
+	.margin-time{
+		margin-top: 5% !important;
+	}
+	.part-photo{
+		height: 155px !important;
+	}
+	.bg-footer{
+		height: 200px !important;
+	}
+
+}
+
+@media screen and ( width:800px ){
+	.header-name{
+		margin-top: 15% !important;
+	}
+	.time-until{
+		height: 125px !important;
+	}
+	.fix-slide{
+		width:300px !important;
+		height: 300px !important;
+	}
+	.img-infor{
+		height: 200px !important;
+		width: 200px !important;
+	}
+	.tr td.time_wedding{
+		font-size: 2em !important;
+	}
+	tr td.time_txt{
+		font-size: 2em !important;
+	}
+	.margin-time{
+		margin-top: 5% !important;
+	}
+	.part-photo{
+		height: 160px !important;
+	}
+	.bg-footer{
+		height: 200px !important;
+	}
+
+}
+@media screen and ( width:980px ){
+	.header-name{
+		margin-top: 15% !important;
+	}
+	.time-until{
+		height: 190px !important;
+	}
+	.fix-slide{
+		width:400px !important;
+		height: 400px !important;
+	}
+	.img-infor{
+		height: 200px !important;
+		width: 200px !important;
+	}
+	.tr td.time_wedding{
+		font-size: 2em !important;
+	}
+	tr td.time_txt{
+		font-size: 2em !important;
+	}
+	.margin-time{
+		margin-top: 9% !important;
+	}
+	.part-photo{
+		height: 200px !important;
+	}
+	.bg-footer{
+		height: 200px !important;
+	}
+
+}
+
+@media screen and ( width:1024px ){
+	.header-name{
+		margin-top: 7% !important;
+	}
+	.time-until{
+		height: 190px !important;
+	}
+	.fix-slide{
+		width:400px !important;
+		height: 400px !important;
+		margin: 0 5% !important;
+	}
+	.img-infor{
+		height: 200px !important;
+		width: 200px !important;
+	}
+	.tr td.time_wedding{
+		font-size: 2em !important;
+	}
+	tr td.time_txt{
+		font-size: 2em !important;
+	}
+	.margin-time{
+		margin-top: 9% !important;
+	}
+	.part-photo{
+		height: 209px !important;
+	}
+	.bg-footer{
+		height: 200px !important;
+	}
+
+}
+
+@media screen and ( width:1280px ){
+	.header-name{
+		margin-top: 6% !important;
+	}
+	.time-until{
+		height: 300px !important;
+	}
+	.fix-slide{
+		width:500px !important;
+		height: 500px !important;
+		margin: 0 6% !important;
+	}
+	.img-infor{
+		height: 250px !important;
+		width: 250px !important;
+	}
+	.tr td.time_wedding{
+		font-size: 2em !important;
+	}
+	tr td.time_txt{
+		font-size: 2em !important;
+	}
+	.margin-time{
+		margin-top: 9% !important;
+	}
+	.part-photo{
+		height: 262px !important;
+	}
+	.bg-footer{
+		height: 200px !important;
+	}
+
+}
+.row{
+	padding: 0 0px !important;
+	margin: 0 0px !important;
+}
+.infor{
+	margin-top: 5%;
+}
+.infor-slide{
+	margin-top: 1%;
+
+}
+/*.item{
+	background: url(../../images/website/themes19/bg-slide.png) no-repeat center center;
+	background-size: 100%;
+}*/
+.img-infor{
+	width: 300px;
+	height: 300px;*/
+	margin:0 6%;
+}
+.fix-slide{
+	width: 600px;
+	height: 600px;
+	margin: 0 3%;
+	border: 15px solid #fef7f0;
+}
+.carousel-inner > .item {
+    transition: center 0.6s ease-in-out 0s !important;
+}
+.header-name{
+	margin-top: 6%;
+	text-align: center;
+}
+.header-name h1{
+	display: inline;
+}
+.line-infor{
+	background: url(../../images/website/themes19/menu-lines.svg) no-repeat center center;
+	height: 18px;
+}
+.line-infor1{
+	background: url(../../images/website/themes19/menu-lines.svg) no-repeat center center;
+	height: 43px;
+}
+.time-until{
+	background: url(../../images/website/themes19/timer_bg1.png) no-repeat center center;
+	background-size: 100%;
+	height: 300px;
+}
+.just-line{
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	color: #dddddd;
+
+}
+.margin-time{
+	margin-top: 5%;
+}
+tr td.time_wedding {
+	font-size: 2em;
+	color: #F07677;
+}
+tr td.time_txt {
+	font-size: 2em;
+	color: #F07677;
+}
+/*.bg-w{
+ background-image: url(../../images/website/themes19/bg-w.jpg);
+  background-color: transparent; 
+  background-size:100%; 
+  background-position: top right;
+  background-attachment: fixed; 
+  background-repeat: no-repeat;
+}*/
+#geomap{
+	width:100%; height:80px;
+}
+.part-photo{
+	height:277px;
+	padding-top: 4%;
+}
+.bg-footer{
+	background-color: #898989;
+	height: 200px;
+	color: #CACACA;
+}
+.margin-footer{
+	margin-top: 4%;
+}
+.margin-footer h4 a{
+	text-decoration: none;
+	font-weight: bold;
+	color: #CACACA;
+}
+.bird{
+	background: url(../../images/website/themes19/bird.svg) no-repeat center center;
+	height: 70px;
+}
+.myheart{
+	color: #F04C74;
+}
+.navbar-default{
+	border: none;
+	background-color: #FF8EC6;
+}
+.nav-themes19-default .navbar-nav > li >a{
+	color: white !important;
+	font-size: 1em !important;
+	font-weight: bold!important;
+}
+.nav-themes19 > li > .a_menu:hover{
+	color: #E3C884 !important;
+}
+/*edit*/
+.part-photo-edit{
+	height: 204px;
+	padding-top: 4%;
+}
+
+/*navbar-nav*/
+.header{
+	position:fixed; z-index:1000;
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 0 0px;
+	width: 74%;
+}
+
+.nav-themes19-default .navbar-nav > span >a{
+	color: white !important;
+	font-size: 1em !important;
+	font-weight: bold!important;
+}
+.nav-themes19 > span > .a_menu:hover{
+	color: #E3C884 !important;
+}
+
+/*content*/
+.edit-content{
+    display: none;
+}
+
+.click-edit{
+    font-size: 22px;
+}
+.click-edit span a{
+    text-decoration: none;
+}
+.ok-edit{
+    font-size: 22px;
+    display: none;
+    padding-right: 15px;
+}
+.ok-edit span a {
+    text-decoration: none;
+}
+.item-slide-edit{
+	top:10%;
+}
+.header{
+	position:fixed; z-index:1000;
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 0 0px;
+	width: 74%;
+}
+.images-padding{
+	padding: 5px;
+}
