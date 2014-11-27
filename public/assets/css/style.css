@@ -1671,6 +1671,26 @@ a.budget_icon_notes{
 	margin: 0px 13px 0px 0px;
 }
 
+
+#vendor_view_more_photo, #vendor_view_more_list{
+	display: none;
+}
+
+.vendor-img-loading{
+	position: fixed;
+	top: 90%;
+	left: 57%;
+	z-index: 100;
+	background-color: #DEDEDE;
+	text-align: center;
+	padding: 5px;
+	border-radius: 10px;
+	font-weight: bold;
+	font-size: 17px;
+	color: #1366CB;
+	display: none;
+}
+
 /* checklist */
 .checklist-statis-formonth{
 	padding: 10px;

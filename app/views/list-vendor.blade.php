@@ -15,35 +15,41 @@ Danh sách Dịch vụ
 		  		<div class="col-md-1"></div>
 		  		<div class="col-md-6">
 		  			Kết quả tìm kiếm với 
-		  			<span style="color: #19B5BC">
+		  			<span style="color: #19B5BC" >
 		  				@if( !empty(Input::get('name')) )
 			   				{{Input::get('name')}}
+			   				<input id="nameGet" type="hidden" value="{{Input::get('name')}}" />
 			   			@else
 			   				Từ tìm kiếm
 			   			@endif
 			   		</span> 
 			   		Địa điểm: 
-			   		<span style="color: #19B5BC">
+			   		<span style="color: #19B5BC" >
 			   			
 			   			@if( !empty(Input::get('location')) )
 			   				{{Input::get('location')}}
+			   				<input id="locationGet" type="hidden" value="{{Input::get('location')}}" />
 			   			@else
 			   				@if( Session::has('location') )
 			   					{{Location::where("id",Session::get('location'))->get()->first()->name}}
+			   					<input id="locationGet" type="hidden" value="{{Location::where("id",Session::get('location'))->get()->first()->name}}" />
 			   				@else
 			   					{{VendorController::location_last()->name}}
+			   					<input id="locationGet" type="hidden" value="{{VendorController::location_last()->name}}" />
 			   				@endif
 			   			@endif
 
 			   		</span> 
 			   		Danh mục: 
-			   		<span style="color: #19B5BC">
+			   		<span style="color: #19B5BC" >
 
 			   			@if( !empty(Input::get('category')) )
 			   				{{Input::get('category')}}
+			   				<input id="categoryGet" type="hidden" value="{{Input::get('category')}}" />
 			   			@else
 			   				@if( !empty($category_id) )
 				   				{{Category::where("id",$category_id)->get()->first()->name}}
+				   				<input id="categoryGet" type="hidden" value="{{Category::where("id",$category_id)->get()->first()->name}}" />
 				   			@else
 				   				Chưa chọn
 				   			@endif
@@ -162,7 +168,8 @@ Danh sách Dịch vụ
 			                        
 			                        <!-- Vendor Images -->
 			                        <a href="{{URL::route('vendor',array(VendorController::getCategorySlug( VendorController::getVendorCategory($vendor->id) ),$vendor->slug))}}">
-			                        	{{VendorController::getImagesVendor($vendor->photo)}}
+			                        	<!-- {{VendorController::getImagesVendor($vendor->photo)}} -->
+			                        	{{'<img class="img-responsive" src="data:image/jpeg;base64,' . base64_encode($vendor->avatar) . '" />'}}
 			                        </a>
 			                        
 			                        <!-- Location Name -->
@@ -290,10 +297,9 @@ Danh sách Dịch vụ
 
 				</div>
 				<!-- end div row -->
+
 			</div>
 			<!-- end div tab-photo -->
-
-
 
 			<!-- tab-list -->
 			<div class="col-md-7 tab-pane " id="display-list">
@@ -440,9 +446,15 @@ Danh sách Dịch vụ
 
 	</form>
 	<!-- form compare -->
-
-
+	<button id="vendor_view_more_photo">VIEW MORE PHOTO</button>
+	<button id="vendor_view_more_list">VIEW MORE LIST</button>
+	<div class="vendor-img-loading">
+		<img src="{{Asset('icon/loading.gif')}}">
+		<br />
+		Đang tải dữ liệu...
+	</div>
 	
+
 	<!-- modal note when check for checkbox in each vendor -->
 	<button id="toida" style="display:none;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalToiDa" data-backdrop="static"></button>
 		<div class="modal fade" id="ModalToiDa" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -497,6 +509,91 @@ Danh sách Dịch vụ
 		});
 	};
 
-</script>	
+
+	// lazyload
+	$(window).scroll(function(){
+		var scrollOffset 	= 100;
+	    if( ( ($(window).scrollTop()+scrollOffset)%scrollOffset)===0 ) {
+
+	    	$('#vendor_view_more_photo').click();
+	    	$('#vendor_view_more_list').click();
+
+	    }else{
+	        return false;
+	    }
+	});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var i 				= 0;
+		$('#vendor_view_more_photo').click(function(){
+			i++;
+			var iOffset 	= i;
+			var offset 		= 6;
+
+	        var name 		= $('#nameGet').val();
+	        var location 	= $('#locationGet').val();
+	        var category 	= $('#categoryGet').val();
+
+	        $('.vendor-img-loading').show();
+
+			$.ajax({
+				type: "post",
+				url: "{{URL::route('vendorLazyloadPhoto')}}",
+				data: {
+					iOffset:iOffset,
+					offset:offset,
+					location:location,
+					category:category
+				},
+				success:function(data)
+				{
+					$('.vendor-img-loading').hide();
+					if (data) {
+						$('#display-photo').append(data);
+					} else {
+						return false;
+					}
+					
+				}
+			});
+		});
+		// end vendor_view_more_photo
+
+		$('#vendor_view_more_list').click(function(){
+			i++;
+			var iOffset 	= i;
+			var offset 		= 6;
+
+	        var name 		= $('#nameGet').val();
+	        var location 	= $('#locationGet').val();
+	        var category 	= $('#categoryGet').val();
+
+			$.ajax({
+				type: "post",
+				url: "{{URL::route('vendorLazyloadList')}}",
+				data: {
+					iOffset:iOffset,
+					offset:offset,
+					location:location,
+					category:category
+				},
+				success:function(data)
+				{
+					if (data) {
+						$('#display-list').append(data);
+					} else {
+						return false;
+					}
+					
+				}
+			});
+		});
+		// end vendor_view_more_list
+	});
+
+</script>
+
 
 @endsection

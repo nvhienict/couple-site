@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('themes21', function(){
+	return View::make('website_user.themes21.page.index');
+});
+
 
 Route::get('/',array("as"=>"index", function()
 {
@@ -46,11 +50,6 @@ Route::get('/map/{id}',function($id){
 *
 **/
 
-
-Route::get('list-vendor',array('as'=>'list-vendor', function(){
-	 return View::make('list-vendor');
-}));
-
 // get location create session display on form seacrh
 Route::post('get_location', array('as'=>'get_location', function(){
 	$name = Input::get('name');
@@ -65,6 +64,9 @@ Route::get('vendor/{slug_cate}', array('as'=>'category', "uses"=>"VendorControll
 
 
 Route::get('list-vendor/search', array('as'=>'home-page',"uses"=>"VendorController@search"));
+
+Route::post('vendorLazyloadPhoto', array("as"=>"vendorLazyloadPhoto", "uses"=>"VendorController@vendorLazyloadPhoto"));
+Route::post('vendorLazyloadList', array("as"=>"vendorLazyloadList", "uses"=>"VendorController@vendorLazyloadList"));
 
 Route::get('compare',array("as"=>"compare", "uses"=>"VendorController@post_Compare"));
 
