@@ -220,6 +220,10 @@ Route::post('get_guest',array('as'=>'get_guest','uses'=>'GuestController@get_gue
 Route::group(array('before'=>'check_login'), function(){
 
 	// all Route for website user here
+	// edit content section
+	Route::post('getContent',array('as'=>'get_content','uses'=>'WebsiteController@getContent'));
+	// update content
+	Route::post('updateContent',array('as'=>'update_content','uses'=>'WebsiteController@updateContent'));
 
 	// choose template
 	Route::get('template', array('as'=>'template', 'uses'=>'WebsiteController@template'));

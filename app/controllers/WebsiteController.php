@@ -8,6 +8,28 @@ class WebsiteController extends \BaseController {
 	 * @return Response
 	 */
 
+	// get content swf_enddoaction
+
+	public function getContent(){
+		$id_user 	= $this->id_user();
+		$id_web 	= WeddingWebsite::where('user',$id_user)->get()->first()->id;
+		$id_tab 	= Input::get('id_tab');
+		$type 		= TabWebsite::where('website',$id_web)->where('id',$id_tab)->get()->first()->title;
+		$content 	= TabWebsite::where('website',$id_web)->where('id',$id_tab)->get()->first()->content;
+		echo json_encode(array('title'=>$type,'content'=>$content));
+		die();
+	}
+
+	public function updateContent(){
+		$id_user 	= $this->id_user();
+		$id_web 	= WeddingWebsite::where('user',$id_user)->get()->first()->id;
+		$id_tab 	= Input::get('id_tab');
+		$content 	= Input::get('content');
+		TabWebsite::where('website',$id_web)->where('id',$id_tab)->update(array('content'=>$content));
+		echo json_encode(array('content'=>$content));
+		die();
+	}
+
 	public function template()
 	{
 		$id_user = WebsiteController::id_user();

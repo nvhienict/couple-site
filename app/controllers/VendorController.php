@@ -26,30 +26,26 @@ class VendorController extends \BaseController {
 		return Location::get()->first();
 	}
 
-
-	
-
-
 	public function ratingVendor()
 	{
-		$id_user = VendorController::id_user();
-		$id_vendor=Input::get('vendor');
-		$check=Rating::where('user',$id_user)->where('vendor',$id_vendor)->get()->count();
+		$id_user 				= VendorController::id_user();
+		$id_vendor 				= Input::get('vendor');
+		$check 					= Rating::where('user',$id_user)->where('vendor',$id_vendor)->get()->count();
 		if($check)
 		{
-			$rating_up=Rating::where('user',$id_user)->where('vendor',$id_vendor)->get()->first();
-			$rating_up->rating=Input::get('rating');
+			$rating_up 			= Rating::where('user',$id_user)->where('vendor',$id_vendor)->get()->first();
+			$rating_up->rating  = Input::get('rating');
 			$rating_up->save();
-			$avg_rating=round(Rating::where('vendor',$id_vendor)->avg('rating'),1);
+			$avg_rating 		= round(Rating::where('vendor',$id_vendor)->avg('rating'),1);
 		}
 		else
 		{
-			$rating_add=new Rating();
-			$rating_add->user=$id_user;
-			$rating_add->rating=Input::get('rating');
-			$rating_add->vendor=Input::get('vendor');
+			$rating_add 		= new Rating();
+			$rating_add->user 	= $id_user;
+			$rating_add->rating = Input::get('rating');
+			$rating_add->vendor = Input::get('vendor');
 			$rating_add->save();
-			$avg_rating=round(Rating::where('vendor',$id_vendor)->avg('rating'),1);
+			$avg_rating 		= round(Rating::where('vendor',$id_vendor)->avg('rating'),1);
 		}
 		echo json_encode(array('avg_rating'=>$avg_rating));
 		exit();
@@ -88,55 +84,55 @@ class VendorController extends \BaseController {
 
 	public function show($slug_cate,$slug_vendor)
 	{  
-		$id=VendorController::getIdVendor($slug_vendor);
+		$id 				= VendorController::getIdVendor($slug_vendor);
 		// $id=VendorController::getIdVendor($slug_vendor);
 		if (!Session::has('email')) {
-			$firstname = "";
-			$lastname = "";
-			$user_name = $firstname.' '.$lastname;
-			$user_avatar="";
-			$email = "";
-			$weddingdate="";
+			$firstname 		= "";
+			$lastname 		= "";
+			$user_name 		= $firstname.' '.$lastname;
+			$user_avatar 	= "";
+			$email 			= "";
+			$weddingdate 	= "";
 		}else{
-			$id_user = VendorController::id_user();
+			$id_user 		= VendorController::id_user();
 
-			$firstname = User::where('id',$id_user)->get()->first()->firstname;
-			$lastname = User::where('id',$id_user)->get()->first()->lastname;
-			$user_name = $firstname.' '.$lastname;
-			$user_avatar = User::where('id',$id_user)->get()->first()->avatar;
-			$email = User::where('id',$id_user)->get()->first()->email;
-			$weddingdate=VendorController::getDates();
+			$firstname 		= User::where('id',$id_user)->get()->first()->firstname;
+			$lastname 		= User::where('id',$id_user)->get()->first()->lastname;
+			$user_name 		= $firstname.' '.$lastname;
+			$user_avatar 	= User::where('id',$id_user)->get()->first()->avatar;
+			$email 			= User::where('id',$id_user)->get()->first()->email;
+			$weddingdate 	= VendorController::getDates();
 		}
 		if(Session::has('email'))
 		{
-			$check_rating= Rating::where('user',$id_user)->where('vendor',$id)->get()->count();
+			$check_rating 	= Rating::where('user',$id_user)->where('vendor',$id)->get()->count();
 			if($check_rating>0){
-				$ratings=Rating::where('user',$id_user)->where('vendor',$id)->get()->first()->rating;
+				$ratings 	= Rating::where('user',$id_user)->where('vendor',$id)->get()->first()->rating;
 			}
 			else
 			{
-				$ratings=0;
+				$ratings = 0;
 			}
 		}	
 		else
 		{
-			$ratings=0;
+			$ratings = 0;
 		}
 		
-		$check_photoslide=PhotoSlide::where('vendor',$id)->count();
-		$photoslides=PhotoSlide::where('vendor',$id)->get();	
-		$vendor=Vendor::where('id',$id)->get()->first();
+		$check_photoslide 	= PhotoSlide::where('vendor',$id)->count();
+		$photoslides 		= PhotoSlide::where('vendor',$id)->get();	
+		$vendor 			= Vendor::where('id',$id)->get()->first();
 		
-		$rating_avg=Rating::where('vendor',$id)->get()->count();
+		$rating_avg 		= Rating::where('vendor',$id)->get()->count();
 		if($rating_avg>0)
 		{
-			$check_rating_avg=true;
-			$avg_rating=round(Rating::where('vendor',$vendor->id)->avg('rating'),1);
+			$check_rating_avg = true;
+			$avg_rating 	  = round(Rating::where('vendor',$vendor->id)->avg('rating'),1);
 		}
 		else
 		{
-			$check_rating_avg=false;
-			$avg_rating=0;
+			$check_rating_avg = false;
+			$avg_rating 	  = 0;
 		}
 		
 		return View::make("detail-vendor")->with("vendor",$vendor)
@@ -154,8 +150,8 @@ class VendorController extends \BaseController {
 				
 	}
 	public static function getDates(){
-		$id_user = ChecklistController::id_user();
-		$weddingdate = User::find($id_user)->weddingdate;
+		$id_user 		= ChecklistController::id_user();
+		$weddingdate 	= User::find($id_user)->weddingdate;
 
 		return Carbon::parse($weddingdate)->format('d-m-Y');
 	}
@@ -163,12 +159,12 @@ class VendorController extends \BaseController {
 	// comment for vendor
 	public function vendor_comment($id_vendor)
 	{
-		$id_user = Input::get('id_user');
-		$cmt = Input::get('cmt');
+		$id_user 		= Input::get('id_user');
+		$cmt 			= Input::get('cmt');
 
-		$firstname = User::where('id',$id_user)->get()->first()->firstname;
-		$lastname = User::where('id',$id_user)->get()->first()->lastname;
-		$user_name = $firstname.' '.$lastname;
+		$firstname 		= User::where('id',$id_user)->get()->first()->firstname;
+		$lastname 		= User::where('id',$id_user)->get()->first()->lastname;
+		$user_name 		= $firstname.' '.$lastname;
 
 		// insert comment to table vendor_comment
 
@@ -179,24 +175,24 @@ class VendorController extends \BaseController {
 		$vendor_comment->content=$cmt;
 		$vendor_comment->save();
 
-		$user_avatar = User::where('id',$id_user)->get()->first()->avatar;
+		$user_avatar 	= User::where('id',$id_user)->get()->first()->avatar;
 		// $avatar = base64_decode($user_avatar);
 
 		// get data for show 
-		$arComment = vendorComment::get()->last();
+		$arComment 		= vendorComment::get()->last();
 
-		$html = '';
-		$html .="<div class='vendor_comment'>
-					<div class='vendor_avatar'>
-						<img src='/".$user_avatar."'>
-					</div>
-					<div class='vendor_content'>
-						<span style='color: #428bca;''>".$arComment->user_name."</span> nói rằng:<br />
-						
-						".$arComment->content."
-					</div>
-				</div>
-				<div id='your_cmt'></div>";
+		$html 			= '';
+		$html 			.="<div class='vendor_comment'>
+							<div class='vendor_avatar'>
+								<img src='/".$user_avatar."'>
+							</div>
+							<div class='vendor_content'>
+								<span style='color: #428bca;''>".$arComment->user_name."</span> nói rằng:<br />
+								
+								".$arComment->content."
+							</div>
+						</div>
+						<div id='your_cmt'></div>";
 		echo $html;
 
 	}
@@ -238,64 +234,87 @@ class VendorController extends \BaseController {
 
 	public function category($slug_cate){
 
-		$compares = Session::get('compare');
+		$compares 			= Session::get('compare');
 
 		if(!Session::has('location')){
-			$id_location = VendorController::location_last()->id;
+			$id_location 	= VendorController::location_last()->id;
 		}else{
-			$id_location = Session::get('location');
+			$id_location 	= Session::get('location');
 		}
 
-		$id_cate = Category::where('slug', $slug_cate)->get()->first()->id;				
+		$id_cate 			= Category::where('slug', $slug_cate)->get()->first()->id;				
 							
-		$results = Vendor::where('category', $id_cate)->where('location',$id_location)->get();
+		$results 			= Vendor::where('category', $id_cate)->where('location',$id_location)->get();
 		return View::make('list-vendor')->with('results', $results)
 											->with('category_id', $id_cate)
 											->with('compares', $compares);
 		// return $results;
 	}
-	public function search()
+
+
+	// get vendorLocationId
+	private static function vendorLocationId($name)
 	{
-		$compares = Session::get('compare');
+		if ($name==NULL) {
+			return $location = NULL;
+		} else {
+			return $location = Location::where('name', $name)->get()->first()->id;
+		}
+	}
 
-		$name=Input::get('name');
-
-		$location_name = Input::get('location');
-		if ($location_name==NULL) {
-			$location=NULL;
+	// get vendorCategoryId
+	private static function vendorCategoryId($name)
+	{
+		if ($name==NULL) {
+			return $category = NULL;
 		}
 		else{
-			$location = Location::where('name', $location_name)->get()->first()->id;
+			return $category = Category::where('name', $name)->get()->first()->id;
 		}
+	}
 
-		$category_name = Input::get('category');
-		if ($category_name==NULL) {
-			$category=NULL;
-		}
-		else{
-			$category = Category::where('name', $category_name)->get()->first()->id;
-		}
-
-		
-		$vendor = new Vendor();
+	// action search from database
+	private static function actionSearch( $name, $location, $category, $record, $offset)
+	{
+		// initialization Class Vendor
+		$vendor 			= new Vendor();
 		
 		if(empty($name)&&empty($category))
 		{
-			$results=$vendor->where('location',"=",$location)->get();
+			return $results = $vendor->where('location',"=",$location)->take($record)->skip($offset)->get();
 		}
 		elseif(empty($name)&&!empty($category))
 		{
-			$results=$vendor->where('location',$location)->where('category',$category)->get();
+			return $results = $vendor->where('location',$location)->where('category',$category)->take($record)->skip($offset)->get();
 		}
-
 		elseif(!empty($name)&&empty($category))
 		{
-			$results=$vendor->where('location',$location)->where('name', 'LIKE', "%$name%")->get();
+			return $results = $vendor->where('location',$location)->where('name', 'LIKE', "%$name%")->take($record)->skip($offset)->get();
 		}
 		else
 		{
-			$results=$vendor->where('location',$location)->where('name', 'LIKE', "%$name%")->where('category',$category)->get();
+			return $results = $vendor->where('location',$location)->where('name', 'LIKE', "%$name%")->where('category',$category)->take($record)->skip($offset)->get();
 		}
+	}
+
+	// function search vendor
+	public function search()
+	{
+		$compares 			= Session::get('compare');
+
+		// get keyword from DataInput
+		$name 				= Input::get('name');
+
+		// get vendorLocationId from DataInput
+		$location_name		= Input::get('location');
+		$location 			= $this->vendorLocationId( $location_name );
+
+		// get vendorCategoryId from DataInput
+		$category_name 		= Input::get('category');
+		$category 			= $this->vendorCategoryId( $category_name );
+
+		// get data from actionSearch
+		$results			= $this->actionSearch( $name, $location, $category, 6, 6 );
 		
 				
 		return View::make('list-vendor')->with("results",$results)
@@ -304,13 +323,79 @@ class VendorController extends \BaseController {
 		
 	}
 
+	// function lazyload vendor
+	public function vendorLazyloadPhoto()
+	{
+		$i 					= Input::get('iOffset');
+		$offset 			= ( $i * Input::get('offset') ) + 6;
+		$record				= Input::get('offset');
 
+		$compares 			= Session::get('compare');
+
+		// get keyword from DataInput
+		if ( (Input::get('name'))=='Từ tìm kiếm' ) {
+			$name 			= NULL;
+		} else {
+			$name 			= Input::get('name');
+		}
+
+		// get vendorLocationId from DataInput
+		$location_name		= Input::get('location');
+		$location 			= $this->vendorLocationId( $location_name );
+
+		// get vendorCategoryId from DataInput
+		$category_name 		= Input::get('category');
+		$category 			= $this->vendorCategoryId( $category_name );
+
+		// get data from actionSearch
+		$results			= $this->actionSearch( $name, $location, $category, $record, $offset );
+		
+				
+		return View::make('list-vendor-lazyload-photo')->with("results",$results)
+										->with("location",$location)
+										->with("compares", $compares);
+	}
+
+	// function lazyload vendor
+	public function vendorLazyloadList()
+	{
+		$i 					= Input::get('iOffset');
+		$offset 			= ( $i * Input::get('offset') ) + 6;
+		$record				= Input::get('offset');
+
+		$compares 			= Session::get('compare');
+
+		// get keyword from DataInput
+		if ( (Input::get('name'))=='Từ tìm kiếm' ) {
+			$name 			= NULL;
+		} else {
+			$name 			= Input::get('name');
+		}
+
+		// get vendorLocationId from DataInput
+		$location_name		= Input::get('location');
+		$location 			= $this->vendorLocationId( $location_name );
+
+		// get vendorCategoryId from DataInput
+		$category_name 		= Input::get('category');
+		$category 			= $this->vendorCategoryId( $category_name );
+
+		// get data from actionSearch
+		$results			= $this->actionSearch( $name, $location, $category, $record, $offset );
+		
+				
+		return View::make('list-vendor-lazyload-list')->with("results",$results)
+										->with("location",$location)
+										->with("compares", $compares);
+	}
+
+	
 	public function post_Compare(){
 		
-		$gh=Input::get('chk');
+		$gh 				 = Input::get('chk');
 
 		Session::put('compare', $gh);
-		$compares = Session::get('compare');
+		$compares 			 = Session::get('compare');
 		return View::make('compare')->with('compares', $compares);
 
 	}
@@ -318,14 +403,14 @@ class VendorController extends \BaseController {
 	// function add vendor for compare
 	public function post_AddCompare(){
 
-		$compares = Session::get('compare');
+		$compares			 = Session::get('compare');
 
-		$id = Input::get('id');
+		$id 				 = Input::get('id');
 		if( in_array($id, $compares) ){
 			return Redirect::to('home-page')->with('compares', $compares);
 		}
 		else{
-			$compares = Session::set('compare', $id);
+			$compares 		 = Session::set('compare', $id);
 			return Redirect::to('home-page')->with('compares', $compares);
 		}
 
@@ -334,16 +419,16 @@ class VendorController extends \BaseController {
 	// function remove vendor in array compare
 	public function post_RemoveCompare($id){
 
-		$t = Session::get('compare');
+		$t 					 = Session::get('compare');
 		unset($t[$id]);
-		$compares = Session::set('compare', $t);
+		$compares 			 = Session::set('compare', $t);
 
 	}
 
 	// function get a vendor last
 	public static function last_vendor()
 	{
-		$vendor_id_last = Vendor::get()->last()->id;
+		$vendor_id_last 	 = Vendor::get()->last()->id;
 		return $vendor_id_last;
 	}
 
@@ -369,7 +454,7 @@ class VendorController extends \BaseController {
 	// get Vendor About
 	public static function getVendorAbout($inputData)
 	{
-		$about=strip_tags($inputData);
+		$about 				= strip_tags($inputData);
     	if($about)
     	{
     		$lengthstr=strlen($about);
@@ -393,13 +478,13 @@ class VendorController extends \BaseController {
 	// get images
 	public static function getImagesVendor($image)
 	{
-		$path = storage_path().'/'.$image;
+		$path 				= storage_path().'/'.$image;
 		
 		// Read image path, convert to base64 encoding
-		$imageData = base64_encode(file_get_contents($path));
+		$imageData 			= base64_encode(file_get_contents($path));
 
 		// Format the image SRC:  data:{mime};base64,{data};
-		$src = 'data: '.mime_content_type($path).';base64,'.$imageData;
+		$src 				= 'data: '.mime_content_type($path).';base64,'.$imageData;
 
 		// Echo out a sample image
 		echo '<img class="img-responsive" src="',$src,'">';

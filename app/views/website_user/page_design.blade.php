@@ -820,6 +820,63 @@
 </div><!-- /.modal -->
 
 
+<!-- modal edit content website -->
+
+<div class="modal fade" id="modal-edit">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3  class="modal-title text-center title-partion"></h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+    		<textarea name="editor" class="ckeditor form-control" id="editor" cols="40" rows="10" tabindex="1">
+          	 	
+            </textarea>
+        	<p></p>   	
+        </div>       
+      </div>
+      <div class="modal-footer" style="margin-top: 0px;border-top:none; padding-top: 5px; padding-right: 39%;">
+      	<button onclick="updateContent()" type="button" data-dismiss="modal" class="btn btn-primary update-content " >Lưu</button>
+      	<input type="hidden" value="">
+        <button  type="button" class="btn btn-primary id-tab" data-dismiss="modal">Hủy</button>       
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- end modal edit content website -->
+
+<script type="text/javascript">
+	function showckeditorpartion (id) {
+		$.ajax({
+			type:'post',			
+			url:"{{URL::route('get_content')}}",
+			data:{id_tab:id},
+			success: function(data){
+				var obj = JSON.parse(data);
+				$('.id-tab').val(id);
+				$('.title-partion').text('Thay đổi nội dung của '+obj.title);
+				CKEDITOR.instances['editor'].setData(obj.content);			
+			}
+		});
+	};
+
+	function updateContent(){
+		var id_tab 	= $('.id-tab').val();
+		$.ajax({
+			type:'post',			
+			url:"{{URL::route('update_content')}}",
+			data:{id_tab:$('.id-tab').val(),
+					content:CKEDITOR.instances['editor'].getData() },
+			success: function(data){
+				var obj = JSON.parse(data);
+				$('.phara'+id_tab).html(obj.content);
+			}
+		});
+	}
+</script>
 
 <!-- upload ajax -->
 <script src="{{Asset("assets/js/jquery-ajax-upload-images.js")}}"></script>
@@ -1206,4 +1263,3 @@
 </script>
 <script src="{{Asset("assets/js/jquery-ui.js")}}"></script>
 @endsection
-
