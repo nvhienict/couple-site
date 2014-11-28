@@ -570,6 +570,8 @@ Danh sách Dịch vụ
 	        var location 	= $('#locationGet').val();
 	        var category 	= $('#categoryGet').val();
 
+	        $('.vendor-img-loading').show();
+
 			$.ajax({
 				type: "post",
 				url: "{{URL::route('vendorLazyloadList')}}",
@@ -581,6 +583,7 @@ Danh sách Dịch vụ
 				},
 				success:function(data)
 				{
+					$('.vendor-img-loading').hide();
 					if (data) {
 						$('#display-list').append(data);
 					} else {

@@ -43,6 +43,7 @@
    	
 	<link href="{{Asset("assets/css/animate.css")}}" rel="stylesheet" />
     <link href="{{Asset("assets/css/style.css")}}" rel="stylesheet">
+    <link href="{{Asset("assets/css/social-buttons.css")}}" rel="stylesheet">
 	<link href="{{Asset("assets/color/default.css")}}" rel="stylesheet">
 	<link href="{{Asset("assets/css/sweet-alert.css")}}" rel="stylesheet">
 	
