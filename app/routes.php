@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('themes21', function(){
-	return View::make('website_user.themes21.page.index');
-});
-
 
 Route::get('/',array("as"=>"index", function()
 {

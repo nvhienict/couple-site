@@ -21,33 +21,7 @@ Trang chủ
 	  </div>
 	  <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
-	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown"><span>Nhà cung cấp</span><b class="caret"></b></a>
-	        <ul class="dropdown-menu oneUl" role="menu">
-	          <li role="presentation" class="dropdown-header"><span>Dịch vụ</span>
-	          <div class="row">
-	            <div class="col-md-6">
-	              <ul class="list-unstyled ">
-	                  @foreach (Category::get() as $index=> $category)
-	                  @if($index < 7)
-	                    <li><a href="{{URL::route('category', array($category->slug))}}">{{$category['name']}}</a></li>
-	                  @endif
-	                  @endforeach
-	              </ul>
-	            </div>
-	            <div class="col-md-6">
-	              <ul class="list-unstyled ">
-	                  @foreach (Category::get() as $index=> $category)
-	                  @if($index >= 7)
-	                    <li><a href="{{URL::route('category', array($category->slug))}}">{{$category['name']}}</a></li>
-	                  @endif
-	                  @endforeach
-	              </ul>
-	            </div>
-	          </div>
-	          </li>
-	        </ul>
-	      </li>
+
 	      <li class="dropdown">
 	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown"><span>Công cụ lập kế hoạch </span><b class="caret"></b></a>
 	        <ul class="dropdown-menu " role="menu" style="width:100%;">
@@ -186,90 +160,6 @@ Trang chủ
 </div>
 
 
-<div class="bg-slide-mobile">
-	
-</div>
-
-
-	<!-- form search -->
-		<div id="form-search-index" class="col-md-8 col-lg-8 col-sm-12 col-md-offset-2">
-			
-						<form id="form-search" class="wow bounceInUp form-homepage" data-wow-offset="10" data-wow-delay="0.2s" action="{{Asset('list-vendor/search')}}" method="get">
-							<div class="row marginbot-20">
-								<div class="col-md-6 col-lg-6 col-sm-6 xs-marginbot-20">
-									<input type="text" name="name" class="form-control input-lg input_s" placeholder="Từ tìm kiếm" />
-								</div>
-								<div class="col-md-6 col-lg-6 col-sm-6 xs-marginbot-5" >
-									<select name="location" class="form-control input-lg input_s" onchange="get_location(this.value)" >
-							    		@foreach(Location::get() as $location)
-
-							    			@if(!Session::has('location'))
-							    				<option  value="{{$location->name}}" >{{$location->name}}</option>
-								    		@else
-								    			@if(Session::get('location')==$location->id)
-								    				<option  selected="selected" value="{{$location->name}}" >{{$location->name}}</option>
-								    			@else
-								    				<option  value="{{$location->name}}" >{{$location->name}}</option>
-								    			@endif
-								    		@endif
-
-								    	@endforeach
-							    	</select>
-								</div>
-							</div>
-							<div class="row xs-marginbot-5">
-								<div class="col-md-12">
-									<input id="searchTxt" name="category" type="text" data-toggle="dropdown" class="input-text form-control input-lg input_s btn-responsive" placeholder="Danh mục" readonly style="cursor:pointer;">
-							    	<!-- <input id="searchId" name="category_id" type="hidden"> -->
-							    	<ul class="dropdown-menu " role="menu" aria-labelledby="dropdownMenu1">
-									    <li role="presentation">
-									    	<div class="row" id="menu">
-										    	<div class="col-xs-6">
-										      		<ul class="list-unstyled  btn-responsive">
-											      		@foreach (Category::get() as $index=> $category)
-							    						@if($index<7)
-										      			<li class="budget-column-icon images_li" style="background-image:url({{Asset("icon/cat/{$category->images}")}})"><span style="cursor:pointer;">{{$category['name']}}</span>
-										      			<!-- <input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}"> -->
-										      			</li>
-										      			@endif
-						      							@endforeach
-										      		</ul>
-										      	</div>
-										      	<div class="col-xs-6">
-										      		<ul class="list-unstyled btn-responsive">
-										      			@foreach (Category::get() as $index=> $category)
-						    							@if($index>=7)
-										      			<li class="budget-column-icon images_li" style="background-image:url({{Asset("icon/cat/{$category->images}")}})"><span style="cursor:pointer;">{{$category['name']}}</span>
-										      			<!-- <input name="{{$category['name']}}" type="hidden" value="{{$category['id']}}"> -->
-										      			</li>
-										      			@endif
-						      							@endforeach
-										      		</ul>
-										      	</div>
-									      	</div>
-									    </li>
-									    <script>
-										    $(document).ready(function(){
-												$('#menu li span').click(function(){
-												  var text= $(this).text();
-												  var id= $(this).next().val();
-													$( "#searchTxt" ).val(text);
-													$( "#searchId").val(id);
-												});
-											});
-										</script>	
-								    </ul>					
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<button type="submit" class="btn btn-skin btn-lg btn-block btn-responsive">Tìm kiếm</button>
-								</div>
-							</div>
-						</form>
-			
-		</div>
-		<!-- end form-search-index -->
 	
 	<div class="row" id="index-tool">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  tool-1">
