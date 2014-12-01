@@ -12,7 +12,6 @@ class UserController extends \BaseController {
 		return View::make('index');
 	}
 
-
 	/**
 	 * Show the form for creating a new resource.
 	 *

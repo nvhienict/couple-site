@@ -13,7 +13,6 @@ Danh sách khách mời
 			<div class="col-xs-12">
 				<h2>Danh sách khách mời</h2>
 			</div>
-			
 		</div>
 		<div class="submenu">
 			<div class="row">

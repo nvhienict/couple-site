@@ -24,7 +24,6 @@ class GuestController extends \BaseController {
 		$fullname 		= $guest->fullname;
 		echo json_encode(array('fullname'=>$fullname));
 		exit();
-
 	}
 	
 	public function delete()
