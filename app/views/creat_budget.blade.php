@@ -14,7 +14,7 @@ Quản lý ngân sách
 				<div class="row form-group"><h1>Nhập vào số tiền dự toán của bạn</h1></div>
 			</div>
 			<div class="row">
-				<form id="form-create-money" action="{{URL::route('money_budget')}}" method="post">
+				<form id="form-create-money" action="{{URL::route('money_budget')}}" method="post" autocomplete="off">
 					<div class="row form-group">
 						<label for="money_budget" class="col-xs-2 control-label">Số tiền</label>
 						<div class="col-xs-5">
@@ -24,9 +24,7 @@ Quản lý ngân sách
 						<small>VND</small>
 					</div>
 					<div class="row form-group">
-						<div class="col-xs-3">
-							
-						</div>
+						<div class="col-xs-3"></div>
 						<div class="col-xs-4">
 						   	<button type="submit" id="submit_money" class="btn btn-success">Tính tổng chi phí</button>
 						</div>
@@ -36,39 +34,33 @@ Quản lý ngân sách
 				<script type="text/javascript">
 
 
-				$("#form-create-money").validate({
-					rules:
-					{
-						money_budget1:
+					$("#form-create-money").validate({
+						rules:
 						{
-							required:true
-							
-						
-						}
-					},
-					messages:
-					{
-						money_budget1:
+							money_budget1:
+							{
+								required:true
+							}
+						},
+						messages:
 						{
-							required:"Chưa nhập số tiền"
-							
-							
+							money_budget1:
+							{
+								required:"Bạn chưa nhập số tiền"
+							}
 						}
-					}
-				})
+					})
 				
-                  function key_money(event){
-	                 if(event.which >= 37 && event.which <= 40) return;
-		                 $("#money_budget1").val(function(index, value) {
+	                function key_money(event){
+		                if(event.which >= 37 && event.which <= 40) return;
+			                $("#money_budget1").val(function(index, value) {
 						        return value
 						            .replace(/\D/g, '')
 						            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 						            $('#money_budget').val($("#money_budget1").val().replace(/,/gi,''));
-						    });
-		                 $('#money_budget').val($("#money_budget1").val().replace(/,/gi,''));
-		        //alert($("#money_budget1").val().replace(/,/gi,''));      
-		                
-				};
+						    	});
+			                $('#money_budget').val($("#money_budget1").val().replace(/,/gi,''));    
+			            };
 				
 				</script>
 			</div>

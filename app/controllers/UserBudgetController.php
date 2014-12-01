@@ -12,7 +12,7 @@ class UserBudgetController extends \BaseController {
 		//
 	}
     public static function id_user(){
-    	$id_user=User::where('email',Session::get('email'))->get()->first()->id;
+    	$id_user 	= User::where('email',Session::get('email'))->get()->first()->id;
     	return $id_user;
     }
 
@@ -23,35 +23,34 @@ class UserBudgetController extends \BaseController {
 	 */
 	public function create()
 	{
-		$id=Input::get('id');
-		$id_user=UserBudgetController::id_user();
-		//$id_user = Cookie::get('id-user');
-		$count=UserBudget::where('user',$id_user)->where('category',$id)->count();
+		$id 					= Input::get('id');
+		$id_user 				= UserBudgetController::id_user();
+		$count 					= UserBudget::where('user',$id_user)->where('category',$id)->count();
 		if ($count) {
-			$item_last=UserBudget::where('user',$id_user)->where('category',$id)->get()->last()->id;
-			$budget=new UserBudget();
-			$budget->item="New Item";
-			$budget->user=$id_user;
-			$budget->category=$id;
-			$budget->estimate="0";
-			$budget->actual="0";
-			$budget->pay="0";
-			$budget->note="";
+			$item_last 			= UserBudget::where('user',$id_user)->where('category',$id)->get()->last()->id;
+			$budget 			= new UserBudget();
+			$budget->item 		= "New Item";
+			$budget->user 		= $id_user;
+			$budget->category 	= $id;
+			$budget->estimate 	= "0";
+			$budget->actual 	= "0";
+			$budget->pay 		= "0";
+			$budget->note 		= "";
 			$budget->save(); 
 		} else {
-			$item_last=0;
-			$budget=new UserBudget();
-			$budget->item="New Item";
-			$budget->user=$id_user;
-			$budget->category=$id;
-			$budget->estimate="0";
-			$budget->actual="0";
-			$budget->pay="0";
-			$budget->note="";
+			$item_last 			= 0;
+			$budget 			= new UserBudget();
+			$budget->item 		= "New Item";
+			$budget->user 		= $id_user;
+			$budget->category 	= $id;
+			$budget->estimate 	= "0";
+			$budget->actual 	= "0";
+			$budget->pay 		= "0";
+			$budget->note 		= "";
 			$budget->save();              
 		}
 		
-		$item=UserBudget::where('user',$id_user)->where('category',$id)->get()->last();
+		$item 	= UserBudget::where('user',$id_user)->where('category',$id)->get()->last();
 		if(!empty($item->note)){
 			$itemHtml='<a href="#" class="budget_icon_notes" data-toggle="modal"  data-target="#'.$item->id.'" ><i class="glyphicon glyphicon-comment"></i></a>';
 		}
@@ -194,37 +193,37 @@ class UserBudgetController extends \BaseController {
 	
     public function update()
 	{     
-	    $id=Input::get('id');
-	    $name=Input::get('item');
-		$budget=UserBudget::find($id);
-		$budget->item=$name;
+	    $id 			= Input::get('id');
+	    $name 			= Input::get('item');
+		$budget 		= UserBudget::find($id);
+		$budget->item 	= $name;
 		$budget->save();
 		
 	}
 	public function get_budget(){
-		$id_user=UserBudgetController::id_user();
-		$id_budget=Input::get('id');
-		$budget=UserBudget::where('user',$id_user)->where('id',$id_budget)->get()->first();
-		$item=$budget->item;
+		$id_user 		= UserBudgetController::id_user();
+		$id_budget 		= Input::get('id');
+		$budget 		= UserBudget::where('user',$id_user)->where('id',$id_budget)->get()->first();
+		$item 			= $budget->item;
 		echo json_encode(array('item'=>$item));
 		exit();
 	}
 
 	public function delete()
 	{
-	    $id_user =UserBudgetController::id_user();
-		$id=Input::get('id');
-		$item=UserBudget::find($id);
-		$id_cate=$item->category;
+	    $id_user 			= UserBudgetController::id_user();
+		$id 				= Input::get('id');
+		$item 				= UserBudget::find($id);
+		$id_cate 			= $item->category;
 		$item->delete();
-		$sumEstimate_cate= round((UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('estimate')),5);
-		$sumActual_cate= round((UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('actual')),5);
-		$sumPay_cate= round((UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('pay')),5);
-		$sumDue_cate=$sumActual_cate-$sumPay_cate;
-		$sumEstimate=round((UserBudget::where('user',$id_user)->sum('estimate')),5);
-		$sumActual=round((UserBudget::where('user',$id_user)->sum('actual')),5);
-		$sumPay=round((UserBudget::where('user',$id_user)->sum('pay')),5);
-		$sumDue=$sumActual-$sumPay;
+		$sumEstimate_cate 	= round((UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('estimate')),5);
+		$sumActual_cate 	= round((UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('actual')),5);
+		$sumPay_cate		= round((UserBudget::where('user',$id_user)->where('category',$id_cate)->sum('pay')),5);
+		$sumDue_cate 		= $sumActual_cate-$sumPay_cate;
+		$sumEstimate 		= round((UserBudget::where('user',$id_user)->sum('estimate')),5);
+		$sumActual 			= round((UserBudget::where('user',$id_user)->sum('actual')),5);
+		$sumPay 			= round((UserBudget::where('user',$id_user)->sum('pay')),5);
+		$sumDue 			= $sumActual-$sumPay;
 
 
 
@@ -244,56 +243,55 @@ class UserBudgetController extends \BaseController {
 	}
 
 	public function updateNote(){
-		$id=Input::get('id');
-		$note=Input::get('note');
+		$id 		= Input::get('id');
+		$note 		= Input::get('note');
 		UserBudget::where('id',$id)->update(array('note' => $note));
 		return Redirect::route('budget');
 	}
 
 	public function editEstimate(){
-		$estimate = Input::get('estimate');
-		$id=Input::get('id');
+		$estimate 	= Input::get('estimate');
+		$id 		= Input::get('id');
 		UserBudget::where('id',$id)->update(array("estimate"=>$estimate));
-		UserBudgetController::getSummaryUserBudget($id);
+		$this->getSummaryUserBudget($id);
 	}
 
 	public function editActual(){
-		$actual = Input::get('actual');
-		$id=Input::get('id');
+		$actual 	= Input::get('actual');
+		$id 		= Input::get('id');
 		UserBudget::where('id',$id)->update(array("actual"=>$actual));	
-		UserBudgetController::getSummaryUserBudget($id);
+		$this->getSummaryUserBudget($id);
 	}
 	public function editPay(){
-		$pay = Input::get('pay');
-		$id=Input::get('id');
+		$pay 		= Input::get('pay');
+		$id 		= Input::get('id');
 		UserBudget::where('id',$id)->update(array("pay"=>$pay));
-		UserBudgetController::getSummaryUserBudget($id);
+		$this->getSummaryUserBudget($id);
 	}
 
 	public function getSummaryUserBudget($budgetID){
-		//$userID = User::find(Cookie::get('id-user'))->id;
-		$userID=UserBudgetController::id_user();
+		$userID 		= UserBudgetController::id_user();
 
 		//current Budget
-		$userBudget = UserBudget::find($budgetID);
-		$categoryID = $userBudget->category;
+		$userBudget 	= UserBudget::find($budgetID);
+		$categoryID 	= $userBudget->category;
 		$budgetEstimate = $userBudget->estimate;		
-		$budgetActual = $userBudget->actual;
-		$budgetPay = $userBudget->pay;
-		$budgetDue = round(($budgetActual - $budgetPay),5);
+		$budgetActual 	= $userBudget->actual;
+		$budgetPay 		= $userBudget->pay;
+		$budgetDue 		= round(($budgetActual - $budgetPay),5);
 
 		//current Category
-		$budgetDK = array('user'=>$userID, 'category'=>$categoryID);
-		$totalEstimate = round((UserBudget::where($budgetDK)->sum('estimate')),5);
-		$totalActual = round((UserBudget::where($budgetDK)->sum('actual')),5);
-		$totalPay = round((UserBudget::where($budgetDK)->sum('pay')),5);
-		$totalDue = $totalActual - $totalPay;
+		$budgetDK 		= array('user'=>$userID, 'category'=>$categoryID);
+		$totalEstimate 	= round((UserBudget::where($budgetDK)->sum('estimate')),5);
+		$totalActual 	= round((UserBudget::where($budgetDK)->sum('actual')),5);
+		$totalPay 		= round((UserBudget::where($budgetDK)->sum('pay')),5);
+		$totalDue 		= $totalActual - $totalPay;
 
 		//all summary
-		$sumExpected = round((UserBudget::where('user',$userID)->sum('estimate')),5);
-		$sumActual = round((UserBudget::where('user',$userID)->sum('actual')),5);
-		$sumPay = round((UserBudget::where('user',$userID)->sum('pay')),5);
-		$sumDue = $sumActual - $sumPay;
+		$sumExpected 	= round((UserBudget::where('user',$userID)->sum('estimate')),5);
+		$sumActual 		= round((UserBudget::where('user',$userID)->sum('actual')),5);
+		$sumPay 		= round((UserBudget::where('user',$userID)->sum('pay')),5);
+		$sumDue 		= $sumActual - $sumPay;
 
 		$task=array(
 			'budgetID'=>$budgetID, 'categoryID'=>$categoryID, 'budgetDue'=>$budgetDue, 
@@ -307,49 +305,49 @@ class UserBudgetController extends \BaseController {
 	}
 	function exportfile()
 	{
-		$id_user=UserBudgetController::id_user();
-		$categories= Category::get();
-		$datas = UserBudget::where('user', $id_user)->get();
-		$email = User::where('id', $id_user)->get()->first()->email;
-		$date_wedding = new DateTime(User::find($id_user)->weddingdate);
+		$id_user 		= UserBudgetController::id_user();
+		$categories 	= Category::get();
+		$datas 			= UserBudget::where('user', $id_user)->get();
+		$email 			= User::where('id', $id_user)->get()->first()->email;
+		$date_wedding	= new DateTime(User::find($id_user)->weddingdate);
 
-		$row= array(
+		$row 	= array(
 			array('Khách hàng', $email, ''),
 			array('In chi phí từ', 'thuna.vn', ''),
-		    array('Danh mục ','Phần tử','Chi phí dự kiến','Chi phí thực tế','Thanh toán','Còn nợ'),
-
+			array('Danh mục ','Phần tử','Chi phí dự kiến','Chi phí thực tế','Thanh toán','Còn nợ'),
 		);
-		$row1=array(
+
+		$row1 	= array(
 			array('Khách hàng', $email, ''),
 			array('In chi phí từ', 'thuna.vn', ''),
 		    array('Danh mục ','Tổng chi phí dự kiến','Tổng chi phí thực tế','Thanh toán','Còn nợ'),
-			);
+		);
 		
 			
 			foreach($datas as $data){
-					$id_category=$data->category;
-					$category=Category::where('id',$id_category)->get()->first()->name;
-					$item=$data->item;
-					$estimate=$data->estimate;
-					$actual=$data->actual;
-					$pay=$data->pay;
-					$due = $actual - $pay;
+					$id_category 	= $data->category;
+					$category 		= Category::where('id',$id_category)->get()->first()->name;
+					$item 			= $data->item;
+					$estimate 		= $data->estimate;
+					$actual 		= $data->actual;
+					$pay 			= $data->pay;
+					$due 			= $actual - $pay;
 					
-				    $row[] = array($category, $item, $estimate,$actual,$pay,$due );
+				    $row[] 			= array($category, $item, $estimate,$actual,$pay,$due );
 			}
 			foreach ($categories as $cat) {
-				$categoriname=$cat->name;
-				$sumEstimate=UserBudget::where('user',UserBudgetController::id_user())
+				$categoriname 		= $cat->name;
+				$sumEstimate 		= UserBudget::where('user',$this->id_user())
 					 				->where('category',$cat->id)
 					 				->sum('estimate');
-				$sumActual=UserBudget::where('user',UserBudgetController::id_user())
+				$sumActual=UserBudget::where('user',$this->id_user())
 					 				->where('category',$cat->id)
 					 				->sum('actual');
-				$sumPay=UserBudget::where('user',UserBudgetController::id_user())
+				$sumPay=UserBudget::where('user',$this->id_user())
 					 				->where('category',$cat->id)
 					 				->sum('pay');
-				$sumDue=$sumActual-$sumPay;
-				$row1[]=array($categoriname,$sumEstimate,$sumActual,$sumPay,$sumDue);	 				
+				$sumDue 			= $sumActual-$sumPay;
+				$row1[]				= array($categoriname,$sumEstimate,$sumActual,$sumPay,$sumDue);	 				
 			}
 		
 		Excel::create('Budget', function($excel) use($row,$row1) {
@@ -381,10 +379,29 @@ class UserBudgetController extends \BaseController {
 		    });
 		})->export('xlsx');
 		
-
-		
-
 		return View::make('user-checklist');
 
 	}
+
+
+	/**
+	* function static
+	*@author giangmd
+	*@version update 01/12/2014
+	*
+	*/
+	public static function getDisplayMoney( $categoryID, $action )
+	{
+		return number_format(UserBudget::where('category',$categoryID)
+		->where('user', UserBudgetController::id_user())
+		->sum(''.$action.''),0, '.', ',');
+	}
+
+	public static function getDisplayMoneyTotal( $action )
+	{
+		return number_format(UserBudget::where('user', UserBudgetController::id_user())
+		->sum(''.$action.''),0, '.', ',');
+	}
+
+
 }

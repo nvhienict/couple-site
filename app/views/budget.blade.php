@@ -137,32 +137,25 @@ Quản lý ngân sách
 					 			<td><a style="color:#555555;" href="javascript:void(0);" onclick="show_hide({{$category->id}})"><strong>{{$category->name}}</strong></a></td>
 					 			<td class="TienVND">
 					 				<span  id="totalEstimate{{$category->id}}" >
-					 				{{number_format(UserBudget::where('category',$category->id)
-					 				->where('user',UserBudgetController::id_user())
-					 				->sum('estimate'),0, '.', ',')}} VND
+					 				{{UserBudgetController::getDisplayMoney( $category->id, 'estimate' )}}&nbspVND
 					 				</span>
 					 			</td>
 					 			<td class="TienVND">
 					 				<span  id="totalCat{{$category->id}}" >
-					 				{{number_format(UserBudget::where('category',$category->id)
-					 				->where('user',UserBudgetController::id_user())
-					 				->sum('actual'),0, '.', ',')}} VND
+					 				{{UserBudgetController::getDisplayMoney( $category->id, 'actual' )}}&nbspVND
 					 				</span>
 								</td>
 					 			<td class="TienVND">
 					 				<span  id="totalCatPay{{$category->id}}" >
-					 				{{number_format(UserBudget::where('category',$category->id)
-					 				->where('user',UserBudgetController::id_user())
-					 				->sum('pay'), 0, '.', ',')}} VND
+					 				{{UserBudgetController::getDisplayMoney( $category->id, 'pay' )}}&nbspVND
 					 				</span>
 					 			</td>
 					 			<td class="TienVND">
 					 				<span  id="totalCatDue{{$category->id}}" >
-					 				{{number_format((UserBudget::where('category',$category->id)
-					 				->where('user',UserBudgetController::id_user())
-					 				->sum('actual')-UserBudget::where('category',$category->id)
-					 				->where('user',UserBudgetController::id_user())
-					 				->sum('pay')), 0, '.', ',')}} VND
+					 				{{UserBudgetController::getDisplayMoney( $category->id, 'actual' )
+					 				-
+					 				UserBudgetController::getDisplayMoney( $category->id, 'pay' )}}
+									&nbspVND
 					 				</span>
 					 			</td>
 					 			<td>
@@ -319,10 +312,21 @@ Quản lý ngân sách
 					 	<tr>
 					 		<th><i class="glyphicon glyphicon-gbp"></i></th>
 					 		<th>Tổng cộng chi phí</th>
-					 		<th class="TienVND" id="rowSumExpected">{{number_format(round((UserBudget::where('user',UserBudgetController::id_user())->sum('estimate')),5), 0, '.', ',')}} VND</th>
-					 		<th class="TienVND" id="rowSumActual">{{number_format(UserBudget::where('user',UserBudgetController::id_user())->sum('actual'), 0, '.', ',')}} VND</th>
-					 		<th class="TienVND" id="rowSumPay">{{number_format(UserBudget::where('user',UserBudgetController::id_user())->sum('pay'), 0, '.', ',')}} VND</th>
-					 		<th class="TienVND" id="rowSumDue" colspan="2">{{number_format((UserBudget::where('user',UserBudgetController::id_user())->sum('actual'))-(UserBudget::where('user',UserBudgetController::id_user())->sum('pay')), 0, '.', ',')}} VND</th>
+					 		<th class="TienVND" id="rowSumExpected">
+					 			{{UserBudgetController::getDisplayMoneyTotal( 'estimate' )}}&nbspVND
+					 		</th>
+					 		<th class="TienVND" id="rowSumActual">
+					 			{{UserBudgetController::getDisplayMoneyTotal( 'actual' )}}&nbspVND
+					 		</th>
+					 		<th class="TienVND" id="rowSumPay">
+					 			{{UserBudgetController::getDisplayMoneyTotal( 'pay' )}}&nbspVND
+					 		</th>
+					 		<th class="TienVND" id="rowSumDue" colspan="2">
+					 			{{UserBudgetController::getDisplayMoneyTotal( 'actual' )
+				 				-
+				 				UserBudgetController::getDisplayMoneyTotal( 'pay' )}}
+								&nbspVND
+					 		</th>
 					 	</tr>
 					</table>
 				</div>
@@ -332,13 +336,24 @@ Quản lý ngân sách
 			<h3>Tóm tắt:</h3>
 			<p>
 				<div>Dự kiến</div>
-				<strong id="ubsDuKien">{{number_format(round((UserBudget::where('user',UserBudgetController::id_user())->sum('estimate')),5), 0, '.', ',')}} VND</strong>
+					<strong id="ubsDuKien">
+						{{UserBudgetController::getDisplayMoneyTotal( 'estimate' )}}&nbspVND
+					</strong>
 				<div>Thực tế</div>
-				<strong id="ubsThucTe">{{number_format(UserBudget::where('user',UserBudgetController::id_user())->sum('actual'), 0, '.', ',')}} VND</strong>
+					<strong id="ubsThucTe">
+						{{UserBudgetController::getDisplayMoneyTotal( 'actual' )}}&nbspVND
+					</strong>
 				<div title="Đã thanh toán">Thanh toán</div>
-				<strong id="ubsThanhToan">{{number_format(UserBudget::where('user',UserBudgetController::id_user())->sum('pay'), 0, '.', ',')}} VND</strong>
+					<strong id="ubsThanhToan">
+						{{UserBudgetController::getDisplayMoneyTotal( 'pay' )}}&nbspVND
+					</strong>
 				<div>Còn nợ</div>
-				<strong id="ubsConNo"> {{number_format((UserBudget::where('user',UserBudgetController::id_user())->sum('actual')-UserBudget::where('user',UserBudgetController::id_user())->sum('pay')), 0, '.', ',')}} VND</strong>
+					<strong id="ubsConNo">
+					{{UserBudgetController::getDisplayMoneyTotal( 'actual' )
+	 				-
+	 				UserBudgetController::getDisplayMoneyTotal( 'pay' )}}
+					&nbspVND
+					</strong>
 			</p>
 		</div>
 		

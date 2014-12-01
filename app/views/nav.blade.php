@@ -17,33 +17,6 @@
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Nhà cung cấp</span><b class="caret"></b></a>
-        <ul class="dropdown-menu oneUl">
-          <li role="presentation" class="dropdown-header"><span>Dịch vụ</span>
-            <div class="row">
-              <div class="col-xs-6">
-                <ul class="list-unstyled">
-                    @foreach (Category::get() as $index=> $category)
-                    @if($index < 7)
-                      <li><a href="{{URL::route('category', array($category->slug))}}">{{$category['name']}}</a></li>
-                    @endif
-                    @endforeach
-                </ul>
-              </div>
-              <div class="col-xs-6">
-                <ul class="list-unstyled">
-                    @foreach (Category::get() as $index=> $category)
-                    @if($index >= 7)
-                      <li><a href="{{URL::route('category', array($category->slug))}}">{{$category['name']}}</a></li>
-                    @endif
-                    @endforeach
-                </ul>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </li>
-      <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Công cụ lập kế hoạch </span><b class="caret"></b></a>
         <ul class="dropdown-menu" style="width:100%;">
           <li role="presentation" class="dropdown-header" style="padding-left:5px;"><span>Công cụ</span>
