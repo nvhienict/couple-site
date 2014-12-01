@@ -78,7 +78,7 @@
 					<a href="{{URL::route('songs', array('chuc-mung'))}}">Chúc mừng</a>
 				</div>
 				<div class="col-xs-6">
-					<a href="{{URL::route('songs', array('cuoi-tuan'))}}">Cuối tiệc</a>
+					<a href="{{URL::route('songs', array('cuoi-tiec'))}}">Cuối tiệc</a>
 				</div>
 			</div>
 		</div>
