@@ -18,10 +18,10 @@ class GuestController extends \BaseController {
 	}
 
 	public function get_guest(){
-		$id_user=GuestController::id_user();
-		$id_guest=Input::get('id');
-		$guest=Guests::where('user',$id_user)->where('id',$id_guest)->get()->first();
-		$fullname=$guest->fullname;
+		$id_user 		= GuestController::id_user();
+		$id_guest 		= Input::get('id');
+		$guest 			= Guests::where('user',$id_user)->where('id',$id_guest)->get()->first();
+		$fullname 		= $guest->fullname;
 		echo json_encode(array('fullname'=>$fullname));
 		exit();
 
@@ -29,14 +29,14 @@ class GuestController extends \BaseController {
 	
 	public function delete()
 		{
-			$id=Input::get('id');
-			$guest=Guests::find($id);
-			$id_group = $guest->group;			
+			$id 				= Input::get('id');
+			$guest 				= Guests::find($id);
+			$id_group 			= $guest->group;			
 			$guest->delete();
-			$total_guest=Guests::where('user',GuestController::id_user())->get()->sum('attending');
-			$total_invited=Guests::where('user',GuestController::id_user())->where('invited',true)->sum('attending');
-			$total_noinvited=Guests::where('user',GuestController::id_user())->where('invited',false)->sum('attending');
-			$total_group_guest=Guests::where('user',GuestController::id_user())->where('group',$id_group)->sum('attending');
+			$total_guest 		= Guests::where('user',GuestController::id_user())->get()->sum('attending');
+			$total_invited 		= Guests::where('user',GuestController::id_user())->where('invited',true)->sum('attending');
+			$total_noinvited 	= Guests::where('user',GuestController::id_user())->where('invited',false)->sum('attending');
+			$total_group_guest  = Guests::where('user',GuestController::id_user())->where('group',$id_group)->sum('attending');
 			echo json_encode(array('id_group'=>$id_group,'total_group_guest'=>$total_group_guest,'total_guest'=>$total_guest,'total_invited'=>$total_invited,'total_noinvited'=>$total_noinvited));
 			exit();
 		}
@@ -50,31 +50,31 @@ class GuestController extends \BaseController {
 	
 	public function create()
 	{
-		$id_user=GuestController::id_user();
-		$id_group=Input::get('id_group');
+		$id_user 		= GuestController::id_user();
+		$id_group 		= Input::get('id_group');
 		
-		$count=Guests::where('user',$id_user)->where('group',$id_group)->get()->count();
+		$count 			= Guests::where('user',$id_user)->where('group',$id_group)->get()->count();
 		if ($count) {
-			$guest_last=Guests::where('user',$id_user)->where('group',$id_group)->get()->last()->id;
+			$guest_last = Guests::where('user',$id_user)->where('group',$id_group)->get()->last()->id;
 		} else {
-			$guest_last=0;
+			$guest_last = 0;
                
 		}
-		$guest=new Guests();
-		$guest->fullname="New Guest";
-		$guest->email="Email";
-		$guest->address="Address";
-		$guest->phone="Phone";
-		$guest->attending="1";
-		$guest->group=$id_group;
-		$guest->user=$id_user;
-        $guest->invited=false;
+		$guest 				= new Guests();
+		$guest->fullname 	= "New Guest";
+		$guest->email 		= "Email";
+		$guest->address 	= "Address";
+		$guest->phone 		= "Phone";
+		$guest->attending 	= "1";
+		$guest->group 		= $id_group;
+		$guest->user 		= $id_user;
+        $guest->invited 	= false;
 		$guest->save(); 
-		$total_guest=Guests::where('user',GuestController::id_user())->sum('attending');
-		$total_invited=Guests::where('user',GuestController::id_user())->where('invited',true)->sum('attending');
-		$total_noinvited=Guests::where('user',GuestController::id_user())->where('invited',false)->sum('attending');
-		$total_group_guest=Guests::where('user',GuestController::id_user())->where('group',$id_group)->sum('attending');
-		$guest_add=Guests::where('user',$id_user)->where('group',$id_group)->get()->last();
+		$total_guest 		= Guests::where('user',GuestController::id_user())->sum('attending');
+		$total_invited 		= Guests::where('user',GuestController::id_user())->where('invited',true)->sum('attending');
+		$total_noinvited 	= Guests::where('user',GuestController::id_user())->where('invited',false)->sum('attending');
+		$total_group_guest	= Guests::where('user',GuestController::id_user())->where('group',$id_group)->sum('attending');
+		$guest_add 			= Guests::where('user',$id_user)->where('group',$id_group)->get()->last();
 		$html = '';
 		$html .='<tr class="guest_list'.$guest_add->id.'" id="guest_list_item_cat'.$guest_add->id.'">
 			 						
@@ -137,9 +137,9 @@ class GuestController extends \BaseController {
 public function update_name()
 	{
 		//
-		$id=Input::get('id');
-	    $name=Input::get('name');
-		$guest=Guests::find($id);
+		$id 		= Input::get('id');
+	    $name 		= Input::get('name');
+		$guest 		= Guests::find($id);
 		$guest->fullname=$name;
 		$guest->save();
 

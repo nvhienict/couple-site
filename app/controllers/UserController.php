@@ -84,21 +84,21 @@ class UserController extends \BaseController {
 
 	// get id user after user login
 	public static function id_user(){
-		$id_user = User::where( 'email', Session::get('email') )->get()->first()->id;
+		$id_user 		= User::where( 'email', Session::get('email') )->get()->first()->id;
 		return $id_user;
 	}
 
 	// count data to check user isset in database
 	public static function isset_user(){
-		$isset_user = User::where( 'email', Session::get('email') )->count();
+		$isset_user 	= User::where( 'email', Session::get('email') )->count();
 		return $isset_user;
 	}
 
 
 	// format weddingdate
 	public static function getDates(){
-		$id_user = ChecklistController::id_user();
-		$weddingdate = User::find($id_user)->weddingdate;
+		$id_user 		= ChecklistController::id_user();
+		$weddingdate 	= User::find($id_user)->weddingdate;
 
 		return Carbon::parse($weddingdate)->format('d-m-Y');
 	}
@@ -107,13 +107,13 @@ class UserController extends \BaseController {
 	// get profile
 	public function get_profile(){
 
-		$user=User::where('id',UserController::id_user())->get();
+		$user 			= User::where( 'id', $this->id_user() )->get();
 		return View::make('user.profile')->with('user',$user);
 	}
 	// check email edit
 	public function checkEmail($id){
-		$email=Input::get('email');
-		if($email==User::where("id",$id)->get()->first()->email){
+		$email 			= Input::get('email');
+		if( $email==User::where("id",$id)->get()->first()->email ){
 			return "true";
 		}
 		else{
@@ -126,8 +126,8 @@ class UserController extends \BaseController {
 
 	// check password edit
 	public function checkPass($id){
-		$password = Input::get('password');
-		$pass = User::where("id",$id)->get()->first()->password;
+		$password 		= Input::get('password');
+		$pass 			= User::where("id",$id)->get()->first()->password;
 
 		if(Hash::check($password, $pass)){
 			return "true";
@@ -140,35 +140,37 @@ class UserController extends \BaseController {
 	// edit profile
 	public function post_profile(){
 
-		$firstname = Input::get('firstname');
-		$lastname = Input::get('lastname');
-		$email = Input::get('email');
-		$weddingdate = Input::get('weddingdate');
-		$cover_weddingdate = Carbon::parse($weddingdate)->format('Y-m-d');
+		$firstname 			= Input::get('firstname');
+		$lastname 			= Input::get('lastname');
+		$email 				= Input::get('email');
+		$weddingdate 		= Input::get('weddingdate');
+		$cover_weddingdate  = Carbon::parse($weddingdate)->format('Y-m-d');
 
 		// update to database
-		User::where("id", UserController::id_user())->update(
-				array("email"=>$email,
-					"weddingdate"=>$cover_weddingdate,
-					"firstname"=>$firstname,
-					"lastname"=>$lastname));
-		$msg = "Cập nhật thông tin thành công";
+		User::where( "id", $this->id_user() )->update(
+				array(
+						"email"		=> $email,
+						"weddingdate"	=> $cover_weddingdate,
+						"firstname"		=> $firstname,
+						"lastname"		=> $lastname
+					));
+		$msg 				= "Cập nhật thông tin thành công";
 
-		$user=User::where('id',UserController::id_user())->get();
+		$user 				= User::where( 'id', $this->id_user() )->get();
 		return View::make('user.profile')->with('user',$user)->with('msg',$msg);
 	}
 
 	// update padword
 	public function profile_password(){
 
-		$password_new = Hash::make(Input::get('confim_new_password'));
+		$password_new 		= Hash::make(Input::get('confim_new_password'));
 
 		// update to database
-		User::where("id", UserController::id_user())->update(
+		User::where("id", UserController::id_user() )->update(
 				array("password"=>$password_new));
-		$msg = "Cập nhật mật khẩu thành công";
+		$msg 				= "Cập nhật mật khẩu thành công";
 
-		$user=User::where('id',UserController::id_user())->get();
+		$user 				= User::where( 'id',$this->id_user() )->get();
 		return View::make('user.profile')->with('user',$user)->with('msg',$msg);
 	}
 
@@ -177,12 +179,12 @@ class UserController extends \BaseController {
 	{
 
 		//
-		$file = Input::file('image');
-		$input = array('image' => $file);
-		$rules = array(
-			'image' => 'image'
-		);
-		$validator = Validator::make($input, $rules);
+		$file 				= Input::file('image');
+		$input 				= array('image' => $file);
+		$rules 				= array(
+								'image' => 'image'
+							);
+		$validator 			= Validator::make($input, $rules);
 		if ( $validator->fails() )
 		{
 			return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);
@@ -192,13 +194,13 @@ class UserController extends \BaseController {
 		{
 
         	File::makeDirectory(public_path('images/user/avatar'),$mode = 0775,true,true);
-			$filename = $id_user.'_' .str_random(10).'.' .$file->getClientOriginalExtension();
-			$pathsave = 'images/user/avatar/'.$filename;
-			$path = public_path('images/user/avatar/'.$filename);
+			$filename 		= $id_user.'_' .str_random(10).'.' .$file->getClientOriginalExtension();
+			$pathsave 		= 'images/user/avatar/'.$filename;
+			$path 			= public_path('images/user/avatar/'.$filename);
 			Image::make($image->getRealPath())->resize(200, 200)->save($path);
 
 			// update to database
-			User::where("id", UserController::id_user())->update(
+			User::where( "id", $this->id_user() )->update(
 					array("avatar"=>$pathsave));
 
 			return Response::json(
@@ -253,7 +255,7 @@ class UserController extends \BaseController {
 	{
 		Session::forget('email');
 		
-		$view=View::make('index');
+		$view = View::make('index');
 		return Response::make($view);
 	
 	}
@@ -383,10 +385,10 @@ class UserController extends \BaseController {
 		// return $email.'***'.$firstname.'***'.$lastname;
 
 		// get data from input
-	    $code = Input::get( 'code' );
+	    $code 				= Input::get( 'code' );
 
 	    // get fb service
-	    $fb = OAuth::consumer( 'Facebook' );
+	    $fb 				= OAuth::consumer( 'Facebook' );
 
 	    // check if code is valid
 
@@ -394,25 +396,25 @@ class UserController extends \BaseController {
 	    if ( !empty( $code ) ) {
 
 	        // This was a callback request from facebook, get the token
-	        $token = $fb->requestAccessToken( $code );
+	        $token 			= $fb->requestAccessToken( $code );
 
 	        // Send a request with it
-	        $result = json_decode( $fb->request( '/me' ), true );
+	        $result 		= json_decode( $fb->request( '/me' ), true );
 	        // $result['id'];
 
 
 
-	        $email = $result['email'];
-	        $firstname = $result['first_name'];
-	        $lastname = $result['last_name'];
+	        $email 			= $result['email'];
+	        $firstname 		= $result['first_name'];
+	        $lastname 		= $result['last_name'];
 	        $result['name'];
 
 	        if( User::where("email", $email)->count()==0 )
 	        {
 	        	// get avatar default
-				$avatar_default = User::where('role_id', '=', 1)->get()->first()->avatar;
+				$avatar_default 	= User::where('role_id', '=', 1)->get()->first()->avatar;
 
-				$date_wedding_fb = New DateTime('now');
+				$date_wedding_fb 	= New DateTime('now');
 				$date_wedding_fb_cv = $date_wedding_fb->format('Y-m-d');
 
 				$user = new User();
@@ -427,22 +429,22 @@ class UserController extends \BaseController {
 
 		        
 				//kiểm tra nếu startdate so với hiện tại đã qua, thì lưu startdate của user bằng startdate hiện tại
-				$dateNow = New DateTime('now');
-				$date_wedding = new DateTime($date_wedding_fb_cv);
+				$dateNow 			= New DateTime('now');
+				$date_wedding 		= new DateTime($date_wedding_fb_cv);
 
 				if(date_timestamp_get($dateNow) > date_timestamp_get($date_wedding))
 				{
-					$NowToWedding = (date_timestamp_get($dateNow)- date_timestamp_get($date_wedding))/(3600*24);
+					$NowToWedding 	= (date_timestamp_get($dateNow)- date_timestamp_get($date_wedding))/(3600*24);
 				}
 				else
 				{
-					$NowToWedding = (date_timestamp_get($date_wedding)- date_timestamp_get($dateNow))/(3600*24);
+					$NowToWedding 	= (date_timestamp_get($date_wedding)- date_timestamp_get($dateNow))/(3600*24);
 				}
 					
 					//truyền dữ liệu sang bảng usertask
-					$id_user = User::where('email','=',$email)->get()->first()->id; 
+					$id_user 		= User::where('email','=',$email)->get()->first()->id; 
 						
-						$tasks = Task::get();
+						$tasks 		= Task::get();
 						foreach($tasks as $task){
 							if( $NowToWedding > $task->startdate){
 								$startdate = $task->startdate;
@@ -454,26 +456,26 @@ class UserController extends \BaseController {
 							
 
 							$usertask = new UserTask();
-							$usertask->title = $task->title;
-							$usertask->user = $id_user;
-							$usertask->startdate = $startdate;
-							$usertask->category = $task->category;
+							$usertask->title 	   = $task->title;
+							$usertask->user 	   = $id_user;
+							$usertask->startdate   = $startdate;
+							$usertask->category    = $task->category;
 							$usertask->description = $task->description;
-							$usertask->todo = 0;
+							$usertask->todo 	   = 0;
 							$usertask->save();
 
 						}
 
-				$IdUser=User::where('email','=',$email)->get()->first()->id;
+				$IdUser = User::where('email','=',$email)->get()->first()->id;
 
 				Session::put("email", $email);
 
 				// get url then create Session
-				$url = URL::previous();
+				$url 	= URL::previous();
 
-				$arStr = explode("/", $url);
-				$count = count($arStr);
-				$url = $arStr[$count-1];
+				$arStr  = explode("/", $url);
+				$count  = count($arStr);
+				$url 	= $arStr[$count-1];
 				Session::put('url',$url);
 
 				return View::make('after-login-fb');
@@ -482,7 +484,7 @@ class UserController extends \BaseController {
 				// return Redirect::to(URL::previous());
 				
 	        } else {
-	        	$IdUser=User::where('email','=',$email)->get()->first()->id;
+	        	$IdUser = User::where('email','=',$email)->get()->first()->id;
 
 				Session::put("email", $email);
 
@@ -509,8 +511,8 @@ class UserController extends \BaseController {
 	} // end function loginFacebook
 
 	public function loginFacebookUpdate(){
-		$weddingdateInput = Input::get("weddingdate");
-		$cover_weddingdate = Carbon::parse($weddingdateInput)->format('Y-m-d');
+		$weddingdateInput 	= Input::get("weddingdate");
+		$cover_weddingdate 	= Carbon::parse($weddingdateInput)->format('Y-m-d');
 
 		// update to database
 		User::where("id", UserController::id_user())->update(

@@ -18,46 +18,44 @@ Danh sách khách mời
 		<div class="submenu">
 			<div class="row">
 				<div class="col-xs-2">
-					<a href="" id="add-group-webding" style="cursor:pointer;" data-toggle="modal" data-target="#myGroup" >
+					<a href="" id="add-group-webding" style="cursor:pointer;" data-toggle="modal" data-target="#myGroup" data-backdrop="static" >
 						<i class="glyphicon glyphicon-plus"></i>
 						&nbsp Thêm Nhóm
 					</a>
 					<!-- Modal Add checklist -->
 						<div class="modal fade" id="myGroup" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
-						  <div class="modal-dialog">
-						    <div class="modal-content">
-						      <div class="modal-header">
-						        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-						        <h4 style="color:#3276B1;" class="modal-title text-center">Thêm nhóm mới</h4>
-						      </div>
-						      <div class="modal-body">
-						        <form id="form_add_group" action="{{Asset('guest-list/add_group')}}" method="post">
-								    
-										<label for="name" class="control-label">Tên nhóm:</label>
-										
-										<input type="text" class="form-control" name="name" id="name" placeholder="Tên nhóm mới">
-										
-								
-								  	
-								
-							   </div>
-							   <div class="modal-footer" style="text-align:center;">								  		
-							    	<button type="submit" class="btn btn-primary" id="submit_add"> Thêm </button>
-							    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>								  										  		
-								</div> <!-- end modal body -->
-							</form>	
-							</div> <!-- end modal content -->
+						  	<div class="modal-dialog">
+							    <div class="modal-content">
+							      	<div class="modal-header">
+							        	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							        	<h4 style="color:#3276B1;" class="modal-title text-center">Thêm nhóm mới</h4>
+							      	</div>
+							      
+							        <form id="form_add_group" action="{{Asset('guest-list/add_group')}}" method="post">
+										<div class="modal-body">
+											<label for="name" class="control-label">Tên nhóm:</label>
+											<input type="text" class="form-control" name="name" id="name" placeholder="Tên nhóm mới">
+											
+									   	</div>
+									   	<div class="modal-footer" style="text-align:center;">								  		
+									    	<button type="submit" class="btn btn-primary" id="submit_add"> Thêm </button>
+									    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>								  										  		
+										</div> 
+										<!-- end modal body -->
+									</form>	
+								</div> 
+								<!-- end modal content -->
 							</div> <!-- end modal dialog -->
-							</div> <!-- end modal fade -->
-							<!-- end modal Add -->
-							<script type="text/javascript" src="{{Asset('assets/js/script_thuy.js')}}"></script>
+						</div> <!-- end modal fade -->
+						<!-- end modal Add -->
+						<script type="text/javascript" src="{{Asset('assets/js/script_thuy.js')}}"></script>
 				</div>
 				<div class="col-xs-2">
 					<a href="" onclick="showHideAddGuest()" id="add-guest-wedding" style="cursor:pointer;" data-toggle="modal" data-target="" >
-					<i class="glyphicon glyphicon-plus"></i>
-					&nbsp Thêm Khách 
-
-				</a>
+						<i class="glyphicon glyphicon-plus"></i>
+						&nbsp Thêm Khách 
+					</a>
+					<button id="btn_add_guest" style="display:none;" data-toggle="modal" data-target="#myModalAddGuest" data-backdrop="static" >Thêm Khách</button>
 					<script type="text/javascript">
 
 						function showHideAddGuest()
@@ -69,12 +67,11 @@ Danh sách khách mời
 									var obj = JSON.parse(data);
 									if(obj.counts==0)
 									{	
-										swal("Chưa có nhóm!");																				        	
-										
+										swal("Chưa có nhóm!");
 									}
 									else
 									{
-										$("#add-guest-wedding").attr("data-target","#myModalAddGuest");
+										$("#btn_add_guest").click();
 									}
 									
 								}
