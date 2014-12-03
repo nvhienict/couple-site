@@ -184,7 +184,7 @@
 				<div class="col-xs-5 head_name_left">
 					<span class="head_name">
 						<strong style="color: #{{$website_item->color2}}">
-							{{$website_item->name_groom}}
+							{{WebsiteController::cutName($website_item->name_groom)}}
 						</strong>
 						<div class="edit_name_groom">
 							<input size="10" name="name_groom" value="{{$website_item->name_groom}}">
@@ -204,7 +204,7 @@
 				<div class="col-xs-5 head_name_right">
 					<span class="head_name">
 						<strong style="color: #{{$website_item->color2}}">
-							{{$website_item->name_bride}}
+							{{WebsiteController::cutName($website_item->name_bride)}}
 						</strong>
 						<div class="edit_name_bride">
 							<input size="10" name="name_bride" value="{{$website_item->name_bride}}">

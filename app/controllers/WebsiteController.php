@@ -1680,6 +1680,12 @@ class WebsiteController extends \BaseController {
 	}
 
 
+	// cut string
+	public static function cutName($input){
+		return substr($input, 0, 1);
+	}
+
+
 
 } // end Controller
 

@@ -31,7 +31,7 @@
             <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
             
             <div class="col-xs-12 click-edit-hide{{$tabWeb->id}}" >
-                <span> <a onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+                <span><a href="javascript:;" onclick="showckeditor({{$tabWeb->id}})" class="btn btn-primary" style="background: #19b5bc; border:none;">Sửa nội dung</a></span>
             </div>
         </div>
         <!-- end text_big -->

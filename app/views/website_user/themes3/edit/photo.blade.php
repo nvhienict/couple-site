@@ -38,10 +38,9 @@
 
         </div>  
         <div class="row phara-margin">
-            <div class="col-xs-5"></div>
+            <div class="col-xs-4"></div>
             <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}">
-                <span><a onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
-                <span><a class="glyphicon glyphicon-cog icon-site" href=""></a></span>
+                <span><a href="javascript:;" onclick="showckeditor_text({{$tabWeb->id}})" class="btn btn-primary" style="background: #19b5bc; border:none;">Sửa nội dung</a></span>
             </div>               
         </div>
         <div class="row phara-margin">
@@ -73,11 +72,10 @@
             @endif
         </div>
         <div class="row phara-margin">
-            <div class="col-xs-8">
+            <div class="col-xs-7">
             </div>
             <div class="col-xs-1 click-edit ">
-                <span><a onclick="send_id_album({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);"></a></span>
-                <span><a class="glyphicon glyphicon-cog icon-site" href=""></a></span>
+                <span><a onclick="send_id_album({{$tabWeb->id}})" class="btn btn-primary" style="background: #19b5bc; border:none;" data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);">Thêm Ảnh</a></span>
             </div>               
         </div>
         <div class="row phara-margin">
