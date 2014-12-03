@@ -37,11 +37,9 @@
 
         </div>  
         <div class="row phara-margin">
-            <div class="col-xs-11"></div>
+            <div class="col-xs-10"></div>
             <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}">
-                <span><a onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
-                <span><a class="glyphicon glyphicon-cog icon-site" href=""></a></span>
-            </div>               
+                <span><a href="javascript:;" onclick="showckeditor({{$tabWeb->id}})" class="btn btn-primary" style="background: #19b5bc; border:none;">Sửa nội dung</a></span></div>               
         </div>
         <div class="row phara-margin">
             <div class="col-xs-11"></div>
