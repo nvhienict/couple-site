@@ -178,6 +178,7 @@ class UserController extends \BaseController {
 	{
 
 		//
+		$id_user 			= $this->id_user();
 		$file 				= Input::file('image');
 		$input 				= array('image' => $file);
 		$rules 				= array(
@@ -191,15 +192,18 @@ class UserController extends \BaseController {
 		}
 		else 
 		{
+			$img_del = User::where('id',$id_user)->get()->first()->avatar;
+			$path_delete=public_path($img_del);
+			File::delete($path_delete);
 
-        	File::makeDirectory(public_path('images/user/avatar'),$mode = 0775,true,true);
+        	File::makeDirectory(public_path('update'),$mode = 0775,true,true);
 			$filename 		= $id_user.'_' .str_random(10).'.' .$file->getClientOriginalExtension();
-			$pathsave 		= 'images/user/avatar/'.$filename;
-			$path 			= public_path('images/user/avatar/'.$filename);
-			Image::make($image->getRealPath())->resize(200, 200)->save($path);
+			$pathsave 		= 'update/'.$filename;
+			$path 			= public_path('update/'.$filename);
+			Image::make($file->getRealPath())->resize(200, 200)->save($path);
 
 			// update to database
-			User::where( "id", $this->id_user() )->update(
+			User::where( "id", $id_user )->update(
 					array("avatar"=>$pathsave));
 
 			return Response::json(

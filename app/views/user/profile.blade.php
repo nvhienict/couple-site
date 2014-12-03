@@ -21,10 +21,10 @@ Thông tin cá nhân
 				<a href="javascript:;" onclick="update_avatar();" title="Thay đổi"><i class="fa fa-pencil-square-o fa-fw"></i></a>
 				
                 <!-- upload ajax -->
-					<form style="display:none;" class="form-horizontal" id="upload" action="{{ url('update_avatar') }}" enctype="multipart/form-data" method="post" autocomplete="off">
-					    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-					    <input type="file" name="image" id="image" /> 
-					</form>
+				<form style="display:none;" class="form-horizontal" id="upload" action="{{ url('update_avatar') }}" enctype="multipart/form-data" method="post" autocomplete="off">
+				    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+				    <input type="file" name="image" id="image" /> 
+				</form>
 				<!-- end upload ajax -->
 				<!-- upload ajax -->
 				<script src="{{Asset("assets/js/jquery-ajax-upload-images.js")}}"></script>
