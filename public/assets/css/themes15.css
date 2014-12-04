@@ -322,19 +322,19 @@ a{
 }
 .name > .name-groom{
 	position: relative;
-	left: 110px;
+	left: 150px;
 }
 .name > .name-bride{
 	position: relative;
-	left: 245px;
+	left: 400px;
 }
 .name > .name-groom-edit{
   position: relative;
-  left: 130px;
+  left: 150px;
 }
 .name > .name-bride-edit{
   position: relative;
-  left: 290px;
+  left: 400px;
 }
 
 

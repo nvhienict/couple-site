@@ -168,10 +168,10 @@
 
 		<div class="name">
 			<span class="name-groom-edit name-g">
-				{{$website_item->name_groom}}
+				{{WebsiteController::cutName($website_item->name_groom)}}
 			</span>
 			<span class="name-bride-edit name-b">
-				{{$website_item->name_bride}}
+				{{WebsiteController::cutName($website_item->name_bride)}}
 			</span>
 		</div>
 		<!-- end name -->
