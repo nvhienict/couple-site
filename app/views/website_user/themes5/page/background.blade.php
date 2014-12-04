@@ -80,8 +80,8 @@
 							</div>	
 						</div>
 						<div class="abt-content">
-							<h2>{{$website_item->name_bride}}</h2>
-							<p>{{$website_item->about_bride}}</p>
+							<h2 class="name-b">{{$website_item->name_bride}}</h2>
+							<p class="about-b">{{$website_item->about_bride}}</p>
 						</div>
 					</div>
 				</div>
@@ -95,8 +95,8 @@
 							</div>		
 						</div>
 						<div class="abt-content">
-							<h2>{{$website_item->name_groom}}</h2>
-							<p>{{$website_item->about_groom}}</p>
+							<h2 class="name-g">{{$website_item->name_groom}}</h2>
+							<p class="about-g">{{$website_item->about_groom}}</p>
 						</div>
 					</div>
 				</div>

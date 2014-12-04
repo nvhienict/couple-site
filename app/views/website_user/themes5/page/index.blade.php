@@ -25,6 +25,16 @@
     
 
 	<link href="{{Asset("assets/color/default.css")}}" rel="stylesheet">
+
+	<style type="text/css">
+      .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+       {width: 100% !important;}
+      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+      {width: 100% !important;}
+      body{
+      	overflow-x:hidden; 
+      }
+    </style>
 	
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
@@ -103,7 +113,7 @@
 			@endif
 			<!-- guestbook -->
 			@if($tabWeb->type =="guestbook" && $tabWeb->visiable==0 )
-				@include('website_user.themes5.edit.guestbook')
+				@include('website_user.themes5.page.guestbook')
 			@endif
 			<!-- photo gallery -->
 			@if($tabWeb->type =="album" && $tabWeb->visiable==0 )
