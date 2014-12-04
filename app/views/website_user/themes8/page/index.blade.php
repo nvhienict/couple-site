@@ -24,6 +24,13 @@
 	<!-- css -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+      .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+       {width: 100% !important;}
+      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+      {width: 100% !important;}
+    </style>
 	
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
@@ -284,6 +291,37 @@
        	@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
 	        <div id="section_{{$tabWeb->type}}">
 	        	@include('website_user.themes8.page.contact')
+	        </div>
+	        <div class="line-hr">
+				<div class="line-hr-left col-xs-5"></div>
+				<div class="line-hr-shape col-xs-2"></div>
+				<div class="line-hr-right col-xs-5"></div>
+			</div>
+			<!-- end line-hr -->
+        @endif
+
+        @if($tabWeb->type=="guestbook"&& $tabWeb->visiable==0)
+	        <div id="section_{{$tabWeb->type}}">
+	        	@include('website_user.themes8.page.text')
+
+	        	<!-- -facebookcommnet --> 
+		          <div id="fb-root"></div>
+		          <script>(function(d, s, id) {
+		              var js, fjs = d.getElementsByTagName(s)[0];
+		              if (d.getElementById(id)) return;
+		              js = d.createElement(s); js.id = id;
+		              js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
+		              fjs.parentNode.insertBefore(js, fjs);
+		            }(document, 'script', 'facebook-jssdk'));
+		          </script>
+		          <div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>                        
+
+		          <script>
+		              $(document).ready(function() {
+		                  $('.fb-comments').attr("data-href", document.URL);
+		              });
+		          </script>
+		        <!-- -End facebookcommnet -->
 	        </div>
 	        <div class="line-hr">
 				<div class="line-hr-left col-xs-5"></div>
