@@ -15,15 +15,18 @@ Trang chủ
         	<span class="icon-bar"></span>
       	</button>
 	    <a href="{{URL::route('index')}}" class="navbar-brand brand">
-	    	<!-- <img class="img-logo" src="{{Asset('icon/logo-thuna.png')}}"> -->
-	    	Thuna.vn
+	    	<img class="img-logo" src="{{Asset('icon/logo-thuna.png')}}">
 	    </a>
 	  </div>
 	  <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
-
+	      <li><a href="{{URL::route('index')}}" ><i class="fa fa-home fa-2x"></i> Trang chủ</a></li>
 	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown"><span>Công cụ lập kế hoạch </span><b class="caret"></b></a>
+	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown">
+		        <i class="fa fa-wrench fa-2x"></i>
+		        <span>Công cụ lập kế hoạch </span>
+		        <!-- <b class="caret"></b> -->
+	        </a>
 	        <ul class="dropdown-menu " role="menu" style="width:100%;">
 
 		        <li role="presentation" class="dropdown-header"><span>Công cụ</span>
@@ -40,7 +43,11 @@ Trang chủ
 	      </li>
 
 	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown"><span>Âm nhạc</span><b class="caret"></b></a>
+	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown">
+	        	<i class="fa fa-music fa-2x"></i>
+	        	<span>Âm nhạc</span>
+	        	<!-- <b class="caret"></b> -->
+	        </a>
 	        <ul class="dropdown-menu oneUl" role="menu">
 	          <li role="presentation" class="dropdown-header"><span>Nghi lễ</span>
 	            <div class="row">
@@ -159,12 +166,37 @@ Trang chủ
 	<!-- /Section: intro -->
 </div>
 
+<div class="row" id="menu-bar-bottom">
+	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+		<a href="#checklist" role="tab" data-toggle="tab" class="active" >
+			<img src="{{Asset('icon/task.png')}}"><br /><br />
+			<span>Danh sách công việc</span>
+		</a>
+	</div>
+	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+		<a href="#budget" role="tab" data-toggle="tab" >
+			<img src="{{Asset('icon/data31.png')}}"><br /><br />
+			<span>Quản lý ngân sách</span>
+		</a>
+	</div>
+	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+		<a href="#guestlist" role="tab" data-toggle="tab" >
+			<img src="{{Asset('icon/group12.png')}}"><br /><br />
+			<span>Danh sách khách mời</span>
+		</a>
+	</div>
+	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+		<a href="#website" role="tab" data-toggle="tab" >
+			<img src="{{Asset('icon/internet5.png')}}"><br /><br />
+			<span>Website cưới</span>
+		</a>
+	</div>
+</div>
 
-	
-	<div class="row" id="index-tool">
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  tool-1">
+<div id="load-content" class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="checklist">
+		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-">
-				<h3>Danh sách công việc</h3>
 				<h5>Thuận lợi, sắp xếp một cách khoa học, chính xác thời gian trước ngày cưới...</h5>
 				<h6><a href="{{URL::route('user-checklist')}}" >Sử dụng ngay</a></h6>
 			</div>
@@ -172,29 +204,32 @@ Trang chủ
 				<img class="img-responsive" src="{{Asset('images/tool/checklist.png')}}">
 			</div>
 		</div>
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  tool-1">		
+	</div>
+  	<div role="tabpanel" class="tab-pane" id="budget">
+  		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<img class="img-responsive" src="{{Asset('images/tool/budget.png')}}">
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<h3>Quản lý ngân sách</h3>
 				<h5>Sử dụng dễ dàng, tính toán một cách chính xác, phân bố ngân sách chi tiết, hợp lý...</h5>
 				<h6><a href="{{URL::route('budget')}}" >Sử dụng ngay</a></h6>
 			</div>
 		</div>
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  tool-1">		
+  	</div>
+  	<div role="tabpanel" class="tab-pane" id="guestlist">
+  		<div class="row">	
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<img class="img-responsive" src="{{Asset('images/tool/guestlist.png')}}">
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<h3>Danh sách khách mời</h3>
 				<h5>Có thể thêm nhóm khách, từng khách riêng lẻ, kiểm tra tình trạng khách mời cho buổi tiệc, thật tiện ích...</h5>
 				<h6><a href="{{URL::route('guest-list')}}" >Sử dụng ngay</a></h6>
 			</div>
 		</div>
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  tool-1">
+  	</div>
+  	<div role="tabpanel" class="tab-pane" id="website">
+  		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-">
-				<h3>Website cưới</h3>
 				<h5>Lưu giữ những câu chuyện tình lãng mạng, chia sẻ những bức ảnh đáng nhớ, những dòng tâm sự hạnh phúc của 2 bạn...với khả năng tạo website cưới cá nhân đơn giản, đẹp và hoàn toàn miễn phí.</h5>
 				<h6><a href="{{URL::route('website')}}" >Sử dụng ngay</a></h6>
 			</div>
@@ -202,7 +237,9 @@ Trang chủ
 				<img class="img-responsive" src="{{Asset('images/tool/website.png')}}">
 			</div>
 		</div>
-	</div>
+  	</div>
+</div>
+
 
 
 <script type="text/javascript">

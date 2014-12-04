@@ -145,22 +145,45 @@ blockquote strong {
 
 /* --- logo --- */
 
-.site-logo a.brand {
+a.brand {
 	color: #111;
 	text-transform: uppercase;
 	font-size: 32px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 900;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .img-logo {
-	height: 350%;
-    margin-left: -20px;
+	height: 300%;
+    margin-left: 20px;
     margin-top: -30px;
     width: 40%;
 }
 
+#menu-bar-bottom{
+	width: 85% !important;
+	margin: 3% auto 5% auto;
+}
+#menu-bar-bottom > div{
+	text-align: center !important;
+}
+#menu-bar-bottom > div > a{
+	text-transform: uppercase !important;
+	
+}
+#menu-bar-bottom > div > a > span{
+	font-weight: bold;
+	font-size: 21px;
+}
+
+#load-content{
+	width: 85% !important;
+	margin: 0 auto;
+}
+.tab-pane{
+	margin-bottom: 5% !important;
+}
 
 /* ------- Navigation ------------ */
 #navigation {
@@ -597,6 +620,9 @@ hr.bold {
 
 	.xs-marginbot-20{
 		margin-bottom: 5px !important;
+	}
+	.img-logo{
+		display: none;
 	}
 }
 
@@ -1291,7 +1317,7 @@ div.vendor_content button{
 *
 **/
 .user-header{
-	background: #404040;
+	background: #E75280;
 	height: 30px;
 }
 .fb-like{
@@ -1312,6 +1338,8 @@ div.vendor_content button{
 .wedding-user-logged li a{
 	color: white;
 }
+
+
 #form-search button{
 	margin-top: 20px;
 }

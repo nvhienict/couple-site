@@ -10,37 +10,40 @@
       <span class="icon-bar"></span>
     </button>
     <a href="{{URL::route('index')}}" class="navbar-brand brand">
-      <!-- <img class="img-logo" src="{{Asset('icon/logo-thuna.png')}}"> -->
-      Thuna.vn
+      <img class="img-logo" src="{{Asset('icon/logo-thuna.png')}}">
     </a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
-    <ul class="nav navbar-nav">
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Công cụ lập kế hoạch </span><b class="caret"></b></a>
-        <ul class="dropdown-menu" style="width:100%;">
-          <li role="presentation" class="dropdown-header" style="padding-left:5px;"><span>Công cụ</span>
-          <div class="row">
-            <!-- <div class="col-xs-6"> -->
-              <ul class="list-unstyled" style="padding-left:15px; ">
-                <!-- <li><a href="#">Website cưới</a></li> -->
+      <ul class="nav navbar-nav">
+        <li><a href="{{URL::route('index')}}" ><i class="fa fa-home fa-2x"></i> Trang chủ</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown">
+            <i class="fa fa-wrench fa-2x"></i>
+            <span>Công cụ lập kế hoạch </span>
+            <!-- <b class="caret"></b> -->
+          </a>
+          <ul class="dropdown-menu " role="menu" style="width:100%;">
+
+            <li role="presentation" class="dropdown-header"><span>Công cụ</span>
+              <ul class="list-unstyled">
                 <li><a href="{{URL::route('guest-list')}}" >Danh sách khách mời</a></li>
-                <!-- <li><a href="#">Sơ đồ ghế ngồi</a></li> -->
-                <li><a href="{{URL::route('user-checklist')}}" >Danh sách công việc</a></li>
-                <!-- <li><a href="#">Quản lý vendor</a></li> -->
-                <li><a href="{{URL::route('budget')}}" >Quản lý ngân sách</a></li>
+                <!-- <li><a href="#">Sơ đồ ghế  ngồi</a></li>-->
+                <li ><a href="{{URL::route('user-checklist')}}"  >Danh sách công việc</a></li>
+                <!-- <li><a href="#">Quản lý ve ndor</a></li>-->
+                <li><a href="{{URL::route('budget')}}"  >Quản lý ngân sách</a></li>
                 <li><a href="{{URL::route('website')}}"  >Website cưới</a></li>
+            </ul>
+              </li>
+          </ul> 
+        </li>
 
-              </ul>
-     
-          </div>
-          </li>
-        </ul>
-      </li>
-
-      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Âm nhạc</span><b class="caret"></b></a>
-          <ul class="dropdown-menu oneUl">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown">
+            <i class="fa fa-music fa-2x"></i>
+            <span>Âm nhạc</span>
+            <!-- <b class="caret"></b> -->
+          </a>
+          <ul class="dropdown-menu oneUl" role="menu">
             <li role="presentation" class="dropdown-header"><span>Nghi lễ</span>
               <div class="row">
                 <div class="col-xs-6">
@@ -77,9 +80,8 @@
             </li>
           </ul>
         </li>
-
-    </ul>
-  </div>
+      </ul>
+    </div>
 </div>
   </div>
 </div>
