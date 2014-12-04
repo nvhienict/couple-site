@@ -188,7 +188,7 @@
 			</div>
 
 			<div class="name-bride col-xs-6">
-				{{$website_item->name_groom}}
+				{{WebsiteController::cutName($website_item->name_groom)}}
 			</div>
 			<div class="edit_name_groom">
 				<input size="10" name="name_groom" value="{{$website_item->name_groom}}">
@@ -198,7 +198,7 @@
 			</div>
 
 			<div class="name-groom-edit col-xs-6">
-				{{$website_item->name_bride}}
+				{{WebsiteController::cutName($website_item->name_bride)}}
 			</div>
 			<div class="edit_name_bride">
 				<input size="10" name="name_bride" value="{{$website_item->name_bride}}">
