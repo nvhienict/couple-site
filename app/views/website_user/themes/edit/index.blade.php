@@ -22,53 +22,59 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <style type="text/css">
+      .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+       {width: 100% !important;}
+      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+      {width: 100% !important;}
+    </style>
     <script type="text/javascript">
-		function showckeditor(id){
-		        var text=$('.phara'+id).html();
-		        $('#editor'+id).addClass('ckeditor');
-		        $('.phara'+id).hide();
-		        CKEDITOR.instances['editor'+id].setData(text);
+		// function showckeditor(id){
+		//         var text=$('.phara'+id).html();
+		//         $('#editor'+id).addClass('ckeditor');
+		//         $('.phara'+id).hide();
+		//         CKEDITOR.instances['editor'+id].setData(text);
 
-		        $('.editphara'+id).addClass("col-xs-6");
-		        $('.editphara'+id).show();
-		        $('.click-edit-hide'+id).hide();
-		        $('.ok-edit-show'+id).show();
-		    }
-		function showckeditor_text(id){
-		        var text=$('.phara'+id).html();
-		        $('.phara'+id).hide();
-		        CKEDITOR.instances['editor'+id].setData(text);
+		//         $('.editphara'+id).addClass("col-xs-6");
+		//         $('.editphara'+id).show();
+		//         $('.click-edit-hide'+id).hide();
+		//         $('.ok-edit-show'+id).show();
+		//     }
+		// function showckeditor_text(id){
+		//         var text=$('.phara'+id).html();
+		//         $('.phara'+id).hide();
+		//         CKEDITOR.instances['editor'+id].setData(text);
 
-		        $('.editphara'+id).addClass("col-xs-12");
-		        $('.editphara'+id).show();
-		        $('.click-edit-hide'+id).hide();
-		        $('.ok-edit-show'+id).show();
-		    }
-		function updateckeditor(id){
-			//var t= CKEDITOR.instances['editor4'].getData();alert(t);
-			$.ajax({
-				type:"post",
-				dataType: "html",
-				url:"{{URL::route('update_content_tab')}}",
-				data: {	content:CKEDITOR.instances['editor'+id].getData(),
-						id_tab:$('.get_id'+id).val()
-					},
-				success:function(data){
-					var obj = JSON.parse(data);
-					$('.phara'+id).html(obj.content);	
-				}
-			});
-				$('.editphara'+id).hide();
-				$('.phara'+id).show();
-				$('.click-edit-hide'+id).show();
-		        $('.ok-edit-show'+id).hide();
-		}  
-		function exitckeditor(id){
-				$('.editphara'+id).hide();
-				$('.phara'+id).show();
-				$('.click-edit-hide'+id).show();
-		        $('.ok-edit-show'+id).hide();
-		} 
+		//         $('.editphara'+id).addClass("col-xs-12");
+		//         $('.editphara'+id).show();
+		//         $('.click-edit-hide'+id).hide();
+		//         $('.ok-edit-show'+id).show();
+		//     }
+		// function updateckeditor(id){
+		// 	//var t= CKEDITOR.instances['editor4'].getData();alert(t);
+		// 	$.ajax({
+		// 		type:"post",
+		// 		dataType: "html",
+		// 		url:"{{URL::route('update_content_tab')}}",
+		// 		data: {	content:CKEDITOR.instances['editor'+id].getData(),
+		// 				id_tab:$('.get_id'+id).val()
+		// 			},
+		// 		success:function(data){
+		// 			var obj = JSON.parse(data);
+		// 			$('.phara'+id).html(obj.content);	
+		// 		}
+		// 	});
+		// 		$('.editphara'+id).hide();
+		// 		$('.phara'+id).show();
+		// 		$('.click-edit-hide'+id).show();
+		//         $('.ok-edit-show'+id).hide();
+		// }  
+		// function exitckeditor(id){
+		// 		$('.editphara'+id).hide();
+		// 		$('.phara'+id).show();
+		// 		$('.click-edit-hide'+id).show();
+		//         $('.ok-edit-show'+id).hide();
+		// } 
 
 	jQuery(document).ready(function($) {
 	    // Call & Apply function scrollTo
@@ -338,6 +344,25 @@
        @if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
         <div id="section_{{$tabWeb->type}}">
         	@include('website_user.themes.edit.text')
+
+          <!-- -facebookcommnet --> 
+          <div id="fb-root"></div>
+          <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+          </script>
+          <div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>                        
+
+          <script>
+              $(document).ready(function() {
+                  $('.fb-comments').attr("data-href", document.URL);
+              });
+          </script>
+        <!-- -End facebookcommnet -->
     	</div>
         @endif 
   	@endforeach  

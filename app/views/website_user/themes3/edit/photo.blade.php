@@ -26,24 +26,25 @@
 
 </head>
 <div>
-    <div class="partion">
+    <div class="partion" style="padding-top:0px;">
                  
         <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}}" id = "nameTitle{{$tabWeb->id}}" > {{$tabWeb->title}}</h3>  
         <div class="show-content phara{{$tabWeb->id}}">                            
             <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
         </div> 
         <div class="col-xs-3"></div>
-        <div class="edit-content editphara{{$tabWeb->id}} col-xs-6">
+        <!-- <div class="edit-content editphara{{$tabWeb->id}} col-xs-6">
             <textarea name="editor4" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1"></textarea>
 
-        </div>  
+        </div> -->  
         <div class="row phara-margin">
             <div class="col-xs-4"></div>
             <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}">
-                <span><a href="javascript:;" onclick="showckeditor_text({{$tabWeb->id}})" class="btn btn-primary" style="background: #19b5bc; border:none;">Sửa nội dung</a></span>
+                <!-- <span><a href="javascript:;" onclick="showckeditor_text({{$tabWeb->id}})" class="btn btn-primary" style="background: #19b5bc; border:none;">Sửa nội dung</a></span> -->
+                <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
             </div>               
         </div>
-        <div class="row phara-margin">
+       <!--  <div class="row phara-margin">
             <div class="col-xs-8"></div>
             <div class="col-xs-1 ok-edit ok-edit-show{{$tabWeb->id}}">
                 <span>
@@ -52,7 +53,7 @@
                 </span>
                 <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
             </div>
-        </div> 
+        </div>  -->
         
 
     </div>

@@ -12,27 +12,27 @@
 	<div class="rsvp-portion sptr-position">
 		<div class="container contact">	
 			<div class="row">
-				<div class="col-md-4 col-md-offset-4">
-					<form>
-						<section>
-							<p>Name</p>
-							<input type="text" class="form-control fc-xtra" id="inputName" placeholder=""/>
-						</section>
-						
-						<section>
-							<p>Name of guest(s) optional</p>
-							<input type="text" class="form-control fc-xtra" id="inputGuest" placeholder=""/>
-						</section>
-						
-						<section>
-							<p>Number of guests attending</p>
-							<input type="text" class="form-control fc-xtra" id="inputNumber" placeholder=""/>
-						</section>
-						
-						<section>
-						  <button class="bttn" type="submit">SUBMIT</button>
-						</section>								
-					</form>							
+				<div class="col-md-5 ">
+					<form  class="contact-website" action="" method="POST" role="form">
+               
+                   <div class="form-group">
+                       <label for="">From</label>
+                       <input  type="text" class="form-control" id="" placeholder="Your Name">
+                   </div>
+                   <div class="form-group">
+                       <label for="">Email</label>
+                       <input type="text" class="form-control" id="" placeholder="Email Adress Your">
+                   </div>
+                   <div class="form-group">
+                       <label for="">Subject</label>
+                       <input type="text" class="form-control" id="" placeholder="Subject">
+                   </div>
+                   <div class="form-group">
+                       <label for="">Mesages</label>
+                       <textarea type="text" class="form-control" id="" placeholder=Messages></textarea> 
+                   </div>  
+                    <button type="submit" class="btn btn-primary send-contact">Send Mesages</button>                          
+               </form> 				
 				</div>
 			</div>
 		</div>	

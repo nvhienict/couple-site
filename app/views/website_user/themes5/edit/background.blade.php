@@ -76,25 +76,14 @@
 							</div>	
 						</div>
 						<div class="abt-content">
-							<h2 id="titleNameBride" style="color: #{{$website_item->color2}}">{{$website_item->name_bride}}</h2>
+							<h2 id="titleNameBride" class="name-b style="color: #{{$website_item->color2}}">{{$website_item->name_bride}}</h2>
 							
 							<div class="about_bride">
-								<p id="about_bride1">{{$website_item->about_bride}}</p>
+								<p id="about_bride1" class="about-b">{{$website_item->about_bride}}</p>
 								<span class="icon_edit_about">
-									<a onclick="edit_about_bride();" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a>
+									
 									<button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
 								</span>
-							</div>
-							<div class="edit_ctn_about_bride">
-								<textarea name="edit_about_bride" class="ckeditor form-control" cols="40" rows="10" tabindex="1">
-								   {{$website_item->about_bride}}
-								</textarea>
-
-								<span>
-									<a onclick="update_about_bride();" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-								</span>
-								<span><a style="color:#e74c3c;" onclick="exit_edit_about_bride();" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-
 							</div>
 						</div>
 					</div>
@@ -114,26 +103,14 @@
 							</div>		
 						</div>
 						<div class="abt-content ">
-							<h2 id="titleNameGroom"  style="color: #{{$website_item->color2}}">{{$website_item->name_groom}}</h2>
-		  				<div class="about_groom ">
-							<p id="about_groom1">{{$website_item->about_groom}}</p>
-							<span class="icon_edit_about">
-								<a onclick="edit_about_groom();" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a>
-								<button  onclick="send_id(222)"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
-							</span>
-						</div>
-
-						<div class="edit_ctn_about">
-							<textarea name="edit_about_groom" class="ckeditor form-control" cols="40" rows="10" tabindex="1">
-							   {{$website_item->about_groom}}
-							</textarea>
-
-							<span>
-								<a onclick="update_about_groom();" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-							</span>
-							<span><a style="color:#e74c3c;" onclick="exit_edit_about_groom();" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-
-						</div>
+							<h2 id="titleNameGroom" class="name-g" style="color: #{{$website_item->color2}}">{{$website_item->name_groom}}</h2>
+			  				<div class="about_groom ">
+								<p id="about_groom1" class="about-g">{{$website_item->about_groom}}</p>
+								<span class="icon_edit_about">
+			
+									<button  onclick="send_id(222)"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+								</span>
+							</div>
 						</div>
 					</div>
 				</div>

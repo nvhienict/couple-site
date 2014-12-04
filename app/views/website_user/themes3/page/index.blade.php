@@ -24,7 +24,12 @@
 	<!-- css -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
     
-	
+	<style type="text/css">
+		.fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+		 {width: 100% !important;}
+		.fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+		{width: 100% !important;}
+	</style>
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
@@ -257,6 +262,12 @@
 			  		@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
 						<div class="tab-pane entry" id="contact" >
 			  				@include('website_user.themes3.page.contact')
+			  			</div>
+			  		@endif
+
+			  		@if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
+						<div class="tab-pane entry" id="guestbook" >
+			  				@include('website_user.themes3.page.text')
 			  			</div>
 			  		@endif
 

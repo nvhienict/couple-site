@@ -26,55 +26,60 @@
 
 	<link rel="stylesheet" href="{{Asset('assets/css/bootstrap-v3.1.1-theme.min.css')}}">
 
-
+	<style type="text/css">
+		.fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+		 {width: 100% !important;}
+		.fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+		{width: 100% !important;}
+	</style>
 	<script src="{{Asset('assets/js/bootstrap.3.1.1.min.js')}}"></script>
 
 	<script type="text/javascript">
-		function showckeditor(id){
-		        var text=$('.phara'+id).html();
-		        $('.phara'+id).hide();
-		        CKEDITOR.instances['editor'+id].setData(text);
+		// function showckeditor(id){
+		//         var text=$('.phara'+id).html();
+		//         $('.phara'+id).hide();
+		//         CKEDITOR.instances['editor'+id].setData(text);
 
-		        $('.editphara'+id).addClass("col-xs-6");
-		        $('.editphara'+id).show();
-		        $('.click-edit-hide'+id).hide();
-		        $('.ok-edit-show'+id).show();
-		    }
-		function showckeditor_text(id){
-		        var text=$('.phara'+id).html();
-		        $('.phara'+id).hide();
-		        CKEDITOR.instances['editor'+id].setData(text);
+		//         $('.editphara'+id).addClass("col-xs-6");
+		//         $('.editphara'+id).show();
+		//         $('.click-edit-hide'+id).hide();
+		//         $('.ok-edit-show'+id).show();
+		//     }
+		// function showckeditor_text(id){
+		//         var text=$('.phara'+id).html();
+		//         $('.phara'+id).hide();
+		//         CKEDITOR.instances['editor'+id].setData(text);
 
-		        $('.editphara'+id).addClass("col-xs-12");
-		        $('.editphara'+id).show();
-		        $('.click-edit-hide'+id).hide();
-		        $('.ok-edit-show'+id).show();
-		    }
-		function updateckeditor(id){
-			//var t= CKEDITOR.instances['editor4'].getData();alert(t);
-			$.ajax({
-				type:"post",
-				dataType: "html",
-				url:"{{URL::route('update_content_tab')}}",
-				data: {	content:CKEDITOR.instances['editor'+id].getData(),
-						id_tab:$('.get_id'+id).val()
-					},
-				success:function(data){
-					var obj = JSON.parse(data);
-					$('.phara'+id).html(obj.content);	
-				}
-			});
-				$('.editphara'+id).hide();
-				$('.phara'+id).show();
-				$('.click-edit-hide'+id).show();
-		        $('.ok-edit-show'+id).hide();
-		}  
-		function exitckeditor(id){
-				$('.editphara'+id).hide();
-				$('.phara'+id).show();
-				$('.click-edit-hide'+id).show();
-		        $('.ok-edit-show'+id).hide();
-		} 
+		//         $('.editphara'+id).addClass("col-xs-12");
+		//         $('.editphara'+id).show();
+		//         $('.click-edit-hide'+id).hide();
+		//         $('.ok-edit-show'+id).show();
+		//     }
+		// function updateckeditor(id){
+		// 	//var t= CKEDITOR.instances['editor4'].getData();alert(t);
+		// 	$.ajax({
+		// 		type:"post",
+		// 		dataType: "html",
+		// 		url:"{{URL::route('update_content_tab')}}",
+		// 		data: {	content:CKEDITOR.instances['editor'+id].getData(),
+		// 				id_tab:$('.get_id'+id).val()
+		// 			},
+		// 		success:function(data){
+		// 			var obj = JSON.parse(data);
+		// 			$('.phara'+id).html(obj.content);	
+		// 		}
+		// 	});
+		// 		$('.editphara'+id).hide();
+		// 		$('.phara'+id).show();
+		// 		$('.click-edit-hide'+id).show();
+		//         $('.ok-edit-show'+id).hide();
+		// }  
+		// function exitckeditor(id){
+		// 		$('.editphara'+id).hide();
+		// 		$('.phara'+id).show();
+		// 		$('.click-edit-hide'+id).show();
+		//         $('.ok-edit-show'+id).hide();
+		// } 
 
 		
 		function edit_about_bride()
@@ -391,6 +396,11 @@
 			  		@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
 						<div class="tab-pane entry" id="contact" >
 			  				@include('website_user.themes3.edit.contact')
+			  			</div>
+			  		@endif
+			  		@if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
+						<div class="tab-pane entry" id="guestbook" >
+			  				@include('website_user.themes3.edit.text')
 			  			</div>
 			  		@endif
 

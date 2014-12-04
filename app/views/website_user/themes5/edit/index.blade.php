@@ -13,6 +13,12 @@
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     
+    <style type="text/css">
+      .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+       {width: 100% !important;}
+      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+      {width: 100% !important;}
+    </style>
 	
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
@@ -24,56 +30,56 @@
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes5.css")}}">
     <script type="text/javascript">
-		function showckeditor(id){
-		        var text=$('.phara'+id).html();
-		        $('.phara'+id).hide();
-		        CKEDITOR.instances['editor'+id].setData(text);
+		// function showckeditor(id){
+		//         var text=$('.phara'+id).html();
+		//         $('.phara'+id).hide();
+		//         CKEDITOR.instances['editor'+id].setData(text);
 
-		        $('.editphara'+id).addClass("col-xs-6");
-		        $('.editphara'+id).show();
-		        $('.click-edit-hide'+id).hide();
-		        $('.ok-edit-show'+id).show();
-		    }
-		function showckeditor_text(id){
-		        var text=$('.phara'+id).html();
-		        $('.phara'+id).hide();
-		        CKEDITOR.instances['editor'+id].setData(text);
+		//         $('.editphara'+id).addClass("col-xs-6");
+		//         $('.editphara'+id).show();
+		//         $('.click-edit-hide'+id).hide();
+		//         $('.ok-edit-show'+id).show();
+		//     }
+		// function showckeditor_text(id){
+		//         var text=$('.phara'+id).html();
+		//         $('.phara'+id).hide();
+		//         CKEDITOR.instances['editor'+id].setData(text);
 
-		        $('.editphara'+id).addClass("col-xs-12");
-		        $('.editphara'+id).show();
-		        $('.click-edit-hide'+id).hide();
-		        $('.ok-edit-show'+id).show();
-		    }
-		function updateckeditor(id){
-			//var t= CKEDITOR.instances['editor4'].getData();alert(t);
-			$.ajax({
-				type:"post",
-				dataType: "html",
-				url:"{{URL::route('update_content_tab')}}",
-				data: {	content:CKEDITOR.instances['editor'+id].getData(),
-						id_tab:$('.get_id'+id).val()
-					},
-				success:function(data){
-					var obj = JSON.parse(data);
-					$('.phara'+id).html(obj.content);	
-				}
-			});
-				$('.editphara'+id).hide();
-				$('.phara'+id).show();
-				$('.click-edit-hide'+id).show();
-		        $('.ok-edit-show'+id).hide();
-		}  
-		function exitckeditor(id){
-				$('.editphara'+id).hide();
-				$('.phara'+id).show();
-				$('.click-edit-hide'+id).show();
-		        $('.ok-edit-show'+id).hide();
-		} 
-		function edit_about_bride()
-		{
-			$('.edit_ctn_about_bride').show();
-			$('.about_bride').hide();
-		}
+		//         $('.editphara'+id).addClass("col-xs-12");
+		//         $('.editphara'+id).show();
+		//         $('.click-edit-hide'+id).hide();
+		//         $('.ok-edit-show'+id).show();
+		//     }
+		// function updateckeditor(id){
+		// 	//var t= CKEDITOR.instances['editor4'].getData();alert(t);
+		// 	$.ajax({
+		// 		type:"post",
+		// 		dataType: "html",
+		// 		url:"{{URL::route('update_content_tab')}}",
+		// 		data: {	content:CKEDITOR.instances['editor'+id].getData(),
+		// 				id_tab:$('.get_id'+id).val()
+		// 			},
+		// 		success:function(data){
+		// 			var obj = JSON.parse(data);
+		// 			$('.phara'+id).html(obj.content);	
+		// 		}
+		// 	});
+		// 		$('.editphara'+id).hide();
+		// 		$('.phara'+id).show();
+		// 		$('.click-edit-hide'+id).show();
+		//         $('.ok-edit-show'+id).hide();
+		// }  
+		// function exitckeditor(id){
+		// 		$('.editphara'+id).hide();
+		// 		$('.phara'+id).show();
+		// 		$('.click-edit-hide'+id).show();
+		//         $('.ok-edit-show'+id).hide();
+		// } 
+		// function edit_about_bride()
+		// {
+		// 	$('.edit_ctn_about_bride').show();
+		// 	$('.about_bride').hide();
+		// }
 		function update_about_bride()
 		{
 			$.ajax({
