@@ -21,12 +21,16 @@
     <style type="text/css">
     	body{
 			overflow: hidden;
-    	}
+    		}
+    	.fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+		 {width: 100% !important;}
+		.fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+		{width: 100% !important;}
 	</style>
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
     		$('a.scrollTo').click(function () {
-	        $('.background-themes1').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
+	        $('body').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
 	        return false;
 			    });
 			});
@@ -36,11 +40,11 @@
 		
 @if($website)
 @foreach( $website as $website_item )
-<div class="background-themes1" style="background-image: url({{Asset("{$backgrounds}")}});">
+<body class="background-themes1" style="background-image: url({{Asset("{$backgrounds}")}});">
 	<!-- Thanh dieu huong -->
 
 	<div>
-		<nav style="padding:0px;margin-right:16px;" class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<nav style="padding:0px;" class="navbar navbar-default navbar-fixed-top" role="navigation">
 		   <div class="navbar-header">
 		      <button type="button" class="navbar-toggle" data-toggle="collapse" 
 		         data-target="#example-navbar-collapse">
@@ -158,6 +162,24 @@
        @if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
         <div id="section_{{$tabWeb->type}}">
         	@include('website_user.themes.page.text')
+        	<!-- -facebookcommnet -->	
+			<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+				  var js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) return;
+				  js = d.createElement(s); js.id = id;
+				  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
+				  fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			</script>
+			<div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>												
+
+			<script>
+			    $(document).ready(function() {
+			        $('.fb-comments').attr("data-href", document.URL);
+			    });
+			</script>
+		<!-- -End facebookcommnet -->
         	<hr>
     	</div>
         @endif
@@ -179,6 +201,6 @@
 		
 	</div>
 </footer>
-</div>
+</body>
 
 

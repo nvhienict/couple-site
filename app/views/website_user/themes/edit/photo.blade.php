@@ -69,10 +69,10 @@
             @endif
         </div>
         <div class="row phara-margin">
-            <div class="col-xs-11">
+            <div class="col-xs-10">
             </div>
             <div class="col-xs-1 click-edit ">
-                <span><a  onclick="send_id_album({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);"></a></span>
+                <span><a  onclick="send_id_album({{$tabWeb->id}})" class="btn btn-primary"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);">Tải ảnh lên</a></span>
             </div>               
         </div>
         <!-- <div class="row phara-margin">

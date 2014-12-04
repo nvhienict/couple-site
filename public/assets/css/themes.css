@@ -126,7 +126,7 @@
 	display: inline-block;
 }
 .a_menu{
-	font-size: 20px;
+	font-size: 18px;
 }
 .navbar-nav > li > .a_menu:hover{
 	color: #3E29FF !important;

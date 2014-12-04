@@ -8,9 +8,9 @@
     	<textarea name="editor4" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1"></textarea>
     </div> -->
     <div class="row phara-margin">
-        <div class="col-xs-11"></div>
+        <div class="col-xs-10"></div>
         <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}">
-            <span><a onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+           <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
         </div>               
     </div>
     <!-- <div class="row phara-margin">
