@@ -159,7 +159,6 @@
 	      	@endforeach
 		</ul>
 	</div>
-
 	<div class="logo">
 		<div class="wedding-date">
 			{{WebsiteController::getDates()}}

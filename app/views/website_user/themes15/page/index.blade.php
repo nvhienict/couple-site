@@ -101,7 +101,6 @@
 		<!-- end name -->
 	</div>
 	<!-- end wrapper -->
-
 <!-- Tab panes -->
 <div class="tab-content responsive">
 
