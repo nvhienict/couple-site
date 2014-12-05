@@ -116,8 +116,8 @@
 @yield('content')
 	<!-- footer -->
 	<div class="row footer">
-		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 menu-footer">
-			<ul >
+		<div class="col-sm-8 col-md-8 col-lg-8 menu-footer">
+			<ul class="hidden-xs" >
 				<li>
 					<a href="{{URL::route('introduce')}}" >Giới thiệu</a>
 					&nbsp;&nbsp;|&nbsp;&nbsp; 
@@ -130,7 +130,7 @@
 					<a href="{{URL::route('contact')}}" >Liên hệ</a>				
 				</li>		
 			</ul>			
-			<div class="infor-company" >
+			<div class="infor-company hidden-xs" >
                 Số 47 , Đường Đỗ Huy Uyển, Phường An Hải, Quận Sơn Trà, Tp. Đà Nẵng<br>
                	Điện thoại: 0966 666 886 | Email:
                 <a class="contact-admin" href="mailto:thanh@thuna.vn">thanh@thuna.vn</a><br>
@@ -139,27 +139,27 @@
                 <div class="site-author">Bản quyền thuộc về thuna.vn © 2014</div>         
             </div>
 		</div>
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-left: -14%; margin-top: 15%;">
 				<p style="font-size: 12px;color: black; font-weight: bold;" href="http://www.thuna.vn">Kết nối với Thuna.vn</p>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 connect-thuna">
-				<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+				<div class="col-xs-3 col-md-2 col-lg-2">
 					<a href="https://www.facebook.com/thuna.weddingplaner?fref=ts" target="_blank">
 						<img class="img-responsive" src="{{Asset('icon/fb.jpg')}}">
 					</a>
 				</div>
-				<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+				<div class="col-xs-3 col-md-2 col-lg-2">
 					<a href="https://www.youtube.com/channel/UCiKbAYqN2YUUKRkRHukt7SA" target="_blank">
 					<img class="img-responsive" src="{{Asset('icon/social-youtube.png')}}">
 					</a>
 				</div>
-				<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+				<div class="col-xs-3 col-md-2 col-lg-2">
 					<a href="https://plus.google.com/u/0/+Thunaplannerwedding" target="_blank">
 					<img class="img-responsive" src="{{Asset('icon/g+.jpg')}}">
 					</a>
 				</div>	
-				<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+				<div class="col-xs-3 col-md-2 col-lg-2">
 					<a href="https://plus.google.com/u/0/+Thunaplannerwedding" target="_blank">
 					<img class="img-responsive" src="{{Asset('icon/tw.jpg')}}">
 					</a>

@@ -97,7 +97,7 @@ Trang chủ
 @section('content')
     <!-- /Navigation -->
 <div class="row">
-	<section id="intro" class="home-slide text-light hidden-xs">
+	<section id="intro" class="text-light">
 
 		<!-- Carousel -->
     	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -110,7 +110,7 @@ Trang chủ
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 			    <div class="item active">
-			    	<img  class="image-responsive" src=" {{Asset("images/slide-main/1-1.jpg")}}" alt="">
+			    	<img src=" {{Asset("images/slide-main/1-1.jpg")}}" alt="">
                     <!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -119,7 +119,7 @@ Trang chủ
                     </div><!-- /header-text -->
 			    </div>
 			    <div class="item">
-			    	<img  class="image-responsive" src=" {{Asset("images/slide-main/2.jpg")}}" alt="">
+			    	<img src=" {{Asset("images/slide-main/2.jpg")}}" alt="">
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-left">
@@ -128,7 +128,7 @@ Trang chủ
                     </div><!-- /header-text -->
 			    </div>
 			    <div class="item">
-			    	<img  class="image-responsive" src=" {{Asset("images/slide-main/3.jpg")}}" alt="">
+			    	<img src=" {{Asset("images/slide-main/3.jpg")}}" alt="">
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -138,7 +138,7 @@ Trang chủ
                     </div><!-- /header-text -->
 			    </div>
 			    <div class="item">
-			    	<img  class="image-responsive" src=" {{Asset("images/slide-main/4.jpg")}}" alt="">
+			    	<img src=" {{Asset("images/slide-main/4.jpg")}}" alt="">
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -196,9 +196,9 @@ Trang chủ
 <div id="load-content" class="tab-content">
 	<div role="tabpanel" class="tab-pane active" id="checklist">
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-">
-				<h5>Thuận lợi, sắp xếp một cách khoa học, chính xác thời gian trước ngày cưới...</h5>
-				<h6><a href="{{URL::route('user-checklist')}}" >Sử dụng ngay</a></h6>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<h5 class="introduce-index">Thuận lợi, sắp xếp một cách khoa học, chính xác thời gian trước ngày cưới...</h5>
+				<h6 class="use-now"><a href="{{URL::route('user-checklist')}}" >Sử dụng ngay</a></h6>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<img class="img-responsive" src="{{Asset('images/tool/checklist.png')}}">
@@ -211,8 +211,8 @@ Trang chủ
 				<img class="img-responsive" src="{{Asset('images/tool/budget.png')}}">
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<h5>Sử dụng dễ dàng, tính toán một cách chính xác, phân bố ngân sách chi tiết, hợp lý...</h5>
-				<h6><a href="{{URL::route('budget')}}" >Sử dụng ngay</a></h6>
+				<h5 class="introduce-index">Sử dụng dễ dàng, tính toán một cách chính xác, phân bố ngân sách chi tiết, hợp lý...</h5>
+				<h6 class="use-now"><a href="{{URL::route('budget')}}" >Sử dụng ngay</a></h6>
 			</div>
 		</div>
   	</div>
@@ -222,16 +222,16 @@ Trang chủ
 				<img class="img-responsive" src="{{Asset('images/tool/guestlist.png')}}">
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<h5>Có thể thêm nhóm khách, từng khách riêng lẻ, kiểm tra tình trạng khách mời cho buổi tiệc, thật tiện ích...</h5>
-				<h6><a href="{{URL::route('guest-list')}}" >Sử dụng ngay</a></h6>
+				<h5 class="introduce-index">Có thể thêm nhóm khách, từng khách riêng lẻ, kiểm tra tình trạng khách mời cho buổi tiệc, thật tiện ích...</h5>
+				<h6 class="use-now"><a href="{{URL::route('guest-list')}}" >Sử dụng ngay</a></h6>
 			</div>
 		</div>
   	</div>
   	<div role="tabpanel" class="tab-pane" id="website">
   		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-">
-				<h5>Lưu giữ những câu chuyện tình lãng mạng, chia sẻ những bức ảnh đáng nhớ, những dòng tâm sự hạnh phúc của 2 bạn...với khả năng tạo website cưới cá nhân đơn giản, đẹp và hoàn toàn miễn phí.</h5>
-				<h6><a href="{{URL::route('website')}}" >Sử dụng ngay</a></h6>
+				<h5 class="introduce-index">Lưu giữ những câu chuyện tình lãng mạng, chia sẻ những bức ảnh đáng nhớ, những dòng tâm sự hạnh phúc của 2 bạn...với khả năng tạo website cưới cá nhân đơn giản, đẹp và hoàn toàn miễn phí.</h5>
+				<h6 class="use-now"><a href="{{URL::route('website')}}" >Sử dụng ngay</a></h6>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<img class="img-responsive" src="{{Asset('images/tool/website.png')}}">
