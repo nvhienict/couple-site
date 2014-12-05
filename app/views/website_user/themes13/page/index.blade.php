@@ -5,8 +5,7 @@
 
     <script src="{{Asset('assets/js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
-    <script src="{{Asset("assets/js/map-themes.js")}}"></script>
-
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="{{Asset("assets/js/themes13.js")}}"></script>
 
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
@@ -29,10 +28,17 @@
     <!-- Add Media helper (this is optional) -->
     <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-media.js?v=1.0.5")}}"></script>
     <script type="text/javascript" src="{{Asset("assets/slide/f-slide.js")}}"></script>
+
     <style type="text/css">
         .fancybox-custom .fancybox-skin {
             box-shadow: 0 0 50px #222;
         }
+
+         .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+       {width: 100% !important;}
+      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+      {width: 100% !important;}
+
     </style>
     <script src="{{Asset('assets/js/jquery.scrollTo.js')}}"></script>
     <script type="text/javascript">
@@ -189,6 +195,22 @@
 		@if($tabWeb->type=="wedding" )
 		<div id="section_{{$tabWeb->type}}">
 		@include('website_user.themes13.page.left')
+
+		<!-- -change map --> 
+		 <!-- <div class="container">
+    	 	<div class="col-xs-12 col-md-10 col-sm-10 col-lg-10 col-md-offset-1 col-sm-offset-1 col-offset-lg-1">
+	           	<div class="text-center map-hove " style='padding:20px 20px;'>         
+	             
+	                  <div id="geomap" >
+	                      <p>Loading Please Wait...</p>
+	                  </div>
+	                  <div id="cor"></div>
+	                  <input id="hidLat" name="hidLat" type="hidden" value="{{$website_item->latitude}}">
+	                  <input id="hidLong" name="hidLong" type="hidden" value="{{$website_item->longitude}}">    
+	            </div>        
+            </div>
+        </div>   -->                    
+            <!-- -end map --> 
 		</div>
 		<div class=" bg-line"></div>
 		
@@ -237,6 +259,30 @@
        @if($tabWeb->type=="guestbook")
         <div id="section_{{$tabWeb->type}}">
         	@include('website_user.themes13.page.left')
+
+        	<!-- -facebookcommnet --> 
+        	 <div class="row">
+        	 	<div class="col-xs-12 col-md-10 col-sm-10 col-lg-10 col-md-offset-1 col-sm-offset-1 col-offset-lg-1">
+			          <div id="fb-root"></div>
+			          <script>(function(d, s, id) {
+			              var js, fjs = d.getElementsByTagName(s)[0];
+			              if (d.getElementById(id)) return;
+			              js = d.createElement(s); js.id = id;
+			              js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
+			              fjs.parentNode.insertBefore(js, fjs);
+			            }(document, 'script', 'facebook-jssdk'));
+			          </script>
+			          <div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>                        
+
+			          <script>
+			              $(document).ready(function() {
+			                  $('.fb-comments').attr("data-href", document.URL);
+			              });
+			          </script>
+		          </div>
+	          </div>
+	        <!-- -End facebookcommnet -->
+
     	</div>
     	<div class=" bg-line"></div>
     	

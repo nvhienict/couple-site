@@ -4,11 +4,8 @@
 <title>{{$firstname}}'s wedding</title>
 
     <script src="{{Asset('assets/js/jquery.min.js')}}"></script>
+     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
-    <script src="{{Asset("assets/js/map-themes.js")}}"></script>
-
-    <script src="{{Asset("assets/js/themes13.js")}}"></script>
-
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes13.css")}}">
@@ -39,31 +36,34 @@
         	margin-left: 0px;
         	margin-right: 0px;
         }
-    </style>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
-	<script src="{{Asset("assets/js/map-themes.js")}}"></script>
+      .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+       {width: 100% !important;}
+      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+      {width: 100% !important;}
+   
+    </style>
     <script src="{{Asset('assets/js/jquery.scrollTo.js')}}"></script>
     <script type="text/javascript">
-		function updateckeditor(id){
-                //var t= CKEDITOR.instances['editor4'].getData();alert(t);
-                $.ajax({
-                    type:"post",
-                    dataType: "html",
-                    url:"{{URL::route('update_content_tab')}}",
-                    data: { content:CKEDITOR.instances['editor'+id].getData(),
-                            id_tab:$('.get_id'+id).val()
-                        },
-                    success:function(data){
-                        var obj = JSON.parse(data);
-                        $('.phara'+id).html(obj.content);   
-                    }
-                });
-                    $('.editphara'+id).hide();
-                    $('.phara'+id).show();
-                    $('.click-edit-hide'+id).show();
-                    $('.ok-edit-show'+id).hide();
-            }  
+		// function updateckeditor(id){
+  //               //var t= CKEDITOR.instances['editor4'].getData();alert(t);
+  //               $.ajax({
+  //                   type:"post",
+  //                   dataType: "html",
+  //                   url:"{{URL::route('update_content_tab')}}",
+  //                   data: { content:CKEDITOR.instances['editor'+id].getData(),
+  //                           id_tab:$('.get_id'+id).val()
+  //                       },
+  //                   success:function(data){
+  //                       var obj = JSON.parse(data);
+  //                       $('.phara'+id).html(obj.content);   
+  //                   }
+  //               });
+  //                   $('.editphara'+id).hide();
+  //                   $('.phara'+id).show();
+  //                   $('.click-edit-hide'+id).show();
+  //                   $('.ok-edit-show'+id).hide();
+  //           }  
 
         jQuery(document).ready(function($) {
 	    // Call & Apply function scrollTo
@@ -72,6 +72,139 @@
 		        return false;
 		    });
 		});
+
+			var PostCodeid = "#Postcode";
+		        var longval = "#hidLong";
+		        var latval = "#hidLat";
+		        var geocoder;
+		        var map;
+		        var marker;
+		  var markersArray = [];
+		          function deleteOverlays() {
+		            if (markersArray) {
+		                for (i in markersArray) {
+		                    markersArray[i].setMap(null);
+		                }
+		            markersArray.length = 0;
+
+		            }
+
+        }
+        function initialize() {
+            //MAP
+            var initialLat = $(latval).val();
+            var initialLong = $(longval).val();
+            
+            var latlng = new google.maps.LatLng(initialLat, initialLong);
+            var options = {
+                zoom: 16,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+        
+            map = new google.maps.Map(document.getElementById("geomap"), options);  
+                
+            geocoder = new google.maps.Geocoder();    
+        
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                position: latlng
+            });
+             google.maps.event.addListener(marker, 'click', function() {      
+              infowindow.setContent(contentString);
+              infowindow.open(map, marker);              
+            });     
+            google.maps.event.addListener(marker, "dragend", function (event) {
+                var point = marker.getPosition();
+                map.panTo(point);
+            });
+            markersArray.push(marker);
+               google.maps.event.addListener(map, "click",function(event){
+
+                var lat = event.latLng.lat();
+                var lng = event.latLng.lng();
+                $(latval).val(lat);
+                $(longval).val(lng);
+                $('#Postcode').val('');
+                $.ajax({
+                          type:"POST",
+                          url:"{{URL::route('change-map')}}",
+                          data:{
+                              latitude: $('#hidLat').val(),
+                              longitude: $('#hidLong').val()
+                          },
+
+                      });
+
+                deleteOverlays();
+
+                  marker = new google.maps.Marker({
+                      position: event.latLng, 
+                      title: 'Changer la position',
+                      map: map,
+                      draggable: true
+                    });
+
+  
+                  markersArray.push(marker);
+            });
+        };
+        
+        
+        $(document).ready(function () {
+            
+         
+            
+          $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            google.maps.event.trigger(map, 'resize');
+            
+          });
+          $('#myTab a[href="#contact"]').on('shown', function(){
+            google.maps.event.trigger(map, 'resize');
+          });
+             initialize();
+           $("#geomap").css("width","100%").css("height", 400);
+            $('#findbutton').click(function (e) {
+                var address = $(PostCodeid).val();
+                geocoder.geocode({ 'address': address }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        map.setCenter(results[0].geometry.location);
+                        marker.setPosition(results[0].geometry.location);
+                        $(latval).val(marker.getPosition().lat());
+                        $(longval).val(marker.getPosition().lng());
+                        $.ajax({
+                          type:"POST",
+                          url:"{{URL::route('change-map')}}",
+                          data:{
+                              latitude: $('#hidLat').val(),
+                              longitude: $('#hidLong').val()
+                          },
+
+                      });
+                    } else {
+                        alert("Vui lòng nhập tên địa điểm");
+                    }
+
+                });
+                e.preventDefault();
+            });
+        
+            //Add listener to marker for reverse geocoding
+            google.maps.event.addListener(marker, 'drag', function () {
+                geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            $(latval).val(marker.getPosition().lat());
+                            $(longval).val(marker.getPosition().lng());
+                            $("#cor").html(marker.getPosition().lat());
+                        }
+                    }
+                });
+            });
+        
+        });
+
 	</script>
 </head>
 @if($website)
@@ -278,6 +411,30 @@
        @if($tabWeb->type=="guestbook")
         <div id="section_{{$tabWeb->type}}">
         	@include('website_user.themes13.edit.left')
+
+        	 <!-- -facebookcommnet --> 
+        	 <div class="row">
+        	 	<div class="col-xs-12 col-md-10 col-sm-10 col-lg-10 col-md-offset-1 col-sm-offset-1 col-offset-lg-1">
+			          <div id="fb-root"></div>
+			          <script>(function(d, s, id) {
+			              var js, fjs = d.getElementsByTagName(s)[0];
+			              if (d.getElementById(id)) return;
+			              js = d.createElement(s); js.id = id;
+			              js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
+			              fjs.parentNode.insertBefore(js, fjs);
+			            }(document, 'script', 'facebook-jssdk'));
+			          </script>
+			          <div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>                        
+
+			          <script>
+			              $(document).ready(function() {
+			                  $('.fb-comments').attr("data-href", document.URL);
+			              });
+			          </script>
+		          </div>
+	          </div>
+	        <!-- -End facebookcommnet -->
+
     	</div>
     	<div class=" bg-line" style="margin-left: 0px; margin-right: 0px;"></div>
     	
