@@ -22,7 +22,7 @@
                    </div>
                    <div class="form-group">
                        <span for="">Mesages</span>
-                       <input type="text" class="form-control" id="" placeholder=Messages>
+                       <textarea type="text" class="form-control" id="" placeholder=Messages></textarea> 
                    </div>  
                     <button type="submit" style="background: #fff;color:black;"class="btn  send-contact">Send Mesages</button>                          
                </form>                            

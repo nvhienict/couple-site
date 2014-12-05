@@ -33,6 +33,10 @@
         .fancybox-custom .fancybox-skin {
             box-shadow: 0 0 50px #222;
         }
+        .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+       {width: 100% !important;}
+      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+      {width: 100% !important;}
     </style>
 
     <!-- Custom CSS -->
@@ -41,51 +45,51 @@
    
 </head>
 <script type="text/javascript">
-        function showckeditor(id){
-                var text=$('.phara'+id).html();
-                $('.phara'+id).hide();
-                CKEDITOR.instances['editor'+id].setData(text);
+        // function showckeditor(id){
+        //         var text=$('.phara'+id).html();
+        //         $('.phara'+id).hide();
+        //         CKEDITOR.instances['editor'+id].setData(text);
 
-                $('.editphara'+id).addClass("col-xs-12 col-sm-5 col-md-5 col-lg-5");
-                $('.editphara'+id).show();
-                $('.click-edit-hide'+id).hide();
-                $('.ok-edit-show'+id).show();
-            }
-        function showckeditor_text(id){
-                var text=$('.phara'+id).html();
-                $('.phara'+id).hide();
-                CKEDITOR.instances['editor'+id].setData(text);
+        //         $('.editphara'+id).addClass("col-xs-12 col-sm-5 col-md-5 col-lg-5");
+        //         $('.editphara'+id).show();
+        //         $('.click-edit-hide'+id).hide();
+        //         $('.ok-edit-show'+id).show();
+        //     }
+        // function showckeditor_text(id){
+        //         var text=$('.phara'+id).html();
+        //         $('.phara'+id).hide();
+        //         CKEDITOR.instances['editor'+id].setData(text);
 
-                $('.editphara'+id).addClass("col-xs-12 col-sm-12 col-md-12 col-lg-12");
-                $('.editphara'+id).show();
-                $('.click-edit-hide'+id).hide();
-                $('.ok-edit-show'+id).show();
-            }
-        function updateckeditor(id){
-            //var t= CKEDITOR.instances['editor4'].getData();alert(t);
-            $.ajax({
-                type:"post",
-                dataType: "html",
-                url:"{{URL::route('update_content_tab')}}",
-                data: { content:CKEDITOR.instances['editor'+id].getData(),
-                        id_tab:$('.get_id'+id).val()
-                    },
-                success:function(data){
-                    var obj = JSON.parse(data);
-                    $('.phara'+id).html(obj.content);   
-                }
-            });
-                $('.editphara'+id).hide();
-                $('.phara'+id).show();
-                $('.click-edit-hide'+id).show();
-                $('.ok-edit-show'+id).hide();
-        }  
-        function exitckeditor(id){
-                $('.editphara'+id).hide();
-                $('.phara'+id).show();
-                $('.click-edit-hide'+id).show();
-                $('.ok-edit-show'+id).hide();
-        } 
+        //         $('.editphara'+id).addClass("col-xs-12 col-sm-12 col-md-12 col-lg-12");
+        //         $('.editphara'+id).show();
+        //         $('.click-edit-hide'+id).hide();
+        //         $('.ok-edit-show'+id).show();
+        //     }
+        // function updateckeditor(id){
+        //     //var t= CKEDITOR.instances['editor4'].getData();alert(t);
+        //     $.ajax({
+        //         type:"post",
+        //         dataType: "html",
+        //         url:"{{URL::route('update_content_tab')}}",
+        //         data: { content:CKEDITOR.instances['editor'+id].getData(),
+        //                 id_tab:$('.get_id'+id).val()
+        //             },
+        //         success:function(data){
+        //             var obj = JSON.parse(data);
+        //             $('.phara'+id).html(obj.content);   
+        //         }
+        //     });
+        //         $('.editphara'+id).hide();
+        //         $('.phara'+id).show();
+        //         $('.click-edit-hide'+id).show();
+        //         $('.ok-edit-show'+id).hide();
+        // }  
+        // function exitckeditor(id){
+        //         $('.editphara'+id).hide();
+        //         $('.phara'+id).show();
+        //         $('.click-edit-hide'+id).show();
+        //         $('.ok-edit-show'+id).hide();
+        // } 
 
     jQuery(document).ready(function($) {
             $('a.scrollTo').click(function () {
@@ -182,7 +186,7 @@
             @endif
             @if($tabWeb->type =="guestbook" && $tabWeb->visiable==0 )
                  <div class="item">
-                    @include('website_user.themes14.edit.text')
+                    @include('website_user.themes14.edit.guestbook')
                 </div><!-- End Item -->
             @endif
             @if($tabWeb->type =="wedding" && $tabWeb->visiable==0 ) 
