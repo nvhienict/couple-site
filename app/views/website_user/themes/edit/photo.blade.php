@@ -72,7 +72,7 @@
             <div class="col-xs-10">
             </div>
             <div class="col-xs-1 click-edit ">
-                <span><a  onclick="send_id_album({{$tabWeb->id}})" class="btn btn-primary"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);">Tải ảnh lên</a></span>
+                <span><a style="background: #19b5bc; border:none;" onclick="send_id_album({{$tab->id}})" class="btn btn-primary"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);">Tải ảnh lên</a></span>
             </div>               
         </div>
         <!-- <div class="row phara-margin">

@@ -12,7 +12,6 @@
     <script type="text/javascript" src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="{{Asset("assets/js/map-themes.js")}}"></script>
 
-    <script src="{{Asset("assets/js/theme11.js")}}"></script>
 
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
@@ -39,28 +38,33 @@
         .fancybox-custom .fancybox-skin {
             box-shadow: 0 0 50px #222;
         }
+
+      .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+       {width: 100% !important;}
+      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+      {width: 100% !important;}
     </style>
 
     <script type="text/javascript">
-                function updateckeditor(id){
-                //var t= CKEDITOR.instances['editor4'].getData();alert(t);
-                $.ajax({
-                    type:"post",
-                    dataType: "html",
-                    url:"{{URL::route('update_content_tab')}}",
-                    data: { content:CKEDITOR.instances['editor'+id].getData(),
-                            id_tab:$('.get_id'+id).val()
-                        },
-                    success:function(data){
-                        var obj = JSON.parse(data);
-                        $('.phara'+id).html(obj.content);   
-                    }
-                });
-                    $('.editphara'+id).hide();
-                    $('.phara'+id).show();
-                    $('.click-edit-hide'+id).show();
-                    $('.ok-edit-show'+id).hide();
-            }  
+            //     function updateckeditor(id){
+            //     //var t= CKEDITOR.instances['editor4'].getData();alert(t);
+            //     $.ajax({
+            //         type:"post",
+            //         dataType: "html",
+            //         url:"{{URL::route('update_content_tab')}}",
+            //         data: { content:CKEDITOR.instances['editor'+id].getData(),
+            //                 id_tab:$('.get_id'+id).val()
+            //             },
+            //         success:function(data){
+            //             var obj = JSON.parse(data);
+            //             $('.phara'+id).html(obj.content);   
+            //         }
+            //     });
+            //         $('.editphara'+id).hide();
+            //         $('.phara'+id).show();
+            //         $('.click-edit-hide'+id).show();
+            //         $('.ok-edit-show'+id).hide();
+            // }  
              </script>   
 </head>
 <body>
@@ -180,7 +184,7 @@
             @endif
 
             @if($tabWeb->type=="guestbook" )
-                @include('website_user.themes11.edit.left')
+                @include('website_user.themes11.edit.guestbook')
             @endif
 
             @if($tabWeb->type=="love_story" )

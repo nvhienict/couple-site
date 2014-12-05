@@ -6,6 +6,9 @@
 	 
 	 margin-top: 25px;
 }
+.images-padding{
+    padding-top: 10px;
+}
 .bg-slide{
 	min-height: 445px;
 	margin-top: 50px;
@@ -121,7 +124,7 @@ footer {
 }
 /*end footer*/
 .item{
-    height: 400px;
+    /*height: 400px;*/
     padding-bottom: 30px !important;
 
 }

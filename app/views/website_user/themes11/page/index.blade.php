@@ -39,6 +39,12 @@
         .fancybox-custom .fancybox-skin {
             box-shadow: 0 0 50px #222;
         }
+
+        .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+       {width: 100% !important;}
+      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+      {width: 100% !important;}
+
     </style>
 </head>
 <body>
@@ -80,7 +86,7 @@
                             <figure class="">
                                 <a href="#">
                                     @if(($website_item->avatar_groom))
-                                    <img  class="img-responsive img-circle" src="{{Asset("$website_item->avatar_groom")}}">
+                                    <img  style="width: 350px;height: 350px;" class="img-responsive img-circle" src="{{Asset("$website_item->avatar_groom")}}">
                                     @else
                                     <img style="width: 350px;height: 350px;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/boy.jpg')}}">
                                     @endif
@@ -291,7 +297,7 @@
                 @if($tabWeb->type=="guestbook" )
 
                 <div class="item">                  
-                    <div id="slide8" class="masonry container margin-partion">
+                    <div id="slide8" class="masonry container margin-partion" >
                         <div class="post-box8 col-sx-12 col-lg-6 col-md-6 col-sm-6"> 
                             <?php 
                                 $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
@@ -309,6 +315,27 @@
                             </h3>
                              <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> 
                         </div>
+                    </div>
+
+                    <!-- -facebookcommnet --> 
+                    <div class="container">
+                          <div id="fb-root"></div>
+                          <script>(function(d, s, id) {
+                              var js, fjs = d.getElementsByTagName(s)[0];
+                              if (d.getElementById(id)) return;
+                              js = d.createElement(s); js.id = id;
+                              js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
+                              fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));
+                          </script>
+                          <div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>                        
+
+                          <script>
+                              $(document).ready(function() {
+                                  $('.fb-comments').attr("data-href", document.URL);
+                              });
+                          </script>
+                        <!-- -End facebookcommnet -->
                     </div>
                 </div>
                 @endif
