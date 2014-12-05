@@ -7,8 +7,6 @@
     <script type="text/javascript" src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="{{Asset("assets/js/map-themes.js")}}"></script>
 
-    <script src="{{Asset("assets/js/themes16.js")}}"></script>
-
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes16.css")}}">
@@ -39,31 +37,35 @@
         	margin-left: 0px;
         	margin-right: 0px;
         }
+        .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+	       {width: 100% !important;}
+	      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+	      {width: 100% !important;}
     </style>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 	<script src="{{Asset("assets/js/map-themes.js")}}"></script>
     <script src="{{Asset('assets/js/jquery.scrollTo.js')}}"></script>
     <script type="text/javascript">
-		function updateckeditor(id){
-                //var t= CKEDITOR.instances['editor4'].getData();alert(t);
-                $.ajax({
-                    type:"post",
-                    dataType: "html",
-                    url:"{{URL::route('update_content_tab')}}",
-                    data: { content:CKEDITOR.instances['editor'+id].getData(),
-                            id_tab:$('.get_id'+id).val()
-                        },
-                    success:function(data){
-                        var obj = JSON.parse(data);
-                        $('.phara'+id).html(obj.content);   
-                    }
-                });
-                    $('.editphara'+id).hide();
-                    $('.phara'+id).show();
-                    $('.click-edit-hide'+id).show();
-                    $('.ok-edit-show'+id).hide();
-            }  
+		// function updateckeditor(id){
+  //               //var t= CKEDITOR.instances['editor4'].getData();alert(t);
+  //               $.ajax({
+  //                   type:"post",
+  //                   dataType: "html",
+  //                   url:"{{URL::route('update_content_tab')}}",
+  //                   data: { content:CKEDITOR.instances['editor'+id].getData(),
+  //                           id_tab:$('.get_id'+id).val()
+  //                       },
+  //                   success:function(data){
+  //                       var obj = JSON.parse(data);
+  //                       $('.phara'+id).html(obj.content);   
+  //                   }
+  //               });
+  //                   $('.editphara'+id).hide();
+  //                   $('.phara'+id).show();
+  //                   $('.click-edit-hide'+id).show();
+  //                   $('.ok-edit-show'+id).hide();
+  //           }  
 
         jQuery(document).ready(function($) {
 	    // Call & Apply function scrollTo
@@ -217,26 +219,27 @@
        		</div>  		
             </a>
             <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
-            <div onclick="showckeditor_text({{$tabWeb->id}})" class="part-content phara{{$tabWeb->id}}">    		
+            <div class="part-content phara{{$tabWeb->id}}">    		
     		 	<span class="collapse" id="viewdetails1" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>
            
             <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails1">Xem thêm &raquo;</a></p>
-        	<div class="edit-content editphara{{$tabWeb->id}}">
+        	<!-- <div class="edit-content editphara{{$tabWeb->id}}">
 	        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
 	               {{$tabWeb->content}}
 	            </textarea>
-	        </div>
+	        </div> -->
 	        <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-	    		<span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+	    		<span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+	    		<!-- <span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
 	    	</div>
-	    	<div class="ok-edit ok-edit-show{{$tabWeb->id}}">
+	    	<!-- <div class="ok-edit ok-edit-show{{$tabWeb->id}}">
 	            <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
 	            <span style="float:right;">
 	                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
 	                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
 	            </span >
-	    	</div>
+	    	</div> -->
 		</div>
 
 		@endif
@@ -260,26 +263,27 @@
        		</div>  		
             </a>
             <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
-            <div onclick="showckeditor_text({{$tabWeb->id}})" class="part-content phara{{$tabWeb->id}}">    		
+            <div class="part-content phara{{$tabWeb->id}}">    		
     		 	<span class="collapse" id="viewdetails2" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>
            
             <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails2">Xem thêm &raquo;</a></p>
-        	<div class="edit-content editphara{{$tabWeb->id}}">
+        	<!-- <div class="edit-content editphara{{$tabWeb->id}}">
 	        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
 	               {{$tabWeb->content}}
 	            </textarea>
-	        </div>
+	        </div> -->
 	        <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-	    		<span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+	    		<span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+	    		<!-- <span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
 	    	</div>
-	    	<div class="ok-edit ok-edit-show{{$tabWeb->id}}">
+	    	<!-- <div class="ok-edit ok-edit-show{{$tabWeb->id}}">
 	            <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
 	            <span style="float:right;">
 	                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
 	                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
 	            </span >
-	    	</div>
+	    	</div> -->
 		</div>
 		@endif
 
@@ -302,26 +306,27 @@
        		</div>  		
             </a>
             <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
-            <div onclick="showckeditor_text({{$tabWeb->id}})" class="part-content phara{{$tabWeb->id}}">    		
+            <div class="part-content phara{{$tabWeb->id}}">    		
     		 	<span class="collapse" id="viewdetails3" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>
            
             <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails3">Xem thêm &raquo;</a></p>
-        	<div class="edit-content editphara{{$tabWeb->id}}">
+        	<!-- <div class="edit-content editphara{{$tabWeb->id}}">
 	        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
 	               {{$tabWeb->content}}
 	            </textarea>
-	        </div>
+	        </div> -->
 	        <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-	    		<span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+	    		<span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+	    		<!-- <span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
 	    	</div>
-	    	<div class="ok-edit ok-edit-show{{$tabWeb->id}}">
+	    	<!-- <div class="ok-edit ok-edit-show{{$tabWeb->id}}">
 	            <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
 	            <span style="float:right;">
 	                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
 	                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
 	            </span >
-	    	</div>
+	    	</div> -->
 		</div>
 		@endif
 	@endforeach	
@@ -350,26 +355,27 @@
        		</div>  		
             </a>
             <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
-            <div onclick="showckeditor_text({{$tabWeb->id}})" class="part-content phara{{$tabWeb->id}}">    		
+            <div class="part-content phara{{$tabWeb->id}}">    		
     		 	<span class="collapse" id="viewdetails4" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>
            
             <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails4">Xem thêm &raquo;</a></p>
-        	<div class="edit-content editphara{{$tabWeb->id}}">
+        	<!-- <div class="edit-content editphara{{$tabWeb->id}}">
 	        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
 	               {{$tabWeb->content}}
 	            </textarea>
-	        </div>
+	        </div> -->
 	        <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-	    		<span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+	    		<span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+	    		<!-- <span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
 	    	</div>
-	    	<div class="ok-edit ok-edit-show{{$tabWeb->id}}">
+	    	<!-- <div class="ok-edit ok-edit-show{{$tabWeb->id}}">
 	            <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
 	            <span style="float:right;">
 	                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
 	                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
 	            </span >
-	    	</div>
+	    	</div> -->
 		</div>
 		@endif
 
@@ -392,26 +398,27 @@
        		</div>  		
             </a>
             <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
-            <div onclick="showckeditor_text({{$tabWeb->id}})" class="part-content phara{{$tabWeb->id}}">    		
+            <div  class="part-content phara{{$tabWeb->id}}">    		
     		 	<span class="collapse" id="viewdetails5" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>
            
             <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails5">Xem thêm &raquo;</a></p>
-        	<div class="edit-content editphara{{$tabWeb->id}}">
+        	<!-- <div class="edit-content editphara{{$tabWeb->id}}">
 	        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
 	               {{$tabWeb->content}}
 	            </textarea>
-	        </div>
+	        </div> -->
 	        <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-	    		<span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+	    		<span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+	    		<!-- <span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
 	    	</div>
-	    	<div class="ok-edit ok-edit-show{{$tabWeb->id}}">
+	    	<!-- <div class="ok-edit ok-edit-show{{$tabWeb->id}}">
 	            <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
 	            <span style="float:right;">
 	                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
 	                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
 	            </span >
-	    	</div>
+	    	</div> -->
 		</div>
 		@endif
 
@@ -436,29 +443,31 @@
 	            </a>
        		</div> 
        		<div class=" click-edit ">
-	            <span><a  onclick="send_id_album({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);"></a></span>
+	            <span><a style="background: #19b5bc; border:none;" onclick="send_id_album({{$tab->id}})" class="btn btn-primary"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);">Tải ảnh lên</a></span>
+	            <!-- <span><a  onclick="send_id_album({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);"></a></span> -->
 	        </div>  		
             
-            <div onclick="showckeditor_text({{$tabWeb->id}})" class="part-content phara{{$tabWeb->id}}">    		
+            <div class="part-content phara{{$tabWeb->id}}">    		
     		 	<span class="collapse" id="viewdetails6" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>
            
             <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails6">Xem thêm &raquo;</a></p>
-        	<div class="edit-content editphara{{$tabWeb->id}}">
+        	<!-- <div class="edit-content editphara{{$tabWeb->id}}">
 	        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
 	               {{$tabWeb->content}}
 	            </textarea>
-	        </div>
+	        </div> -->
 	        <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-	    		<span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+	    		<span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+	    		<!-- <span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
 	    	</div>
-	    	<div class="ok-edit ok-edit-show{{$tabWeb->id}}">
+	    	<!-- <div class="ok-edit ok-edit-show{{$tabWeb->id}}">
 	            <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
 	            <span style="float:right;">
 	                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
 	                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
 	            </span >
-	    	</div>
+	    	</div> -->
 		</div>
 		@endif
 	@endforeach
@@ -488,26 +497,27 @@
        		</div>  		
             </a>
             <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
-            <div onclick="showckeditor_text({{$tabWeb->id}})" class="part-content phara{{$tabWeb->id}}">    		
+            <div class="part-content phara{{$tabWeb->id}}">    		
     		 	<span class="collapse" id="viewdetails7" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>
            
             <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails7">Xem thêm &raquo;</a></p>
-        	<div class="edit-content editphara{{$tabWeb->id}}">
+        	<!-- <div class="edit-content editphara{{$tabWeb->id}}">
 	        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
 	               {{$tabWeb->content}}
 	            </textarea>
-	        </div>
+	        </div> -->
 	        <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-	    		<span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+	    		<span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+	    		<!-- <span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
 	    	</div>
-	    	<div class="ok-edit ok-edit-show{{$tabWeb->id}}">
+	    	<!-- <div class="ok-edit ok-edit-show{{$tabWeb->id}}">
 	            <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
 	            <span style="float:right;">
 	                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
 	                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
 	            </span >
-	    	</div>
+	    	</div> -->
 		</div>
 			@endif
 
@@ -536,27 +546,28 @@
 	                 </div>  
 	                  <button type="submit" class="btn btn-primary send-contact">Send Mesages</button>                          
 	            </form>
-	            <div onclick="showckeditor_text({{$tabWeb->id}})" class="part-content phara{{$tabWeb->id}}">    		
+	            <div class="part-content phara{{$tabWeb->id}}">    		
 	    		 	<span class="collapse" id="viewdetails8" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
 	    		</div>
                 
 
                 <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails8">Xem thêm &raquo;</a></p>
-                <div class="edit-content editphara{{$tabWeb->id}}">
+                <!-- <div class="edit-content editphara{{$tabWeb->id}}">
 		        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
 		               {{$tabWeb->content}}
 		            </textarea>
-		        </div>
+		        </div> -->
 		        <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-		    		<span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+		    		<span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+		    		<!-- <span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
 		    	</div>
-		    	<div class="ok-edit ok-edit-show{{$tabWeb->id}}">
+		    	<!-- <div class="ok-edit ok-edit-show{{$tabWeb->id}}">
 		            <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
 		            <span style="float:right;">
 		                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
 		                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
 		            </span >
-		    	</div>
+		    	</div> -->
 			</div>
 			@endif
 
@@ -578,27 +589,53 @@
        		</div>  		
             </a>
             <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
-            <div onclick="showckeditor_text({{$tabWeb->id}})" class="part-content phara{{$tabWeb->id}}">    		
+            <div class="part-content phara{{$tabWeb->id}}">    		
     		 	<span class="collapse" id="viewdetails9" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>
            
             <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails9">Xem thêm &raquo;</a></p>
-        	<div class="edit-content editphara{{$tabWeb->id}}">
+        	<!-- <div class="edit-content editphara{{$tabWeb->id}}">
 	        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
 	               {{$tabWeb->content}}
 	            </textarea>
-	        </div>
-	        <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-	    		<span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+	        </div> -->
+	        <div class="click-edit click-edit-hide{{$tabWeb->id}}" >
+	    		<span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+	    		<!-- <span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
 	    	</div>
-	    	<div class="ok-edit ok-edit-show{{$tabWeb->id}}">
+	    	<!-- <div class="ok-edit ok-edit-show{{$tabWeb->id}}">
 	            <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
 	            <span style="float:right;">
 	                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
 	                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
 	            </span >
-	    	</div>
+	    	</div> --> 
+
+		    	<!-- -facebookcommnet --> 
+		    	
+		      <div id="fb-root"></div>
+		      <script>(function(d, s, id) {
+		          var js, fjs = d.getElementsByTagName(s)[0];
+		          if (d.getElementById(id)) return;
+		          js = d.createElement(s); js.id = id;
+		          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
+		          fjs.parentNode.insertBefore(js, fjs);
+		        }(document, 'script', 'facebook-jssdk'));
+		      </script>
+		      <div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>                        
+
+		      <script>
+		          $(document).ready(function() {
+		              $('.fb-comments').attr("data-href", document.URL);
+		          });
+		      </script>
+			      
+			    <!-- -End facebookcommnet -->
+
 		</div>
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+		</div>
+
 			@endif
 		@endforeach
 	</div>

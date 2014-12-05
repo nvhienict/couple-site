@@ -35,6 +35,11 @@
         .fancybox-custom .fancybox-skin {
             box-shadow: 0 0 50px #222;
         }
+
+        .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+	       {width: 100% !important;}
+	      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+	      {width: 100% !important;}
     </style>
     <script src="{{Asset('assets/js/jquery.scrollTo.js')}}"></script>
     <script type="text/javascript">
@@ -377,6 +382,26 @@
 
                 <p class="collapse" id="viewdetails9"><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
                 <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails9">Xem thêm &raquo;</a></p>
+                <!-- -facebookcommnet --> 
+	    	
+			      <div id="fb-root"></div>
+			      <script>(function(d, s, id) {
+			          var js, fjs = d.getElementsByTagName(s)[0];
+			          if (d.getElementById(id)) return;
+			          js = d.createElement(s); js.id = id;
+			          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
+			          fjs.parentNode.insertBefore(js, fjs);
+			        }(document, 'script', 'facebook-jssdk'));
+			      </script>
+			      <div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>                        
+
+			      <script>
+			          $(document).ready(function() {
+			              $('.fb-comments').attr("data-href", document.URL);
+			          });
+			      </script>
+				      
+		    <!-- -End facebookcommnet --> 
 			</div>
 			@endif
 		@endforeach
