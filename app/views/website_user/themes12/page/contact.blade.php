@@ -25,7 +25,7 @@
                  </div>
                  <div class="form-group">
                      <label for="">Mesages</label>
-                     <input type="text" class="form-control" id="" placeholder=Messages>
+                     <textarea type="text" class="form-control" id="" placeholder=Messages></textarea>
                  </div>  
                   <button type="submit" class="btn btn-primary send-contact">Send Mesages</button>                          
              </form> 
