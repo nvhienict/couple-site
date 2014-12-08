@@ -33,6 +33,12 @@
         .fancybox-custom .fancybox-skin {
             box-shadow: 0 0 50px #222;
         }
+
+        .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
+       {width: 100% !important;}
+      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
+      {width: 100% !important;}
+
     </style>
     <script src="{{Asset('assets/js/jquery.scrollTo.js')}}"></script>
     <script type="text/javascript">
@@ -353,7 +359,7 @@
 	       		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 	       					
    				</div>		
-				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
+				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
 					<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
 
 	                @if($images)
@@ -363,7 +369,7 @@
 
 	                @endif            
 				</div>
-				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
 					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
 		        		{{$tabWeb->title}}
 		       		</h3>
@@ -379,7 +385,7 @@
 	       		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 	       					
    				</div>		
-				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
+				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
 					<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
 
 	                @if($images)
@@ -389,7 +395,7 @@
 
 	                @endif            
 				</div>
-				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
 					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
 		        		{{$tabWeb->title}}
 		       		</h3>
@@ -404,13 +410,13 @@
 	       		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 	       					
    				</div>		
-				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
 					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
 			        	{{$tabWeb->title}}
 		       		</h3>
 					<p><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
 				</div>
-				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
+				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
 					<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
 
 	                @if($images)
@@ -430,7 +436,7 @@
 	       		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 	       					
    				</div>		
-				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
+				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
 					<!-- -change map --> 
 		           	<div class="text-center map-hove "> 
 		                  <div id="geomap" >
@@ -441,7 +447,7 @@
 		            </div>                              
 		            <!-- -end map -->          
 				</div>
-				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
 					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
 		        		{{$tabWeb->title}}
 		       		</h3>
@@ -457,13 +463,13 @@
 	       		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 	       					
    				</div>		
-				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
 					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
 			        	{{$tabWeb->title}}
 		       		</h3>
 					<p><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
 				</div>
-				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
+				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
 					<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
 
 	                @if($images)
@@ -483,7 +489,7 @@
 	       		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 	       					
    				</div>	
-   				<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+   				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
    					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
 			        	{{$tabWeb->title}}
 		       		</h3>
@@ -491,9 +497,9 @@
 					<?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
 		            @if($albums)
 		                @foreach($albums as $album)
-		                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 images-padding">
+		                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 images-padding">
 		                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
-		                            <img class="img-reponsive part-photo" src="{{Asset("{$album->photo}")}}" alt="" />
+		                            <img style="width:100%;" class="img-reponsive part-photo" src="{{Asset("{$album->photo}")}}" alt="" />
 		                        </a>
 		                    </div>
 		                @endforeach
@@ -512,7 +518,7 @@
 	       		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 	       					
    				</div>		
-				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
+				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
 					<form  class="contact-website" action="" method="POST" role="form">
 				             
 		                 <div class="form-group">
@@ -534,7 +540,7 @@
 		                  <button type="submit" class="btn btn-primary send-contact">Send Mesages</button>                          
 		            </form>         
 				</div>
-				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
 					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
 		        		{{$tabWeb->title}}
 		       		</h3>
@@ -550,13 +556,13 @@
 	       		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 	       					
    				</div>		
-				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
 					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
 			        	{{$tabWeb->title}}
 		       		</h3>
 					<p><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
 				</div>
-				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
+				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
 					<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
 
 	                @if($images)
@@ -567,6 +573,29 @@
 	                @endif            
 				</div>
 			</div>
+			 <div class="row">
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>   
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                    <!-- -facebookcommnet --> 
+                      <div id="fb-root"></div>
+                      <script>(function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));
+                      </script>
+                      <div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>                        
+
+                      <script>
+                          $(document).ready(function() {
+                              $('.fb-comments').attr("data-href", document.URL);
+                          });
+                      </script>
+                    <!-- -End facebookcommnet -->
+                </div>
+            </div>
 			<div class="line-infor1"></div>
 			@endif
 			<!-- end guest book -->
