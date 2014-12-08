@@ -91,12 +91,15 @@ Trang chủ
 	</div>
 	  
 </div>
+
+@include('site-map')
+
 @endsection
-	
 
 @section('content')
     <!-- /Navigation -->
 <div class="row">
+
 	<section id="intro" class="text-light">
 
 		<!-- Carousel -->
@@ -164,6 +167,7 @@ Trang chủ
 		</div><!-- /carousel -->
 	</section>
 	<!-- /Section: intro -->
+
 </div>
 
 <div class="row" id="menu-bar-bottom">
