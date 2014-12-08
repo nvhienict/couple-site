@@ -230,9 +230,9 @@
                </div>
                <div style="margin-top: 15px;" class="collapse navbar-collapse" id="example-navbar-collapse">
                   <ul style="background-color: #FF8EC6;" class="nav navbar-nav nav-themes19">
-                     <span><a class="a_menu scrollTo" href="#title_home" style="padding:15px 8px; text-decoration: none;">Trang Chủ</a></span>
+                     <span><a class="a_menu scrollTo" href="#title_home" style="padding:15px 5px; text-decoration: none;">Trang Chủ</a></span>
                     @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
-                     <span><a style="padding:15px 8px;text-decoration: none;" class="{{$tab->id}} scrollTo a_menu" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></span>
+                     <span><a style="padding:15px 5px;text-decoration: none;" class="{{$tab->id}} scrollTo a_menu" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></span>
                      @endforeach()
                   </ul>
                </div>
