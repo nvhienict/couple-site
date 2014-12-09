@@ -163,7 +163,7 @@ a.brand {
 
 #menu-bar-bottom{
 	width: 85% !important;
-	margin: 3% auto 5% auto;
+	margin: 40% auto 5%;
 }
 #menu-bar-bottom > div{
 	text-align: center !important;
@@ -448,10 +448,7 @@ hr.bold {
 
 /* Carousel Styles */
 
-.carousel-inner img {
-    width: 100%;
-    max-height: 400px;
-}
+
 
 .carousel-control {
     width: 0;
@@ -508,17 +505,45 @@ hr.bold {
   margin-bottom:0;
   padding-left: 0;
   width: 100%;
-  height: auto;
+  /*height: auto;*/
+  height: 490px;
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
   max-width: 100%;
-  height: auto;
+  /*height: auto;*/
+  height: 100%;
   margin-left:0;
   padding-left: 0;
 }
 
+/* effect opacity slide */
+
+.carousel-inner .item {
+  left: 0 !important;
+  -webkit-transition: opacity .6s; /*adjust timing here */
+     -moz-transition: opacity .6s;
+       -o-transition: opacity .6s;
+          transition: opacity .6s;
+}
+.carousel-control { 
+   background-image: none !important; 
+   /* remove background gradients on controls */ 
+}
+/* Fade controls with items */
+.carousel-inner .item.next.left,
+.carousel-inner .item.prev.right {
+    opacity: 1;
+    z-index: 1;
+}
+.carousel-inner .item.active.left,
+.carousel-inner .item.active.right {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* effect opacity slide */
 
 
 /* Carousel Header Styles */
@@ -596,6 +621,14 @@ hr.bold {
 	h6.use-now{
 		font-size: 150%;
 	}
+
+	.carousel-inner > .item {
+	  height: 400px !important;
+	}
+	#menu-bar-bottom{
+		margin: 10% auto 5% !important;
+	}
+
 }
 
 @media (max-width: 800px) {
@@ -604,6 +637,9 @@ hr.bold {
 	    top: 14% !important;
 	}
 
+	.carousel-inner > .item {
+	  height: 350px !important;
+	}
 	
 }
 
@@ -632,6 +668,10 @@ hr.bold {
 	  background-color: #E75280 !important;
 	  border-color: #428bca !important;
 	}
+
+	.carousel-inner > .item {
+	  height: 300px !important;
+	}
 }
 
 
@@ -639,6 +679,10 @@ hr.bold {
   	#form-search-index{
   		width: 90% !important;
 	    top: 14% !important;
+	}
+
+	.carousel-inner > .item {
+	  height: 200px !important;
 	}
 
 }
@@ -653,6 +697,10 @@ hr.bold {
 	#form-search-index{
   		width: 90% !important;
 	    top: 12% !important;
+	}
+
+	.carousel-inner > .item {
+	  height: 150px !important;
 	}
 }
 @media (max-width: 736px) {
@@ -1446,11 +1494,16 @@ div.vendor_content button{
   background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
 #user_register{
-	margin: 20px auto 20px;
+	/*margin: 20px auto 20px;*/
+	margin: 0 auto;
 	border: 1px solid #e5e5e5;
-	padding: 30px;
+	padding: 20px 15px;
+	background-color: #f5f5f5;
 }
-/*thuy*/
+#create_acount h2{
+	text-align: center;
+	color: #E75280;
+}
 
 
 /***** BUTGET *****/

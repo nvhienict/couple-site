@@ -166,7 +166,7 @@
 				</div>			
 			</div>			
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-3 hidden-sm hidden-xs">
 			<a href="javascript:void(0);" class="btn btn-top" id="go_top">				
 				<i class="fa fa-angle-up fa-3x text-center"></i>
 			</a>

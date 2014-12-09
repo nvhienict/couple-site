@@ -290,8 +290,6 @@ class UserController extends \BaseController {
 	// user post register
 	public function post_users(){
 		$rules=array(
-			"first_name"=>"required|min:2",
-			"last_name"=>"required|min:1",
 			"weddingdate"=>"required",
 			"email"=>"required|email",
 			"password"=>"required|min:3",
@@ -302,19 +300,19 @@ class UserController extends \BaseController {
 		{
 
 			// get avatar default
-			$avatar_default = User::where('role_id', '=', 1)->get()->first()->avatar;
+			$avatar_default 	= User::where('role_id', '=', 1)->get()->first()->avatar;
 
-			$weddingdate = Input::get('weddingdate');
+			$weddingdate 		= Input::get('weddingdate');
 
-			$user = new User();
-			$user->firstname=Input::get('first_name');
-			$user->lastname=Input::get('last_name');
-			$user->email=Input::get('email');
-			$user->avatar = $avatar_default;
-			$user->password=Hash::make(Input::get('password_confirm'));
-			$user->weddingdate = $weddingdate;
-			$user->role_id=Input::get('role');
-			$user->budget=0;
+			$user 				= new User();
+			$user->firstname 	= "Họ";
+			$user->lastname 	= "Tên";
+			$user->email 		= Input::get('email');
+			$user->avatar 		= $avatar_default;
+			$user->password 	= Hash::make(Input::get('password_confirm'));
+			$user->weddingdate 	= $weddingdate;
+			$user->role_id 		= Input::get('role');
+			$user->budget 		= 0;
 			$user->save();
 
 			//kiểm tra nếu startdate so với hiện tại đã qua, thì lưu startdate của user bằng startdate hiện tại
