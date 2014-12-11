@@ -158,10 +158,10 @@ Danh sách khách mời
 			<div class="row">
 				<div class="col-xs-10">
 					<table class="table-guest">
-						<tr class="table-guest-thead-fixed">			
+						<tr class="table-guest-thead-fixed">
 							<th style="width:180px;">Nhóm</th>
+					 		<th style="width:180px;">Mã khách mời</th>
 					 		<th style="width:200px;">Số điện thoại</th>
-					 		<th style="width:180px;">Địa chỉ</th>
 					 		<th style="width:200px;">Email</th>
 					 		<th style="width:200px;">Tham dự</th>
 					 		<th style="width:60px;"></th>
@@ -180,8 +180,8 @@ Danh sách khách mời
 					 	<thead>
 					 	<tr>
 					 		<th style="width:18%;text-align: left;">Nhóm</th>
-					 		<th style="width:14%;text-align: left;">Số điện thoại</th>
-					 		<th style="width:18%;">Địa chỉ</th>
+					 		<th style="width:14%;text-align: left;">Mã khách mời</th>
+					 		<th style="width:18%;">Số điện thoại</th>
 					 		<th style="width:18%;">Email</th>
 					 		<th style="width:10%;">Tham dự</th>
 					 		<th style="width:10%;"></th>
@@ -267,72 +267,71 @@ Danh sách khách mời
 					 			@foreach(Guests::where('user',GuestController::id_user())->where('group',$group->id)->get() as $guest)
 			 					<tr class=" guest_list{{$guest->id}} guest_list_item_cat" id="guest_list_item_cat{{$guest->id}}">
 			 											 			
-					 			<td style="width:18%;text-align: left;">
-					 				<div>
-									 <a onclick="name_click({{$guest->id}})" class="{{$guest->id}}show_name">{{$guest->fullname}}</a> 										 	
-									    <input onblur="name_change({{$guest->id}})" ondblclick="name_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}name form-control input-edit-guest" name="fullname" value="{{$guest->fullname}}">   
-										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
-									 </div>
-									 <p style="display:none;color:red;" class="name_error{{$guest->id}}">Nhập tên khách mời</p>
-									 
-					 			</td>
-						 		<td style="width:14%;text-align: left;">
-					 				<div ><!-- Estimate -->
-									 <a onclick="phone_click({{$guest->id}})" class="{{$guest->id}}show_phone">{{$guest->phone}}</a> 										 	
-									    <input onkeyup="key_phone(event,{{$guest->id}})" onblur="phone_change({{$guest->id}})" ondblclick="phone_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}phone form-control input-edit-guest" name="phone" value="{{$guest->phone}}">   
-										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
-									 </div>
-									 <p style="display:none;color:red;" class="phone_error{{$guest->id}}">phone không đúng</p>
-									 
-						 		</td>
-						 		<td style="width:18%;"><!-- Actual -->
-									<div  > 
-										<a onclick="address_click({{$guest->id}})" class="{{$guest->id}}show_address">{{$guest->address}}</a> 										 	
-									    <input onblur="address_change({{$guest->id}})" ondblclick="address_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}address form-control input-edit-guest" name="address" value="{{$guest->address}}">   
-										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
-									</div>
-									
-								</td>
-					 			<td style="width:18%;">
-					 				<div  > 
-										<a onclick="email_click({{$guest->id}})" class="{{$guest->id}}show_email">{{$guest->email}}</a> 										 	
-									    <input onblur="email_change({{$guest->id}})" type="text" class="{{$guest->id}}email form-control input-edit-guest" name="email" value="{{$guest->email}}">   
-										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
-									</div>
-									<p style="display:none;color:red;" class="email_format{{$guest->id}}">email không đúng</p>
-				 				</td><!-- pay -->
-					 			<td style="width:10%;">
-					 				<div>
-						 				<a onclick="attend_click({{$guest->id}})" class="{{$guest->id}}show_attend">{{$guest->attending}}</a> 										 	
-									    <input onblur="attend_change({{$guest->id}})" ondblclick="attend_dblclick({{$guest->id}})" onchange="sum_attending({{$guest->id}})" type="text" class="{{$guest->id}}attend form-control input-edit-guest" name="attending" value="{{$guest->attending}}">   
-										<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">	
-					 				</div>
-					 				
-					 			</td><!-- Due -->
-					 			<td style="width:10%;">
-					 				@if($guest->invited==false)
-					 				<input onclick="invited1_click({{$guest->id}})" type="submit" name="invited1" id="invited1{{$guest->id}}" class="invited1 form-control " value="Chưa mời" required="required" title="">
-					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
-					 				<input onclick="invited2_click({{$guest->id}})" type="submit" style="display:none" name="invited2" id="invited2{{$guest->id}}" class="form-control invited2" value="Đã mời" required="required" title="">
-					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
-					 				
-					 				@else
-					 				<input onclick="invited1_click({{$guest->id}})" type="submit" style="display:none" name="invited1" id="invited1{{$guest->id}}" class="form-control invited1" value="Chưa mời" required="required" title="">
-					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
-					 				<input onclick="invited2_click({{$guest->id}})" type="submit" name="invited2" id="invited2{{$guest->id}}" class=" invited2 form-control" value="Đã mời" required="required" title="">
-					 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
-					 				@endif
-					 			</td>
-					 			
-					 			<td style="width:10%;">
-					 				<a onclick="get_guest({{$guest->id}})" href="javascript:void(0)" data-toggle="modal" data-target="#modalDeleteGuest" class="guest_list_icon_trash guest_del{{$guest->id}}">
-					 					<i class="glyphicon glyphicon-trash"></i>
-					 				</a>
-					 				<input type="hidden"  name="{{$guest->id}}" value="{{$guest->id}}" >
+						 			<td style="width:18%;text-align: left;">
+						 				<div>
+										 	<a onclick="name_click({{$guest->id}})" class="{{$guest->id}}show_name">
+										 		{{$guest->fullname}}
+										 	</a>
+										    <input onblur="name_change({{$guest->id}})" ondblclick="name_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}name form-control input-edit-guest" name="fullname" value="{{$guest->fullname}}">   
+											<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
+										</div>
+										<p style="display:none;color:red;" class="name_error{{$guest->id}}">Nhập tên khách mời</p>
+									</td>
+									<td style="width:18%; text-align: left;">
+										<div> 
+											<a class="span-id-guest" title="Tìm hiểu thêm" data-toggle="modal" data-target="#alert-id-guest" data-backdrop="static">
+												{{$guest->address}}
+											</a>
+										</div>
+									</td>
+							 		<td style="width:14%;">
+						 				<div >
+										 <a onclick="phone_click({{$guest->id}})" class="{{$guest->id}}show_phone">{{$guest->phone}}</a> 										 	
+										    <input onkeyup="key_phone(event,{{$guest->id}})" onblur="phone_change({{$guest->id}})" ondblclick="phone_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}phone form-control input-edit-guest" name="phone" value="{{$guest->phone}}">   
+											<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
+										 </div>
+										 <p style="display:none;color:red;" class="phone_error{{$guest->id}}">phone không đúng</p>
+										 
+							 		</td>
+						 			<td style="width:18%;">
+						 				<div  > 
+											<a onclick="email_click({{$guest->id}})" class="{{$guest->id}}show_email">{{$guest->email}}</a> 										 	
+										    <input onblur="email_change({{$guest->id}})" type="text" class="{{$guest->id}}email form-control input-edit-guest" name="email" value="{{$guest->email}}">   
+											<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
+										</div>
+										<p style="display:none;color:red;" class="email_format{{$guest->id}}">email không đúng</p>
+					 				</td><!-- pay -->
+						 			<td style="width:10%;">
+						 				<div>
+							 				<a onclick="attend_click({{$guest->id}})" class="{{$guest->id}}show_attend">{{$guest->attending}}</a> 										 	
+										    <input onblur="attend_change({{$guest->id}})" ondblclick="attend_dblclick({{$guest->id}})" onchange="sum_attending({{$guest->id}})" type="text" class="{{$guest->id}}attend form-control input-edit-guest" name="attending" value="{{$guest->attending}}">   
+											<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">	
+						 				</div>
+						 				
+						 			</td><!-- Due -->
+						 			<td style="width:10%;">
+						 				@if($guest->invited==false)
+						 				<input onclick="invited1_click({{$guest->id}})" type="submit" name="invited1" id="invited1{{$guest->id}}" class="invited1 form-control " value="Chưa mời" required="required" title="">
+						 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
+						 				<input onclick="invited2_click({{$guest->id}})" type="submit" style="display:none" name="invited2" id="invited2{{$guest->id}}" class="form-control invited2" value="Đã mời" required="required" title="">
+						 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
+						 				
+						 				@else
+						 				<input onclick="invited1_click({{$guest->id}})" type="submit" style="display:none" name="invited1" id="invited1{{$guest->id}}" class="form-control invited1" value="Chưa mời" required="required" title="">
+						 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
+						 				<input onclick="invited2_click({{$guest->id}})" type="submit" name="invited2" id="invited2{{$guest->id}}" class=" invited2 form-control" value="Đã mời" required="required" title="">
+						 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
+						 				@endif
+						 			</td>
+						 			
+						 			<td style="width:10%;">
+						 				<a onclick="get_guest({{$guest->id}})" href="javascript:void(0)" data-toggle="modal" data-target="#modalDeleteGuest" class="guest_list_icon_trash guest_del{{$guest->id}}">
+						 					<i class="glyphicon glyphicon-trash"></i>
+						 				</a>
+						 				<input type="hidden"  name="{{$guest->id}}" value="{{$guest->id}}" >
 
-					 			</td>								
+						 			</td>								
 						 		</tr>
-						 		<!-- Script thuỷ viết -->
 						 		                                											  						     
 						 		@endforeach
 						 	@endif	
@@ -386,8 +385,31 @@ Danh sách khách mời
 			   </div> <!-- end modal body -->
 			</div> <!-- end modal content -->
 			</div> <!-- end modal dialog -->
-			</div> <!-- end modal fade -->
-			<!-- end modal edit -->
+		</div> <!-- end modal fade -->
+		<!-- end modal edit -->
+
+		<!-- Modal delete group guest -->
+		<div class="modal fade" id="alert-id-guest" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		    	<div class="modal-header">
+		        	<button style="color:red" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        	<h4 style="color:#3276B1;" class="modal-title">Thông báo</h4>
+		      	</div>		      
+		      	<div class="modal-body">										        
+				    <div class="row form-group algin-delete">
+						<h6 class="text-center">Bạn cung cấp mã số này cho khách mời để trả lời tham dự đám cưới trên Website của bạn</h6>
+					</div>
+				  	<div class="modal-footer" style="text-align:center;">
+				  		<button data-dismiss="modal" class="btn btn-primary">Đóng</button>
+				  	</div>
+				</div>
+			</div> <!-- end modal body -->
+		  </div> <!-- end modal content -->
+		</div> <!-- end modal dialog -->
+		</div> <!-- end modal fade -->
+		<!-- end modal delete -->
+
 			<script type="text/javascript">
 				function sent_id_group_edit(id)
 				{

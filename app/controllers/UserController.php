@@ -358,17 +358,19 @@ class UserController extends \BaseController {
 			Session::put("email",Input::get('email'));
 
 			// go to view request
-			if ( Session::get('url')==NULL ) {
-				return Redirect::route('index');
-			} else {
-				$url = Session::get('url');
-				return Redirect::route($url);
-			}
+			// if ( Session::get('url')==NULL ) {
+			// 	return Redirect::route('index');
+			// } else {
+			// 	$url = Session::get('url');
+			// 	return Redirect::route($url);
+			// }
+			return Redirect::route('index');
 			
 			
 		}else{
 			$errors=$validator->messages();
-			return Redirect::route("register")->with("errors",$errors);
+			// return Redirect::route("register")->with("errors",$errors);
+			return Redirect::route("index")->with("errors",$errors);
 		}
 	}
 

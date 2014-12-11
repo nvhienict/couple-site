@@ -2020,7 +2020,13 @@ a.guest_list_icon_trash{
 	text-align: right;
 	display: none;
 }
+.span-id-guest, .span-id-guest:hover{
+	color: red;
+	cursor: pointer;
+	font-weight: bold;
 
+	
+}
 
 #guest_summary{
 	background: #f2f0ee;

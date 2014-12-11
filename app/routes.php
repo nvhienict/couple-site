@@ -206,6 +206,7 @@ Route::post("sent-name-group",array("as"=>"sent-name-group","uses"=>"GuestContro
 Route::post("checkName", array("as"=>"checkName", "uses"=>"GuestController@checkName"));
 Route::post('get_guest',array('as'=>'get_guest','uses'=>'GuestController@get_guest'));
 
+Route::post("checkAttending", array("as"=>"checkAttending", "uses"=>"GuestController@checkAttending"));
 
 /**
 * Website user

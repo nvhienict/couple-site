@@ -503,7 +503,7 @@ Tab::create(array('type' => 'traval','title' => 'Du lịch','content' => 'tổ c
 Tab::create(array('type' => 'register','title' => 'Đăng kí','content' => 'Đăng kí thành viên','visiable' => '1','titlestyle' => '','video' => '','map' => ''));
 Tab::create(array('type' => 'album','title' => 'Album ảnh','content' => 'Những hình của bạn và người ấy','visiable' => '0','titlestyle' => '','video' => '','map' => ''));
 Tab::create(array('type' => 'contact','title' => 'Liên lạc','content' => 'Liên lạc','visiable' => '0', 'titlestyle' =>'','video' => '','map' => ''));
-Tab::create(array('type' => 'guestbook','title' => 'Lời chúc','content' => 'những lời chúc đẹp, hay.....','visiable' => '0','titlestyle' => '','video' => '', 'map' =>''));
+Tab::create(array('type' => 'guestbook','title' => 'Khách mời','content' => 'những lời chúc đẹp, hay.....','visiable' => '0','titlestyle' => '','video' => '', 'map' =>''));
 Tab::create(array('type' => 'love_story','title' => 'Câu chuyện tình','content' => 'Chúng mình yêu nhau được 2 năm trước khi đến đám cưới này...','visiable' => '0','titlestyle' => '', 'video' =>'', 'map' =>''));
 
 
