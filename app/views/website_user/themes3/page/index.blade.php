@@ -20,6 +20,7 @@
 
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
 	<!-- css -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
@@ -98,7 +99,7 @@
 		<!-- end header -->
 
 		<div class="topmenu_line_top"></div>
-		<nav id="topmenu" class="navbar navbar-default" role="navigation">
+		<nav id="topmenu" class="navbar navbar-default" role="navigation" >
 				<div class="navbar-header">
 			      	<button type="button" class="navbar-toggle" data-toggle="collapse" 
 			         data-target="#example-navbar-collapse">
@@ -267,7 +268,7 @@
 
 			  		@if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
 						<div class="tab-pane entry" id="guestbook" >
-			  				@include('website_user.themes3.page.text')
+			  				@include('website_user.themes3.page.guestbook')
 			  			</div>
 			  		@endif
 

@@ -1,75 +1,153 @@
-<div class="item" >                   
-    <div id="slide{{$i+2}}" class="masonry margin-partion" style="min-height:450px;" >
-        <div id="prev_output{{$tabWeb->id}}" class="post-box{{$i+2}} col-sx-12 col-lg-6 col-md-6 col-sm-6 bg-images "> 
-            <a href="#">
-                <?php 
-                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
-                     ?>
-                @if($images)
-                    <img  class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
-                @else 
-                    <img  class="img-responsive" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
-                @endif
-            </a>
-            <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
-        </div>
-        <div class="post-box{{$i+2}} col-sx-12 col-lg-6 col-md-6 col-sm-6"> 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h3 class="title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} ;font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-                     {{$tabWeb->title}}
-                </h3>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 show-content phara{{$tabWeb->id}}" >
-                 <span style="color: #{{$website_item->color3}}" >
-                    {{$tabWeb->content}}
-                </span> 
-            </div>           
-        </div>
+<div class="partion">
+	<div class="row phara-margin">
+       	<h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
+            {{$tabWeb->title}}
+        </h3>
 
-        <!-- <div class="edit-content editphara{{$tabWeb->id}}">
-            <textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-               {{$tabWeb->content}}
-            </textarea>
+			<div class="row">
+				<div class="col-xs-1"></div>
+				<div class="col-xs-10">
+					<table class="table-guest-website">
+					 	<thead>
+						 	<tr>
+						 		<th style="width:15%;text-align: left;">Nhóm / Khách</th>
+						 		<th style="width:13%;">
+						 			Xác nhận tham dự cho tôi
+						 			<!-- <span style="display: block; font-size: 15px; margin-top: -15%; color: #3395B1;">Xác nhận cho tôi</span> -->
+						 		</th>
+						 	</tr>
+					 	</thead>
+					 	<tbody>
+					 @if((Groups::where('user',GuestController::id_user())->get()))
+					 	@foreach(Groups::where('user',GuestController::id_user())->get() as $key=>$group)
+					 		<tr class="guest_cat{{$group->id}} guest_cat" id="cate{{$group->id}}">					 						 			
+					 			<td style="width:15%;text-align: left;">
+					 				<a href="javascript:void(0);" style="color:#555555;"onclick="show_hide({{$group->id}})" >
+						 				<i id="show-hide-group{{$group->id}}" class=" fa fa-minus-square-o"></i>
+						 				<strong class="name_group_edit{{$group->id}}"> {{$group->name}}</strong>
+						 				(<span class="total_group_guest{{$group->id}}">
+						 					{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->sum('attending')}}
+						 				</span>)
+					 				</a>
+					 			</td>
+					 			<td style="width:13%;text-align: left;"></td>
+							</tr>
 
-        </div>   -->                        
-    </div>
-    <div class="row phara-margin">
-        <div class="col-xs-10"></div>
-        <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-            <!-- <span> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
-           <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
-        </div>
-    </div>
-    
-    <!-- <div class="row phara-margin">
-        <div class="col-xs-10"></div>
-        <div class="col-xs-2 ok-edit ok-edit-show{{$tabWeb->id}}">
-            
-            <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-            <span style="float:right;" >
-                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-            </span>
-        </div>
-    </div> -->
+					 		<tbody class="guest_list_show_cat{{$group->id}} guest_list_show_cat">
+					 			@if((Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()))
+					 			@foreach(Guests::where('user',GuestController::id_user())->where('group',$group->id)->get() as $guest)
+			 					<tr class=" guest_list{{$guest->id}} guest_list_item_cat" id="guest_list_item_cat{{$guest->id}}">
+			 											 			
+						 			<td style="width:18%;text-align: left;">
+						 				<a>{{$guest->fullname}}</a>
+									</td>
+						 			<td style="width:10%;" class="td-check-attending{{$guest->id}}">
+						 				@if ( $guest->attending==1 )
+							 				<div class="slideThree">	
+												<input type="checkbox" checked="checked" value="{{$guest->id}}" id="slideThreeChk{{$guest->id}}" name="checkAttending" />
+												<label for="slideThree" class="labelChk{{$guest->id}}"></label>
+											</div>
+										@else
+											<div class="slideThree" id="slideThree">
+												<input type="checkbox" value="{{$guest->id}}" id="slideThreeChk{{$guest->id}}" name="checkAttending" />
+												<label for="slideThree" class="labelChk{{$guest->id}}"></label>
+											</div>
+										@endif
 
-    <!-- -facebookcommnet --> 
-      <div id="fb-root"></div>
-      <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-      </script>
-      <div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>                        
+									</td>
 
-      <script>
-          $(document).ready(function() {
-              $('.fb-comments').attr("data-href", document.URL);
-          });
-      </script>
-    <!-- -End facebookcommnet -->
-</div>
+									<!-- Small modal -->
+									<button type="button" style="display:none;" class="btn btn-primary btn-check-{{$guest->id}}" data-toggle="modal" data-target=".bs-example-modal-sm-check{{$guest->id}}" data-backdrop="static">Small modal</button>
+									
+									<div class="modal fade bs-example-modal-sm-check{{$guest->id}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+									  	<div class="modal-dialog modal-sm">
+									    	<div class="modal-content">
+									    		<div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+											        <h4 class="modal-title text-left" id="myModalLabel">{{$guest->fullname}}</h4>
+											    </div>
+											    <div class="modal-body">
+											    	<input type="text" name="checkAttendingCode{{$guest->id}}" placeholder="Nhập mã xác nhận ở đây" />
+											    	<span style="color: #3897DB; display: block;" class="msg-alert"></span>
+													<input type="hidden" name="idGuest{{$guest->id}}" value="{{$guest->id}}" />
+											    </div>
+											    <div class="modal-footer text-center">
+											        <button type="button" id="checkAttending{{$guest->id}}" class="btn btn-primary">Xác nhận</button>
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+											    </div>
+									    	</div>
+									  	</div>
+									</div>
+
+									<script type="text/javascript">
+										$('.slideThree label.labelChk{{$guest->id}}').click(function(){
+											$('.slideThree input[type="checkbox"]#slideThreeChk{{$guest->id}}').trigger('click');
+											
+											$('.btn-check-{{$guest->id}}').click();
+										});
+
+										$('#checkAttending{{$guest->id}}').click(function(){
+											var checkAttendingCode = $('input[name="checkAttendingCode{{$guest->id}}"]').val();
+											var idGuest   		   = $('input[name="idGuest{{$guest->id}}"]').val();
+
+											$.ajax({
+												type: "POST",
+												url: "{{URL::route('checkAttending')}}",
+												data: {
+													checkAttendingCode:checkAttendingCode,
+													idGuest:idGuest
+												},
+												success:function(data){
+													var obj = JSON.parse(data);
+													$('.msg-alert').html(obj.msg);
+													$('.td-check-attending{{$guest->id}}').replaceWith(obj.replace);
+												}
+											});
+										});
+											
+									</script>
+
+						 		</tr>
+						 		                                											  						     
+						 		@endforeach
+						 	@endif
+						 	</tbody>
+						@endforeach
+						@endif
+					 	</tbody>
+
+					 	<thead>
+						 	<tr>
+						 		<th style="width:15%;">Tổng số khách tham dự:</th>
+						 		<th style="width:13%;">
+						 			{{Guests::where('user',GuestController::id_user())->where('attending',true)->count()}}
+						 			&nbsp/&nbsp
+						 			{{Guests::where('user',GuestController::id_user())->count()}}
+						 		</th>
+						 	</tr>
+					 	</thead>
+					 	
+					</table>
+				</div>
+				<div class="col-xs-1"></div>
+		</div>
+	</div> <!-- row -->
+</div><!--container-->
+
+<script type="text/javascript">
+	function show_hide(id)
+	{
+		if($('.guest_list_show_cat'+id).is(':visible') )
+		{
+			$('.guest_list_show_cat'+id).hide();
+			$('#show-hide-group'+id).removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
+		}
+		else
+		{
+			$('.guest_list_show_cat'+id).show();
+			$('#show-hide-group'+id).removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
+		}
+	}
+
+</script>

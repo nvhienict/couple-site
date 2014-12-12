@@ -26,6 +26,7 @@
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
 	<!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes6.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 	<!-- menu_tab -->
     <link rel="stylesheet" href="{{Asset('assets/css/bootstrap-v3.1.1.min.css')}}">
 
@@ -116,28 +117,7 @@
 
 		  				@if($tab->type=="guestbook" && $tab->visiable==0)
 			  				<div class="tab-pane" id="{{$tab->type}}">
-			  					@include('website_user.themes6.page.text')
-
-			  					<div class="col-xs-8 partion">
-				  					 <!-- -facebookcommnet --> 
-							          <div id="fb-root"></div>
-							          <script>(function(d, s, id) {
-							              var js, fjs = d.getElementsByTagName(s)[0];
-							              if (d.getElementById(id)) return;
-							              js = d.createElement(s); js.id = id;
-							              js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
-							              fjs.parentNode.insertBefore(js, fjs);
-							            }(document, 'script', 'facebook-jssdk'));
-							          </script>
-							          <div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>                        
-
-							          <script>
-							              $(document).ready(function() {
-							                  $('.fb-comments').attr("data-href", document.URL);
-							              });
-							          </script>
-							        <!-- -End facebookcommnet -->
-				  				</div>	
+			  					@include('website_user.themes6.page.guestbook')
 			  				</div>
 			  				
 		  				@endif	

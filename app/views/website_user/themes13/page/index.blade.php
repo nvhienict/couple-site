@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes13.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
 
@@ -258,31 +259,7 @@
          <!--  Guest book -->
        @if($tabWeb->type=="guestbook")
         <div id="section_{{$tabWeb->type}}">
-        	@include('website_user.themes13.page.left')
-
-        	<!-- -facebookcommnet --> 
-        	 <div class="row">
-        	 	<div class="col-xs-12 col-md-10 col-sm-10 col-lg-10 col-md-offset-1 col-sm-offset-1 col-offset-lg-1">
-			          <div id="fb-root"></div>
-			          <script>(function(d, s, id) {
-			              var js, fjs = d.getElementsByTagName(s)[0];
-			              if (d.getElementById(id)) return;
-			              js = d.createElement(s); js.id = id;
-			              js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
-			              fjs.parentNode.insertBefore(js, fjs);
-			            }(document, 'script', 'facebook-jssdk'));
-			          </script>
-			          <div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>                        
-
-			          <script>
-			              $(document).ready(function() {
-			                  $('.fb-comments').attr("data-href", document.URL);
-			              });
-			          </script>
-		          </div>
-	          </div>
-	        <!-- -End facebookcommnet -->
-
+        	@include('website_user.themes13.page.guestbook')
     	</div>
     	<div class=" bg-line"></div>
     	

@@ -255,7 +255,7 @@ class WebsiteController extends \BaseController {
 				break;
 
 			case 4:
-				return View::make('website_user.themes3.page.index')->with('website', $website)
+				return View::make('website_user.themes4.page.index')->with('website', $website)
 																	->with('firstname', $firstname)
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_Web);

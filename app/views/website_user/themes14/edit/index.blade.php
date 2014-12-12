@@ -40,8 +40,9 @@
     </style>
 
     <!-- Custom CSS -->
-      <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes14-edit.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
    
 </head>
 <script type="text/javascript">

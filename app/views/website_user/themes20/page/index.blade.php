@@ -42,6 +42,7 @@
     <!-- Custom CSS -->
       <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes20.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
    
 </head>
   @if($website)

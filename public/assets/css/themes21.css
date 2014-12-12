@@ -8,6 +8,9 @@ body{
 #photo, #wedding, #about-us, #about-us-2, #div-text, #div-text-4, #div-text-5{
 	display: none;
 }
+#guestbook{
+	display: none;
+}
 
 /* home */
 .groom-bride{

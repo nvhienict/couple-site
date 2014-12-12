@@ -40,6 +40,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes14.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
    
 </head>
 <div class="row background-themes">

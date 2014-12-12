@@ -18,13 +18,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes7.css")}}">
-  <script type="text/javascript">
-      
-
-      
-
-       
-</script>
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 </head>
 @if($website)
 @foreach( $website as $website_item )
@@ -90,7 +84,13 @@
                     <div class="tab-pane" id="{{$tabWeb->type}}">
                         @include('website_user.themes7.page.photo')
                     </div>                              
-                @endif   
+                @endif
+
+                @if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
+                    <div class="tab-pane" id="{{$tabWeb->type}}">
+                     @include('website_user.themes7.page.guestbook')
+                    </div>           
+                @endif
 
                 <!-- Contact Us -->
                 @if($tabWeb->type=="contact" && $tabWeb->visiable==0)

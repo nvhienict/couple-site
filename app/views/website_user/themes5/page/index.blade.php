@@ -69,6 +69,7 @@
 	<!-- Jscolor -->
 	<script src="{{Asset('assets/jscolor/jscolor.js')}}"></script>
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes5.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
 </head>
     

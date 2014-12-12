@@ -21,6 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes21.css")}}">
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
 
 	<script type="text/javascript" src="{{Asset("assets/js/jquery.min.js")}}"></script>
@@ -215,6 +216,24 @@
 				<em class="element_30"></em>
 				<em class="element_31"></em>
 				<em class="element_33"></em>
+				<!-- end element -->
+			</div>
+			
+  		@endif
+
+  		@if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
+			<div id="guestbook">
+				@include('website_user.themes21.edit.guestbook')
+				<!-- element -->
+				<em class="element_23"></em>
+				<em class="element_24"></em>
+				<em class="element_26"></em>
+				<em class="element_37"></em>
+				<em class="element_38"></em>
+				<em class="element_39"></em>
+				<em class="element_40"></em>
+				<em class="element_41"></em>
+				<em class="element_42"></em>
 				<!-- end element -->
 			</div>
 			

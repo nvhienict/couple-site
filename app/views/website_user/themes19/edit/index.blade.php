@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes19.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
     <script type="text/javascript" src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
@@ -49,26 +50,6 @@
     <script src="{{Asset("assets/js/map-themes.js")}}"></script>
     <script src="{{Asset('assets/js/jquery.scrollTo.js')}}"></script>
     <script type="text/javascript">
-        // function updateckeditor(id){
-        //         //var t= CKEDITOR.instances['editor4'].getData();alert(t);
-        //         $.ajax({
-        //             type:"post",
-        //             dataType: "html",
-        //             url:"{{URL::route('update_content_tab')}}",
-        //             data: { content:CKEDITOR.instances['editor'+id].getData(),
-        //                     id_tab:$('.get_id'+id).val()
-        //                 },
-        //             success:function(data){
-        //                 var obj = JSON.parse(data);
-        //                 $('.phara'+id).html(obj.content);   
-        //             }
-        //         });
-        //             $('.editphara'+id).hide();
-        //             $('.phara'+id).show();
-        //             $('.click-edit-hide'+id).show();
-        //             $('.ok-edit-show'+id).hide();
-        //     }  
-
         jQuery(document).ready(function($) {
         // Call & Apply function scrollTo
             $('a.scrollTo').click(function () {
@@ -414,31 +395,14 @@
                        <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
                     </div>
                 </div>
-
-                <!-- <div class="edit-content editphara{{$tabWeb->id}}">
-                    <textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-                       {{$tabWeb->content}}
-                    </textarea>
-                </div> -->
             </div>
 
             <div class=" row click-edit click-edit-hide{{$tabWeb->id}}" >
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                     <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
-                    <!-- <span > <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
                 </div>               
             </div>
-           <!--  <div class="row ok-edit ok-edit-show{{$tabWeb->id}}">               
-                <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-                    <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-                    <span style="float:right;">
-                        <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-                        <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-                    </span >
-                </div>
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-            </div> -->
             <div class="line-infor1"></div>
             @endif
             <!-- end welcome -->
@@ -471,31 +435,14 @@
                        <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
                     </div>
                 </div>
-
-                <!-- <div class="edit-content editphara{{$tabWeb->id}}">
-                    <textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-                       {{$tabWeb->content}}
-                    </textarea>
-                </div> -->
             </div>
 
             <div class=" row click-edit click-edit-hide{{$tabWeb->id}}" >
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                     <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
-                    <!-- <span > <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
                 </div>               
             </div>
-            <!-- <div class="row ok-edit ok-edit-show{{$tabWeb->id}}">               
-                <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-                    <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-                    <span style="float:right;">
-                        <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-                        <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-                    </span >
-                </div>
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-            </div> -->
             @endif
             <!-- end story -->
 
@@ -511,11 +458,6 @@
                        <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
                     </div>
                 </div>
-                <!-- <div class="edit-content editphara{{$tabWeb->id}}">
-                    <textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-                       {{$tabWeb->content}}
-                    </textarea>
-                </div> -->
                 <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pad-l text-center" id="prev_output{{$tabWeb->id}}">
                     <a href="#">
                         <?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
@@ -533,23 +475,11 @@
 
             <div class=" row click-edit click-edit-hide{{$tabWeb->id}}" >
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    
-                    <!-- <span  style="float:right;"> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
                 </div>
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                     <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
                 </div>               
             </div>
-            <!-- <div class="row ok-edit ok-edit-show{{$tabWeb->id}}"> 
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-                    <span style="float:right;">
-                        <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-                        <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-                    </span >
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"></div>                 
-            </div> -->
             <div class="line-infor1"></div>
             @endif
             <!-- end about -->
@@ -583,30 +513,15 @@
                     </div>
                 </div>
 
-                <!-- <div class="edit-content editphara{{$tabWeb->id}}">
-                    <textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-                       {{$tabWeb->content}}
-                    </textarea>
-                </div> -->
             </div>
 
             <div class=" row click-edit click-edit-hide{{$tabWeb->id}}" >
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                     <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
-                    <!-- <span > <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
                 </div>               
             </div>
-            <!-- <div class="row ok-edit ok-edit-show{{$tabWeb->id}}">               
-                <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-                    <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-                    <span style="float:right;">
-                        <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-                        <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-                    </span >
-                </div>
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-            </div> -->
+
             <div class="line-infor1"></div>
             @endif
             <!-- end event -->
@@ -623,11 +538,6 @@
                        <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
                     </div>
                 </div>
-                <!-- <div class="edit-content editphara{{$tabWeb->id}}">
-                    <textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-                       {{$tabWeb->content}}
-                    </textarea>
-                </div> -->
                 <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pad-l text-center" id="prev_output{{$tabWeb->id}}">
                     <a href="#">
                         <?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
@@ -651,16 +561,7 @@
                     <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
                 </div>               
             </div>
-            <!-- <div class="row ok-edit ok-edit-show{{$tabWeb->id}}"> 
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-                    <span style="float:right;">
-                        <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-                        <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-                    </span >
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"></div>                 
-            </div> -->
+
             <div class="line-infor1"></div>
             @endif
             <!-- end traval -->
@@ -685,7 +586,6 @@
 
             <div class=" row click-edit click-edit-hide{{$tabWeb->id}}" >
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                    <!-- <span  style="float:right;"> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
                 </div>
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                     <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
@@ -715,51 +615,12 @@
             </div>
             <div class="row phara-margin">
                 <div class="col-xs-8 click-edit ">
-                    
-                     <!-- <span style="float:right;"><a  onclick="send_id_album({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);"></a></span> -->
                 </div>
                 <div class="col-xs-1 ">
                    
                    <span><a style="background: #19b5bc; border:none;" onclick="send_id_album({{$tab->id}})" class="btn btn-primary"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);">Tải ảnh lên</a></span>
                 </div>               
             </div>
-           <!--  <div class="row"> -->
-                <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                        
-                    </div>
-                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 show-content phara{{$tabWeb->id}}" onclick="showckeditor_text({{$tabWeb->id}})">
-                        <span style="color: #{{$website_item->color3}}">
-                            {{$tabWeb->content}}
-                        </span>
-                    </div>
-                      
-                </div>  -->
-
-               <!--  <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12 " >   
-                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                        
-                    </div>
-                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 click-edit click-edit-hide{{$tabWeb->id}}">
-                       <span  style="float:right;"> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
-                    </div>
-
-                                   
-                </div> -->
-                <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ok-edit ok-edit-show{{$tabWeb->id}}">
-                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                         
-                     </div> 
-                     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                         <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-                        <span style="float:right;">
-                            <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-                            <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-                        </span >
-                     </div>
-                                    
-                </div> -->
-            <!-- </div> -->
             <div class="line-infor1"></div>
             @endif
             <!-- end album -->
@@ -801,31 +662,14 @@
                        <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
                     </div>
                 </div>
-
-               <!--  <div class="edit-content editphara{{$tabWeb->id}}">
-                    <textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-                       {{$tabWeb->content}}
-                    </textarea>
-                </div> -->
             </div>
 
             <div class=" row click-edit click-edit-hide{{$tabWeb->id}}" >
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                    <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
-                    <!-- <span > <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
                 </div>               
             </div>
-            <!-- <div class="row ok-edit ok-edit-show{{$tabWeb->id}}">               
-                <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-                    <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-                    <span style="float:right;">
-                        <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-                        <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-                    </span >
-                </div>
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-            </div> -->
             <div class="line-infor1"></div>
             @endif
             <!-- end contact -->
@@ -833,78 +677,9 @@
             <!-- guest book -->
             @if($tabWeb->type=="guestbook")
             <div class="row bg-w" id="section_{{$tabWeb->type}}">  
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                       
-                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-                    <h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-                            {{$tabWeb->title}}
-                    </h3>
-                    <div class="part-content phara{{$tabWeb->id}}">
-                       <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
-                    </div>
-                </div>
-                <!-- <div class="edit-content editphara{{$tabWeb->id}}">
-                    <textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-                       {{$tabWeb->content}}
-                    </textarea>
-                </div> -->
-                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pad-l text-center" id="prev_output{{$tabWeb->id}}">
-                    <a href="#">
-                        <?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
-
-                        @if($images)
-                            <img  class="img-responsive " src="{{Asset("{$images->photo}")}}" alt="">
-                        @else 
-                            <img  class="img-responsive " src="{{Asset("images/website/themes16/picture1.jpg")}}" alt="">
-
-                        @endif 
-                    </a>  
-                     <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>         
-                </div>
+               @include('website_user.themes19.edit.guestbook')
             </div>
 
-            <div class=" row click-edit click-edit-hide{{$tabWeb->id}}" >
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <!-- <span  style="float:right;"> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
-                </div>
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                    <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
-                </div>               
-            </div>
-
-            <div class="row">
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>   
-                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                    <!-- -facebookcommnet --> 
-                      <div id="fb-root"></div>
-                      <script>(function(d, s, id) {
-                          var js, fjs = d.getElementsByTagName(s)[0];
-                          if (d.getElementById(id)) return;
-                          js = d.createElement(s); js.id = id;
-                          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
-                          fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));
-                      </script>
-                      <div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>                        
-
-                      <script>
-                          $(document).ready(function() {
-                              $('.fb-comments').attr("data-href", document.URL);
-                          });
-                      </script>
-                    <!-- -End facebookcommnet -->
-                </div>
-            </div>
-
-            <!-- <div class="row ok-edit ok-edit-show{{$tabWeb->id}}"> 
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-                    <span style="float:right;">
-                        <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-                        <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-                    </span >
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"></div>                 
-            </div> -->
             <div class="line-infor1"></div>
             @endif
             <!-- end guest book -->

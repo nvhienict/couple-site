@@ -41,6 +41,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes17.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
    
 </head>
 <div class=" background-themes" style="background-image: url({{Asset("images/website/themes17/temp_17.jpg")}});">

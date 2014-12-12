@@ -6,8 +6,7 @@
         </h3>
 
 			<div class="row">
-				<div class="col-xs-1"></div>
-				<div class="col-xs-10">
+				<div class="col-xs-6 col-xs-offset-3">
 					<table class="table-guest-website">
 					 	<thead>
 						 	<tr>

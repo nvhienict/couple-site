@@ -19,6 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes18.css")}}">
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
@@ -200,6 +201,11 @@
 			@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
 				<div id="section_{{$tabWeb->type}}" class="item-des">
 					@include('website_user.themes18.page.tab')
+				</div>
+	        @endif
+	        @if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
+				<div id="section_{{$tabWeb->type}}" class="item-des">
+					@include('website_user.themes18.page.guestbook')
 				</div>
 	        @endif
 	        <!-- Photo Album -->

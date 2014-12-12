@@ -16,7 +16,8 @@
     <script src="{{Asset("assets/js/map-themes.js")}}"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes7-edit.css")}}">
-  <script type="text/javascript">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
+    <script type="text/javascript">
         function showckeditor(id){
                 var text=$('.phara'+id).html();
                 $('.phara'+id).hide();
@@ -157,7 +158,13 @@
                         <div class="tab-pane" id="{{$tabWeb->type}}">
                          @include('website_user.themes7.edit.right')
                         </div>           
-                     @endif
+                    @endif
+
+                    @if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
+                        <div class="tab-pane" id="{{$tabWeb->type}}">
+                         @include('website_user.themes7.edit.guestbook')
+                        </div>           
+                    @endif
 
                     <!-- Photo Album -->
                     @if($tabWeb->type=="album" && $tabWeb->visiable==0)

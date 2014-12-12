@@ -13,6 +13,7 @@
 		<link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
 		<!-- Custom CSS -->
 		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes4new.css")}}">
+		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
 		<!-- Bootstrap JS -->
 		<script src="{{Asset('assets/js/jquery.min.js')}}"></script>
@@ -450,8 +451,8 @@
 				<!-- guestbook -->
 				@endif
 
-         <!--  Guest book -->
-      			 @if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
+         		<!--  Guest book -->
+      			@if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
 				<section class="our-history" id="section_{{$tabWeb->type}}">
 					<div class="page-title">
 						<div class="bg-title" >
@@ -467,9 +468,7 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div class="row partion " >
-		            	<span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> 
-		            </div>
+		            @include('website_user.themes4.edit.guestbook')
 				</section>
 				<!-- end guestbook -->
 				@endif

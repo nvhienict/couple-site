@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes16.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
 
@@ -367,41 +368,8 @@
 			@endif
 
 			@if($tabWeb->type=="guestbook")
-			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-r" id="section_{{$tabWeb->type}}">
-				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-		        	{{$tabWeb->title}}
-		        </h3>
-				<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
-
-                @if($images)
-                    <img  class="img-responsive " src="{{Asset("{$images->photo}")}}" alt="">
-                @else 
-                    <img  class="img-responsive " src="{{Asset("images/website/themes16/picture1.jpg")}}" alt="">
-
-                @endif
-
-                <p class="collapse" id="viewdetails9"><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
-                <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails9">Xem thêm &raquo;</a></p>
-                <!-- -facebookcommnet --> 
-	    	
-			      <div id="fb-root"></div>
-			      <script>(function(d, s, id) {
-			          var js, fjs = d.getElementsByTagName(s)[0];
-			          if (d.getElementById(id)) return;
-			          js = d.createElement(s); js.id = id;
-			          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
-			          fjs.parentNode.insertBefore(js, fjs);
-			        }(document, 'script', 'facebook-jssdk'));
-			      </script>
-			      <div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>                        
-
-			      <script>
-			          $(document).ready(function() {
-			              $('.fb-comments').attr("data-href", document.URL);
-			          });
-			      </script>
-				      
-		    <!-- -End facebookcommnet --> 
+			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 pad-r" id="section_{{$tabWeb->type}}">
+				@include('website_user.themes16.page.guestbook')
 			</div>
 			@endif
 		@endforeach

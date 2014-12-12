@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes19.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
 
@@ -553,49 +554,8 @@
 			<!-- guest book -->
 			@if($tabWeb->type=="guestbook")
 			<div class="row bg-w" id="section_{{$tabWeb->type}}">	
-	       		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-	       					
-   				</div>		
-				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
-					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-			        	{{$tabWeb->title}}
-		       		</h3>
-					<p><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
-				</div>
-				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 pad-l" id="section_{{$tabWeb->type}}">
-					<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
-
-	                @if($images)
-	                    <img  class="img-responsive " src="{{Asset("{$images->photo}")}}" alt="">
-	                @else 
-	                    <img  class="img-responsive " src="{{Asset("images/website/themes16/picture1.jpg")}}" alt="">
-
-	                @endif            
-				</div>
+	       		@include('website_user.themes19.page.guestbook')
 			</div>
-			 <div class="row">
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>   
-                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                    <!-- -facebookcommnet --> 
-                      <div id="fb-root"></div>
-                      <script>(function(d, s, id) {
-                          var js, fjs = d.getElementsByTagName(s)[0];
-                          if (d.getElementById(id)) return;
-                          js = d.createElement(s); js.id = id;
-                          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1450451991884119&version=v2.0";
-                          fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));
-                      </script>
-                      <div class="fb-comments" data-href=""  data-numposts="5" data-width="100%"data-order-by="social" data-mobile="auto-detect" data-colorscheme="light"></div>                        
-
-                      <script>
-                          $(document).ready(function() {
-                              $('.fb-comments').attr("data-href", document.URL);
-                          });
-                      </script>
-                    <!-- -End facebookcommnet -->
-                </div>
-            </div>
 			<div class="line-infor1"></div>
 			@endif
 			<!-- end guest book -->

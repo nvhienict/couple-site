@@ -22,6 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes15.css")}}">
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.3.2.0.min.js")}}"></script>
@@ -263,6 +264,12 @@
 	  	@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
 			<div class="item-1 tab-pane" id="traval" >
   				@include('website_user.themes15.edit.left')
+  			</div>
+  		@endif
+
+  		@if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
+			<div class="item-1 tab-pane" id="guestbook" >
+  				@include('website_user.themes15.edit.guestbook')
   			</div>
   		@endif
 
