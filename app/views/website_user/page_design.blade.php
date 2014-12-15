@@ -643,10 +643,11 @@
 					<div class="col-xs-6 col-md-2 menu-image" >
 						
 								<a class="upload" style="text-align:center;text-decoration: none;" href="javascript:void(0);">Upload Ảnh</a><br>
-								<a  class="text-center myalbum" style="text-decoration: none;" href="javascript:;">My Album</a>
+								<a onclick="loadMyAlbum()" class="text-center myalbum" style="text-decoration: none;" href="javascript:;">My Album</a>
 					</div>
 					<div class="col-xs-12 col-md-10 tab-image">
 						<script type="text/javascript">
+
 								function add_images(){
 									$('.gird_ablum').hide();
 									$('.delete_images').hide();
@@ -684,22 +685,25 @@
 													};		
 												}
 											});																		
+								};
+
+								function loadMyAlbum(){
+									$.ajax({
+												type:"post",
+												url:"{{URL::route('load_my_album')}}",
+												success:function(data){
+													$('.padding_album').remove();
+													$('.appe').after(data);
+												}
+											});		
 								}
 
 						</script>
 						<br>
 							<div class="tab-pane " id="tab-modal-image_album">
 									<div class="col-xs-12 gird_ablum">
-										<?php $images=PhotoTab::where('user',WebsiteController::id_user())->get(); ?>
-										@foreach($images as $images)
-											<div style="padding-left: 1px;padding-right:1px;" class="col-xs-2 padding_album text-center remove_image{{$images->id}}">
-												<a href="javascript:;">
-													<img class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
-												</a>
-												<input class="images_del{{$images->id}}" name="images_del" type="checkbox" value="">
-												<input type="hidden" value="{{$images->id}}">
-											</div>
-										@endforeach
+										<div class="appe"></div>
+										
 									</div>
 
 									<div class="delete_images"> 
@@ -708,7 +712,8 @@
 									</div>
 									<div class="upload-image-tab">
 											
-											<form action="{{URL::route('up_images_album')}}" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >																																		
+    									<form action="{{URL::route('upload_photo')}}" class="dropzone dz-clickable" method="POST"> </form> 
+											<!-- <form action="{{URL::route('upload_photo')}}"  class="dropzone dz-clickable" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >																																		
 												<br><br><br>																							
 												
 												<div class="form-group">
@@ -801,7 +806,7 @@
 																																																
 											</script>
 
-										</form>
+										</form> -->
 									</div><br>
 
 							</div>
@@ -814,7 +819,10 @@
 			</div>
 			
 				
-			
+		<div class="modal-footer" style="text-align:center;">
+	      	<button type="button" data-dismiss="modal" class="btn btn-primary" >Đóng</button>
+	               
+      </div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

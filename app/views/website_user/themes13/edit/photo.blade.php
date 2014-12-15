@@ -44,7 +44,7 @@
                 @if($albums)
                     @foreach($albums as $album)
                         <div class="col-xs-6 col-md-3 col-sm-3 col-lg-3 images-padding remove_image{{$album->id}}">
-                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
+                            <a class="fancybox" href="{{Asset("{$album->photo}")}}">
                                 <img class="img-responsive" src="{{Asset("{$album->photo}")}}" alt="" />
                             </a>
                         </div>

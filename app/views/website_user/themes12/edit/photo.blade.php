@@ -21,6 +21,10 @@
                 .fancybox-custom .fancybox-skin {
                     box-shadow: 0 0 50px #222;
                 }
+                .fancybox-title iframe {
+                    min-height: 30px;
+                    vertical-align: middle;
+                }
             </style>
 
 </head>
@@ -34,9 +38,9 @@
                 {{$tabWeb->content}}
             </span>    
         </div>
-        <div class="edit-content editphara{{$tabWeb->id}}">
+       <!--  <div class="edit-content editphara{{$tabWeb->id}}">
             <textarea name="editor4" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1"></textarea>
-        </div>  
+        </div> -->  
         <div class="row phara-margin">
             <div class="col-xs-10"></div>
             <div class="col-xs-2 click-edit-hide{{$tabWeb->id}}">
@@ -63,7 +67,7 @@
             @if($albums)
                 @foreach($albums as $album)
                     <div class="col-xs-2 images-padding remove_image{{$album->id}}">
-                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
+                        <a class="fancybox" href="{{Asset("{$album->photo}")}}">
                             <img class="img-responsive" src="{{Asset("{$album->photo}")}}" alt="" />
                         </a>
                     </div>

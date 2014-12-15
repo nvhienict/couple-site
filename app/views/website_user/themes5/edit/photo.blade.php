@@ -20,6 +20,10 @@
                 .fancybox-custom .fancybox-skin {
                     box-shadow: 0 0 50px #222;
                 }
+                .fancybox-title iframe {
+                    min-height: 30px;
+                    vertical-align: middle;
+                }
             </style>
 <section id="section_album" class="tab-pane">
 	<div class="container text-center">
@@ -50,7 +54,7 @@
 					<?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
 			            @if($albums)
 			                @foreach($albums as $album)
-			                <a class="fancybox" rel="gallery1" href="{{Asset("{$album->photo}")}}">
+			                <a class="fancybox" href="{{Asset("{$album->photo}")}}">
 								<img style="width:auto;height:100px;"  src="{{Asset("{$album->photo}")}}" alt="" />
 							</a>
 			                @endforeach
@@ -76,14 +80,5 @@
         </div> --> 
     </div>
 		</div>
-	
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$(".fancybox").fancybox({
-				openEffect	: 'none',
-				closeEffect	: 'none',
-				autoPlay: 'true'
-			});
-		});
-	</script>			
+				
 </section>
