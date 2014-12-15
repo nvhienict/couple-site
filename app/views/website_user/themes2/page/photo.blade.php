@@ -22,6 +22,10 @@
                 .fancybox-custom .fancybox-skin {
                     box-shadow: 0 0 50px #222;
                 }
+                .fancybox-title iframe {
+                    min-height: 30px;
+                    vertical-align: middle;
+                }
             </style>
 
 </head>
@@ -38,7 +42,7 @@
             @if($albums)
                 @foreach($albums as $album)
                     <div class="col-xs-1 images-padding">
-                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
+                        <a class="fancybox" href="{{Asset("{$album->photo}")}}">
                             <img style="width:100%;height:100px;" src="{{Asset("{$album->photo}")}}" alt="" />
                         </a>
                     </div>

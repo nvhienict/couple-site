@@ -14,6 +14,7 @@
 	<!-- css -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
+    <link href="{{Asset("assets/css/dropzone.css")}}" rel="stylesheet">
 		
 	<link href="{{Asset("assets/css/animate.css")}}" rel="stylesheet" />
     <link href="{{Asset("assets/css/style.css")}}" rel="stylesheet">
@@ -49,6 +50,10 @@
 
 	<link href="{{Asset("assets/css/jquery.datetimepicker.css")}}" rel="stylesheet">
 	<script src="{{Asset('assets/js/jquery.datetimepicker.js')}}"></script>
+
+	<!-- upload images -->
+	<script src="{{Asset("assets/js/dropzone.js")}}"></script>
+
 
 
 </head>

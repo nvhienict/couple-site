@@ -1,5 +1,5 @@
 
-<script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
+			<script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
             <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
 
             <!-- Add mousewheel plugin (this is optional) -->
@@ -19,6 +19,10 @@
             <style type="text/css">
                 .fancybox-custom .fancybox-skin {
                     box-shadow: 0 0 50px #222;
+                }
+                .fancybox-title iframe {
+                    min-height: 30px;
+                    vertical-align: middle;
                 }
             </style>
 <section id="section_album">
@@ -43,7 +47,7 @@
 					<?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
 			            @if($albums)
 			                @foreach($albums as $album)
-			                <a class="fancybox" rel="gallery1" href="{{Asset("{$album->photo}")}}">
+			                <a class="fancybox" href="{{Asset("{$album->photo}")}}">
 								<img style="width:auto;height:100px;"  src="{{Asset("{$album->photo}")}}" alt="" />
 							</a>
 			                @endforeach
@@ -52,14 +56,5 @@
 				</div>
 			</div>
 		</div>
-	</div>	
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$(".fancybox").fancybox({
-				openEffect	: 'none',
-				closeEffect	: 'none',
-				autoPlay: 'true'
-			});
-		});
-	</script>			
+	</div>			
 </section>

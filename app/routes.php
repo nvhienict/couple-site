@@ -279,6 +279,10 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('load_url',array('as'=>'load_url','uses'=>'WebsiteController@load_url'));
 	Route::post('check_image_album',array('as'=>'check_image_album','uses'=>'WebsiteController@checkImageAlbum'));
 	
+	// new upload
+	 Route::post('upload-photo',array('as'=>'upload_photo','uses'=>'WebsiteController@uploadPhoto'));
+
+	 Route::post('load-my-album',array('as'=>'load_my_album','uses'=>'WebsiteController@loadMyAlbum'));
 
 	// start time count down
 	Route::post('time_count_down', array('as'=>'time_count_down','uses'=>"WebsiteController@timeCountDown"));

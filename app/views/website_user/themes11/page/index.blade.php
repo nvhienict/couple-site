@@ -41,6 +41,11 @@
             box-shadow: 0 0 50px #222;
         }
 
+        .fancybox-title iframe {
+            min-height: 30px;
+            vertical-align: middle;
+        }
+
         .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
        {width: 100% !important;}
       .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
@@ -248,7 +253,7 @@
                                 @if($albums)
                                     @foreach($albums as $album)
                                         <div class="col-sx-4 col-lg-3 col-md-3 col-sm-3 images-padding remove_image{{$album->id}}">
-                                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
+                                            <a class="fancybox" href="{{Asset("{$album->photo}")}}">
                                                 <img class="img-responsive" src="{{Asset("{$album->photo}")}}" alt="" />
                                             </a>
                                         </div>

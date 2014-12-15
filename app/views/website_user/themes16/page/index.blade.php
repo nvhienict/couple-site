@@ -36,11 +36,10 @@
         .fancybox-custom .fancybox-skin {
             box-shadow: 0 0 50px #222;
         }
-
-        .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
-	       {width: 100% !important;}
-	      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
-	      {width: 100% !important;}
+        .fancybox-title iframe {
+            min-height: 30px;
+            vertical-align: middle;
+        }
     </style>
     <script src="{{Asset('assets/js/jquery.scrollTo.js')}}"></script>
     <script type="text/javascript">
@@ -296,7 +295,7 @@
 		            @if($albums)
 		                @foreach($albums as $album)
 		                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 images-padding">
-		                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
+		                        <a class="fancybox" href="{{Asset("{$album->photo}")}}">
 		                            <img class="img-responsive" style="width:100%;height:150px;" src="{{Asset("{$album->photo}")}}" alt="" />
 		                        </a>
 		                    </div>

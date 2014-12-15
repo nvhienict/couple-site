@@ -21,6 +21,10 @@
                 .fancybox-custom .fancybox-skin {
                     box-shadow: 0 0 50px #222;
                 }
+                .fancybox-title iframe {
+                    min-height: 30px;
+                    vertical-align: middle;
+                }
             </style>
 
 </head>
@@ -43,7 +47,7 @@
                     <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
                     @foreach($albums as $album)
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding remove_image{{$album->id}}">
-                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("{$album->photo}")}}">
+                            <a class="fancybox" href="{{Asset("{$album->photo}")}}">
                                 <img class="img-responsive"  src="{{Asset("{$album->photo}")}}" alt="" />
                             </a>
                         </div>
@@ -53,22 +57,22 @@
                 @else
                         
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
-                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes17/1.jpg")}}">
+                            <a class="fancybox"  href="{{Asset("images/website/themes17/1.jpg")}}">
                                 <img class="img-responsive" src="{{Asset("images/website/themes17/1.jpg")}}" alt="" />
                             </a>
                         </div>
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
-                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes17/2.jpg")}}">
+                            <a class="fancybox"  href="{{Asset("images/website/themes17/2.jpg")}}">
                                 <img class="img-responsive" src="{{Asset("images/website/themes17/2.jpg")}}" alt="" />
                             </a>
                         </div>
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
-                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes17/3.jpg")}}">
+                            <a class="fancybox"  href="{{Asset("images/website/themes17/3.jpg")}}">
                                 <img class="img-responsive" src="{{Asset("images/website/themes17/3.jpg")}}" alt="" />
                             </a>
                         </div>
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
-                            <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes17/4.jpg")}}">
+                            <a class="fancybox"  href="{{Asset("images/website/themes17/4.jpg")}}">
                                 <img class="img-responsive" src="{{Asset("images/website/themes17/4.jpg")}}" alt="" />
                             </a>
                         </div>

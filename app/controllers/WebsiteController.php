@@ -1685,6 +1685,35 @@ class WebsiteController extends \BaseController {
 		return substr($input, 0, 1);
 	}
 
+	public function uploadPhoto(){
+		$file = Input::file('file');
+		$id_user=WebsiteController::id_user();
+	 	 if(Input::hasFile('file')){
+			$phototab=new PhotoTab();
+			$years=date("Y");
+			$months=date('m');	
+			File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
+		  	$filename =str_random(10) . '.' .$file->getClientOriginalExtension();
+			$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+			$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
+			Image::make($file->getRealPath())->resize(800, 600)->save($path);
+			$phototab->user=$id_user;
+			$phototab->photo=$pathsave;
+			$phototab->save();
+
+    	
+   		 }
+	}
+
+
+	function loadMyAlbum(){
+		$id_user	=	WebsiteController::id_user();
+		$images 	=	PhotoTab::where('user',$id_user)->get();
+		
+		return View::make('website_user.my_album')->with('images', $images);
+
+	}
+
 
 
 } // end Controller
