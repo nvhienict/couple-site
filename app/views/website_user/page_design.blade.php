@@ -693,7 +693,7 @@
 												url:"{{URL::route('load_my_album')}}",
 												success:function(data){
 													$('.padding_album').remove();
-													$('.appe').after(data);
+													$('.gird_ablum').append(data);
 												}
 											});		
 								}
@@ -702,7 +702,7 @@
 						<br>
 							<div class="tab-pane " id="tab-modal-image_album">
 									<div class="col-xs-12 gird_ablum">
-										<div class="appe"></div>
+										<!-- load photo  -->
 										
 									</div>
 

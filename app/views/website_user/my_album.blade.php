@@ -5,7 +5,7 @@
 			<a href="javascript:;">
 				<img class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
 			</a>
-			<input class="images_del{{$images->id}}" name="images_del" type="checkbox" value="">
+			<input style="visibility:visible;" class="images_del{{$images->id}}" name="images_del" type="checkbox" value="">
 			<input type="hidden" value="{{$images->id}}">
 		</div>
 	
