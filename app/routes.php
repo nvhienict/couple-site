@@ -12,13 +12,24 @@
 */
 
 Route::get('/',array("as"=>"index", function()
-{
-	return View::make('index');
+{	
+	if( (Session::has('email')) && (UserController::isset_user())!=0 )
+	{
+		return Redirect::to('dashboard');
+	} else {
+		return View::make('index');
+	}
+	
 }));
 
 Route::get('index',array("as"=>"index", function()
 {
-	return View::make('index');
+	if( (Session::has('email')) && (UserController::isset_user())!=0 )
+	{
+		return Redirect::to('dashboard');
+	} else {
+		return View::make('index');
+	}
 }));
 
 Route::filter("check_login", function(){
@@ -215,6 +226,10 @@ Route::post("checkAttending", array("as"=>"checkAttending", "uses"=>"GuestContro
 
 Route::group(array('before'=>'check_login'), function(){
 
+	Route::get('dashboard',function(){
+		return View::make('dashboard');
+	});
+
 	// all Route for website user here
 	// edit content section
 	Route::post('getContent',array('as'=>'get_content','uses'=>'WebsiteController@getContent'));
@@ -305,13 +320,7 @@ Route::get('login/facebook', array("as" => "facebook", "uses" => "UserController
 
 Route::post('change_weddingdate', array("as" => "change_weddingdate", "uses" => "UserController@loginFacebookUpdate"));
 
-// upload images ajax
-Route::post('upload_images', array(
-	"as" => "upload_images",
-	"uses" =>"WebsiteController@upload_images_ajax"
-	)
-);
-// end upload images ajax
+
 // documents
 
 Route::get('introduce',array('as'=>'introduce',function(){

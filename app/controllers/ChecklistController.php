@@ -109,6 +109,16 @@ class ChecklistController extends \BaseController {
 
 		return $tasks;
 	}
+
+	// percent countTasksComplete
+	public static function countTasksCompletePercent()
+	{
+		$percent 	= ( ChecklistController::countTasksComplete()/ChecklistController::countTasksToDo() )*100;
+		$percent 	= round($percent, 2);
+		return $percent;
+	}
+
+
 	// count công việc hoàn thành theo Category
 	public static function countCatComplete($category){
 		$id_user = ChecklistController::id_user();

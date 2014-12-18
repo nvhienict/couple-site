@@ -1714,6 +1714,56 @@ class WebsiteController extends \BaseController {
 
 	}
 
+	/**
+	*count data to dashboard
+	*
+	*/ 
+	public static function arrayCheckData()
+	{
+		$arRequest 	= array('background', 'color1', 'color2', 'color3', 'font',
+							'avatar_groom', 'avatar_bride');
+
+		return $arRequest;
+	}
+
+	public static function getDataNull($value)
+	{
+		$website 	= new WeddingWebsite();
+		$record 	= $website->where('user', WebsiteController::id_user())->get()->first()->$value;
+		
+		return $record;
+	}
+
+	public static function getCountDataNull()
+	{
+		$arRequest 	= WebsiteController::arrayCheckData();
+
+		$count 		= 0;
+		foreach ($arRequest as $key => $value) {
+			$data 	= WebsiteController::getDataNull(''.$value.'');
+			if ( $data==null ) {
+				$count++;
+			} else {
+				$count = $count;
+			}
+		}
+
+		return $count;
+	}
+
+	public static function getCountDataRequest()
+	{
+		return count( WebsiteController::arrayCheckData() );
+	}
+
+	public static function getCountDataPercent()
+	{
+		$percent 	= ( WebsiteController::getCountDataNull()/WebsiteController::getCountDataRequest() )*100;
+		$percent 	= round($percent, 2);
+
+		return $percent;
+	}
+
 
 
 } // end Controller

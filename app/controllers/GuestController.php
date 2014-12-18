@@ -541,4 +541,44 @@ public function update_name()
 		
 	}
 
+
+	/**
+	* count guest invited
+	*
+	*/
+	public static function getGuestInvited()
+	{
+		$guest 		= new Guests();
+		return $guest->where('invited', 1)->get()->count();
+	}
+
+	/**
+	* count all guest
+	*
+	*/
+	public static function getAllGuest()
+	{
+		$guest 		= new Guests();
+		return $guest->get()->count();
+	}
+
+	/**
+	* count % guest invited
+	*
+	*/
+	public static function getGuestInvitedPercent()
+	{
+		if (GuestController::getAllGuest()==0) {
+			$percent=0;
+		} else {
+			$percent 	= ( GuestController::getGuestInvited()/GuestController::getAllGuest() )*100;
+			$percent 	= round($percent, 2);
+		}
+
+		return $percent;
+	}
+
+
+
+
 }

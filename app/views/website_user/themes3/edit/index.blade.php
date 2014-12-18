@@ -181,7 +181,7 @@
 		<!-- end header -->
 
 		<div class="topmenu_line_top"></div>
-		<nav id="topmenu" class="navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-default" id="topmenu" role="navigation">
 				<div class="navbar-header">
 			      	<button type="button" class="navbar-toggle" data-toggle="collapse" 
 			         data-target="#example-navbar-collapse">

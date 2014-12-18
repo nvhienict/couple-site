@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main-dashboard')
 @section('title')
 Danh sách công việc
 @endsection
@@ -7,15 +7,13 @@ Danh sách công việc
 @endsection
 @section('content')
 
-<div class="container user-checklist">
-<div class="row">
-	
-<div class="col-xs-10">
+
+<div class="col-xs-12" style="padding-right: 0;">
 	<div class="row sort-by">
 		<div class="col-md-6">
 			<h2>Danh sách công việc</h2>
 		</div>
-		<div class="col-md-5 pull-right">
+		<div class="col-md-4 pull-right" style="padding-top: 1.5%">
 			<div>
 			<ul class="nav nav-pills text-right" role="tablist">
 				<li>
@@ -78,7 +76,7 @@ Danh sách công việc
 	@if(Category::get())
   		@foreach(Category::get() as $index=> $category)
   		<input type="text" hidden id="cat{{$category->id}}" value="{{$category->id}}">
-		  <div class="panel panel-default" >
+		  <div class="panel panel-default" style="margin-right:0; margin-top:0.5%" >
 		    <div class="panel-heading row" style="background: #fff6ee;">
 		    	<div class="col-xs-5">
 			      <h4 class="panel-title">
@@ -404,31 +402,7 @@ Danh sách công việc
 		<script type="text/javascript" src="{{Asset('assets/js/script-giang.js')}}"></script>
 	</div><!--col-xs-10-->
 
-	<div class="col-xs-2" style="background: #f2f0ee; padding: 5px;">
 
-		<div class="row">
-			<div class="col-xs-12">
-				<h2>Thống kê</h2>
-				NGÀY CƯỚI: 
-				<span style="color: #ff2680;">{{ChecklistController::getDates()}}</span>
-
-				<br />VIỆC CẦN LÀM: 
-				<span style="color: #f0ad4e;">{{UserTask::where("user", ChecklistController::id_user())->count()}}</span>
-
-				<br />VIỆC QUÁ HẠN: 
-				<span id="count_overdue" style="color: #f0ad4e;">{{ChecklistController::overdue()}}</span>
-
-				<br />VIỆC HOÀN THÀNH: 
-				<span id="count_complete" style="color: #f0ad4e;">{{UserTask::where("user", ChecklistController::id_user())->where('todo',1)->count()}}</span>
-				<br />
-			</div>
-		</div>
-
-	</div>
-
-</div> <!-- end row -->
-
-</div><!--container-->
 <script type="text/javascript">
 	
 	function clickCheckboxCat(cat,idTask){

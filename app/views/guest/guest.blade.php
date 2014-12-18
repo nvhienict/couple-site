@@ -1,4 +1,5 @@
-@extends('main')
+
+@extends('main-dashboard')
 @section('title')
 Danh sách khách mời
 @endsection
@@ -6,9 +7,8 @@ Danh sách khách mời
 @include('nav')
 @endsection
 @section('content')
-<div class="container">
-	<div class="row">
-		<div class="col-xs-10">
+
+		<div class="col-xs-12">
 			<div class="row sort-by">
 			<div class="col-xs-12">
 				<h2>Danh sách khách mời</h2>
@@ -141,13 +141,14 @@ Danh sách khách mời
 							</div> <!-- end modal fade -->
 							<!-- end modal Add -->
 							<script type="text/javascript" src="{{Asset('assets/js/script-binh.js')}}"></script>
-				</div>
+					</div>
 
-				<div class="col-xs-2">
-					<a href="{{URL::route('guest-list/exportfile')}}" ><i class="fa fa-print"></i>&nbspXuất file</a>
+					<div class="col-xs-2">
+						<a href="{{URL::route('guest-list/exportfile')}}" ><i class="fa fa-print"></i>&nbspXuất file</a>
+					</div>
 				</div>
 			</div>
-		</div>
+			<!-- /.row -->
 				<div class="col-xs-12" align="right">
 					<span style="color: #19b5bc; cursor:pointer; margin-right: 5px;" id="guest_all_item_sign_down"><i class="glyphicon glyphicon-chevron-down"></i></span>
 					<span style="color: #19b5bc; cursor:pointer; " id="guest_all_item_sign_up"><i class="glyphicon glyphicon-chevron-up"></i></span>
@@ -155,8 +156,10 @@ Danh sách khách mời
 					
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-xs-10">
+			<!-- /.sub_menu -->
+
+			<div class="row" style="margin-left:0">
+				<div class="col-xs-12">
 					<table class="table-guest">
 						<tr class="table-guest-thead-fixed">
 							<th style="width:180px;">Nhóm</th>
@@ -350,18 +353,8 @@ Danh sách khách mời
 					 	
 					</table>
 				</div>
-			
-		 <!-- col-xs-10 -->
-		<div class="col-xs-2" id="guest_summary">
-			<h3>Tóm tắt:</h3>
-			<p>
-				<div>Tổng số khách:<span class="total_guest">{{Guests::where('user',GuestController::id_user())->sum('attending')}}</span></div>
-				
-				<div>Đã mời:<span class="total_invited">{{Guests::where('user',GuestController::id_user())->where('invited',true)->sum('attending')}}</span></div>
-				
-				<div>Chưa mời:<span class="total_noinvited">{{Guests::where('user',GuestController::id_user())->where('invited',false)->sum('attending')}}</span></div>
-				
-		</div>
+		 <!-- /.col-xs-10 -->
+
 		<!-- Modal edit group guest -->
 		<div class="modal fade" id="editGroup-guest" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
 		  <div class="modal-dialog">
@@ -933,6 +926,5 @@ Danh sách khách mời
             };
 		</script>	
 		</div>
-	</div> <!-- row -->
-</div><!--container-->
+
 @endsection

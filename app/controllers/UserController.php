@@ -244,7 +244,7 @@ class UserController extends \BaseController {
 					Session::put("email",Input::get('txMail'));
 
 					// go to view request
-					return Redirect::to(URL::previous());
+					return Redirect::to('dashboard');
 
 				}else{
 					return View::make("user-login")->with("messages","Email hoặc mật khẩu không đúng!");
@@ -342,13 +342,13 @@ class UserController extends \BaseController {
 						}
 						
 
-						$usertask = new UserTask();
-						$usertask->title = $task->title;
-						$usertask->user = $id_user;
-						$usertask->startdate = $startdate;
-						$usertask->category = $task->category;
-						$usertask->description = $task->description;
-						$usertask->todo = 0;
+						$usertask 				= new UserTask();
+						$usertask->title 		= $task->title;
+						$usertask->user 		= $id_user;
+						$usertask->startdate 	= $startdate;
+						$usertask->category 	= $task->category;
+						$usertask->description 	= $task->description;
+						$usertask->todo 		= 0;
 						$usertask->save();
 
 					}
@@ -364,7 +364,7 @@ class UserController extends \BaseController {
 			// 	$url = Session::get('url');
 			// 	return Redirect::route($url);
 			// }
-			return Redirect::route('index');
+			return Redirect::to('dashboard');
 			
 			
 		}else{
@@ -381,19 +381,11 @@ class UserController extends \BaseController {
 	public function loginFacebook($action = "")
 	{
 
-		// $email = Input::get('email');
-		// $firstname = Input::get('firstname');
-		// $lastname = Input::get('lastname');
-
-		// return $email.'***'.$firstname.'***'.$lastname;
-
 		// get data from input
 	    $code 				= Input::get( 'code' );
 
 	    // get fb service
 	    $fb 				= OAuth::consumer( 'Facebook' );
-
-	    // check if code is valid
 
 	    // if code is provided get user data and sign in
 	    if ( !empty( $code ) ) {
@@ -492,15 +484,9 @@ class UserController extends \BaseController {
 				Session::put("email", $email);
 
 				// go to view request
-				return Redirect::to(URL::previous());
+				return Redirect::to('dashboard');
 	        }
 
-	        
-
-
-	        //Var_dump
-	        //display whole array().
-	        // dd($result);
 
 	    }
 	    // if not ask for permission first
@@ -523,12 +509,7 @@ class UserController extends \BaseController {
 			);
 
 		// go to view request
-		if ( (Session::get('url')==NULL)||(Session::get('url')=='public') ) {
-			return Redirect::route('index');
-		} else {
-			$url = Session::get('url');
-			return Redirect::route($url);
-		}
+		return Redirect::to('dashboard');
 
 	} // end loginFacebookUpdate
 

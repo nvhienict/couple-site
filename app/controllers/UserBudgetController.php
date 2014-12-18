@@ -403,5 +403,21 @@ class UserBudgetController extends \BaseController {
 		->sum(''.$action.''),0, '.', ',');
 	}
 
+	/**
+	*count percent
+	*
+	*/
+	public static function getDisplayMoneyTotalPercent()
+	{
+		if ( UserBudgetController::getDisplayMoneyTotal('actual')==0 ) {
+			$percent 	= 0;
+		} else {
+			$percent 	= ( UserBudgetController::getDisplayMoneyTotal('pay')/UserBudgetController::getDisplayMoneyTotal('actual') )*100;
+			$percent 	= round($percent, 2);
+		}
+		
+		return $percent;
+	}
+
 
 }
