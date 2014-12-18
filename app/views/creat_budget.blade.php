@@ -1,4 +1,5 @@
-@extends('main')
+
+@extends('main-dashboard')
 @section('title')
 Quản lý ngân sách
 @endsection
@@ -6,29 +7,27 @@ Quản lý ngân sách
 @include('nav')
 @endsection
 @section('content')
-<div class="container">
+
 	<div class="row creat_budget">
-		<div class="col-xs-3"></div>
-		<div class="col-xs-6">
+		<div class="col-lg-9 col-lg-offset-3 col-sm-10 col-sm-offset-2 col-xs-11 col-xs-offset-1">
 			<div class="row">
-				<div class="row form-group"><h1>Nhập vào số tiền dự toán của bạn</h1></div>
+				<div class="row form-group">
+					<h1 class="title-create-budget">Nhập vào số tiền dự toán của bạn</h1>
+				</div>
 			</div>
 			<div class="row">
 				<form id="form-create-money" action="{{URL::route('money_budget')}}" method="post" autocomplete="off">
 					<div class="row form-group">
-						<label for="money_budget" class="col-xs-2 control-label">Số tiền</label>
-						<div class="col-xs-5">
+						<div class="col-lg-6 col-lg-offset-1 col-sm-7 col-sm-offset-1 col-xs-10">
 							<input type="text" onkeyup="key_money(event)" class="form-control" id="money_budget1" name="money_budget1" placeholder="Nhập số tiền"  />
 						   	<input type="text" hidden name="money_budget" id="money_budget"/>
 						</div>
 						<small>VND</small>
 					</div>
 					<div class="row form-group">
-						<div class="col-xs-3"></div>
-						<div class="col-xs-4">
+						<div class="col-lg-4 col-lg-offset-3 col-sm-4 col-sm-offset-3 col-xs-4 col-xs-offset-2">
 						   	<button type="submit" id="submit_money" class="btn btn-success">Tính tổng chi phí</button>
 						</div>
-						<div class="col-xs-5"></div>
 					</div>
 				</form>
 				<script type="text/javascript">
@@ -67,5 +66,5 @@ Quản lý ngân sách
 		</div>
 		<div class="col-xs-3"></div>
 	</div> <!-- row -->
-</div><!--container-->
+
 @endsection

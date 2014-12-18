@@ -8,18 +8,23 @@ Danh sách khách mời
 @endsection
 @section('content')
 
-		<div class="col-xs-12">
-			<div class="row sort-by">
+	<div class="col-xs-12">
+		<div class="row sort-by">
 			<div class="col-xs-12">
 				<h2>Danh sách khách mời</h2>
 			</div>
 		</div>
 		<div class="submenu">
 			<div class="row">
-				<div class="col-xs-2">
+				<div class="col-lg-2 col-sm-3 col-xs-4">
 					<a href="" id="add-group-webding" style="cursor:pointer;" data-toggle="modal" data-target="#myGroup" data-backdrop="static" >
-						<i class="glyphicon glyphicon-plus"></i>
-						&nbsp Thêm Nhóm
+						<span class="hidden-xs">
+							<i class="glyphicon glyphicon-plus"></i>
+							Thêm Nhóm
+						</span>
+						<span class="hidden-md hidden-lg hidden-sm">
+							<i class="fa fa-group fa-2x"></i>
+						</span>
 					</a>
 					<!-- Modal Add checklist -->
 						<div class="modal fade" id="myGroup" tabindex="-1" role="dialog" aria-labelledby="myGrouplable" aria-hidden="true">
@@ -32,7 +37,7 @@ Danh sách khách mời
 							      
 							        <form id="form_add_group" action="{{Asset('guest-list/add_group')}}" method="post">
 										<div class="modal-body">
-											<label for="name" class="control-label">Tên nhóm:</label>
+											<label for="name" class="control-label hidden-xs">Tên nhóm:</label>
 											<input type="text" class="form-control" name="name" id="name" placeholder="Tên nhóm mới">
 											
 									   	</div>
@@ -49,10 +54,15 @@ Danh sách khách mời
 						<!-- end modal Add -->
 						<script type="text/javascript" src="{{Asset('assets/js/script_thuy.js')}}"></script>
 				</div>
-				<div class="col-xs-2">
+				<div class="col-lg-2 col-sm-3 col-xs-4">
 					<a href="" onclick="showHideAddGuest()" id="add-guest-wedding" style="cursor:pointer;" data-toggle="modal" data-target="" >
-						<i class="glyphicon glyphicon-plus"></i>
-						&nbsp Thêm Khách 
+						<span class="hidden-xs">
+							<i class="glyphicon glyphicon-plus"></i>
+							Thêm Khách
+						</span>
+						<span class="hidden-md hidden-lg hidden-sm">
+							<i class="fa fa-user fa-2x"></i>
+						</span>
 					</a>
 					<button id="btn_add_guest" style="display:none;" data-toggle="modal" data-target="#myModalAddGuest" data-backdrop="static" >Thêm Khách</button>
 					<script type="text/javascript">
@@ -143,8 +153,16 @@ Danh sách khách mời
 							<script type="text/javascript" src="{{Asset('assets/js/script-binh.js')}}"></script>
 					</div>
 
-					<div class="col-xs-2">
-						<a href="{{URL::route('guest-list/exportfile')}}" ><i class="fa fa-print"></i>&nbspXuất file</a>
+					<div class="col-lg-2 col-sm-3 col-xs-4">
+						<a href="{{URL::route('guest-list/exportfile')}}" >
+							<span class="hidden-xs">
+								<i class="fa fa-print"></i>
+								Xuất file
+							</span>
+							<span class="hidden-md hidden-lg hidden-sm">
+								<i class="fa fa-print fa-2x"></i>
+							</span>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -160,8 +178,8 @@ Danh sách khách mời
 
 			<div class="row" style="margin-left:0">
 				<div class="col-xs-12">
-					<table class="table-guest">
-						<tr class="table-guest-thead-fixed">
+					<table class="table table-hover table-guest">
+						<tr class="table-guest-thead-fixed hidden-xs">
 							<th style="width:180px;">Nhóm</th>
 					 		<th style="width:180px;">Mã khách mời</th>
 					 		<th style="width:200px;">Số điện thoại</th>
@@ -181,27 +199,35 @@ Danh sách khách mời
 							});
 						</script>
 					 	<thead>
-					 	<tr>
-					 		<th style="width:18%;text-align: left;">Nhóm</th>
-					 		<th style="width:14%;text-align: left;">Mã khách mời</th>
-					 		<th style="width:18%;">Số điện thoại</th>
-					 		<th style="width:18%;">Email</th>
-					 		<th style="width:10%;">Tham dự</th>
-					 		<th style="width:10%;"></th>
-					 		<th style="width:10%;"></th>
+					 	<tr class="thead-guest">
+					 		<th style="text-align:left">Nhóm</th>
+					 		<th>Mã khách mời</th>
+					 		<th>Số điện thoại</th>
+					 		<th>Email</th>
+					 		<th colspan="3">Tham dự</th>
 					 	</tr>
 					 	</thead>
 					 	<tbody>
 					 @if((Groups::where('user',GuestController::id_user())->get()))
 					 	@foreach(Groups::where('user',GuestController::id_user())->get() as $key=>$group)
 					 		<tr class="guest_cat{{$group->id}} guest_cat" id="cate{{$group->id}}">					 						 			
-					 			<td style="width:18%;text-align: left;"><a href="javascript:void(0);" style="color:#555555;"onclick="show_hide({{$group->id}})" ><i id="show-hide-group{{$group->id}}" class=" fa fa-minus-square-o"></i><strong class="name_group_edit{{$group->id}}"> {{$group->name}}</strong>(<span class="total_group_guest{{$group->id}}">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->sum('attending')}}</span>)</a></td>
-					 			<td style="width:14%;text-align: left;"></td>
-					 			<td style="width:18%;"></td>
-					 			<td style="width:18%;"></td>
-					 			<td style="width:10%;"></td>
-					 			<td style="width:10%;"></td>
-					 			<td style="width:10%;">
+					 			<td colspan="5" style="text-align:left">
+					 				<a href="javascript:void(0);" style="color:#555555;"onclick="show_hide({{$group->id}})" >
+					 					<i id="show-hide-group{{$group->id}}" class=" fa fa-minus-square-o"></i>
+					 					<strong class="name_group_edit{{$group->id}}"> {{$group->name}}</strong>
+					 					(<span class="total_group_guest{{$group->id}}">{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->sum('attending')}}</span>)
+					 				</a>
+					 			</td>
+					 			<td colspan="2" style="text-align:right">
+
+					 				<a href="#" id="edit-group-webding{{$group->id}}" onclick="sent_id_group_edit({{$group->id}})" class="icon-delete-group"data-toggle="modal" data-target="#editGroup-guest" data-backdrop="static">
+										<span class="fa fa-edit "></span>
+									</a>
+									
+					 				<a href="#" onclick="sent_id_group({{$group->id}})" id="delete-group-webding{{$group->id}} " class="icon-delete-group" data-toggle="modal" data-target="#deleteGroup-guest" data-backdrop="static" style="margin-right: 10px;" >
+										<span class="fa fa-trash-o "></span>
+									</a>
+
 					 				<span class="up_item_cat" style="color: #19b5bc; cursor:pointer; " id="up{{$group->id}}"><i class="glyphicon glyphicon-chevron-up"></i></span>
 					 				<span class="down_item_cat" style="color: #19b5bc; cursor:pointer; display:none"; id="down{{$group->id}}" ><i class="glyphicon glyphicon-chevron-down"></i></span>
 					 				<!-- display or hide a item -->
@@ -254,15 +280,6 @@ Danh sách khách mời
 
 									</script>
 									
-
-					 				<a href="#" id="edit-group-webding{{$group->id}}" onclick="sent_id_group_edit({{$group->id}})" class="icon-delete-group"data-toggle="modal" data-target="#editGroup-guest" data-backdrop="static">
-										<span class="fa fa-edit "></span>
-									</a>
-									
-					 				<a href="#" onclick="sent_id_group({{$group->id}})" id="delete-group-webding{{$group->id}} " class="icon-delete-group" data-toggle="modal" data-target="#deleteGroup-guest" data-backdrop="static" style="margin-right: 10px;" >
-										<span class="fa fa-trash-o "></span>
-									</a>
-									
 					 			</td>
 					 		</tr>
 					 		<tbody class="guest_list_show_cat{{$group->id}} guest_list_show_cat">
@@ -270,7 +287,7 @@ Danh sách khách mời
 					 			@foreach(Guests::where('user',GuestController::id_user())->where('group',$group->id)->get() as $guest)
 			 					<tr class=" guest_list{{$guest->id}} guest_list_item_cat" id="guest_list_item_cat{{$guest->id}}">
 			 											 			
-						 			<td style="width:18%;text-align: left;">
+						 			<td style="text-align: left;">
 						 				<div>
 										 	<a onclick="name_click({{$guest->id}})" class="{{$guest->id}}show_name">
 										 		{{$guest->fullname}}
@@ -280,14 +297,14 @@ Danh sách khách mời
 										</div>
 										<p style="display:none;color:red;" class="name_error{{$guest->id}}">Nhập tên khách mời</p>
 									</td>
-									<td style="width:18%; text-align: left;">
+									<td>
 										<div> 
 											<a class="span-id-guest" title="Tìm hiểu thêm" data-toggle="modal" data-target="#alert-id-guest" data-backdrop="static">
 												{{$guest->address}}
 											</a>
 										</div>
 									</td>
-							 		<td style="width:14%;">
+							 		<td>
 						 				<div >
 										 <a onclick="phone_click({{$guest->id}})" class="{{$guest->id}}show_phone">{{$guest->phone}}</a> 										 	
 										    <input onkeyup="key_phone(event,{{$guest->id}})" onblur="phone_change({{$guest->id}})" ondblclick="phone_dblclick({{$guest->id}})" type="text" class="{{$guest->id}}phone form-control input-edit-guest" name="phone" value="{{$guest->phone}}">   
@@ -296,7 +313,7 @@ Danh sách khách mời
 										 <p style="display:none;color:red;" class="phone_error{{$guest->id}}">phone không đúng</p>
 										 
 							 		</td>
-						 			<td style="width:18%;">
+						 			<td>
 						 				<div  > 
 											<a onclick="email_click({{$guest->id}})" class="{{$guest->id}}show_email">{{$guest->email}}</a> 										 	
 										    <input onblur="email_change({{$guest->id}})" type="text" class="{{$guest->id}}email form-control input-edit-guest" name="email" value="{{$guest->email}}">   
@@ -304,7 +321,7 @@ Danh sách khách mời
 										</div>
 										<p style="display:none;color:red;" class="email_format{{$guest->id}}">email không đúng</p>
 					 				</td><!-- pay -->
-						 			<td style="width:10%;">
+						 			<td>
 						 				<div>
 							 				<a onclick="attend_click({{$guest->id}})" class="{{$guest->id}}show_attend">{{$guest->attending}}</a> 										 	
 										    <input onblur="attend_change({{$guest->id}})" ondblclick="attend_dblclick({{$guest->id}})" onchange="sum_attending({{$guest->id}})" type="text" class="{{$guest->id}}attend form-control input-edit-guest" name="attending" value="{{$guest->attending}}">   
@@ -312,7 +329,7 @@ Danh sách khách mời
 						 				</div>
 						 				
 						 			</td><!-- Due -->
-						 			<td style="width:10%;">
+						 			<td>
 						 				@if($guest->invited==false)
 						 				<input onclick="invited1_click({{$guest->id}})" type="submit" name="invited1" id="invited1{{$guest->id}}" class="invited1 form-control " value="Chưa mời" required="required" title="">
 						 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
@@ -327,7 +344,7 @@ Danh sách khách mời
 						 				@endif
 						 			</td>
 						 			
-						 			<td style="width:10%;">
+						 			<td>
 						 				<a onclick="get_guest({{$guest->id}})" href="javascript:void(0)" data-toggle="modal" data-target="#modalDeleteGuest" class="guest_list_icon_trash guest_del{{$guest->id}}">
 						 					<i class="glyphicon glyphicon-trash"></i>
 						 				</a>

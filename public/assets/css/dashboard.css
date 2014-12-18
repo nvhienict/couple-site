@@ -550,7 +550,7 @@ a.budget_icon_notes{
 		font-size: 95%;
 	}
 
-	.table-hover{
+	.table-hover, .table-guest{
 		font-size: 100%;
 	}
 
@@ -567,6 +567,28 @@ a.budget_icon_notes{
 	}
 	.panel-title{
 		font-size: 100%;
+	}
+
+	.thead-guest{
+		font-size: 75%;
+		line-height: 100% !important;
+	}
+	.guest_cat{
+		font-size: 90%;
+	}
+
+	.table-budget{
+		font-size: 100%;
+	}
+	.title-budget{
+		font-size: 200%;
+	}
+	.thead-budget{
+		font-size: 70%;
+	}
+
+	.title-create-budget{
+		font-size: 200%;
 	}
 
 
@@ -598,6 +620,31 @@ a.budget_icon_notes{
 	}
 	.panel-title{
 		font-size: 90%;
+	}
+
+	.thead-guest{
+		font-size: 70%;
+		line-height: 100% !important;
+	}
+	.guest_cat{
+		font-size: 80%;
+	}
+	.table-guest{
+		font-size: 65%;
+	}
+
+	.table-budget{
+		font-size: 80%;
+	}
+	.title-budget{
+		font-size: 170%;
+	}
+	.thead-budget{
+		font-size: 70%;
+	}
+
+	.title-create-budget{
+		font-size: 150%;
 	}
 
 }
