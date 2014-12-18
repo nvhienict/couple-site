@@ -62,6 +62,7 @@ li.open a.dropdown-toggle{
 .center-dashboard{
 	margin: 0;
 	min-height: 500px;
+	height: auto;
 	background-color: #FBE5EC;
 }
 .navbar{
@@ -539,5 +540,66 @@ a.budget_icon_notes{
 }
 
 /*end budget*/
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 980px){
+	.nav > li > a, .navbar-brand{
+		font-size: 100%;
+	}
+
+	.dropdown-menu > li > a{
+		font-size: 95%;
+	}
+
+	.table-hover{
+		font-size: 100%;
+	}
+
+	.sort-by h2{
+		font-size: 200%;
+	}
+
+	.checklist-statis-formonth, .checklist-statis-formonth-hide{
+		font-size: 90%;
+	}
+
+	.panel-heading{
+		font-size: 100%;
+	}
+	.panel-title{
+		font-size: 100%;
+	}
+
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 360px){
+	.nav > li > a, .navbar-brand{
+		font-size: 100%;
+	}
+
+	.dropdown-menu > li > a{
+		font-size: 95%;
+	}
+
+	.table-hover{
+		font-size: 95%;
+	}
+
+	.sort-by h2{
+		font-size: 170%;
+	}
+
+	.checklist-statis-formonth, .checklist-statis-formonth-hide{
+		font-size: 80%;
+	}
+
+	.panel-heading{
+		font-size: 90%;
+	}
+	.panel-title{
+		font-size: 90%;
+	}
+
+}
 
 
