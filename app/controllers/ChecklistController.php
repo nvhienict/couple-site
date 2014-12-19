@@ -12,7 +12,6 @@ class ChecklistController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Show the form for creating a new resource.
 	 *

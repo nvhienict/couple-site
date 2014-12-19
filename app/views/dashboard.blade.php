@@ -292,6 +292,7 @@ Dashboard
 
         	});
 
+
         	var $cssSuccess = $('.progress-bar-success').text();
         	var $cssWarning = $('.progress-bar-warning').text();
         	var $cssInfo = $('.progress-bar-info').text();
