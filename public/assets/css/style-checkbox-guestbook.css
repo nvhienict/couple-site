@@ -31,14 +31,14 @@ input[type=checkbox] {
 }
 
 .slideThree {
-	width: 80px;
+	width: 40px;
 	height: 26px;
 	background: #555555;
 	margin: 20px auto;
 
-	-webkit-border-radius: 50px;
-	-moz-border-radius: 50px;
-	border-radius: 50px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 	position: relative;
 
 	-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
@@ -47,7 +47,7 @@ input[type=checkbox] {
 }
 
 .slideThree:after {
-	content: 'NO';
+	/*content: 'NO';*/
 	font: 12px/26px Arial, sans-serif;
 	color: #000;
 	position: absolute;
@@ -58,7 +58,7 @@ input[type=checkbox] {
 }
 
 .slideThree:before {
-	content: 'YES';
+	/*content: 'YES';*/
 	font: 12px/26px Arial, sans-serif;
 	color: #00bf00;
 	position: absolute;
@@ -72,9 +72,9 @@ input[type=checkbox] {
 	width: 34px;
 	height: 20px;
 
-	-webkit-border-radius: 50px;
-	-moz-border-radius: 50px;
-	border-radius: 50px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
 
 	-webkit-transition: all .4s ease;
 	-moz-transition: all .4s ease;
@@ -90,16 +90,24 @@ input[type=checkbox] {
 	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
 	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
 	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
-	background: #fcfff4;
+	background: #EBF8A4;
 
-	background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+	background: -webkit-linear-gradient(top, #EBF8A4 0%, #EBF8A4 40%, #EBF8A4 100%);
+	background: -moz-linear-gradient(top, #EBF8A4 0%, #EBF8A4 40%, #EBF8A4 100%);
+	background: -o-linear-gradient(top, #EBF8A4 0%, #EBF8A4 40%, #EBF8A4 100%);
+	background: -ms-linear-gradient(top, #EBF8A4 0%, #EBF8A4 40%, #EBF8A4 100%);
+	background: linear-gradient(top, #EBF8A4 0%, #EBF8A4 40%, #EBF8A4 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EBF8A4', endColorstr='#EBF8A4',GradientType=0 );
 }
 
 .slideThree input[type=checkbox]:checked + label {
-	left: 43px;
+	left: 3px;
+	background: #52c45a;
+
+	background: -webkit-linear-gradient(top, #52c45a 0%, #52c45a 40%, #52c45a 100%);
+	background: -moz-linear-gradient(top, #52c45a 0%, #52c45a 40%, #52c45a 100%);
+	background: -o-linear-gradient(top, #52c45a 0%, #52c45a 40%, #52c45a 100%);
+	background: -ms-linear-gradient(top, #52c45a 0%, #52c45a 40%, #52c45a 100%);
+	background: linear-gradient(top, #52c45a 0%, #52c45a 40%, #52c45a 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52c45a', endColorstr='#52c45a',GradientType=0 );
 }

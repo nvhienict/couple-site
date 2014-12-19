@@ -488,38 +488,43 @@ public function update_name()
 	public function checkAttending()
 	{
 		$code_check_attending		= Input::get('checkAttendingCode');
+		$num_person 				= Input::get('numPerson');
 		$id_guest					= Input::get('idGuest');
 
 		$guest 						= new Guests();
-		if ( $guest->where('id', $id_guest)->get()->first()->attending == 1 ) {
-			$attending 				= 0;
+		if ( $guest->where('id', $id_guest)->get()->first()->confirm == 1 ) {
+			$confirm 				= 0;
 		} else {
-			$attending 				= 1;
+			$confirm 				= 1;
 		}
 
 		if ( $code_check_attending == null ) {
 			$msg = "Xác nhận không thành công";
+			$tiny = 0;
 		} else {
 			
 			if ( $code_check_attending 	= $guest->where('id', $id_guest)->get()->first()->address ) {
 				$guest->where('id', $id_guest)->update(
 						array(
-							"attending" 		=> $attending,
+							"attending" 		=> $num_person,
+							"confirm"			=> $confirm
 						));
 
 				$msg = "Xác nhận thành công";
+				$tiny = 1;
 			} else {
 				$msg = "Xác nhận không thành công";
+				$tiny = 0;
 			}
 		}
 
-		$guest_gh_attending = $guest->where('id', $id_guest)->get()->first()->attending;
+		$guest_gh_confirm 	= $guest->where('id', $id_guest)->get()->first()->confirm;
 		$guest_gh_id 		= $guest->where('id', $id_guest)->get()->first()->id;
 
-		if ( $guest_gh_attending == 1 ) {
+		if ( $guest_gh_confirm == 1 ) {
 			$returnCheckAttending = '';
 			$returnCheckAttending .= '
-				<div class="slideThree">	
+				<div class="slideThree">
 					<input type="checkbox" checked="checked" value="'.$guest_gh_id.'" id="slideThreeChk'.$guest_gh_id.'" name="checkAttending" />
 					<label for="slideThree" class="labelChk'.$guest_gh_id.'"></label>
 				</div>
@@ -536,7 +541,7 @@ public function update_name()
 		
 		
 
-		echo json_encode( array("msg"=>$msg, "replace"=>$returnCheckAttending) );
+		echo json_encode( array("msg"=>$msg, "tiny"=>$tiny, "replace"=>$returnCheckAttending) );
 		exit();
 
 		

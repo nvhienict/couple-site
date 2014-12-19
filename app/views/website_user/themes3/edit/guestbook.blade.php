@@ -1,19 +1,19 @@
 
-<div class="partion" style="z-index:99999">
+<div class="partion">
 	<div class="row phara-margin">
        	<h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
             {{$tabWeb->title}}
         </h3>
 
 			<div class="row">
-				<div class="col-xs-6 col-xs-offset-3">
+				<div class="col-xs-3"></div>
+				<div class="col-xs-6">
 					<table class="table-guest-website">
 					 	<thead>
 						 	<tr>
 						 		<th style="width:15%;text-align: left;">Nhóm / Khách</th>
 						 		<th style="width:13%;">
 						 			Xác nhận tham dự cho tôi
-						 			<!-- <span style="display: block; font-size: 15px; margin-top: -15%; color: #3395B1;">Xác nhận cho tôi</span> -->
 						 		</th>
 						 	</tr>
 					 	</thead>
@@ -41,8 +41,8 @@
 						 			<td style="width:18%;text-align: left;">
 						 				<a>{{$guest->fullname}}</a>
 									</td>
-						 			<td style="width:10%;" class="td-check-attending{{$guest->id}}">
-						 				@if ( $guest->attending==1 )
+						 			<td style="width:10%;">
+						 				@if ( $guest->confirm==1 )
 							 				<div class="slideThree">	
 												<input type="checkbox" checked="checked" value="{{$guest->id}}" id="slideThreeChk{{$guest->id}}" name="checkAttending" />
 												<label for="slideThree" class="labelChk{{$guest->id}}"></label>
@@ -67,7 +67,20 @@
 											        <h4 class="modal-title text-left" id="myModalLabel">{{$guest->fullname}}</h4>
 											    </div>
 											    <div class="modal-body">
-											    	<input type="text" name="checkAttendingCode{{$guest->id}}" placeholder="Nhập mã xác nhận ở đây" />
+											    	<div class="form-group">
+											    		<input type="text" class="form-control" name="checkAttendingCode{{$guest->id}}" placeholder="Nhập mã xác nhận ở đây" />	
+											    	</div>
+											    	<div class="form-group">
+												    	<select class="form-control" name="num-person-attend{{$guest->id}}">
+												    		<option value="1">-- Số người tham dự --</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+														</select>
+													</div>
+
 											    	<span style="color: #3897DB; display: block;" class="msg-alert"></span>
 													<input type="hidden" name="idGuest{{$guest->id}}" value="{{$guest->id}}" />
 											    </div>
@@ -88,6 +101,7 @@
 
 										$('#checkAttending{{$guest->id}}').click(function(){
 											var checkAttendingCode = $('input[name="checkAttendingCode{{$guest->id}}"]').val();
+											var numPerson 		   = $('select[name="num-person-attend{{$guest->id}}"]').val();
 											var idGuest   		   = $('input[name="idGuest{{$guest->id}}"]').val();
 
 											$.ajax({
@@ -95,12 +109,18 @@
 												url: "{{URL::route('checkAttending')}}",
 												data: {
 													checkAttendingCode:checkAttendingCode,
-													idGuest:idGuest
+													idGuest:idGuest,
+													numPerson:numPerson
 												},
 												success:function(data){
 													var obj = JSON.parse(data);
 													$('.msg-alert').html(obj.msg);
 													$('.td-check-attending{{$guest->id}}').replaceWith(obj.replace);
+													if ( (obj.tiny)===0 ) {
+														$('input[type=checkbox]').attr('checked', false);
+													} else {
+														return true;
+													};
 												}
 											});
 										});
