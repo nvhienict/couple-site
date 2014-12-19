@@ -23,6 +23,7 @@ class CreateGuest extends Migration {
 			$table->integer("attending");
 			$table->integer("group");
 			$table->boolean("invited");
+			$table->confirm("invited");
 			$table->timestamps();
 		});
 	}

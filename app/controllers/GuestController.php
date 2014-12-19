@@ -60,14 +60,15 @@ class GuestController extends \BaseController {
                
 		}
 		$guest 				= new Guests();
-		$guest->fullname 	= "New Guest";
+		$guest->fullname 	= "Họ và tên";
 		$guest->email 		= "Email";
 		$guest->address 	= $id_user.str_random(5);
-		$guest->phone 		= "Phone";
-		$guest->attending 	= "0";
+		$guest->phone 		= "Số điện thoại";
+		$guest->attending 	= "1";		
 		$guest->group 		= $id_group;
 		$guest->user 		= $id_user;
         $guest->invited 	= false;
+        $guest->confirm 	= false;
 		$guest->save(); 
 		$total_guest 		= Guests::where('user',GuestController::id_user())->sum('attending');
 		$total_invited 		= Guests::where('user',GuestController::id_user())->where('invited',true)->sum('attending');
@@ -80,9 +81,9 @@ class GuestController extends \BaseController {
 	 			<td style="width:18%;text-align: left;">
 	 				<div>
 					 <a onclick="name_click('.$guest_add->id.')" class="'.$guest_add->id.'show_name">
-					 	'.$guest->fullname.'
+					 	'.$guest_add->fullname.'
 					 </a> 										 	
-					    <input onblur="name_change('.$guest_add->id.')" ondblclick="name_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'name form-control input-edit-guest" name="fullname" value="'.$guest->fullname.'">   
+					    <input onblur="name_change('.$guest_add->id.')" ondblclick="name_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'name form-control input-edit-guest" name="fullname" value="'.$guest_add->fullname.'">   
 						<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
 						 <p style="display:none;color:red;" class="name_error'.$guest_add->id.'">Nhập tên khách mời</p>
 					 </div>			 
@@ -90,39 +91,39 @@ class GuestController extends \BaseController {
 	 			<td style="width:18%; text-align: left;">
 					<div> 
 						<a class="span-id-guest" title="Tìm hiểu thêm" data-toggle="modal" data-target="#alert-id-guest" data-backdrop="static">
-							'.$guest->address.'
+							'.$guest_add->address.'
 						</a> 										 	
 					</div>				
 				</td>
 		 		<td style="width:14%;">
 	 				<div >
-					 <a onclick="phone_click('.$guest_add->id.')" class="'.$guest_add->id.'show_phone">'.$guest->phone.'</a> 										 	
-					    <input onkeyup="key_phone(event,'.$guest_add->id.')" onblur="phone_change('.$guest_add->id.')" ondblclick="phone_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'phone form-control input-edit-guest" name="phone" value="'.$guest->phone.'">   
+					 <a onclick="phone_click('.$guest_add->id.')" class="'.$guest_add->id.'show_phone">'.$guest_add->phone.'</a> 										 	
+					    <input onkeyup="key_phone(event,'.$guest_add->id.')" onblur="phone_change('.$guest_add->id.')" ondblclick="phone_dblclick('.$guest_add->id.')" type="text" class="'.$guest_add->id.'phone form-control input-edit-guest" name="phone" value="'.$guest_add->phone.'">   
 						<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
 					 </div>	
 					  <p style="display:none;color:red;" class="phone_error'.$guest_add->id.'">phone không đúng</p>				 
 		 		</td>
 		 		<td style="width:18%;">
 	 				<div> 
-						<a onclick="email_click('.$guest_add->id.')" class="'.$guest_add->id.'show_email">'.$guest->email.'</a> 										 	
-					    <input onblur="email_change('.$guest_add->id.')"  type="text" class="'.$guest_add->id.'email form-control input-edit-guest" name="email" value="'.$guest->email.'">   
+						<a onclick="email_click('.$guest_add->id.')" class="'.$guest_add->id.'show_email">'.$guest_add->email.'</a> 										 	
+					    <input onblur="email_change('.$guest_add->id.')"  type="text" class="'.$guest_add->id.'email form-control input-edit-guest" name="email" value="'.$guest_add->email.'">   
 						<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
 					</div>
 					<p style="display:none;color:red;" class="email_format'.$guest_add->id.'">email không đúng</p>
  				</td><!-- pay -->
 	 			<td style="width:10%;">
 	 				<div>
-		 				<a onclick="attend_click('.$guest_add->id.')" class="'.$guest_add->id.'show_attend">'.$guest->attending.'</a> 										 	
-					    <input onblur="attend_change('.$guest_add->id.')" ondblclick="attend_dblclick('.$guest_add->id.')" onchange="sum_attending('.$guest->id.')"type="text" class="'.$guest_add->id.'attend form-control input-edit-guest" name="attending" value="'.$guest->attending.'">   
+		 				<a onclick="attend_click('.$guest_add->id.')" class="'.$guest_add->id.'show_attend">'.$guest_add->attending.'</a> 										 	
+					    <input onblur="attend_change('.$guest_add->id.')" ondblclick="attend_dblclick('.$guest_add->id.')" onchange="sum_attending('.$guest_add->id.')"type="text" class="'.$guest_add->id.'attend form-control input-edit-guest" name="attending" value="'.$guest_add->attending.'">   
 						<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
 	 				</div>
 	 			</td><!-- Due -->
 	 			<td style="width:10%;">
                      
-	 				<input onclick="invited1_click('.$guest->id.')" type="submit" name="invited1" id="invited1'.$guest_add->id.'" class="form-control invited1" value="Chưa mời" required="required" title="">
-	 				<input type="hidden" name="'.$guest->id.'" value="'.$guest->id.'">
-	 				<input onclick="invited2_click('.$guest->id.')"  type="submit" name="invited2" style="display:none" id="invited2'.$guest_add->id.'" class="form-control invited2" value="Đã mời" required="required" title="">
-	 				<input type="hidden" name="'.$guest->id.'" value="'.$guest->id.'">
+	 				<input onclick="invited1_click('.$guest_add->id.')" type="submit" name="invited1" id="invited1'.$guest_add->id.'" class="form-control invited1" value="Chưa mời" required="required" title="">
+	 				<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
+	 				<input onclick="invited2_click('.$guest_add->id.')"  type="submit" name="invited2" style="display:none" id="invited2'.$guest_add->id.'" class="form-control invited2" value="Đã mời" required="required" title="">
+	 				<input type="hidden" name="'.$guest_add->id.'" value="'.$guest_add->id.'">
 	 			</td>
 	 			<td style="width:10%;">	 				
 	 				<a onclick="get_guest('.$guest_add->id.')" href="javascript:void(0)" data-toggle="modal" data-target="#modalDeleteGuest" class="guest_list_icon_trash guest_del'.$guest_add->id.'">
