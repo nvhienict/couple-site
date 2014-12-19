@@ -74,8 +74,7 @@ Dashboard
 			<div class="div-2">
 				Hoàn thành<br />
 				<span>
-					{{WebsiteController::getCountDataNull()}}/{{WebsiteController::getCountDataRequest()}}
-					&nbsp({{WebsiteController::getCountDataPercent()}}%)
+					{{WebsiteController::getCountDataPercent()}}%
 				</span>
 			</div>
 			<div class="div-3">
@@ -140,8 +139,8 @@ Dashboard
             		 					<td>Đã mời</td>
             		 					<td>
             		 						<div class="progress progress-striped active">
-		                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-		                                            40%
+		                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+		                                            {{ GuestController::getGuestInvitedPercent() }}%
 		                                        </div>
 		                                    </div>
 										</td>
@@ -150,8 +149,8 @@ Dashboard
             		 					<td>Chưa mời</td>
             		 					<td>
             		 						<div class="progress progress-striped active">
-		                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-		                                            40%
+		                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+		                                            {{ GuestController::getGuestOverInvitedPercent() }}%
 		                                        </div>
 		                                    </div>
 										</td>
@@ -160,8 +159,8 @@ Dashboard
             		 					<td>Đã xác nhận</td>
             		 					<td>
             		 						<div class="progress progress-striped active">
-		                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-		                                            60%
+		                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+		                                            {{ GuestController::getGuestConfirmPercent() }}%
 		                                        </div>
 		                                    </div>
 										</td>
@@ -170,8 +169,8 @@ Dashboard
             		 					<td>Chưa xác nhận</td>
             		 					<td>
             		 						<div class="progress progress-striped active">
-		                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-		                                            40%
+		                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+		                                            {{ GuestController::getGuestNotConfirmPercent() }}%
 		                                        </div>
 		                                    </div>
 										</td>
@@ -180,8 +179,8 @@ Dashboard
             		 					<td>Tổng số khách</td>
             		 					<td>
             		 						<div class="progress">
-	            		 						<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-												    500
+	            		 						<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%" >
+												    {{ GuestController::getAllGuest() }}
 												</div>
 											</div>
 										</td>
@@ -199,35 +198,79 @@ Dashboard
 		            				<th>Tình trạng</th>
 		            			</tr>
 		            		</thead>
-		            		<tbody>
-		            			<tr class="warning">
+		            		<tbody class="tbl-website">
+		            			@foreach( WebsiteController::getDataDashboard() as $item )
+		            			<tr>
 		            				<td>Hình nền</td>
-		            				<td>Chưa có</td>
+		            				<td>
+		            					@if( $item->background == null )
+		            					Chưa có
+		            					@else
+		            					Sẵn sàng
+		            					@endif
+		            				</td>
 		            			</tr>
-		            			<tr class="success">
+		            			<tr>
 		            				<td>Ảnh chú rể</td>
-		            				<td>Sẵn sàng</td>
+		            				<td>
+		            					@if( $item->avatar_groom == null )
+		            					Chưa có
+		            					@else
+		            					Sẵn sàng
+		            					@endif
+		            				</td>
 		            			</tr>
-		            			<tr class="warning">
+		            			<tr>
 		            				<td>Ảnh cô dâu</td>
-		            				<td>Chưa có</td>
+		            				<td>
+		            					@if( $item->avatar_bride == null )
+		            					Chưa có
+		            					@else
+		            					Sẵn sàng
+		            					@endif
+		            				</td>
 		            			</tr>
-		            			<tr class="success">
-		            				<td>Tên cô dâu</td>
-		            				<td>Sẵn sàng</td>
-		            			</tr>
-		            			<tr class="warning">
+		            			<tr>
 		            				<td>Tên chú rể</td>
-		            				<td>Chưa có</td>
+		            				<td>
+		            				@if( $item->name_groom == null )
+		            					Chưa có
+		            					@else
+		            					Sẵn sàng
+		            					@endif
+		            				</td>
 		            			</tr>
-		            			<tr class="warning">
-		            				<td>Giới thiệu cô dâu</td>
-		            				<td>Chưa có</td>
+		            			<tr>
+		            				<td>Tên cô dâu</td>
+		            				<td>
+		            					@if( $item->name_bride == null )
+		            					Chưa có
+		            					@else
+		            					Sẵn sàng
+		            					@endif
+		            				</td>
 		            			</tr>
-		            			<tr class="success">
+		            			<tr>
 		            				<td>Giới thiệu chú rể</td>
-		            				<td>Sẵn sàng</td>
+		            				<td>
+		            					@if( $item->about_groom == null )
+		            					Chưa có
+		            					@else
+		            					Sẵn sàng
+		            					@endif
+		            				</td>
 		            			</tr>
+		            			<tr>
+		            				<td>Giới thiệu cô dâu</td>
+		            				<td>
+		            					@if( $item->about_bride == null )
+		            					Chưa có
+		            					@else
+		            					Sẵn sàng
+		            					@endif
+		            				</td>
+		            			</tr>
+		            			@endforeach
 		            		</tbody>
 		            	</table>
 		        </div>
@@ -248,11 +291,45 @@ Dashboard
         		$('.panel-body div.active').show();
 
         	});
+
+        	var $cssSuccess = $('.progress-bar-success').text();
+        	var $cssWarning = $('.progress-bar-warning').text();
+        	var $cssInfo = $('.progress-bar-info').text();
+        	var $cssDanger = $('.progress-bar-danger').text();
+
+        	$('.progress-bar-success').css("width", ""+$cssSuccess+"");
+        	$('.progress-bar-warning').css("width", ""+$cssWarning+"");
+        	$('.progress-bar-info').css("width", ""+$cssInfo+"");
+        	$('.progress-bar-danger').css("width", ""+$cssDanger+"");
+
+        	if ( ($('.tbl-website tr td:eq(1)').text())==='Chưa có' ) {
+        		$('.tbl-website tr').addClass('warning');
+        	} else {
+        		$('.tbl-website tr').addClass('success');
+        	};
+        	
+
+
         </script>
 
 
 	</div>
 	<!-- /.content -->
+
+	<div class="data-hidden" style="display:none;">
+		<div class="task-do-not">
+			{{ChecklistController::countTasksToDo()-(ChecklistController::countTasksComplete()+ChecklistController::overdue())}}
+		</div>
+		<div class="task-did">
+			{{ChecklistController::countTasksComplete()}}
+		</div>
+		<div class="task-over-do">
+			{{ChecklistController::overdue()}}
+		</div>
+		<div class="task-to-do">
+			{{ChecklistController::countTasksToDo()}}
+		</div>
+	</div>
 
 	<script type="text/javascript" src="{{Asset("assets/js/morris/raphael.min.js")}}"></script>
     <script type="text/javascript" src="{{Asset("assets/js/morris/morris.js")}}"></script>

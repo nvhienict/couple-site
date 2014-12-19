@@ -409,7 +409,7 @@ public function update_name()
 
 
 
-	} // function add_Check_List
+	}
 	public function check_guest_email(){
 			$id_user = GuestController::id_user();
 			return (Guests::where('id',$id_user)->where("email",Input::get('email'))->count()==0? "true": "false");
@@ -549,7 +549,37 @@ public function update_name()
 	public static function getGuestInvited()
 	{
 		$guest 		= new Guests();
-		return $guest->where('invited', 1)->get()->count();
+		return $guest->where('user', GuestController::id_user())->where('invited', true)->get()->count();
+	}
+
+	/**
+	* count guest over invited
+	*
+	*/
+	public static function getGuestOverInvited()
+	{
+		$guest 		= new Guests();
+		return $guest->where('user', GuestController::id_user())->where('invited', false)->get()->count();
+	}
+
+	/**
+	* count guest confirmed
+	*
+	*/
+	public static function getGuestConfirmed()
+	{
+		$guest 		= new Guests();
+		return $guest->where('user', GuestController::id_user())->where('confirm', true)->get()->count();
+	}
+
+	/**
+	* count guest not confirm
+	*
+	*/
+	public static function getGuestNotConfirm()
+	{
+		$guest 		= new Guests();
+		return $guest->where('user', GuestController::id_user())->where('confirm', false)->get()->count();
 	}
 
 	/**
@@ -559,7 +589,7 @@ public function update_name()
 	public static function getAllGuest()
 	{
 		$guest 		= new Guests();
-		return $guest->get()->count();
+		return $guest->where('user', GuestController::id_user())->get()->count();
 	}
 
 	/**
@@ -572,7 +602,46 @@ public function update_name()
 			$percent=0;
 		} else {
 			$percent 	= ( GuestController::getGuestInvited()/GuestController::getAllGuest() )*100;
-			$percent 	= round($percent, 2);
+			$percent 	= round($percent);
+		}
+
+		return $percent;
+	}
+
+	/**
+	* count percent
+	*/
+	public static function getGuestOverInvitedPercent()
+	{
+		if (GuestController::getAllGuest()==0) {
+			$percent=0;
+		} else {
+			$percent 	= ( GuestController::getGuestOverInvited()/GuestController::getAllGuest() )*100;
+			$percent 	= round($percent);
+		}
+
+		return $percent;
+	}
+
+	public static function getGuestConfirmPercent()
+	{
+		if (GuestController::getAllGuest()==0) {
+			$percent=0;
+		} else {
+			$percent 	= ( GuestController::getGuestConfirmed()/GuestController::getAllGuest() )*100;
+			$percent 	= round($percent);
+		}
+
+		return $percent;
+	}
+
+	public static function getGuestNotConfirmPercent()
+	{
+		if (GuestController::getAllGuest()==0) {
+			$percent=0;
+		} else {
+			$percent 	= ( GuestController::getGuestNotConfirm()/GuestController::getAllGuest() )*100;
+			$percent 	= round($percent);
 		}
 
 		return $percent;

@@ -114,7 +114,7 @@ class ChecklistController extends \BaseController {
 	public static function countTasksCompletePercent()
 	{
 		$percent 	= ( ChecklistController::countTasksComplete()/ChecklistController::countTasksToDo() )*100;
-		$percent 	= round($percent, 2);
+		$percent 	= round($percent);
 		return $percent;
 	}
 
@@ -163,14 +163,14 @@ class ChecklistController extends \BaseController {
 	}
 	
 	public static function overdue(){
-		$id_user = ChecklistController::id_user();
+		$id_user 	= ChecklistController::id_user();
 
-		$date_now=new DateTime("now");
-		$overdue=0;
-		$usertask = UserTask::where('user',$id_user)->get();
+		$date_now 	= new DateTime("now");
+		$overdue 	= 0;
+		$usertask 	= UserTask::where('user',$id_user)->get();
 		foreach($usertask as $task)
 		{
-			$date=new DateTime(User::find($id_user)->weddingdate);
+			$date 	= new DateTime(User::find($id_user)->weddingdate);
 			$date_task=$date->sub(new DateInterVal('P'.$task->startdate.'D'));
 				if(date_timestamp_get($date_now)>date_timestamp_get($date_task) && $task->todo!=1) $overdue++;
 		}

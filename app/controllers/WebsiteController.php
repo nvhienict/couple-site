@@ -1720,18 +1720,8 @@ class WebsiteController extends \BaseController {
 	*/ 
 	public static function arrayCheckData()
 	{
-		$arRequest 	= array('background', 'color1', 'color2', 'color3', 'font',
-							'avatar_groom', 'avatar_bride');
-
-		return $arRequest;
-	}
-
-	public static function getDataNull($value)
-	{
-		$website 	= new WeddingWebsite();
-		$record 	= $website->where('user', WebsiteController::id_user())->get()->first()->$value;
-		
-		return $record;
+		$website 			= new WeddingWebsite();
+		return $arWeb 		= $website->where('user', WebsiteController::id_user())->get();
 	}
 
 	public static function getCountDataNull()
@@ -1739,29 +1729,45 @@ class WebsiteController extends \BaseController {
 		$arRequest 	= WebsiteController::arrayCheckData();
 
 		$count 		= 0;
-		foreach ($arRequest as $key => $value) {
-			$data 	= WebsiteController::getDataNull(''.$value.'');
-			if ( $data==null ) {
-				$count++;
-			} else {
-				$count = $count;
+		foreach ($arRequest[0]['attributes'] as $key => $value) {
+			if ( $value!=null ) {
+				$count += 1;
 			}
 		}
 
 		return $count;
 	}
 
-	public static function getCountDataRequest()
-	{
-		return count( WebsiteController::arrayCheckData() );
-	}
-
 	public static function getCountDataPercent()
 	{
-		$percent 	= ( WebsiteController::getCountDataNull()/WebsiteController::getCountDataRequest() )*100;
-		$percent 	= round($percent, 2);
+		$arWeb  = WebsiteController::arrayCheckData();
+
+		if ( count($arWeb)==0 ) {
+			$percent = 0;
+		} else {
+			$check 	= count( $arWeb[0]['attributes'] );
+
+			if ( $check==0 ) {
+				$percent = 0;
+			} else {
+				$percent 	= ( WebsiteController::getCountDataNull()/$check )*100;
+				$percent 	= round($percent);
+			}
+		}
 
 		return $percent;
+	}
+
+
+	/**
+	*return data to Dashboard
+	*
+	*/ 
+	public static function getDataDashboard()
+	{
+		$arData = WeddingWebsite::where('user', WebsiteController::id_user())->get();
+
+		return $arData;
 	}
 
 
