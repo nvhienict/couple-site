@@ -266,7 +266,7 @@
 								<img class="img-circle" src="{{Asset('images/website/themes12/groom.png')}}">
 							@endif
 						</a>
-						<button onclick="send_id(222)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none; z-index:99">Đổi Ảnh</button>
+						<button onclick="send_id(null,222,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none; z-index:99">Đổi Ảnh</button>
 					</span>
 				</div>
 				<!-- end groom -->
@@ -280,7 +280,7 @@
 								<img class="img-circle" src="{{Asset('images/website/themes12/bride.png')}}">
 							@endif
 						</a>
-						<button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none; z-index:99">Đổi Ảnh</button>
+						<button onclick="send_id(null,111,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none; z-index:99">Đổi Ảnh</button>
 					</span>
 				</div>
 				<!-- end bride -->

@@ -14,7 +14,7 @@
                         <img src="{{Asset("images/website/themes10/groom.jpg")}}" class="img-responsive" alt="Image">        
                      </a>   
                     @endif               
-                <button onclick="send_id(222)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>     
+                <button onclick="send_id(null,222,0)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>     
             </span>  
                 <div class="show-content about_grooms text-center">
                     <span class="about-g">{{$website_item->about_groom}} </span>
@@ -32,7 +32,7 @@
                      </a>   
                     @endif
                 </a>    
-                <button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+                <button onclick="send_id(null,111,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
             </span>           
             <div class="show-content about_bride text-center">
                 <span class="about-b">{{$website_item->about_bride}}</span>

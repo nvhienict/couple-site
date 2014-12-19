@@ -82,7 +82,7 @@
 								<p id="about_bride1" class="about-b">{{$website_item->about_bride}}</p>
 								<span class="icon_edit_about">
 									
-									<button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+									<button onclick="send_id(null,111,0)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
 								</span>
 							</div>
 						</div>
@@ -108,7 +108,7 @@
 								<p id="about_groom1" class="about-g">{{$website_item->about_groom}}</p>
 								<span class="icon_edit_about">
 			
-									<button  onclick="send_id(222)"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+									<button onclick="send_id(null,222,0)"  data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
 								</span>
 							</div>
 						</div>

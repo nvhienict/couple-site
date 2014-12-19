@@ -887,20 +887,86 @@
 </script>
 
 <!-- upload ajax -->
-<script src="{{Asset("assets/js/jquery-ajax-upload-images.js")}}"></script>
 
 <!-- upload ajax -->
-	<form style="display:none;" class="form-horizontal" id="upload" action="{{ url('upload_images') }}" enctype="multipart/form-data" method="post" autocomplete="off">
-	    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-	    <input type="file" name="image" id="image" accept="image/*" data-max-size="2097152" required/> 
-	    <input type="hidden" name="id_tab" id="id_tab" value="" />
-	</form>
+	<div class="modal fade " id="modal-changeimage">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content ">
+			<div class="modal-header">
+				<button type="button" onclick="load_photo_tab()" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Chọn Ảnh</h4>
+			</div>
+			<div class="modal-body">
+				
+				<form  action="{{URL::route('upload_photo_tab')}}" class="dropzone dz-clickable" id="upload-photo-tab" method="POST">
+					<input name="send-id-tab" id="send-id-tab" type="hidden" value="">
+					<input name="send-check" type="hidden" id="send-check" value="">
+					<input name="send-check-circle" type="hidden" id="send-check-circle" value="">
+				 </form>
+					
+			</div>
+			<div class="modal-footer" style="text-align:center;">
+	      		<button onclick="load_photo_tab()" type="button" data-dismiss="modal" class="btn btn-primary" >Đóng</button>
+	      		<input type="hidden" id="load-photo-tab" value="">
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <!-- end upload ajax -->
 
 
 <script type="text/javascript" src="{{Asset('assets/js/design_color_font.js')}}"></script>
 
 <script type="text/javascript">
+	
+	
+
+	// upload-image-tab
+	function send_id(id_tab,check,check_circle){
+		 var id_tab = $('#id-tab-photo'+id_tab).val();
+		 var check_circle = check_circle; 
+		 $('#send-check').val(check);
+		 $('#send-id-tab').val(id_tab);
+		 $('#send-check-circle').val(check_circle);
+	};
+	function load_photo_tab(){
+		var id_tab = $('#send-id-tab').val();
+		var check = $('#send-check').val();
+		var check_circle = $('#send-check-circle').val();
+		$.ajax({
+			type:"post",
+			data:{ id_tab : id_tab,
+					check :check,
+					check_circle : check_circle },
+			url: "{{URL::route('load_photo_tab')}}", 
+			success: function(data){
+				// var obj = JSON.parse(data);
+				if (check == "") {
+					$("#prev_output"+id_tab+" a").html("<img style='width:100%; height:100%;' class='img-responsive' src='"+data.image+"' />");
+					$("#prev_output_themes21"+id_tab+" a").html("<img class='tab-text-img' src='"+data.image+"' />");
+					$("#prev_output_theme4"+id_tab+" a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");
+
+				} else{
+					
+					if (check == 111) {
+						$("#prev_outputcc111 a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");
+						$("#prev_output111 a").html("<img class='img-responsive ' src='"+data.image+"' />");
+						$("#prev_output_theme21_b a").html("<img class='img-circle img-bride' src='"+data.image+"' />");
+						$("#prev_output_theme9_b a").html("<img width='100%;' src='"+data.image+"' />");
+						$('#prev_output_theme19_111').html("<img class='img-responsive img-circle img-infor' src='"+data.image+"' />");
+					} else{
+						$("#prev_outputcc222 a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");
+						$("#prev_output222 a").html("<img class='img-responsive ' src='"+data.image+"' />");
+						$("#prev_output_theme21_g a").html("<img class='img-circle img-groom' src='"+data.image+"' />");
+						$("#prev_output_theme9_g a").html("<img width='100%;' src='"+data.image+"' />");
+						$('#prev_output_theme19_222').html("<img class='img-responsive img-circle img-infor' src='"+data.image+"' />");
+					};
+				};
+			 
+			}
+		});
+	};
+
 	// Save Url
 	 function load_url(){
 	 	$.ajax({
@@ -1190,63 +1256,63 @@
 
 	// upload images ajax
 
-    function send_id(id_tab) {
+    // function send_id(id_tab) {
 
-    	$('input[name=id_tab]').val(id_tab);
+    // 	$('input[name=id_tab]').val(id_tab);
 
-        $('#image').trigger('click');
+    //     $('#image').trigger('click');
 
-        var options = { 
-            beforeSubmit: showRequest,
-            success: showResponse,
-            dataType: 'json' 
-            }; 
+    //     var options = { 
+    //         beforeSubmit: showRequest,
+    //         success: showResponse,
+    //         dataType: 'json' 
+    //         }; 
         
-        $('body').delegate('#image','change', function(){
-        	var files = $(this)[0].files;
-           	var fileInput = $('#image');
-           	var maxSize = fileInput.data('max-size'); 
-           	var fileSize = files[0].size; // in bytes
-            if(fileSize>maxSize){
-                swal("Dung lượng của mỗi bức ảnh phải nhỏ hơn 2MB(mega byte), vui lòng chọn lại!"); 
-                $("#image").val("");                
-            }
-            else
-            {
-            	$('#upload').ajaxForm(options).submit(); 
-            }
+    //     $('body').delegate('#image','change', function(){
+    //     	var files = $(this)[0].files;
+    //        	var fileInput = $('#image');
+    //        	var maxSize = fileInput.data('max-size'); 
+    //        	var fileSize = files[0].size; // in bytes
+    //         if(fileSize>maxSize){
+    //             swal("Dung lượng của mỗi bức ảnh phải nhỏ hơn 2MB(mega byte), vui lòng chọn lại!"); 
+    //             $("#image").val("");                
+    //         }
+    //         else
+    //         {
+    //         	$('#upload').ajaxForm(options).submit(); 
+    //         }
             
-        }); 
-    }
+    //     }); 
+    // }
 
-    function showRequest(formData, jqForm, options) { 
-        $("#validation-errors").hide().empty();
-        $("#output").css('display','none');
-        return true; 
-    } 
+    // function showRequest(formData, jqForm, options) { 
+    //     $("#validation-errors").hide().empty();
+    //     $("#output").css('display','none');
+    //     return true; 
+    // } 
 
-    function showResponse(response, statusText, xhr, $form)  { 
-        if(response.success == false)
-        {
-            var arr = response.errors;
-            $.each(arr, function(index, value)
-            {
-                if (value.length != 0)
-                {
+    // function showResponse(response, statusText, xhr, $form)  { 
+    //     if(response.success == false)
+    //     {
+    //         var arr = response.errors;
+    //         $.each(arr, function(index, value)
+    //         {
+    //             if (value.length != 0)
+    //             {
                     
-                    swal("Định dạng ảnh chưa đúng");
-                }
-            });
+    //                 swal("Định dạng ảnh chưa đúng");
+    //             }
+    //         });
             
-            return false;
-        } else {
-            $("#prev_output"+response.id_tab+" a").html("<img class='img-responsive' src='"+response.file+"' />");
-            $("#prev_outputcc"+response.id_tab+" a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+response.file+"' />");
-            $("#prev_output_themes3"+response.id_tab+" a").html("<img style='width: 100%;height: 100%;' class='img-responsive' src='"+response.file+"' />");
-            $("#prev_output_themes21"+response.id_tab+" a").html("<img class='tab-text-img' src='"+response.file+"' />");
+    //         return false;
+    //     } else {
+    //         $("#prev_output"+response.id_tab+" a").html("<img class='img-responsive' src='"+response.file+"' />");
+    //         $("#prev_outputcc"+response.id_tab+" a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+response.file+"' />");
+    //         $("#prev_output_themes3"+response.id_tab+" a").html("<img style='width: 100%;height: 100%;' class='img-responsive' src='"+response.file+"' />");
+    //         $("#prev_output_themes21"+response.id_tab+" a").html("<img class='tab-text-img' src='"+response.file+"' />");
            
-        }
-    }
+    //     }
+    // }
 
     // end upload images ajax
 

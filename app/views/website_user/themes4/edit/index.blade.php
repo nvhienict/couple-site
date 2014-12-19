@@ -17,7 +17,7 @@
 		 <script src="{{Asset('assets/js/jquery.min.js')}}"></script>
 		 <script type="text/javascript" src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
 		 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-		 <script src="{{Asset('assets/js/theme4.js')}}"></script>
+		
 		 <script src="{{Asset("assets/js/map-themes.js")}}"></script>
 		 <script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
 		 <!--  Slide Album -->
@@ -48,31 +48,11 @@
                     vertical-align: middle;
                 }
             </style>
-		 <script type="text/javascript">
-	 		function updateckeditor(id){
-			//var t= CKEDITOR.instances['editor4'].getData();alert(t);
-			$.ajax({
-				type:"post",
-				dataType: "html",
-				url:"{{URL::route('update_content_tab')}}",
-				data: {	content:CKEDITOR.instances['editor'+id].getData(),
-						id_tab:$('.get_id'+id).val()
-					},
-				success:function(data){
-					var obj = JSON.parse(data);
-					$('.phara'+id).html(obj.content);	
-				}
-			});
-				$('.editphara'+id).hide();
-				$('.phara'+id).show();
-				$('.click-edit-hide'+id).show();
-		        $('.ok-edit-show'+id).hide();
-		}  
-		 </script>
+		 
 
 
 	</head>
-	<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"  style="background-color: #F5EBEF;"> -->
+	
 		<!-- header -->
 @if($website)
 	@foreach( $website as $website_item )
@@ -132,7 +112,7 @@
 										<img style="width: 350px;height: 350px;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/boy.jpg')}}">
 										@endif
 									</a>
-									<button onclick="send_id(222)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
+									<button onclick="send_id(null,222,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
 								</figure>
 								<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}}" class="title-tab title-bg name-g">{{$website_item->name_groom}}</h3>
 								<p class="about-g">{{$website_item->about_groom}} </p>
@@ -146,7 +126,7 @@
 										<img style="width: 350px;height: 350px;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/girl.jpg')}}">
 										@endif
 									</a>
-									<button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
+									<button onclick="send_id(null,111,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
 								</figure>
 								<h3 style="font-family: 'Great Vibes',cursive; color:#{{$website_item->color2}}" class="title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
 								<p class="about-b">{{$website_item->about_bride}}</p>
@@ -184,50 +164,38 @@
 		            <div class="row partion " >
 		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
 		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		            			<div id="prev_output{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+		            			<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
 		            				 <a href="#">
 		            				<?php 
 					                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
 					                     ?>
 					                @if($images)
-					                    <img  class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
+					                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
 					                @else 
-					                    <img  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+					                    <img style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
 					                @endif
 					            	</a>
 		            			</div>			
 		            		</div>
 		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		            			<button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+		            			<button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+		            			<input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
 		            		</div>      		
 		            	</div>
-		            	<div onclick="showckeditor({{$tabWeb->id}})" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content phara{{$tabWeb->id}}">
+		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content phara{{$tabWeb->id}}">
 		            		<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 	            		</div>
-	            		<div class="edit-content editphara{{$tabWeb->id}}">
-				        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-				               {{$tabWeb->content}}
-				            </textarea>
-				        </div>
+	            		
 		            </div>
 		            <div class="row phara-margin">
-				    	<div class="col-xs-11"></div>
+				    	<div class="col-xs-10"></div>
 				    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-				    		<span> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
-				            <span><a class="glyphicon glyphicon-cog icon-site" href=""></a></span>
+				    		
+				           	<span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
 				    	</div>
 				    </div>
-				    <div class="row phara-margin">
-				    	<div class="col-xs-11"></div>
-				    	<div class="col-xs-1 ok-edit ok-edit-show{{$tabWeb->id}}">
-				    		<span>
-				                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-				                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-				            </span>
-				            <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-				    	</div>
-				    </div>
+				   
 				</section>
 				<!-- end chao mung -->
 
@@ -257,51 +225,41 @@
 		            	</div>               		
 		            </div>
 		            <div class="row partion " >
-		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content phara{{$tabWeb->id}}">
+		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content phara{{$tabWeb->id}}">
 		            		<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 	            		</div>
-	            		<div class="edit-content editphara{{$tabWeb->id}}">
-				        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-				               {{$tabWeb->content}}
-			            </textarea>
-				        </div>
+	            		
 		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
 		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		            			<div id="prev_output{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+		            			<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+		          					<a href="#">
 		          					<?php 
 					                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
 					                     ?>
 					                @if($images)
-					                    <img  class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
+					                    <img style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
 					                @else 
-					                    <img  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+					                    <img style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
 					                @endif
+					            </a>
 		            			</div>	
 		            			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			            			<button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+			            			<button  onclick="send_id({{$tabWeb->id}},null,0)"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+			            			<input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
 			            		</div> 		
 		            		</div>
 		            		
 		            	</div>
 		            </div>
 		            <div class="row phara-margin">
-				    	<div class="col-xs-11"></div>
+				    	<div class="col-xs-10"></div>
 				    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-				    		<span> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
-				            <span><a class="glyphicon glyphicon-cog icon-site" href=""></a></span>
+				    		
+				           <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
 				    	</div>
 				    </div>
-				    <div class="row phara-margin">
-				    	<div class="col-xs-6 ok-edit ok-edit-show{{$tabWeb->id}}">
-				            <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-				            <span style="float:right;">
-				                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-				                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-				            </span>
-				    	</div>
-				    	<div class="col-xs-6"></div>
-				    </div>
+				   
 				</section>
 				<!-- end history -->
 				@endif
@@ -331,46 +289,41 @@
 		            	</div>               		
 		            </div>
 		            <div class="row partion border-line" >
-		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content phara{{$tabWeb->id}}">
+		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content phara{{$tabWeb->id}}">
 		            		<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 	            		</div>
-	            		<div class="edit-content editphara{{$tabWeb->id}}">
-				        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-				               {{$tabWeb->content}}
-			            </textarea>
-				        </div>
-	            		<div id="prev_output{{$tabWeb->id}}" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-part part-image">
-		            		<?php 
-		                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
-		                     ?>
-			                @if($images)
-			                    <img  class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
-			                @else 
-			                    <img  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+	            		
+				        
+	            		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
+		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		            			<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+		            				 <a href="#">
+		            				<?php 
+					                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
+					                     ?>
+					                @if($images)
+					                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
+					                @else 
+					                    <img style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
-			                @endif
-			                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		            			<button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+					                @endif
+					            	</a>
+		            			</div>			
 		            		</div>
+		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		            			<button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+		            			<input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
+		            		</div>      		
 		            	</div>
 		            </div>
 		            <div class="row phara-margin">
-				    	<div class="col-xs-11"></div>
+				    	<div class="col-xs-10"></div>
 				    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-				    		<span> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
-				            <span><a class="glyphicon glyphicon-cog icon-site" href=""></a></span>
+				    		
+				           <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
 				    	</div>
 				    </div>
-				    <div class="row phara-margin">
-				    	<div class="col-xs-6 ok-edit ok-edit-show{{$tabWeb->id}}" >
-				            <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-				            <span style="float:right;">
-				                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-				                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-				            </span>
-				    	</div>
-				    	<div class="col-xs-6"></div>
-				    </div>
+				   
 				</section>
 				@endif
 
@@ -394,55 +347,46 @@
 		            </div>
 		            <div class="row partion bg-event" >
 
-		            	<div id="prev_output{{$tabWeb->id}}" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 part-image">
+		            	<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 part-image">
+		            		<a href="#">
 		            		<?php 
 			                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
 			                     ?>
 			                @if($images)
-			                    <img  class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
+			                    <img style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
 			                @else 
-			                    <img  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+			                    <img style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
 			                @endif
+			           	 </a>
 			                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		            			<button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+		            			<button  onclick="send_id({{$tabWeb->id}},null,0)"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+		            			<input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
 		            		</div>
 		            	</div>
-		            	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 part-content phara{{$tabWeb->id}}">
+		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 part-content phara{{$tabWeb->id}}">
 		            		<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 	            		</div>
-	            		<div class="edit-content editphara{{$tabWeb->id}}">
-				        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-				               {{$tabWeb->content}}
-				            </textarea>
-				        </div>
-		            	<div id="prev_output{{$tabWeb->id}}" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 part-image">
+
+		            	<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 part-image">
+		            		<a href="#">
 		            		<?php 
 			                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
 			                     ?>
 			                @if($images)
-			                    <img  class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
+			                    <img style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
 			                @else 
-			                    <img  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
-
+			                    <img style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+			                </a>
 			                @endif
 		            	</div>
 		            </div>
+		           
 		            <div class="row phara-margin">
-				    	<div class="col-xs-4"></div>
-				    	<div class="col-xs-4 ok-edit ok-edit-show{{$tabWeb->id}}">
-				            <span style="float:right;"><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-				            <span style="float:right;">
-				                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-				                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-				            </span>
-				    	</div>
-				    </div>
-		            <div class="row phara-margin">
-				    	<div class="col-xs-11"></div>
+				    	<div class="col-xs-10"></div>
 				    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-				    		<span> <a  onclick="showckeditor4({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
-				            <span><a class="glyphicon glyphicon-cog icon-site" href=""></a></span>
+				    		
+				           <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
 				    	</div>
 				    </div>
 				    <div class="row" style="margin-left: 0px; margin-right: 0px;">
@@ -489,46 +433,40 @@
 		            	</div>               		
 		            </div>
 		            <div class="row partion bg-traval" >
-		            	<div id="prev_output{{$tabWeb->id}}" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
-		            		<?php 
-			                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
-			                     ?>
-			                @if($images)
-			                    <img  class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
-			                @else 
-			                    <img  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
+		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		            			<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+		            				 <a href="#">
+		            				<?php 
+					                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
+					                     ?>
+					                @if($images)
+					                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
+					                @else 
+					                    <img style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
-			                @endif
-			                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		            			<button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+					                @endif
+					            	</a>
+		            			</div>			
 		            		</div>
+		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		            			<button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+		            			<input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
+		            		</div>      		
 		            	</div>
-		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 phara{{$tabWeb->id}} part-content">
+		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 phara{{$tabWeb->id}} part-content">
 		            		<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 	            		</div>
-	            		<div class="edit-content editphara{{$tabWeb->id}}">
-				        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-				               {{$tabWeb->content}}
-				            </textarea>
-				        </div>
+	            		
 		            </div>
 		            <div class="row phara-margin">
-				    	<div class="col-xs-11"></div>
+				    	<div class="col-xs-10"></div>
 				    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-				    		<span> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
-				            <span><a class="glyphicon glyphicon-cog icon-site" href=""></a></span>
+				    		<!-- <span> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
+				            <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
 				    	</div>
 				    </div>
-				    <div class="row phara-margin">
-				    	<div class="col-xs-11"></div>
-				    	<div class="col-xs-1 ok-edit ok-edit-show{{$tabWeb->id}}">
-				    		<span>
-				                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-				                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-				            </span>
-				            <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-				    	</div>
-				    </div>
+				    
 				</section>
 				<!-- end traval -->
 				<!-- album -->
@@ -557,32 +495,19 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div class="row part-content partion phara{{$tabWeb->id}}">
+		            <div onclick="showckeditorpartion({{$tabWeb->id}})" class="row part-content partion phara{{$tabWeb->id}}">
 		            	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 		            </div>
-		            <div class="edit-content editphara{{$tabWeb->id}}">
-			        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-			               {{$tabWeb->content}}
-			            </textarea>
-			        </div>
+		           
 		            <div class="row phara-margin">
-				    	<div class="col-xs-11"></div>
+				    	<div class="col-xs-10"></div>
 				    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-				    		<span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
-				            <span><a class="glyphicon glyphicon-cog icon-site" href=""></a></span>
+				    		
+				           <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
 				    	</div>
 				    </div>
-				    <div class="row phara-margin">
-				    	<div class="col-xs-11"></div>
-				    	<div class="col-xs-1 ok-edit ok-edit-show{{$tabWeb->id}}">
-				    		<span>
-				                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-				                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-				            </span>
-				            <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-				    	</div>
-				    </div>
-		            <div id="prev_output{{$tabWeb->id}}" class="row partion " >
+				   
+		            <div id="prev_output_theme4{{$tabWeb->id}}" class="row partion " >
 		            	<?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
 			            @if($albums)
 			                @foreach($albums as $album)
@@ -595,11 +520,11 @@
 			            @endif
 		            </div>
 		            <div class="row phara-margin">
-			            <div class="col-xs-11">
+			            <div class="col-xs-10">
 			            </div>
 			            <div class="col-xs-1 click-edit ">
-			                <span><a  onclick="send_id_album({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);"></a></span>
-			                <span><a  class="glyphicon glyphicon-cog icon-site" href=""></a></span>
+			               
+			                <span><a style="background: #19b5bc; border:none;" onclick="send_id_album({{$tab->id}})" class="btn btn-primary"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);">Tải ảnh lên</a></span>
 			            </div>               
 			        </div>
 				</section>
@@ -631,33 +556,20 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div class="row part-content partion phara{{$tabWeb->id}}">
+		            <div onclick="showckeditorpartion({{$tabWeb->id}})" class="row part-content partion phara{{$tabWeb->id}}">
 		            	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 		            </div>
-		            <div class="edit-content editphara{{$tabWeb->id}}">
-			        	<textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-			               {{$tabWeb->content}}
-			            </textarea>
-			        </div>
+		            
 		            <div class="row phara-margin">
-				    	<div class="col-xs-11"></div>
+				    	<div class="col-xs-10"></div>
 				    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-				    		<span> <a  onclick="showckeditor_text({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
-				            <span><a class="glyphicon glyphicon-cog icon-site" href=""></a></span>
+				    		
+				            <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
 				    	</div>
 				    </div>
-				    <div class="row phara-margin">
-				    	<div class="col-xs-11"></div>
-				    	<div class="col-xs-1 ok-edit ok-edit-show{{$tabWeb->id}}">
-				    		<span>
-				                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-				                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-				            </span>
-				            <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-				    	</div>
-				    </div>
+				    
 		            <div class="row partion " >		            	
-			        	<div class="col-xs-4 ">
+			        	<div class="col-xs-6 ">
 			                <form  class="contact-website" action="" method="POST" role="form">
 				             
 				                 <div class="form-group">

@@ -107,12 +107,12 @@
                             <figure id="prev_outputcc222" class="text-center">
                                 <a href="#">
                                     @if(($website_item->avatar_groom))
-                                    <img  style="width: 350px;height: 350px;" class="img-responsive img-circle" src="{{Asset("$website_item->avatar_groom")}}">
+                                    <img  style="height:350px; width:350px;" class="img-responsive img-circle" src="{{Asset("$website_item->avatar_groom")}}">
                                     @else
-                                    <img style="width: 350px;height: 350px;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/boy.jpg')}}">
+                                    <img  style="height:350px; width:350px;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/boy.jpg')}}">
                                     @endif
                                 </a>
-                                <button onclick="send_id(222)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
+                                <button onclick="send_id(null,222,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
                             </figure>
                             <h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-g">{{$website_item->name_groom}}</h3>
                             <p class="about-g text-center">{{$website_item->about_groom}} </p>
@@ -144,12 +144,12 @@
                             <figure id="prev_outputcc111" class="theme-border-big border text-center">
                                     <a href="#">
                                         @if(($website_item->avatar_bride))
-                                        <img style="width: 350px;height: 350px;" class="img-responsive img-circle" src="{{Asset("$website_item->avatar_bride")}}">
+                                        <img style="height:350px; width:350px;" class="img-responsive img-circle" src="{{Asset("$website_item->avatar_bride")}}">
                                         @else
-                                        <img style="width: 350px;height: 350px;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/girl.jpg')}}">
+                                        <img style="height:350px; width:350px;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/girl.jpg')}}">
                                         @endif
                                     </a>
-                                    <button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
+                                    <button onclick="send_id(null,111,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
                                 </figure>
                                 <h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
                                 <p class="about-b text-center">{{$website_item->about_bride}}</p>

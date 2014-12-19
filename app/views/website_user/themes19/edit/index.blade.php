@@ -240,7 +240,8 @@
             </div>
             <div class="row">
                 
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 infor text-center"  id="prev_outputcc222">
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 infor text-center"  >
+                    <div id="prev_output_theme19_222">
                     <a href="#">
                         @if(($website_item->avatar_groom))
                         <img  class="img-responsive img-circle img-infor" src="{{Asset("$website_item->avatar_groom")}}">
@@ -248,7 +249,8 @@
                         <img  class="img-responsive img-circle img-infor" src="{{Asset('images/website/themes1/boy.jpg')}}">
                         @endif
                     </a>
-                    <button onclick="send_id(222)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
+                    </div>
+                    <button onclick="send_id(null,222,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
                     <h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-g">{{$website_item->name_groom}}</h3>
                     <p class="about-g text-center">{{$website_item->about_groom}} </p>
                 </div>
@@ -289,7 +291,8 @@
                     </div>
                     <!-- end slide images -->
                 </div>
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 infor text-center" id="prev_outputcc111">
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 infor text-center" >
+                    <div id="prev_output_theme19_111">
                     <a href="#">
                         @if(($website_item->avatar_bride))
                         <img  class="img-responsive img-circle img-infor" src="{{Asset("$website_item->avatar_bride")}}">
@@ -297,7 +300,8 @@
                         <img  class="img-responsive img-circle img-infor" src="{{Asset('images/website/themes1/boy.jpg')}}">
                         @endif
                     </a>
-                    <button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
+                    </div>
+                    <button onclick="send_id(null,111,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
                     <h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-b">{{$website_item->name_bride}}</h3>
                     <p class="about-g text-center">{{$website_item->about_bride}} </p>
                 </div>
@@ -384,7 +388,8 @@
 
                         @endif 
                     </a>  
-                     <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>         
+                     <button  onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>         
+                    <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
                 </div>
                 <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
                     <h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
@@ -424,7 +429,8 @@
 
                         @endif 
                     </a>  
-                     <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>         
+                     <button  onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>         
+                    <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
                 </div>
                 <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
                     <h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
@@ -468,7 +474,8 @@
 
                         @endif 
                     </a>  
-                     <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>         
+                     <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>         
+                    <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
                 </div>
             </div>
 
@@ -548,7 +555,8 @@
 
                         @endif 
                     </a>  
-                     <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>         
+                     <button  onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>         
+                    <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
                 </div>
             </div>
 

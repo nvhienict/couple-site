@@ -1545,115 +1545,115 @@ class WebsiteController extends \BaseController {
 	}
 
 	// upload images ajax
-	public function upload_images_ajax()
-	{
+	// public function upload_images_ajax()
+	// {
 
-		$id_user = WebsiteController::id_user();	
-		$id_tab = Input::get('id_tab');
+	// 	$id_user = WebsiteController::id_user();	
+	// 	$id_tab = Input::get('id_tab');
 
-		//
-		$file = Input::file('image');
-		$input = array('image' => $file);
-		$rules = array(
-			'image' => 'image'
-		);
-		$validator = Validator::make($input, $rules);
-		if ( $validator->fails() )
-		{
-			return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);
+	// 	//
+	// 	$file = Input::file('image');
+	// 	$input = array('image' => $file);
+	// 	$rules = array(
+	// 		'image' => 'image'
+	// 	);
+	// 	$validator = Validator::make($input, $rules);
+	// 	if ( $validator->fails() )
+	// 	{
+	// 		return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);
 
-		}
-		else 
-		{
+	// 	}
+	// 	else 
+	// 	{
 
-			// upload images for bride and groom
-			switch ($id_tab) {
+	// 		// upload images for bride and groom
+	// 		switch ($id_tab) {
 
-				case 111:
-					$image = Input::file('image');
-					$imagesBrideGroom = WebsiteController::avatarBrideGroom(111);
-					if (!empty($imagesBrideGroom)) {
-						$path_delete=public_path($imagesBrideGroom);
-						File::delete($path_delete);
-					}
-					File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
-					$filename = $id_user.'_bride_' .str_random(10).'.' .$image->getClientOriginalExtension();
-					$pathsave = 'images/website/avatar/'.$filename;
-					$path = public_path('images/website/avatar/'.$filename);
-					Image::make($image->getRealPath())->resize(800, 600)->save($path);
-					WeddingWebsite::where('user',$id_user)->update(
-						array('avatar_bride'=>$pathsave)					
-						);
+	// 			case 111:
+	// 				$image = Input::file('image');
+	// 				$imagesBrideGroom = WebsiteController::avatarBrideGroom(111);
+	// 				if (!empty($imagesBrideGroom)) {
+	// 					$path_delete=public_path($imagesBrideGroom);
+	// 					File::delete($path_delete);
+	// 				}
+	// 				File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
+	// 				$filename = $id_user.'_bride_' .str_random(10).'.' .$image->getClientOriginalExtension();
+	// 				$pathsave = 'images/website/avatar/'.$filename;
+	// 				$path = public_path('images/website/avatar/'.$filename);
+	// 				Image::make($image->getRealPath())->resize(800, 600)->save($path);
+	// 				WeddingWebsite::where('user',$id_user)->update(
+	// 					array('avatar_bride'=>$pathsave)					
+	// 					);
 
-					break;
+	// 				break;
 
-				case 222:
-					$image = Input::file('image');
-					$imagesBrideGroom = WebsiteController::avatarBrideGroom(222);
-					if (!empty($imagesBrideGroom)) {
-						$path_delete=public_path($imagesBrideGroom);
-						File::delete($path_delete);
-					}
-					File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
-					$filename = $id_user.'_groom_' .str_random(10).'.' .$image->getClientOriginalExtension();
-					$pathsave = 'images/website/avatar/'.$filename;
-					$path = public_path('images/website/avatar/'.$filename);
-					Image::make($image->getRealPath())->resize(800, 600)->save($path);
-					WeddingWebsite::where('user',$id_user)->update(
-						array('avatar_groom'=>$pathsave)					
-						);
+	// 			case 222:
+	// 				$image = Input::file('image');
+	// 				$imagesBrideGroom = WebsiteController::avatarBrideGroom(222);
+	// 				if (!empty($imagesBrideGroom)) {
+	// 					$path_delete=public_path($imagesBrideGroom);
+	// 					File::delete($path_delete);
+	// 				}
+	// 				File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
+	// 				$filename = $id_user.'_groom_' .str_random(10).'.' .$image->getClientOriginalExtension();
+	// 				$pathsave = 'images/website/avatar/'.$filename;
+	// 				$path = public_path('images/website/avatar/'.$filename);
+	// 				Image::make($image->getRealPath())->resize(800, 600)->save($path);
+	// 				WeddingWebsite::where('user',$id_user)->update(
+	// 					array('avatar_groom'=>$pathsave)					
+	// 					);
 
-					break;
-			// end load images for bride and groom
+	// 				break;
+	// 		// end load images for bride and groom
 
-			default:
+	// 		default:
 
-				$check_photo=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->count();
-				if($check_photo>0)
-				{	$name=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->first()->photo;
-					$years=date("Y");
-					$months=date('m');
-					$path_delete=public_path($name);
-					File::delete($path_delete);
-					File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
-					$image = Input::file('image');
-					$filename = str_random(10) . '.' .$image->getClientOriginalExtension();
-					$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
-					$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
-					Image::make($image->getRealPath())->resize(800, 600)->save($path);
-					PhotoTab::where('user',$id_user)->where('tab',$id_tab)->update(
-						array('photo'=>$pathsave)					
-						);
+	// 			$check_photo=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->count();
+	// 			if($check_photo>0)
+	// 			{	$name=PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->first()->photo;
+	// 				$years=date("Y");
+	// 				$months=date('m');
+	// 				$path_delete=public_path($name);
+	// 				File::delete($path_delete);
+	// 				File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
+	// 				$image = Input::file('image');
+	// 				$filename = str_random(10) . '.' .$image->getClientOriginalExtension();
+	// 				$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+	// 				$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
+	// 				Image::make($image->getRealPath())->resize(800, 600)->save($path);
+	// 				PhotoTab::where('user',$id_user)->where('tab',$id_tab)->update(
+	// 					array('photo'=>$pathsave)					
+	// 					);
 				    						
-				}
-				else
-				{
-					$phototab = new PhotoTab();
-					$years = date("Y");
-					$months = date('m');	
-					File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);					
-					$image = Input::file('image');
-				  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
-					$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
-					$pathsave = 'images/website/'.$years.'/'.$months.'/'.$filename;
-					Image::make($image->getRealPath())->resize(800, 600)->save($path);
-					$phototab->user = $id_user;
-					$phototab->photo = $pathsave;
-					$phototab->tab = $id_tab;
-					$phototab->save();
+	// 			}
+	// 			else
+	// 			{
+	// 				$phototab = new PhotoTab();
+	// 				$years = date("Y");
+	// 				$months = date('m');	
+	// 				File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);					
+	// 				$image = Input::file('image');
+	// 			  	$filename =str_random(10) . '.' .$image->getClientOriginalExtension();
+	// 				$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+	// 				$pathsave = 'images/website/'.$years.'/'.$months.'/'.$filename;
+	// 				Image::make($image->getRealPath())->resize(800, 600)->save($path);
+	// 				$phototab->user = $id_user;
+	// 				$phototab->photo = $pathsave;
+	// 				$phototab->tab = $id_tab;
+	// 				$phototab->save();
 				    					
 					
-				}
-				break;
-			} // end switch()
+	// 			}
+	// 			break;
+	// 		} // end switch()
 
-			return Response::json(
-				['success' => true, 
-				'id_tab' => $id_tab, 
-				'file' => asset($pathsave)]
-			);
-		}
-	}
+	// 		return Response::json(
+	// 			['success' => true, 
+	// 			'id_tab' => $id_tab, 
+	// 			'file' => asset($pathsave)]
+	// 		);
+	// 	}
+	// }
 
 	// end upload images ajax
 	// update infor about groom and bride
@@ -1768,6 +1768,128 @@ class WebsiteController extends \BaseController {
 		$arData = WeddingWebsite::where('user', WebsiteController::id_user())->get();
 
 		return $arData;
+	}
+
+
+	// upload ajax new
+
+	public static function uploadPhotoTab(){
+		$file = Input::file('file');
+		$id_tab = Input::get('send-id-tab');
+		$check = Input::get('send-check');
+		$id_user = WebsiteController::id_user();
+		$check_photo = PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->count();
+
+		switch ($check) {
+			case 111:
+					$imagesBrideGroom = WebsiteController::avatarBrideGroom(111);
+					if (!empty($imagesBrideGroom)) {
+						$path_delete=public_path($imagesBrideGroom);
+						File::delete($path_delete);
+					}
+					File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
+					$filename = $id_user.'_bride_' .str_random(10).'.' .$file->getClientOriginalExtension();
+					 $pathsave = 'images/website/avatar/'.$filename;
+					$path = public_path('images/website/avatar/'.$filename);
+					Image::make($file->getRealPath())->resize(800, 600)->save($path);
+					WeddingWebsite::where('user',$id_user)->update(
+						array('avatar_bride'=>$pathsave)					
+						);
+				break;
+
+			case 222: 
+					$imagesBrideGroom = WebsiteController::avatarBrideGroom(222);
+					if (!empty($imagesBrideGroom)) {
+						$path_delete=public_path($imagesBrideGroom);
+						File::delete($path_delete);
+					}
+					File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
+					$filename = $id_user.'_groom_' .str_random(10).'.' .$file->getClientOriginalExtension();
+					$pathsave = 'images/website/avatar/'.$filename;
+					$path = public_path('images/website/avatar/'.$filename);
+					Image::make($file->getRealPath())->resize(800, 600)->save($path);
+					WeddingWebsite::where('user',$id_user)->update(
+						array('avatar_groom'=>$pathsave)					
+						);
+				break;
+			
+			default:
+					if ( $check_photo  > 0 ) 
+				{
+					$name = PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->first()->photo;
+					$years = date("Y");
+					$months = date('m');
+					$path_delete = public_path($name);
+					File::delete($path_delete);
+					File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
+					$filename = str_random(10) . '.' .$file->getClientOriginalExtension();
+					$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+					$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
+					Image::make($file->getRealPath())->resize(800, 600)->save($path);
+					PhotoTab::where('user',$id_user)->where('tab',$id_tab)->update(
+						array('photo'=>$pathsave)					
+						);
+				} 
+				else {
+					$phototab = new PhotoTab();
+					$years = date("Y");
+					$months = date('m');	
+					File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
+				  	$filename =str_random(10) . '.' .$file->getClientOriginalExtension();
+					$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+					$pathsave = 'images/website/'.$years.'/'.$months.'/'.$filename;
+					Image::make($file->getRealPath())->resize(800, 600)->save($path);
+					$phototab->user = $id_user;
+					$phototab->photo = $pathsave;
+					$phototab->tab = $id_tab;
+					$phototab->save();
+				}
+						
+				break;
+			}
+	}
+
+	public function loadPhotoTab(){
+		$check = Input::get('check');
+		$check_circle = Input::get('check_circle');
+		$id_tab = Input::get('id_tab');
+		$id_user = WebsiteController::id_user();
+		if ( empty($check) ) 
+		{
+			$photo = PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->first();
+			$image = asset($photo->photo);
+
+			return Response::json(array('image'=>$image));
+		}
+		 else 
+		 {	
+		 	if ( $check_circle == 1 ) 
+		 	{
+		 		if ($check == 111) {
+			 		$photo = WeddingWebsite::where('user',$id_user)->get()->first();
+			 		$image = asset($photo->avatar_bride);
+			 		return Response::json(array('image'=>$image));
+		 		} else {
+			 		$photo = WeddingWebsite::where('user',$id_user)->get()->first();
+			 		$image = asset($photo->avatar_groom);
+			 		return Response::json(array('image'=>$image));
+		 		}	
+			 } 
+			else 
+			{
+		 		if ($check == 111) {
+			 		$photo = WeddingWebsite::where('user',$id_user)->get()->first();
+			 		$image = asset($photo->avatar_bride);
+			 		return Response::json(array('image'=>$image));
+		 		} else {
+			 		$photo = WeddingWebsite::where('user',$id_user)->get()->first();
+			 		$image = asset($photo->avatar_groom);
+			 		return Response::json(array('image'=>$image));
+		 		}	
+	 		}
+		 
+		 		
+		}
 	}
 
 

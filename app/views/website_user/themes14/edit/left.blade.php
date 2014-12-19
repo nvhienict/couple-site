@@ -2,7 +2,7 @@
 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 phara-temp wedding-template" style="min-height:550px;">     
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 float-left"  style="margin-left:5%;">        
         <span id="prev_output{{$tabWeb->id}}">     
-            <a href="#"> 
+            
                  <?php 
                     $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
                      ?>
@@ -16,10 +16,11 @@
                     </a>
                 @endif            
                
-            </a>
+           
         </span >     
          <span>
-            <button  onclick="send_id({{$tabWeb->id}})"  class="btn " data-toggle="modal" data-target='#modal-changeimage' style="background: #fff;color:black; border:none;">Đổi Ảnh</button>
+            <button  onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn " data-toggle="modal" data-target='#modal-changeimage' style="background: #fff;color:black; border:none;">Đổi Ảnh</button>
+            <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
         </span>   
             
     </div>

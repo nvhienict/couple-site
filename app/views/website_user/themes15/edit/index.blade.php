@@ -201,7 +201,7 @@
 							<img src="{{Asset('images/website/themes15/page2_pic1.jpg')}}">
 						@endif
 					</a>
-					<button onclick="send_id(222)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+					<button onclick="send_id(null,222,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
 				</div>
 			</div>
 			<div class="item-content about-g">
@@ -219,7 +219,7 @@
 							<img src="{{Asset('images/website/themes15/page2_pic1.jpg')}}">
 						@endif
 					</a>
-					<button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+					<button  onclick="send_id(null,111,0)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
 				</div>
 			</div>
 			<div class="item-content about-b">

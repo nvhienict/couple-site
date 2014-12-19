@@ -3,7 +3,7 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 background-item" >     
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 float-right"  style="margin-right:5%">        
         <span id="prev_output{{$tabWeb->id}}">     
-            <a href="#"> 
+           
                  <?php 
                     $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
                      ?>
@@ -17,10 +17,11 @@
                     </a>
                 @endif            
                
-            </a>
+           
         </span >     
          <span>
-            <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-success" data-toggle="modal" data-target='#modal-changeimage' >Đổi Ảnh</button>
+            <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static"  class="btn btn-success" data-toggle="modal" data-target='#modal-changeimage' >Đổi Ảnh</button>
+            <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
         </span>   
             
     </div>

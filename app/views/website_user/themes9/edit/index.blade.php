@@ -144,7 +144,7 @@
 			<div class="header">
 				<div class="groom-bride" id="home">
 					<div class="groom-photo">
-			            <span id="prev_output222">
+			            <span id="prev_output_theme9_g">
 		  					<a href="#">
 				  				@if(!empty($website_item->avatar_groom))
 				  					<img width="100%;" src="{{Asset("$website_item->avatar_groom")}}">
@@ -152,12 +152,12 @@
 									<img src="{{Asset('images/website/themes9/bride.png')}}">
 								@endif
 							</a>
-							<button onclick="send_id(222)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none; z-index:99">Đổi Ảnh</button>
+							<button onclick="send_id(null,222,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none; z-index:99">Đổi Ảnh</button>
 		  				</span>
 					</div>
 					<!-- end groom-photo -->
 					<div class="bride-photo">
-						<span id="prev_output111">
+						<span id="prev_output_theme9_b">
 	  						<a href="#">
 		  						@if(!empty($website_item->avatar_bride))
 				  					<img width="100%;" src="{{Asset("$website_item->avatar_bride")}}">
@@ -165,7 +165,7 @@
 									<img src="{{Asset('images/website/themes9/groom.png')}}">
 								@endif
 							</a>
-	  						<button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none; z-index:99">Đổi Ảnh</button>
+	  						<button onclick="send_id(null,111,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none; z-index:99">Đổi Ảnh</button>
 			            </span>
 					</div>
 					<!-- end bride-photo -->

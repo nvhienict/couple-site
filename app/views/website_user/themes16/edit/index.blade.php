@@ -175,7 +175,7 @@
 						<img  class="img-responsive img-infor-edit" src="{{Asset('images/website/themes1/boy.jpg')}}">
 						@endif
 					</a>
-					<button onclick="send_id(222)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
+					<button  onclick="send_id(null,222,0)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
 				</figure>
 				<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="title-bg name-g">{{$website_item->name_groom}}</h3>
 				<p class="about-g">{{$website_item->about_groom}} </p>
@@ -189,7 +189,7 @@
 						<img class="img-responsive img-infor-edit" src="{{Asset('images/website/themes1/girl.jpg')}}">
 						@endif
 					</a>
-					<button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
+					<button  onclick="send_id(null,111,0)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
 				</figure>
 				<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
 				<p class="about-b">{{$website_item->about_bride}}</p>
@@ -219,7 +219,8 @@
 	            @endif
        		</div>  		
             </a>
-            <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+             <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
             <div class="part-content phara{{$tabWeb->id}}">    		
     		 	<span class="collapse" id="viewdetails1" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>
@@ -263,7 +264,8 @@
 	            @endif
        		</div>  		
             </a>
-            <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+             <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
             <div class="part-content phara{{$tabWeb->id}}">    		
     		 	<span class="collapse" id="viewdetails2" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>
@@ -306,7 +308,8 @@
 	            @endif
        		</div>  		
             </a>
-            <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
             <div class="part-content phara{{$tabWeb->id}}">    		
     		 	<span class="collapse" id="viewdetails3" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>
@@ -355,7 +358,8 @@
 	            @endif
        		</div>  		
             </a>
-            <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
             <div class="part-content phara{{$tabWeb->id}}">    		
     		 	<span class="collapse" id="viewdetails4" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>
@@ -398,7 +402,8 @@
 	            @endif
        		</div>  		
             </a>
-            <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <button  onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
             <div  class="part-content phara{{$tabWeb->id}}">    		
     		 	<span class="collapse" id="viewdetails5" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>
@@ -497,7 +502,8 @@
 	            @endif
        		</div>  		
             </a>
-            <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+             <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
             <div class="part-content phara{{$tabWeb->id}}">    		
     		 	<span class="collapse" id="viewdetails7" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>

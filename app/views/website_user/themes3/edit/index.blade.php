@@ -222,7 +222,7 @@
 		<div class="content">
 			<div class="tab-content">
 				<div class="entry tab-pane active" id="home">
-					<div id="prev_output_themes3222" class="frame_box frame_center" style="width:230px; height:170px; display: inline-block; ">
+					<div id="prev_output222" class="frame_box frame_center" style="width:230px; height:170px; display: inline-block; ">
 						<a href="#">
 							
 							@if(!empty($website_item->avatar_groom))
@@ -236,11 +236,11 @@
 						<span class="img_tr"></span>
 						<span class="img_bl"></span>
 						<span class="img_br"></span>
-						<button onclick="send_id(222)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+						<button onclick="send_id(null,222,0)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
 					</div>
 
 
-					<div id="prev_output_themes3111" class="frame_box frame_center" style="width:230px; height:170px; display: inline-block; ">
+					<div id="prev_output111" class="frame_box frame_center" style="width:230px; height:170px; display: inline-block; ">
 						<a href="#">
 							
 							@if(!empty($website_item->avatar_bride))
@@ -253,7 +253,7 @@
 						<span class="img_tr"></span>
 						<span class="img_bl"></span>
 						<span class="img_br"></span>
-						<button onclick="send_id(111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+						<button onclick="send_id(null,111,0)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
 					</div>
 					<!-- end frame_box frame_big frame_center -->
 					<div class="text_big">

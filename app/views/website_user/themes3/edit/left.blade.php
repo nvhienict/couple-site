@@ -5,7 +5,7 @@
         
 
         <div class="frame_box frame_center" style="width:450px; height:192px; ">
-            <span id="prev_output_themes3{{$tabWeb->id}}">
+            <span id="prev_output{{$tabWeb->id}}">
                 <a href="#">
                     <?php $images = PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
                     
@@ -21,7 +21,8 @@
             <span class="img_bl"></span>
             <span class="img_br"></span>
             <span>
-                <button  onclick="send_id({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+                <button  onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+                <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
             </span>
         </div>
         <!-- end frame_box frame_big frame_center -->

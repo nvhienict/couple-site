@@ -173,9 +173,9 @@
 				                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
 				                     ?>
 				                @if($images)
-				                    <img  class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
+				                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
 				                @else 
-				                    <img  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+				                    <img  style='width: 350px;height: 350px;'  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
 				                @endif
 		            			</div>			
@@ -219,9 +219,9 @@
 					                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
 					                     ?>
 					                @if($images)
-					                    <img  class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
+					                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
 					                @else 
-					                    <img  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+					                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
 					                @endif
 		            			</div>			
@@ -255,16 +255,22 @@
 		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content">
 		            		<span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> 
 	            		</div>
-	            		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-part part-image">
-		            		<?php 
-			                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
-			                     ?>
-			                @if($images)
-			                    <img  class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
-			                @else 
-			                    <img  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
-			                @endif
+	            		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
+		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		            			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+		            				<?php 
+					                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
+					                     ?>
+					                @if($images)
+					                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
+					                @else 
+					                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+
+					                @endif
+		            			</div>			
+		            		</div>
+		            		
 		            	</div>
 		            </div>
 				</section>
@@ -294,9 +300,9 @@
 			                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
 			                     ?>
 			                @if($images)
-			                    <img  class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
+			                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
 			                @else 
-			                    <img  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+			                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
 			                @endif
 		            	</div>
@@ -308,9 +314,9 @@
 			                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
 			                     ?>
 			                @if($images)
-			                    <img  class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
+			                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
 			                @else 
-			                    <img  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+			                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
 			                @endif
 		            	</div>
@@ -350,15 +356,20 @@
 		            </div>
 		            <div class="row partion bg-traval" >
 		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
-		            		<?php 
-			                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
-			                     ?>
-			                @if($images)
-			                    <img  class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
-			                @else 
-			                    <img  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		            			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+	            				<?php 
+				                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
+				                     ?>
+				                @if($images)
+				                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("{$images->photo}")}}" alt="">
+				                @else 
+				                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
-			                @endif
+				                @endif
+		            			</div>			
+		            		</div>
+		            		
 		            	</div>
 		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content">
 		            		<span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> 

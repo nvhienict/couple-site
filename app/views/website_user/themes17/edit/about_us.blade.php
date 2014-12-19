@@ -13,7 +13,7 @@
                      </a>   
                     @endif 
                
-                <button onclick="send_id(222)" class="btn btn-success" data-toggle="modal" data-target='#modal-changeimage' >Đổi Ảnh</button>     
+                <button  onclick="send_id(null,222,0)"  data-backdrop="static" class="btn btn-success" data-toggle="modal" data-target='#modal-changeimage' >Đổi Ảnh</button>     
             </span>  
             <div class="show-content about_grooms text-center">
                 <span class="about-g">{{$website_item->about_groom}} </span>
@@ -30,7 +30,7 @@
                         <img src="{{Asset("images/website/themes17/bride.jpg")}}" class="img-responsive" alt="Image">        
                      </a>   
                     @endif             
-                <button onclick="send_id(111)" class="btn btn-success" data-toggle="modal" data-target='#modal-changeimage' >Đổi Ảnh</button>
+                <button  onclick="send_id(null,111,0)"  data-backdrop="static" class="btn btn-success" data-toggle="modal" data-target='#modal-changeimage' >Đổi Ảnh</button>
             </span>           
             <div class="show-content about_bride text-center">
                 <span class="about-b">{{$website_item->about_bride}}</span>
