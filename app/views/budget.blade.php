@@ -51,9 +51,9 @@ Quản lý ngân sách
 					<table class="table table-hover table-budget">
 
 						<tr class="table-budget-thead-fixed hidden-sm hidden-xs">
-							<th><i class="glyphicon glyphicon-th-large"></i></th>
-					 		<th>Danh mục</th>
-					 		<th>Chi phí dự kiến</th>
+							<th style="width:6%;"><i class="glyphicon glyphicon-th-large"></i></th>
+					 		<th style="width:20%;">Danh mục</th>
+					 		<th style="width:13%;">Chi phí dự kiến</th>
 					 		<th>Chi phí thực tế</th>
 					 		<th>Số tiền thanh toán</th>
 					 		<th colspan="2">Số tiền còn nợ</th>

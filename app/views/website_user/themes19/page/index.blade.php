@@ -245,7 +245,7 @@
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 infor-slide">
 					<!-- slide image -->
 
-					<div id="carousel-example-generic" class="carousel slide item-slide"  data-interval="false" data-ride="carousel">
+					<div id="carousel-example-generic" class="carousel slide item-slide"  data-ride="carousel">
 								<!-- data-interval="false" -->
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner">
