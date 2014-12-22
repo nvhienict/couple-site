@@ -503,7 +503,13 @@ public function update_name()
 			$tiny = 0;
 		} else {
 			
-			if ( $code_check_attending 	= $guest->where('id', $id_guest)->get()->first()->address ) {
+			if ( $code_check_attending 	!= ($guest->where('id', $id_guest)->get()->first()->address) ) {
+				
+				$msg = "Xác nhận không thành công";
+				$tiny = 0;
+
+			} else {
+				
 				$guest->where('id', $id_guest)->update(
 						array(
 							"attending" 		=> $num_person,
@@ -512,9 +518,6 @@ public function update_name()
 
 				$msg = "Xác nhận thành công";
 				$tiny = 1;
-			} else {
-				$msg = "Xác nhận không thành công";
-				$tiny = 0;
 			}
 		}
 

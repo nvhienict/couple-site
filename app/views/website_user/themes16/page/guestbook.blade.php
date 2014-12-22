@@ -124,7 +124,17 @@
 												}
 											});
 										});
-											
+										
+										$('.bs-example-modal-sm-check{{$guest->id}}').on('hidden.bs.modal', function () {
+											var input = document.getElementById('slideThreeChk{{$guest->id}}');
+
+											if ( input.checked ) {
+												$('#slideThreeChk{{$guest->id}}').attr('checked', false);
+											} else{
+												$('#slideThreeChk{{$guest->id}}').attr('checked', true);
+											};
+										});
+										
 									</script>
 
 						 		</tr>
