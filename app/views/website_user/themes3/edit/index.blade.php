@@ -15,6 +15,7 @@
 	<meta property="fb:app_id" content="692038267552175" />
 	
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
+	<script src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
 	<!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes3.css")}}">
 
@@ -23,17 +24,7 @@
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
     <!-- menu_tab -->
-    <link rel="stylesheet" href="{{Asset('assets/css/bootstrap-v3.1.1.min.css')}}">
-
-	<link rel="stylesheet" href="{{Asset('assets/css/bootstrap-v3.1.1-theme.min.css')}}">
-
-	<style type="text/css">
-		.fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
-		 {width: 100% !important;}
-		.fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
-		{width: 100% !important;}
-	</style>
-	<script src="{{Asset('assets/js/bootstrap.3.1.1.min.js')}}"></script>
+    <link rel="stylesheet" href="{{Asset('assets/css/bootstrap.css')}}">
 
 	<script type="text/javascript">
 		

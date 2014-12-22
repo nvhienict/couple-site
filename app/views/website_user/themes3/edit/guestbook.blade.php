@@ -100,6 +100,7 @@
 										});
 
 										$('#checkAttending{{$guest->id}}').click(function(){
+
 											var checkAttendingCode = $('input[name="checkAttendingCode{{$guest->id}}"]').val();
 											var numPerson 		   = $('select[name="num-person-attend{{$guest->id}}"]').val();
 											var idGuest   		   = $('input[name="idGuest{{$guest->id}}"]').val();
@@ -179,5 +180,8 @@
 			$('#show-hide-group'+id).removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
 		}
 	}
+
+
+	$('.modal').appendTo("body");
 
 </script>

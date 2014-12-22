@@ -14,13 +14,6 @@
 	<!-- css -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
-    
-	<style type="text/css">
-      .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
-       {width: 100% !important;}
-      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
-      {width: 100% !important;}
-    </style>
 
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
@@ -52,7 +45,7 @@
 			  			
 			  				@include('website_user.themes6.edit.main')
 					</div>
-				@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tab)	
+					@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tab)	
 
 			  			@if($tab->type =="welcome" && $tab->visiable==0 )
 			  				<div class="tab-pane " id="{{$tab->type}}">
@@ -97,7 +90,7 @@
 			  				
 		  				@endif			
 					
-				@endforeach
+					@endforeach
 				</div>
 			</div>
 
@@ -109,5 +102,10 @@
 
 @endforeach
 @endif
+
+<script type="text/javascript">
+	$('.modal').appendTo("body");
+</script>
+
 </html>
 

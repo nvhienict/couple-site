@@ -5,7 +5,7 @@
             {{$tabWeb->title}}
         </h3>
 
-			<div class="row">
+			<div class="row" style="margin:0;">
 				<div class="col-xs-4"></div>
 				<div class="col-xs-4">
 					<table class="table-guest-website">

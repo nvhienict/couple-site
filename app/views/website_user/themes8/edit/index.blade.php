@@ -195,7 +195,7 @@
 					    <a data-toggle="dropdown" href="#">
 					      Xem thêm <span class="caret"></span>
 					    </a>
-					    <ul class="dropdown-menu" role="menu" style="background: #742C5B;">
+					    <ul class="dropdown-menu" role="menu" style="background: #742C5B; margin-top:0;">
 					   		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
 						    	@if($index>=2)
 						    	<span class="li-menu-edit-2"><a class=" {{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></span>

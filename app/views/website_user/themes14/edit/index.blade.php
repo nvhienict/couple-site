@@ -29,15 +29,6 @@
     <!-- Add Media helper (this is optional) -->
     <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-media.js?v=1.0.5")}}"></script>
     <script type="text/javascript" src="{{Asset("assets/slide/f-slide.js")}}"></script>
-    <style type="text/css">
-        .fancybox-custom .fancybox-skin {
-            box-shadow: 0 0 50px #222;
-        }
-        .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
-       {width: 100% !important;}
-      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
-      {width: 100% !important;}
-    </style>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
@@ -218,6 +209,10 @@
 
 @endforeach
 @endif
+
+<script type="text/javascript">
+  $('.modal').appendTo("body");
+</script>
 
 </html>
 

@@ -219,5 +219,9 @@
 @endforeach
 @endif
 
+<script type="text/javascript">
+  $('.modal').appendTo("body");
+</script>
+
 </html>
 
