@@ -46,27 +46,6 @@
         }
     </style>
 
-    <script type="text/javascript">
-            //     function updateckeditor(id){
-            //     //var t= CKEDITOR.instances['editor4'].getData();alert(t);
-            //     $.ajax({
-            //         type:"post",
-            //         dataType: "html",
-            //         url:"{{URL::route('update_content_tab')}}",
-            //         data: { content:CKEDITOR.instances['editor'+id].getData(),
-            //                 id_tab:$('.get_id'+id).val()
-            //             },
-            //         success:function(data){
-            //             var obj = JSON.parse(data);
-            //             $('.phara'+id).html(obj.content);   
-            //         }
-            //     });
-            //         $('.editphara'+id).hide();
-            //         $('.phara'+id).show();
-            //         $('.click-edit-hide'+id).show();
-            //         $('.ok-edit-show'+id).hide();
-            // }  
-             </script>   
 </head>
 <body>
     <script type="text/javascript">

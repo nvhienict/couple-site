@@ -1,11 +1,11 @@
 
-<div class="partion">
-	<div class="row phara-margin">
+<div class="item">
+	<div class="masonry margin-partion" id="slide{{$i+2}}">
        	<h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
             {{$tabWeb->title}}
         </h3>
 
-			<div class="row">
+			<div class="row post-box{{$i+2}}">
 				<div class="col-xs-1"></div>
 				<div class="col-xs-10">
 					<table class="table-guest-website">
@@ -92,7 +92,8 @@
 									  	</div>
 									</div>
 
-									<script type="text/javascript">
+						 		</tr>
+				 		      	<script type="text/javascript">
 										$('.slideThree label.labelChk{{$guest->id}}').click(function(){
 											$('.slideThree input[type="checkbox"]#slideThreeChk{{$guest->id}}').trigger('click');
 											
@@ -135,10 +136,7 @@
 											};
 										});
 											
-									</script>
-
-						 		</tr>
-						 		                                											  						     
+									</script>                          											  						     
 						 		@endforeach
 						 	@endif
 						 	</tbody>
@@ -161,22 +159,23 @@
 				</div>
 				<div class="col-xs-1"></div>
 		</div>
+		<script type="text/javascript">
+			function show_hide(id)
+			{
+				if($('.guest_list_show_cat'+id).is(':visible') )
+				{
+					$('.guest_list_show_cat'+id).hide();
+					$('#show-hide-group'+id).removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
+				}
+				else
+				{
+					$('.guest_list_show_cat'+id).show();
+					$('#show-hide-group'+id).removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
+				}
+			}
+
+</script>
 	</div> <!-- row -->
 </div><!--container-->
 
-<script type="text/javascript">
-	function show_hide(id)
-	{
-		if($('.guest_list_show_cat'+id).is(':visible') )
-		{
-			$('.guest_list_show_cat'+id).hide();
-			$('#show-hide-group'+id).removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
-		}
-		else
-		{
-			$('.guest_list_show_cat'+id).show();
-			$('#show-hide-group'+id).removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
-		}
-	}
 
-</script>
