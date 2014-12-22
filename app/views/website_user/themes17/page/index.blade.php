@@ -32,11 +32,6 @@
         .fancybox-custom .fancybox-skin {
             box-shadow: 0 0 50px #222;
         }
-
-        .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
-	       {width: 100% !important;}
-	      .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
-	      {width: 100% !important;}
     </style>
 
     <!-- Custom CSS -->
