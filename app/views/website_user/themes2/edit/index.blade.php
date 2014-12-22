@@ -27,12 +27,6 @@
 
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
-    <style type="text/css">
-    	.fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
-		 {width: 100% !important;}
-		.fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
-		{width: 100% !important;}
-    </style>
 
     <script type="text/javascript">
 		
