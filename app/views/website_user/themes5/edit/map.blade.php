@@ -20,12 +20,7 @@
 			
 			<div class="row">					
 				<div class="col-md-12">
-					<!-- <div class="btn-group">
-						<ul>
-							<li><a href="#"><img src="images/gift-logo/west-elm-logo.png" alt="img"/></a></li>
-							<li><a href="#"><img src="images/gift-logo/amazon.png" alt="img"/></a></li>				<li><a href="#"><img src="images/gift-logo/Crate_and_barrel_logo.png" alt="img"/></a></li>
-						</ul>
-					</div> -->
+					
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61349.798107521434!2d108.2064774!3d16.046674199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219c792252a13%3A0xfc14e3a044436487!2zxJDDoCBO4bq1bmcsIFRoYW5oIEtow6osIMSQw6AgTuG6tW5nLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1411711282984" width="600" height="450" frameborder="0" style="border:0"></iframe>
 				</div>					
 			</div>
