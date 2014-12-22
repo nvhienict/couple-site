@@ -15,11 +15,11 @@
 
 		<!-- Bootstrap JS -->
 		 <script src="{{Asset('assets/js/jquery.min.js')}}"></script>
+		  <script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
 		 <script type="text/javascript" src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
 		 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		
-		 <script src="{{Asset("assets/js/map-themes.js")}}"></script>
-		 <script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
+		
 		 <!--  Slide Album -->
 
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
