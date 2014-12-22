@@ -395,7 +395,7 @@
                     <h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
                             {{$tabWeb->title}}
                     </h3>
-                    <div class="part-content phara{{$tabWeb->id}}">
+                    <div class="part-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>
                        <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
                     </div>
                 </div>
@@ -436,7 +436,7 @@
                     <h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
                             {{$tabWeb->title}}
                     </h3>
-                    <div class="part-content phara{{$tabWeb->id}}" onclick="showckeditor({{$tabWeb->id}})">
+                    <div class="part-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>
                        <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
                     </div>
                 </div>
@@ -459,7 +459,7 @@
                     <h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
                             {{$tabWeb->title}}
                     </h3>
-                    <div class="part-content phara{{$tabWeb->id}}">
+                    <div class="part-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>
                        <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
                     </div>
                 </div>
@@ -514,7 +514,7 @@
                     <h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
                             {{$tabWeb->title}}
                     </h3>
-                    <div class="part-content phara{{$tabWeb->id}}" >
+                    <div class="part-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>
                        <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
                     </div>
                 </div>
@@ -540,7 +540,7 @@
                     <h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
                             {{$tabWeb->title}}
                     </h3>
-                    <div class="part-content phara{{$tabWeb->id}}">
+                    <div class="part-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>
                        <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
                     </div>
                 </div>
@@ -562,7 +562,7 @@
 
             <div class=" row click-edit click-edit-hide{{$tabWeb->id}}" >
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <!-- <span  style="float:right;"> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
+                   
                 </div>
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                     <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
@@ -583,7 +583,7 @@
                     <h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
                         {{$tabWeb->title}}
                     </h3> 
-                     <div class="part-content phara{{$tabWeb->id}}">
+                     <div class="part-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>
                        <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
                     </div>
 
@@ -665,7 +665,7 @@
                     <h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
                             {{$tabWeb->title}}
                     </h3>
-                    <div class="part-content phara{{$tabWeb->id}}">
+                    <div class="part-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>
                        <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
                     </div>
                 </div>
