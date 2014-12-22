@@ -34,10 +34,6 @@
             box-shadow: 0 0 50px #222;
         }
 
-        .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
-         {width: 100% !important;}
-        .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] 
-        {width: 100% !important;}
     </style>
 
     <!-- Custom CSS -->
@@ -48,14 +44,6 @@
 </head>
 <script type="text/javascript">
       
-    jQuery(document).ready(function($) {
-            $('a.scrollTo').click(function () {
-            $('.design_website_content_right').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
-            return false;
-        });
-    });
-
-    
     $('.side-nav li').click(function(e) {
         $('.side-nav li.active').removeClass('active');
         var $this = $(this);
