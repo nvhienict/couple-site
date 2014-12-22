@@ -21,7 +21,7 @@
             <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
         </span>      
     </div>
-    <div onclick="showckeditor({{$tabWeb->id}})" class="show-content phara{{$tabWeb->id}}" style=" margin-right:12%;"  >
+    <div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' class="show-content phara{{$tabWeb->id}}" style=" margin-right:12%;"  >
             <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>        
     </div>
     

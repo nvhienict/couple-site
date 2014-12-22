@@ -22,7 +22,7 @@
         </span>      
               
     </div>
-     <div  onclick="showckeditorpartion({{$tabWeb->id}})" class="show-content phara{{$tabWeb->id}}">
+     <div  onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' class="show-content phara{{$tabWeb->id}}">
             <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>        
     </div>
      
