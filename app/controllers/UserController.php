@@ -193,19 +193,36 @@ class UserController extends \BaseController {
 		else 
 		{
 			$img_del = User::where('id',$id_user)->get()->first()->avatar;
-			$path_delete=public_path($img_del);
-			File::delete($path_delete);
 
-        	File::makeDirectory(public_path('update'),$mode = 0775,true,true);
-			$filename 		= $id_user.'_' .str_random(10).'.' .$file->getClientOriginalExtension();
-			$pathsave 		= 'update/'.$filename;
-			$path 			= public_path('update/'.$filename);
-			Image::make($file->getRealPath())->resize(200, 200)->save($path);
+			if ( $img_del == 'update/bg22.gif' ) {
 
-			// update to database
-			User::where( "id", $id_user )->update(
-					array("avatar"=>$pathsave));
+				File::makeDirectory(public_path('update'),$mode = 0775,true,true);
+				$filename 		= $id_user.'_' .str_random(10).'.' .$file->getClientOriginalExtension();
+				$pathsave 		= 'update/'.$filename;
+				$path 			= public_path('update/'.$filename);
+				Image::make($file->getRealPath())->resize(200, 200)->save($path);
 
+				// update to database
+				User::where( "id", $id_user )->update(
+						array("avatar"=>$pathsave));
+
+			} else {
+				
+				$path_delete=public_path($img_del);
+				File::delete($path_delete);
+
+	        	File::makeDirectory(public_path('update'),$mode = 0775,true,true);
+				$filename 		= $id_user.'_' .str_random(10).'.' .$file->getClientOriginalExtension();
+				$pathsave 		= 'update/'.$filename;
+				$path 			= public_path('update/'.$filename);
+				Image::make($file->getRealPath())->resize(200, 200)->save($path);
+
+				// update to database
+				User::where( "id", $id_user )->update(
+						array("avatar"=>$pathsave));
+
+			}
+			
 			return Response::json(
 				['success' => true,
 				'file' => asset($pathsave)]
@@ -341,7 +358,6 @@ class UserController extends \BaseController {
 							$startdate = $NowToWedding+1;
 						}
 						
-
 						$usertask 				= new UserTask();
 						$usertask->title 		= $task->title;
 						$usertask->user 		= $id_user;
@@ -357,19 +373,11 @@ class UserController extends \BaseController {
 
 			Session::put("email",Input::get('email'));
 
-			// go to view request
-			// if ( Session::get('url')==NULL ) {
-			// 	return Redirect::route('index');
-			// } else {
-			// 	$url = Session::get('url');
-			// 	return Redirect::route($url);
-			// }
 			return Redirect::to('dashboard');
 			
 			
 		}else{
 			$errors=$validator->messages();
-			// return Redirect::route("register")->with("errors",$errors);
 			return Redirect::route("index")->with("errors",$errors);
 		}
 	}
@@ -474,9 +482,6 @@ class UserController extends \BaseController {
 				Session::put('url',$url);
 
 				return View::make('after-login-fb');
-
-				// go to view request
-				// return Redirect::to(URL::previous());
 				
 	        } else {
 	        	$IdUser = User::where('email','=',$email)->get()->first()->id;
