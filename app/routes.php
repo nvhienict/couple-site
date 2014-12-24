@@ -184,14 +184,15 @@ Route::post('update_avatar', array("before"=>"check_login", 'as'=>'update_avatar
 Route::get('update_avatar', array("before"=>"check_login", 'as'=>'update_avatar', 'uses'=>'UserController@change_avatar'));
 
 // SONGS
-
 Route::get('songs/{slug}', array('as'=>'songs', 'uses'=>'SongController@index'));
-
 Route::get('songs/{slug}/{slug_song}', array('as'=>'play_song', 'uses'=>'SongController@play'));
-
 Route::post('song-comment/{id}',array('as'=>'song_comment', 'uses'=>'SongController@post_comment'));
-
 Route::get('comment-song/{slug_cat}/{slug_song}', array("before"=>"check_login", 'as'=>'cmt_song', 'uses'=>'SongController@play'));
+
+
+// Fortune
+Route::controller('fortune', 'FortuneController');
+
 
 //Guest list
 Route::get('guest-list',array("before"=>"check_login",'as'=>'guest-list','uses'=>'GuestController@index'));

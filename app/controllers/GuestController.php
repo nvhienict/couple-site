@@ -62,7 +62,7 @@ class GuestController extends \BaseController {
 		$guest 				= new Guests();
 		$guest->fullname 	= "Họ và tên";
 		$guest->email 		= "Email";
-		$guest->address 	= $id_user.str_random(5);
+		$guest->address 	= str_random(4);
 		$guest->phone 		= "Số điện thoại";
 		$guest->attending 	= "1";		
 		$guest->group 		= $id_group;

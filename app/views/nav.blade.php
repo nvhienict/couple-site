@@ -80,6 +80,9 @@
                 </li>
               </ul>
             </li>
+
+            <li><a href="{{URL::action('FortuneController@getIndex')}}" ><i class="fa fa-sun-o fa-2x"></i> Xem ngày cưới</a></li>
+
           </ul>
         </div>
     </div>
