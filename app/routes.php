@@ -257,6 +257,7 @@ Route::group(array('before'=>'check_login'), function(){
 
 	Route::post('reset_color', array('as'=>'reset_color', 'uses'=>'WebsiteController@resetColor'));
 	Route::post('upload-background',array('as'=>'upload','uses'=>'WebsiteController@updateImagebackground'));
+	Route::post('load-bg',array('as'=>'load_bg','uses'=>'WebsiteController@loadBg'));
 	Route::post('change-image-tab',array('as'=>'change-image-tab','uses'=>"WebsiteController@changeImage"));
 	Route::post('get-id-tab', array('as'=>'get-id-tab', 'uses'=>'WebsiteController@getTab'));//lấy dữ liệu của 1 tab
 	Route::post('update-title', array('as'=>'update-title', 'uses'=>'WebsiteController@Post_update_Tab'));
@@ -288,21 +289,15 @@ Route::group(array('before'=>'check_login'), function(){
 
 
 	// Upload Album
-	Route::post('up_images_album',array('as'=>'up_images_album','uses'=>"WebsiteController@up_images_album"));
-	Route::post('load_album',array('as'=>'load_album','uses'=>"WebsiteController@load_album"));
 	Route::post('del_album',array('as'=>'del_album','uses'=>"WebsiteController@del_album"));
 	Route::post('change_url',array('as'=>'change_url','uses'=>"WebsiteController@change_url"));
-	Route::post('load_url',array('as'=>'load_url','uses'=>'WebsiteController@load_url'));
 	Route::post('check_image_album',array('as'=>'check_image_album','uses'=>'WebsiteController@checkImageAlbum'));
 	
 	// new upload
 	 Route::post('upload-photo',array('as'=>'upload_photo','uses'=>'WebsiteController@uploadPhoto'));
-
 	 Route::post('load-my-album',array('as'=>'load_my_album','uses'=>'WebsiteController@loadMyAlbum'));
-
-	 // upload photo tab new
-	 Route::post('upload-photo-tab',array('as'=>'upload_photo_tab','uses'=>'WebsiteController@uploadPhotoTab')); 
-	 Route::post('load-photo-tab',array('as'=>'load_photo_tab','uses'=>'WebsiteController@loadPhotoTab'));
+	 Route::post('upload-avatar',array('as'=>'upload_avatar','uses'=>'WebsiteController@uploadAvatar'));
+	 Route::post('load-avatar',array('as'=>'load_avatar','uses'=>'WebsiteController@loadAvatar'));
 
 	// start time count down
 	Route::post('time_count_down', array('as'=>'time_count_down','uses'=>"WebsiteController@timeCountDown"));
@@ -314,7 +309,6 @@ Route::group(array('before'=>'check_login'), function(){
 	// infor about groom and update_about_bride
 
 	Route::post('update_infor',array('as'=>'update_infor','uses'=>'WebsiteController@update_infor'));
-	Route::post('getInfor',array('as'=>'getInfor','uses'=>'WebsiteController@getInfor'));
 	
 });
 

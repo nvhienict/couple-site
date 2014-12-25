@@ -1,0 +1,61 @@
+.about-infor h6 , .setting-url h6 {
+	margin: 7px 0px 7px 0px; !important;
+	font-size: 1em !important;
+	font-weight: bold !important;
+	color: #19B5BC;
+}
+#design-image h6{
+	font-size: 1em !important;
+	font-weight: bold !important;
+	color: #19B5BC;
+	margin: 5% 0% 2% 0%;
+}
+
+.about-infor label, .setting-url label{
+	margin-top: 10px!important;
+	color: #19B5BC;
+	font-weight: normal;
+}
+.about-infor input, textarea{
+	width: 70% !important;
+}
+.about-infor button{
+	margin: 1% 32%;
+}
+.edit-url h6{
+	font-weight: normal !important;
+}
+.show-url .show-link, .edit-url .edit-link {
+	letter-spacing: 1px;
+}
+.show-url .btn-url {
+	margin-left: 7%;
+}
+.edit-url {
+	display: none;
+}
+.re-infor{
+	margin: 12px 0px 0px 0px;
+	color: #70B4EC;
+}
+#about-bride, #about_groom{
+	
+}
+.padding-images{
+	padding: 3px 3px 3px 3px;
+}
+.change-btn{
+	background: #19b5bc;
+	border: none;
+}
+.btn-upload{
+	margin-top: 1%;
+}
+.padding-images span{
+	float: right;
+	color:red; 
+}
+.padding-images span :hover{
+	cursor: pointer;
+}
+

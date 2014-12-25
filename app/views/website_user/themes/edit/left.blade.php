@@ -10,15 +10,15 @@
                     $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
                      ?>
                 @if($images)
-                    <img style="width: 350px;height: 350px;" class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
+                    <img  class="img-responsive" src="{{Asset("{$images->photo}")}}" alt="">
                 @else 
-                    <img style="width: 350px;height: 350px;" class="img-responsive" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
+                    <img  class="img-responsive" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
                 @endif
                 </a>
             </span>
             <span>
-                <button  onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+                <button  onclick="send_id({{$tabWeb->id}},null)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
                 <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
             </span>
         </div>

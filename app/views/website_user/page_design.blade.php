@@ -405,429 +405,7 @@
 	  	</div>
       
 	</div>
-
-
-
-
-<!-- -modal change background -->
-	<div class="modal fade " id="modal-changebackground">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content ">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Chọn Ảnh Nền</h4>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-xs-6 col-md-2 menu-image" >
-						
-						<a style="text-align:center" href="javascript:void(0);">Upload Ảnh</a></li>
-					</div>
-					<div class="col-xs-12 col-md-10 tab-image">
-						<br>
-							<div class="tab-pane " id="tab-modal-1">
-									<div class="upload-image-tab">
-											
-											<form action="{{URL::route('upload')}}" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >																																		
-												<br>
-												<br>
-												<br>
-												<br>
-												
-												<div class="form-group">
-													<div class="text-center "><img id="image-preview-website" ></div>
-													<div class="text-center"><a onclick="chose_image_backgound()" style="cursor:pointer;" id="chose_image_background" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a><br><br><br></div>
-													<input id="input_image_modal" name="input_image_modal"  type="file" class="file" accept="image/*" data-max-size="2097152" required>
-												</div>
-												<div class="form-group">
-													<button type="submit" style="float:right"class="btn btn-primary">Upload</button> 
-												</div>
-												<br>
-												<br>
-																								
-																																																																																
-											<script type="text/javascript">
-											
-												function chose_image_backgound()
-												{
-													 $('#input_image_modal').trigger('click');
-												};
-												
-												 function readURL(input) {
-													        if (input.files && input.files[0]) {
-													            var reader = new FileReader();
-													            
-													            reader.onload = function (e) {
-													                $('#image-preview-website').attr('src', e.target.result);
-													            }
-													            
-													            reader.readAsDataURL(input.files[0]);
-													        }
-													    }
-													     $("#input_image_modal").change(function(){
-													     	 var files = $(this)[0].files;
-									                         var fileInput = $('#input_image_modal');
-									                         var maxSize = fileInput.data('max-size'); 
-													     	 var fileName = $("#input_image_modal").val().toLowerCase();
-															    if(fileName.lastIndexOf("png")===fileName.length-3 | fileName.lastIndexOf("jpeg")===fileName.length-3 |fileName.lastIndexOf("gif")===fileName.length-3|fileName.lastIndexOf("jpg")===fileName.length-3)
-															    {
-															    	var fileSize = files[0].size; // in bytes
-							                                        if(fileSize>maxSize){
-							                                            swal("Dung lượng của mỗi bức ảnh phải nhỏ hơn 2MB(mega byte), vui lòng chọn lại!"); 
-							                                            $("#input_image_modal").val("");							                                            
-							                                        }
-							                                        else
-							                                        {
-							                                        	readURL(this);
-							                                        }
-															     }   
-															    else
-															    {
-															    	$("#input_image_modal").val("");
-															    	$("#image-preview-website").removeAttr('src');
-															    	swal("Vui lòng chọn đúng định dạng file Ảnh!");																		        	
-															    	
-															    }																				    	
-														        																				        	
-														    });																																								
-											</script>
-
-										</form>
-									</div><br>
-
-							</div>
-							
-																																									
-					</div>
-
-				</div>
-				
-			</div>
-			
-				
-			
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- -end modal change background -->
-
-
-
-<!-- Change URL -->
-
-<div class="modal fade" id="modal-url">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header" >
-        <button onclick="remove_error()" style="color:red;" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h3 class="modal-title">Website URL</h3>
-      </div>
-      <div class="modal-body">
-        <h4>Thay đổi URL Website :</h4>
-        <div class="col-xs-12">
-        	<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 " style="padding-left:0px;">
-	        	<h4 style="color:#3276B1; font-size:16px;">http://www.thuna.vn/website/</h4>
-	        </div>
-	        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7" style="padding-left:0px;">
-	        	@foreach($website as $website)
-	        	<input type="text" class="form-control url_website " name="url_website" value="{{$website->url}}">
-	        	@endforeach()
-        	</div>        	
-        </div>
-        <h4 class="url_error"></h4>
-        
-      </div>
-      <div class="modal-footer" style="text-align:center;margin-top:100px;">
-      	<button onclick="save_url()" type="button" class="btn btn-primary" >Save</button>
-        <button onclick="remove_error()" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>       
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<div class="modal fade" id="modal-infor">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header" >
-        <button onclick="removeMessage()" style="color:red;" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h3 style="color:#3276B1;" class="modal-title text-center">Thông tin cô dâu-chú rể</h3>
-      </div>
-      <div class="modal-body">
-        <div class="col-xs-12">
-        	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" >
-        		<h5 style="font-weight: bold;color:#F52052;">Chú rể</h5>
-        		<input type="text" id="name_groom" class="form-control" value="" placeholder="Tên chú rể">
-        		<textarea style="margin-top: 15px;" type="text" id="about_groom" class="form-control" value="" placeholder="Thông tin về chú rể"></textarea>
-	        	
-	        </div>
-	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        		<h5 style="font-weight: bold;color:#F52052;">Cô dâu</h5>
-        		<input type="text" id="name_bride" class="form-control" value="" placeholder="Tên cô dâu">
-        		<textarea style="margin-top: 15px;" type="text" id="about_bride" class="form-control" value="" placeholder="Thông tin về cô dâu"></textarea> 
-        	</div>     
-        	<p style="font-weight: bold;color:#3276B1;" class="text-center success-infor "></p>   	
-        </div>       
-      </div>
-      <div class="modal-footer" style="text-align:center;margin-top:170px;">
-      	<button onclick="update_infor()" type="button" class="btn btn-primary" >Save</button>
-        <button onclick="removeMessage()" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>       
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- ajax update infor of groom and brid -->
-<script type="text/javascript">
-	function update_infor(){
-		$.ajax({
-			type:"POST",
-			url:"{{URL::route('update_infor')}}",
-			data:{
-				name_groom:$('#name_groom').val(),
-				name_bride:$('#name_bride').val(),
-				about_groom:$('#about_groom').val(),
-				about_bride:$('#about_bride').val()
-
-			},
-			success:function(data){
-				var name_groom=$('#name_groom').val();
-				var name_bride=$('#name_bride').val();
-				var about_bride=$('#about_bride').val();
-				var about_groom=$('#about_groom').val();
-				var obj=JSON.parse(data);
-				$('.success-infor').text(obj.message_infor);
-				$('.name-g').text(name_groom);
-				$('.name-b').text(name_bride);
-				$('.about-g').text(about_groom);
-				$('.about-b').text(about_bride);
-
-
-			}
-		});
-	}
-
-	function getInfor(){
-		$.ajax({
-			type:"POST",
-			url:"{{URL::route('getInfor')}}",
-			data:{
-				name_groom:$('#name_groom').val(),
-				name_bride:$('#name_bride').val(),
-				about_groom:$('#about_groom').val(),
-				about_bride:$('#about_bride').val()
-
-			},
-			success:function(data){
-			   var obj=JSON.parse(data);
-				$('#name_groom').val(obj.name_groom);
-				$('#name_bride').val(obj.name_bride);
-				$('#about_groom').val(obj.about_groom);
-				$('#about_bride').val(obj.about_bride);
-
-			}
-		});
-	}
-	function removeMessage(){
-		$('.success-infor').text("");
-	}
-</script>
-
-
-<div class="modal fade " id="modal-up_images">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content ">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Chọn Ảnh</h4>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-xs-6 col-md-2 menu-image" >
-						
-								<a class="upload" style="text-align:center;text-decoration: none;" href="javascript:void(0);">Upload Ảnh</a><br>
-								<a onclick="loadMyAlbum()" class="text-center myalbum" style="text-decoration: none;" href="javascript:;">My Album</a>
-					</div>
-					<div class="col-xs-12 col-md-10 tab-image">
-						<script type="text/javascript">
-
-								function add_images(){
-									$('.gird_ablum').hide();
-									$('.delete_images').hide();
-									$('.upload-image-tab').show();
-								}
-								$('.myalbum').click(function(){
-									$('.gird_ablum').show();
-									$('.delete_images').show();
-									$('.upload-image-tab').hide();
-								});
-								$('.upload').click(function(){
-									$('.gird_ablum').hide();
-									$('.delete_images').hide();
-									$('.upload-image-tab').show();
-								});
-								function del_album(){
-									var id_array=new Array() ;
-									var i=0;
-									$('input[name="images_del"]'). each(function(){
-										if (this.checked==true) 
-										{
-											id_array[i]=$(this).next().val();
-											i++;
-										};
-									});
-									$.ajax({
-												type:"post",
-												url:"{{URL::route('del_album')}}",
-												data:{
-													id_images:id_array
-												},
-												success:function(data){
-													for (var i = 0; i < id_array.length; i++) {
-														$('.remove_image'+id_array[i]).remove();
-													};		
-												}
-											});																		
-								};
-
-								function loadMyAlbum(){
-									$.ajax({
-												type:"post",
-												url:"{{URL::route('load_my_album')}}",
-												success:function(data){
-													$('.padding_album').remove();
-													$('.gird_ablum').append(data);
-												}
-											});		
-								}
-
-						</script>
-						<br>
-							<div class="tab-pane " id="tab-modal-image_album">
-									<div class="col-xs-12 gird_ablum">
-										<!-- load photo  -->
-										
-									</div>
-
-									<div class="delete_images"> 
-										<button onclick="del_album()" class="btn btn-primary">Xóa</button>
-										<button onclick=" add_images()" class="btn btn-primary">Thêm</button>
-									</div>
-									<div class="upload-image-tab">
-											
-    									<form action="{{URL::route('upload_photo')}}" class="dropzone dz-clickable" method="POST"> </form> 
-											<!-- <form action="{{URL::route('upload_photo')}}"  class="dropzone dz-clickable" method="POST" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >																																		
-												<br><br><br>																							
-												
-												<div class="form-group">
-													<div class="text-center "><img id="image-preview_album" ></div>
-													<div class="text-center"><a onclick="chose_image_album()" style="cursor:pointer;" id="chose_image_album" ><span class="glyphicon glyphicon-picture"></span>Chọn ảnh từ máy tính của bạn</a></div>
-													<h5 style="color:red;" class="text-center message_album_image"></h5>
-													<input style="display:none;" id="input_image_album" name="input_image_album[]"  multiple="true" type="file" class="file" accept="image/*" autocomplete="off" data-max-size="2097152" required>
-													<input type="hidden" name="id_tab_album" id="id_tab_album" value="">
-												</div>
-												<div class="form-group">
-													<button type="submit" style="float:right"class="btn btn-primary">Upload</button> 
-												</div>
-												<br><br>																																			
-																																																																																
-											<script type="text/javascript">
-											
-												function chose_image_album()
-												{
-													 $('#input_image_album').trigger('click');
-												};
-												
-												$("#input_image_album").change(function(){
-								                   var files = $(this)[0].files;
-								                   var fileInput = $('#input_image_album');
-   												   var maxSize = fileInput.data('max-size');   												   									
-								                    if(files.length > 30){
-								                        swal("Chỉ được upload tối đa 30 ảnh!");
-								                        $("#input_image_album").val("");
-								                    }
-								                    else{
-								                    	
-								                        var fileName = $("#input_image_album").val().toLowerCase();
-								                        if(fileName.lastIndexOf("png")===fileName.length-3 | fileName.lastIndexOf("jpeg")===fileName.length-3 |fileName.lastIndexOf("gif")===fileName.length-3|fileName.lastIndexOf("jpg")===fileName.length-3)
-								                         {   
-								                         	$.ajax({
-								                                type:"POST",
-								                                url:"{{URL::route('check_image_album')}}",								                                
-								                                success:function(data)
-								                                {
-								                                    var obj=JSON.parse(data);
-								                                    if(obj.check+files.length>=30)
-								                                    {
-								                                        $("#input_image_album").val("");
-								                                        swal("Tổng số ảnh của bạn lớn 30, vui lòng chọn lại!"); 
-								                                    }
-								                                    else
-								                                    {
-								                                    	for (var j=0; j<files.length; j++) 
-											                         	{		   												   
-															            var fileSize = files[j].size; // in bytes
-																            if(fileSize<maxSize){
-																            	var str="Ảnh đã được chọn!";
-								                                    			$(".message_album_image").text(str);
-																                
-																            }
-																            else
-																            {
-																            	swal("Dung lượng của mỗi bức ảnh phải nhỏ hơn 2MB(mega byte), vui lòng chọn lại!"); 
-																                $("#input_image_album").val("");
-																                $(".message_album_image").text("");
-																                
-																            }												            												       
-			        													}		
-								                                    	
-								                                    }
-
-								                                }
-								                            });
-								                         	
-								                         	
-								                           } 
-								                        else
-								                        {
-								                            $("#input_image_album").val("");                        
-								                            swal("Vui lòng chọn đúng định dạng file Ảnh!");                                                                                 
-								                            
-								                        }                                 
-								                    }                                               
-													    																		    	
-									       																				        	
-												});
-													     
-											     function send_id_album(id){
-													// var id_tab=$('#id_tab_web'+id).val();
-														$('input[name=id_tab_album]').val(id);
-														
-														
-													
-												};						
-																																																
-											</script>
-
-										</form> -->
-									</div><br>
-
-							</div>
-							
-																																									
-					</div>
-
-				</div>
-				
-			</div>
-			
-				
-		<div class="modal-footer" style="text-align:center;">
-	      	<button type="button" data-dismiss="modal" class="btn btn-primary" >Đóng</button>
-	               
-      </div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
+	
 <!-- modal edit content website -->
 
 <div class="modal fade" id="modal-edit">
@@ -886,121 +464,52 @@
 	}
 </script>
 
-<!-- upload ajax -->
-
-<!-- upload ajax -->
-	<div class="modal fade " id="modal-changeimage">
-	<div class="modal-dialog modal-md">
-		<div class="modal-content ">
-			<div class="modal-header">
-				<button type="button" onclick="load_photo_tab()" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Chọn Ảnh</h4>
-			</div>
-			<div class="modal-body">
-				
-				<form  action="{{URL::route('upload_photo_tab')}}" class="dropzone dz-clickable" id="upload-photo-tab" method="POST">
-					<input name="send-id-tab" id="send-id-tab" type="hidden" value="">
-					<input name="send-check" type="hidden" id="send-check" value="">
-					<input name="send-check-circle" type="hidden" id="send-check-circle" value="">
-				 </form>
+<!-- upload ajax phototab -->
+	<div class="modal fade" id="modal-changeimage">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content ">
+				<div class="modal-header">
+					<button type="button" onclick="load_photo_tab()" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Chọn Ảnh</h4>
+				</div>
+				<div class="modal-body">
 					
-			</div>
-			<div class="modal-footer" style="text-align:center;">
-	      		<button onclick="load_photo_tab()" type="button" data-dismiss="modal" class="btn btn-primary" >Đóng</button>
-	      		<input type="hidden" id="load-photo-tab" value="">
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- end upload ajax -->
+					<form  action="{{URL::route('upload_avatar')}}" class="dropzone dz-clickable" id="upload-photo-tab" method="POST">
+						<input name="check-tab" id="check-tab" type="hidden" value="">
+					</form>
+						
+				</div>
+				<div class="modal-footer" style="text-align:center;">
+		      		<button onclick="load_photo_tab()" type="button" data-dismiss="modal" class="btn btn-primary" >Đóng</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- end upload ajax -->
 
 
 <script type="text/javascript" src="{{Asset('assets/js/design_color_font.js')}}"></script>
 
 <script type="text/javascript">
-	
-	
-
 	// upload-image-tab
-	function send_id(id_tab,check,check_circle){
+	function send_id(id_tab,check){
 		 var id_tab = $('#id-tab-photo'+id_tab).val();
-		 var check_circle = check_circle; 
-		 $('#send-check').val(check);
-		 $('#send-id-tab').val(id_tab);
-		 $('#send-check-circle').val(check_circle);
+		 $('#check-tab').val(id_tab);
 	};
 	function load_photo_tab(){
-		var id_tab = $('#send-id-tab').val();
-		var check = $('#send-check').val();
-		var check_circle = $('#send-check-circle').val();
+		var id_tab = $('#check-tab').val();		
 		$.ajax({
 			type:"post",
-			data:{ id_tab : id_tab,
-					check :check,
-					check_circle : check_circle },
-			url: "{{URL::route('load_photo_tab')}}", 
+			data:{ check_tab : id_tab },
+			url: "{{URL::route('load_avatar')}}", 
 			success: function(data){
-				// var obj = JSON.parse(data);
-				if (check == "") {
-					$("#prev_output"+id_tab+" a").html("<img style='width:100%; height:100%;' class='img-responsive' src='"+data.image+"' />");
-					$("#prev_output_themes21"+id_tab+" a").html("<img class='tab-text-img' src='"+data.image+"' />");
-					$("#prev_output_theme4"+id_tab+" a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");
-
-				} else{
-					
-					if (check == 111) {
-						$("#prev_outputcc111 a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");
-						$("#prev_output111 a").html("<img class='img-responsive ' src='"+data.image+"' />");
-						$("#prev_output_theme21_b a").html("<img class='img-circle img-bride' src='"+data.image+"' />");
-						$("#prev_output_theme9_b a").html("<img width='100%;' src='"+data.image+"' />");
-						$('#prev_output_theme19_111').html("<img class='img-responsive img-circle img-infor' src='"+data.image+"' />");
-					} else{
-						$("#prev_outputcc222 a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");
-						$("#prev_output222 a").html("<img class='img-responsive ' src='"+data.image+"' />");
-						$("#prev_output_theme21_g a").html("<img class='img-circle img-groom' src='"+data.image+"' />");
-						$("#prev_output_theme9_g a").html("<img width='100%;' src='"+data.image+"' />");
-						$('#prev_output_theme19_222').html("<img class='img-responsive img-circle img-infor' src='"+data.image+"' />");
-					};
-				};
-			 
+				$("#prev_output"+id_tab+" a").html("<img style='width:100%; height:100%;' class='img-responsive' src='"+data.image+"' />");
+				$("#prev_output_themes21"+id_tab+" a").html("<img class='tab-text-img' src='"+data.image+"' />");
+				$("#prev_output_theme4"+id_tab+" a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");					 
 			}
 		});
 	};
 
-	// Save Url
-	 function load_url(){
-	 	$.ajax({
-			type:'post',
-			url:"{{URL::route('load_url')}}",
-			success: function(data){
-				var obj = JSON.parse(data);
-				$('.url_website').val(obj.url);				
-			}
-		});
-	 };
-	function save_url(){
-		$.ajax({
-			type:'post',
-			url:"{{URL::route('change_url')}}",
-			data:{
-				url_website:$('.url_website').val()
-			},
-			success: function(data){
-				var obj = JSON.parse(data);
-				$('.url_error').text(obj.error_url);
-				$('.url_error').css('color',obj.color);
-				
-				$('.a_url').text('http://www.thuna.vn/website/'+obj.res_url);
-				$('.a_url').attr("href",'http://www.thuna.vn/website/'+obj.res_url);
-				$('..url_link').css('overflow','hidden').css('text-overflow','ellipsis');			 					
-			}
-		});
-	};
-
-	function remove_error(){
-			$('.url_error').text('');
-			$('.url_error').css('color','#fff');
-	};
 	// get font design
 	function font_website(font_name){
 		$.ajax({
@@ -1160,17 +669,6 @@
 	  			hideTitle: hidetab
   			},
   			success:function(data){
-  				// $('.TT'+id_title).text(data['title']);
-  				// $('#nameTitle'+id_title).text(data['title']);
-  				// $('#nameTitle'+id_title).css('text-align',data['titlestyle']);
-  				// if (data['visiable'] == 1) 
-  				// {
-  				// 	$("#section_"+id_type).hide();
-  				// }
-  				// else
-  				// {
-  				// 	$("#section_"+id_type).show();
-  				// };
   				location.reload(true);
   			}
 
@@ -1252,69 +750,6 @@
 			}
 		});
 	}
-
-
-	// upload images ajax
-
-    // function send_id(id_tab) {
-
-    // 	$('input[name=id_tab]').val(id_tab);
-
-    //     $('#image').trigger('click');
-
-    //     var options = { 
-    //         beforeSubmit: showRequest,
-    //         success: showResponse,
-    //         dataType: 'json' 
-    //         }; 
-        
-    //     $('body').delegate('#image','change', function(){
-    //     	var files = $(this)[0].files;
-    //        	var fileInput = $('#image');
-    //        	var maxSize = fileInput.data('max-size'); 
-    //        	var fileSize = files[0].size; // in bytes
-    //         if(fileSize>maxSize){
-    //             swal("Dung lượng của mỗi bức ảnh phải nhỏ hơn 2MB(mega byte), vui lòng chọn lại!"); 
-    //             $("#image").val("");                
-    //         }
-    //         else
-    //         {
-    //         	$('#upload').ajaxForm(options).submit(); 
-    //         }
-            
-    //     }); 
-    // }
-
-    // function showRequest(formData, jqForm, options) { 
-    //     $("#validation-errors").hide().empty();
-    //     $("#output").css('display','none');
-    //     return true; 
-    // } 
-
-    // function showResponse(response, statusText, xhr, $form)  { 
-    //     if(response.success == false)
-    //     {
-    //         var arr = response.errors;
-    //         $.each(arr, function(index, value)
-    //         {
-    //             if (value.length != 0)
-    //             {
-                    
-    //                 swal("Định dạng ảnh chưa đúng");
-    //             }
-    //         });
-            
-    //         return false;
-    //     } else {
-    //         $("#prev_output"+response.id_tab+" a").html("<img class='img-responsive' src='"+response.file+"' />");
-    //         $("#prev_outputcc"+response.id_tab+" a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+response.file+"' />");
-    //         $("#prev_output_themes3"+response.id_tab+" a").html("<img style='width: 100%;height: 100%;' class='img-responsive' src='"+response.file+"' />");
-    //         $("#prev_output_themes21"+response.id_tab+" a").html("<img class='tab-text-img' src='"+response.file+"' />");
-           
-    //     }
-    // }
-
-    // end upload images ajax
 
     $(document).ready(function(){
 		$("#tableSort").sortable();
