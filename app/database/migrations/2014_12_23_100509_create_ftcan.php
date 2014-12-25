@@ -17,7 +17,7 @@ class CreateFtCan extends Migration {
 			//
 			$table->increments("id");
 			$table->string("ten");
-			$table->integer("nam");
+			$table->string("nam");
 			$table->timestamps();
 		});
 	}

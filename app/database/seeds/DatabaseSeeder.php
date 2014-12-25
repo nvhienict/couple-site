@@ -1617,52 +1617,52 @@ class FtCanTableSeeder extends Seeder {
 
         FtCan::create(array(
             'ten'   => 'Giáp',
-            'nam'   => '4')
+            'nam'   => '04,14,24,34,45,54')
         );
 
         FtCan::create(array(
             'ten'   =>'Ất',
-            'nam'   => '5')
+            'nam'   => '05,15,25,35,45,55')
         );
 
         FtCan::create(array(
             'ten'   =>'Bính',
-            'nam'   => '6')
+            'nam'   => '06,16,26,36,46,56')
         );
 
         FtCan::create(array(
             'ten'   =>'Đinh',
-            'nam'   => '7')
+            'nam'   => '07,17,27,37,47,57')
         );
 
         FtCan::create(array(
             'ten'   =>'Mậu',
-            'nam'   => '8')
+            'nam'   => '08,18,28,38,48,58')
         );
 
         FtCan::create(array(
             'ten'   =>'Kỷ',
-            'nam'   => '9')
+            'nam'   => '09,19,29,39,49,59')
         );
 
         FtCan::create(array(
             'ten'   =>'Canh',
-            'nam'   => '0')
+            'nam'   => '00,10,20,30,40,50')
         );
 
         FtCan::create(array(
             'ten'   =>'Tân',
-            'nam'   => '1')
+            'nam'   => '01,11,21,31,41,51')
         );
 
         FtCan::create(array(
             'ten'   =>'Nhâm',
-            'nam'   => '2')
+            'nam'   => '02,12,22,32,42,52')
         );
 
         FtCan::create(array(
             'ten'   =>'Quý',
-            'nam'   => '3')
+            'nam'   => '03,13,23,33,43,53')
         );
 
     }
