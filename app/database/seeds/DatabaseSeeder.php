@@ -24,6 +24,12 @@ class DatabaseSeeder extends Seeder {
 
         $this->call('TabsTableSeeder');
 
+        $this->call('FtCanTableSeeder');
+        $this->call('FtChiTableSeeder');
+        $this->call('FtNamTuoiTableSeeder');
+        $this->call('FtXemNgayTableSeeder');
+        $this->call('FtHungNienTableSeeder');
+
 	}
 
 }
@@ -341,70 +347,8 @@ class LocationTableSeeder extends Seeder {
     {
         DB::table('location')->delete();
 
-        // Location::create(array('name'=>'An Giang'));
-        // Location::create(array('name'=>'Bà Rịa-Vũng Tàu'));
-        // Location::create(array('name'=>'Bạc Liêu'));
-        // Location::create(array('name'=>'Bắc Cạn'));
-        // Location::create(array('name'=>'Bắc Giang'));
-        // Location::create(array('name'=>'Bắc Ninh'));
-        // Location::create(array('name'=>'Bến Tre'));
-        // Location::create(array('name'=>'Bình Dương'));
-        // Location::create(array('name'=>'Bình Định'));
-        // Location::create(array('name'=>'Bình Phước'));
-        // Location::create(array('name'=>'Bình Thuận'));
-        // Location::create(array('name'=>'Cà Mau'));
-        // Location::create(array('name'=>'Cao Bằng'));
-        // Location::create(array('name'=>'Cần Thơ(TP)'));
         Location::create(array('name'=>'Đà Nẵng'));
         Location::create(array('name'=>'Huế'));
-        // Location::create(array('name'=>'Đắk Lắk'));
-        // Location::create(array('name'=>'Đắk Nông'));
-        // Location::create(array('name'=>'Điện Biên'));
-        // Location::create(array('name'=>'Đồng Nai'));
-        // Location::create(array('name'=>'Đồng Tháp'));
-        // Location::create(array('name'=>'Gia Lai'));
-        // Location::create(array('name'=>'Hà Giang'));
-        // Location::create(array('name'=>'Hà Nam'));
-        // Location::create(array('name'=>'Hà Nội(TP)'));
-        // Location::create(array('name'=>'Hà Tĩnh'));
-        // Location::create(array('name'=>'Hải Dương'));
-        // Location::create(array('name'=>'Hải Phòng(TP)'));
-        // Location::create(array('name'=>'Hòa Bình'));
-        // Location::create(array('name'=>'Hồ Chí Minh(TP)'));
-        // Location::create(array('name'=>'Hậu Giang'));
-        // Location::create(array('name'=>'Hưng Yên'));
-        // Location::create(array('name'=>'Khánh Hòa'));
-        // Location::create(array('name'=>'Kiên Giang'));
-        // Location::create(array('name'=>'Kon Tum'));
-        // Location::create(array('name'=>'Lai Châu'));
-        // Location::create(array('name'=>'Lào Cai'));
-        // Location::create(array('name'=>'Lạng Sơn'));
-        // Location::create(array('name'=>'Lâm Đồng'));
-        // Location::create(array('name'=>'Long An'));
-        // Location::create(array('name'=>'Nam Định'));
-        // Location::create(array('name'=>'Nghệ An'));
-        // Location::create(array('name'=>'Ninh Bình'));
-        // Location::create(array('name'=>'Ninh Thuận'));
-        // Location::create(array('name'=>'Phú Thọ'));
-        // Location::create(array('name'=>'Phú Yên'));
-        // Location::create(array('name'=>'Quảng Bình'));
-        // Location::create(array('name'=>'Quảng Nam'));
-        // Location::create(array('name'=>'Quảng Ngãi'));
-        // Location::create(array('name'=>'Quảng Ninh'));
-        // Location::create(array('name'=>'Quảng Trị'));
-        // Location::create(array('name'=>'Sóc Trăng'));
-        // Location::create(array('name'=>'Sơn La'));
-        // Location::create(array('name'=>'Tây Ninh'));
-        // Location::create(array('name'=>'Thái Bình'));
-        // Location::create(array('name'=>'Thái Nguyên'));
-        // Location::create(array('name'=>'Thanh Hóa'));
-        // Location::create(array('name'=>'Thừa Thiên-Huế'));
-        // Location::create(array('name'=>'Tiền Giang'));
-        // Location::create(array('name'=>'Trà Vinh'));
-        // Location::create(array('name'=>'Tuyên Quang'));
-        // Location::create(array('name'=>'Vĩnh Long'));
-        // Location::create(array('name'=>'Vĩnh Phúc'));
-        // Location::create(array('name'=>'Yên Bái'));
     }
 
 }
@@ -496,17 +440,95 @@ class TabsTableSeeder extends Seeder {
         DB::table('tabs')->delete();
 
 
-Tab::create(array('type' => 'welcome','title' => 'Chào mừng','content' => 'Welcome To Our Wedding Website!','visiable' => '0','titlestyle' => '','video' => '','map' => ''));
-Tab::create(array('type' => 'about','title' => 'Nói về chúng tôi','content' => '[Remember, not all your guests will know both you and your fiancé(e) equally well. Share information about yourself and your fiancé(e) including your hometowns, occupations and how you met!]','visiable' => '0','titlestyle' => '','video' => '','map' => ''));
-Tab::create(array('type' => 'wedding','title' => 'Đám cưới','content' => '[Enter Ceremony Information]','visiable' => '0','titlestyle' => '','video' => '','map' => ''));
-Tab::create(array('type' => 'traval','title' => 'Du lịch','content' => 'tổ chức du lịch như thế nào nhỉ?','visiable' => '0','titlestyle' => '','video' => '','map' => ''));
-Tab::create(array('type' => 'register','title' => 'Đăng kí','content' => 'Đăng kí thành viên','visiable' => '1','titlestyle' => '','video' => '','map' => ''));
-Tab::create(array('type' => 'album','title' => 'Album ảnh','content' => 'Những hình của bạn và người ấy','visiable' => '0','titlestyle' => '','video' => '','map' => ''));
-Tab::create(array('type' => 'contact','title' => 'Liên lạc','content' => 'Liên lạc','visiable' => '0', 'titlestyle' =>'','video' => '','map' => ''));
-Tab::create(array('type' => 'guestbook','title' => 'Khách mời','content' => 'những lời chúc đẹp, hay.....','visiable' => '0','titlestyle' => '','video' => '', 'map' =>''));
-Tab::create(array('type' => 'love_story','title' => 'Câu chuyện tình','content' => 'Chúng mình yêu nhau được 2 năm trước khi đến đám cưới này...','visiable' => '0','titlestyle' => '', 'video' =>'', 'map' =>''));
+    Tab::create(array(
+        'type' => 'welcome',
+        'title' => 'Chào mừng',
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque. Ut tincidunt eros eu ullamcorper mollis. Nunc porta ac orci id hendrerit. Sed at libero nunc. Aenean quam ligula, ornare vel efficitur accumsan, fringilla sed velit. Sed odio lectus, porta vel erat nec, vehicula sollicitudin orci. Quisque placerat ante ac ligula suscipit tristique. Vivamus quam tellus, placerat sit amet elementum ac, lacinia id mi. Vivamus lacinia justo nibh, sed commodo turpis imperdiet et. Vivamus id hendrerit sem, et sollicitudin tellus. Curabitur feugiat purus non fringilla tempus. Vestibulum laoreet elit nec ornare lacinia. Nullam consequat gravida dignissim. Ut tincidunt nisl et blandit elementum. Donec faucibus turpis eget lacinia fringilla.',
+        'visiable' => '0',
+        'titlestyle' => '',
+        'video' => '',
+        'map' => '')
+    );
 
+    Tab::create(array(
+        'type' => 'about',
+        'title' => 'Nói về chúng tôi',
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque. Ut tincidunt eros eu ullamcorper mollis. Nunc porta ac orci id hendrerit. Sed at libero nunc. Aenean quam ligula, ornare vel efficitur accumsan, fringilla sed velit. Sed odio lectus, porta vel erat nec, vehicula sollicitudin orci. Quisque placerat ante ac ligula suscipit tristique. Vivamus quam tellus, placerat sit amet elementum ac, lacinia id mi. Vivamus lacinia justo nibh, sed commodo turpis imperdiet et. Vivamus id hendrerit sem, et sollicitudin tellus. Curabitur feugiat purus non fringilla tempus. Vestibulum laoreet elit nec ornare lacinia. Nullam consequat gravida dignissim. Ut tincidunt nisl et blandit elementum. Donec faucibus turpis eget lacinia fringilla.',
+        'visiable' => '0',
+        'titlestyle' => '',
+        'video' => '',
+        'map' => '')
+    );
 
+    Tab::create(array(
+        'type' => 'wedding',
+        'title' => 'Đám cưới',
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque. Ut tincidunt eros eu ullamcorper mollis. Nunc porta ac orci id hendrerit. Sed at libero nunc. Aenean quam ligula, ornare vel efficitur accumsan, fringilla sed velit. Sed odio lectus, porta vel erat nec, vehicula sollicitudin orci. Quisque placerat ante ac ligula suscipit tristique. Vivamus quam tellus, placerat sit amet elementum ac, lacinia id mi. Vivamus lacinia justo nibh, sed commodo turpis imperdiet et. Vivamus id hendrerit sem, et sollicitudin tellus. Curabitur feugiat purus non fringilla tempus. Vestibulum laoreet elit nec ornare lacinia. Nullam consequat gravida dignissim. Ut tincidunt nisl et blandit elementum. Donec faucibus turpis eget lacinia fringilla.',
+        'visiable' => '0',
+        'titlestyle' => '',
+        'video' => '',
+        'map' => '')
+    );
+
+    Tab::create(array(
+        'type' => 'traval',
+        'title' => 'Du lịch',
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque. Ut tincidunt eros eu ullamcorper mollis. Nunc porta ac orci id hendrerit. Sed at libero nunc. Aenean quam ligula, ornare vel efficitur accumsan, fringilla sed velit. Sed odio lectus, porta vel erat nec, vehicula sollicitudin orci. Quisque placerat ante ac ligula suscipit tristique. Vivamus quam tellus, placerat sit amet elementum ac, lacinia id mi. Vivamus lacinia justo nibh, sed commodo turpis imperdiet et. Vivamus id hendrerit sem, et sollicitudin tellus. Curabitur feugiat purus non fringilla tempus. Vestibulum laoreet elit nec ornare lacinia. Nullam consequat gravida dignissim. Ut tincidunt nisl et blandit elementum. Donec faucibus turpis eget lacinia fringilla.',
+        'visiable' => '0',
+        'titlestyle' => '',
+        'video' => '',
+        'map' => '')
+    );
+
+    Tab::create(array(
+        'type' => 'register',
+        'title' => 'Đăng kí',
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien.',
+        'visiable' => '1',
+        'titlestyle' => '',
+        'video' => '',
+        'map' => '')
+    );
+
+    Tab::create(array(
+        'type' => 'album',
+        'title' => 'Album ảnh',
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque. Ut tincidunt eros eu ullamcorper mollis. Nunc porta ac orci id hendrerit. Sed at libero nunc. Aenean quam ligula, ornare vel efficitur accumsan, fringilla sed velit. Sed odio lectus, porta vel erat nec, vehicula sollicitudin orci. Quisque placerat ante ac ligula suscipit tristique. Vivamus quam tellus, placerat sit amet elementum ac, lacinia id mi. Vivamus lacinia justo nibh, sed commodo turpis imperdiet et. Vivamus id hendrerit sem, et sollicitudin tellus. Curabitur feugiat purus non fringilla tempus. Vestibulum laoreet elit nec ornare lacinia. Nullam consequat gravida dignissim. Ut tincidunt nisl et blandit elementum. Donec faucibus turpis eget lacinia fringilla.',
+        'visiable' => '0',
+        'titlestyle' => '',
+        'video' => '',
+        'map' => '')
+    );
+
+    Tab::create(array(
+        'type' => 'contact',
+        'title' => 'Liên lạc',
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque.',
+        'visiable' => '0',
+        'titlestyle' =>'',
+        'video' => '',
+        'map' => '')
+    );
+
+    Tab::create(array(
+        'type' => 'guestbook',
+        'title' => 'Khách mời',
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque. Ut tincidunt eros eu ullamcorper mollis. Nunc porta ac orci id hendrerit.',
+        'visiable' => '0',
+        'titlestyle' => '',
+        'video' => '',
+        'map' =>'')
+    );
+
+    Tab::create(array(
+        'type' => 'love_story',
+        'title' => 'Câu chuyện tình',
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque. Ut tincidunt eros eu ullamcorper mollis. Nunc porta ac orci id hendrerit. Sed at libero nunc. Aenean quam ligula, ornare vel efficitur accumsan, fringilla sed velit. Sed odio lectus, porta vel erat nec, vehicula sollicitudin orci. Quisque placerat ante ac ligula suscipit tristique. Vivamus quam tellus, placerat sit amet elementum ac, lacinia id mi. Vivamus lacinia justo nibh, sed commodo turpis imperdiet et. Vivamus id hendrerit sem, et sollicitudin tellus. Curabitur feugiat purus non fringilla tempus. Vestibulum laoreet elit nec ornare lacinia. Nullam consequat gravida dignissim. Ut tincidunt nisl et blandit elementum. Donec faucibus turpis eget lacinia fringilla.',
+        'visiable' => '0',
+        'titlestyle' => '',
+        'video' =>'',
+        'map' =>'')
+    );
 
     }
 }
@@ -1584,5 +1606,605 @@ class VendorTableSeeder extends Seeder {
     }
 }
 // Vendor
+
+
+
+class FtCanTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('ftcan')->delete();
+
+        FtCan::create(array(
+            'ten'   => 'Giáp',
+            'nam'   => '04,14,24,34,45,54')
+        );
+
+        FtCan::create(array(
+            'ten'   =>'Ất',
+            'nam'   => '05,15,25,35,45,55')
+        );
+
+        FtCan::create(array(
+            'ten'   =>'Bính',
+            'nam'   => '06,16,26,36,46,56')
+        );
+
+        FtCan::create(array(
+            'ten'   =>'Đinh',
+            'nam'   => '07,17,27,37,47,57')
+        );
+
+        FtCan::create(array(
+            'ten'   =>'Mậu',
+            'nam'   => '08,18,28,38,48,58')
+        );
+
+        FtCan::create(array(
+            'ten'   =>'Kỷ',
+            'nam'   => '09,19,29,39,49,59')
+        );
+
+        FtCan::create(array(
+            'ten'   =>'Canh',
+            'nam'   => '00,10,20,30,40,50')
+        );
+
+        FtCan::create(array(
+            'ten'   =>'Tân',
+            'nam'   => '01,11,21,31,41,51')
+        );
+
+        FtCan::create(array(
+            'ten'   =>'Nhâm',
+            'nam'   => '02,12,22,32,42,52')
+        );
+
+        FtCan::create(array(
+            'ten'   =>'Quý',
+            'nam'   => '03,13,23,33,43,53')
+        );
+
+    }
+}
+// FtCan
+
+class FtChiTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('ftchi')->delete();
+
+        FtChi::create(array(
+            'ten'   => 'Tý',
+            'code'  => '04,16,28,40,52')
+        );
+
+        FtChi::create(array(
+            'ten'   =>'Sửu',
+            'code'  => '05,17,29,41,53')
+        );
+
+        FtChi::create(array(
+            'ten'   =>'Dần',
+            'code'  => '06,18,30,42,54')
+        );
+
+        FtChi::create(array(
+            'ten'   =>'Mão',
+            'code'  => '07,19,31,43,55')
+        );
+
+        FtChi::create(array(
+            'ten'   =>'Thìn',
+            'code'  => '08,20,32,44,56')
+        );
+
+        FtChi::create(array(
+            'ten'   =>'Tỵ',
+            'code'  => '09,21,33,45,57')
+        );
+
+        FtChi::create(array(
+            'ten'   =>'Ngọ',
+            'code'  => '10,22,34,46,58')
+        );
+
+        FtChi::create(array(
+            'ten'   =>'Mùi',
+            'code'  => '11,23,35,47,59')
+        );
+
+        FtChi::create(array(
+            'ten'   =>'Thân',
+            'code'  => '00,12,24,36,48')
+        );
+
+        FtChi::create(array(
+            'ten'   =>'Dậu',
+            'code'  => '01,13,25,37,49')
+        );
+
+        FtChi::create(array(
+            'ten'   =>'Tuất',
+            'code'  => '02,14,26,38,50')
+        );
+
+        FtChi::create(array(
+            'ten'   =>'Hợi',
+            'code'  => '03,15,27,39,51')
+        );
+
+    }
+}
+// FtChi
+
+
+class FtNamTuoiTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('ftnamtuoi')->delete();
+
+        FtNamTuoi::create(array(
+            'nam_tuoi'      => 'Sửu-Mùi',
+            'dai_loi'       => '05-11',
+            'tieu_loi'      => '04-10',
+            'ong_co'        => '02-08',
+            'phu_mau'       => '02-08',
+            'phu_chu'       => '01-07',
+            'nu_than'       => '05-12')
+        );
+
+        FtNamTuoi::create(array(
+            'nam_tuoi'      => 'Dần-Thân',
+            'dai_loi'       => '07-08',
+            'tieu_loi'      => '03-09',
+            'ong_co'        => '04-10',
+            'phu_mau'       => '05-11',
+            'phu_chu'       => '06-12',
+            'nu_than'       => '01-07')
+        );
+
+        FtNamTuoi::create(array(
+            'nam_tuoi'      => 'Mão-Dậu',
+            'dai_loi'       => '01-07',
+            'tieu_loi'      => '06-12',
+            'ong_co'        => '05-11',
+            'phu_mau'       => '04-10',
+            'phu_chu'       => '03-09',
+            'nu_than'       => '02-08')
+        );
+
+        FtNamTuoi::create(array(
+            'nam_tuoi'      => 'Thìn-Tuất',
+            'dai_loi'       => '04-10',
+            'tieu_loi'      => '05-11',
+            'ong_co'        => '06-12',
+            'phu_mau'       => '01-07',
+            'phu_chu'       => '02-08',
+            'nu_than'       => '03-09')
+        );
+
+        FtNamTuoi::create(array(
+            'nam_tuoi'      => 'Tỵ-Hợi',
+            'dai_loi'       => '03-09',
+            'tieu_loi'      => '02-08',
+            'ong_co'        => '01-07',
+            'phu_mau'       => '06-12',
+            'phu_chu'       => '05-11',
+            'nu_than'       => '04-10')
+        );
+
+        FtNamTuoi::create(array(
+            'nam_tuoi'      => 'Tý-Ngọ',
+            'dai_loi'       => '06-12',
+            'tieu_loi'      => '01-07',
+            'ong_co'        => '02-08',
+            'phu_mau'       => '03-09',
+            'phu_chu'       => '04-10',
+            'nu_than'       => '05-11')
+        );
+
+    }
+}
+// FtNamTuoi
+
+class FtXemNgayTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('ftxemngay')->delete();
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Giáp Tý',
+            'tuoi_xung_khac'      => 'Mậu Ngọ, Nhâm Ngọ, Canh Dần, Canh Thân')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Ất Sửu',
+            'tuoi_xung_khac'      => 'Kỷ Mùi, Quý Mùi, Tân Mão, Tân Dậu')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Bính Dần',
+            'tuoi_xung_khac'      => 'Giáp Thân, Nhâm Thân, Nhâm Tuất, Nhâm Thìn')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Đinh Mão',
+            'tuoi_xung_khac'      => 'Ất Dậu, Quý Dậu, Quý Tỵ, Quý Hợi')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Mậu Thìn',
+            'tuoi_xung_khac'      => 'Canh Tuất, Bính Tuất')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Kỷ Tỵ',
+            'tuoi_xung_khac'      => 'Tân Hợi, Đinh Hợi')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Canh Ngọ',
+            'tuoi_xung_khac'      => 'Nhâm Tý, Bính Tý, Giáp Thân, Giáp Dần')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Tân Mùi',
+            'tuoi_xung_khac'      => 'Quý Sửu, Đinh Sửu, Ất Dậu, Ất Mão')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Nhâm Thân',
+            'tuoi_xung_khac'      => 'Bính Dần, Canh Dần, Bính Thân')
+        );
+
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Quý Dậu',
+            'tuoi_xung_khac'      => 'Đinh Mão, Tân Mão, Đinh Dậu')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Giáp Tuất',
+            'tuoi_xung_khac'      => 'Nhâm Thìn, Canh Thìn, Canh Tuất')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Ất Hợi',
+            'tuoi_xung_khac'      => 'Quý Tỵ, Tân Tỵ, Tân Hợi')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Bính Tý',
+            'tuoi_xung_khac'      => 'Canh Ngọ, Mậu Ngọ')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Đinh Sửu',
+            'tuoi_xung_khac'      => 'Tân Mùi, Kỷ Mùi')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Mậu Dần',
+            'tuoi_xung_khac'      => 'Canh Thân, Giáp Thân')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Kỷ Mão',
+            'tuoi_xung_khac'      => 'Tân Dậu, Ất Dậu')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Canh Thìn',
+            'tuoi_xung_khac'      => 'Giáp Tuất, Mậu Tuất, Giáp Thìn')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Tân Tỵ',
+            'tuoi_xung_khac'      => 'Ất Hợi, Kỷ Hợi, Ất Tỵ')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Nhâm Ngọ',
+            'tuoi_xung_khac'      => 'Giáp Tý, Canh Tý, Bính Tuất, Bính Thìn')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Quý Mùi',
+            'tuoi_xung_khac'      => 'Ất Sửu, Tân Sửu, Đinh Hợi, Đinh Tỵ')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Giáp Thân',
+            'tuoi_xung_khac'      => 'Mậu Dần, Bính Dần, Canh Ngọ, Canh Tý')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Ất Dậu',
+            'tuoi_xung_khac'      => 'Kỷ Mão, Đinh Mão, Tân Mùi, Tân Sửu')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Bính Tuất',
+            'tuoi_xung_khac'      => 'Mậu Thìn, Nhâm Thìn, Nhâm Ngọ, Nhâm Tý')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Đinh Hợi',
+            'tuoi_xung_khac'      => 'Kỷ Tỵ, Quý Tỵ, Quý Mùi, Quý Sửu')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Mậu Tý',
+            'tuoi_xung_khac'      => 'Bính Ngọ, Giáp Ngọ')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Kỷ Sửu',
+            'tuoi_xung_khac'      => 'Đinh Mùi, Ất Mùi')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Canh Dần',
+            'tuoi_xung_khac'      => 'Nhâm Thân, Mậu Thân, Giáp Tý, Giáp Ngọ')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Tân Mão',
+            'tuoi_xung_khac'      => 'Quý Dậu, Kỷ Dậu, Ất Sửu, Ất Mùi')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Nhâm Thìn',
+            'tuoi_xung_khac'      => 'Bính Tuất, Giáp Tuất, Bính Dần')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Quý Tỵ',
+            'tuoi_xung_khac'      => 'Đinh Hợi, Ất Hợi, Đinh Mão')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Giáp Ngọ',
+            'tuoi_xung_khac'      => 'Mậu Tý, Nhâm Tý, Canh Dần, Nhâm Dần')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Ất Mùi',
+            'tuoi_xung_khac'      => 'Kỷ Sửu, Quý Sửu, Tân Mão, Tân Dậu')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Bính Thân',
+            'tuoi_xung_khac'      => 'Giáp Dần, Nhâm Thân, Nhâm Tuất, Nhâm Thìn')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Đinh Dậu',
+            'tuoi_xung_khac'      => 'Ất Mão, Quý Mão, Quý Tỵ, Quý Hợi')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Mậu Tuất',
+            'tuoi_xung_khac'      => 'Canh Thìn, Bính Thìn')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Kỷ Hợi',
+            'tuoi_xung_khac'      => 'Tân Tỵ, Đinh Tỵ')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Canh Tý',
+            'tuoi_xung_khac'      => 'Nhâm Ngọ, Bính Ngọ, Giáp Thân, Giáp Dần')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Tân Sửu',
+            'tuoi_xung_khac'      => 'Quý Mùi, Đinh Mùi, Ất Dậu, Ất Mão')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Nhâm Dần',
+            'tuoi_xung_khac'      => 'Canh Thân, Bính Thân, Bính Dần')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Quý Mão',
+            'tuoi_xung_khac'      => 'Tân Dậu, Đinh Dậu, Đinh Mão')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Giáp Thìn',
+            'tuoi_xung_khac'      => 'Nhâm Tuất, Canh Tuất, Canh Thìn')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Ất Tỵ',
+            'tuoi_xung_khac'      => 'Quý Hợi, Tân Hợi, Tân Tỵ')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Bính Ngọ',
+            'tuoi_xung_khac'      => 'Mậu Tý, Canh Tý')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Đinh Mùi',
+            'tuoi_xung_khac'      => 'Kỷ Sửu, Tân Sửu')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Mậu Thân',
+            'tuoi_xung_khac'      => 'Canh Dần, Giáp Dần')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Kỷ Dậu',
+            'tuoi_xung_khac'      => 'Tân Mão, Ất Mão')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Canh Tuất',
+            'tuoi_xung_khac'      => 'Giáp Thìn, Mậu Thìn, Giáp Tuất')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Tân Hợi',
+            'tuoi_xung_khac'      => 'Ất Tỵ, Kỷ Tỵ, Ất Hợi')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Nhâm Tý',
+            'tuoi_xung_khac'      => 'Giáp Ngọ, Canh Ngọ, Bính Tuất, Bính Thìn')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Quý Sửu',
+            'tuoi_xung_khac'      => 'Ất Mùi, Tân Mùi, Đinh Hợi, Đinh Tỵ')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Giáp Dần',
+            'tuoi_xung_khac'      => 'Mậu Thân, Bính Thân, Canh Ngọ, Canh Tý')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Ất Mão',
+            'tuoi_xung_khac'      => 'Kỷ Dậu, Đinh Dậu, Tân Mùi, Tân Sửu')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Bính Thìn',
+            'tuoi_xung_khac'      => 'Mậu Tuất, Nhâm Tuất, Nhâm Ngọ, Nhâm tý')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Đinh Tỵ',
+            'tuoi_xung_khac'      => 'Kỷ Hợi, Quý Hợi, Quý Sửu, Quý Mùi')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Mậu Ngọ',
+            'tuoi_xung_khac'      => 'Bính Tý, Giáp Tý')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Kỷ Mùi',
+            'tuoi_xung_khac'      => 'Đinh Sửu, Ất Sửu')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Canh Thân',
+            'tuoi_xung_khac'      => 'Nhâm Dần, Mậu Dần, Giáp Tý, Giáp Ngọ')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Tân Dậu',
+            'tuoi_xung_khac'      => 'Quý Mão, Kỷ Mão, Ất Sửu, Ất Mùi')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Nhâm Tuất',
+            'tuoi_xung_khac'      => 'Bính Thìn, Giáp Thìn, Bính Thân, Bính Dần')
+        );
+
+        FtXemNgay::create(array(
+            'ngay_thang_nam'      => 'Quý Hợi',
+            'tuoi_xung_khac'      => 'Đinh Tỵ, Ất Tỵ, Đinh Mão, Đinh Dậu')
+        );
+
+
+
+    }
+}
+// FtXemNgay
+
+
+class FtHungNienTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('fthungnien')->delete();
+
+        FtHungNien::create(array(
+            'tuoi'      => 'Tý',
+            'chu_re'    => 'Mùi',
+            'co_dau'    => 'Mão')
+        );
+
+
+        FtHungNien::create(array(
+            'tuoi'      => 'Sửu',
+            'chu_re'    => 'Thân',
+            'co_dau'    => 'Dần')
+        );
+
+        FtHungNien::create(array(
+            'tuoi'      => 'Dần',
+            'chu_re'    => 'Dậu',
+            'co_dau'    => 'Sửu')
+        );
+
+        FtHungNien::create(array(
+            'tuoi'      => 'Mão',
+            'chu_re'    => 'Tuất',
+            'co_dau'    => 'Tý')
+        );
+
+        FtHungNien::create(array(
+            'tuoi'      => 'Thìn',
+            'chu_re'    => 'Hợi',
+            'co_dau'    => 'Hợi')
+        );
+
+        FtHungNien::create(array(
+            'tuoi'      => 'Tỵ',
+            'chu_re'    => 'Tý',
+            'co_dau'    => 'Tuất')
+        );
+
+        FtHungNien::create(array(
+            'tuoi'      => 'Ngọ',
+            'chu_re'    => 'Sửu',
+            'co_dau'    => 'Dậu')
+        );
+
+        FtHungNien::create(array(
+            'tuoi'      => 'Mùi',
+            'chu_re'    => 'Dần',
+            'co_dau'    => 'Thân')
+        );
+
+        FtHungNien::create(array(
+            'tuoi'      => 'Thân',
+            'chu_re'    => 'Mão',
+            'co_dau'    => 'Mùi')
+        );
+
+        FtHungNien::create(array(
+            'tuoi'      => 'Dậu',
+            'chu_re'    => 'Thìn',
+            'co_dau'    => 'Ngọ')
+        );
+
+        FtHungNien::create(array(
+            'tuoi'      => 'Tuất',
+            'chu_re'    => 'Tỵ',
+            'co_dau'    => 'Tỵ')
+        );
+
+        FtHungNien::create(array(
+            'tuoi'      => 'Hợi',
+            'chu_re'    => 'Ngọ',
+            'co_dau'    => 'Thìn')
+        );
+
+    }
+}
+// FtHungNien
 
 
