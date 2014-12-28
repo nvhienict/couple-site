@@ -742,6 +742,13 @@ hr.bold {
 		font-size: 110%;
 	}
 
+	.title-ft-content{
+		font-size: 85% !important;
+	}
+	.tbl-nam-hung-nien{
+		font-size: 85% !important;
+	}
+
 }
 
 @media (max-width: 320px) {
@@ -2593,5 +2600,80 @@ a.contact-admin:hover{
 .margin-footer{
 	min-height: 370px;
 }
+
+
+/**
+* fortune
+*/
+
+.txt-bold{
+	font-weight: bold;
+}
+.txt-bold-italic{
+	font-weight: bold;
+	font-style: italic;
+}
+.start-red{
+	color: red;
+}
+
+.ft-title{
+	text-align: center;
+
+}
+.ft-title > p{
+	text-align: justify;
+	font-size: 15px;
+}
+
+.lb-input-year{
+	font-size: 17px;
+	text-align: left;
+	color: 
+}
+
+.ft-content{
+	min-height: 250px;
+	border-top: 2px dotted #E5DBB8;
+	border-bottom: 2px dotted #E5DBB8;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	padding: 2% 0%;
+}
+
+.title-ft-content{
+	text-align: left;
+	font-size: 15px;
+	padding: 5px 0px;
+}
+
+.tbl-nam-hung-nien th{
+	text-align: center !important;
+}
+
+.lich-ket-qua{
+	min-height: 100px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin-top: 2%;
+	/*display: none;*/
+}
+.ngay-hien-tai{
+	height: 30px;
+	font-style: 20px;
+	color: #13A547;
+	text-transform: uppercase;
+	border-bottom: 1px solid #ddd;
+	padding: 5px;
+	font-weight: bold;
+	text-align: center;
+}
+.current-day, .current-month, .current-year{
+	color: #0057DC !important;
+}
+
+
+/* end fortune */
+
 
 

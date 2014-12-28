@@ -24,8 +24,6 @@ class DatabaseSeeder extends Seeder {
 
         $this->call('TabsTableSeeder');
 
-        $this->call('FtCanTableSeeder');
-        $this->call('FtChiTableSeeder');
         $this->call('FtNamTuoiTableSeeder');
         $this->call('FtXemNgayTableSeeder');
         $this->call('FtHungNienTableSeeder');
@@ -1608,138 +1606,6 @@ class VendorTableSeeder extends Seeder {
 // Vendor
 
 
-
-class FtCanTableSeeder extends Seeder {
-
-    public function run()
-    {
-        DB::table('ftcan')->delete();
-
-        FtCan::create(array(
-            'ten'   => 'Giáp',
-            'nam'   => '04,14,24,34,45,54')
-        );
-
-        FtCan::create(array(
-            'ten'   =>'Ất',
-            'nam'   => '05,15,25,35,45,55')
-        );
-
-        FtCan::create(array(
-            'ten'   =>'Bính',
-            'nam'   => '06,16,26,36,46,56')
-        );
-
-        FtCan::create(array(
-            'ten'   =>'Đinh',
-            'nam'   => '07,17,27,37,47,57')
-        );
-
-        FtCan::create(array(
-            'ten'   =>'Mậu',
-            'nam'   => '08,18,28,38,48,58')
-        );
-
-        FtCan::create(array(
-            'ten'   =>'Kỷ',
-            'nam'   => '09,19,29,39,49,59')
-        );
-
-        FtCan::create(array(
-            'ten'   =>'Canh',
-            'nam'   => '00,10,20,30,40,50')
-        );
-
-        FtCan::create(array(
-            'ten'   =>'Tân',
-            'nam'   => '01,11,21,31,41,51')
-        );
-
-        FtCan::create(array(
-            'ten'   =>'Nhâm',
-            'nam'   => '02,12,22,32,42,52')
-        );
-
-        FtCan::create(array(
-            'ten'   =>'Quý',
-            'nam'   => '03,13,23,33,43,53')
-        );
-
-    }
-}
-// FtCan
-
-class FtChiTableSeeder extends Seeder {
-
-    public function run()
-    {
-        DB::table('ftchi')->delete();
-
-        FtChi::create(array(
-            'ten'   => 'Tý',
-            'code'  => '04,16,28,40,52')
-        );
-
-        FtChi::create(array(
-            'ten'   =>'Sửu',
-            'code'  => '05,17,29,41,53')
-        );
-
-        FtChi::create(array(
-            'ten'   =>'Dần',
-            'code'  => '06,18,30,42,54')
-        );
-
-        FtChi::create(array(
-            'ten'   =>'Mão',
-            'code'  => '07,19,31,43,55')
-        );
-
-        FtChi::create(array(
-            'ten'   =>'Thìn',
-            'code'  => '08,20,32,44,56')
-        );
-
-        FtChi::create(array(
-            'ten'   =>'Tỵ',
-            'code'  => '09,21,33,45,57')
-        );
-
-        FtChi::create(array(
-            'ten'   =>'Ngọ',
-            'code'  => '10,22,34,46,58')
-        );
-
-        FtChi::create(array(
-            'ten'   =>'Mùi',
-            'code'  => '11,23,35,47,59')
-        );
-
-        FtChi::create(array(
-            'ten'   =>'Thân',
-            'code'  => '00,12,24,36,48')
-        );
-
-        FtChi::create(array(
-            'ten'   =>'Dậu',
-            'code'  => '01,13,25,37,49')
-        );
-
-        FtChi::create(array(
-            'ten'   =>'Tuất',
-            'code'  => '02,14,26,38,50')
-        );
-
-        FtChi::create(array(
-            'ten'   =>'Hợi',
-            'code'  => '03,15,27,39,51')
-        );
-
-    }
-}
-// FtChi
-
-
 class FtNamTuoiTableSeeder extends Seeder {
 
     public function run()
@@ -1818,303 +1684,303 @@ class FtXemNgayTableSeeder extends Seeder {
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Giáp Tý',
-            'tuoi_xung_khac'      => 'Mậu Ngọ, Nhâm Ngọ, Canh Dần, Canh Thân')
+            'tuoi_xung_khac'      => 'Mậu Ngọ,Nhâm Ngọ,Canh Dần,Canh Thân')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Ất Sửu',
-            'tuoi_xung_khac'      => 'Kỷ Mùi, Quý Mùi, Tân Mão, Tân Dậu')
+            'tuoi_xung_khac'      => 'Kỷ Mùi,Quý Mùi,Tân Mão,Tân Dậu')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Bính Dần',
-            'tuoi_xung_khac'      => 'Giáp Thân, Nhâm Thân, Nhâm Tuất, Nhâm Thìn')
+            'tuoi_xung_khac'      => 'Giáp Thân,Nhâm Thân,Nhâm Tuất,Nhâm Thìn')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Đinh Mão',
-            'tuoi_xung_khac'      => 'Ất Dậu, Quý Dậu, Quý Tỵ, Quý Hợi')
+            'tuoi_xung_khac'      => 'Ất Dậu,Quý Dậu,Quý Tỵ,Quý Hợi')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Mậu Thìn',
-            'tuoi_xung_khac'      => 'Canh Tuất, Bính Tuất')
+            'tuoi_xung_khac'      => 'Canh Tuất,Bính Tuất')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Kỷ Tỵ',
-            'tuoi_xung_khac'      => 'Tân Hợi, Đinh Hợi')
+            'tuoi_xung_khac'      => 'Tân Hợi,Đinh Hợi')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Canh Ngọ',
-            'tuoi_xung_khac'      => 'Nhâm Tý, Bính Tý, Giáp Thân, Giáp Dần')
+            'tuoi_xung_khac'      => 'Nhâm Tý,Bính Tý,Giáp Thân,Giáp Dần')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Tân Mùi',
-            'tuoi_xung_khac'      => 'Quý Sửu, Đinh Sửu, Ất Dậu, Ất Mão')
+            'tuoi_xung_khac'      => 'Quý Sửu,Đinh Sửu,Ất Dậu,Ất Mão')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Nhâm Thân',
-            'tuoi_xung_khac'      => 'Bính Dần, Canh Dần, Bính Thân')
+            'tuoi_xung_khac'      => 'Bính Dần,Canh Dần,Bính Thân')
         );
 
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Quý Dậu',
-            'tuoi_xung_khac'      => 'Đinh Mão, Tân Mão, Đinh Dậu')
+            'tuoi_xung_khac'      => 'Đinh Mão,Tân Mão,Đinh Dậu')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Giáp Tuất',
-            'tuoi_xung_khac'      => 'Nhâm Thìn, Canh Thìn, Canh Tuất')
+            'tuoi_xung_khac'      => 'Nhâm Thìn,Canh Thìn,Canh Tuất')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Ất Hợi',
-            'tuoi_xung_khac'      => 'Quý Tỵ, Tân Tỵ, Tân Hợi')
+            'tuoi_xung_khac'      => 'Quý Tỵ,Tân Tỵ,Tân Hợi')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Bính Tý',
-            'tuoi_xung_khac'      => 'Canh Ngọ, Mậu Ngọ')
+            'tuoi_xung_khac'      => 'Canh Ngọ,Mậu Ngọ')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Đinh Sửu',
-            'tuoi_xung_khac'      => 'Tân Mùi, Kỷ Mùi')
+            'tuoi_xung_khac'      => 'Tân Mùi,Kỷ Mùi')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Mậu Dần',
-            'tuoi_xung_khac'      => 'Canh Thân, Giáp Thân')
+            'tuoi_xung_khac'      => 'Canh Thân,Giáp Thân')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Kỷ Mão',
-            'tuoi_xung_khac'      => 'Tân Dậu, Ất Dậu')
+            'tuoi_xung_khac'      => 'Tân Dậu,Ất Dậu')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Canh Thìn',
-            'tuoi_xung_khac'      => 'Giáp Tuất, Mậu Tuất, Giáp Thìn')
+            'tuoi_xung_khac'      => 'Giáp Tuất,Mậu Tuất,Giáp Thìn')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Tân Tỵ',
-            'tuoi_xung_khac'      => 'Ất Hợi, Kỷ Hợi, Ất Tỵ')
+            'tuoi_xung_khac'      => 'Ất Hợi,Kỷ Hợi,Ất Tỵ')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Nhâm Ngọ',
-            'tuoi_xung_khac'      => 'Giáp Tý, Canh Tý, Bính Tuất, Bính Thìn')
+            'tuoi_xung_khac'      => 'Giáp Tý,Canh Tý,Bính Tuất,Bính Thìn')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Quý Mùi',
-            'tuoi_xung_khac'      => 'Ất Sửu, Tân Sửu, Đinh Hợi, Đinh Tỵ')
+            'tuoi_xung_khac'      => 'Ất Sửu,Tân Sửu,Đinh Hợi,Đinh Tỵ')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Giáp Thân',
-            'tuoi_xung_khac'      => 'Mậu Dần, Bính Dần, Canh Ngọ, Canh Tý')
+            'tuoi_xung_khac'      => 'Mậu Dần,Bính Dần,Canh Ngọ,Canh Tý')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Ất Dậu',
-            'tuoi_xung_khac'      => 'Kỷ Mão, Đinh Mão, Tân Mùi, Tân Sửu')
+            'tuoi_xung_khac'      => 'Kỷ Mão,Đinh Mão,Tân Mùi,Tân Sửu')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Bính Tuất',
-            'tuoi_xung_khac'      => 'Mậu Thìn, Nhâm Thìn, Nhâm Ngọ, Nhâm Tý')
+            'tuoi_xung_khac'      => 'Mậu Thìn,Nhâm Thìn,Nhâm Ngọ,Nhâm Tý')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Đinh Hợi',
-            'tuoi_xung_khac'      => 'Kỷ Tỵ, Quý Tỵ, Quý Mùi, Quý Sửu')
+            'tuoi_xung_khac'      => 'Kỷ Tỵ,Quý Tỵ,Quý Mùi,Quý Sửu')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Mậu Tý',
-            'tuoi_xung_khac'      => 'Bính Ngọ, Giáp Ngọ')
+            'tuoi_xung_khac'      => 'Bính Ngọ,Giáp Ngọ')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Kỷ Sửu',
-            'tuoi_xung_khac'      => 'Đinh Mùi, Ất Mùi')
+            'tuoi_xung_khac'      => 'Đinh Mùi,Ất Mùi')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Canh Dần',
-            'tuoi_xung_khac'      => 'Nhâm Thân, Mậu Thân, Giáp Tý, Giáp Ngọ')
+            'tuoi_xung_khac'      => 'Nhâm Thân,Mậu Thân,Giáp Tý,Giáp Ngọ')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Tân Mão',
-            'tuoi_xung_khac'      => 'Quý Dậu, Kỷ Dậu, Ất Sửu, Ất Mùi')
+            'tuoi_xung_khac'      => 'Quý Dậu,Kỷ Dậu,Ất Sửu,Ất Mùi')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Nhâm Thìn',
-            'tuoi_xung_khac'      => 'Bính Tuất, Giáp Tuất, Bính Dần')
+            'tuoi_xung_khac'      => 'Bính Tuất,Giáp Tuất,Bính Dần')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Quý Tỵ',
-            'tuoi_xung_khac'      => 'Đinh Hợi, Ất Hợi, Đinh Mão')
+            'tuoi_xung_khac'      => 'Đinh Hợi,Ất Hợi,Đinh Mão')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Giáp Ngọ',
-            'tuoi_xung_khac'      => 'Mậu Tý, Nhâm Tý, Canh Dần, Nhâm Dần')
+            'tuoi_xung_khac'      => 'Mậu Tý,Nhâm Tý,Canh Dần,Nhâm Dần')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Ất Mùi',
-            'tuoi_xung_khac'      => 'Kỷ Sửu, Quý Sửu, Tân Mão, Tân Dậu')
+            'tuoi_xung_khac'      => 'Kỷ Sửu,Quý Sửu,Tân Mão,Tân Dậu')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Bính Thân',
-            'tuoi_xung_khac'      => 'Giáp Dần, Nhâm Thân, Nhâm Tuất, Nhâm Thìn')
+            'tuoi_xung_khac'      => 'Giáp Dần,Nhâm Thân,Nhâm Tuất,Nhâm Thìn')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Đinh Dậu',
-            'tuoi_xung_khac'      => 'Ất Mão, Quý Mão, Quý Tỵ, Quý Hợi')
+            'tuoi_xung_khac'      => 'Ất Mão,Quý Mão,Quý Tỵ,Quý Hợi')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Mậu Tuất',
-            'tuoi_xung_khac'      => 'Canh Thìn, Bính Thìn')
+            'tuoi_xung_khac'      => 'Canh Thìn,Bính Thìn')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Kỷ Hợi',
-            'tuoi_xung_khac'      => 'Tân Tỵ, Đinh Tỵ')
+            'tuoi_xung_khac'      => 'Tân Tỵ,Đinh Tỵ')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Canh Tý',
-            'tuoi_xung_khac'      => 'Nhâm Ngọ, Bính Ngọ, Giáp Thân, Giáp Dần')
+            'tuoi_xung_khac'      => 'Nhâm Ngọ,Bính Ngọ,Giáp Thân,Giáp Dần')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Tân Sửu',
-            'tuoi_xung_khac'      => 'Quý Mùi, Đinh Mùi, Ất Dậu, Ất Mão')
+            'tuoi_xung_khac'      => 'Quý Mùi,Đinh Mùi,Ất Dậu,Ất Mão')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Nhâm Dần',
-            'tuoi_xung_khac'      => 'Canh Thân, Bính Thân, Bính Dần')
+            'tuoi_xung_khac'      => 'Canh Thân,Bính Thân,Bính Dần')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Quý Mão',
-            'tuoi_xung_khac'      => 'Tân Dậu, Đinh Dậu, Đinh Mão')
+            'tuoi_xung_khac'      => 'Tân Dậu,Đinh Dậu,Đinh Mão')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Giáp Thìn',
-            'tuoi_xung_khac'      => 'Nhâm Tuất, Canh Tuất, Canh Thìn')
+            'tuoi_xung_khac'      => 'Nhâm Tuất,Canh Tuất,Canh Thìn')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Ất Tỵ',
-            'tuoi_xung_khac'      => 'Quý Hợi, Tân Hợi, Tân Tỵ')
+            'tuoi_xung_khac'      => 'Quý Hợi,Tân Hợi,Tân Tỵ')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Bính Ngọ',
-            'tuoi_xung_khac'      => 'Mậu Tý, Canh Tý')
+            'tuoi_xung_khac'      => 'Mậu Tý,Canh Tý')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Đinh Mùi',
-            'tuoi_xung_khac'      => 'Kỷ Sửu, Tân Sửu')
+            'tuoi_xung_khac'      => 'Kỷ Sửu,Tân Sửu')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Mậu Thân',
-            'tuoi_xung_khac'      => 'Canh Dần, Giáp Dần')
+            'tuoi_xung_khac'      => 'Canh Dần,Giáp Dần')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Kỷ Dậu',
-            'tuoi_xung_khac'      => 'Tân Mão, Ất Mão')
+            'tuoi_xung_khac'      => 'Tân Mão,Ất Mão')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Canh Tuất',
-            'tuoi_xung_khac'      => 'Giáp Thìn, Mậu Thìn, Giáp Tuất')
+            'tuoi_xung_khac'      => 'Giáp Thìn,Mậu Thìn,Giáp Tuất')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Tân Hợi',
-            'tuoi_xung_khac'      => 'Ất Tỵ, Kỷ Tỵ, Ất Hợi')
+            'tuoi_xung_khac'      => 'Ất Tỵ,Kỷ Tỵ,Ất Hợi')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Nhâm Tý',
-            'tuoi_xung_khac'      => 'Giáp Ngọ, Canh Ngọ, Bính Tuất, Bính Thìn')
+            'tuoi_xung_khac'      => 'Giáp Ngọ,Canh Ngọ,Bính Tuất,Bính Thìn')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Quý Sửu',
-            'tuoi_xung_khac'      => 'Ất Mùi, Tân Mùi, Đinh Hợi, Đinh Tỵ')
+            'tuoi_xung_khac'      => 'Ất Mùi,Tân Mùi,Đinh Hợi,Đinh Tỵ')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Giáp Dần',
-            'tuoi_xung_khac'      => 'Mậu Thân, Bính Thân, Canh Ngọ, Canh Tý')
+            'tuoi_xung_khac'      => 'Mậu Thân,Bính Thân,Canh Ngọ,Canh Tý')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Ất Mão',
-            'tuoi_xung_khac'      => 'Kỷ Dậu, Đinh Dậu, Tân Mùi, Tân Sửu')
+            'tuoi_xung_khac'      => 'Kỷ Dậu,Đinh Dậu,Tân Mùi,Tân Sửu')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Bính Thìn',
-            'tuoi_xung_khac'      => 'Mậu Tuất, Nhâm Tuất, Nhâm Ngọ, Nhâm tý')
+            'tuoi_xung_khac'      => 'Mậu Tuất,Nhâm Tuất,Nhâm Ngọ,Nhâm tý')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Đinh Tỵ',
-            'tuoi_xung_khac'      => 'Kỷ Hợi, Quý Hợi, Quý Sửu, Quý Mùi')
+            'tuoi_xung_khac'      => 'Kỷ Hợi,Quý Hợi,Quý Sửu,Quý Mùi')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Mậu Ngọ',
-            'tuoi_xung_khac'      => 'Bính Tý, Giáp Tý')
+            'tuoi_xung_khac'      => 'Bính Tý,Giáp Tý')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Kỷ Mùi',
-            'tuoi_xung_khac'      => 'Đinh Sửu, Ất Sửu')
+            'tuoi_xung_khac'      => 'Đinh Sửu,Ất Sửu')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Canh Thân',
-            'tuoi_xung_khac'      => 'Nhâm Dần, Mậu Dần, Giáp Tý, Giáp Ngọ')
+            'tuoi_xung_khac'      => 'Nhâm Dần,Mậu Dần,Giáp Tý,Giáp Ngọ')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Tân Dậu',
-            'tuoi_xung_khac'      => 'Quý Mão, Kỷ Mão, Ất Sửu, Ất Mùi')
+            'tuoi_xung_khac'      => 'Quý Mão,Kỷ Mão,Ất Sửu,Ất Mùi')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Nhâm Tuất',
-            'tuoi_xung_khac'      => 'Bính Thìn, Giáp Thìn, Bính Thân, Bính Dần')
+            'tuoi_xung_khac'      => 'Bính Thìn,Giáp Thìn,Bính Thân,Bính Dần')
         );
 
         FtXemNgay::create(array(
             'ngay_thang_nam'      => 'Quý Hợi',
-            'tuoi_xung_khac'      => 'Đinh Tỵ, Ất Tỵ, Đinh Mão, Đinh Dậu')
+            'tuoi_xung_khac'      => 'Đinh Tỵ,Ất Tỵ,Đinh Mão,Đinh Dậu')
         );
 
 
