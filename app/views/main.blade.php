@@ -109,8 +109,8 @@
 		  			<li><a href="{{URL::route('login')}}" >Đăng nhập</a></li>
 		  			<li><a href="{{URL::route('register')}}">Đăng ký</a></li>
 		  		@else
-		  		<li><a href="{{URL::route('login')}}" >Đăng nhập</a></li>
-		  		<li><a href="{{URL::route('register')}}">Đăng ký</a></li>
+			  		<li><a href="{{URL::route('login')}}" >Đăng nhập</a></li>
+			  		<li><a href="{{URL::route('register')}}">Đăng ký</a></li>
 		  		@endif
 		</div>
 	</div>

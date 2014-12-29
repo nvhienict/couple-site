@@ -23,7 +23,7 @@ Trang chủ
 	      <li><a href="{{URL::route('index')}}" ><i class="fa fa-home fa-2x"></i> Trang chủ</a></li>
 	      <li class="dropdown">
 	        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown">
-		        <i class="fa fa-wrench fa-2x"></i>
+		        <i class="fa fa-cog fa-2x"></i>
 		        <span>Công cụ lập kế hoạch </span>
 		        <!-- <b class="caret"></b> -->
 	        </a>
@@ -102,7 +102,7 @@ Trang chủ
 @section('content')
 <!-- /Navigation -->
 <div class="row" style="margin: 0; clear:both;">
-	<div class="col-md-9" >
+	<div class="col-md-9" style="padding-right:0" >
 		<section id="intro" class="text-light">
 
 			<!-- Carousel -->
@@ -172,17 +172,12 @@ Trang chủ
 		<!-- /Section: intro -->
 	</div>
 
-	<div class="col-md-3" style="padding:0">
+	<div class="col-md-3 colunm-index-left">
 		<div id="user_register">
-	      @if(isset($msg)) <p class="alert alert-danger">{{$msg}}</p>
-	      @endif
-	    <form role="form" action="{{Asset('register')}}" method="post" id="create_acount">
-	      	<h2>
-		      	Đăng ký ngay
-		      	<small style="display: block; margin-top: 5px; font-size: 15px; line-height:20px;">
-		      		Trải nghiệm đầy đủ tiện ích của chúng tôi miễn phí trong 7 ngày
-		      	</small>
-	      	</h2>
+		<h2 class="user_register_title">Đăng ký ngay</h2>
+
+	    @if(isset($msg)) <p class="alert alert-danger">{{$msg}}</p>@endif
+	    <form role="form" action="{{Asset('register')}}" method="post" id="create_acount" class="frm-register">
 	      	<div class="row">
 		      	<div class="col-md-12">
 		          	<div class="form-group">
@@ -330,10 +325,10 @@ Trang chủ
 	</div>
 </div>
 
-<div id="load-content" class="tab-content">
+<div id="load-content" class="tab-content tab-content-index">
 	<div role="tabpanel" class="tab-pane active" id="checklist">
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 des-index-tool">
 				<h5 class="introduce-index">Thuận lợi, sắp xếp một cách khoa học, chính xác thời gian trước ngày cưới...</h5>
 				<h6 class="use-now">
 					<a class="btn btn-success btn-sm" href="{{URL::route('user-checklist')}}" >Sử dụng ngay</a>
@@ -349,7 +344,7 @@ Trang chủ
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<img class="img-responsive" src="{{Asset('images/tool/budget.png')}}">
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 des-index-tool">
 				<h5 class="introduce-index">Sử dụng dễ dàng, tính toán một cách chính xác, phân bố ngân sách chi tiết, hợp lý...</h5>
 				<h6 class="use-now">
 					<a class="btn btn-success btn-sm" href="{{URL::route('budget')}}" >Sử dụng ngay</a>
@@ -362,7 +357,7 @@ Trang chủ
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<img class="img-responsive" src="{{Asset('images/tool/guestlist.png')}}">
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 des-index-tool">
 				<h5 class="introduce-index">Có thể thêm nhóm khách, từng khách riêng lẻ, kiểm tra tình trạng khách mời cho buổi tiệc, thật tiện ích...</h5>
 				<h6 class="use-now">
 					<a class="btn btn-success btn-sm" href="{{URL::route('guest-list')}}" >Sử dụng ngay</a>
@@ -372,7 +367,7 @@ Trang chủ
   	</div>
   	<div role="tabpanel" class="tab-pane" id="website">
   		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 des-index-tool">
 				<h5 class="introduce-index">Lưu giữ những câu chuyện tình lãng mạng, chia sẻ những bức ảnh đáng nhớ, những dòng tâm sự hạnh phúc của 2 bạn...với khả năng tạo website cưới cá nhân đơn giản, đẹp và hoàn toàn miễn phí.</h5>
 				<h6 class="use-now">
 					<a class="btn btn-success btn-sm" href="{{URL::route('website')}}" >Sử dụng ngay</a>
@@ -383,8 +378,69 @@ Trang chủ
 			</div>
 		</div>
   	</div>
-</div>
+</div> <!--/.tab-content-->
 
+<div class="row cam-nhan-khach-hang">
+	<div class="col-lg-12 cam-nha-title">CẢM NHẬN KHÁCH HÀNG ĐỐI VỚI THUNA</div>
+	<div class="col-xs-1"></div>
+	<div class="col-xs-10">
+		<div class="col-lg-4 col-sm-6 col-xs-12 cam-nhan-item ">
+			<img class="img-cam-nhan" src="{{Asset('images/slide-main/kh-nhan-xet-h2.png')}}">
+			<div class="name-khach-hang">Hoài Anh & Bích Phương</div>
+			<div class="nhan-xet-khach-hang">Lorem ipsum dolor sit amet, 
+				consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+				et dolore magna aliqua. Ut enim ad 
+				minim veniam, quis nostrud 
+				exercitation ullamco laboris nisi ut 
+				aliquip ex ea commodo consequat. 
+				Duis aute irure dolor in reprehenderit 
+				in voluptate velit esse cillum dolore 
+				eu fugiat nulla pariatur. Excepteur 
+				sint occaecat cupidatat non proident, 
+				sunt in culpa qui officia deserunt 
+				mollit anim id est laborum.
+			</div>
+		</div>
+
+		<div class="col-lg-4 col-sm-6 col-xs-12 cam-nhan-item">
+			<img class="img-cam-nhan" src="{{Asset('images/slide-main/kh-nhan-xet-h3.png')}}">
+			<div class="name-khach-hang">Đăng Khánh & Thu Lan</div>
+			<div class="nhan-xet-khach-hang">Lorem ipsum dolor sit amet, 
+				consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+				et dolore magna aliqua. Ut enim ad 
+				minim veniam, quis nostrud 
+				exercitation ullamco laboris nisi ut 
+				aliquip ex ea commodo consequat. 
+				Duis aute irure dolor in reprehenderit 
+				in voluptate velit esse cillum dolore 
+				eu fugiat nulla pariatur. Excepteur 
+				sint occaecat cupidatat non proident, 
+				sunt in culpa qui officia deserunt 
+				mollit anim id est laborum.
+			</div>
+		</div>
+
+		<div class="col-lg-4 col-sm-6 col-xs-12 cam-nhan-item">
+			<img class="img-cam-nhan" src="{{Asset('images/slide-main/kh-nhan-xet-h1.png')}}">
+			<div class="name-khach-hang">Tùng Lâm & Ngọc Hà</div>
+			<div class="nhan-xet-khach-hang">Lorem ipsum dolor sit amet, 
+				consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+				et dolore magna aliqua. Ut enim ad 
+				minim veniam, quis nostrud 
+				exercitation ullamco laboris nisi ut 
+				aliquip ex ea commodo consequat. 
+				Duis aute irure dolor in reprehenderit 
+				in voluptate velit esse cillum dolore 
+				eu fugiat nulla pariatur. Excepteur 
+				sint occaecat cupidatat non proident, 
+				sunt in culpa qui officia deserunt 
+				mollit anim id est laborum.
+			</div>
+		</div>
+
+	</div>
+	<div class="col-xs-1"></div>
+</div><!--/.cam-nhan-khac-hang-->
 
 
 <script type="text/javascript">
