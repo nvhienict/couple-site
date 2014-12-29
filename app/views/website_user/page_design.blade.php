@@ -293,6 +293,7 @@
 	function sendTitle(id_title, visiable){
 		var visiable = visiable;
 		$('#get-id-title').next().val(id_title);
+		$('#sh-title').val("");
 		$('#sh-title').removeAttr('checked');
 		$.ajax({
 			type:"post",
@@ -318,12 +319,16 @@
 			data: { id_tab : id_title, ck_visiable :ck_visiable, title: title },
 			success: function(data){
 				if (data.ck == 1) {
+					$('.menu-id'+id_title+'> a').text(data.title);
 					$('.r-title'+id_title).hide();
 					$('.menu-id'+id_title).hide();
+					$('#nameTitle'+id_title).text(data.title);
 					$('#get-id-hide-tab').append('<option value="'+id_title+'">'+data.title+'</option');
 				} else{
 					$('.r-title'+id_title).show();
 					$('.menu-id'+id_title).show();
+					$('.menu-id'+id_title+ '> a').text(data.title);
+					$('#nameTitle'+id_title).text(data.title);
 				};
 
 			}

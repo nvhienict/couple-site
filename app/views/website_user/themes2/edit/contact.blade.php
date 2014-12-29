@@ -1,7 +1,12 @@
-<div style="padding-bottom: 20px;">
+<div style="padding-bottom: 20px;"class="partion-margin r-title{{$tabWeb->id}}">
     <div class="partion">              
-          <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}}" id = "nameTitle{{$tabWeb->id}}">{{$tabWeb->title}}</h3> 
-          <div onclick="showckeditor_text({{$tabWeb->id}})" class="show-content phara{{$tabWeb->id}}">   
+          <div class="inline-title text-center">
+              <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+                  {{$tabWeb->title}}
+              </h3>
+              <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+          </div>
+          <div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="show-content phara{{$tabWeb->id}}">   
             <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
           </div>
           

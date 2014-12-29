@@ -3,23 +3,6 @@
 
 
 <head>
-	<title>{{$firstname}}'s Wedding Website | thuna.vn</title>
-	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logo.png")}}">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta property="og:title" content="Dịch vụ cưới hỏi Thuna.vn">
-	<meta property="og:type" content="website">
-	<meta property="og:image" content="{{Asset("assets/img/logo.png")}}" />
-	<meta property="fb:app_id" content="692038267552175" />
-	
-	<!-- css -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
-    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
-    
-	
-	<!-- Core JavaScript Files -->
-	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
-	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
 	
 	<!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes2.css")}}">
@@ -27,6 +10,33 @@
 
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
+    <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
+
+    <!-- Add mousewheel plugin (this is optional) -->
+    <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
+
+    <!-- Add fancyBox main JS and CSS files -->
+    <script type="text/javascript" src="{{Asset("assets/slide/source/jquery.fancybox.js?v=2.1.3")}}"></script>
+    <link rel="stylesheet" type="text/css"  href="{{Asset("assets/slide/source/jquery.fancybox.css?v=2.1.2")}}" media="screen" />
+
+    <!-- Add Button helper (this is optional) -->
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/slide/source/helpers/jquery.fancybox-buttons.css?v=1.0.5")}}" />
+    <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-buttons.js?v=1.0.5")}}"></script>
+
+    <!-- Add Media helper (this is optional) -->
+    <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-media.js?v=1.0.5")}}"></script>
+    <script type="text/javascript" src="{{Asset("assets/slide/f-slide.js")}}"></script>
+    <script src="{{Asset('assets/js/jquery.droptabs.js')}}"></script>
+    <style type="text/css">
+        .fancybox-custom .fancybox-skin {
+            box-shadow: 0 0 50px #222;
+        }
+        .fancybox-title iframe {
+            min-height: 30px;
+            vertical-align: middle;
+        }
+    </style>
 
     <script type="text/javascript">
 		
@@ -95,16 +105,17 @@
 @foreach( $website as $website_item )
 
 
-	<div class="navbar-collapse collapse menu_tab_edit" >
-
-		<ul class="nav navbar-nav" style="background-color: #FFE6E6;">
-			<span class="active" ><a href="#home" data-toggle="tab">Trang chủ</a></span>
-		  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
-				<span><a class="{{$tab->id}} TT{{$tab->id}}" href="#{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></span>
+	<div class="container-fluid menu_tab">
+		<ul class="nav nav-tabs droptabs " style="border: none; " >
+			<li class="active always-visible" ><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
+		  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $tab)
+				<li  class="menu-id{{$tab->id}}" ><a href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>
 		  	@endforeach
+		  	<li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
+         	<li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
 		</ul>
-
-	</div><!--/.nav-collapse -->
+			
+	</div>
 
 <!-- Tab panes -->
 <div class="tab-content content_themes2" style="margin: 0px;">
