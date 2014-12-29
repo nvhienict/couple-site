@@ -1,15 +1,19 @@
-<section id="section_contact" class="tab-pane">
+<section id="section_contact" class="tab-pane r-title{{$tabWeb->id}}">
 	<div class="container text-center">
 		<div class="row sptr-position">
 			<div class="col-md-12">
 				<div class="separator" style="background: url({{Asset('/images/website/themes5/separetor.png')}}) no-repeat center;">
-					<h2 style="color: #{{$website_item->color2}}" data-uk-scrollspy="{cls:'uk-animation-scale-up', repeat: true}" class="TT{{$tabWeb->id}}">{{$tabWeb->title}}</h2>
+					
+					<div class="inline-title text-center">
+			            <h2 style="color: #{{$website_item->color2}}" data-uk-scrollspy="{cls:'uk-animation-scale-up', repeat: true}" class="TT{{$tabWeb->id}}" id = "nameTitle{{$tabWeb->id}}">{{$tabWeb->title}}</h2>
+			            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+			        </div>
 				</div>
 			</div>
 		</div>
 	</div>			
 
-	<div class="rsvp-portion sptr-position">
+	<div class="rsvp-portion sptr-position partion">
 		<div class="container contact">	
 			<div class="row">
 				<div class="col-md-5">

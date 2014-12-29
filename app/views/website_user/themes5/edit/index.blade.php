@@ -1,28 +1,5 @@
 <html>
 <head>
-		<title>Thuy's Wedding Website | thuna.vn</title>
-	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logo.png")}}">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta property="og:title" content="Dịch vụ cưới hỏi Thuna.vn">
-	<meta property="og:type" content="website">
-	<meta property="og:image" content="{{Asset("assets/img/logo.png")}}" />
-	<meta property="fb:app_id" content="692038267552175" />
-	
-	<!-- css -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
-    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
-    
-    
-	
-	<!-- Core JavaScript Files -->
-	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
-	<script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
-	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
-	
-	
-	<!-- style css -->
-	
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes5.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
@@ -111,45 +88,39 @@
 			$("#editName").hide();
 		}
 		
-		jQuery(document).ready(function($) {
-	    // Call & Apply function scrollTo
-	    $('a.scrollTo').click(function () {
-	        $('.design_website_content_right').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
-	        return false;
-	    });
-	});
 </script>
 	</head>
 		@if($website)
 		@foreach( $website as $website_item )
 		
 			<!-- Fixed navbar -->
-			<div  class="navbar_edits">
+			<section id="intro-portion">		
+			<!-- Fixed navbar -->
 				<div id="nav-wrapper">
-					<nav id="nav" class="navbar" style="position: relative;" role="navigation">
+					<div id="nav" class="navbar"  role="navigation">
 						<div class="container">
 							<div class="navbar-header">
-								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
-								<a  href="index.html">
-									<img  class="padding_top_img" src="{{Asset('images/website/themes5/key-icon.png')}}" alt="logo">
-								</a>
+								<a class="navbar-brand" href="index.html"><img src="{{Asset('images/website/themes5/key-icon.png')}}" alt="logo"></a>
 							</div>
-							<div class="navbar-collapse collapse" id="example-navbar-collapse">
+							<div class="navbar-collapse collapse">
 							<ul class="nav navbar-nav navbar-right">
 								@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
-								<span class="re_li"><a class="TT{{$tabWeb->id}} scrollTo" href="#section_{{$tabWeb->type}}" >{{$tabWeb->title}}</a></span>
+								<li class="menu-id{{$tabWeb->id}}"><a href="#section_{{$tabWeb->type}}">{{$tabWeb->title}}</a></li>
 								@endforeach
+								<li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
+     							<li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
 							</ul>
 							</div>
 						</div>
-					</nav>  	
+					</div>  	
 				</div>
-			</div>
 			<!-- intro -->
+			</section>
 		
 			@include('website_user.themes5.edit.background')
 			@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
