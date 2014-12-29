@@ -178,8 +178,8 @@
           <a class="a_menu scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a>
         </li>
          @endforeach()
-         <li><a onclick="loadAddTitle()" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#modal-add-title"></a></li>
-         <li><a class="glyphicon glyphicon-cog" href="{{URL::route('website')}}"></a></li>
+         <li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
+         <li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
 
           
       </ul>

@@ -2689,5 +2689,16 @@ a.contact-admin:hover{
 	cursor: pointer;
 	color: #EF8DB7;
  }
+ .btn-add-title, .btn-config{
+ 	font-size: 20px!important;
+ }
+ .btn-add-title:hover{
+ 	cursor: pointer !important;
+ 	color: #EF8DB7 !important;
+ }
+ .btn-config:hover{
+ 	cursor: pointer !important;
+ 	color: #EF8DB7 !important;
+ }
 /*end title and button edit in inline*/
 
