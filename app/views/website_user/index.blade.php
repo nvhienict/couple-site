@@ -22,7 +22,7 @@ Website cưới
 			<div class="row website_dashboard_left_top">
 				<div class="col-sm-6 col-lg-6 col-md-6"><h6>Ảnh Website</h6></div>
 				<div class="col-sm-6 col-lg-6 col-md-6">
-					<a href="{{Asset('website/edit/pages')}}">
+					<a href="{{Asset('website/edit/pages')}}" target="_blank">
 						<button class="btn btn-primary btn-responsive" style="background: #19b5bc; border:none;">Chỉnh sửa Website</button>
 					</a>
 				</div>
@@ -65,14 +65,26 @@ Website cưới
 				<div class="col-xs-1"></div>
 				<div class="col-xs-10">
 					<table class="website_tabs">
-						<tr class="odd"><td>Welcome</td></tr>
-						<tr class="even"><td>About</td></tr>
-						<tr class="odd"><td>Sự kiện cưới</td></tr>
-						<tr class="even"><td>Du lịch</td></tr>
-						<tr class="odd"><td>Đăng ký</td></tr>
-						<tr class="even"><td>Album ảnh</td></tr>
-						<tr class="odd"><td>Liên lạc</td></tr>
-						<tr class="even"><td>Lời chúc</td></tr>
+						<tr>
+							<td class="t-table">Tiêu đề</td>
+							<td class="t-table text-center">Trạng thái</td>
+						</tr>
+						@foreach( $tab as $tab)						
+						<tr class="even">
+							<td>{{$tab->title}}</td>
+							@if( $tab->visiable ==0)
+							<td class="text-center">
+								<i class="fa fa-circle c-green t-visiable{{$tab->id}}" onclick="visiableTab({{$tab->id}})"></i>
+								<input  type="hidden" value="">
+							</td>
+							@else()
+							<td class="text-center">
+								<i class="fa fa-circle c-red t-visiable{{$tab->id}}" onclick="visiableTab({{$tab->id}})"></i>
+								<input type="hidden" value="">
+							</td>
+							@endif()
+						</tr>
+						@endforeach()
 					</table>
 				</div>
 				<div class="col-xs-1"></div>
@@ -408,6 +420,29 @@ Website cưới
 				$('.remove-image'+id_photo).remove();
 			}
 		});	
+	};
+	function visiableTab(id_tab){
+		if ($('.t-visiable'+id_tab).hasClass('c-green')) {
+			 $('.t-visiable'+id_tab).next().val('1');
+			 visiable = $('.t-visiable'+id_tab).next().val();
+		} else{
+			$('.t-visiable'+id_tab).next().val('0');
+			 visiable = $('.t-visiable'+id_tab).next().val();
+		};
+		$.ajax({
+			type:"post",
+			url:"{{URL::route('update_visiable')}}",
+			data:{ id_tab: id_tab, visiable: visiable},
+			success:function(data){
+				if (data.visiable == 0) {
+					$('.t-visiable'+id_tab).removeClass('c-red');
+					$('.t-visiable'+id_tab).addClass('c-green');
+				} else{
+					$('.t-visiable'+id_tab).removeClass('c-green');
+					$('.t-visiable'+id_tab).addClass('c-red');
+				};
+			}
+		});		
 	};
 
 

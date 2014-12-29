@@ -22,6 +22,11 @@ class WebsiteController extends \BaseController {
 		return $web;
 		die();
 	}
+	public static function getTabIndex(){
+		$id_web = WebsiteController::getWeb()->id;
+		$tab = TabWebsite::where('website',$id_web)->get();
+		return $tab;
+	}
 
 	public function getContent(){
 		$id_user 	= $this->id_user();
@@ -62,13 +67,15 @@ class WebsiteController extends \BaseController {
 		$check_bg_website = WeddingWebsite::where('user',$id_user)->get()->count();
 		$web = $this->getWeb();
 		$images = $this->getImages();
+		$tab = $this->getTabIndex();
 		if ($check_bg_website==0) {
 			// $backgrounds = "template_1.jpg";
 			return View::make('website_user.template');
 		}else{
 			$img_tmp = WeddingWebsite::where('user',$id_user)->get()->first()->template;
 			return View::make('website_user.index')->with('img_tmp',$img_tmp)->with('web',$web)
-																				->with('image',$images);
+																				->with('image',$images)
+																				->with('tab',$tab);
 		}
 		
 	}
@@ -1010,23 +1017,30 @@ class WebsiteController extends \BaseController {
 		exit();
 	}
 
-	public function Post_update_Tab(){
-
-		$id = Input::get('id_title');
+	public function loadTitle(){
+		$id_tab = Input::get('id_tab');
+		$title = TabWebsite::where('id',$id_tab)->get()->first()->title;
+		return Response::json(array('title'=>$title));
+	}
+	public function updateTitle(){
+		$id_tab = Input::get('id_tab');
+		$ck_visiable = Input::get('ck_visiable');
 		$title = Input::get('title');
-		$titlestyle = Input::get('Align_title');
-		$visiable = Input::get('hideTitle');
+		TabWebsite::where('id',$id_tab)->update(array('title'=>$title,'visiable'=>$ck_visiable));
+		return Response::json(array('title'=>$title,'ck'=>$ck_visiable));
+	}
+	public function updateVisiable(){
+		$id_tab = Input::get('id_tab');
+		$visiable = Input::get('visiable');
+		TabWebsite::where('id',$id_tab)->update(array('visiable'=>$visiable));
+		return Response::json(array('visiable'=>$visiable));
 
-		$Tab = TabWebsite::where('id',$id)->update(
-			array(
-				'title'=>$title,
-				'titlestyle'=>$titlestyle,
-				'visiable'=>$visiable
-				));
-		$tab = array('title'=>$title,'titlestyle'=>$titlestyle,'visiable'=>$visiable);
-		return $tab;
-	} 
-	
+	}
+	// public function addTitle(){
+	// 	$id_hide = Input::get('id_hide');
+	// 	$id_show = Input::get('id_show');
+	// 	$id_web = $this->getWeb()->id;
+	// }
 
 	public function updateImagebackground()
 	{	

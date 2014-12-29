@@ -58,4 +58,21 @@
 .padding-images span :hover{
 	cursor: pointer;
 }
+.c-green{
+	color: green;
+}
+.c-green:hover{
+	cursor: pointer;
+}
+.c-red{
+	color: #555555;
+}
+.c-red:hover{
+	cursor: pointer;
+}
+.t-table{
+	font-weight: bold;
+	 color: #19B5BC;
+	 padding: 5px;
+}
 

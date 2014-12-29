@@ -258,7 +258,6 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('reset_color', array('as'=>'reset_color', 'uses'=>'WebsiteController@resetColor'));
 	Route::post('upload-background',array('as'=>'upload','uses'=>'WebsiteController@updateImagebackground'));
 	Route::post('load-bg',array('as'=>'load_bg','uses'=>'WebsiteController@loadBg'));
-	Route::post('change-image-tab',array('as'=>'change-image-tab','uses'=>"WebsiteController@changeImage"));
 	Route::post('get-id-tab', array('as'=>'get-id-tab', 'uses'=>'WebsiteController@getTab'));//lấy dữ liệu của 1 tab
 	Route::post('update-title', array('as'=>'update-title', 'uses'=>'WebsiteController@Post_update_Tab'));
 	Route::post('delete-title', array('as'=>'delete-title', 'uses'=>'WebsiteController@delete_tab'));
@@ -299,6 +298,11 @@ Route::group(array('before'=>'check_login'), function(){
 	 Route::post('upload-avatar',array('as'=>'upload_avatar','uses'=>'WebsiteController@uploadAvatar'));
 	 Route::post('load-avatar',array('as'=>'load_avatar','uses'=>'WebsiteController@loadAvatar'));
 
+	 // update title
+	 Route::post('load-title',array('as'=>'load_title','uses'=>'WebsiteController@loadTitle'));
+	 Route::post('update-title',array('as'=>'update_title','uses'=>'WebsiteController@updateTitle'));
+	 Route::post('udate-visiable',array('as'=>'update_visiable','uses'=>'WebsiteController@updateVisiable'));
+	 
 	// start time count down
 	Route::post('time_count_down', array('as'=>'time_count_down','uses'=>"WebsiteController@timeCountDown"));
 	// end time count down

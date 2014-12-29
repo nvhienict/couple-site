@@ -2675,5 +2675,19 @@ a.contact-admin:hover{
 
 /* end fortune */
 
-
+/*title and button edit in inline*/
+ .inline-title{
+ 	margin-bottom: 1.5%;
+ }
+ .inline-title h3 {
+ 	display: inline !important;
+ }
+ .inline-title span{
+ 	font-size: 20px;
+ }
+.inline-title span:hover{
+	cursor: pointer;
+	color: #EF8DB7;
+ }
+/*end title and button edit in inline*/
 
