@@ -2663,13 +2663,30 @@ a.contact-admin:hover{
 	font-style: 20px;
 	color: #13A547;
 	text-transform: uppercase;
-	border-bottom: 1px solid #ddd;
+	/*border-bottom: 1px solid #ddd;*/
 	padding: 5px;
 	font-weight: bold;
 	text-align: center;
 }
 .current-day, .current-month, .current-year{
 	color: #0057DC !important;
+}
+
+#frmViewMMYY {
+	text-align: center;
+	margin: 2% 0;
+}
+
+#frmViewMMYY > select, #frmViewMMYY > input {
+	padding: 3px 10px;
+	border: 1px solid #B5CEE4;
+	border-radius: 5px;
+}
+
+#frmViewMMYY > input {
+	background-color: #ED9C28;
+	color: #FFFFFF;
+	font-weight: bold;
 }
 
 

@@ -102,7 +102,7 @@ Xem ngày cưới
 						{{Session::get('tuoi_xung_khac_co_dau')}}
 					@endif
 				</span>
-			</div>
+			</div> <!--/ngay-hien-tai-->
 			<script type="text/javascript">
 
 				function yearGroomSelect(value) {
@@ -155,17 +155,30 @@ Xem ngày cưới
 
 			</script>
 			<script type="text/javascript" src="{{Asset('assets/js/xem-ngay-input.js')}}"></script>
-			<div id="display-calendar">
-				<script type="text/javascript" src="{{Asset('assets/js/xem-ngay-output.js')}}"></script>
-				<script language="JavaScript">
-					<!--
-					setOutputSize("big");
-					document.writeln(printSelectedMonth());
-					-->
-				</script>
-			</div>
+			<script type="text/javascript" src="{{Asset('assets/js/xem-ngay-output.js')}}"></script>
+			<script language="JavaScript">
+				<!--
+				setOutputSize("small");
+				document.writeln(printSelectedYear());
+				-->
+			</script>
+
+			<form action="" method="get" id="frmViewMMYY">
+				<label>Chọn ngày tháng năm: </label>
+				<select name="mm">
+					@for ($i=1; $i<=12; $i++)
+						<option value="{{$i}}">{{$i}}</option>
+					@endfor
+				</select>
+				<select name="yy">
+					@for ($i=1954; $i<=2015; $i++)
+						<option value="{{$i}}">{{$i}}</option>
+					@endfor
+				</select>
+				<input type="submit" value="Xem ngày tháng" />
+			</form>
 			
-		</div>
+		</div> <!--/lich-ket-qua-->
 
 
 		<div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 ft-content">

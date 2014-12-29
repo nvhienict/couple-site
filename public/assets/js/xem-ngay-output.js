@@ -408,8 +408,8 @@ function getGioHoangDao(jd) {
 
 var DAYNAMES = new Array("CN", "T2", "T3", "T4", "T5", "T6", "T7");
 var PRINT_OPTS = new OutputOptions();
-var FONT_SIZES = new Array("9pt", "13pt", "17pt");
-var TAB_WIDTHS = new Array("180px", "420px", "500px");
+var FONT_SIZES = new Array("11pt", "13pt", "17pt");
+var TAB_WIDTHS = new Array(/*"180px"*/ "280px", "420px", "500px");
 
 function OutputOptions() {
 	this.fontSize = "13pt";
@@ -434,6 +434,7 @@ function printSelectedMonth() {
 	return printMonth(currentMonth, currentYear);
 }
 
+
 function printMonth(mm, yy) {
 	var res = "";
 	res += printStyle();
@@ -447,7 +448,7 @@ function printYear(yy) {
 	var res = "";
 	res += printStyle();
 	res += '<table align=center>\n';
-	res += ('<tr><td colspan="3" class="tennam" onClick="showYearSelect();">'+yearName+'</td></tr>\n');
+	res += ('<tr><td colspan="3" class="tennam" >'+yearName+'</td></tr>\n');
 	for (var i = 1; i<= 12; i++) {
 		if (i % 3 == 1) res += '<tr>\n';
 		res += '<td>\n';
@@ -455,8 +456,8 @@ function printYear(yy) {
 		res += '</td>\n';
 		if (i % 3 == 0) res += '</tr>\n';
 	}
-	res += '<table>\n';
-	res += printFoot();
+	res += '</table>\n';
+	// res += printFoot();
 	return res;
 }
 
@@ -472,11 +473,11 @@ function printStyle() {
 	res += '<!--\n';
 	//res += '  body {margin:0}\n';
 	res += '  .tennam {text-align:center; font-size:100%; line-height:120%; font-weight:bold; color:#000000; background-color: #CCCCCC}\n';
-	res += '  .thang {font-size: '+fontSize+'; padding:1; line-height:100%; font-family:Tahoma,Verdana,Arial; table-layout:fixed; margin: 2% auto;}\n';
-	res += '  .tenthang {text-align:center; font-size:125%; line-height:100%; font-weight:bold; color:#330033; background-color: #CCFFCC}\n';
+	res += '  .thang {font-size: '+fontSize+'; padding:1; line-height:100%; font-family:Tahoma,Verdana,Arial; table-layout:fixed; margin: 4% 2% 0% 2%;}\n';
+	res += '  .tenthang {text-align:center; font-size:125%; line-height:140%; font-weight:bold; color:#330033; background-color: #CCFFCC}\n';
 	res += '  .navi-l {text-align:center; font-size:75%; line-height:100%; font-family:Verdana,Times New Roman,Arial; font-weight:bold; background-color: #CCFFCC}\n';
 	res += '  .navi-r {text-align:center; font-size:75%; line-height:100%; font-family:Verdana,Arial,Times New Roman; font-weight:bold; color:#330033; background-color: #CCFFCC}\n';
-	res += '  .ngaytuan {width:14%; text-align:center; font-size:90%; line-height:100%; color:#330033; background-color: #FFFFCC}\n';
+	res += '  .ngaytuan {width:14%; text-align:center; font-size:100%; line-height:120%; color:#330033; background-color: #FFFFCC}\n';
 	res += '  .ngaythang {background-color:#FDFDF0}\n';
 	res += '  .homnay {background-color:#FFF000;}\n';
 	res += '  .tet {background-color:#FFCC99}\n';
@@ -487,7 +488,8 @@ function printStyle() {
 	res += '  .cn {text-align:left;font-size:125%;line-height:100%;color:red}\n';
 	res += '  .chure {background-color:#4865B4}\n';
 	res += '  .codau {background-color:#f995d3}\n';
-	res += '  .couple {background: url(../icon/heart.png)}\n';
+	// res += '  .couple {background: url(../icon/heart.png)}\n';
+	res += '  .couple {background-color:#F7A8CE}\n';
 	res += '  .ngaytamnuongsat {background-color:#aaa5a5}\n';
 	res += '  .ngaysatchu {background-color:#7a4848}\n';
 	res += '  .ngaythotu {background-color:#ff4800}\n';
@@ -506,23 +508,26 @@ function printTable(mm, yy) {
 	var MonthHead = mm + "/" + yy;
 	var LunarHead = getYearCanChi(ld1.year);
 	var res = "";
-	res += ('<table class="thang" border="2" cellpadding="1" cellspacing="1" width="'+PRINT_OPTS.tableWidth+'">\n');
-	res += printHead(mm, yy);
-	for (i = 0; i < 6; i++) {
-		res += ("<tr>\n");
-		for (j = 0; j < 7; j++) {
-			k = 7 * i + j;
-			if (k < emptyCells || k >= emptyCells + currentMonth.length) {
-				res += printEmptyCell();
-			} else {
-				solar = k - emptyCells + 1;
-				ld1 = currentMonth[k - emptyCells];
-				res += printCell(ld1, solar, mm, yy);
+
+		res += ('<table class="thang" border="1" cellpadding="1" cellspacing="1" width="'+PRINT_OPTS.tableWidth+'">\n');
+		res += printHead(mm, yy);
+		for (i = 0; i < 6; i++) {
+			res += ("<tr>\n");
+			for (j = 0; j < 7; j++) {
+				k = 7 * i + j;
+				if (k < emptyCells || k >= emptyCells + currentMonth.length) {
+					res += printEmptyCell();
+				} else {
+					solar = k - emptyCells + 1;
+					ld1 = currentMonth[k - emptyCells];
+					res += printCell(ld1, solar, mm, yy);
+				}
 			}
+			res += ("</tr>\n");
 		}
-		res += ("</tr>\n");
-	}
-	res += ('</table>\n');
+		res += ('</table>\n');
+
+
 	return res;
 }
 
@@ -554,13 +559,13 @@ function printHead(mm, yy) {
 	var res = "";
 	var monthName = mm+"/"+yy;
 	//res += ('<tr><td colspan="7" class="tenthang" onClick="showMonthSelect();">'+monthName+'</td></tr>\n');
-	res += ('<tr><td colspan="2" class="navi-l">'+getPrevYearLink(mm, yy)+' &nbsp;'+getPrevMonthLink(mm, yy)+'</td>\n');
+	// res += ('<tr><td colspan="2" class="navi-l">'+getPrevYearLink(mm, yy)+' &nbsp;'+getPrevMonthLink(mm, yy)+'</td>\n');
 	//res += ('<td colspan="1" class="navig"><a href="'+getPrevMonthLink(mm, yy)+'"><img src="left1.gif" alt="Prev"></a></td>\n');
-	res += ('<td colspan="3" class="tenthang" >'+monthName+'</td>\n');
+	res += ('<td colspan="7" class="tenthang" >'+monthName+'</td>\n');
 	//res += ('<td colspan="1" class="navi-r"><a href="'+getNextMonthLink(mm, yy)+'"><img src="right1.gif" alt="Next"></a></td>\n');
-	res += ('<td colspan="2" class="navi-r">'+getNextMonthLink(mm, yy)+' &nbsp;'+getNextYearLink(mm, yy)+'</td></tr>\n');
+	// res += ('<td colspan="2" class="navi-r">'+getNextMonthLink(mm, yy)+' &nbsp;'+getNextYearLink(mm, yy)+'</td></tr>\n');
 	//res += ('<tr><td colspan="7" class="tenthang"><a href="'+getNextMonthLink(mm, yy)+'"><img src="right.gif" alt="Next"></a></td></tr>\n');
-	res += ('<tr onClick="alertAbout()">\n');
+	res += ('<tr>\n');
 	for(var i=0;i<=6;i++) {
 		res += ('<td class=ngaytuan>'+DAYNAMES[i]+'</td>\n');
 	}
@@ -658,7 +663,7 @@ function showMonthSelect() {
 }
 
 function showYearSelect() {
-	//window.open("selectyear.html", "win2702", "menubar=yes,scrollbars=yes");
+	// window.open("selectyear.html", "win2702", "menubar=yes,scrollbars=yes");
 	window.print();
 }
 
