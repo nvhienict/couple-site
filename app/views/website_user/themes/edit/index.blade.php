@@ -160,6 +160,9 @@
 
 @if($website)
 @foreach( $website as $website_item )
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+
 <nav style="padding:0px;" class="navbar navbar-default navbar-fixed-top" role="navigation">
    <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" 
@@ -307,4 +310,5 @@
 </div>
 </div>
 <!-- and image-themes -->
+</div>
 

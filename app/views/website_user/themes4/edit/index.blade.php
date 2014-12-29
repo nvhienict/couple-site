@@ -1,54 +1,35 @@
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-    	<meta name="author" content="Thuna.vn">
-		<title>Title Page</title>
-
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
-		<link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
 		<!-- Custom CSS -->
 		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes4new.css")}}">
 		 <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
+		 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>		
+	 <!--  Slide Album -->
+        <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
 
-		<!-- Bootstrap JS -->
-		 <script src="{{Asset('assets/js/jquery.min.js')}}"></script>
-		  <script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
-		 <script type="text/javascript" src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
-		 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-		
-		
-		 <!--  Slide Album -->
+        <!-- Add mousewheel plugin (this is optional) -->
+        <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
 
-            <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
-            <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
+        <!-- Add fancyBox main JS and CSS files -->
+        <script type="text/javascript" src="{{Asset("assets/slide/source/jquery.fancybox.js?v=2.1.3")}}"></script>
+        <link rel="stylesheet" type="text/css"  href="{{Asset("assets/slide/source/jquery.fancybox.css?v=2.1.2")}}" media="screen" />
 
-            <!-- Add mousewheel plugin (this is optional) -->
-            <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
+        <!-- Add Button helper (this is optional) -->
+        <link rel="stylesheet" type="text/css" href="{{Asset("assets/slide/source/helpers/jquery.fancybox-buttons.css?v=1.0.5")}}" />
+        <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-buttons.js?v=1.0.5")}}"></script>
 
-            <!-- Add fancyBox main JS and CSS files -->
-            <script type="text/javascript" src="{{Asset("assets/slide/source/jquery.fancybox.js?v=2.1.3")}}"></script>
-            <link rel="stylesheet" type="text/css"  href="{{Asset("assets/slide/source/jquery.fancybox.css?v=2.1.2")}}" media="screen" />
-
-            <!-- Add Button helper (this is optional) -->
-            <link rel="stylesheet" type="text/css" href="{{Asset("assets/slide/source/helpers/jquery.fancybox-buttons.css?v=1.0.5")}}" />
-            <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-buttons.js?v=1.0.5")}}"></script>
-
-            <!-- Add Media helper (this is optional) -->
-            <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-media.js?v=1.0.5")}}"></script>
-            <script type="text/javascript" src="{{Asset("assets/slide/f-slide.js")}}"></script>
-            <style type="text/css">
-                .fancybox-custom .fancybox-skin {
-                    box-shadow: 0 0 50px #222;
-                }
-                .fancybox-title iframe {
-                    min-height: 30px;
-                    vertical-align: middle;
-                }
-            </style>
-		 
+        <!-- Add Media helper (this is optional) -->
+        <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-media.js?v=1.0.5")}}"></script>
+        <script type="text/javascript" src="{{Asset("assets/slide/f-slide.js")}}"></script>
+        <style type="text/css">
+            .fancybox-custom .fancybox-skin {
+                box-shadow: 0 0 50px #222;
+            }
+            .fancybox-title iframe {
+                min-height: 30px;
+                vertical-align: middle;
+            }
+        </style>
+	 
 
 
 	</head>
@@ -56,29 +37,34 @@
 		<!-- header -->
 @if($website)
 	@foreach( $website as $website_item )
-		<div class="row header navbar_edits" style="width: 75.5%; margin-top: 0px; padding-left: 0px; padding-right: 0px;">
-				<!-- narbar -->
-			<nav class="navbar-main "  id="" >
-                <div class=" ">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 navbar-left ">
-                    	<ul style="padding-left: 0px;">
-                    		<li style="padding-left: 5px; padding-right: 5px;"><a class="a_menu scrollTo" href="#title_home" >Trang Chủ</a></li>
-                    		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
-                    		<li style="padding-left: 5px; padding-right: 5px;">
-                    			<a class="{{$tab->id}} scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a>
-                    		</li>
-                    		@endforeach()
-						</ul>
-                    	
-					</div>                   
-			    </div>
-            </nav>
-            <!-- end narbar -->
-		</div>
-		<!-- end header -->
-		<div class="row" style="background-color: rgb(245, 235, 239); width: 100%; margin-right: 0px; margin-left: 0px; padding-top: 115px;">			
+		
+		<div class="" style="background-color: rgb(245, 235, 239);">
+			<nav style="padding:0px;" class="navbar navbar-default container navbar-fixed-top navbar-main" role="navigation">
+			   <div class="navbar-header">
+			      <button type="button" class="navbar-toggle" data-toggle="collapse" 
+			         data-target="#example-navbar-collapse">
+			         <span class="sr-only">Toggle navigation</span>
+			         <span class="icon-bar"></span>
+			         <span class="icon-bar"></span>
+			         <span class="icon-bar"></span>
+			      </button>
+			   </div>
+			   <div class="collapse navbar-collapse" id="example-navbar-collapse">
+			      <ul  class="nav navbar-nav">
+			         <li><a class="a_menu scrollTo text-center" href="#title_home">Trang Chủ</a></span></li>
+			        @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
+			         <li class="menu-id{{$menu_tab->id}} text-center">
+			          <a class="a_menu scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a>
+			        </li>
+			         @endforeach()
+			         <li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title text-center" data-toggle="modal" data-target="#modal-add-title"></a></li>
+			         <li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>			          
+			      </ul>
+			   </div>
+			</nav>	
+			<!-- end header -->			
 			<!-- content -->
-			<div class="content" style="margin-right: 0px; padding-right: 0px; padding-left: 0px; width:100%; margin-top:50px;padding-top:0px;">
+			<div class="container">
 				<section class="content current" id="title_home" style="padding-top: 35px;">
 				    <div class="">   
 									
@@ -112,7 +98,6 @@
 										<img style="width: 350px;height: 350px;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/boy.jpg')}}">
 										@endif
 									</a>
-									<button onclick="send_id(null,222,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
 								</figure>
 								<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}}" class="title-tab title-bg name-g">{{$website_item->name_groom}}</h3>
 								<p class="about-g">{{$website_item->about_groom}} </p>
@@ -126,7 +111,6 @@
 										<img style="width: 350px;height: 350px;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/girl.jpg')}}">
 										@endif
 									</a>
-									<button onclick="send_id(null,111,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
 								</figure>
 								<h3 style="font-family: 'Great Vibes',cursive; color:#{{$website_item->color2}}" class="title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
 								<p class="about-b">{{$website_item->about_bride}}</p>
@@ -140,14 +124,17 @@
 			@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
 				@if($tabWeb->type =="welcome" )
 				<!-- chao mung -->
-				<section class="our-history" id="section_{{$tabWeb->type}}">
-					<div class="page-title">
+				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+					<div class="page-title container">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-			                    	{{$tabWeb->title}}
-			                    </h2>
-			                    <div class="row line-hr">
+			                    <div class="inline-title text-center inline-title4">
+						            <h3 class="text-center title-tab hr-white-two" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+						                {{$tabWeb->title}}
+						            </h3>
+						            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+						        </div>
+			                    <div class="container line-hr">
 			                    	<div class="col-xs-5 line-hr-left">
 			                    		
 			                    	</div>
@@ -161,7 +148,7 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div class="row partion " >
+		            <div class="container partion " >
 		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
 		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		            			<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
@@ -183,12 +170,12 @@
 		            			<input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
 		            		</div>      		
 		            	</div>
-		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content phara{{$tabWeb->id}}">
+		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content phara{{$tabWeb->id}}">
 		            		<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 	            		</div>
 	            		
 		            </div>
-		            <div class="row phara-margin">
+		            <div class="container phara-margin">
 				    	<div class="col-xs-10"></div>
 				    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
 				    		
@@ -203,14 +190,17 @@
 
 		<!-- cau chuyen tinh yeu -->
 				@if($tabWeb->type=="love_story")
-				<section class="our-history" id="section_{{$tabWeb->type}}">
-					<div class="page-title">
+				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+					<div class="page-title container">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-			                    	{{$tabWeb->title}}
-			                    </h2>
-			                    <div class="row line-hr">
+			                    <div class="inline-title text-center inline-title4">
+						            <h3 class="text-center title-tab hr-white-two" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+						                {{$tabWeb->title}}
+						            </h3>
+						            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+						        </div>
+			                    <div class="container line-hr">
 			                    	<div class="col-xs-5 line-hr-left">
 			                    		
 			                    	</div>
@@ -224,8 +214,8 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div class="row partion " >
-		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content phara{{$tabWeb->id}}">
+		            <div class="container partion " >
+		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content phara{{$tabWeb->id}}">
 		            		<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 	            		</div>
 	            		
@@ -252,7 +242,7 @@
 		            		
 		            	</div>
 		            </div>
-		            <div class="row phara-margin">
+		            <div class="container phara-margin">
 				    	<div class="col-xs-10"></div>
 				    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
 				    		
@@ -267,14 +257,17 @@
 		<!-- About Us -->
 				@if($tabWeb->type=="about")
 				<!-- about -->
-				<section class="our-history" id="section_{{$tabWeb->type}}">
-					<div class="page-title">
+				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+					<div class="page-title container">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-			                    	{{$tabWeb->title}}
-			                    </h2>
-			                    <div class="row line-hr">
+			                    <div class="inline-title text-center inline-title4">
+						            <h3 class="text-center title-tab hr-white-two" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+						                {{$tabWeb->title}}
+						            </h3>
+						            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+						        </div>
+			                    <div class="container line-hr">
 			                    	<div class="col-xs-5 line-hr-left">
 			                    		
 			                    	</div>
@@ -288,8 +281,8 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div class="row partion border-line" >
-		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content phara{{$tabWeb->id}}">
+		            <div class="container partion border-line" >
+		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content phara{{$tabWeb->id}}">
 		            		<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 	            		</div>
 	            		
@@ -316,7 +309,7 @@
 		            		</div>      		
 		            	</div>
 		            </div>
-		            <div class="row phara-margin">
+		            <div class="container phara-margin">
 				    	<div class="col-xs-10"></div>
 				    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
 				    		
@@ -329,15 +322,17 @@
 
 		<!-- Wedding Event -->
 				@if($tabWeb->type=="wedding" )
-				<section class="our-history" id="section_{{$tabWeb->type}}">
-					<div class="page-title">
+				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+					<div class="page-title container">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-			                    	{{$tabWeb->title}}
-			                    	
-			                    </h2>
-			                    <div class="row line-hr">
+			                    <div class="inline-title text-center inline-title4">
+						            <h3 class="text-center title-tab hr-white-two" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+						                {{$tabWeb->title}}
+						            </h3>
+						            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+						        </div>
+			                    <div class="container line-hr">
 			                    	<div class="col-xs-5 line-hr-left"></div>
 			                    	<div class="col-xs-2 line-hr-shape"></div>
 			                    	<div class="col-xs-5 line-hr-right"></div>
@@ -345,7 +340,7 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div class="row partion bg-event" >
+		            <div class="container partion bg-event" >
 
 		            	<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 part-image">
 		            		<a href="#">
@@ -364,7 +359,7 @@
 		            			<input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
 		            		</div>
 		            	</div>
-		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 part-content phara{{$tabWeb->id}}">
+		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 part-content phara{{$tabWeb->id}}">
 		            		<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 	            		</div>
 
@@ -382,14 +377,14 @@
 		            	</div>
 		            </div>
 		           
-		            <div class="row phara-margin">
+		            <div class="container phara-margin">
 				    	<div class="col-xs-10"></div>
 				    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
 				    		
 				           <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
 				    	</div>
 				    </div>
-				    <div class="row" style="margin-left: 0px; margin-right: 0px;">
+				    <div class="container" style="margin-left: 0px; margin-right: 0px;">
 		            	<!-- ban do -->
 		            	<div class="text-center map-hove " style='padding:20px 20px;'>         
 			                <p><input class="postcode" id="Postcode" name="Postcode" type="text"> <input type="submit" id="findbutton" value="Tìm địa điểm" /></p>        
@@ -410,15 +405,17 @@
 		<!-- Travaling -->
 			@if($tabWeb->type=="traval")
 				<!-- traval -->
-				<section class="our-history"id="section_{{$tabWeb->type}}">
-					<div class="page-title">
+				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+					<div class="page-title container">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-			                    	{{$tabWeb->title}}
-			                    	
-			                    </h2>
-			                    <div class="row line-hr">
+			                    <div class="inline-title text-center inline-title4">
+						            <h3 class="text-center title-tab hr-white-two" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+						                {{$tabWeb->title}}
+						            </h3>
+						            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+						        </div>
+			                    <div class="container line-hr">
 			                    	<div class="col-xs-5 line-hr-left">
 			                    		
 			                    	</div>
@@ -432,7 +429,7 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div class="row partion bg-traval" >
+		            <div class="container partion bg-traval" >
 		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
 		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		            			<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
@@ -454,12 +451,12 @@
 		            			<input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
 		            		</div>      		
 		            	</div>
-		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 phara{{$tabWeb->id}} part-content">
+		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 phara{{$tabWeb->id}} part-content">
 		            		<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 	            		</div>
 	            		
 		            </div>
-		            <div class="row phara-margin">
+		            <div class="container phara-margin">
 				    	<div class="col-xs-10"></div>
 				    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
 				    		<!-- <span> <a  onclick="showckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span> -->
@@ -473,15 +470,17 @@
 				@endif
         <!-- Photo Album -->
     		    @if($tabWeb->type=="album")
-				<section class="our-history" id="section_{{$tabWeb->type}}">
-					<div class="page-title">
+				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+					<div class="page-title container">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-			                    	{{$tabWeb->title}}
-			                    	
-			                    </h2>
-			                    <div class="row line-hr">
+			                    <div class="inline-title text-center inline-title4">
+						            <h3 class="text-center title-tab hr-white-two" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+						                {{$tabWeb->title}}
+						            </h3>
+						            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+						        </div>
+			                    <div class="container line-hr">
 			                    	<div class="col-xs-5 line-hr-left">
 			                    		
 			                    	</div>
@@ -495,11 +494,11 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div onclick="showckeditorpartion({{$tabWeb->id}})" class="row part-content partion phara{{$tabWeb->id}}">
+		            <div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="container part-content partion phara{{$tabWeb->id}}">
 		            	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 		            </div>
 		           
-		            <div class="row phara-margin">
+		            <div class="container phara-margin">
 				    	<div class="col-xs-10"></div>
 				    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
 				    		
@@ -507,7 +506,7 @@
 				    	</div>
 				    </div>
 				   
-		            <div id="prev_output_theme4{{$tabWeb->id}}" class="row partion " >
+		            <div id="prev_output_theme4{{$tabWeb->id}}" class="container partion " >
 		            	<?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
 			            @if($albums)
 			                @foreach($albums as $album)
@@ -519,14 +518,6 @@
 			                @endforeach
 			            @endif
 		            </div>
-		            <div class="row phara-margin">
-			            <div class="col-xs-10">
-			            </div>
-			            <div class="col-xs-1 click-edit ">
-			               
-			                <span><a style="background: #19b5bc; border:none;" onclick="send_id_album({{$tab->id}})" class="btn btn-primary"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);">Tải ảnh lên</a></span>
-			            </div>               
-			        </div>
 				</section>
 				<!-- end album -->
 				@endif
@@ -534,15 +525,17 @@
         <!-- Contact Us -->
         		@if($tabWeb->type=="contact")
 				<!-- contact -->
-				<section class="our-history" id="section_{{$tabWeb->type}}">
-					<div class="page-title">
+				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+					<div class="page-title container">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-			                    	{{$tabWeb->title}}
-			         
-			                    </h2>
-			                    <div class="row line-hr">
+			                    <div class="inline-title text-center inline-title4">
+						            <h3 class="text-center title-tab hr-white-two" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+						                {{$tabWeb->title}}
+						            </h3>
+						            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+						        </div>
+			                    <div class="container line-hr">
 			                    	<div class="col-xs-5 line-hr-left">
 			                    		
 			                    	</div>
@@ -556,11 +549,11 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div onclick="showckeditorpartion({{$tabWeb->id}})" class="row part-content partion phara{{$tabWeb->id}}">
+		            <div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="container part-content partion phara{{$tabWeb->id}}">
 		            	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 		            </div>
 		            
-		            <div class="row phara-margin">
+		            <div class="container phara-margin">
 				    	<div class="col-xs-10"></div>
 				    	<div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
 				    		
@@ -568,7 +561,7 @@
 				    	</div>
 				    </div>
 				    
-		            <div class="row partion " >		            	
+		            <div class="container partion " >		            	
 			        	<div class="col-xs-6 ">
 			                <form  class="contact-website" action="" method="POST" role="form">
 				             
@@ -600,15 +593,17 @@
 
        			<!--  Guest book -->
      			 @if($tabWeb->type=="guestbook")
-				<section class="our-history" id="section_{{$tabWeb->type}}">
-					<div class="page-title">
+				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+					<div class="page-title container">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
-			                    <h2 class="hr-white-two title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-			                    	{{$tabWeb->title}}
-
-			                    </h2>
-			                    <div class="row line-hr">
+			                    <div class="inline-title text-center inline-title4">
+						            <h3 class="text-center title-tab hr-white-two" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+						                {{$tabWeb->title}}
+						            </h3>
+						            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+						        </div>
+			                    <div class="container line-hr">
 			                    	<div class="col-xs-5 line-hr-left">
 			                    		
 			                    	</div>
@@ -632,7 +627,7 @@
 			<!-- end content -->
 		
 			<!-- footer -->
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="container">
 				<footer>
 	                <div class="">
 	                    <div class="aligncenter copyright">

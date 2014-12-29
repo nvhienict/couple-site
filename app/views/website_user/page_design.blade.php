@@ -6,8 +6,6 @@
 
 <body style="overflow-x:hidden;">
 	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-			
 			<!-- viet theo thu tu cho de kiem soat =>Giang -->
 			@if($id_tmp==1)
 					@include('website_user.themes.edit.index')
@@ -87,7 +85,6 @@
 						@include('website_user.themes21.edit.index')
 					@endif
 			@endif
-		</div>
 	</div>	
 <!-- modal edit content website -->
 

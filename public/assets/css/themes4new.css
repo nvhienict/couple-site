@@ -1,16 +1,22 @@
 
+.inline-title4{
+	margin-top: 1.5%;
+}
+#title_home{
+	margin-top: 3%;
+}
 .line-hr{
 	height: 0px;
-	padding-top: 80px;
-	padding-bottom: 20px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 	text-align: center;
 	text-decoration: none;
 	color: #666666;
 	outline: none;
 	background: #FFFFFF;
-	margin-top: 40px;
+	margin-top: 0px;
 	margin-right: 0px;
-	margin-left: 40px;
+	margin-left: 0px;
 
 }
 
@@ -19,13 +25,13 @@
 	height: 15px;
 	background: transparent url(../../images/website/themes4/line-pattern.png);
 	display: inline-block;
-	margin-top: 20px;
+	margin-top: 3%;
 }
 
 .line-hr-shape{
 	width: 159px;
 	height: 35px;
-	margin-top: 10px;
+	margin-top: 2%;
 	background: transparent url(../../images/website/themes4/floral.png) center center no-repeat;
 	display: inline-block;
 }
@@ -122,6 +128,7 @@
 	background:url("../../images/website/themes4/tree.png") no-repeat fixed 100% -3px ;
 }
 .bgin-title{
+	margin-top: -1.5%;
 	width: 100%;
 	height: 150px;
 	background:url("../../images/website/themes4/petals.png") repeat fixed 50% -336.25px rgba(0, 0, 0, 0);
@@ -309,7 +316,7 @@ footer {
 	background-size: 50%;
 }
 section{
-	margin-top: -13px;
+	margin-top: 0px;
 }
 .bg-traval{
 	background-image: url("../../images/website/themes4/bg-travals.jpg");
