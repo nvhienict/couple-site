@@ -3,38 +3,13 @@
 
 
 <head>
-	<title>{{$firstname}}'s Wedding Website | thuna.vn</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=false" />
-
-	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logo.png")}}">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta property="og:title" content="Dịch vụ cưới hỏi Thuna.vn">
-	<meta property="og:type" content="website">
-	<meta property="og:image" content="{{Asset("assets/img/logo.png")}}" />
-	<meta property="fb:app_id" content="692038267552175" />
-	
-	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
-	<!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes8.css")}}">
 
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
 
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
-
-	<!-- css -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
-    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
-
-    
-	
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">	
 	<!-- Core JavaScript Files -->
-	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
-	<script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
-	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
-	<script type="text/javascript" src="{{Asset("assets/js/main.js")}}"></script>
-
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 	<script src="{{Asset("assets/js/map-themes.js")}}"></script>
@@ -118,16 +93,6 @@
 			});
 
 		}
-		
-
-		jQuery(document).ready(function($) {
-	    // Call & Apply function scrollTo
-	    $('a.scrollTo').click(function () {
-	        $('.design_website_content_right').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
-	        return false;
-	    });
-	});
-
 	</script>
 
 
@@ -136,9 +101,10 @@
 @if($website)
 @foreach( $website as $website_item )
 
-<div id="container_edit" class="col-md-12">
 
-	<header id="header" class="col-md-12">
+<div id="container" class="col-md-12">
+
+	<header id="header" class="col-md-12" style="width:75.7%;">
 		<!-- logo -->
 		<div class="logo col-xs-4">
 			<div class="logo-image">
@@ -148,28 +114,15 @@
 			<div class="name-bride col-xs-6">
 				{{WebsiteController::cutName($website_item->name_groom)}}
 			</div>
-			<div class="edit_name_groom">
-				<input size="10" name="name_groom" value="{{$website_item->name_groom}}">
-				<span>
-					<a onclick="updateName();" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-				</span>
-			</div>
 
-			<div class="name-groom-edit col-xs-6">
+			<div class="name-groom col-xs-6">
 				{{WebsiteController::cutName($website_item->name_bride)}}
 			</div>
-			<div class="edit_name_bride">
-				<input size="10" name="name_bride" value="{{$website_item->name_bride}}">
-				<span>
-					<a onclick="updateName();" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-				</span>
-			</div>
-
 		</div>
 		<!-- end logo -->
 
 		<!-- menu -->
-		<nav id="topmenu_edit" class="navbar navbar-default col-xs-8" role="navigation">
+		<nav id="topmenu_edit" class="navbar navbar-default" role="navigation">
 			<div class="navbar-header">
 		      	<button type="button" class="navbar-toggle" data-toggle="collapse" 
 		         data-target="#example-navbar-collapse">
@@ -181,24 +134,26 @@
 		   	</div>
 		   	<div class="collapse navbar-collapse" id="example-navbar-collapse">
 		      	<ul class="nav navbar-nav">
-			      	<span class="li-menu-edit"><a class="scrollTo" href="#home" data-toggle="tab">Trang Chủ</a></span>
+			      	<li class="li-menu-edit"><a class="scrollTo" href="#home" data-toggle="tab">Trang Chủ</a></li>
 			      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
 			      		@if($index<2)
-			      		<span class="li-menu-edit"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></span>
+			      		<li class="li-menu-edit menu-id{{$tab->id}}"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
 			      		@endif
 			      	@endforeach
-					<span class="li-menu-edit dropdown">
-					    <a data-toggle="dropdown" href="#">
+					<li class="li-menu-edit dropdown" role="presentation">
+					    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
 					      Xem thêm <span class="caret"></span>
 					    </a>
 					    <ul class="dropdown-menu" role="menu" style="background: #742C5B; margin-top:0;">
 					   		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
 						    	@if($index>=2)
-						    	<span class="li-menu-edit-2"><a class=" {{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></span>
+						    	<li class="li-menu-edit-2 menu-id{{$tab->id}}"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
 						    	@endif
 						    @endforeach
+						  		 <li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
+        						 <li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
 					    </ul>
-					</span>
+					</li>
 		      	</ul>
 		   	</div>
 		</nav>

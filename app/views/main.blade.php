@@ -74,7 +74,7 @@
 
 </head>
 
-<body style="padding-right: 15px;">
+<body style="overflow-x:hidden;">
 
 	<!--Header login-->	
 	<div class="row user-header">

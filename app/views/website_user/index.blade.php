@@ -8,7 +8,7 @@ Website cưới
 @section('content')
 
 <div id='container'>
-	<div class="row" style="margin: 0px;">
+	<div class="row">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10">
 			<h1>Website cưới</h1>
