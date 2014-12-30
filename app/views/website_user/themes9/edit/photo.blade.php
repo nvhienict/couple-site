@@ -2,8 +2,6 @@
     <!--  Slide Album -->
 
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
-            <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
-
             <!-- Add mousewheel plugin (this is optional) -->
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
 
@@ -30,9 +28,14 @@
 
 </head>
 <div>
-    <div class="partion">
+    <div class="partion r-title{{$tabWeb->id}}">
                  
-        <div class="item-title" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}" > {{$tabWeb->title}}</div>  
+        <div class="inline-title text-center item-title">
+            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+                {{$tabWeb->title}}
+            </h3>
+            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+        </div>
         
         <div class="item-content phara{{$tabWeb->id}}"  onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' >  
             <span name="phara" style="color: #{{$website_item->color3}}">
@@ -63,15 +66,7 @@
                     </div>
                 @endforeach
             @endif
-        </div>
-        <div class="row phara-margin">
-            <div class="col-xs-10">
-            </div>
-            <div class="col-xs-1 ">
-                <span><a style="background: #19b5bc; border:none;" onclick="send_id_album({{$tab->id}})" class="btn btn-primary"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);">Tải ảnh lên</a></span>
-            </div>               
-        </div>
-        
+        </div>    
     </div>
 </div>
 

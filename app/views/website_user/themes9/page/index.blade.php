@@ -129,7 +129,7 @@
 								    <ul class="dropdown-menu text-left" role="menu">
 								   		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
 									    	@if($index>=4)
-									    	<li class="li-menu"><a class=" {{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
+									    	<li class="li-menu text-center"><a class=" {{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
 									    	@endif
 									    @endforeach
 								    </ul>

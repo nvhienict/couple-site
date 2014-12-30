@@ -199,7 +199,7 @@
 	<!-- end edit title -->
 
 <!-- add title -->
-	<div class="modal fade" id="modal-add-title">
+	<div class="modal fade" id="modal-add-title" style="z-index:9999;">
 		<div class="modal-dialog modal-md">
 			<div class="modal-content ">
 				<div class="modal-header">

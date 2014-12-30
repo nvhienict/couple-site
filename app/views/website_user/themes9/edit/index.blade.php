@@ -3,32 +3,11 @@
 
 
 <head>
-	<title>{{$firstname}}'s Wedding Website | thuna.vn</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=false" />
 
-	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logo.png")}}">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta property="og:title" content="Dịch vụ cưới hỏi Thuna.vn">
-	<meta property="og:type" content="website">
-	<meta property="og:image" content="{{Asset("assets/img/logo.png")}}" />
-	<meta property="fb:app_id" content="692038267552175" />
-	
-	
-
-	<!-- css -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
-    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
-	<!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes9.css")}}">
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
-
-	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
-	<script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
-	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.3.2.0.min.js")}}"></script>
-	
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 	<script src="{{Asset("assets/js/map-themes.js")}}"></script>
@@ -146,7 +125,7 @@
 									<img src="{{Asset('images/website/themes9/bride.png')}}">
 								@endif
 							</a>
-							<button onclick="send_id(null,222,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none; z-index:99">Đổi Ảnh</button>
+							
 		  				</span>
 					</div>
 					<!-- end groom-photo -->
@@ -159,7 +138,7 @@
 									<img src="{{Asset('images/website/themes9/groom.png')}}">
 								@endif
 							</a>
-	  						<button onclick="send_id(null,111,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none; z-index:99">Đổi Ảnh</button>
+	  						
 			            </span>
 					</div>
 					<!-- end bride-photo -->
@@ -189,24 +168,27 @@
 					   	</div>
 					   	<div class="collapse navbar-collapse" id="example-navbar-collapse">
 					      	<ul class="nav navbar-nav">
-						      	<span class="li-menu-edit"><a href="#home" data-toggle="tab">Trang Chủ</a></span>
+						      	<li><a href="#home" data-toggle="tab">Trang Chủ</a></li>
 						      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
-						      		@if($index<4)
-						      		<span class="li-menu-edit"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></span>
+						      		@if($index<3)
+						      		<li class="li-menu menu-id{{$tab->id}}"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
 						      		@endif
 						      	@endforeach
-								<span class="li-menu-edit dropdown">
+								<li class="li-menu dropdown">
 								    <a data-toggle="dropdown" href="#">
 								      Xem thêm <span class="caret"></span>
 								    </a>
-								    <ul class="dropdown-menu text-left" role="menu" >
+								    <ul class="dropdown-menu text-left" role="menu">
 								   		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
-									    	@if($index>=4)
-									    	<span class="li-menu-edit-2"><a class=" {{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></span>
+									    	@if($index>=3)
+									    	<li class="li-menu  menu-id{{$tab->id}}"><a class=" {{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
 									    	@endif
 									    @endforeach
+									    
 								    </ul>
-								</span>
+								</li>
+								<li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
+ 								<li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
 								
 					      	</ul>
 					      	
@@ -419,8 +401,8 @@
             $('.icon-go_top').hide();
         }
     });
+    $('.modal').appendTo("body");
 </script>
-
 </body>
 
 </html>
