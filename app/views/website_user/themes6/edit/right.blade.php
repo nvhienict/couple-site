@@ -1,7 +1,12 @@
 
-<div class="col-xs-8 partion">
+<div class="col-xs-8 partion r-title{{$tab->id}}">
     <div class="row phara-margin">
-        <h3 class="text-center title-tab" style="text-align: {{$tab->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}"  id = "nameTitle{{$tab->id}}" >{{$tab->title}}</h3>
+        <div class="inline-title text-center">
+            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tab->id}}">
+                {{$tab->title}}
+            </h3>
+            <span onclick="sendTitle({{$tab->id}},{{$tab->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+        </div>
         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 float-right">
             <span id="prev_output{{$tab->id}}"> 
                 <a href="#">
@@ -21,7 +26,7 @@
                 <input id="id-tab-photo{{$tab->id}}" type="hidden" value="{{$tab->id}}">
             </span>
         </div>
-        <div class="show-content phara{{$tab->id}}">
+        <div class="show-content phara{{$tab->id}}" onclick="showckeditorpartion({{$tab->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static">
            <span name="phara" style="color: #{{$website_item->color3}}">{{$tab->content}}</span>
         </div>
         

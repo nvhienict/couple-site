@@ -613,22 +613,15 @@
 
 
 .background-themes 
-{ 
-  height: 600px;    
+{    
+  position: relative;
+  background-attachment: fixed;
   background-repeat:no-repeat center center fixed;   
   -webkit-background-size:100%;
   -moz-background-size: 100%;
   -o-background-size: 100%;
   background-size: 100%;
-   overflow: hidden;
-}
-
-.after-image-themes
-{
-  height: 520px;
-  overflow-y:auto;
-  overflow-x:hidden;
-
+  
 }
 
 .contact-content

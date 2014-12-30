@@ -1,24 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
 
 <head>
-	<title> Wedding Website | thuna.vn</title>
-	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logo.png")}}">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta property="og:title" content="Dịch vụ cưới hỏi Thuna.vn">
-	<meta property="og:type" content="website">
-	<meta property="og:image" content="{{Asset("assets/img/logo.png")}}" />
-	<meta property="fb:app_id" content="692038267552175" />
-	
 	<!-- css -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
-    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
-
-	<!-- Core JavaScript Files -->
-	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
-	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>	
-	<!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes6-edit.css")}}">
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
@@ -26,19 +8,21 @@
 </head>
 @if($website)
 @foreach( $website as $website_item )
-<div class="background-themes "style="background-image: url({{Asset("{$backgrounds}")}});">
+<div  style="min-height:600px;background-image: url({{Asset("{$backgrounds}")}});">
 			
 		<br>		
-			<div class="navbar-collapse collapse menu_tab" style="position:fixed; background-color:white;  width: 100%; z-index:1;margin-top: -20px;">
-		    	<ul id="myTab" class="nav navbar-nav">
-	    			<span class="active"><a style="padding: 10px; color: #777; line-height: 50px; text-decoration: none;" href="#home" role="tab" data-toggle="tab">Trang chủ</a></span>
-	    			@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
-	    			<span><a style="padding: 10px;  color: #777;line-height: 50px; text-decoration: none;" class="{{$tab->id}} TT{{$tab->id}}" href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></span>
+			<div style="background-color:white;" class="container-fluid menu_tab">
+				<ul class="nav nav-tabs droptabs " style="border: none; " >
+					<li class="active always-visible" ><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>
+				  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $tab)
+						<li  class="menu-id{{$tab->id}}" ><a href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>
 				  	@endforeach
-	      			
-	    		</ul>
+				  	<li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
+		         	<li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
+				</ul>
+					
 			</div>
-		<div class="after-image-themes">
+		<div >
 			<div class="container">
 			  	<div class="tab-content">
 			  		<div class="row tab-pane active" id="home">
@@ -107,5 +91,4 @@
 	$('.modal').appendTo("body");
 </script>
 
-</html>
 

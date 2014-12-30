@@ -1,8 +1,13 @@
 
-<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 partion contact-main" >
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 partion contact-main r-title{{$tab->id}}" >
   <div class="row phara-margin ">
         
-            <h3 class="text-center title-tab" style="text-align: {{$tab->titlestyle}}" id = "nameTitle{{$tab->id}}">{{$tab->title}}</h3> 
+        <div class="inline-title text-center">
+            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tab->id}}">
+                {{$tab->title}}
+            </h3>
+            <span onclick="sendTitle({{$tab->id}},{{$tab->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+        </div>
           
     </div> 
 <br><br>

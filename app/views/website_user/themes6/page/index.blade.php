@@ -36,7 +36,7 @@
 @if($website)
 @foreach( $website as $website_item )
 
-<body class="background-themes"style="background-image: url({{Asset("{$backgrounds}")}});">		
+<body class="background-themes" style="background-image: url({{Asset("{$backgrounds}")}});">		
 		
 		<br>		
 			<div class="navbar navbar-default navbar-fixed-top container-fluid menu_tab" style=" background-color:white;">

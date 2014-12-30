@@ -3,8 +3,6 @@
     <!--  Slide Album -->
 
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
-            <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
-
             <!-- Add mousewheel plugin (this is optional) -->
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
 
@@ -30,10 +28,15 @@
             </style>
 
 </head>
-<div class="col-xs-8 partion">
+<div class="col-xs-8 partion r-title{{$tab->id}}">
     <div class="row phara-margin ">
-            <h3 class="text-center title-tab" style="text-align: {{$tab->titlestyle}}" id = "nameTitle{{$tab->id}}">{{$tab->title}}</h3> 
-        <div  class="show-content phara{{$tab->id}}">                            
+            <div class="inline-title text-center">
+                <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tab->id}}">
+                    {{$tab->title}}
+                </h3>
+            <span onclick="sendTitle({{$tab->id}},{{$tab->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+        </div>
+        <div  class="show-content phara{{$tab->id}}" onclick="showckeditorpartion({{$tab->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static">                            
             <span name="phara" style="color: #{{$website_item->color3}}">{{$tab->content}}</span>
         </div>   
         
