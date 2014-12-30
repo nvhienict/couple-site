@@ -124,7 +124,7 @@ footer {
 }
 /*end footer*/
 .item{
-    height: auto !important;
+    /*height: 400px;*/
     padding-bottom: 30px !important;
 
 }
