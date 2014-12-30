@@ -1,33 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
 
-<head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-    <meta name="author" content="Thuna.vn">
-	
-	<title>{{$firstname}}'s wedding</title>
-  
-	 <script src="{{Asset("assets/js/jquery.min.js")}}"></script>
-    <script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
-   
-   
-  	
-   	<!-- Add mousewheel plugin (this is optional) -->
-    <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
-
-    <!-- Add fancyBox main JS and CSS files -->
-    <script type="text/javascript" src="{{Asset("assets/slide/source/jquery.fancybox.js?v=2.1.3")}}"></script>
-    <link rel="stylesheet" type="text/css"  href="{{Asset("assets/slide/source/jquery.fancybox.css?v=2.1.2")}}" media="screen" />
-
-    <!-- Add Button helper (this is optional) -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/slide/source/helpers/jquery.fancybox-buttons.css?v=1.0.5")}}" />
-    <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-buttons.js?v=1.0.5")}}"></script>
-
-    <!-- Add Media helper (this is optional) -->
-    <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-media.js?v=1.0.5")}}"></script>
+<head>  
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes10-edit.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">	
     <script type="text/javascript" src="{{Asset("assets/slide/f-slide.js")}}"></script>
     <style type="text/css">
         .fancybox-custom .fancybox-skin {
@@ -36,22 +12,11 @@
     </style>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes10-edit.css")}}">
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
+    
   
 </head>
 <script type="text/javascript">
         
-
-    jQuery(document).ready(function($) {
-            $('a.scrollTo').click(function () {
-            $('.design_website_content_right').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
-            return false;
-        });
-    });
-
-    
     $('.side-nav li').click(function(e) {
         $('.side-nav li.active').removeClass('active');
         var $this = $(this);
@@ -102,14 +67,16 @@
               <ul style="width:100%;" class="nav navbar-nav side-nav">
               		<li class="active always-visible" ><a href="#home" role="tab" data-toggle="tab">Trang chủ</a></li>                             
                     @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
-                         <li><a href="#{{$tab->type}}" class="{{$tab->id}} TT{{$tab->id}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>                
+                         <li class="menu-id{{$tab->id}}"><a href="#{{$tab->type}}" class="{{$tab->id}} TT{{$tab->id}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>                
                     @endforeach()
+                    <li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
+                    <li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
               </ul>
            </div>
         
     </nav>
 </div>
-<div class="main_temp_10">
+<div class="main_temp_10 container">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 index-title-temp " >
 			<!-- count datime to weddingdate -->
 				@if(empty($website_item->count_down))
@@ -157,12 +124,12 @@
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 image-title-temp text-center">
 				<img style="position: relative;" class="img-responsive" src="{{Asset("images/website/themes10/temp_title.png")}}" alt="">
-				<h2 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 section-title" id="showName" >
+				<h3 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 section-title" id="showName" >
 					<span class="name-g"  id="topNameGroom">{{$website_item->name_groom}}</span>
 						<em>&</em>
 					<span class="name-b" id="topNameBride">{{$website_item->name_bride}}</span>
 					
-				</h2>
+				</h3>
 				
 			</div>
 			

@@ -1,13 +1,14 @@
 
-<div class="partion">
-	<div class="row phara-margin">
-       	<h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-            {{$tabWeb->title}}
-        </h3>
+			<div class="r-titile{{$tabWeb->id}}">
 
-			<div class="row">
-				<div class="col-xs-1"></div>
-				<div class="col-xs-10">
+				<div class="col-xs-2"></div>
+				<div class="col-xs-8 phara-temp wedding-contact">
+					<div class="inline-title text-center">
+			            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+			                {{$tabWeb->title}}
+			            </h3>
+			            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+			        </div>
 					<table class="table-guest-website">
 					 	<thead>
 						 	<tr>
@@ -161,9 +162,6 @@
 				</div>
 				<div class="col-xs-1"></div>
 		</div>
-	</div> <!-- row -->
-</div><!--container-->
-
 <script type="text/javascript">
 	function show_hide(id)
 	{

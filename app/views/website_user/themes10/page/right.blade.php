@@ -1,5 +1,6 @@
 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
-<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 phara-temp wedding-template">     
+<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 phara-temp wedding-template"> 
+    <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">{{$tabWeb->title}}</h3>    
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 float-right"  style=" margin-top:2%;">        
         <span id="prev_output{{$tabWeb->id}}">     
             <a href="#"> 
