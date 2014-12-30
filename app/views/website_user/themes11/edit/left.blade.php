@@ -1,5 +1,5 @@
-<div class="item" >                   
-    <div id="slide{{$i+2}}" class="masonry margin-partion" style="min-height:450px;" >
+<div class="item r-title{{$tabWeb->id}}" >                   
+    <div id="slide{{$i+2}}" class="masonry margin-partion container" style="min-height:450px;" >
         <div id="prev_output{{$tabWeb->id}}" class="post-box{{$i+2}} col-sx-12 col-lg-6 col-md-6 col-sm-6 bg-images "> 
             <a href="#">
                 <?php 
@@ -12,14 +12,17 @@
 
                 @endif
             </a>
-            <button   onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <button   onclick="send_id({{$tabWeb->id}},null)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
             <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
         </div>
         <div class="post-box{{$i+2}} col-sx-12 col-lg-6 col-md-6 col-sm-6"> 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h3 class="title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} ;font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-                     {{$tabWeb->title}}
-                </h3>
+                <div class="inline-title text-center">
+                    <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+                        {{$tabWeb->title}}
+                    </h3>
+                    <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 show-content phara{{$tabWeb->id}}"  onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>
                  <span style="color: #{{$website_item->color3}}" >
@@ -30,7 +33,7 @@
 
                                
     </div>
-    <div class="row phara-margin">
+    <div class="container phara-margin">
         <div class="col-xs-10"></div>
         <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
             

@@ -1,26 +1,13 @@
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-    <meta name="author" content="Thuna.vn">
-
-    <title>{{$firstname}}'s wedding</title>
-
-    <script src="{{Asset('assets/js/jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="{{Asset("assets/js/map-themes.js")}}"></script>
 
 
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
-    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes11.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
-    <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
-
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
 
@@ -56,32 +43,40 @@
 @if($website)
     @foreach( $website as $website_item )
 
-        <div class="row header navbar_edits" style="width: 75.5%; margin: 0px; padding-left: 0px; padding-right: 0px;  position: fixed;z-index: 1000;">
-                <!-- narbar -->
-            <nav class="navbar-main "  id="" >
-                <div class=" ">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 navbar-left nav-themes11">
-                        <ul style="padding-left: 0px;">
-                            <li style="padding-left: 5px; padding-right: 5px;"><a href="#" data-target="#myCarousel" data-slide-to="0" class="active" >Trang Chủ</a></li>
-                            @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $i=>$menu_tab)
-                            <li style="padding-left: 5px; padding-right: 5px;" id="{{$i+2}}" class="clink">
-                                <a href="#" data-target="#myCarousel" data-slide-to="{{$i+1}}">{{$menu_tab->title}}</a>
-                            </li>
-                            @endforeach()
-                        </ul>
-                        
-                    </div>                   
-                </div>
-            </nav>
-            <!-- end narbar -->
+     <div class="navbar-wrapper">
+      <div class="container">
+        <div class="navbar navbar-inverse navbar-fixed-top slide-menu" role="navigation" style="padding:0px;">
+          <div class="">
+            <div class="navbar-header">
+              <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav text-center" style="background-color: rgba(255, 255, 255, 0);">
+                <li id="s1" class="clink">
+                    <a href="#" data-target="#myCarousel" data-slide-to="0" class="active">Trang chủ</a>
+                </li>
+                @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $i=>$menu_tab)
+                <li id="{{$i+2}}" class="clink menu-id{{$menu_tab->id}}"><a href="#" data-target="#myCarousel" data-slide-to="{{$i+1}}"> {{$menu_tab->title}} </a></li>
+                @endforeach()
+                <li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
+                 <li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
 
     <div id="home" class="header">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" style="margin-top: 0px; top: 53px;">
             <div class="carousel-inner bg-slide" style="margin-top: 0px;">
 
                 <div class="item active">                   
-                    <div id="slide1" class="masonry margin-partion" style="min-height:480px;" >
+                    <div id="slide1" class="masonry margin-partion container" style="min-height:480px;" >
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <figure id="prev_outputcc222" class="text-center">
                                 <a href="#">
@@ -91,7 +86,7 @@
                                     <img  style="height:350px; width:350px;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/boy.jpg')}}">
                                     @endif
                                 </a>
-                                <button onclick="send_id(null,222,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
+                                
                             </figure>
                             <h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-g">{{$website_item->name_groom}}</h3>
                             <p class="about-g text-center">{{$website_item->about_groom}} </p>
@@ -128,7 +123,7 @@
                                         <img style="height:350px; width:350px;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/girl.jpg')}}">
                                         @endif
                                     </a>
-                                    <button onclick="send_id(null,111,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
+                                    
                                 </figure>
                                 <h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
                                 <p class="about-b text-center">{{$website_item->about_bride}}</p>
