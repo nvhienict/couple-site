@@ -518,4 +518,57 @@ class UserController extends \BaseController {
 
 	} // end loginFacebookUpdate
 
+	/**
+	* get avatar user
+	*
+	*/ 
+	public static function getAvatar()
+	{
+		return User::where('email',Session::get('email'))->get()->first()->avatar;
+	}
+
+	/**
+	* get username user
+	*
+	*/ 
+	public static function getUserName()
+	{
+		$lastname = User::where('email',Session::get('email'))->get()->first()->lastname;
+		$firstname = User::where('email',Session::get('email'))->get()->first()->firstname;
+
+		return $firstname." ".$lastname;
+	}
+
+	/**
+	* get site map for dashboard
+	*
+	*/ 
+	public static function getUrl()
+	{
+		$url 	= URL::current();
+		$arUrl 	= explode('/', $url);
+
+		switch (end($arUrl)) {
+			case 'guest-list':
+				$output = 'Danh sách khách mời';
+				break;
+			case 'user-checklist':
+				$output = 'Danh sách công việc';
+				break;
+			case 'budget':
+				$output = 'Quản lý ngân sách';
+				break;
+			case 'website':
+				$output = 'Website cưới';
+				break;
+			
+			default:
+				$output = 'Trang chủ';
+				break;
+		}
+		
+		return $output;
+
+	}
+
 }

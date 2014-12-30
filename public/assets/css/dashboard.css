@@ -4,111 +4,125 @@ label.error{
 	color: #d8142b;
 }
 
-.top-dashboard{
-	height: 40px;
-	margin: 0;
-	padding: 0.1% 2.5%;
-	border-bottom: 1px solid #E75280;
-}
-.img-logo{
-	height: 100%;
-}
-
-.navbar-nav.navbar-right:last-child {
-    margin-right: 0px;
-}
-.navbar-nav li.dropdown{
-	background-color: #E75280;
-	height: 100%;
-	border-radius: 5px;
-}
-.navbar-nav li.dropdown a{
-	color: #FFFFFF;
-	padding: 10px 15px 15px 15px;
-}
-li.open a.dropdown-toggle{
-  	color: #FFFFFF;
-  	background-color: #E75280;
-  	border-color: #adadad;
-}
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  display: none;
-  float: left;
-  min-width: 160px;
-  padding: 5px 0;
-  margin: 2px 0 0;
-  font-size: 13px;
-  list-style: none;
-  background-color: #E75280;
-  background-clip: padding-box;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, .15);
-  border-radius: 4px;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-          box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-}
-.dropdown-menu > li > a:hover,
-.dropdown-menu > li > a:focus {
-  color: #E75280;
-  text-decoration: none;
-  background-color: #f5f5f5;
-}
-
-
-.center-dashboard{
-	margin: 0;
-	min-height: 500px;
-	height: auto;
-	background-color: #FBE5EC;
-}
-.navbar{
-	background-color: #E75280;
-	border-radius: 0;
-	margin-bottom: 0;
+/* menu
+-------------------------------------------------- */
+.navbar-fixed-top {
 
 }
-.navbar-header{
-	width: 100%;
-}
-.navbar-brand{
-	text-align: center;
-	width: 100%;
-	color: #FFFFFF;
-	text-transform: uppercase;
-	font-weight: bold;
-}
-.navbar-collapse{
-	padding-left: 0 !important;
-	padding-right: 0 !important;
 
-}
-.navbar-nav{
+.navbar-default {
 	background-color: #FFFFFF;
+	border: none;
+	height: 95px;
 }
-.navbar-nav li{
-	width: 100%;
-	color: #E75280;
+.navbar-nav {
+	float: none;
+	/*width: 83%;*/
+	margin: 0 auto;
 }
-.navbar-nav li a{
-	color: #E75280;
-	font-size: 18px;
+.navbar-nav > li{
+	/*border-left: 1px dotted #FFFFFF;*/
 }
-
-.center-2{
-	padding-left: 0;
-	padding-right: 2.5%;
-	min-height: 500px;
+.navbar-nav > li:hover{
+	background-color: #FFFFFF;
 	
 }
+.navbar-nav > li:last-child{
+	/*border-right: 1px dotted #FFFFFF;*/
+}
+.navbar-nav > li > a{
+	color: #E75280 !important;
+    font-size: 14px;
+    font-weight: bold;
+    /*padding-left: 10%;
+    padding-right: 10%;*/
+    text-transform: uppercase;
+}
+.navbar-nav > li > a:hover{
+	text-decoration: underline;
+}
+
+.navbar-collapse {
+
+}
+.container-fluid {
+	text-align: center !important;
+}
+
+.dropdown-menu {
+	left: -127% !important;
+	text-align: left;
+}
+
+.img-logo {
+	height: 80px;
+    width: 200%;
+}
+
+.navbar-right {
+	background-color: #1372e3;
+	border-radius: 5px;
+}
+.navbar-right > li > a {
+	color: #FFFFFF !important;
+}
+
+.site-map {
+	height: 40px;
+	background-color: #e85684;
+	margin: 2% 0;
+	border-radius: 5px;
+	padding-top: 0.5%;
+	color: #FFFFFF;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+
+/* end menu -----------------------------------------------*/
+
+/* center
+-----------------------------------------------------------*/
+.center-dashboard{
+	margin: 0;
+	margin-top: 95px;
+	height: 600px;
+	background-color: #FBE5EC;
+}
+.menu-left {
+	min-height: 150px;
+	padding-right: 0;
+}
+.menu-left-title {
+	background-color: #e75280;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: bold;
+    height: 45px;
+    padding: 3% 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+.menu-left-item {
+	background-color: #ffffff;
+    border-bottom: 1px solid #e75280;
+    height: 40px;
+    padding-left: 5%;
+    padding-top: 5%;
+}
+.menu-left-item > a {
+	color: #ec7599;
+	text-transform: uppercase;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+.menu-left-item:last-child {
+	border-bottom: 2px solid #e75280;
+}
+
 .content{
 	background-color: #FFFFFF;
 	min-height: 500px;
-	padding-left:2%;
-	padding-right: 1%;
+	padding-left: 15px;
 }
 
 /*index*/
@@ -116,7 +130,7 @@ li.open a.dropdown-toggle{
 .content-index-item{
 	min-height: 100px;
 	padding-left: 0;
-	padding-right: 1%;
+	padding-right: 0.4%;
 	margin-top: 2%;
 }
 .content-index-item .div-1{
@@ -160,7 +174,7 @@ li.open a.dropdown-toggle{
 	float: right;
 }
 
-/*end*/
+/*end center --------------------------------------------------*/
 
 /*css footer*/
 .footer{
