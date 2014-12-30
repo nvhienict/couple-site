@@ -22,7 +22,7 @@
                 </a>
             </span>
             <span>
-                <button  onclick="send_id({{$tab->id}},null,0)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+                <button  onclick="send_id({{$tab->id}},null)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
                 <input id="id-tab-photo{{$tab->id}}" type="hidden" value="{{$tab->id}}">
             </span>
         </div>
