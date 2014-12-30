@@ -1,9 +1,9 @@
 
-<div class="partion">
+<div class="partion phara-temp wedding-contact">
 	<div class="row phara-margin">
-       	<h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-            {{$tabWeb->title}}
-        </h3>
+       	<h2 class="text-center section-title section-title-contact" >
+	        Khách mời
+	    </h2>
 
 			<div class="row">
 				<div class="col-xs-1"></div>

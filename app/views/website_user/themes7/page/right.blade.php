@@ -2,7 +2,7 @@
      <h2 class="text-center section-title section-title-traval" >
         Du lịch
     </h2>
-    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 float-right" style="margin-right: 10%; margin-top: 2%;">        
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 float-right">        
         <span id="prev_output{{$tabWeb->id}}">     
             <a href="#"> 
              <?php 
@@ -19,7 +19,7 @@
               
               
     </div>
-     <div class="show-content phara{{$tabWeb->id}}" style="margin-left: 10%;">
+     <div class="show-content phara{{$tabWeb->id}}" >
         <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>        
     </div>
           

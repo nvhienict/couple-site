@@ -2,7 +2,7 @@
      <h2 class="text-center section-title section-title-wedding" >
         Đám cưới
     </h2>
-    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 float-left"  style="margin-left: 10%; margin-top:2%;">        
+    <div class="col-xs-12 col-sm-6 col-md-5 col-lg-6 float-left">        
         <span id="prev_output{{$tabWeb->id}}">     
             <a href="#"> 
                  <?php 
@@ -18,7 +18,7 @@
         </span >     
             
     </div>
-    <div class="show-content phara{{$tabWeb->id}}" style=" margin-right:10%;"  >
+    <div class="show-content phara{{$tabWeb->id}}">
             <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>        
     </div>
     

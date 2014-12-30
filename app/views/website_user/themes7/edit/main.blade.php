@@ -39,11 +39,11 @@
 					</tr>
 				</table>
 			</div>
-			<h2 class="section-title " id="showName" onclick="editName();">
+			<h3 class="section-title " id="showName" onclick="editName();">
 				<span class="name-g" id="topNameGroom">{{$website_item->name_groom}}</span>
 					<em>&</em>
 				<span class="name-b" id="topNameBride">{{$website_item->name_bride}}</span>
-			</h2>
+			</h3>
 			<div id="editName">
 				<input name="name_groom" value="{{$website_item->name_groom}}">
 				<input name="name_bride" value="{{$website_item->name_bride}}">

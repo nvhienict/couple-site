@@ -4,8 +4,6 @@
 
         
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
-            <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
-
             <!-- Add mousewheel plugin (this is optional) -->
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
 
@@ -31,11 +29,14 @@
             </style>
 
 </head>
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 phara-temp wedding-photo">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 phara-temp wedding-photo r-title{{$tabWeb->id}}" >
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content-photo-temp">
-        <h2 class="text-center section-title section-title-photo" >
-        	Album ảnh
-    	</h2>
+        <div class="inline-title text-center">
+            <h3 class="text-center title-tab section-title section-title-about" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+                {{$tabWeb->title}}
+            </h3>
+            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+        </div>
         <div onclick="showckeditorpartion({{$tabWeb->id}})" class="show-content phara{{$tabWeb->id}}" >
             <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>                                      
         </div>      
@@ -87,24 +88,6 @@
                         </div>
                    
                 @endif
-           
-
-             <div class="phara-margin float-right" style="margin-right:15%">
-            
-                <div class="click-edit click-edit-hide " >
-                     <span><a  onclick="send_id_album({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);"></a></span>
-                       
-                </div>
-            </div>
-            <div class=" phara-margin float-right" style="margin-right:15%">      
-                <div class=" ok-edit ok-edit-show ">
-                    <span>
-                       <span><a  class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a></span>
-                        <span><a class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-                    </span>
-                    
-                </div>
-            </div>
               
      </div>     
 

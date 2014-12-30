@@ -1,7 +1,10 @@
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 phara-temp wedding-contact" >
-  <h2 class="text-center section-title section-title-contact" >
-        Liên lạc
-    </h2>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 phara-temp wedding-contact r-title{{$tabWeb->id}}" >
+  <div class="inline-title text-center">
+        <h3 class="text-center title-tab section-title section-title-about" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+            {{$tabWeb->title}}
+        </h3>
+      <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+  </div>
 
      <div class="phara-margin ">
         <div class="row contact-content container">

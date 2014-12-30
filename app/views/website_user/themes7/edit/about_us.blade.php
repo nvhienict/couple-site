@@ -1,8 +1,11 @@
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 phara-temp about-template text-center" >
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 phara-temp about-template text-center r-title{{$tabWeb->id}}" >
 			
-			<h2 class="section-title section-title-about ">
-				<span>Nói về chúng tôi</span>					
-			</h2>
+	<div class="inline-title text-center">
+        <h3 class="text-center title-tab section-title section-title-about" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+            {{$tabWeb->title}}
+        </h3>
+	    <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+	</div>
 	<div class="image-couple">
 		<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
 		</div>
@@ -15,7 +18,7 @@
 				<img src="{{Asset('images/website/themes7/groom.jpg')}}" class="img-responsive" alt="Image">		
 			@endif
 			</a>
-			<button onclick="send_id(null,222,0)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+			
 		</span>		
 			
 			<div class="about_grooms show-content ">
@@ -31,7 +34,6 @@
 				<img src="{{Asset('images/website/themes7/bride.jpg')}}" class="img-responsive" alt="Image">		
 			@endif
 		</a>
-		<button onclick="send_id(null,111,0)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
 		</span>		
 			<div class="about_bride show-content ">
 				<span class="about-b">{{$website_item->about_bride}}</span>

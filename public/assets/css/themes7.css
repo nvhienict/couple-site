@@ -63,7 +63,7 @@ h2{
     width: auto;   
     margin-top: 20px;
     text-transform: uppercase ;
-    margin: 0 20%;
+    margin: 2% 20%;
 }
 .section-title span
 {
@@ -90,34 +90,6 @@ h2{
     font-family: 'Patrick Hand', cursive;
 }
 
-
-.section-title-about
-{
-	 margin: 0 25%;
-       
-}
-
-.section-title-wedding
-{
-	margin: 0 35%;
-   
-}
-.section-title-traval
-{
-	margin: 0 35%;
-}
-.section-title-photo
-{
-	margin: 0 35%;
-}
-.section-title-contact
-{
-	margin: 0 35%;
-}
-.section-title-love_story
-{
-	margin: 0 25%;
-}
 .image-couple
 {
 	margin-top: 2%;
@@ -232,4 +204,7 @@ body
 	{
 		font-size: 14px;
 	}
+}
+.images-padding{
+	padding: 10px 10px;
 }

@@ -2,7 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Patrick+Hand&subset=latin,vietnamese);
 @import url(http://fonts.googleapis.com/css?family=Courgette);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab&subset=latin,vietnamese);
-.phara-temp h2{
+.phara-temp h3{
     color: #de675f;
     font-family: 'Courgette', cursive;
     font-weight: normal;
@@ -65,7 +65,6 @@
     border-bottom: 4px double #c9b29b;
     width: auto;   
     margin-top: 20px;
-    margin: 0 10%;
     text-transform: uppercase ;
 }
 .section-title span
@@ -94,33 +93,7 @@
 }
 
 
-.section-title-about
-{
-	 margin: 0 20%;
-       
-}
 
-.section-title-wedding
-{
-	margin: 0 30%;
-   
-}
-.section-title-traval
-{
-	margin: 0 35%;
-}
-.section-title-photo
-{
-	margin: 0 30%;
-}
-.section-title-contact
-{
-	margin: 0 35%;
-}
-.section-title-love_story
-{
-	margin: 0 20%;
-}
 .image-couple
 {
 	padding-top: 2%;
