@@ -3,7 +3,6 @@
 
 
 <head>
-	
 	<!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes2.css")}}">
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">

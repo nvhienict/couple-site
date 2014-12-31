@@ -19,8 +19,6 @@
             </div>               
         </div>
        
-        
-
     </div>
     <div class="partion">
         <div class="row phara-margin">
