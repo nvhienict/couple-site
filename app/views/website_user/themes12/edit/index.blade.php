@@ -2,37 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
 
 <head>
-	<title>{{$firstname}}'s Wedding Website | thuna.vn</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=false" />
-
-	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logo.png")}}">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta property="og:title" content="Dịch vụ cưới hỏi Thuna.vn">
-	<meta property="og:type" content="website">
-	<meta property="og:image" content="{{Asset("assets/img/logo.png")}}" />
-	<meta property="fb:app_id" content="692038267552175" />
-	
-	
-
-	<!-- css -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
-    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
 	<!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes12.css")}}">
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
-	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
-	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.3.2.0.min.js")}}"></script>
-	<script type="text/javascript" src="{{Asset("assets/js/main.js")}}"></script>
-
-	
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 	<script src="{{Asset("assets/js/map-themes.js")}}"></script>
-	<script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>	 
 	
 	<script type="text/javascript">
 		
@@ -152,9 +130,10 @@
 
 								@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
 						      		@if($index<1)
-						      		<li class="li-menu-edit"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
+						      		<li class="li-menu-edit menu-id{{$tab->id}}"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
 						      		@endif
 						      	@endforeach
+						      		<li ><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
 					      	</ul>
 					      	
 					   	</div>
@@ -177,9 +156,10 @@
 					      	<ul class="nav navbar-nav">
 						      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
 						      		@if( ($index>=1)&&($index<3) )
-						      		<li class="li-menu-edit"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
+						      		<li class="li-menu-edit menu-id{{$tab->id}}"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
 						      		@endif
 						      	@endforeach
+						      	 	<li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
 					      	</ul>
 					      	
 					   	</div>
@@ -213,7 +193,7 @@
 								<img class="img-circle" src="{{Asset('images/website/themes12/groom.png')}}">
 							@endif
 						</a>
-						<button onclick="send_id(null,222,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none; z-index:99">Đổi Ảnh</button>
+						
 					</span>
 				</div>
 				<!-- end groom -->
@@ -227,7 +207,7 @@
 								<img class="img-circle" src="{{Asset('images/website/themes12/bride.png')}}">
 							@endif
 						</a>
-						<button onclick="send_id(null,111,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none; z-index:99">Đổi Ảnh</button>
+						
 					</span>
 				</div>
 				<!-- end bride -->
@@ -282,14 +262,14 @@
 					@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
 						<!-- Welcome -->
 						@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
-							<div id="section_{{$tabWeb->type}}" class="item">
+							<div id="section_{{$tabWeb->type}}" class="item r-title{{$tabWeb->id}}">
 								@include('website_user.themes12.edit.left')
 							</div>
 							<!-- end item -->
 						@endif
 						<!-- About Us -->
 						@if($tabWeb->type=="about" && $tabWeb->visiable==0)
-							<div id="section_{{$tabWeb->type}}" class="item">
+							<div id="section_{{$tabWeb->type}}" class="item r-title{{$tabWeb->id}}">
 								@include('website_user.themes12.edit.left')
 							</div>
 							<!-- end item -->
@@ -297,14 +277,14 @@
 
 						<!-- cau chuyen tinh yeu -->
 						@if($tabWeb->type=="love_story")
-							<div id="section_{{$tabWeb->type}}" class="item">
+							<div id="section_{{$tabWeb->type}}" class="item r-title{{$tabWeb->id}}">
 								@include('website_user.themes12.edit.text')
 							</div>
 						@endif
 
 						<!-- Wedding Event -->
 						@if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
-							<div id="section_{{$tabWeb->type}}" class="item">
+							<div id="section_{{$tabWeb->type}}" class="item r-title{{$tabWeb->id}}">
 								@include('website_user.themes12.edit.left')
 							</div>
 							<!-- end item -->
@@ -325,27 +305,27 @@
 
 						<!-- Travaling -->
 						@if($tabWeb->type=="traval" && $tabWeb->visiable==0)
-							<div id="section_{{$tabWeb->type}}" class="item">
+							<div id="section_{{$tabWeb->type}}" class="item r-title{{$tabWeb->id}}">
 								@include('website_user.themes12.edit.left')
 							</div>
 							<!-- end item -->
 				        @endif
 				        <!-- Photo Album -->
 				        @if($tabWeb->type=="album" && $tabWeb->visiable==0)
-					        <div id="section_{{$tabWeb->type}}" class="item">
+					        <div id="section_{{$tabWeb->type}}" class="item r-title{{$tabWeb->id}}">
 					        	@include('website_user.themes12.edit.photo')
 					        </div>
 				        @endif
 
 				       	@if($tabWeb->type=="contact" && $tabWeb->visiable==0)
-					        <div id="section_{{$tabWeb->type}}" class="item">
+					        <div id="section_{{$tabWeb->type}}" class="item r-title{{$tabWeb->id}}">
 					        	@include('website_user.themes12.edit.contact')
 					        </div>
 				        @endif
 
 				         <!--  Guest book -->
 				       @if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
-				        <div id="section_{{$tabWeb->type}}"  class="item">
+				        <div id="section_{{$tabWeb->type}}"  class="item r-title{{$tabWeb->id}}">
 				        	@include('website_user.themes12.edit.guestbook')
 				    	</div>
 				        @endif 

@@ -101,7 +101,7 @@ header {
     padding-top: 38px;
     position: absolute;
     top: 45px;
-    width: 13.7%;
+    width: 10.5%;
 }
 .name-groom, .name-center, .name-bride{
 	text-align: center;
@@ -345,7 +345,9 @@ header {
 	.logo {
 		background: none;
 	}
-
+	.logo-edit{
+		background: none;
+	}
 	.butterfly-groom, .butterfly-bride {
 		background: none;
 	}
