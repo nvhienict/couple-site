@@ -67,11 +67,11 @@ class WebsiteController extends \BaseController {
 		$check_bg_website = WeddingWebsite::where('user',$id_user)->get()->count();
 		$web = $this->getWeb();
 		$images = $this->getImages();
-		$tab = $this->getTabIndex();
 		if ($check_bg_website==0) {
 			// $backgrounds = "template_1.jpg";
 			return View::make('website_user.template');
 		}else{
+			$tab = $this->getTabIndex();
 			$img_tmp = WeddingWebsite::where('user',$id_user)->get()->first()->template;
 			return View::make('website_user.index')->with('img_tmp',$img_tmp)->with('web',$web)
 																				->with('image',$images)
