@@ -1,7 +1,10 @@
 
-    <div class="tab-text" style="padding-bottom: 70px;">
-        <div class="tab-text-title" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-            {{$tabWeb->title}}
+    <div class="tab-text r-title{{$tabWeb->id}}" style="padding-bottom: 70px;">
+        <div class="inline-title text-center tab-text-title">
+            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+                {{$tabWeb->title}}
+            </h3>
+            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
         </div>
 
         <div class="tab-text-content show-content phara{{$tabWeb->id}}" onclick="showckeditor_text({{$tabWeb->id}})" >
@@ -40,7 +43,7 @@
         </a>
 
     </span>
-    <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #FE4447; border:none; position: absolute; right: 10%;">Đổi Ảnh</button>
+    <button onclick="send_id({{$tabWeb->id}},null)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #FE4447; border:none; position: absolute; right: 10%;">Đổi Ảnh</button>
     <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">    
 
     

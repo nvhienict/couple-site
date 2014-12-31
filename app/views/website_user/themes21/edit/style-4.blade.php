@@ -3,7 +3,6 @@
     <!--  Slide Album -->
 
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
-            <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
 
             <!-- Add mousewheel plugin (this is optional) -->
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
@@ -31,6 +30,13 @@
 
 </head>
 
+        <div class="r-title{{$tabWeb->id}}">
+            <div class="inline-title text-center">
+                <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+                    {{$tabWeb->title}}
+                </h3>
+                <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+            </div>
             <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
             @if($albums)
                 <div class="tab-photo">
@@ -41,13 +47,6 @@
                 @endforeach
                 </div>
             @endif
+        </div>
 
-            <div style="position: absolute; top: 40%; right: 20%;">
-                <button onclick="send_id_album({{$tabWeb->id}})"  class="btn btn-primary" data-toggle="modal" data-target='#modal-up_images' style="background: #FE4447; border:none;">Đổi Ảnh</button>
-            </div>
-
-            <div class="ok-edit ">
-                <span><a  class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a></span>
-                <span><a class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-            </div>
 

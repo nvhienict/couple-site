@@ -2,34 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
 
 <head>
-	<title>{{$firstname}}'s Wedding Website | thuna.vn</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=false" />
-
-	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logo.png")}}">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta property="og:title" content="Dịch vụ cưới hỏi Thuna.vn">
-	<meta property="og:type" content="website">
-	<meta property="og:image" content="{{Asset("assets/img/logo.png")}}" />
-	<meta property="fb:app_id" content="692038267552175" />
-	
-	
-    <!-- css -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
-    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
-    <!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes21.css")}}">
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
-
-
-	<script type="text/javascript" src="{{Asset("assets/js/jquery.min.js")}}"></script>
-	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.3.2.0.min.js")}}"></script>
-	<script type="text/javascript" src="{{Asset("assets/js/main.js")}}"></script>
-
-	
-
 	<script type="text/javascript">
 		function showckeditor(id){
 		        var text=$('.phara'+id).html();
@@ -296,8 +272,10 @@
 			      	<ul class="nav navbar-nav" style="background: none;">
 			      		<li><a style="font-size: 12px;" href="javascript:void(0);" id="home_page">Trang Chủ</a></li>
 			      	 	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $tab)
-			      	 		<li><a style="font-size: 12px;" class="{{$tab->id}} TT{{$tab->id}} {{$tab->type}}" href="javascript:void(0);" >{{$tab->title}}</a></li>
+			      	 		<li class="menu-id{{$tab->id}}"><a style="font-size: 12px;" class="{{$tab->id}} TT{{$tab->id}} {{$tab->type}}" href="javascript:void(0);" >{{$tab->title}}</a></li>
 			      	 	@endforeach
+			      	 	 <li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
+       					  <li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
 			      	 	<script type="text/javascript" src="{{Asset("assets/js/themes21.js")}}"></script>
 			     	 </ul>
 			   </div>

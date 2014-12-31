@@ -8,7 +8,7 @@
                         <img class="img-circle img-groom" src="{{Asset('images/website/themes21/groom.png')}}">
                     @endif
                 </a>
-                <button onclick="send_id(null,222,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #FE4447; border:none; position: absolute; top:27%; left:25%">Đổi Ảnh</button>
+                
             </span>
             
             <img style="width: 35%;" class="img-cake-wedding" src="{{Asset('images/website/themes21/p2_pic3.png')}}">
@@ -21,7 +21,7 @@
                         <img class="img-circle img-bride" src="{{Asset('images/website/themes21/bride.png')}}">
                     @endif
                 </a>
-                <button onclick="send_id(null,111,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #FE4447; border:none; position: absolute; top:27%; right:25%">Đổi Ảnh</button>
+                
             </span>
 
         </div>
