@@ -480,7 +480,7 @@ function printStyle() {
 	res += '  .ngaytuan {width:14%; text-align:center; font-size:100%; line-height:120%; color:#330033; background-color: #FFFFCC}\n';
 	res += '  .ngaythang {background-color:#FDFDF0}\n';
 	res += '  .homnay {background-color:#FFF000;}\n';
-	res += '  .tet {background-color:#FFCC99}\n';
+	res += '  .tet {background-color:#FF0000}\n';
 	res += '  .am {text-align:right;font-size:60%;line-height:100%;color:#0000FF}\n';
 	res += '  .am2 {text-align:right;font-size:60%;line-height:100%;color:#004080}\n';
 	res += '  .t2t6 {text-align:left;font-size:125%;color:black}\n';
@@ -596,9 +596,7 @@ function printCell(lunarDate, solarDate, solarMonth, solarYear) {
 	if (solarDate == today.getDate() && solarMonth == today.getMonth()+1 && solarYear == today.getFullYear()) {
 		cellClass = "homnay";
 	}
-	if (lunarDate.day == 1 && lunarDate.month == 1) {
-		cellClass = "tet";
-	}
+	
 	if (lunarDate.leap == 1) {
 		lunarClass = "am2";
 	}
@@ -610,30 +608,68 @@ function printCell(lunarDate, solarDate, solarMonth, solarYear) {
 	if ( checkInNgayKhacCodau(cc[0])<0 ) {
 		cellClass = "codau";
 	}
-	if ( (checkInNgayKhacChuRe(cc[0])<0)&&(checkInNgayKhacCodau(cc[0])<0) ) {
-		cellClass = "couple";
+	if ( (checkInNgayKhacChuRe(cc[0])<0)&&
+		(checkInNgayKhacCodau(cc[0])<0) ) {
+			cellClass = "couple";
 	}
 
 	// ngay xau nhat trong nam
-	if ( (lunarDate.day == 13 && lunarDate.month == 1)||(lunarDate.day == 11 && lunarDate.month == 2)||(lunarDate.day == 9 && lunarDate.month == 3)||(lunarDate.day == 7 && lunarDate.month == 4)||(lunarDate.day == 5 && lunarDate.month == 5)||(lunarDate.day == 3 && lunarDate.month == 6)||( ((lunarDate.day == 8)||(lunarDate.day == 9)) && lunarDate.month == 7)||(lunarDate.day == 27 && lunarDate.month == 8)||(lunarDate.day == 25 && lunarDate.month == 9)||(lunarDate.day == 23 && lunarDate.month == 10)||(lunarDate.day == 21 && lunarDate.month == 11)||(lunarDate.day == 19 && lunarDate.month == 12) ) {
-		cellClass = "ngaythang";
-	}
+	var ngayxaunhat = ( (lunarDate.day == 13 && lunarDate.month == 1)||
+					(lunarDate.day == 11 && lunarDate.month == 2)||
+					(lunarDate.day == 9 && lunarDate.month == 3)||
+					(lunarDate.day == 7 && lunarDate.month == 4)||
+					(lunarDate.day == 5 && lunarDate.month == 5)||
+					(lunarDate.day == 3 && lunarDate.month == 6)||
+					( ((lunarDate.day == 8)||(lunarDate.day == 29)) && lunarDate.month == 7)||
+					(lunarDate.day == 27 && lunarDate.month == 8)||
+					(lunarDate.day == 25 && lunarDate.month == 9)||
+					(lunarDate.day == 23 && lunarDate.month == 10)||
+					(lunarDate.day == 21 && lunarDate.month == 11)||
+					(lunarDate.day == 19 && lunarDate.month == 12) );
 
 	// ngay tam nuong sat
-	if ( (lunarDate.day == 3) || (lunarDate.day == 7) || (lunarDate.day == 13) || (lunarDate.day == 18) || (lunarDate.day == 22) || (lunarDate.day == 27) ) {
-		cellClass = "ngaythang";
-	}
+	var DAY3SAT 			= new Array(3,7,13,18,22,27);
+	var ngaytamnuongsat 	= ( DAY3SAT.indexOf(lunarDate.day)>=0 );
+
+	// ngay Nguyet ky
+	var DAYNGUYETKY  = new Array(5,14,23);
+	var ngaynguyetky = ( DAYNGUYETKY.indexOf(lunarDate.day)>=0 );
 
 	// ngay sat chu
-	if ( ((lunarDate.month == 1)&&(dayChi == 'Tý'))||( (dayChi == 'Sửu')&&( (lunarDate.month == 2)||(lunarDate.month == 3)||(lunarDate.month == 7)||(lunarDate.month == 9) ) )||((lunarDate.month == 4)&&(dayChi == 'Tuất'))||((lunarDate.month == 11)&&(dayChi == 'Mùi'))||( (dayChi == 'Thìn')&&( (lunarDate.month == 5)||(lunarDate.month == 6)||(lunarDate.month == 8)||(lunarDate.month == 10)||(lunarDate.month == 12) ) ) ) {
-		cellClass = "ngaythang";
-	}
+	var ngaysatchu 	 = ( ((lunarDate.month == 1)&&(dayChi == 'Tỵ'))||
+						((lunarDate.month == 2)&&(dayChi == 'Tý'))||
+						((lunarDate.month == 3)&&(dayChi == 'Mùi'))||
+						((lunarDate.month == 4)&&(dayChi == 'Mão'))||
+						((lunarDate.month == 5)&&(dayChi == 'Thân'))||
+						((lunarDate.month == 6)&&(dayChi == 'Tuất'))||
+						((lunarDate.month == 7)&&(dayChi == 'Hợi'))||
+						((lunarDate.month == 8)&&(dayChi == 'Sửu'))||
+						((lunarDate.month == 9)&&(dayChi == 'Ngọ'))||
+						((lunarDate.month == 10)&&(dayChi == 'Dậu'))||
+						((lunarDate.month == 11)&&(dayChi == 'Dần'))||
+						((lunarDate.month == 12)&&(dayChi == 'Thìn')) );
 
 	// ngay tho tu
-	if ( ((cc[0] == 'Bính Tuất')&&(lunarDate.month == 1))||((cc[0] == 'Nhâm Thìn')&&(lunarDate.month == 2))||((cc[0] == 'Tân Hợi')&&(lunarDate.month == 3))||((cc[0] == 'Đinh Tỵ')&&(lunarDate.month == 4))||((cc[0] == 'Mậu Tý')&&(lunarDate.month == 5))||((cc[0] == 'Bính Ngọ')&&(lunarDate.month == 6))||((cc[0] == 'Ất Sửu')&&(lunarDate.month == 7))||((cc[0] == 'Quý Mùi')&&(lunarDate.month == 8))||((cc[0] == 'Giáp Dần')&&(lunarDate.month == 9))||((cc[0] == 'Mậu Thân')&&(lunarDate.month == 10))||((cc[0] == 'Tân Mão')&&(lunarDate.month == 11))||((cc[0] == 'Tân Dậu')&&(lunarDate.month == 12)) ) {
-		cellClass = "ngaythang";
+	var ngaythotu = ( ((cc[0] == 'Bính Tuất')&&(lunarDate.month == 1))||
+					((cc[0] == 'Nhâm Thìn')&&(lunarDate.month == 2))||
+					((cc[0] == 'Tân Hợi')&&(lunarDate.month == 3))||
+					((cc[0] == 'Đinh Tỵ')&&(lunarDate.month == 4))||
+					((cc[0] == 'Mậu Tý')&&(lunarDate.month == 5))||
+					((cc[0] == 'Bính Ngọ')&&(lunarDate.month == 6))||
+					((cc[0] == 'Ất Sửu')&&(lunarDate.month == 7))||
+					((cc[0] == 'Quý Mùi')&&(lunarDate.month == 8))||
+					((cc[0] == 'Giáp Dần')&&(lunarDate.month == 9))||
+					((cc[0] == 'Mậu Thân')&&(lunarDate.month == 10))||
+					((cc[0] == 'Tân Mão')&&(lunarDate.month == 11))||
+					((cc[0] == 'Tân Dậu')&&(lunarDate.month == 12)) );
+
+	if ( ngayxaunhat || ngaytamnuongsat || ngaynguyetky || ngaysatchu || ngaythotu ) {
+			cellClass = "ngaythang";
 	}
 
+	if ( ((lunarDate.day == 1)||(lunarDate.day == 2)||(lunarDate.day == 3)) && lunarDate.month == 1) {
+		cellClass = "tet";
+	}
 
 
 	var lunar = lunarDate.day;
