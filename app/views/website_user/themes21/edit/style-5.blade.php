@@ -1,4 +1,4 @@
-<div class="r-title{{$tabWeb->id}}">
+<div class="div-text-tab-text r-title{{$tabWeb->id}}">
   <div class="inline-title text-center div-text-tab-text-title">
         <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
             {{$tabWeb->title}}

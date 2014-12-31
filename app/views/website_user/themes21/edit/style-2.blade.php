@@ -7,7 +7,7 @@
             <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
         </div>
 
-        <div class="tab-text-content show-content phara{{$tabWeb->id}}" onclick="showckeditor_text({{$tabWeb->id}})" >
+        <div class="tab-text-content show-content phara{{$tabWeb->id}}"onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" >
             <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
         </div>
         <div class="tab-text-date-time">
@@ -15,20 +15,6 @@
 
             <img class="tab-text-date-time-img" src="{{Asset('images/website/themes21/p3_pic4.png')}}">
         </div>
-        <div class="edit-content editphara{{$tabWeb->id}}">
-            <textarea name="editor{{$tabWeb->id}}" class="ckeditor form-control ckedit{{$tabWeb->id}}" id="editor{{$tabWeb->id}}" cols="40" rows="10" tabindex="1">
-               {{$tabWeb->content}}
-            </textarea>
-        </div>
-            
-        <div class="ok-edit ok-edit-show{{$tabWeb->id}}" style="padding-top: 10px; padding-bottom:10px;">
-            <span>
-                <a onclick="updateckeditor({{$tabWeb->id}})" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-                <input type="hidden" class="get_id{{$tabWeb->id}}" value="{{$tabWeb->id}}">
-            </span>
-            <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-        </div>
-
     </div>
     <span id="prev_output_themes21{{$tabWeb->id}}"> 
         <a href="#">

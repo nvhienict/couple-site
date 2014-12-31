@@ -560,7 +560,6 @@ body{
 /* div-text */
 .div-text-tab-text{
 	width: 60%;
-	min-height: 200px;
 	border-radius: 5px;
 	background-color: #5A948A;
 	color: #FFFFFF;
