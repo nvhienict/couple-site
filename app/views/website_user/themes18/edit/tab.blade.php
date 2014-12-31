@@ -1,7 +1,11 @@
-
-        <h6 class="item-title" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-            {{$tabWeb->title}}
-        </h6>
+<div class="r-title{{$tabWeb->id}}">
+    
+        <div class="inline-title text-center">
+            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+                {{$tabWeb->title}}
+            </h3>
+            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+        </div>
 
         <span id="prev_output{{$tabWeb->id}}">
             <a href="#">
@@ -56,6 +60,7 @@
             <span><a style="color:#e74c3c;" onclick="exitckeditor({{$tabWeb->id}})" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
         </div>
     </div>
+</div>
 
 
 

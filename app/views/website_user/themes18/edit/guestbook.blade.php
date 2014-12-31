@@ -1,9 +1,12 @@
 
-<div class="partion">
+<div class="partion r-title{{$tabWeb->id}}">
 	<div class="row phara-margin">
-       	<h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-            {{$tabWeb->title}}
-        </h3>
+       	<div class="inline-title text-center">
+            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+                {{$tabWeb->title}}
+            </h3>
+            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+        </div>
 
 			<div class="row">
 				<div class="col-xs-1"></div>
