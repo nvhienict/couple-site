@@ -1,20 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>{{$firstname}}'s wedding</title>
-
-    <script src="{{Asset('assets/js/jquery.min.js')}}"></script>
-     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript" src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
-    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes13.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
-    <script type="text/javascript" src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
-    
-
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
 
@@ -44,15 +34,7 @@
         }
    
     </style>
-    <script src="{{Asset('assets/js/jquery.scrollTo.js')}}"></script>
     <script type="text/javascript">
-        jQuery(document).ready(function($) {
-	    // Call & Apply function scrollTo
-		    $('a.scrollTo').click(function () {
-		        $('.design_website_content_right').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
-		        return false;
-		    });
-		});
 
 			var PostCodeid = "#Postcode";
 		        var longval = "#hidLong";
@@ -190,47 +172,51 @@
 </head>
 @if($website)
     @foreach( $website as $website_item )
-<body id="page1">
-<div class="body1">
+<div id="page1">
+<div class="body1 container">
 	<div class="main">
 <!-- header -->
 		<header>
 			<div class="navbar-wrapper menu-theme-13">
 
 	          <!-- <div class="container"> -->
-	            <div class="navbar navbar-inverse slide-menu" role="navigation">
-	              <!-- <div class="container"> -->
-	                <div class="navbar-header">
-	                  <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                  </button>
-	                </div>
-	                <div class="navbar-collapse collapse menu-ul ">
-	                  <ul id='menu' class="nav navbar-nav navbar-right text-center">
-			                  	<span><a class="scrollTo" href="#title-home" style="padding:15px 8px; text-decoration: none;">Trang Chủ</a></span>
-	                  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $menu_tab)
-	                  		@if($index<3)
-			      				<span><a style="padding:15px 8px;text-decoration: none;" class="{{$tab->id}} scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></span>
-		      				@endif
-	                  	@endforeach
-		                    <span  class="dropdown add_dr">
-							    <a onclick="dr_menu()" data-toggle="dropdown" href="#">
-							      Xem thêm <span class="caret"></span>
-							    </a>
-							    <ul class="dropdown-menu" role="menu" style="background: url('../images/website/themes13/bg-ul.jpg');left:0px;">
-							   		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $menu_tab)
-								    	@if($index>=3)
-								    	<span><a style="text-decoration: none;" class="{{$tab->id}} scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></span>
-								    	@endif
-								    @endforeach
-							    </ul>
-							</span>                  
-	                  </ul>
-	                </div>
-                 </div>
-	        </div>
+	           <div class="navbar navbar-inverse slide-menu" role="navigation">
+                <!-- <div class="container"> -->
+                  <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+                  <div class="navbar-collapse collapse menu-ul-edit ">
+                    <ul id='menu' class="nav navbar-nav navbar-right text-center" style="background-color:rgba(255,255,255,0);">
+                          <li  id="s1" class="">
+                              <a class="scrollTo" href="#title-home" >Trang chủ</a>
+                          </li>
+                      @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
+                        @if($index<2)
+                    <li class="menu-id{{$tab->id}}"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" >{{$tab->title}}</a></li>
+                        @endif
+                       @endforeach
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" href="#">
+                          Xem thêm <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" style="background: url('../../images/website/themes13/bg-ul.jpg');left:0px;">
+                          @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
+                            @if($index>=2)
+                            <li class="menu-id{{$tab->id}}"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" >{{$tab->title}}</a></li>
+                            @endif
+                          @endforeach
+                        </ul>
+                    </li>
+                    <li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
+                    <li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>                  
+                  </ul>
+                </div>
+         </div>
+      </div>
 			<div class="row" style="margin-left: 0px; margin-right: 0px;">
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 slider_box">
 					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -296,43 +282,43 @@
 
 	</div>
 </div>
-<div class="body2 ">
+<div class="body2 container">
 
 @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
 	
 		@if($tabWeb->type =="welcome" )
-		<div id="section_{{$tabWeb->type}}">
+		<div id="section_{{$tabWeb->type}}" class="r-title{{$tabWeb->id}}">
 		@include('website_user.themes13.edit.left')
 		</div>
 		
-		<div class=" bg-line" style="margin-left: 0px; margin-right: 0px;"></div>
+		<div class=" bg-line r-title{{$tabWeb->id}}" style="margin-left: 0px; margin-right: 0px;"></div>
 		@endif
 
 		<!-- cau chuyen tinh yeu -->
 		@if($tabWeb->type=="love_story")
-		<div id="section_{{$tabWeb->type}}">
+		<div id="section_{{$tabWeb->type}}" class="r-title{{$tabWeb->id}}">
 		@include('website_user.themes13.edit.right')
 		</div>
 		
-		<div class=" bg-line" style="margin-left: 0px; margin-right: 0px;"></div>
+		<div class=" bg-line r-title{{$tabWeb->id}}" style="margin-left: 0px; margin-right: 0px;"></div>
 		@endif
 
 		<!-- About Us -->
 		@if($tabWeb->type=="about")
-		<div id="section_{{$tabWeb->type}}">
+		<div id="section_{{$tabWeb->type}}" class="r-title{{$tabWeb->id}}">
 		@include('website_user.themes13.edit.right')
 		</div>
-		<div class=" bg-line" style="margin-left: 0px; margin-right: 0px;"></div>
+		<div class=" bg-line r-title{{$tabWeb->id}}" style="margin-left: 0px; margin-right: 0px;"></div>
 		
 		
 		@endif
 
 		<!-- Wedding Event -->
 		@if($tabWeb->type=="wedding" )
-		<div id="section_{{$tabWeb->type}}">
+		<div id="section_{{$tabWeb->type}}" class="r-title{{$tabWeb->id}}">
 		@include('website_user.themes13.edit.left')
 		</div>
-		<div class="row phara-margin" style="padding-top:30px;">
+		<div class="row phara-margin r-title{{$tabWeb->id}}" style="padding-top:30px;">
            <!-- -change map --> 
            	<div class="text-center map-hove " style='padding:20px 20px;'>         
                 <p><input class="postcode" id="Postcode" name="Postcode" type="text"> <input type="submit" id="findbutton" value="Tìm địa điểm" /></p>        
@@ -345,55 +331,55 @@
             </div>                              
             <!-- -end map -->  
    		 </div> 
-		<div class=" bg-line" style="margin-left: 0px; margin-right: 0px;"></div>
+		<div class=" bg-line r-title{{$tabWeb->id}}" style="margin-left: 0px; margin-right: 0px;"></div>
 		
 		@endif
 		
 
 		<!-- Travaling -->
 		@if($tabWeb->type=="traval")
-		<div id="section_{{$tabWeb->type}}">
+		<div id="section_{{$tabWeb->type}}" class="r-title{{$tabWeb->id}}">
 		@include('website_user.themes13.edit.right')
 		</div>
-		<div class=" bg-line" style="margin-left: 0px; margin-right: 0px;"></div>
+		<div class=" bg-line r-title{{$tabWeb->id}}" style="margin-left: 0px; margin-right: 0px;"></div>
         
         @endif
         <!-- Photo Album -->
         @if($tabWeb->type=="album" )
-        <div id="section_{{$tabWeb->type}}">
+        <div id="section_{{$tabWeb->type}}" class="r-title{{$tabWeb->id}}">
         @include('website_user.themes13.edit.photo')
         </div>
-        <div class=" bg-line" style="margin-left: 0px; margin-right: 0px;"></div>
+        <div class=" bg-line r-title{{$tabWeb->id}}" style="margin-left: 0px; margin-right: 0px;"></div>
         <hr>
         
         @endif
 
        <!--  Register -->
        @if($tabWeb->type=="register" )
-       <div id="section_{{$tabWeb->type}}">
+       <div id="section_{{$tabWeb->type}}" class="r-title{{$tabWeb->id}}">
        @include('website_user.themes13.edit.left')  
        </div>  
-       <div class=" bg-line" style="margin-left: 0px; margin-right: 0px;"></div>   
+       <div class=" bg-line r-title{{$tabWeb->id}}" style="margin-left: 0px; margin-right: 0px;"></div>   
         
         
         @endif
 
         <!-- Contact Us -->
         @if($tabWeb->type=="contact")
-        <div id="section_{{$tabWeb->type}}">
+        <div id="section_{{$tabWeb->type}}" class="r-title{{$tabWeb->id}}">
         @include('website_user.themes13.edit.contact')
         </div>
-        <div class=" bg-line" style="margin-left: 0px; margin-right: 0px;"></div>
+        <div class=" bg-line r-title{{$tabWeb->id}}" style="margin-left: 0px; margin-right: 0px;"></div>
         
         
         @endif
 
          <!--  Guest book -->
        @if($tabWeb->type=="guestbook")
-        <div id="section_{{$tabWeb->type}}">
+        <div id="section_{{$tabWeb->type}}" class="r-title{{$tabWeb->id}}">
         	@include('website_user.themes13.edit.guestbook')
     	  </div>
-    	<div class=" bg-line" style="margin-left: 0px; margin-right: 0px;"></div>
+    	<div class=" bg-line r-title{{$tabWeb->id}}" style="margin-left: 0px; margin-right: 0px;"></div>
     	
     	
         @endif
@@ -401,7 +387,7 @@
 @endforeach
 <!-- content / -->
 </div>
-<div class="body3">
+<div class="body3 container">
 	<div class="main">
 <!-- footer -->
 		<footer class="text-center" style="margin-top: 40px;">
@@ -429,6 +415,6 @@
 </div>
 	@endforeach
 @endif
-</body>
+</div>
 
 </html>

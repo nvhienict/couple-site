@@ -2,9 +2,12 @@
 	
 	<div class="wrapper">
     	<div class="partion col-xs-10 col-md-10 col-sm-10 col-lg-10 col-md-offset-1 col-sm-offset-1 col-offset-lg-1">               
-            <h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}};font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-                {{$tabWeb->title}}
-            </h3>  
+            <div class="inline-title text-center">
+                <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+                    {{$tabWeb->title}}
+                </h3>
+                <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+            </div>  
             <div class="show-content phara{{$tabWeb->id}} " onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>                            
                 <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>     
             </div> 
@@ -32,14 +35,6 @@
                 @endif
                 </div>
             </div>
-            <div class="row phara-margin">
-                <div class="col-xs-9">
-                </div>
-                <div class="col-xs-1">
-                     <span><a style="background: #19b5bc; border:none;" onclick="send_id_album({{$tab->id}})" class="btn btn-primary"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);">Tải ảnh lên</a></span>
-                </div>               
-            </div>
-            
         </div> 
 	</div>
 </article>
