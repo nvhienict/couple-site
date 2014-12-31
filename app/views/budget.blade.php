@@ -8,6 +8,34 @@ Quản lý ngân sách
 @endsection
 @section('content')
 
+	@if(empty($website_item->count_down))
+		@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
+			<div id="getD{{$index}}" style="display:none;">
+				{{$dd}}
+			</div>
+		@endforeach
+	@else
+	@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
+			<div id="getD{{$index}}" style="display:none;">
+				{{$dd}}
+			</div>
+		@endforeach
+	@endif
+
+	<div class="col-xs-12 time-count-down">
+		<span class="display-dd-mm-yyyy-1"></span>
+		<span class="margin-two-dot">:</span>
+		<span class="display-dd-mm-yyyy-2"></span>
+		<span class="margin-two-dot">:</span>
+		<span class="display-dd-mm-yyyy-3"></span>
+		<span class="margin-two-dot">:</span>
+		<span class="display-dd-mm-yyyy-4"></span>
+	</div><!--/.time-count-down-->
+	<script type="text/javascript" src={{Asset('assets/js/count-down-time.js')}}></script>
+
+	
+
+
 <script src="{{Asset("assets/js/budget-top.js")}}"></script>
 
 	<div class="row" style="margin-left:0">
@@ -60,7 +88,7 @@ Quản lý ngân sách
 					 	</tr>
 					 	<script type="text/javascript">
 						 	$(window).scroll(function(){
-								if ($(this).scrollTop() > 230) {
+								if ($(this).scrollTop() > 400) {
 							        $('.table-budget-thead-fixed').show();
 							    } else {
 							        $('.table-budget-thead-fixed').hide();

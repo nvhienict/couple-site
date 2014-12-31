@@ -8,6 +8,72 @@ Danh sách khách mời
 @endsection
 @section('content')
 
+
+	@if(empty($website_item->count_down))
+		@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
+			<div id="getD{{$index}}" style="display:none;">
+				{{$dd}}
+			</div>
+		@endforeach
+	@else
+	@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
+			<div id="getD{{$index}}" style="display:none;">
+				{{$dd}}
+			</div>
+		@endforeach
+	@endif
+
+	<div class="col-xs-12 time-count-down">
+		<span class="display-dd-mm-yyyy-1"></span>
+		<span class="margin-two-dot">:</span>
+		<span class="display-dd-mm-yyyy-2"></span>
+		<span class="margin-two-dot">:</span>
+		<span class="display-dd-mm-yyyy-3"></span>
+		<span class="margin-two-dot">:</span>
+		<span class="display-dd-mm-yyyy-4"></span>
+	</div><!--/.time-count-down-->
+	<script type="text/javascript" src={{Asset('assets/js/count-down-time.js')}}></script>
+
+	<div class="col-xs-6 col-xs-offset-3 thong-ke-chi-tiet-cong-viec">
+		<div class="table-responsive">
+	 		<table class="table table-hover">
+	 			<tbody>
+	 				<tr class="info">
+	 					<td>Khách chưa mời</td>
+	 					<td>
+	 						<div class="progress progress-striped active">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+                                    {{ GuestController::getGuestOverInvitedPercent() }}%
+                                </div>
+                            </div>
+						</td>
+	 				</tr>
+	 				<tr class="warning">
+	 					<td>Khách đã mời</td>
+	 					<td>
+	 						<div class="progress progress-striped active">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+                                    {{ GuestController::getGuestInvitedPercent() }}%
+                                </div>
+                            </div>
+						</td>
+	 				</tr>
+	 				<tr class="success">
+	 					<td>Tổng số khách</td>
+	 					<td>
+	 						<div class="progress progress-striped active">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%;" >
+                                    {{ GuestController::getAllGuest() }}
+                                </div>
+                            </div>
+						</td>
+	 				</tr>
+	 			</tbody>
+	 		</table>
+	 	</div>
+	</div><!--/.thong-ke-chi-tiet-cong-viec-->
+
+
 	<div class="col-xs-12">
 		<div class="row sort-by">
 			<div class="col-xs-12">

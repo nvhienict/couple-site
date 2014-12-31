@@ -7,6 +7,70 @@ Danh sách công việc
 @endsection
 @section('content')
 
+	@if(empty($website_item->count_down))
+		@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
+			<div id="getD{{$index}}" style="display:none;">
+				{{$dd}}
+			</div>
+		@endforeach
+	@else
+	@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
+			<div id="getD{{$index}}" style="display:none;">
+				{{$dd}}
+			</div>
+		@endforeach
+	@endif
+
+	<div class="col-xs-12 time-count-down">
+		<span class="display-dd-mm-yyyy-1"></span>
+		<span class="margin-two-dot">:</span>
+		<span class="display-dd-mm-yyyy-2"></span>
+		<span class="margin-two-dot">:</span>
+		<span class="display-dd-mm-yyyy-3"></span>
+		<span class="margin-two-dot">:</span>
+		<span class="display-dd-mm-yyyy-4"></span>
+	</div><!--/.time-count-down-->
+	<script type="text/javascript" src={{Asset('assets/js/count-down-time.js')}}></script>
+
+	<div class="col-xs-6 col-xs-offset-3 thong-ke-chi-tiet-cong-viec">
+		<div class="table-responsive">
+	 		<table class="table table-hover">
+	 			<tbody>
+	 				<tr class="info">
+	 					<td>Việc cần làm</td>
+	 					<td>
+	 						<div class="progress progress-striped active">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+                                    {{ChecklistController::countTasksToDo()}}
+                                </div>
+                            </div>
+						</td>
+	 				</tr>
+	 				<tr class="warning">
+	 					<td>Việc quá hạn</td>
+	 					<td>
+	 						<div class="progress progress-striped active">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+                                    {{ChecklistController::overdue()}}
+                                </div>
+                            </div>
+						</td>
+	 				</tr>
+	 				<tr class="success">
+	 					<td>Việc hoàn thành</td>
+	 					<td>
+	 						<div class="progress progress-striped active">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+                                    {{ChecklistController::countTasksComplete()}}
+                                </div>
+                            </div>
+						</td>
+	 				</tr>
+	 			</tbody>
+	 		</table>
+	 	</div>
+	</div><!--/.thong-ke-chi-tiet-cong-viec-->
+
 	<div class="col-xs-12" style="padding-right: 0;">
 		<div class="row sort-by">
 			<div class="col-lg-6 col-sm-12 col-xs-12">
@@ -58,7 +122,7 @@ Danh sách công việc
 		<script type="text/javascript">
 
 			$(window).scroll(function(){
-				if ($(this).scrollTop() > 200) {
+				if ($(this).scrollTop() > 700) {
 			        $('.checklist-statis-formonth-hide').show();
 			    } else {
 			        $('.checklist-statis-formonth-hide').hide();

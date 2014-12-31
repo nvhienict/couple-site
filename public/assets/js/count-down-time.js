@@ -89,6 +89,23 @@
 		$('#echo_dsec').append(dsec);
 		$('#echo_dsec').text("");
 		$('#echo_dsec').append(dsec);
+
+		$('.display-dd-mm-yyyy-1').append(dday);
+		$('.display-dd-mm-yyyy-1').text("");
+		$('.display-dd-mm-yyyy-1').append(dday);
+
+		$('.display-dd-mm-yyyy-2').append(dhour);
+		$('.display-dd-mm-yyyy-2').text("");
+		$('.display-dd-mm-yyyy-2').append(dhour);
+
+		$('.display-dd-mm-yyyy-3').append(dmin);
+		$('.display-dd-mm-yyyy-3').text("");
+		$('.display-dd-mm-yyyy-3').append(dmin);
+
+		$('.display-dd-mm-yyyy-4').append(dsec);
+		$('.display-dd-mm-yyyy-4').text("");
+		$('.display-dd-mm-yyyy-4').append(dsec);
+
 	}
 	else if (document.all||document.getElementById)
 	// crosscount.innerHTML=opentags+dday+ " ngày, "+dhour+" giờ, "+dmin+" phút, và "+dsec+" giây nữa là "+occasion+closetags
@@ -108,6 +125,23 @@
 		$('#echo_dsec').append(dsec);
 		$('#echo_dsec').text("");
 		$('#echo_dsec').append(dsec);
+
+		$('.display-dd-mm-yyyy-1').append(dday);
+		$('.display-dd-mm-yyyy-1').text("");
+		$('.display-dd-mm-yyyy-1').append(dday);
+
+		$('.display-dd-mm-yyyy-2').append(dhour);
+		$('.display-dd-mm-yyyy-2').text("");
+		$('.display-dd-mm-yyyy-2').append(dhour);
+
+		$('.display-dd-mm-yyyy-3').append(dmin);
+		$('.display-dd-mm-yyyy-3').text("");
+		$('.display-dd-mm-yyyy-3').append(dmin);
+
+		$('.display-dd-mm-yyyy-4').append(dsec);
+		$('.display-dd-mm-yyyy-4').text("");
+		$('.display-dd-mm-yyyy-4').append(dsec);
+
 	}
 	setTimeout("countdown()",1000)
 	}

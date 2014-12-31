@@ -74,7 +74,7 @@
 			        <span class="icon-bar"></span>
 		      	</button>
 		      	<a class="navbar-brand" href="{{URL::route('index')}}">
-		      		<img class="img-logo" src="{{Asset('icon/logo-thuna.png')}}">
+		      		<img class="img-logo hidden-sm hidden-xs" src="{{Asset('icon/logo-2.png')}}">
 		      	</a>
 		    </div>
 
@@ -118,7 +118,7 @@
 
 	
 	<div class="row center-dashboard">
-		<div class="col-md-2 menu-left">
+		<div class="col-lg-2 menu-left hidden-sm hidden-xs">
 			<div class="menu-left-title">Menu</div><!--/.menu-left-title-->
 			<div class="menu-left-item">
 				<a href="{{URL::route('index')}}" >Trang chủ</a>
@@ -136,94 +136,119 @@
 				<a href="{{URL::route('website')}}"  >Website cưới</a>
 			</div><!--/.menu-left-item-->
 		</div><!--/.menu-left-->
-		<div class="col-md-10 content">
-
-		<div class="col-md-3 col-sm-6 content-index-item">
-			<div class="div-1">
-				<i class="fa fa-file-text-o"></i>
-				Danh sách công việc
-			</div>
-			<div class="div-2">
-				Hoàn thành<br />
-				<span>
-					{{ChecklistController::countTasksComplete()}}/{{ChecklistController::countTasksToDo()}}
-					&nbsp({{ChecklistController::countTasksCompletePercent()}}%)
-				</span>
-			</div>
-			<div class="div-3">
-				<a href="{{URL::route('user-checklist')}}">
-					Xem chi tiết
-					<i class="fa fa-arrow-circle-right"></i>
-				</a>
-			</div>
-		</div>
-
-		<div class="col-md-3 col-sm-6 content-index-item">
-			<div class="div-1">
-					<i class="fa fa-group"></i>
-					Danh sách khách mời
-				</div>
-				<div class="div-2">
-					Hoàn thành<br />
-					<span>
-						{{GuestController::getGuestInvited()}}/{{GuestController::getAllGuest()}}
-						&nbsp({{GuestController::getGuestInvitedPercent()}}%)
-					</span>
-				</div>
-				<div class="div-3">
-					<a href="{{URL::route('guest-list')}}">
-						Xem chi tiết
-						<i class="fa fa-arrow-circle-right"></i>
-					</a>
-				</div>
-			</div>
-
-			<div class="col-md-3 col-sm-6 content-index-item">
+		
+		<div class="col-lg-10 content">
+			<div class="row" style="margin:0">
+				<div class="col-lg-3 col-sm-6 content-index-item">
 				<div class="div-1">
-					<i class="fa fa-dollar"></i>
-					Quản lý ngân sách
+					<i class="fa fa-file-text-o"></i>
+					Danh sách công việc
 				</div>
 				<div class="div-2">
 					Hoàn thành<br />
 					<span>
-						{{UserBudgetController::getDisplayMoneyTotal('pay')}}/{{UserBudgetController::getDisplayMoneyTotal('actual')}}
-						&nbsp({{UserBudgetController::getDisplayMoneyTotalPercent()}}%)
+						{{ChecklistController::countTasksComplete()}}/{{ChecklistController::countTasksToDo()}}
+						&nbsp({{ChecklistController::countTasksCompletePercent()}}%)
 					</span>
 				</div>
 				<div class="div-3">
-					<a href="{{URL::route('budget')}}">
+					<a href="{{URL::route('user-checklist')}}">
 						Xem chi tiết
 						<i class="fa fa-arrow-circle-right"></i>
 					</a>
 				</div>
 			</div>
 
-			<div class="col-md-3 col-sm-6 content-index-item">
+			<div class="col-lg-3 col-sm-6 content-index-item">
 				<div class="div-1">
-					<i class="fa fa-globe"></i>
-					Website cưới
+						<i class="fa fa-group"></i>
+						Danh sách khách mời
+					</div>
+					<div class="div-2">
+						Hoàn thành<br />
+						<span>
+							{{GuestController::getGuestInvited()}}/{{GuestController::getAllGuest()}}
+							&nbsp({{GuestController::getGuestInvitedPercent()}}%)
+						</span>
+					</div>
+					<div class="div-3">
+						<a href="{{URL::route('guest-list')}}">
+							Xem chi tiết
+							<i class="fa fa-arrow-circle-right"></i>
+						</a>
+					</div>
 				</div>
-				<div class="div-2">
-					Hoàn thành<br />
-					<span>
-						{{WebsiteController::getCountDataPercent()}}%
-					</span>
+
+				<div class="col-lg-3 col-sm-6 content-index-item">
+					<div class="div-1">
+						<i class="fa fa-dollar"></i>
+						Quản lý ngân sách
+					</div>
+					<div class="div-2">
+						Hoàn thành<br />
+						<span>
+							{{UserBudgetController::getDisplayMoneyTotal('pay')}}/{{UserBudgetController::getDisplayMoneyTotal('actual')}}
+							&nbsp({{UserBudgetController::getDisplayMoneyTotalPercent()}}%)
+						</span>
+					</div>
+					<div class="div-3">
+						<a href="{{URL::route('budget')}}">
+							Xem chi tiết
+							<i class="fa fa-arrow-circle-right"></i>
+						</a>
+					</div>
 				</div>
-				<div class="div-3">
-					<a href="{{URL::route('website')}}">
-						Xem chi tiết
-						<i class="fa fa-arrow-circle-right"></i>
-					</a>
+
+				<div class="col-lg-3 col-sm-6 content-index-item">
+					<div class="div-1">
+						<i class="fa fa-globe"></i>
+						Website cưới
+					</div>
+					<div class="div-2">
+						Hoàn thành<br />
+						<span>
+							{{WebsiteController::getCountDataPercent()}}%
+						</span>
+					</div>
+					<div class="div-3">
+						<a href="{{URL::route('website')}}">
+							Xem chi tiết
+							<i class="fa fa-arrow-circle-right"></i>
+						</a>
+					</div>
 				</div>
+			</div><!--/.row-->
+			
+			<div class="row" style="margin:0">
+				<div class="col-lg-12 site-map">
+					{{UserController::getUrl()}}
+				</div><!--/.site-map-->
 			</div>
+			
+			<div class="row" style="margin:0">
+				@yield('content')
+			</div><!--/.row-->
 
-			<div class="col-lg-12 site-map">
-				{{UserController::getUrl()}}
-			</div><!--/.site-map-->
+			<script type="text/javascript">
+				var $cssSuccess = $('.progress-bar-success').text();
+		    	var $cssWarning = $('.progress-bar-warning').text();
+		    	var $cssInfo = $('.progress-bar-info').text();
+		    	var $cssDanger = $('.progress-bar-danger').text();
 
-			@yield('content')
-		</div>
-	</div>
+		    	$('.progress-bar-success').css("width", ""+$cssSuccess+"");
+		    	$('.progress-bar-warning').css("width", ""+$cssWarning+"");
+		    	$('.progress-bar-info').css("width", ""+$cssInfo+"");
+		    	$('.progress-bar-danger').css("width", ""+$cssDanger+"");
+
+		    	if ( ($('.tbl-website tr td:eq(1)').text())==='Chưa có' ) {
+		    		$('.tbl-website tr').addClass('warning');
+		    	} else {
+		    		$('.tbl-website tr').addClass('success');
+		    	};
+			</script>
+
+		</div><!--/.content-->
+	</div><!--center-dashboard-->
 
 <!-- footer -->
 <div class="row footer">

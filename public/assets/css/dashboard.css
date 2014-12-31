@@ -13,7 +13,7 @@ label.error{
 .navbar-default {
 	background-color: #FFFFFF;
 	border: none;
-	height: 95px;
+	/*height: 95px;*/
 }
 .navbar-nav {
 	float: none;
@@ -49,14 +49,14 @@ label.error{
 	text-align: center !important;
 }
 
+
 .dropdown-menu {
 	left: -127% !important;
 	text-align: left;
 }
 
 .img-logo {
-	height: 80px;
-    width: 200%;
+    width: 100%;
 }
 
 .navbar-right {
@@ -84,8 +84,8 @@ label.error{
 -----------------------------------------------------------*/
 .center-dashboard{
 	margin: 0;
-	margin-top: 95px;
-	height: 600px;
+	margin-top: 90px;
+	min-height: 600px;
 	background-color: #FBE5EC;
 }
 .menu-left {
@@ -123,10 +123,13 @@ label.error{
 	background-color: #FFFFFF;
 	min-height: 500px;
 	padding-left: 15px;
+	padding-bottom: 5%;
 }
 
 /*index*/
-
+.thong-ke {
+	border: 1px solid #e95f8b;
+}
 .content-index-item{
 	min-height: 100px;
 	padding-left: 0;
@@ -324,7 +327,10 @@ a.contact-admin:hover{
 
 
 /* checklist */
-.checklist-statis-formonth{
+.thong-ke-chi-tiet-cong-viec {
+	padding-top: 2.5%;
+}
+.checklist-statis-formonth {
 	padding: 10px;
 	background: #555555;
 	color: #fff;
@@ -605,7 +611,6 @@ a.budget_icon_notes{
 		font-size: 200%;
 	}
 
-
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 360px){
@@ -663,4 +668,23 @@ a.budget_icon_notes{
 
 }
 
+
+.time-count-down {
+	display: block;
+	text-align: center;
+}
+.display-dd-mm-yyyy-1, .display-dd-mm-yyyy-2, .display-dd-mm-yyyy-3, .display-dd-mm-yyyy-4 {
+	background-color: #e75380;
+	color: #FFFFFF;
+	padding: 2%;
+	box-shadow: 5px #e75380;
+	border-radius: 5px;
+	font-size: 40px;
+	font-weight: bold;
+}
+.margin-two-dot {
+	color: #e75380;
+	font-size: 45px;
+	font-weight: bold;
+}
 
