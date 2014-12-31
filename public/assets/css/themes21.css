@@ -1,4 +1,7 @@
 
+
+@import url(../fonts/UVF Aphrodite Pro.ttf);
+
 body{
 	background: url(../../images/website/themes21/bg_piece.jpg) repeat;
 	width: 100%;
@@ -29,9 +32,11 @@ body{
 	width: 25%;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	font-family: "UVF Aphrodite Pro";
 }
 .groom-bride-name-groom{
 	float: left;
+	text-align: center;
 }
 .groom-bride-name-bride{
 	float: right;
@@ -595,6 +600,7 @@ body{
 .ft-left > .name-groom-bride{
 	color: #FFFFFF;
 	font-size: 25px;
+	font-family: "UVF Aphrodite Pro";
 }
 .ft-left > .copy-right{
 	color: #FFFFFF;
@@ -612,7 +618,7 @@ body{
 }
 .navbar-nav > li >a{
 	color: #FFFFFF !important;
-	font-size: 20px;
+	font-size: 14px;
 }
 .navbar-nav > li >a:hover{
 	color: #FFFFFF !important;

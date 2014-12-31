@@ -1,4 +1,7 @@
 
+
+@import url(../fonts/UVF Aphrodite Pro.ttf);
+
 .clear {
 	clear: both;
 }
@@ -93,6 +96,7 @@ header {
     top: 45px;
     width: 10.5%;
     padding-top: 38px;
+    font-family: "UVF Aphrodite Pro";
 }
 .logo-edit {
 	background: url("../../images/website/themes12/logo1.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -105,6 +109,7 @@ header {
 }
 .name-groom, .name-center, .name-bride{
 	text-align: center;
+	margin: 4% 0;
 }
 
 .menu-heart {

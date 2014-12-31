@@ -1,13 +1,12 @@
 
 <div class="partion">
 	<div class="row phara-margin">
-       	<h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
+       	<h3 class="title-content" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
             {{$tabWeb->title}}
         </h3>
 
 			<div class="row">
-				<div class="col-xs-1"></div>
-				<div class="col-xs-10">
+				<div class="col-xs-12">
 					<table class="table-guest-website">
 					 	<thead>
 						 	<tr>
@@ -159,7 +158,6 @@
 					 	
 					</table>
 				</div>
-				<div class="col-xs-1"></div>
 		</div>
 	</div> <!-- row -->
 </div><!--container-->

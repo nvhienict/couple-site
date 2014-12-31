@@ -1,4 +1,7 @@
 
+
+@import url(../fonts/UVF Aphrodite Pro.ttf);
+
 #container{
 	padding-left: 13%;
     padding-right: 13%;
@@ -30,6 +33,8 @@
 	color: #676468;
 	font-size: 25px;
 	display: inline-block;
+	text-align: center;
+	font-family: "UVF Aphrodite Pro";
 }
 .name-bride {
 	position: relative;
@@ -149,14 +154,12 @@
 
 
 .title-content{
-	margin-top: 0;
-	margin-top: 30px;
-	margin-bottom: 20px;
-	padding: 50px;
+	padding: 25px;
 	text-align: center;
 	background: transparent url(../../images/website/themes8/title-bg.png) center center no-repeat;
 	color: #6B686B;
 	font-size: 25px;
+	font-family: "UVF Aphrodite Pro";
 }
 .about-content{
 	text-align: center;
