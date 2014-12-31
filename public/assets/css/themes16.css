@@ -4,7 +4,9 @@
 		height: 250px !important;
 		
 	}
-
+	.infor{
+		margin-top: 17%;
+	}
 	.bg-pro img.img-infor{
 	height: 255px;
 	}
@@ -16,6 +18,9 @@
 	.bg-pro img.img-infor{
 	padding-bottom: 0px ;
 	}
+	.infor{
+		margin-top: 17%;
+	}
 
 }
 @media screen and (width:480px ){
@@ -25,6 +30,9 @@
 	.bg-pro img.img-infor{
 	height: 433px;
 	width: 392px;
+	}
+	.infor{
+		margin-top: 17%;
 	}
 
 }
@@ -36,7 +44,10 @@
 	.bg-pro img.img-infor {
     height: 566px;
     width: 510px;
-}
+	}
+	.infor{
+		margin-top: 17%;
+	}
 
 }
 @media screen and (width:768px ){
@@ -47,6 +58,7 @@
 	height: 223px ;
 	width: 200px;
 	}
+	
 }
 @media screen and (width:800px ){
 	img.fix-slide{
@@ -188,7 +200,7 @@
 	margin-left: 0px;
 	margin-right: 0px;
 	padding: 0 0px;
-	width: 74%;
+	width: 100%;
 }
 .images-padding{
 	padding: 5px;

@@ -1,20 +1,11 @@
 <!DOCTYPE html>
 <html lang="">
 	<head>
-		<title>{{$firstname}}'s wedding</title>
-
-    <script src="{{Asset('assets/js/jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
-    <script src="{{Asset("assets/js/map-themes.js")}}"></script>
-
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
-    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
+    
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes16.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
-
+    <script src="{{Asset("assets/js/map-themes.js")}}"></script>
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
-    <script type="text/javascript" src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
-    
 
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
@@ -30,6 +21,7 @@
     <!-- Add Media helper (this is optional) -->
     <script type="text/javascript" src="{{Asset("assets/slide/source/helpers/jquery.fancybox-media.js?v=1.0.5")}}"></script>
     <script type="text/javascript" src="{{Asset("assets/slide/f-slide.js")}}"></script>
+     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <style type="text/css">
         .fancybox-custom .fancybox-skin {
             box-shadow: 0 0 50px #222;
@@ -43,19 +35,7 @@
             vertical-align: middle;
         }
     </style>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
-	<script src="{{Asset("assets/js/map-themes.js")}}"></script>
-    <script src="{{Asset('assets/js/jquery.scrollTo.js')}}"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-		    $('a.scrollTo').click(function () {
-		        $('.design_website_content_right').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
-		        return false;
-		    });
-		});
-	</script>
-	</head>
+</head>
 @if($website)
     @foreach( $website as $website_item )
 		<!-- navbar -->
@@ -70,12 +50,14 @@
 		         <span class="icon-bar"></span>
 		      </button>
 		   </div>
-		   <div style="background-color:white;margin-top: 15px;" class="collapse navbar-collapse" id="example-navbar-collapse">
-		      <ul style="background-color:white;" class="nav navbar-nav nav-themes16">
-		      	 <span><a class="a_menu scrollTo" href="#title_home" style="padding:15px 8px; text-decoration: none;">Trang Chủ</a></span>
+		   <div  class="collapse navbar-collapse navbar-left " id="example-navbar-collapse">
+		      <ul  class="nav navbar-nav nav-themes16">
+		      	 <li><a class="a_menu scrollTo" href="#title_home" >Trang Chủ</a></li>
 		      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
-		         <span><a style="padding:15px 8px;text-decoration: none;" class="{{$tab->id}} scrollTo a_menu" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></span>
+		         <li class="menu-id{{$menu_tab->id}}"><a class="a_menu scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
 		         @endforeach()
+		         <li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
+     			<li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
 		      </ul>
 		   </div>
 		</nav>
@@ -84,7 +66,7 @@
 
 	<!-- slide image -->
 
-	<div id="carousel-example-generic" class="carousel slide item-slide-edit"  data-ride="carousel">
+	<div id="carousel-example-generic" class="carousel slide item-slide container"  data-ride="carousel">
 				
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
@@ -120,7 +102,7 @@
 	<hr style="margin-top: 6%;">
 
 	<!-- content tab -->
-	<div class="row infor">
+	<div class="container infor">
 		 
 								
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 about" id="title_home">
@@ -149,12 +131,12 @@
 				<figure id="prev_output222" class="bg-pro">
 					<a href="#">
 						@if(($website_item->avatar_groom))
-						<img  class="img-responsive img-infor-edit" src="{{Asset("$website_item->avatar_groom")}}">
+						<img  class="img-responsive img-infor" src="{{Asset("$website_item->avatar_groom")}}">
 						@else
-						<img  class="img-responsive img-infor-edit" src="{{Asset('images/website/themes1/boy.jpg')}}">
+						<img  class="img-responsive img-infor" src="{{Asset('images/website/themes1/boy.jpg')}}">
 						@endif
 					</a>
-					<button  onclick="send_id(null,222,0)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
+					
 				</figure>
 				<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="title-bg name-g">{{$website_item->name_groom}}</h3>
 				<p class="about-g">{{$website_item->about_groom}} </p>
@@ -163,12 +145,12 @@
 				<figure id="prev_output111" class="bg-pro">
 					<a href="#">
 						@if(($website_item->avatar_bride))
-						<img  class="img-responsive img-infor-edit" src="{{Asset("$website_item->avatar_bride")}}">
+						<img  class="img-responsive img-infor" src="{{Asset("$website_item->avatar_bride")}}">
 						@else
-						<img class="img-responsive img-infor-edit" src="{{Asset('images/website/themes1/girl.jpg')}}">
+						<img class="img-responsive img-infor" src="{{Asset('images/website/themes1/girl.jpg')}}">
 						@endif
 					</a>
-					<button  onclick="send_id(null,111,0)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
+					
 				</figure>
 				<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
 				<p class="about-b">{{$website_item->about_bride}}</p>
@@ -178,14 +160,17 @@
 
     <hr>
 
-    <div class="row">
+    <div class="container">
 	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
 		@if($tabWeb->type =="welcome" )
 
-		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l" id="section_{{$tabWeb->type}}">
-			<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-        	{{$tabWeb->title}}
-       		</h3>
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+			<div class="inline-title text-center">
+	            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+	                {{$tabWeb->title}}
+	            </h3>
+	            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+	        </div>
        		<div id="prev_output{{$tabWeb->id}}">
        			<a href="#">
 				<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
@@ -198,7 +183,7 @@
 	            @endif
        		</div>  		
             </a>
-            <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <button onclick="send_id({{$tabWeb->id}},null)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
              <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
             <div class="part-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>    		
     		 	<span class="collapse" id="viewdetails1" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
@@ -216,10 +201,13 @@
 
 		@if($tabWeb->type=="love_story")
 
-		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l" id="section_{{$tabWeb->type}}">
-			<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-        	{{$tabWeb->title}}
-       		</h3>
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+			<div class="inline-title text-center">
+	            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+	                {{$tabWeb->title}}
+	            </h3>
+	            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+	        </div>
        		<div id="prev_output{{$tabWeb->id}}">
        			<a href="#">
 				<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
@@ -232,7 +220,7 @@
 	            @endif
        		</div>  		
             </a>
-            <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <button onclick="send_id({{$tabWeb->id}},null)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
              <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
             <div class="part-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>    		
     		 	<span class="collapse" id="viewdetails2" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
@@ -250,10 +238,13 @@
 
 		@if($tabWeb->type=="about")
 
-		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l" id="section_{{$tabWeb->type}}">
-			<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-        	{{$tabWeb->title}}
-       		</h3>
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+			<div class="inline-title text-center">
+	            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+	                {{$tabWeb->title}}
+	            </h3>
+	            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+	        </div>
        		<div id="prev_output{{$tabWeb->id}}">
        			<a href="#">
 				<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
@@ -266,7 +257,7 @@
 	            @endif
        		</div>  		
             </a>
-            <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <button onclick="send_id({{$tabWeb->id}},null)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
             <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
             <div class="part-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>    		
     		 	<span class="collapse" id="viewdetails3" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
@@ -286,14 +277,17 @@
 
 	<hr>
 
-	<div class="row">
+	<div class="container">
 	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
 		@if($tabWeb->type=="wedding" )
 
-		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l" id="section_{{$tabWeb->type}}">
-			<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-        	{{$tabWeb->title}}
-       		</h3>
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+			<div class="inline-title text-center">
+	            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+	                {{$tabWeb->title}}
+	            </h3>
+	            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+	        </div>
        		<div id="prev_output{{$tabWeb->id}}">
        			<a href="#">
 				<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
@@ -306,7 +300,7 @@
 	            @endif
        		</div>  		
             </a>
-            <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <button onclick="send_id({{$tabWeb->id}},null)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
             <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
             <div class="part-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>    		
     		 	<span class="collapse" id="viewdetails4" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
@@ -324,10 +318,13 @@
 
 		@if($tabWeb->type=="traval")
 
-		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l" id="section_{{$tabWeb->type}}">
-			<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-        	{{$tabWeb->title}}
-       		</h3>
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+			<div class="inline-title text-center">
+	            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+	                {{$tabWeb->title}}
+	            </h3>
+	            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+	        </div>
        		<div id="prev_output{{$tabWeb->id}}">
        			<a href="#">
 				<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
@@ -358,10 +355,13 @@
 
 		 @if($tabWeb->type=="album" )
 
-		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l" id="section_{{$tabWeb->type}}">
-			<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-        	{{$tabWeb->title}}
-       		</h3>
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+			<div class="inline-title text-center">
+	            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+	                {{$tabWeb->title}}
+	            </h3>
+	            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+	        </div>
        		<div id="prev_output{{$tabWeb->id}}">
        			<a href="#">
 				<?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
@@ -376,11 +376,6 @@
 		            @endif
 	            </a>
        		</div> 
-       		<div class=" click-edit ">
-	            <span><a style="background: #19b5bc; border:none;" onclick="send_id_album({{$tab->id}})" class="btn btn-primary"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);">Tải ảnh lên</a></span>
-	           
-	        </div>  		
-            
             <div class="part-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>    		
     		 	<span class="collapse" id="viewdetails6" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
     		</div>
@@ -399,15 +394,18 @@
 
 	<hr>
 
-	<div class="row">
+	<div class="container">
 		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
 
 			@if($tabWeb->type=="register" )
 
-			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l" id="section_{{$tabWeb->type}}">
-			<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-        	{{$tabWeb->title}}
-       		</h3>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+			<div class="inline-title text-center">
+	            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+	                {{$tabWeb->title}}
+	            </h3>
+	            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+	        </div>
        		<div id="prev_output{{$tabWeb->id}}">
        			<a href="#">
 				<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
@@ -420,7 +418,7 @@
 	            @endif
        		</div>  		
             </a>
-            <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+            <button onclick="send_id({{$tabWeb->id}},null)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
              <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
             <div class="part-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>    		
     		 	<span class="collapse" id="viewdetails7" name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>         		 
@@ -438,10 +436,13 @@
 
 			 @if($tabWeb->type=="contact")
 
-			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="section_{{$tabWeb->type}}">
-				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
-		        	{{$tabWeb->title}}
-		        </h3>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
+				<div class="inline-title text-center">
+		            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+		                {{$tabWeb->title}}
+		            </h3>
+		            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+		        </div>
 				<form  class="contact-website" action="" method="POST" role="form">				             
 	                 <div class="form-group">
 	                     <label for="">From</label>
@@ -477,7 +478,7 @@
 			@endif
 
 			@if($tabWeb->type=="guestbook")
-			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 pad-l" id="section_{{$tabWeb->type}}">
+			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 pad-l r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
 				@include('website_user.themes16.edit.guestbook')
 			</div>
 		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
