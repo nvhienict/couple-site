@@ -1,5 +1,11 @@
 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 phara-temp about-template">     
+<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 phara-temp about-template">
+    <div class="inline-title text-center">
+        <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+            {{$tabWeb->title}}
+        </h3>
+        <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+    </div>     
     <div class="image-couple">        
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content-broom">        
             <span id="prev_output222">

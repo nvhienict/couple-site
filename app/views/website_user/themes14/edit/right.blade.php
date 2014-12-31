@@ -1,5 +1,11 @@
 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 phara-temp wedding-template" style="min-height:550px;">     
+<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 phara-temp wedding-template" style="min-height:550px;">
+    <div class="inline-title text-center">
+            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+                {{$tabWeb->title}}
+            </h3>
+            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+        </div>     
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 float-right"  style="margin-right:5%">        
         <span id="prev_output{{$tabWeb->id}}">     
             
@@ -19,7 +25,7 @@
             
         </span >     
          <span>
-            <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static" class="btn" data-toggle="modal" data-target='#modal-changeimage' style="background: #fff;color:black; border:none;">Đổi Ảnh</button>
+            <button onclick="send_id({{$tabWeb->id}},null)" data-backdrop="static" class="btn" data-toggle="modal" data-target='#modal-changeimage' style="background: #fff;color:black; border:none;">Đổi Ảnh</button>
             <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
         </span>   
             

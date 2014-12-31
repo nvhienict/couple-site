@@ -1,7 +1,12 @@
-<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
-<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 phara-temp wedding-contact" style="min-height:550px;">
+<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 phara-temp wedding-contact" style="min-height:550px;">
   
-
+    <div class="inline-title text-center">
+            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+                {{$tabWeb->title}}
+            </h3>
+            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+        </div>
      <div class="phara-margin ">
         <div class="row contact-content container">
           
