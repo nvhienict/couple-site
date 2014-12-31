@@ -1,20 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
 
-<head>
-  <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-    <meta name="author" content="Thuna.vn">
-  
-  <title>{{$firstname}}'s wedding</title>
-
-    <script src="{{Asset("assets/js/jquery.min.js")}}"></script>
-    <script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
-   
-   
-    
+<head>  
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
 
@@ -37,7 +24,6 @@
     </style>
 
     <!-- Custom CSS -->
-      <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes17-edit.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
    
@@ -99,8 +85,10 @@
                   <ul style="width:100%;" class="nav navbar-nav side-nav">
                         <li data-target="#myCarousel" data-slide-to="0" class="active always-visible"><a href="#" role="tab"  data-toggle="tab">Trang chủ</a></li>                                               
                         @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $index=>$tab)
-                            <li data-target="#myCarousel"  data-slide-to="{{$index+1}}"><a class="{{$tab->id}} TT{{$tab->id}}" href="#{{$tab->type}}"  role="tab" data-toggle="tab">{{$tab->title}}</a></li> 
+                        <li class="menu-id{{$tab->id}}" data-target="#myCarousel"  data-slide-to="{{$index+1}}"><a class="{{$tab->id}} TT{{$tab->id}}" href="#{{$tab->type}}"  role="tab" data-toggle="tab">{{$tab->title}}</a></li> 
                         @endforeach()
+                        <li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
+                        <li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
                   </ul>
                </div>
            

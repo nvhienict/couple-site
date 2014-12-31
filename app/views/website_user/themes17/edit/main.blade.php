@@ -1,8 +1,7 @@
-  <!--  Slide Album -->        
-<script src="{{Asset("assets/js/jquery.min.js")}}"></script>           
+  <!--  Slide Album -->              
 <script type="text/javascript" src="{{Asset("assets/js/jquery.slides.js")}}"></script>
-<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 phara-temp main-template text-center" >
+<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 phara-temp main-template text-center" >
 
           <!-- count datime to weddingdate -->
             @if(empty($website_item->count_down))
@@ -51,12 +50,12 @@
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 image-title-temp text-center">
             
-            <h2 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 section-title" id="showName" >
+            <h3 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 section-title" id="showName" >
               <span class="name-g" id="topNameGroom">{{$website_item->name_groom}}</span>
                 <em>&</em>
               <span class="name-b" id="topNameBride">{{$website_item->name_bride}}</span>
               
-            </h2>
+            </h3>
             
           </div>
           <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>

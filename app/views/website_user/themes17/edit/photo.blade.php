@@ -2,7 +2,6 @@
     <!--  Slide Album -->
 
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
-             <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
             <!-- Add mousewheel plugin (this is optional) -->
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
 
@@ -28,73 +27,70 @@
             </style>
 
 </head>
-<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 phara-temp wedding-photo" style="height:500px;overflow-x:hidden; overflow-y:auto;">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content-photo-temp">
-        
-        <div  class="show-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>
-            <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>                                      
-        </div>      
-        
-        <div class="phara-margin float-right" >      
-            <div class="click-edit click-edit-hide{{$tabWeb->id}}" >            
-                <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+<div class="r-title{{$tabWeb->id}}">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 phara-temp wedding-photo">
+            <div class="inline-title text-center">
+                <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+                    {{$tabWeb->title}}
+                </h3>
+                <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content-photo-temp">
                 
-            </div>
-        </div>
-          
-                     
-    </div>
-  
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 photoslide-temp ">     
-        <?php $check=PhotoTab::where('user',$website_item->user)->get()->count();?>
-            @if($check>0)
-            <div class="row phara-margin">
-                <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
-                @foreach($albums as $album)
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding remove_image{{$album->id}}">
-                        <a class="fancybox"  href="{{Asset("{$album->photo}")}}">
-                            <img class="img-responsive"  src="{{Asset("{$album->photo}")}}" alt="" />
-                        </a>
+                <div  class="show-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit'>
+                    <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>                                      
+                </div>      
+                
+                <div class="phara-margin float-right" >      
+                    <div class="click-edit click-edit-hide{{$tabWeb->id}}" >            
+                        <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+                        
                     </div>
-                @endforeach
-            </div>
-            
-            @else
-                    
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
-                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes17/1.jpg")}}">
-                            <img class="img-responsive" src="{{Asset("images/website/themes17/1.jpg")}}" alt="" />
-                        </a>
-                    </div>
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
-                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes17/2.jpg")}}">
-                            <img class="img-responsive" src="{{Asset("images/website/themes17/2.jpg")}}" alt="" />
-                        </a>
-                    </div>
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
-                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes17/3.jpg")}}">
-                            <img class="img-responsive" src="{{Asset("images/website/themes17/3.jpg")}}" alt="" />
-                        </a>
-                    </div>
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
-                        <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes17/4.jpg")}}">
-                            <img class="img-responsive" src="{{Asset("images/website/themes17/4.jpg")}}" alt="" />
-                        </a>
-                    </div>
-               
-            @endif
-       
-
-         <div class="phara-margin float-right" >
-            
-                <div class="click-edit click-edit-hide " >
-                     
-                        <span><a style="background: #19b5bc; border:none;" onclick="send_id_album({{$tab->id}})" class="btn btn-primary"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);">Tải ảnh lên</a></span>
                 </div>
+                  
+                             
             </div>
-            
           
-    </div>     
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 photoslide-temp ">     
+                <?php $check=PhotoTab::where('user',$website_item->user)->get()->count();?>
+                    @if($check>0)
+                    <div class="row phara-margin">
+                        <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
+                        @foreach($albums as $album)
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding remove_image{{$album->id}}">
+                                <a class="fancybox"  href="{{Asset("{$album->photo}")}}">
+                                    <img class="img-responsive"  src="{{Asset("{$album->photo}")}}" alt="" />
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                    
+                    @else
+                            
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
+                                <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes17/1.jpg")}}">
+                                    <img class="img-responsive" src="{{Asset("images/website/themes17/1.jpg")}}" alt="" />
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
+                                <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes17/2.jpg")}}">
+                                    <img class="img-responsive" src="{{Asset("images/website/themes17/2.jpg")}}" alt="" />
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
+                                <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes17/3.jpg")}}">
+                                    <img class="img-responsive" src="{{Asset("images/website/themes17/3.jpg")}}" alt="" />
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 images-padding">
+                                <a class="fancybox-buttons" data-fancybox-group="button" href="{{Asset("images/website/themes17/4.jpg")}}">
+                                    <img class="img-responsive" src="{{Asset("images/website/themes17/4.jpg")}}" alt="" />
+                                </a>
+                            </div>
+                       
+                    @endif
+            </div>     
 
-</div>
+        </div>
+    </div>

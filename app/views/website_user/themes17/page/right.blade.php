@@ -1,5 +1,8 @@
 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 phara-temp wedding-template">     
+<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 phara-temp wedding-template">
+    <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+        {{$tabWeb->title}}
+    </h3>     
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 float-right"  style="margin-right:5%">        
         <span id="prev_output{{$tabWeb->id}}">     
             <a href="#"> 

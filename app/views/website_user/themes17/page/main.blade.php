@@ -1,5 +1,4 @@
-	<!--  Slide Album -->        
-<script src="{{Asset("assets/js/jquery.min.js")}}"></script>           
+	<!--  Slide Album -->                 
 <script type="text/javascript" src="{{Asset("assets/js/jquery.slides.js")}}"></script>
 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 phara-temp main-template text-center" >
