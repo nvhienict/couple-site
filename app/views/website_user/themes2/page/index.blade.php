@@ -50,7 +50,6 @@
 				</ul>
 			</li>
 		</ul>
-			
 	</div>
 	<script type="text/javascript">
 		$(".droptabs").droptabs({
