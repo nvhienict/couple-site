@@ -1,6 +1,6 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 phara-temp about-template">
 <img src="{{Asset("{$backgrounds}")}}" class="img-responsive" alt="Image" style="margin-top:-2%;">     
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 background-item" >     
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 background-item r-title{{$tabWeb->id}}" >     
     <div class="image-couple">        
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content-broom">        
             <span id="prev_output222">
@@ -14,7 +14,7 @@
                      </a>   
                     @endif 
                
-                <button onclick="send_id(null,222,0)"  data-backdrop="static" class="btn btn-success" data-toggle="modal" data-target='#modal-changeimage' >Đổi Ảnh</button>     
+               
             </span>  
             <div class="show-content about_grooms text-center">
                 <span class="about-g">{{$website_item->about_groom}} </span>
@@ -31,7 +31,7 @@
                         <img src="{{Asset("images/website/themes20/bride.jpg")}}" class="img-responsive" alt="Image">        
                      </a>   
                     @endif             
-                <button onclick="send_id(null,111,0)"  data-backdrop="static" class="btn btn-success" data-toggle="modal" data-target='#modal-changeimage' >Đổi Ảnh</button>
+               
             </span>           
             <div class="show-content about_bride text-center">
                 <span class="about-b">{{$website_item->about_bride}}</span>

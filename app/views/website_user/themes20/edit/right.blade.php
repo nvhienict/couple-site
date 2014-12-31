@@ -1,6 +1,12 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 phara-temp wedding-template">
 <img src="{{Asset("{$backgrounds}")}}" class="img-responsive" alt="Image" style="margin-top:-2%;">     
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 background-item" >     
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 background-item r-title{{$tabWeb->id}}" >     
+    <div class="inline-title text-center">
+            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+                {{$tabWeb->title}}
+            </h3>
+            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+        </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 float-right"  style="margin-right:5%">        
         <span id="prev_output{{$tabWeb->id}}">     
            
@@ -20,7 +26,7 @@
            
         </span >     
          <span>
-            <button onclick="send_id({{$tabWeb->id}},null,0)" data-backdrop="static"  class="btn btn-success" data-toggle="modal" data-target='#modal-changeimage' >Đổi Ảnh</button>
+            <button onclick="send_id({{$tabWeb->id}},null)" data-backdrop="static"  class="btn btn-success" data-toggle="modal" data-target='#modal-changeimage' >Đổi Ảnh</button>
             <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
         </span>   
             
