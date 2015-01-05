@@ -355,6 +355,13 @@ a{
 	font-size: 25px;
 	font-weight: bold;
 }
+.item-title h3{
+  width: 100%;
+  text-align: center;
+  color: #DC756D;
+  font-size: 25px;
+  font-weight: bold;
+}
 .hr-line{
 	height: 2px;
 	width: 70%;

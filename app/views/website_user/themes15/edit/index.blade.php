@@ -2,35 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
 
 <head>
-	<title>{{$firstname}}'s Wedding Website | thuna.vn</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=false" />
-
-	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logo.png")}}">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta property="og:title" content="Dịch vụ cưới hỏi Thuna.vn">
-	<meta property="og:type" content="website">
-	<meta property="og:image" content="{{Asset("assets/img/logo.png")}}" />
-	<meta property="fb:app_id" content="692038267552175" />
 	
-	
-
-	<!-- css -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
-    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
-	<!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes15.css")}}">
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
-
-	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
-	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.3.2.0.min.js")}}"></script>
-	<script type="text/javascript" src="{{Asset("assets/js/main.js")}}"></script>
-
-	
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
 	<script src="{{Asset("assets/js/map-themes.js")}}"></script>
 
 	<script type="text/javascript">
@@ -147,19 +123,41 @@
 
 @if($website)
 @foreach( $website as $website_item )
-
-	<div class="span2-edit">
-		<img src="{{Asset('images/website/themes15/menu.png')}}">
+	<!-- menu -->
+	<div class="span2">
+        <div class="menuTitle">
+        	<a href="javascript:;" class="animate" onclick="toggle_menu();">Menu<br><span></span></a>
+        </div>
+        <div class="menuMov">
+			<div class="menu">
+				<ul class="sf-menu">
+					<li class="first">
+						<a href="#home" data-toggle="tab">
+							<div class="mText" style="top: 0px;">Trang Chủ</div>
+							<div class="_area"></div>
+							<div class="_overPl" style="bottom: 100px;"></div>
+							<div class="_overLine" style="opacity: 0;"></div>
+							<div class="mTextOver" style="top: -100px;">Trang Chủ</div>
+						</a>
+					</li>
+					@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
+					<li class="menu-id{{$tab->id}}">
+						<a class="{{$tab->id}} TT{{$tab->id}}" href="#{{$tab->type}}" data-toggle="tab">
+							<div class="mText" style="top: 0px;">{{$tab->title}}</div>
+							<div class="_area"></div>
+							<div class="_overPl" style="bottom: 100px;"></div>
+							<div class="_overLine" style="opacity: 0;"></div>
+							<div class="mTextOver" style="top: -100px;">{{$tab->title}}</div>
+						</a>
+					</li>
+			      	@endforeach
+			      	<li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
+     				<li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
+				</ul>
+			</div>
+		</div>
 	</div>
-
-	<div class="menu" style="display: none;">
-		<ul class="sf-menu nav-tabs droptabs">
-			<li><a href="#home" data-toggle="tab">Trang Chủ</a></li>
-	      	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
-	      		<li><a class="{{$tab->id}} TT{{$tab->id}}" href="#{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
-	      	@endforeach
-		</ul>
-	</div>
+	<!-- end menu -->
 	<div class="logo">
 		<div class="wedding-date">
 			{{WebsiteController::getDates()}}
@@ -201,10 +199,10 @@
 							<img src="{{Asset('images/website/themes15/page2_pic1.jpg')}}">
 						@endif
 					</a>
-					<button onclick="send_id(null,222,0)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+					
 				</div>
 			</div>
-			<div class="item-content about-g">
+			<div class="item-content about-g" style="text-align:center;width:280px;">
 				{{$website_item->about_groom}}
 			</div>
 		</div>
@@ -219,10 +217,10 @@
 							<img src="{{Asset('images/website/themes15/page2_pic1.jpg')}}">
 						@endif
 					</a>
-					<button  onclick="send_id(null,111,0)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+					
 				</div>
 			</div>
-			<div class="item-content about-b">
+			<div class="item-content about-b" style="text-align:center; width:280px;">
 				{{$website_item->about_bride}}
 			</div>
 		</div>
