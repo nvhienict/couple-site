@@ -561,6 +561,10 @@ class UserController extends \BaseController {
 			case 'website':
 				$output = 'Website cưới';
 				break;
+			case 'profile':
+				$output = 'THÔNG TIN CÁ NHÂN';
+				break;
+
 			
 			default:
 				$output = 'Trang chủ';

@@ -106,11 +106,19 @@
 				</ul>
 		  		@elseif( (Session::has('email')) && (UserController::isset_user())==0 )
 		  			<?php UserController::get_logout_2(); ?>
-		  			<li><a href="{{URL::route('login')}}" >Đăng nhập</a></li>
-		  			<li><a href="{{URL::route('register')}}">Đăng ký</a></li>
+		  			<li><a href="{{URL::route('login')}}" >
+		  					<i class="fa fa-sign-in"></i>
+		  					Đăng nhập
+		  				</a>
+		  			</li>
+		  			<!-- <li><a href="{{URL::route('register')}}">Đăng ký</a></li> -->
 		  		@else
-			  		<li><a href="{{URL::route('login')}}" >Đăng nhập</a></li>
-			  		<li><a href="{{URL::route('register')}}">Đăng ký</a></li>
+			  		<li><a href="{{URL::route('login')}}" >
+			  				<i class="fa fa-sign-in"></i>
+			  				Đăng nhập
+			  			</a>
+			  		</li>
+			  		<!-- <li><a href="{{URL::route('register')}}">Đăng ký</a></li> -->
 		  		@endif
 		</div>
 	</div>

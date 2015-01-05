@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main-dashboard')
 @section('title')
 Thông tin cá nhân
 @endsection
@@ -6,14 +6,12 @@ Thông tin cá nhân
 @include('nav')
 @endsection
 @section('content')
-<div class="container">
-<div >
-	
+
 	@foreach($user as $key=>$user_item)
 	
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-lg-12" style="padding:0">
 		
-		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 info_user_dashboard">
+		<div class="col-xs-12 col-sm-5 col-lg-3 info_user_dashboard">
 			<div class="info_user_avatar">
 				<span id="prev_output">
 					<img src="{{Asset("{$user_item->avatar}")}}">
@@ -86,7 +84,7 @@ Thông tin cá nhân
 					</script>
 				</p>
 			</div>
-			<div class="info_user_avatar">
+			<!-- <div class="info_user_avatar">
 
 					<span>Ứng dụng của bạn</span>
 					<ul class="list-unstyled info_user_ul">
@@ -111,10 +109,10 @@ Thông tin cá nhân
 		            </ul>
 					
 
-			</div>
+			</div> -->
 		</div>
 
-		<div class="col-xs-12 col-sm-6 col-md-5 col-lg-5 update_password" style="display:none;">
+		<div class="col-xs-12 col-sm-6 col-lg-8 update_password" style="display:none;">
 			<form action="{{Asset('profile_password')}}" id="frmEditProfilePassword" method="post">
 				<div class="row form-group">
 					<label class="col-xs-12 control-label info_user">MẬT KHẨU</label>
@@ -167,7 +165,7 @@ Thông tin cá nhân
 		<!-- .form edit -->
 
 
-		<div class="col-xs-12 col-sm-6 col-md-5 col-lg-5 user_info">
+		<div class="col-xs-12 col-sm-6 col-lg-8 user_info">
 			<form action="{{Asset('profile')}}" id="frmEditProfile" method="post">
 				<div class="row form-group">
 					<label class="col-xs-12 control-label info_user">THÔNG TIN CÁ NHÂN</label>
@@ -238,7 +236,6 @@ Thông tin cá nhân
 	</div>
 	@endforeach
 	
-</div>
 
 <script type="text/javascript">
 	$('#frmEditProfile').validate({
@@ -313,5 +310,5 @@ Thông tin cá nhân
 		}
 	});
 </script>
-</div><!--container-->
+
 @endsection

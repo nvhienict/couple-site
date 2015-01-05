@@ -18,8 +18,8 @@
     </div> 
     <div class="partion" style="padding-top:0px;">
       <div class="row phara-margin">
-        <div class="col-xs-3"></div>
-            <div class="col-xs-6 ">
+        <!-- <div class="col-xs-4"></div> -->
+            <div class="col-xs-4 col-xs-offset-4 ">
                 <form  class="contact-website" action="" method="POST" role="form">
                
                    <div class="form-group">

@@ -787,3 +787,52 @@ a.budget_icon_notes{
 	font-weight: bold;
 }
 
+
+/*======== PROFILE USER ==========*/
+
+.info_user_dashboard{
+	border: 1px solid #ddd;
+	padding: 5px;
+	margin: 0px 5px 0px 0px;
+}
+.info_user_avatar{
+	width: 100%;
+	border-bottom: 1px dotted #ccc;
+	text-align: center;
+	padding: 5px 0;
+	vertical-align: top;
+
+}
+.info_user_avatar img{
+	width: 70px;
+	height: 70px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 3px;
+	margin-bottom: 10px;
+}
+
+.info_user_avatar span{
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid #ddd;	
+}
+
+
+.info_user{
+	color: #e75280;
+	text-align: center;
+	border-bottom: 1px dotted #ccc;
+}
+
+.msg_info_user{
+	color: #678866;
+	padding: 0px 0px 0px 15px;
+	/*background-color: #dff0d8;*/
+	border-radius: 3px;
+}
+
+.info_user_ul{
+	text-align: left;
+}
+
