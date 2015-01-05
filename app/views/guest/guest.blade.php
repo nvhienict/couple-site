@@ -257,7 +257,7 @@ Danh sách khách mời
 					 	</tr>
 					 	<script type="text/javascript">
 						 	$(window).scroll(function(){
-								if ($(this).scrollTop() > 240) {
+								if ($(this).scrollTop() > 750) {
 							        $('.table-guest-thead-fixed').show();
 							    } else {
 							        $('.table-guest-thead-fixed').hide();
