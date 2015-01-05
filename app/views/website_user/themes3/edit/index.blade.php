@@ -96,8 +96,8 @@
 						    @endforeach
 						    </ul>
 						</li>
-						<li><a style="padding-top:0px; padding-bottom:0px;" onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
-        				 <li><a style="padding-top:0px; padding-bottom:0px;" class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
+						<li><a style="padding-top:0px; padding-bottom:0px;" onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title" data-placement="top" title="Ẩn/hiện tiêu đề"></a></li>
+        				 <li><a style="padding-top:0px; padding-bottom:0px;" class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}" data-placement="top" title="Cài đặt chung"></a></li>
 						
 			      	</ul>
 			      	
