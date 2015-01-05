@@ -503,7 +503,7 @@ a.guest_list_icon_trash{
 	border-collapse:collapse;
 }
 .table-budget-thead-fixed{
-	width: 72.5%;
+	width: 100%;
 	display: none;
 	position: fixed;
 	top: 0px;

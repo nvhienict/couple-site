@@ -79,13 +79,14 @@ Quản lý ngân sách
 					<table class="table table-hover table-budget">
 
 						<tr class="table-budget-thead-fixed hidden-sm hidden-xs">
-							<th style="width:6%;"><i class="glyphicon glyphicon-th-large"></i></th>
-					 		<th style="width:20%;">Danh mục</th>
-					 		<th style="width:13%;">Chi phí dự kiến</th>
-					 		<th>Chi phí thực tế</th>
-					 		<th>Số tiền thanh toán</th>
+							<th style="width:5.1%;"><i class="glyphicon glyphicon-th-large"></i></th>
+					 		<th style="width:23%;">Danh mục</th>
+							<th style="width:20%;">Chi phí dự kiến</th>
+							<th style="width:16%">Chi phí thực tế</th>
+							<th style="width:24%">Số tiền thanh toán</th>
 					 		<th colspan="2">Số tiền còn nợ</th>
 					 	</tr>
+					 	
 					 	<script type="text/javascript">
 						 	$(window).scroll(function(){
 								if ($(this).scrollTop() > 400) {
