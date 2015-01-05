@@ -41,18 +41,20 @@
     </div>
     <div class="partion">
         <div class="row phara-margin">
-            <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
-            @if($albums)
             <div class="col-xs-4"></div>
-                @foreach($albums as $index => $album)
-                    <div class="col-xs-1 images-padding">
-                        <a class="fancybox" href="{{Asset("{$album->photo}")}}">
-                            <img style="width:100%;height:100px;" src="{{Asset("{$album->photo}")}}" alt="" />
-                        </a>
-                    </div>
-                @endforeach
-            <div class="col-xs-3"></div>
-            @endif
+            <div class="col-xs-4">
+                 <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
+                @if($albums)
+                    @foreach($albums as $index => $album)
+                        <div class="col-xs-3 images-padding" >
+                            <a class="fancybox" href="{{Asset("{$album->photo}")}}">
+                                <img style="width:100%;height:100px;" src="{{Asset("{$album->photo}")}}" alt="" />
+                            </a>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+            <div class="col-xs-4"></div>
         </div>
         
     </div>

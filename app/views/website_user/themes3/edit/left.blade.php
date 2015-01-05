@@ -1,7 +1,10 @@
-
-        <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
-            {{$tabWeb->title}}
-        </h3>
+<div class="r-title{{$tabWeb->id}}">
+        <div class="inline-title text-center">
+            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+                {{$tabWeb->title}}
+            </h3>
+            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
+        </div>
         
 
         <div class="frame_box frame_center" style="width:450px; height:192px; ">
@@ -27,7 +30,7 @@
         </div>
         <!-- end frame_box frame_big frame_center -->
 
-        <div class="text_big show-content phara{{$tabWeb->id}}">
+        <div class="text_big show-content phara{{$tabWeb->id}}" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static">
             
             <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
             
@@ -36,6 +39,7 @@
                
             <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
         </div>
+    </div>
         
 
 
