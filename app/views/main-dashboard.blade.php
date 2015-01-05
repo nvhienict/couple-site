@@ -74,7 +74,7 @@
 			        <span class="icon-bar"></span>
 		      	</button>
 		      	<a class="navbar-brand" href="{{URL::route('index')}}">
-		      		<img class="img-logo hidden-sm hidden-xs" src="{{Asset('icon/logo-2.png')}}">
+		      		<!-- <img class="img-logo hidden-sm hidden-xs" src="{{Asset('icon/logo-2.png')}}"> -->
 		      	</a>
 		    </div>
 

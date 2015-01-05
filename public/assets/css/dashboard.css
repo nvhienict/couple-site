@@ -55,8 +55,14 @@ label.error{
 	text-align: left;
 }
 
+a.navbar-brand {
+	margin-left: 0 !important;
+	background: url(../../icon/logo-2.png) no-repeat;
+	width: 150px;
+}
 .img-logo {
     width: 100%;
+
 }
 
 .navbar-right {
@@ -87,10 +93,15 @@ label.error{
 	margin-top: 90px;
 	min-height: 600px;
 	background-color: #FBE5EC;
+	position: relative;
 }
 .menu-left {
 	min-height: 150px;
 	padding-right: 0;
+	position: fixed;
+	top: 50px;
+	left: 0;
+	z-index: 9999;
 }
 .menu-left-title {
 	background-color: #e75280;
@@ -124,6 +135,7 @@ label.error{
 	min-height: 500px;
 	padding-left: 15px;
 	padding-bottom: 5%;
+	margin-left: 225px;
 }
 
 /*index*/
@@ -611,6 +623,70 @@ a.budget_icon_notes{
 		font-size: 200%;
 	}
 
+	.content{
+		margin-left: 0px !important;
+	}
+
+	/* menu
+	--------------------------*/
+	.navbar-header {
+	    float: none;
+	}
+	.navbar-toggle {
+	    display: block;
+	}
+	.navbar-collapse {
+	    border-top: 1px solid transparent;
+	    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+	}
+	.navbar-collapse.collapse {
+	    display: none!important;
+	}
+	.navbar-collapse.collapse.in {
+	    display: block!important;
+	}
+	.navbar-nav {
+	    float: none!important;
+	}
+	.navbar-nav>li {
+	    float: none;
+	}
+	.navbar-nav>li>a {
+	    padding-top: 10px !important;
+	    padding-bottom: 10px !important;
+	    text-align: left;
+	}
+
+	.navbar-right {
+		background-color: #FFFFFF !important;
+	}
+	.navbar-right > li > a {
+		color: #E75280 !important;
+	}
+
+	.navbar-nav .open .dropdown-menu {
+	    position: static;
+	    float: none;
+	    width: auto;
+	    margin-top: 0;
+	    background-color: transparent;
+	    border: 0;
+	    box-shadow: none;
+	}
+	.navbar-nav .open .dropdown-menu > li > a,
+	.navbar-nav .open .dropdown-menu .dropdown-header {
+	    padding: 5px 15px 5px 25px;
+	    color: #E752AA;
+	}
+	.navbar-nav .open .dropdown-menu > li > a {
+	    line-height: 20px;
+	}
+	.navbar-nav .open .dropdown-menu > li > a:hover,
+	.navbar-nav .open .dropdown-menu > li > a:focus {
+	    background-image: none;
+	}
+	/*------------------------*/
+
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 360px){
@@ -665,6 +741,29 @@ a.budget_icon_notes{
 	.title-create-budget{
 		font-size: 150%;
 	}
+
+	.content{
+		margin-left: 0px !important;
+	}
+
+	/* menu
+	----------------------*/
+	.navbar-nav>li>a {
+	    padding-top: 7px !important;
+	    padding-bottom: 7px !important;
+	    text-align: left;
+	}
+
+	.navbar-right {
+		background-color: #FFFFFF !important;
+	}
+	.navbar-right > li > a {
+		color: #E75280 !important;
+	}
+	.dropdown-menu > li > a {
+		color: #E752AA !important;
+	}
+	/*--------------------*/
 
 }
 
