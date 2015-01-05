@@ -486,10 +486,10 @@ function printStyle() {
 	res += '  .t2t6 {text-align:left;font-size:125%;color:black}\n';
 	res += '  .t7 {text-align:left;font-size:125%;line-height:100%;color:green}\n';
 	res += '  .cn {text-align:left;font-size:125%;line-height:100%;color:red}\n';
-	res += '  .chure {background-color:#4865B4}\n';
-	res += '  .codau {background-color:#f995d3}\n';
+	res += '  .chure {background-color:#007cf9}\n';
+	res += '  .codau {background-color:#a200f9}\n';
 	// res += '  .couple {background: url(../icon/heart.png)}\n';
-	res += '  .couple {background-color:#F7A8CE}\n';
+	res += '  .couple {background-color:#f799dc}\n';
 	res += '  .ngaytamnuongsat {background-color:#aaa5a5}\n';
 	res += '  .ngaysatchu {background-color:#7a4848}\n';
 	res += '  .ngaythotu {background-color:#ff4800}\n';
