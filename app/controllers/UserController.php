@@ -153,6 +153,47 @@ class UserController extends \BaseController {
 						"firstname"		=> $firstname,
 						"lastname"		=> $lastname
 					));
+
+		// delete usertask in table usertask then update
+		UserTask::where('user', $this->id_user())->delete();
+
+		//kiểm tra nếu startdate so với hiện tại đã qua, thì lưu startdate của user bằng startdate hiện tại
+		$dateNow 			= New DateTime('now');
+		$date_wedding 		= new DateTime($weddingdate);
+
+		if(date_timestamp_get($dateNow) > date_timestamp_get($date_wedding))
+		{
+			$NowToWedding 	= (date_timestamp_get($dateNow)- date_timestamp_get($date_wedding))/(3600*24);
+		}
+		else
+		{
+			$NowToWedding 	= (date_timestamp_get($date_wedding)- date_timestamp_get($dateNow))/(3600*24);
+		}
+			
+			//truyền dữ liệu sang bảng usertask
+			$id_user 		= User::where('email','=',Input::get('email'))->get()->first()->id; 
+				
+			$tasks 			= Task::get();
+			foreach($tasks as $task){
+				if( $NowToWedding > $task->startdate){
+					$startdate = $task->startdate;
+				}
+				else
+				{
+					$startdate = $NowToWedding+1;
+				}
+				
+				$usertask 				= new UserTask();
+				$usertask->title 		= $task->title;
+				$usertask->user 		= $id_user;
+				$usertask->startdate 	= $startdate;
+				$usertask->category 	= $task->category;
+				$usertask->description 	= $task->description;
+				$usertask->todo 		= 0;
+				$usertask->save();
+
+			}
+
 		$msg 				= "Cập nhật thông tin thành công";
 
 		$user 				= User::where( 'id', $this->id_user() )->get();
