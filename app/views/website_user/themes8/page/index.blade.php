@@ -65,10 +65,11 @@
 			</div>
 
 			<div class="name-bride col-xs-6">
-				{{$website_item->name_groom}}
+				{{WebsiteController::cutName($website_item->name_groom)}}
 			</div>
+
 			<div class="name-groom col-xs-6">
-				{{$website_item->name_bride}}
+				{{WebsiteController::cutName($website_item->name_bride)}}
 			</div>
 		</div>
 		<!-- end logo -->
