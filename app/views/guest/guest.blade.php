@@ -246,18 +246,18 @@ Danh sách khách mời
 				<div class="col-xs-12">
 					<table class="table table-hover table-guest">
 						<tr class="table-guest-thead-fixed hidden-xs">
-							<th style="width:180px;">Nhóm</th>
-					 		<th style="width:180px;">Mã khách mời</th>
-					 		<th style="width:200px;">Số điện thoại</th>
-					 		<th style="width:200px;">Email</th>
-					 		<th style="width:200px;">Tham dự</th>
-					 		<th style="width:60px;"></th>
+							<th style="width:10%;">Nhóm</th>
+							<th style="width:35%;">Mã khách mời</th>
+							<th style="width:15%;">Số điện thoại</th>
+							<th style="width:19%;">Email</th>
+							<th style="width:13%;">Tham dự</th>
+							<th style="width:1%;"></th>
 					 		<th></th>
 
 					 	</tr>
 					 	<script type="text/javascript">
 						 	$(window).scroll(function(){
-								if ($(this).scrollTop() > 750) {
+								if ($(this).scrollTop() > 800) {
 							        $('.table-guest-thead-fixed').show();
 							    } else {
 							        $('.table-guest-thead-fixed').hide();

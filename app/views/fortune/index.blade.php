@@ -1,4 +1,6 @@
-@extends('main')
+
+@extends((Session::has('email')) ? 'main-dashboard' : 'main')
+
 @section('title')
 Xem ngày cưới
 @endsection
@@ -7,9 +9,15 @@ Xem ngày cưới
 @endsection
 
 @section('content')
+	
+	@if (Session::has('email'))
+		<div class="row" style="margin-top: 50px;">
+			<div class="col-lg-10 col-lg-offset-1 ft-title">
+	@else
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1 ft-title">
+	@endif
 
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1 ft-title">
 			<h2>Xem ngày cưới</h2>
 			<p class="hidden-xs">
 				Quan niệm <span class="txt-bold-italic">phong tục tập quán xưa</span> có câu: 
@@ -88,8 +96,14 @@ Xem ngày cưới
 
 		</div> <!--/col-lg-12-->
 
+		@if (Session::has('email'))
+			<div class="row" style="margin-top: 50px;">
+				<div class="col-lg-10 col-lg-offset-1 lich-ket-qua">
+		@else
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 lich-ket-qua">
+		@endif
 
-		<div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 lich-ket-qua">
 			<div class="ngay-hien-tai">
 				Ngày <span class="current-day"></span> Tháng <span class="current-month"></span> Năm <span class="current-year"></span>
 				<span id="gh" style="display:none;">

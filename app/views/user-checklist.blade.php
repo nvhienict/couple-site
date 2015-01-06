@@ -122,7 +122,7 @@ Danh sách công việc
 		<script type="text/javascript">
 
 			$(window).scroll(function(){
-				if ($(this).scrollTop() > 700) {
+				if ($(this).scrollTop() > 800) {
 			        $('.checklist-statis-formonth-hide').show();
 			    } else {
 			        $('.checklist-statis-formonth-hide').hide();

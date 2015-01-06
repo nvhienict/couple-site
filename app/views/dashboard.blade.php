@@ -5,10 +5,12 @@ Dashboard
 @endsection
 
 @section('content')
+
+
 	
-	<div class="col-lg-12 thong-ke">
-		<div id="morris-bar-chart" style="height: 400px;"></div>
-	</div><!--/thong ke-->
+	 <!-- <div class="col-lg-12 thong-ke"> -->
+		<!-- <div id="morris-bar-chart" style="height: 400px;"></div> -->
+	<!-- </div>/thong ke -->
 
 	<div class="data-hidden" style="display:none;">
 		<div class="thong-ke-cong-viec">

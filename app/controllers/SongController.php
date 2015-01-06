@@ -10,9 +10,9 @@ class SongController extends \BaseController {
 	public function index($slug)
 	{
 		//
-		$id=SongCategory::where('slug',$slug)->get()->first()->id;
-		$cats = SongCategory::where('id', $id)->get();
-		$songs = Song::where('category', $id)->get();
+		$id 	= SongCategory::where('slug',$slug)->get()->first()->id;
+		$cats 	= SongCategory::where('id', $id)->get();
+		$songs	= Song::where('category', $id)->get();
 
 		return View::make('song.index')->with('cats', $cats)
 										->with('songs', $songs);
@@ -93,20 +93,21 @@ class SongController extends \BaseController {
 	public function play($slug,$slug_song)
 	{
 		if(!Session::has('email')){
-			$firstname="";
-			$lastname="";
-			$user_name = $firstname.' '.$lastname;
-			$user_avatar="";
+			$firstname 		= "";
+			$lastname 		= "";
+			$user_name 		= $firstname.' '.$lastname;
+			$user_avatar 	= "";
 		}else{
-			$id_user = User::where('email',Session::get('email'))->get()->first()->id;
+			$id_user 		= User::where('email',Session::get('email'))->get()->first()->id;
 
-			$firstname = User::where('id',$id_user)->get()->first()->firstname;
-			$lastname = User::where('id',$id_user)->get()->first()->lastname;
-			$user_name = $firstname.' '.$lastname;
-			$user_avatar = User::where('id',$id_user)->get()->first()->avatar;
+			$firstname 		= User::where('id',$id_user)->get()->first()->firstname;
+			$lastname 		= User::where('id',$id_user)->get()->first()->lastname;
+			$user_name 		= $firstname.' '.$lastname;
+			$user_avatar 	= User::where('id',$id_user)->get()->first()->avatar;
 		}
-		$id_song=Song::where('slug',$slug_song)->get()->first()->id;
-		$songs = Song::where('id', $id_song)->get();
+		$id_song 			= Song::where('slug',$slug_song)->get()->first()->id;
+		$songs 				= Song::where('id', $id_song)->get();
+
 		return View::make('song.play_song')->with('songs', $songs)
 											->with('user_name', $user_name)
 											->with('user_avatar', $user_avatar);
@@ -121,12 +122,12 @@ class SongController extends \BaseController {
 	// comment for song
 	public function post_comment($id_song)
 	{
-		$id_user = Input::get('id_user');
-		$cmt = Input::get('cmt');
+		$id_user 		= Input::get('id_user');
+		$cmt 			= Input::get('cmt');
 
-		$firstname = User::where('id',$id_user)->get()->first()->firstname;
-		$lastname = User::where('id',$id_user)->get()->first()->lastname;
-		$user_name = $firstname.' '.$lastname;
+		$firstname 		= User::where('id',$id_user)->get()->first()->firstname;
+		$lastname 		= User::where('id',$id_user)->get()->first()->lastname;
+		$user_name 		= $firstname.' '.$lastname;
 
 		// insert comment to table song_comment
 

@@ -9,7 +9,7 @@ Thông tin cá nhân
 
 	@foreach($user as $key=>$user_item)
 	
-	<div class="col-lg-12" style="padding:0">
+	<div class="col-lg-12" style="padding:0; margin-top: 50px;">
 		
 		<div class="col-xs-12 col-sm-5 col-lg-3 info_user_dashboard">
 			<div class="info_user_avatar">

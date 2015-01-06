@@ -1976,11 +1976,18 @@ div.song_content button{
 }
 .table-song th{
 	padding: 10px;
-	color: #fff;
-	background-color: #555555;
+	color: #6d849f;
+	background-color: #FFFFFF;
+	border: none;
 }
 .table-song th.last{
 	text-align: right;
+}
+
+.table-song tbody{
+	background-color: #ecf4f8;
+	border: 1px solid #a6b1ca;
+	overflow: auto;
 }
 .table-song td{
 	padding: 10px;
@@ -1989,6 +1996,29 @@ div.song_content button{
 .table-song td.last{
 	text-align: right;
 	color: #51b5c4;
+}
+
+.song-menu-right {
+	background-color: #ecf4f8;
+	border-radius: 5px;
+	box-shadow: 0 5px #b9cdd8;
+	margin-bottom: 2%;
+}
+.song-record-title {
+	background-color: #49a6fa;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    height: 35px;
+    padding-top: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 5px solid #b9cdd8;
+}
+.song-record-item {
+	font-size: 17px;
+	margin: 8px 0;
 }
 
 
