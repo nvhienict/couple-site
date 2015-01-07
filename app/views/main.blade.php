@@ -79,17 +79,23 @@
 	<!--Header login-->	
 	<div class="row user-header">
 	
-	<script>
-	    $(document).ready(function() {
-	        $('.fb-like').attr("data-href", document.URL);
-	    });
-	</script>
+		<script>
+		    $(document).ready(function() {
+		        $('.fb-like').attr("data-href", document.URL);
+		    });
+		</script>
 	
-		<div class="col-sm-8 col-md-8 col-lg-8 hidden-xs">
+		<div class="col-sm-4 col-md-4 col-lg-4 hidden-xs">
 			<div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
 		</div>
+
+		<div class="col-xs-4 col-sm-3 col-lg-2 col-lg-offset-1 text-center">
+			<a href="{{URL::route('index')}}">
+		    	<img style="width: 100%; height: 65px;" src="{{Asset('icon/logo-thuna.png')}}">
+		    </a>
+		</div>
 		
-		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 pull-right wedding-user-logged">
+		<div class="col-xs-8 col-sm-4 col-md-3 col-lg-3 pull-right wedding-user-logged">
 				@if( (Session::has('email')) && (UserController::isset_user())!=0 )
 				<ul class="user_profile">
 					<li >
@@ -106,23 +112,31 @@
 				</ul>
 		  		@elseif( (Session::has('email')) && (UserController::isset_user())==0 )
 		  			<?php UserController::get_logout_2(); ?>
-		  			<li><a href="{{URL::route('login')}}" >
+		  			<li><a href="{{URL::route('register')}}" style="color: #ED706F">
+		  					<i class="fa fa-unlock"></i>
+		  					Đăng ký
+		  				</a>
+		  			</li>
+		  			<li><a href="{{URL::route('login')}}" style="color: #3A3A40">
 		  					<i class="fa fa-sign-in"></i>
 		  					Đăng nhập
 		  				</a>
 		  			</li>
-		  			<!-- <li><a href="{{URL::route('register')}}">Đăng ký</a></li> -->
 		  		@else
-			  		<li><a href="{{URL::route('login')}}" >
+			  		<li><a href="{{URL::route('register')}}" style="color: #ED706F">
+			  				<i class="fa fa-unlock"></i>
+			  				Đăng ký
+			  			</a>
+			  		</li>
+			  		<li><a href="{{URL::route('login')}}" style="color: #3A3A40">
 			  				<i class="fa fa-sign-in"></i>
 			  				Đăng nhập
 			  			</a>
 			  		</li>
-			  		<!-- <li><a href="{{URL::route('register')}}">Đăng ký</a></li> -->
 		  		@endif
 		</div>
-	</div>
-	<!-- .row user-header -->
+	</div><!-- /.row user-header -->
+
 @yield('nav-bar')
 @yield('content')
 	<!-- footer -->

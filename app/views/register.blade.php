@@ -6,7 +6,7 @@
 @include('nav')
 @endsection
 @section('content')
-<div class="row">
+<div class="row" style="margin: 4% 0;">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
     <div id="user_register">
       @if(isset($msg)) <p class="alert alert-danger">{{$msg}}</p>
@@ -16,24 +16,13 @@
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6">
           <div class="form-group">
-            <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="Họ" tabindex="1">
-            @foreach ($errors->get('first_name') as $message)
+            <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Địa chỉ email" tabindex="4">
+            @foreach ($errors->get('email') as $message)
               <p class="text-left alert alert-danger">{{$message}}</p>
             @endforeach
           </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6">
-          <div class="form-group">
-            <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Tên" tabindex="2">
-            @foreach ($errors->get('last_name') as $message)
-              <p class="text-left alert alert-danger">{{$message}}</p>
-            @endforeach
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-          
             <div  class="input-append form-group">
               <input data-format="yyyy-MM-dd" type="text" readonly name="weddingdate" id="weddingdate" class="form-control input-lg " placeholder="Ngày cưới" tabindex="3">
               <script type="text/javascript">
@@ -54,14 +43,6 @@
                 });
               </script>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6">
-          <div class="form-group">
-            <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Địa chỉ email" tabindex="4">
-            @foreach ($errors->get('email') as $message)
-              <p class="text-left alert alert-danger">{{$message}}</p>
-            @endforeach
-          </div>
         </div>
       </div>
       <div class="row">
