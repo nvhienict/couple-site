@@ -1,6 +1,5 @@
 
-<div class="row" id="nav-bar">
-  <div class="col-xs-12">
+
     <div class="navbar">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -68,8 +67,4 @@
           </ul>
         </div>
     </div>
-  </div>
-
-  @include('site-map')
-  
-</div>
+    <div class="lr-bottom-menu"></div>
