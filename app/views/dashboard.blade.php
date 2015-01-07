@@ -5,30 +5,23 @@ Dashboard
 @endsection
 
 @section('content')
-
-
 	
-	 <!-- <div class="col-lg-12 thong-ke"> -->
-		<!-- <div id="morris-bar-chart" style="height: 400px;"></div> -->
-	<!-- </div>/thong ke -->
-
-	<div class="data-hidden" style="display:none;">
-		<div class="thong-ke-cong-viec">
-			{{ChecklistController::countTasksCompletePercent()}}
-		</div>
-		<div class="thong-ke-khach-moi">
-			{{GuestController::getGuestInvitedPercent()}}
-		</div>
-		<div class="thong-ke-ngan-sach">
-			{{UserBudgetController::getDisplayMoneyTotalPercent()}}
-		</div>
-		<div class="thong-ke-website">
-			{{WebsiteController::getCountDataPercent()}}
+	<div class="row" style="margin-top: 50px;">
+		<div class="col-xs-12">
+			<h2>Chọn giao diện và cài đặt website của bạn</h2>
 		</div>
 	</div>
 
-	<script type="text/javascript" src="{{Asset("assets/js/morris/raphael.min.js")}}"></script>
-    <script type="text/javascript" src="{{Asset("assets/js/morris/morris.js")}}"></script>
-    <script type="text/javascript" src="{{Asset("assets/js/morris/morris-data.js")}}"></script>
+	<div class="row" style="margin-top: 20px;">
+		
+		@for($i=1; $i<=21; $i++)
+			<div class="col-sm-6 col-lg-4 col-md-4 col-xs-12" style="margin-bottom: 2%">
+				<a href="{{URL::route('template-website', array('id'=>"{$i}"))}}" style="outline: none">
+					<img style="width: 100%; height: 300px " src="{{Asset("images/website/tmp/{$i}.jpg")}}">
+				</a>
+			</div>
+		@endfor
+	
+	</div>
 
 @endsection

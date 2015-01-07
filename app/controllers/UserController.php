@@ -589,28 +589,35 @@ class UserController extends \BaseController {
 		$url 	= URL::current();
 		$arUrl 	= explode('/', $url);
 
-		switch (end($arUrl)) {
-			case 'guest-list':
-				$output = 'Danh sách khách mời';
-				break;
-			case 'user-checklist':
-				$output = 'Danh sách công việc';
-				break;
-			case 'budget':
-				$output = 'Quản lý ngân sách';
-				break;
-			case 'website':
-				$output = 'Website cưới';
-				break;
-			case 'profile':
-				$output = 'THÔNG TIN CÁ NHÂN';
-				break;
+		if ($arUrl[count($arUrl)-2]=='fortune') {
+			$output 	= 'Xem ngày cưới';
+		} elseif ($arUrl[count($arUrl)-2]=='songs') {
+			$output 	= 'Âm nhạc';
+		} else {
+			switch (end($arUrl)) {
+				case 'guest-list':
+					$output = 'Danh sách khách mời';
+					break;
+				case 'user-checklist':
+					$output = 'Danh sách công việc';
+					break;
+				case 'budget':
+					$output = 'Quản lý ngân sách';
+					break;
+				case 'website':
+					$output = 'Website cưới';
+					break;
+				case 'profile':
+					$output = 'THÔNG TIN CÁ NHÂN';
+					break;
 
-			
-			default:
-				$output = 'Trang chủ';
-				break;
+				
+				default:
+					$output = 'Trang chủ';
+					break;
+			}
 		}
+		
 		
 		return $output;
 
