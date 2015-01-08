@@ -46,7 +46,8 @@
     <link href="{{Asset("assets/css/social-buttons.css")}}" rel="stylesheet">
 	<link href="{{Asset("assets/color/default.css")}}" rel="stylesheet">
 	<link href="{{Asset("assets/css/sweet-alert.css")}}" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/header.web.css")}}">
+	<!-- <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/header.web.css")}}"> -->
+	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/step.web.css")}}">
 	<link href="{{Asset("assets/css/dropzone.css")}}" rel="stylesheet">
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>

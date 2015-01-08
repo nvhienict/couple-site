@@ -1,0 +1,47 @@
+.step1, .step2, .step3, .step4, .step5{
+		border: none;
+	}
+.step1 a{
+	color: #E75280;
+}
+.arrow{
+	padding-top: 15px;
+}
+.tab-step2,.tab-step3,.tab-step4{
+	display: none;
+}
+.show-url-step a{
+	font-size: 20px;
+
+}
+
+.body-step{
+	min-height: 296px;
+}
+#design-about h6,#design-img h6,#design-url h6{
+	color: #E85280;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+.about-infor label, .setting-url label, .about-img label{
+	margin-top: 10px!important;
+	color: #19B5BC;
+	font-weight: normal;
+}
+.padding-images{
+	padding: 3px 3px 3px 3px;
+}
+.padding-images span{
+	float: right;
+	color:red; 
+}
+.padding-images span :hover{
+	cursor: pointer;
+}
+/*css modal upload*/
+#modal-bg h4, #modal-album h4,  #modal-wedding h4{
+	color: #E75292 !important;
+}
+#upload-photo-album{
+	min-height: 258px;
+}

@@ -24,7 +24,7 @@ Giao diện Website cưới
 
 					<div class="col-sm-4 col-lg-4 col-md-4">
 						<div class="span_choose_tmp">
-							<a href="{{URL::route('template-website', array('id'=>"{$i}"))}}">
+							<a href="{{URL::route('header-website', array('id'=>"{$i}"))}}">
 								<img src="{{Asset("images/website/tmp/{$i}.jpg")}}">
 							</a>
 						</div>

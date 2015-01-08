@@ -109,8 +109,20 @@
 		  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $tab)
 				<li  class="menu-id{{$tab->id}}" ><a href="#{{$tab->type}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>
 		  	@endforeach
-		  	<li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
-         	<li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
+		  	<li  class="dropdown" role="presentation">
+	          <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+	            <span class="glyphicon glyphicon-wrench"></span><span class="caret"></span>
+	          </a>
+	          <ul class="dropdown-menu setting-edit" role="menu">
+	              <li><a target="_blank"; href="{{URL::route('view-previous',array($id_tmp))}}">Xem trước</a></li>
+	              <li role="presentation" class="divider"></li>
+	              <li><a href="{{URL::route('change_temp')}}">Thay đổi giao diện</a></li>
+	              <li role="presentation" class="divider"></li>
+	              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#change-bg-edit">Thay đổi hình nền</a></li>
+	             
+
+	          </ul>
+	        </li>
 		</ul>
 			
 	</div>
@@ -130,27 +142,15 @@
 								@else
 									<img width="100%;" src="{{Asset('images/website/themes2/avatar/wedding17.jpg')}}">
 								@endif
-							</a>
-	  						<button onclick="send_id(null,111,0)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+							</a> 						
 			            </span>
+			            <div class="text-center"><button onclick="send_id(0,111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button></div>
 
-		  				<div class="about_bride">
+		  				<div class="about-bride text-center">
 							{{$website_item->about_bride}}
-							<span class="icon_edit_about"><a onclick="edit_about_bride();" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
+							
 						</div>
-
-						<div class="edit_ctn_about_bride">
-							<textarea name="edit_about_bride" class="ckeditor form-control" cols="40" rows="10" tabindex="1">
-							   {{$website_item->about_bride}}
-							</textarea>
-
-							<span>
-								<a onclick="update_about_bride();" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-							</span>
-							<span><a style="color:#e74c3c;" onclick="exit_edit_about_bride();" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-
-						</div>
-
+						<div class="text-center icon-infor"><a onclick="editInforBride()" data-toggle="modal" data-target="#edit-infor-bride" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a></div>
 		  			</div>
 		  			<div class="col-sm-4 col-lg-4 col-md-4">
 		  				<div style="text-align:center; margin-bottom:30px;">
@@ -213,29 +213,14 @@
 								@else
 									<img width="100%;" src="{{Asset('images/website/themes2/avatar/wedding17.jpg')}}">
 								@endif
-							</a>
-							<button onclick="send_id(null,222,0)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+							</a>	
 		  				</span>
-		  				
-			           	
-			            
-		  				<div class="about_groom">
+		  				<div class="text-center"><button onclick="send_id(0,222)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button></div>
+			           				            
+		  				<div class="about-groom text-center">
 							{{$website_item->about_groom}}
-							<span class="icon_edit_about"><a onclick="edit_about_groom();" class="glyphicon glyphicon-edit icon-site" href="javascript:void(0);"></a></span>
 						</div>
-
-						<div class="edit_ctn_about">
-							<textarea name="edit_about_groom" class="ckeditor form-control" cols="40" rows="10" tabindex="1">
-							   {{$website_item->about_groom}}
-							</textarea>
-
-							<span>
-								<a onclick="update_about_groom();" class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a>
-							</span>
-							<span><a style="color:#e74c3c;" onclick="exit_edit_about_groom();" class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-
-						</div>
-
+						<div class="text-center icon-infor"><a onclick="editInforGroom()"data-toggle="modal" data-target="#edit-infor-groom" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a></div>
 		  			</div>
   				</div>
   			</div>

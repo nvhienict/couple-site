@@ -48,38 +48,61 @@ class WebsiteController extends \BaseController {
 		die();
 	}
 
-	public function template()
-	{
-		$id_user = WebsiteController::id_user();
-
-		$check_user_website = WeddingWebsite::where('user', $id_user)->get()->count();
-		if ($check_user_website==0) {
-			return View::make('website_user.template');
-		} else {
-			return View::make('website_user.index');
-		}
-
-	}
-
 	public function index()
 	{
 		$id_user = WebsiteController::id_user();
 		$check_bg_website = WeddingWebsite::where('user',$id_user)->get()->count();
-		$web = $this->getWeb();
-		$images = $this->getImages();
-		if ($check_bg_website==0) {
-			// $backgrounds = "template_1.jpg";
+		if (empty($check_bg_website)) {
+
 			return View::make('website_user.template');
+
 		}else{
-			$tab = $this->getTabIndex();
-			$img_tmp = WeddingWebsite::where('user',$id_user)->get()->first()->template;
-			return View::make('website_user.index')->with('img_tmp',$img_tmp)->with('web',$web)
-																				->with('image',$images)
-																				->with('tab',$tab);
+
+			$id_tmp = WeddingWebsite::where('user',$id_user)->get()->first()->template;
+			return WebsiteController::design($id_tmp);
 		}
 		
 	}
 
+	public function headerWebsite($id){
+		$id_tmp = $id;
+		$id_user = WebsiteController::id_user();
+		$id_web = $this->getWeb();
+
+		if (!empty($id_web->id)) {
+			WeddingWebsite::where('user',$id_user)->update(array('template'=>$id_tmp));
+			return WebsiteController::design($id_tmp);
+		} else {
+			$lastname = User::where('id',$id_user)->get()->first()->lastname;
+			$web = new WeddingWebsite();
+			$web->user = $id_user;
+			$web->template = $id_tmp;
+			$web->url = Str::slug($lastname.'-'.$id_user);
+			$web->name_bride = "Tên Cô Dâu";
+			$web->name_groom = "Tên Chú Rể";
+			$web->about_bride = "Thông tin về cô dâu";
+			$web->about_groom ="Thông tin về chú rể";
+			$web->save();
+			$id_Web = $this->getWeb()->id;
+			$arTab = Tab::get();
+			foreach ($arTab as $item_tab) {
+				$tab_website = new TabWebsite();
+				$tab_website->website = $id_Web;
+				$tab_website->tab = $item_tab->id;
+				$tab_website->type = $item_tab->type;
+				$tab_website->title = $item_tab->title;
+				$tab_website->content = $item_tab->content;
+				$tab_website->visiable = $item_tab->visiable;
+				$tab_website->titlestyle = $item_tab->titlestyle;
+				$tab_website->video = $item_tab->video;
+				$tab_website->map = $item_tab->map;
+				$tab_website->sort = $item_tab->id;
+				$tab_website->save();
+			}
+			return View::make('website_user.header')->with('id_tmp',$id_tmp);
+		}			
+			
+	}	
 
 	// get id user after user login
 	public static function id_user(){
@@ -444,345 +467,107 @@ class WebsiteController extends \BaseController {
 		//
 	}
 
-	public function design($id)
-	{
-		
-		$id_tmp = $id;
+	public function design($id){
+			$id_tmp = $id;
+			$id_user = $this->id_user();
 
-		$id_user = WebsiteController::id_user();
-		$lastname=User::where('id',$id_user)->get()->first()->lastname;
-		$check_isset = WeddingWebsite::where('user', $id_user)->get()->count();
+			// get username
+			$firstname = User::where('id', WebsiteController::id_user())->get()->first()->firstname;
+			$lastname = User::where('id', WebsiteController::id_user())->get()->first()->lastname;
+			$user_name = $firstname.' '.$lastname;
 
-		// check when not data
-		if( $check_isset==0 ){
-			$new_website = new WeddingWebsite();
-			$new_website->user = $id_user;
-			$new_website->template = $id_tmp;
-			$new_website->name_bride="Tên Cô dâu";
-			$new_website->name_groom="Tên Chú rể";
-			$new_website->about_groom="Giới thiệu về chú rể";
-			$new_website->about_bride="Giới thiệu về cô dâu";
-			$new_website->url=Str::slug($lastname.'-'.$id_user);
-			$new_website->save();
-		} else {
-			WeddingWebsite::where('user',$id_user)->update(
-				array(
-					"template"=>$id_tmp
-					));
-		}
-			
-		$id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;
-		// check user had in table weddingwebsite
-		$check_teb_website = TabWebsite::where('website', $id_Web)->get()->count();
+			// get web 
+			$website = WeddingWebsite::where('user',$id_user)->get();
+			$id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;
 
-		if ($check_teb_website==0) {
-			// insert data from table tabs to tabwebsite
-			$arTab = Tab::get();
-			foreach ($arTab as $item_tab) {
-				$tab_website = new TabWebsite();
-				$tab_website->website = $id_Web;
-				$tab_website->tab = $item_tab->id;
-				$tab_website->type = $item_tab->type;
-				$tab_website->title = $item_tab->title;
-				$tab_website->content = $item_tab->content;
-				$tab_website->visiable = $item_tab->visiable;
-				$tab_website->titlestyle = $item_tab->titlestyle;
-				$tab_website->video = $item_tab->video;
-				$tab_website->map = $item_tab->map;
-				$tab_website->sort = $item_tab->id;
-				$tab_website->save();
-			}
-		}
-		
+			// get data from table 'tabs'
+			$arTab = TabWebsite::where('website',$id_Web)->get();
 
-		// get username
-		$firstname = User::where('id', WebsiteController::id_user())->get()->first()->firstname;
-		$lastname = User::where('id', WebsiteController::id_user())->get()->first()->lastname;
-		$user_name = $firstname.' '.$lastname;
+			$id_tmp = WeddingWebsite::where('user', $id_user)->get()->first()->template;
+			WeddingWebsite::where('user',$id_user)->update(array('template'=>$id_tmp));
+			$check_bg = WeddingWebsite::where('user',$id_user)->get()->first()->background;
+			if (!empty($check_bg)) {
+				$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;				
+			} else {
+				switch ( $id_tmp ) {
+					case 1:
+						$backgrounds='images/website/themes1/template_1.jpg';
+						break;
+					case 2:
+						$backgrounds='';
+						break;
+					case 3:
+						$backgrounds='images/website/themes3/body_image_1.jpg';
+						break;
+					case 4: 
+						$backgrounds='';
+						break;	
+					case 5:
+						$backgrounds='images/website/themes5/header-bg.jpg';
+						break;
+					case 6:
+						$backgrounds='images/website/themes6/template_6.jpg';
+						break;
+					case 7:
+						$backgrounds='images/website/themes7/template_7.jpg';
+						break;
+					case 8:
+						$backgrounds='images/website/themes8/kiss1.jpg';
+						break;
+					case 9:
+						$backgrounds='images/website/themes8/kiss1.jpg';
+						break;
+					case 10:
+						$backgrounds='';
+						break;
+					case 11:
+						$backgrounds='';
+						break;
+					case 12:
+						$backgrounds='';
+						break;
+					case 13:
+						$backgrounds='';
+						break;
+					case 14:
+						$backgrounds='';
+						break;
 
-		// get data from table website
-		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
+					case 15:
+						$backgrounds='images/website/themes15/bg_pic.jpg';
+						break;
+					case 16:
+						$backgrounds='';
+						break;
+					case 17:
+						$backgrounds='';
+						break;
+					case 18:
+						$backgrounds='';
+						break;
 
-		$arFont = array("Calibri","Arial", "Verdana", "Times New Roman",
-						"Adobe Gothic Std B", "Algerian", "AR BERKLEY",
-						"French Script MT", "Vladimir Script", "Kunstler Script");
-						$type = array("st");
-		foreach(TabWebsite::where('website', $id_Web)->get() as $tab_type)
-		{
-		 	array_unshift($type, $tab_type->type);
-		}
-		$typeTab = array_unique ($type);
-
-		// get data from table 'tabs'
-		$arTab = TabWebsite::where('website',$id_Web)->get();
-		$check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
-		if(!empty($check))
-		{
-			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
-		}
-		else
-		{
-			switch ($id_tmp) {
-			case 1:
-				$backgrounds='images/website/themes1/template_1.jpg';
-				break;
-			case 2:
-				$backgrounds='';
-				break;
-			case 3:
-				$backgrounds='images/website/themes3/body_image_1.jpg';
-				break;
-			case 4: 
-				$backgrounds='';
-				break;	
-			case 5:
-				$backgrounds='images/website/themes5/header-bg.jpg';
-				break;
-			case 6:
-				$backgrounds='images/website/themes6/template_6.jpg';
-				break;
-			case 7:
-				$backgrounds='images/website/themes7/template_7.jpg';
-				break;
-			case 8:
-				$backgrounds='images/website/themes8/kiss1.jpg';
-				break;
-			case 9:
-				$backgrounds='images/website/themes8/kiss1.jpg';
-				break;
-			case 10:
-				$backgrounds='';
-				break;
-			case 11:
-				$backgrounds='';
-				break;
-			case 12:
-				$backgrounds='';
-				break;
-			case 13:
-				$backgrounds='';
-				break;
-			case 14:
-				$backgrounds='';
-				break;
-
-			case 15:
-				$backgrounds='images/website/themes15/bg_pic.jpg';
-				break;
-			case 16:
-				$backgrounds='';
-				break;
-			case 17:
-				$backgrounds='';
-				break;
-			case 18:
-				$backgrounds='';
-				break;
-
-			case 19:
-				$backgrounds='';
-				break;
-			case 20:
-				$backgrounds='images/website/themes20/template_20.jpg';
-				break;
-			case 21:
-				$backgrounds='';
-				break;
-			}
-					
-			
-		}
-
-		return Redirect::route('website');
-		
-	}
-
-	public function editPage()
-	{
-		$id_user = WebsiteController::id_user();
-
-		// get username
-		$firstname = User::where('id', WebsiteController::id_user())->get()->first()->firstname;
-		$lastname = User::where('id', WebsiteController::id_user())->get()->first()->lastname;
-		$user_name = $firstname.' '.$lastname;
-
-		// get data from table website
-		$website = WeddingWebsite::where('user',WebsiteController::id_user())->get();
-
-		$arFont = array("Calibri","Arial", "Verdana", "Times New Roman",
-						"Adobe Gothic Std B", "Algerian", "AR BERKLEY",
-						"French Script MT", "Vladimir Script", "Kunstler Script");
-
-		$id_Web = WeddingWebsite::where('user', $id_user)->get()->first()->id;
-		// get data from table 'tabs'
-		$arTab = TabWebsite::where('website',$id_Web)->get();
-
-		$id_tmp = WeddingWebsite::where('user', $id_user)->get()->first()->template;
-
-		$type = array("st");
-		foreach(TabWebsite::where('website', $id_Web)->get() as $tab_type)
-		{
-		 	array_unshift($type, $tab_type->type);
-		}
-		$typeTab = array_unique ($type);
-
-		$check=WeddingWebsite::where('user',$id_user)->get()->first()->background;
-		if(!empty($check))
-		{
-			$backgrounds=WeddingWebsite::where('user',$id_user)->get()->first()->background;
-		}
-		else
-		{
-			switch ($id_tmp) {
-			case 1:
-				$backgrounds='images/website/themes1/template_1.jpg';
-				break;
-
-			case 2:
-				$backgrounds='';
-				break;
-
-			case 3:
-				$backgrounds='images/website/themes3/body_image_1.jpg';
-				break;
-				
-			case 4:
-				$backgrounds='';
-				break;
-			case 5:
-				$backgrounds='images/website/themes5/header-bg.jpg';
-				break;
-
-			case 6:
-				$backgrounds='images/website/themes6/template_6.jpg';
-				break;
-
-			case 7:
-				$backgrounds='images/website/themes7/template_7.jpg';
-			break;
-
-			case 8:
-				$backgrounds='images/website/themes8/kiss1.jpg';
-			break;
-
-			case 9:
-				$backgrounds='';
-			break;
-			case 10:
-				$backgrounds='';
-			break;
-			case 11:
-				$backgrounds='';
-			break;
-			case 12:
-				$backgrounds='';
-			break;
-			case 13:
-				$backgrounds='';
-			break;
-			case 14:
-				$backgrounds='';
-			break;
-
-			case 15:
-				$backgrounds='images/website/themes15/bg_pic.jpg';
-				break;
-			
-			case 16:
-				$backgrounds='';
-			break;	
-			case 17:
-				$backgrounds='';
-				break;
-			case 18:
-				$backgrounds='';
-				break;
-
-			case 19:
-				$backgrounds='';
-				break;
-			case 20:
-				$backgrounds='images/website/themes20/template_20.jpg';
-				break;
-			case 21:
-				$backgrounds='';
-				break;
-			
+					case 19:
+						$backgrounds='';
+						break;
+					case 20:
+						$backgrounds='images/website/themes20/template_20.jpg';
+						break;
+					case 21:
+						$backgrounds='';
+						break;
+				}
 			}
 			
-			
-			
-		}
-		return View::make('website_user.page_design')->with('firstname', $firstname)
-													->with('arFont', $arFont)
-													->with('website', $website)
-													->with('arTab', $arTab)
-													->with('typeTab', $typeTab)
-													->with('backgrounds',$backgrounds)
-													->with('id_web', $id_Web)
-													->with('id_tmp', $id_tmp);
+			return View::make('website_user.page_design')->with('firstname', $firstname)
+															->with('website', $website)
+															->with('arTab', $arTab)
+															->with('backgrounds',$backgrounds)
+															->with('id_web', $id_Web)
+															->with('id_tmp', $id_tmp);
+
 	}
-	public function addTopic(){
-		$arrayTab = Input::get('id_tab');
-		$arrayValue = Input::get("valueTab");
 
-		$id_Web = WeddingWebsite::where('user', WebsiteController::id_user())->get()->first()->id;
-		$type = array();
-		$remove = array();
-		$addtop = array();
-		 foreach(TabWebsite::where('website', $id_Web)->get() as $tab_type)
-		 {
-		 	array_unshift($type, $tab_type->type);
-		 }
-		 $typeTab = array_unique ($type);
-		 $countTab = Tab::count();
-		 try {
-			 for($i=0; $i<=$countTab; $i++)
-			 {
-			 	if (in_array($arrayValue[$i], $typeTab)) 
-			 	{
-			 		if ($arrayTab[$i]=="0") {
-			 			TabWebsite::where('type',$arrayValue[$i])->delete();
-			 			array_unshift($remove, $i);
-			 		}
-			 	}
-			 	else
-			 	{
-			 		if ($arrayTab[$i]=="1") {
-			 			try {
-			 				array_unshift($addtop, $i);
-			 				// Add tab moi vao
-			 				$tab = Tab::where('type',$arrayValue[$i])->get()->first();
-				 			$tab_web = new TabWebsite();
-				 			$tab_web->title = $tab->title;
-				 			$tab_web->type = $arrayValue[$i];
-				 			$tab_web->website = $id_Web;
-				 			$tab_web->content = $tab->content;
-							$tab_web->visiable = $tab->visiable;
-							$tab_web->titlestyle = $tab->titlestyle;
-							$tab_web->video = $tab->video;
-							$tab_web->map = $tab->map;
-							$tab_web->sort = $countTab;
-				 			$tab_web-> save();
-			 			} catch (Exception $e) {
-			 				echo "khong luu du lieu dc";
-			 			}
-			 			
-			 		}
-			 	}
 
-			 }
-		 } catch (Exception $e) {
-		 	echo "không đc";
-		 }
-	 	foreach(TabWebsite::where('website', $id_Web)->get() as $index=>$tab){
-	 		TabWebsite::where('id', $tab->id)->update(array('sort'=>$index + 1));
-	 	}
-
-		 echo json_encode(array("removeid"=> $remove,"addid"=>$addtop));
-		 die();
-		
-	}
 	public function updateName(){
 		$nameBride = Input::get('nameBride');
 		$nameGroom = Input::get('nameGroom');
@@ -795,45 +580,7 @@ class WebsiteController extends \BaseController {
 		echo json_encode(array('name_groom'=>$nameGroom,'name_bride'=>$nameBride));
 		exit();	
 	}
-	// function change font for website
-	public function updateFontWebsite()
-	{
-		$font_name = Input::get('font_name');
-
-		$id_user = WebsiteController::id_user();
-
-		WeddingWebsite::where('user',$id_user)->update(
-		array(
-			'font'=>$font_name
-			));
-
-		// return font in database
-		
-		$font = WeddingWebsite::where('user',$id_user)->get()->first()->font;
-
-		echo $font;
-
-	} // end function
-
-	// function change style for website
-	public function updateStyleWebsite()
-	{
-		$style_website = Input::get('style_website');
-
-		$id_user = WebsiteController::id_user();
-
-		WeddingWebsite::where('user',$id_user)->update(
-		array(
-			'style'=>$style_website
-			));
-
-		// return style in database
-		$font = WeddingWebsite::where('user',$id_user)->get()->first()->font;
-
-		echo $font;
-
-	} // end function
-
+	
 
 	// function change font for website
 	public function updateColorWebsite($index)
@@ -866,24 +613,6 @@ class WebsiteController extends \BaseController {
 
 	} // end function
 	
-	
-
-	public function updateColorWebsite1()
-	{
-		WebsiteController::updateColorWebsite(1);
-		
-	} // end function
-	public function updateColorWebsite2()
-	{
-		WebsiteController::updateColorWebsite(2);
-
-	} // end function
-	public function updateColorWebsite3()
-	{
-		WebsiteController::updateColorWebsite(3);
-
-	} // end function
-
 	
 	// function return color in database
 	public static function returnColor($index)
@@ -924,99 +653,7 @@ class WebsiteController extends \BaseController {
 		return $color;
 	}
 
-	// function reset color default
-	public function resetColor()
-	{
-		$id_user = WebsiteController::id_user();
-		WeddingWebsite::where('user',$id_user)->update(
-			array(
-				'color1'=>'',
-				'color2'=>'',
-				'color3'=>''
-				));
-
-		echo $color='';
-
-	}
-	public function delete_tab(){
-		$id = Input::get('id');
-		$id_Web = WeddingWebsite::where('user', WebsiteController::id_user())->get()->first()->id;
-		TabWebsite::find($id)->delete();
-		foreach(TabWebsite::where('website', $id_Web)->get() as $index=>$tab)
-		{
-	 		TabWebsite::where('id', $tab->id)->update(array('sort'=>$index + 1));
-	 	}
-	}
-	public function getTab(){
-
-		$tab= TabWebsite::find(Input::get('id'));
-		$visiable = '<input type="checkbox" name="hideTitle" id="hideTitle">';
-		if($tab->visiable == 1)
-		{
-			$visiable = '<input type="checkbox" name="hideTitle" id="hideTitle" checked>';
-		}
-		$title=array(
-		"id"=>$tab->id,
-		"title"=>$tab->title,
-		"content"=>$tab->content,
-		"type"=>$tab->type,
-		"visiable"=>$visiable,
-		"titlestyle"=>$tab->titlestyle
-		);
-		
-		echo json_encode($title); exit();
-	}
-	public function sortable(){
-		$newSort = Input::get('newSort');
-		$arraySort = array();
-		$sortTab = 0;
-		foreach ($newSort as $key => $value) {
-			if ($value != "") 
-			{
-				$sortTab = $sortTab + 1;
-				TabWebsite::where("id",$value)->update(array('sort'=>$sortTab));
-			}
-		}
-		echo json_encode($arraySort);
-		exit();
-	}
-	public function reSort(){
-		$newSort = Input::get('position');
-		$idChange = Input::get('id');
-		$mang = array("k");
-		$oldSort = TabWebsite::where("id",$idChange)->get()->first()->sort;
-		try {
-				$idweb = input::get('id_web');
-				$tabwebsite = TabWebsite::where('website', $idweb)->get();
-				$countTab = $tabwebsite->count();
-				if ($newSort>$countTab ) {
-					foreach ($tabwebsite as  $tab) {
-						if($tab->sort > $oldSort && $tab->sort <= $countTab){
-							TabWebsite::where("id",$tab->id)->update(array('sort'=>$tab->sort -1));
-						}
-					}
-					TabWebsite::where("id",$idChange)->update(array('sort'=>$countTab));
-				}
-				else
-				{
-					foreach ($tabwebsite as  $tab) {
-						if($oldSort > $newSort && $tab->sort < $oldSort && $tab->sort >= $newSort){
-							TabWebsite::where("id",$tab->id)->update(array('sort'=>$tab->sort + 1));
-						}
-						if($oldSort < $newSort &&  $tab->sort > $oldSort && $tab->sort <= $newSort){
-							TabWebsite::where("id",$tab->id)->update(array('sort'=>$tab->sort - 1));
-						}
-					}
-					TabWebsite::where("id",$idChange)->update(array('sort'=>$newSort));
-				}
-				
-		} catch (Exception $e) {
-				echo "lỗi update dữ liệu";
-			}
-		echo json_encode($countTab);
-		exit();
-	}
-
+	
 	public function loadTitle(){
 		$id_tab = Input::get('id_tab');
 		$title = TabWebsite::where('id',$id_tab)->get()->first()->title;
@@ -1133,31 +770,14 @@ class WebsiteController extends \BaseController {
 		return View::make('website_user.themes6.page.index');
 	}
 	//url_website
-	
-	public function change_url(){
-		$id_user=WebsiteController::id_user();
-		$change_url=Str::slug(Input::get('url_website'));
-		$recent_url=WeddingWebsite::where('user',$id_user)->get()->first()->url;
-		if (empty($change_url))
-		 {
-			echo json_encode(array('error_url'=>'Url không được trống.','res_url'=>$recent_url, 'color'=>'red'));
-			exit();
-		}
-		else
-		{
-			if (WeddingWebsite::where('user','!=',$id_user)->where('url',$change_url)->get()->count()) {
-			echo json_encode(array('error_url'=>'Url đã tồn tại, nhập vào url khác.','res_url'=>$recent_url, 'color'=>'red'));
-			exit();
-			} 
-			else
-		 	{			
-			WeddingWebsite::where('user',$id_user)->update(array('url'=>$change_url));
-			echo json_encode(array('res_url'=>$change_url,'error_url'=>'Url đã cập nhật thành công.','color'=>'#5574C9'));
-			exit();
-			}				
-		}							
-	}
 
+	function loadURL(){
+		$id_user = $this->id_user();
+		$web = $this->getWeb();
+		$url = $web->url;
+		return Response::json(array('url'=>$url));
+	}
+	
 	public function url_website($url){
 		// get data from table website
 		$website_tamp=WeddingWebsite::where('url',$url)->get()->first();
@@ -1520,13 +1140,25 @@ class WebsiteController extends \BaseController {
 	}
 
 
-	// update infor about groom and bride
+	// update infor about groom and bride in header
 	public function update_infor(){
-		$name_groom=Input::get('name_groom');
-		$name_bride=Input::get('name_bride');
-		$about_groom=Input::get('about_groom');
-		$about_bride=Input::get('about_bride');
-		$id_user=WebsiteController::id_user();
+		$name_groom = Input::get('name_groom');
+		$name_bride = Input::get('name_bride');
+		$about_groom = Input::get('about_groom');
+		$about_bride = Input::get('about_bride');
+		$id_user = WebsiteController::id_user();
+		if (empty($name_groom)) {
+			$name_groom = "Tên Chú Rể";
+		}
+		if (empty($name_bride)) {
+			$name_bride = "Tên Cô Dâu";
+		}
+		if (empty($about_groom)) {
+			$about_groom = "Thông tin về chú rể";
+		}
+		if (empty($about_bride)) {
+			$about_bride = "Thông tin về cô dâu";
+		}
 		WeddingWebsite::where('user',$id_user)->update(
 			array('name_groom'=>$name_groom,'name_bride'=>$name_bride,
 				'about_groom'=>$about_groom,'about_bride'=>$about_bride));
@@ -1534,6 +1166,40 @@ class WebsiteController extends \BaseController {
 		exit();
 		
 	}
+	// update infor bride and groom in edit
+
+	public function loadInforBride(){
+		$id_user = $this->id_user();
+		$web = $this->getWeb();
+		$name_bride = $web->name_bride;
+		$about_bride = $web->about_bride;
+		return Response::json(array('name_bride'=>$name_bride,'about_bride'=>$about_bride));
+	
+	}
+	public function updateInforBride(){
+		$id_user = $this->id_user();
+		$name_bride = Input::get('name_bride');
+		$about_bride = Input::get('about_bride');
+		WeddingWebsite::where('user',$id_user)->update(array('name_bride'=>$name_bride,'about_bride'=>$about_bride));
+		return Response::json(array('name_bride'=>$name_bride,'about_bride'=>$about_bride));
+	}
+
+	public function loadInforGroom(){
+		$id_user = $this->id_user();
+		$web = $this->getWeb();
+		$name_groom = $web->name_groom;
+		$about_groom = $web->about_groom;
+		return Response::json(array('name_groom'=>$name_groom,'about_groom'=>$about_groom));
+	
+	}
+	public function updateInforGroom(){
+		$id_user = $this->id_user();
+		$name_groom = Input::get('name_groom');
+		$about_groom = Input::get('about_groom');
+		WeddingWebsite::where('user',$id_user)->update(array('name_groom'=>$name_groom,'about_groom'=>$about_groom));
+		return Response::json(array('name_groom'=>$name_groom,'about_groom'=>$about_groom));
+	}
+	// end  update infor bride and groom in edit
 
 
 	// cut string
@@ -1622,90 +1288,174 @@ class WebsiteController extends \BaseController {
 	}
 
 	// upload avatar
+	public function uploadWedding(){
+		$file = Input::file('file');
+		$id_user = $this->id_user();
+		$check_avatar = Input::get('check-avatar');
+		if (Input::hasFile('file')) {
+			switch ($check_avatar) {
+				case 111:
+					$imagesBrideGroom = WebsiteController::avatarBrideGroom(111);
+					if (!empty($imagesBrideGroom)) {
+						$path_delete=public_path($imagesBrideGroom);
+						File::delete($path_delete);
+					}
+					File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
+					$filename = $id_user.'_bride_' .str_random(10).'.' .$file->getClientOriginalExtension();
+					 $pathsave = 'images/website/avatar/'.$filename;
+					$path = public_path('images/website/avatar/'.$filename);
+					Image::make($file->getRealPath())->resize(800, 600)->save($path);
+					WeddingWebsite::where('user',$id_user)->update(
+						array('avatar_bride'=>$pathsave)					
+						);
+					break;
+
+				case 222: 
+					$imagesBrideGroom = WebsiteController::avatarBrideGroom(222);
+					if (!empty($imagesBrideGroom)) {
+						$path_delete=public_path($imagesBrideGroom);
+						File::delete($path_delete);
+					}
+					File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
+					$filename = $id_user.'_groom_' .str_random(10).'.' .$file->getClientOriginalExtension();
+					$pathsave = 'images/website/avatar/'.$filename;
+					$path = public_path('images/website/avatar/'.$filename);
+					Image::make($file->getRealPath())->resize(800, 600)->save($path);
+					WeddingWebsite::where('user',$id_user)->update(
+						array('avatar_groom'=>$pathsave)					
+						);
+					break;
+					}
+		}
+
+	}
+
+	public function loadWedding(){
+		$id_user = $this->id_user();
+		$check_avatar = Input::get('check_avatar'); 
+		$photo = WeddingWebsite::where('user',$id_user)->get()->first();
+			if ( $check_avatar == 111 ) {				
+		 		$image = asset($photo->avatar_bride);
+		 		return Response::json(array('image'=>$image));
+			} else 
+			{
+		 		$image = asset($photo->avatar_groom);
+		 		return Response::json(array('image'=>$image));
+			}
+
+	}
+
+	public function checkURL(){
+		$url = Str::slug(Input::get('url'));
+		$id_user = $this->id_user();
+		$count = WeddingWebsite::where('user','!=',$id_user)->where('url',$url)->get()->count();
+		if (!empty($url)) {
+			if (!empty($count)) {
+				return Response::json(array('msg'=>'URL đã tồn tại, nhập vào URL khác.','color'=>'#C13222'));
+			} else {
+				return Response::json(array('msg'=>'URL có thể sử dụng.','color'=>'#428bca'));
+			}
+		}
+		else{
+			return Response::json(array('msg'=>"URL không được trống",'color'=>'#C13222'));
+		}
+		
+	}
+
+	public function createURL(){
+		$url = Str::slug(Input::get('url'));
+		$id_user = $this->id_user();
+		$count = WeddingWebsite::where('user','!=',$id_user)->where('url',$url)->get()->count();
+		if (!empty($url) && empty($count)) {
+				WeddingWebsite::where('user',$id_user)->update(array('url'=>$url));
+		}
+	}
+
 	public function uploadAvatar(){
 		$file = Input::file('file');
-		$check_avatar = Input::get('check-avatar'); 
+		$id_user = $this->id_user();
 		$check_tab = Input::get('check-tab');
-		$id_tab = Input::get('check-tab');
-		$id_user = WebsiteController::id_user();
+		$check_vc = Input::get('check-vc');
+		$id_tab = $check_tab;
 		$check_photo = $check_photo = PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->count();
-		if (Input::hasFile('file')) {
-			if ($check_tab == 0) {
-				switch ($check_avatar) {
-					case 111:
-						$imagesBrideGroom = WebsiteController::avatarBrideGroom(111);
-						if (!empty($imagesBrideGroom)) {
-							$path_delete=public_path($imagesBrideGroom);
-							File::delete($path_delete);
-						}
-						File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
-						$filename = $id_user.'_bride_' .str_random(10).'.' .$file->getClientOriginalExtension();
-						 $pathsave = 'images/website/avatar/'.$filename;
-						$path = public_path('images/website/avatar/'.$filename);
-						Image::make($file->getRealPath())->resize(800, 600)->save($path);
-						WeddingWebsite::where('user',$id_user)->update(
-							array('avatar_bride'=>$pathsave)					
-							);
-						break;
-
-					case 222: 
-						$imagesBrideGroom = WebsiteController::avatarBrideGroom(222);
-						if (!empty($imagesBrideGroom)) {
-							$path_delete=public_path($imagesBrideGroom);
-							File::delete($path_delete);
-						}
-						File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
-						$filename = $id_user.'_groom_' .str_random(10).'.' .$file->getClientOriginalExtension();
-						$pathsave = 'images/website/avatar/'.$filename;
-						$path = public_path('images/website/avatar/'.$filename);
-						Image::make($file->getRealPath())->resize(800, 600)->save($path);
-						WeddingWebsite::where('user',$id_user)->update(
-							array('avatar_groom'=>$pathsave)					
-							);
-						break;
-						}
-			} else {
-				if ( $check_photo  > 0 ) {
-					$name = PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->first()->photo;
-					$years = date("Y");
-					$months = date('m');
-					$path_delete = public_path($name);
-					File::delete($path_delete);
-					File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
-					$filename = str_random(10) . '.' .$file->getClientOriginalExtension();
-					$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
-					$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
+		if (empty($check_tab)) {
+			switch ($check_vc) {
+				case 111:
+					$imagesBrideGroom = WebsiteController::avatarBrideGroom(111);
+					if (!empty($imagesBrideGroom)) {
+						$path_delete=public_path($imagesBrideGroom);
+						File::delete($path_delete);
+					}
+					File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
+					$filename = $id_user.'_bride_' .str_random(10).'.' .$file->getClientOriginalExtension();
+					 $pathsave = 'images/website/avatar/'.$filename;
+					$path = public_path('images/website/avatar/'.$filename);
 					Image::make($file->getRealPath())->resize(800, 600)->save($path);
-					PhotoTab::where('user',$id_user)->where('tab',$id_tab)->update(
-						array('photo'=>$pathsave)					
+					WeddingWebsite::where('user',$id_user)->update(
+						array('avatar_bride'=>$pathsave)					
 						);
-				} else {
-					$phototab = new PhotoTab();
-					$years = date("Y");
-					$months = date('m');	
-					File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
-				  	$filename =str_random(10) . '.' .$file->getClientOriginalExtension();
-					$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
-					$pathsave = 'images/website/'.$years.'/'.$months.'/'.$filename;
+					break;
+
+				case 222:
+					$imagesBrideGroom = WebsiteController::avatarBrideGroom(222);
+					if (!empty($imagesBrideGroom)) {
+						$path_delete=public_path($imagesBrideGroom);
+						File::delete($path_delete);
+					}
+					File::makeDirectory(public_path('images/website/avatar'),$mode = 0775,true,true);
+					$filename = $id_user.'_groom_' .str_random(10).'.' .$file->getClientOriginalExtension();
+					$pathsave = 'images/website/avatar/'.$filename;
+					$path = public_path('images/website/avatar/'.$filename);
 					Image::make($file->getRealPath())->resize(800, 600)->save($path);
-					$phototab->user = $id_user;
-					$phototab->photo = $pathsave;
-					$phototab->tab = $id_tab;
-					$phototab->save();
-				}				
-			}			
-		}		
+					WeddingWebsite::where('user',$id_user)->update(
+						array('avatar_groom'=>$pathsave)					
+						);
+					break;
+			}
+			
+		} else {
+			if ( $check_photo  > 0 ) {
+				$name = PhotoTab::where('user',$id_user)->where('tab',$id_tab)->get()->first()->photo;
+				$years = date("Y");
+				$months = date('m');
+				$path_delete = public_path($name);
+				File::delete($path_delete);
+				File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
+				$filename = str_random(10) . '.' .$file->getClientOriginalExtension();
+				$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+				$pathsave='images/website/'.$years.'/'.$months.'/'.$filename;
+				Image::make($file->getRealPath())->resize(800, 600)->save($path);
+				PhotoTab::where('user',$id_user)->where('tab',$id_tab)->update(
+					array('photo'=>$pathsave)					
+					);
+				} 
+			else {
+				$phototab = new PhotoTab();
+				$years = date("Y");
+				$months = date('m');	
+				File::makeDirectory(public_path('images/website/'.$years.'/'.$months),$mode = 0775,true,true);
+			  	$filename =str_random(10) . '.' .$file->getClientOriginalExtension();
+				$path = public_path('images/website/'.$years.'/'.$months.'/'.$filename);
+				$pathsave = 'images/website/'.$years.'/'.$months.'/'.$filename;
+				Image::make($file->getRealPath())->resize(800, 600)->save($path);
+				$phototab->user = $id_user;
+				$phototab->photo = $pathsave;
+				$phototab->tab = $id_tab;
+				$phototab->save();
+				}	
+		}
+		
 	}
 
 	// load avatar
 	public function loadAvatar(){
-		$check_avatar = Input::get('check_avatar'); 
+		$id_user = $this->id_user();
 		$check_tab = Input::get('check_tab');
-		$id_tab = Input::get('check_tab');
-		$id_user = WebsiteController::id_user();
-		if ( $check_tab == 0 ) {
+		$check_vc = Input::get('check_vc');
+		$id_tab = $check_tab;
+		if ( empty($check_tab) ) {
 			$photo = WeddingWebsite::where('user',$id_user)->get()->first();
-			if ( $check_avatar == 111 ) {				
+			if ( $check_vc == 111 ) {				
 		 		$image = asset($photo->avatar_bride);
 		 		return Response::json(array('image'=>$image));
 			} else {

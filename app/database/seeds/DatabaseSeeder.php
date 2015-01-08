@@ -478,15 +478,15 @@ class TabsTableSeeder extends Seeder {
         'map' => '')
     );
 
-    Tab::create(array(
-        'type' => 'register',
-        'title' => 'Đăng kí',
-        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien.',
-        'visiable' => '1',
-        'titlestyle' => '',
-        'video' => '',
-        'map' => '')
-    );
+    // Tab::create(array(
+    //     'type' => 'register',
+    //     'title' => 'Đăng kí',
+    //     'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien.',
+    //     'visiable' => '1',
+    //     'titlestyle' => '',
+    //     'video' => '',
+    //     'map' => '')
+    // );
 
     Tab::create(array(
         'type' => 'album',
@@ -518,15 +518,15 @@ class TabsTableSeeder extends Seeder {
         'map' =>'')
     );
 
-    Tab::create(array(
-        'type' => 'love_story',
-        'title' => 'Câu chuyện tình',
-        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque. Ut tincidunt eros eu ullamcorper mollis. Nunc porta ac orci id hendrerit. Sed at libero nunc. Aenean quam ligula, ornare vel efficitur accumsan, fringilla sed velit. Sed odio lectus, porta vel erat nec, vehicula sollicitudin orci. Quisque placerat ante ac ligula suscipit tristique. Vivamus quam tellus, placerat sit amet elementum ac, lacinia id mi. Vivamus lacinia justo nibh, sed commodo turpis imperdiet et. Vivamus id hendrerit sem, et sollicitudin tellus. Curabitur feugiat purus non fringilla tempus. Vestibulum laoreet elit nec ornare lacinia. Nullam consequat gravida dignissim. Ut tincidunt nisl et blandit elementum. Donec faucibus turpis eget lacinia fringilla.',
-        'visiable' => '0',
-        'titlestyle' => '',
-        'video' =>'',
-        'map' =>'')
-    );
+    // Tab::create(array(
+    //     'type' => 'love_story',
+    //     'title' => 'Câu chuyện tình',
+    //     'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque. Ut tincidunt eros eu ullamcorper mollis. Nunc porta ac orci id hendrerit. Sed at libero nunc. Aenean quam ligula, ornare vel efficitur accumsan, fringilla sed velit. Sed odio lectus, porta vel erat nec, vehicula sollicitudin orci. Quisque placerat ante ac ligula suscipit tristique. Vivamus quam tellus, placerat sit amet elementum ac, lacinia id mi. Vivamus lacinia justo nibh, sed commodo turpis imperdiet et. Vivamus id hendrerit sem, et sollicitudin tellus. Curabitur feugiat purus non fringilla tempus. Vestibulum laoreet elit nec ornare lacinia. Nullam consequat gravida dignissim. Ut tincidunt nisl et blandit elementum. Donec faucibus turpis eget lacinia fringilla.',
+    //     'visiable' => '0',
+    //     'titlestyle' => '',
+    //     'video' =>'',
+    //     'map' =>'')
+    // );
 
     }
 }

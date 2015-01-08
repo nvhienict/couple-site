@@ -24,6 +24,7 @@
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
+	<script src="{{Asset("assets/js/main.js")}}"></script>
 	<!-- ckeditor -->
 	<script src="{{Asset('assets/ckeditor/ckeditor.js')}}"></script>
 	<!-- upload images -->

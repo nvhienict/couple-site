@@ -496,9 +496,9 @@ hr.bold {
 	.navbar-header {
 		padding:0;
 	}
-	.navbar-header button {
+	/*.navbar-header button {
 		background: #E75280;
-	}
+	}*/
 	
 	.navbar-header button.navbar-toggle {
 		padding: 10px 15px;
@@ -589,7 +589,7 @@ hr.bold {
 
 	.dropdown {
 		width: 100% !important;
-		background-color: #E75280 !important;
+		/*background-color: #E75280 !important;*/
 	}
 
 	.dropdown a {
@@ -2541,6 +2541,7 @@ a.contact-admin:hover{
  }
  .inline-title span{
  	font-size: 20px;
+ 	color: #428bca;
  }
 .inline-title span:hover{
 	cursor: pointer;
@@ -2558,4 +2559,87 @@ a.contact-admin:hover{
  	color: #EF8DB7 !important;
  }
 /*end title and button edit in inline*/
+/*css button setting in edit page*/
+.setting-edit >li >a{
+	color: #428bca !important;
+}
+.setting-edit >li >a:hover{
+	color: #E75292!important;
+}
+/*end*/
+/*css modal update infor*/
+#edit-infor-bride h4,#change-bg-edit h4{
+	color: #E75292;
+}
+#edit-infor-bride label{
+	color: #428bca;
+	font-weight: normal;
+}
+.icon-infor a{
+	color: #428bca;
+	font-size:20px;
+}
+.icon-infor a:hover{
+	color: #E75292;
+}
+.remove-border{
+	border-top: none;
+}
+#edit-infor-groom h4, #change-url-user h4{
+	color: #E75292;
+}
+#edit-infor-groom label{
+	color: #428bca;
+	font-weight: normal;
+}
+ /*css album*/
+ .body-album{
+ 	min-height: 300px;
+ }
+ .grid-album{
+
+ }
+ .upload-album{
+ 	display: none;
+ }
+ .padding-images{
+	padding: 3px 3px 3px 3px;
+}
+.padding-images span{
+	float: right;
+	color:red; 
+}
+.padding-images span :hover{
+	cursor: pointer;
+}
+#album-photo-user h4{
+	color: #E75292;
+}
+#upload-my-album{
+	min-height: 258px!important;
+	width: 80% !important;
+	margin: 0 10%!important;
+}
+.btn-my-photo{
+	display: none;
+}
+/*modal change url*/
+.in-url{
+	margin-top: 1%;
+}
+.in-url a{
+	font-size: 16px;
+	color: #428bca;
+}
+.in-url a:hover{
+	color: #E75292;
+}
+.modal{
+	margin-top: 2% !important;
+}
+.infor-check-url{
+	margin-top: 2%;
+}
+
+
 

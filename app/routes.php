@@ -10,7 +10,9 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
+Route::get('test',function(){
+	return View::make('website_user.header');
+});
 Route::get('/',array("as"=>"index", function()
 {	
 	if( (Session::has('email')) && (UserController::isset_user())!=0 )
@@ -238,33 +240,27 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('updateContent',array('as'=>'update_content','uses'=>'WebsiteController@updateContent'));
 
 	// choose template
-	Route::get('template', array('as'=>'template', 'uses'=>'WebsiteController@template'));
-	Route::get('template-website/{id}', array('as'=>'template-website', 'uses'=>'WebsiteController@design'));
-
+	
+	Route::get('edit-website/{id}', array('as'=>'template-website', 'uses'=>'WebsiteController@design'));
+	Route::get('template-website/{id}', array('as'=>'header-website', 'uses'=>'WebsiteController@headerWebsite'));
 	Route::get('website', array('as'=>'website', 'uses'=>'WebsiteController@index'));
 	Route::get('page_temp', array('as'=>'page_temp', 'uses'=>'WebsiteController@template_1'));
 	Route::get('{id}/view-previous', array('as'=>'view-previous', 'uses'=>'WebsiteController@viewPrevious'));
 
 	Route::get('website/edit/pages', array('as'=>'website/edit/pages', 'uses'=>'WebsiteController@editPage'));
 
-	Route::post('change_font_website', array('as'=>'change_font_website', 'uses'=>'WebsiteController@updateFontWebsite'));
 
-	Route::post('change_style_website', array('as'=>'change_style_website', 'uses'=>'WebsiteController@updateStyleWebsite'));
-
-	Route::post('change_color_website1', array('as'=>'change_color_website1', 'uses'=>'WebsiteController@updateColorWebsite1'));
-	Route::post('change_color_website2', array('as'=>'change_color_website2', 'uses'=>'WebsiteController@updateColorWebsite2'));
-	Route::post('change_color_website3', array('as'=>'change_color_website3', 'uses'=>'WebsiteController@updateColorWebsite3'));
-
-	Route::post('reset_color', array('as'=>'reset_color', 'uses'=>'WebsiteController@resetColor'));
+	// upload bg header
 	Route::post('upload-background',array('as'=>'upload','uses'=>'WebsiteController@updateImagebackground'));
 	Route::post('load-bg',array('as'=>'load_bg','uses'=>'WebsiteController@loadBg'));
-	Route::post('get-id-tab', array('as'=>'get-id-tab', 'uses'=>'WebsiteController@getTab'));//lấy dữ liệu của 1 tab
-	Route::post('update-title', array('as'=>'update-title', 'uses'=>'WebsiteController@Post_update_Tab'));
-	Route::post('delete-title', array('as'=>'delete-title', 'uses'=>'WebsiteController@delete_tab'));
-	Route::post('addTopic', array('as'=>'addTopic', 'uses'=>'WebsiteController@addTopic'));
+	
+	
+	
+
+	
 	Route::post('add_section', array('as'=>'add_section', 'uses'=>'WebsiteController@addSection'));
-	Route::post('reSort', array('as'=>'reSort', 'uses'=>'WebsiteController@reSort'));
-	Route::post('sortable', array('as'=>'sortable', 'uses'=>'WebsiteController@sortable'));
+	
+	
 	// kéo thả chuột để sắp xếp lại
 	Route::post('update-content', array('as'=>'update_content_tab', 'uses'=>'WebsiteController@update'));
 
@@ -289,14 +285,28 @@ Route::group(array('before'=>'check_login'), function(){
 
 	// Upload Album
 	Route::post('del_album',array('as'=>'del_album','uses'=>"WebsiteController@del_album"));
-	Route::post('change_url',array('as'=>'change_url','uses'=>"WebsiteController@change_url"));
+	
 	Route::post('check_image_album',array('as'=>'check_image_album','uses'=>'WebsiteController@checkImageAlbum'));
+
+	// load url into modal in edit
+	Route::post('load-url',array('as'=>'load_url','uses'=>"WebsiteController@loadURL"));
 	
 	// new upload
+	// my album
 	 Route::post('upload-photo',array('as'=>'upload_photo','uses'=>'WebsiteController@uploadPhoto'));
 	 Route::post('load-my-album',array('as'=>'load_my_album','uses'=>'WebsiteController@loadMyAlbum'));
+	 // upload image edit
 	 Route::post('upload-avatar',array('as'=>'upload_avatar','uses'=>'WebsiteController@uploadAvatar'));
 	 Route::post('load-avatar',array('as'=>'load_avatar','uses'=>'WebsiteController@loadAvatar'));
+	 // upload image vc header
+	 Route::post('upload-wedding',array('as'=>'upload_wedding','uses'=>'WebsiteController@uploadWedding'));
+	 Route::post('load-wedding',array('as'=>'load_wedding','uses'=>'WebsiteController@loadWedding'));
+	 // upload bg edit
+	 Route::post('upload-bg-edit',array('as'=>'load_bg_edit','uses'=>'WebsiteController@uploadBgEdit'));
+	 // check url Step
+
+	Route::post('check-url-step',array('as'=>'check_url_step','uses'=>'WebsiteController@checkURL'));
+	Route::post('create-url-step',array('as'=>'create_url_step','uses'=>'WebsiteController@createURL'));
 
 	 // update title
 	 Route::post('load-title',array('as'=>'load_title','uses'=>'WebsiteController@loadTitle'));
@@ -311,6 +321,11 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::post('change-map',array('as'=>'change-map','uses'=>"WebsiteController@changeMap"));
 
 	// infor about groom and update_about_bride
+	Route::post('load-infor-bride',array('as'=>'load_infor_bride','uses'=>'WebsiteController@loadInforBride'));
+	Route::post('update-infor-bride',array('as'=>'update_infor_bride','uses'=>'WebsiteController@updateInforBride'));
+
+	Route::post('load-infor-groom',array('as'=>'load_infor_groom','uses'=>'WebsiteController@loadInforGroom'));
+	Route::post('update-infor-groom',array('as'=>'update_infor_groom','uses'=>'WebsiteController@updateInforGroom'));
 
 	Route::post('update_infor',array('as'=>'update_infor','uses'=>'WebsiteController@update_infor'));
 	

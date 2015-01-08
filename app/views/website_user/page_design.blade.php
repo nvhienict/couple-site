@@ -154,8 +154,9 @@
 				</div>
 				<div class="modal-body">
 					
-					<form  action="{{URL::route('upload_avatar')}}" class="dropzone dz-clickable" id="upload-photo-tab" method="POST">
+					<form onclick="opacity()" action="{{URL::route('upload_avatar')}}" class="dropzone dz-clickable" id="upload-photo-tab" method="POST">
 						<input name="check-tab" id="check-tab" type="hidden" value="">
+						<input name="check-vc" id="check-vc" type="hidden" value="">
 					</form>
 						
 				</div>
@@ -166,6 +167,29 @@
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 	<!-- end upload ajax -->
+
+	<!-- upload bg -->
+	<div class="modal fade" id="change-bg-edit">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content ">
+				<div class="modal-header">
+					<button type="button" onclick="loadBgEdit()" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title text-center">Chọn Ảnh Nền</h4>
+				</div>
+				<div class="modal-body">
+					
+					<form  action="{{URL::route('upload')}}" class="dropzone dz-clickable" id="upload-photo-tab" method="POST">
+	
+					</form>
+						
+				</div>
+				<div class="modal-footer" style="text-align:center;">
+		      		<button onclick="loadBgEdit()" type="button" data-dismiss="modal" class="btn btn-primary" >Đóng</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- end upload bg -->
 
 	<!-- edit title -->
 	<div class="modal fade" id="modal-edit-menu">
@@ -180,12 +204,6 @@
 						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 							<input type="text" name="get-id-title" id="get-id-title" class="form-control" value="">
 							<input type="hidden" value="">
-						</div>
-						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-							<input style="visibility:visible;" type="checkbox" name="sh-title" id="sh-title" class="form-control" value="">
-						</div>
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding-top:10px;font-weight: bold;">
-							Ẩn khỏi trang
 						</div>								
 					</div>
 				</div>
@@ -198,94 +216,301 @@
 	</div><!-- /.modal -->
 	<!-- end edit title -->
 
-<!-- add title -->
-	<div class="modal fade" id="modal-add-title" style="z-index:9999;">
+	<!-- edit infor bride -->
+	<div class="modal fade" id="edit-infor-bride">
 		<div class="modal-dialog modal-md">
 			<div class="modal-content ">
 				<div class="modal-header">
 					<button type="button"  class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Chỉnh sửa tiêu đề</h4>
+					<h4 class="modal-title text-center">Chỉnh sửa thông tin cô dâu</h4>
 				</div>
 				<div class="modal-body">
 					<div class="row">
-						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-						<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-							<select id="get-id-hide-tab" style="height: 25px; margin-top: 7px;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								@foreach($arTab as $tab) 
-									@if( $tab->visiable==1)
-									<option value={{$tab->id}}>{{$tab->title}}</option>
-									@endif
-								@endforeach()
-							</select>
-						</div>
-						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-							<input style="visibility:visible;" type="checkbox" class="form-control" name="show-title" id="show-title" value=""> 
-						</div>
-						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding-top:10px;font-weight: bold; padding-left: 0px;">
-							Hiển thị trên trang web
-						</div>
+						<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-sm-offset-2 col-lg-offset-2">
+							<label>Tên cô dâu</label>
+							<input type="text" name="name-bride-load" id="name-bride-load" class="form-control" value="">
+							<label>Thông tin về cô dâu</label>
+							<textarea  type="text" name="about-bride-load" id="about-bride-load" class="form-control" value=""></textarea>
+						</div>							
 					</div>
 				</div>
-				<div class="modal-footer" style="text-align:center;">
-		      		<button onclick="addTitle()" type="button" data-dismiss="modal" class="btn btn-primary" >Thêm</button>
+				<div class="modal-footer remove-border" style="text-align:center;">
+		      		<button onclick="updateInforBride()" type="button" data-dismiss="modal" class="btn btn-primary" >Cập nhật</button>
 		      		<button  type="button" data-dismiss="modal" class="btn btn-primary" >Thoát</button>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
-	<!-- end add title -->
+	<!-- end edit infor bride -->
+
+	<!-- edit infor groom -->
+	<div class="modal fade" id="edit-infor-groom">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content ">
+				<div class="modal-header">
+					<button type="button"  class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title text-center">Chỉnh sửa thông tin về chú rể</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-sm-offset-2 col-lg-offset-2">
+							<label>Tên chú rể</label>
+							<input type="text" name="name-groom-load" id="name-groom-load" class="form-control" value="">
+							<label>Thông tin về chú rể</label>
+							<textarea  type="text" name="about-groom-load" id="about-groom-load" class="form-control" value=""></textarea>
+						</div>							
+					</div>
+				</div>
+				<div class="modal-footer remove-border" style="text-align:center;">
+		      		<button onclick="updateInforGroom()" type="button" data-dismiss="modal" class="btn btn-primary" >Cập nhật</button>
+		      		<button  type="button" data-dismiss="modal" class="btn btn-primary" >Thoát</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- end edit infor groom-->
+
+<!-- upload album -->
+	<div class="modal fade" id="album-photo-user">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content ">
+				<div class="modal-header">
+					<button type="button" onclick="reloadEdit()" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title text-center">Quản lí ảnh</h4>
+				</div>
+				<div class="modal-body body-album">
+					<div class="row grid-album">		
+						@foreach(WebsiteController::getImages() as $image)
+						<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 padding-images remove-image{{$image->id}}">
+							<span class="btn-delete"> <i class="glyphicon glyphicon-remove-sign" onclick="del_album({{$image->id}})"></i></span>
+							<img class="img-responsive" src="{{Asset("{$image->photo}")}}">
+						</div>	
+						@endforeach
+					</div>			
+					<div class="row upload-album">								
+						<form  action="{{URL::route('upload_photo')}}" class="dropzone dz-clickable" id="upload-my-album" method="POST">
+						</form>								
+					</div>									
+				</div>
+				<div class="modal-footer" style="text-align:center;">
+					<button onclick="loadMyAlbum()" type="button" class="btn btn-primary btn-responsive btn-my-photo" >My Photo</button>
+					<button onclick="uploadMyAlbum()" type="button" class="btn btn-primary btn-responsive btn-upload-album" >Tải ảnh lên</button>
+		      		<button type="button" onclick="reloadEdit()" data-dismiss="modal" class="btn btn-primary btn-responsive" >Đóng</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- end upload album -->
+
+<!-- edit url -->
+	<div class="modal fade" id="change-url-user">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content ">
+				<div class="modal-header">
+					<button type="button"  class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title text-center">Thay đổi URL</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-md-offset-1 col-sm-offset-1 col-lg-offset-1 in-url">
+							<a class="link-url" href="" target="_blank"></a>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<input onkeyup="checkUrlEdit()" type="text" name="url-user" id="url-user" class="form-control" value="">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-md-offset-1 col-sm-offset-1 col-lg-offset-1 in-url">
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<p class="text-center infor-check-url"></p>
+						</div>						
+					</div>
+				</div>
+				<div class="modal-footer remove-border" style="text-align:center;">
+		      		<button onclick="updateUrlEdit()" type="button" data-dismiss="modal" class="btn btn-primary" >Cập nhật</button>
+		      		<button  type="button" data-dismiss="modal" class="btn btn-primary" >Thoát</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+<!-- end edit url-->
 
 <script type="text/javascript" src="{{Asset('assets/js/design_color_font.js')}}"></script>
 
 <script type="text/javascript">
+ 	// remove image when upload other
+ 	function opacity(){
+ 		$('.dz-message').css('opacity',0);
+ 	};
 
-	// add Title
-	function loadAddTitle(){
-		$('#show-title').removeAttr('checked');
-	};
-	function addTitle(){
-		var id_title = $('#get-id-hide-tab').find(":selected").val();
-		$('input[name="show-title"]').each(function(){
-			if (this.checked==true) {
-				$(this).val("0");
-			};
-		});
-		var ck_visiable = $('#show-title').val();
+	// load URL into modal
+	function loadURL(){
 		$.ajax({
 			type:"post",
-			url: "{{URL::route('update_visiable')}}",
-			data: { id_tab : id_title, visiable : ck_visiable},
+			url:"{{URL::route('load_url')}}",
+			success:function(data){
+				$('.infor-check-url').text("");
+				$('#url-user').val(data.url);
+				$('.link-url').attr('href','thuna.vn/website/'+data.url);
+				$('.link-url').text('http://thuna.vn/website/');
+			}
+		});	
+	};
+
+	function checkUrlEdit(){
+		var url = $('#url-user').val();
+		$.ajax({
+			type:"post",
+			url:"{{URL::route('check_url_step')}}",
+			data:{url:url},
+			success:function(data){
+				$('.infor-check-url').text(data.msg);
+				$('.infor-check-url').css('color',data.color);
+			}
+		});	
+	};
+	function updateUrlEdit(){
+		var url = $('#url-user').val();
+		$.ajax({
+			type:"post",
+			url:"{{URL::route('create_url_step')}}",
+			data:{url:url},
+			success:function(data){
+				
+			}
+		});	
+	};
+	// upload uploadMyAlbum in edit
+	function loadMyAlbum(){
+		$('.grid-album').show();
+		$('.upload-album').hide();
+		$('.btn-upload-album').show();
+		$('.btn-my-photo').hide();
+		$.ajax({
+			type:"post",
+			url:"{{URL::route('load_my_album')}}",
+			success:function(data){
+				$('.dz-preview').remove();
+				$('.dz-message').css('opacity',1);
+				$('.padding-images').remove();
+				$('.grid-album').append(data);
+			}
+		});	
+	};
+	function uploadMyAlbum(){
+		// $('#upload-my-album').toggle('click');
+		$('.btn-upload-album').hide();
+		$('.btn-my-photo').show();
+		$('.upload-album').show();
+		$('.grid-album').hide();
+	};
+	function reloadEdit(){
+		window.location.href = "{{URL::route('template-website',array($id_tmp))}}";
+	};
+
+	// delete image in album
+	function del_album(id_photo){
+		$.ajax({
+			type:"post",
+			url:"{{URL::route('del_album')}}",
+			data:{ id_photo: id_photo},
+			success:function(data){
+				$('.remove-image'+id_photo).remove();
+			}
+		});	
+	};
+	// update infor bride
+	function editInforBride(){
+		$.ajax({
+			type:"post",
+			url: "{{URL::route('load_infor_bride')}}",
 			success: function(data){
-				if (data.visiable == 0) {
-					$('.r-title'+id_title).show();
-					$('.menu-id'+id_title).show();
-					$('#get-id-hide-tab').find(":selected").remove();
-				} else{
-					$('.r-title'+id_title).hide();
-					$('.menu-id'+id_title).hide();
-				};
+					$('#name-bride-load').val(data.name_bride);
+					$('#about-bride-load').val(data.about_bride);
 			}
 		});
-	};
+	}
+	function updateInforBride(){
+		var name_bride = $('#name-bride-load').val();
+		var about_bride = $('#about-bride-load').val();
+		$.ajax({
+			type:"post",
+			url: "{{URL::route('update_infor_bride')}}",
+			data:{ name_bride:name_bride, about_bride:about_bride},
+			success: function(data){
+					$('.name-bride').text(data.name_bride);
+					$('.about-bride').text(data.about_bride);
+			}
+		});
+	}
+	// end  update infor bride
+
+	// update infor groom
+	function editInforGroom(){
+		$.ajax({
+			type:"post",
+			url: "{{URL::route('load_infor_groom')}}",
+			success: function(data){
+					$('#name-groom-load').val(data.name_groom);
+					$('#about-groom-load').val(data.about_groom);
+			}
+		});
+	}
+	function updateInforGroom(){
+		var name_groom = $('#name-groom-load').val();
+		var about_groom = $('#about-groom-load').val();
+		$.ajax({
+			type:"post",
+			url: "{{URL::route('update_infor_groom')}}",
+			data:{ name_groom:name_groom, about_groom:about_groom},
+			success: function(data){
+					$('.name-groom').text(data.name_groom);
+					$('.about-groom').text(data.about_groom);
+			}
+		});
+	}
+	//end update infor groom
+
+	// upload bg in edit
+	function loadBgEdit(){
+		$('.dz-preview').remove();
+		$('.dz-message').css('opacity',1);
+		window.location.href = "{{URL::route('template-website',array($id_tmp))}}";
+	}
+
 	// upload-image-tab
-	function send_id(id_tab,check){
-		 var id_tab = $('#id-tab-photo'+id_tab).val();
+	function send_id(id_tab,check_vc){
 		 $('#check-tab').val(id_tab);
+		 $('#check-vc').val(check_vc);
 	};
 	function load_photo_tab(){
-		var id_tab = $('#check-tab').val();		
+		var check_tab = $('#check-tab').val();	
+		var check_vc = $('#check-vc').val();	
 		$.ajax({
 			type:"post",
-			data:{ check_tab : id_tab },
+			data:{ check_tab : check_tab, check_vc: check_vc },
 			url: "{{URL::route('load_avatar')}}", 
 			success: function(data){
-				$("#prev_output"+id_tab+" a").html("<img style='width:100%; height:100%;' class='img-responsive' src='"+data.image+"' />");
-				$("#prev_output_themes21"+id_tab+" a").html("<img class='tab-text-img' src='"+data.image+"' />");
-				$("#prev_output_theme4"+id_tab+" a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");					 
+				$('.dz-preview').remove();
+				$('.dz-message').css('opacity',1);
+				if (check_tab == 0) {
+					if (check_vc == 111) {
+						$("#prev_outputcc111 a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");
+						$("#prev_output111 a").html("<img class='img-responsive' src='"+data.image+"' />");
+					} else{
+						$("#prev_outputcc222 a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");
+						$("#prev_output222 a").html("<img class='img-responsive' src='"+data.image+"' />");
+					};
+				} else{
+					$("#prev_output"+check_tab+" a").html("<img style='width:100%; height:100%;' class='img-responsive' src='"+data.image+"' />");
+					$("#prev_output_themes21"+check_tab+" a").html("<img class='tab-text-img' src='"+data.image+"' />");
+					$("#prev_output_theme4"+check_tab+" a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");
+				};
+									 
 			}
 		});
 	};
-
 	// upload title
 	function sendTitle(id_title, visiable){
 		var visiable = visiable;
@@ -331,265 +556,6 @@
 			}
 		});
 	};
-	// get font design
-	function font_website(font_name){
-		$.ajax({
-			type:"post",
-			url:"{{URL::to('change_font_website')}}",
-			data:{font_name:font_name},
-			success: function(data){
-				$("h1, h2, h3").css("font-family",""+data+"");
-			}
-		});
-	};
 
-	// get style design
-	function style_website(style_website){
-		$.ajax({
-			type:"post",
-			url:"{{URL::to('change_style_website')}}",
-			data:{style_website:style_website},
-			success: function(data){
-				
-				if(style_website==1){
-					$("h1, h2").css("font-family",""+data+"");
-				}
-				if(style_website==2){
-					$("h2, h3").css("font-family",""+data+"");
-				}
-				if(style_website==3){
-					$("h4, p").css("font-family",""+data+"");
-				}
-			}
-		});
-	}
-
-	// reset color
-	function reset_color(){
-		$.ajax({
-			type:"post",
-			url:"{{URL::to('reset_color')}}",
-			success: function(data){
-				location.reload();
-			}
-		});
-	}
-
-	// get color
-	function color_design1(color_design){
-		$.ajax({
-			type:"post",
-			url:"{{URL::to('change_color_website1')}}",
-			data:{color_design:color_design},
-			success: function(data){
-				$("h1").css("color","#"+data+"");
-				$("#dateTime").css("color","#"+data+"");
-			}
-		});
-
-	}
-	function color_design2(color_design){
-		$.ajax({
-			type:"post",
-			url:"{{URL::to('change_color_website2')}}",
-			data:{color_design:color_design},
-			success: function(data){
-				$("h2, h3").css("color","#"+data+"");
-			}
-		});
-	}
-	function color_design3(color_design){
-		$.ajax({
-			type:"post",
-			url:"{{URL::to('change_color_website3')}}",
-			data:{color_design:color_design},
-			success: function(data){
-				$("h4").css("color","#"+data+"");
-				$("span[name=phara]").css("color","#"+data+"");
-			}
-		});
-	}
-
-	// //  thêm một chủ để mới, hoặc xoá một hoặc nhiều chủ đề cũ
-	var id_tab = new Array();
-	var valueTab = new Array();
-
-	function topic(id){
-		var typeTab = $('input[name=Topic'+id+']').val();
-		valueTab[id]= typeTab;
-		if ($('input[name=Topic'+id+']').is( ":checked" ))
-		{
-			id_tab[id]= "1";
-		}
-		else
-		{
-			id_tab[id] = "0";
-		};
-	}
-	function submitTopic(){
-		$.ajax({
-			type: "POST",
-			url: "{{URL::route('addTopic')}}",
-			data:{
-				id_tab: id_tab,
-				valueTab: valueTab
-			},
-			success:function(data){
-				location.reload(true);
-			},
-			error: function (){
-                alert('Có lỗi xảy ra');
-            }
-		});
-	}
-	function deleteTab(){
-		var id = $("input[name=id_title]").val();
-		var type = $("input[name=id_type]").val();
-		if(confirm("Bạn chắc chắn muốn xoá chủ để này này?")){
-        	$.ajax({
-				type: "post",
-				url: "{{URL::route('delete-title')}}",
-				data:{
-					id: id
-				},
-				success: function(data){
-					$("#section_"+type).remove();
-					$('#Tr'+id).remove();
-					$('.TT'+id).remove();
-					location.reload(true);
-				}
-			});
-			return true;
-        }
-        else{
-            return false;
-        };
-	}
-	function submit_title(){
-		var id_title = $("input[name=id_title]").val();
-		var title = $("input[name=title]").val();
-		var Align_title = $("input[name=Align_title]").val();
-		var id_type = $("input[name=id_type]").val();
-		var hidetab = 0;
-		if ($("input[name=hideTitle]").is( ":checked" )) 
-			{
-				hidetab = 1;
-			}
-			else
-			{
-				hidetab = 0;
-			};
-		$.ajax({
-  			type: "post",
-  			url:"{{URL::route('update-title')}}",
-  			
-  			data:{
-	  			id_title: id_title,
-	  			title: title ,
-	  			Align_title: Align_title,
-	  			hideTitle: hidetab
-  			},
-  			success:function(data){
-  				location.reload(true);
-  			}
-
-  		});
-  		
-  		$(".pop"+id_title).popover('hide');
-	};
-	function Align(value){
-		if(value == 'left')
-		{
-			$('#btleft').removeClass('btn btn-primary').addClass('btn btn-primary active');
-			$('#btcenten').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-			$('#btright').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-		}
-		else
-		if(value == 'center')
-		{
-			$('#btcenten').removeClass('btn btn-primary').addClass('btn btn-primary active');
-			$('#btleft').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-			$('#btright').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-		}
-		else
-		{
-			$('#btright').removeClass('btn btn-primary').addClass('btn btn-primary active');
-			$('#btcenten').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-			$('#btleft').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-		}
-		
-			$("#Align_title").val(value);
-	}
-	function changeSort(id){
-		var position = $("#"+id+"Sort").val();
-		var id_web = $('input[name=idweb]').val();
-		$.ajax({
-			type: "post",
-			url: "{{URL::route('reSort')}}",
-			data:{position: position,
-				id: id,
-				id_web: id_web
-			},
-			success: function(data){
-				location.reload(true);
-			}
-		});
-		
-	}
-	function titleTab(id){
-		$.ajax({
-			type: "post",
-			url:"{{URL::route('get-id-tab')}}",
-			dataType: "text",
-			data:{id: $("#tab"+id).val()},
-			success:function(data){
-				var result = JSON.parse(data);
-				$('#title').val(result['title']);
-				$('#hideTitle').replaceWith(result['visiable']);
-				$('#id_title').val(result['id']);
-				$('#id_type').val(result['type']);
-				$('#Align_title').val(result['titlestyle']);
-				if(result['titlestyle'] == 'left')
-					{
-						$('#btleft').removeClass('btn btn-primary').addClass('btn btn-primary active');
-						$('#btcenten').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-						$('#btright').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-					}
-					else
-					if(result['titlestyle'] == 'center')
-					{
-						$('#btcenten').removeClass('btn btn-primary').addClass('btn btn-primary active');
-						$('#btleft').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-						$('#btright').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-					}
-					else
-					{
-						$('#btright').removeClass('btn btn-primary').addClass('btn btn-primary active');
-						$('#btcenten').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-						$('#btleft').removeClass('btn btn-primary active').addClass('btn btn-primary ');
-					}
-			}
-		});
-	}
-
-    $(document).ready(function(){
-		$("#tableSort").sortable();
-		var sortArray
-	    $("#tableSort").sortable({
-	        stop : function(event, ui){
-	        	sortArray = $(this).sortable('toArray');
-	        	$.ajax({
-			  		type: "post",
-					url:"{{URL::route('sortable')}}",
-					dataType: "text",
-					data:{newSort: sortArray},
-					success:function(result){location.reload(true);}
-			    });
-	     	}
-	     });
-	    
-	  $("#tableSort").disableSelection();
-	});//ready
 </script>
-<script src="{{Asset("assets/js/jquery-ui.js")}}"></script>
 @endsection
