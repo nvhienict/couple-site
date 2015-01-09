@@ -1,3 +1,6 @@
+.collapse.in{
+    background-color:#DDDDDD;
+}
 .slide-menu{
 	background: url('../../images/website/themes11/bg-menu.png');
 
@@ -121,6 +124,8 @@ footer {
 	/*background-repeat: no-repeat;*/
 	background-size: 100%;
 	background-repeat:no-repeat;
+    background-color: #FFB7B7;
+    margin-top: 3%;
 }
 /*end footer*/
 .item{

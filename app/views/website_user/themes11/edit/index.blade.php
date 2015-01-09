@@ -85,7 +85,7 @@
             <div class="carousel-inner bg-slide" style="margin-top: 0px;">
 
                 <div class="item active">                   
-                    <div id="slide1" class="masonry container margin-partion" style="min-height:550px;" >
+                    <div id="slide1" class="masonry container margin-partion">
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <figure id="prev_outputcc222" class="text-center">
                                 <a href="#">
@@ -214,7 +214,7 @@
                                 {{$date_url}}
                             @endif. 
                             Site design by 
-                        <a title="" href="http://thuna.vn"> 
+                        <a style="text-decoration:none;" href="http://thuna.vn"> 
                             Thuna.vn
                          </a>
                     </p>
