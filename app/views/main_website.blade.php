@@ -19,7 +19,7 @@
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <link href="{{Asset("assets/css/dropzone.css")}}" rel="stylesheet">		
 	<link href="{{Asset("assets/css/animate.css")}}" rel="stylesheet" />
-    <link href="{{Asset("assets/css/style.css")}}" rel="stylesheet">
+    <link href="{{Asset("assets/css/style.web.css")}}" rel="stylesheet">
      <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>

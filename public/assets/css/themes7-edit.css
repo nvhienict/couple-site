@@ -41,7 +41,7 @@
 	background-color: #fff !important;
 	color: #ec6d65 !important;
 }
-.side-nav li a {
+.side-nav > li > a {
     border-left: 1px solid #fb918a!important;
     color: #fff !important;
     display: block !important;
