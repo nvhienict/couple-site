@@ -21,7 +21,7 @@
 	margin-right: 12%;margin-top: 2%;
 }
 .menu-ul-edit{
-	margin-right: 9%;margin-top: 0%;
+	margin-right: 17%;margin-top: 2%;
 }
 .slide-menu{
 	border: none;
@@ -165,6 +165,9 @@
 	.menu-ul ul{
 		background: white;
 	} 
+}
+.collapse.in{
+	background-color: #DDDDDD;
 }
 /*@media(max-width: 768px){
 .menu-theme-13{	
