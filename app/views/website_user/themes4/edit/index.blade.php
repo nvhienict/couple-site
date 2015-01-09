@@ -2,7 +2,7 @@
 		<!-- Custom CSS -->
 		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes4new.css")}}">
 		 <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
-		 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>		
+		 <!-- // <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>		 -->
 	 <!--  Slide Album -->
         <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
 
@@ -57,8 +57,24 @@
 			          <a class="a_menu scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a>
 			        </li>
 			         @endforeach()
-			         <li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title text-center" data-toggle="modal" data-target="#modal-add-title"></a></li>
-			         <li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>			          
+			         <li  class="dropdown" role="presentation">
+				          <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+				            <span class="glyphicon glyphicon-wrench"></span><span class="caret"></span>
+				          </a>
+				          <ul class="dropdown-menu setting-edit" role="menu">
+				              <li><a  href="{{URL::route('index')}}">Dashboard</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a target="_blank" href="{{URL::route('view-previous',array($id_tmp))}}">Xem trước</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a href="{{URL::route('change_temp')}}">Thay đổi giao diện</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#change-bg-edit" data-backdrop="static">Thay đổi hình nền</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#album-photo-user" data-backdrop="static">Album ảnh</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a onclick="loadURL()" href="javascript:void(0);" data-toggle="modal" data-target="#change-url-user">Cài đặt URL</a></li>
+				          </ul>
+			        </li>			          
 			      </ul>
 			   </div>
 			</nav>	
@@ -71,11 +87,11 @@
 				        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 about">
 				        	<hgroup>
 				        		<h2 class="text-center" style="text-transform: uppercase; color: #{{$website_item->color1}}; font-family: {{$website_item->font}};"> Ours Wedding </h2>
-				        		<h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-g">
+				        		<h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-groom">
 				        			{{$website_item->name_groom}}
 				        		</h1>
 				        		<h6 class="text-center" style="font-size:20px;">&</h6>
-				        		<h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-b">
+				        		<h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-bride">
 				        			 {{$website_item->name_bride}}
 				        		</h1>
 				        		<h6>on</h6>
@@ -99,8 +115,10 @@
 										@endif
 									</a>
 								</figure>
-								<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}}" class="title-tab title-bg name-g">{{$website_item->name_groom}}</h3>
-								<p class="about-g">{{$website_item->about_groom}} </p>
+								<button onclick="send_id(0,222)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' type="button" class="btn btn-primary btn-responsive">Đổi ảnh</button>		
+								<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}}" class="title-tab title-bg name-groom">{{$website_item->name_groom}}</h3>
+								<p class="about-groom">{{$website_item->about_groom}} </p>
+								<div class="text-center icon-infor"><a onclick="editInforGroom()"data-toggle="modal" data-target="#edit-infor-groom" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a></div>
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 text-center">
 								<figure id="prev_outputcc111" class="theme-border-big border">
@@ -112,8 +130,10 @@
 										@endif
 									</a>
 								</figure>
-								<h3 style="font-family: 'Great Vibes',cursive; color:#{{$website_item->color2}}" class="title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
-								<p class="about-b">{{$website_item->about_bride}}</p>
+								<button onclick="send_id(0,111)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' type="button" class="btn btn-primary btn-responsive">Đổi ảnh</button>
+								<h3 style="font-family: 'Great Vibes',cursive; color:#{{$website_item->color2}}" class="title-tab title-bg name-bride">{{$website_item->name_bride}}</h3>
+								<p class="about-bride">{{$website_item->about_bride}}</p>
+								<div class="text-center icon-infor"><a onclick="editInforBride()" data-toggle="modal" data-target="#edit-infor-bride" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a></div>
 							</div>
 						</div>
 						<div class="dt-sc-hr-invisible"></div>
@@ -151,7 +171,7 @@
 		            <div class="container partion " >
 		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
 		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		            			<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+		            			<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-md-offset-2 col-lg-offset-2">
 		            				 <a href="#">
 		            				<?php 
 					                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
@@ -221,7 +241,7 @@
 	            		
 		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
 		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		            			<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+		            			<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-md-offset-2 col-lg-offset-2">
 		          					<a href="#">
 		          					<?php 
 					                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
@@ -289,7 +309,7 @@
 				        
 	            		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
 		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		            			<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+		            			<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-md-offset-2 col-lg-offset-2">
 		            				 <a href="#">
 		            				<?php 
 					                    $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
@@ -510,7 +530,7 @@
 		            	<?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
 			            @if($albums)
 			                @foreach($albums as $album)
-			                    <div class="col-xs-2 images-padding remove_image{{$album->id}}">
+			                    <div class="col-xs-4 col-md-3 col-sm-3 col-lg-3 images-padding remove_image{{$album->id}}">
 			                        <a class="fancybox" href="{{Asset("{$album->photo}")}}">
 			                            <img class="img-responsive img-circle" src="{{Asset("{$album->photo}")}}" alt="" />
 			                        </a>
