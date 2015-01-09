@@ -44,8 +44,24 @@
 						</a>
 					</li>
 			      	@endforeach
-			      	<li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
-     				<li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
+			      	<li  class="dropdown" role="presentation">
+			          <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+			            <span class="glyphicon glyphicon-wrench"></span><span class="caret"></span>
+			          </a>
+			          <ul class="dropdown-menu setting-edit" role="menu" style="margin-top:-85%;">
+			              <li><a  href="{{URL::route('index')}}">Dashboard</a></li>
+			              <li role="presentation" class="divider"></li>
+			              <li><a target="_blank" href="{{URL::route('view-previous',array($id_tmp))}}">Xem trước</a></li>
+			              <li role="presentation" class="divider"></li>
+			              <li><a href="{{URL::route('change_temp')}}">Thay đổi giao diện</a></li>
+			              <li role="presentation" class="divider"></li>
+			              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#change-bg-edit" data-backdrop="static">Thay đổi hình nền</a></li>
+			              <li role="presentation" class="divider"></li>
+			              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#album-photo-user" data-backdrop="static">Album ảnh</a></li>
+			              <li role="presentation" class="divider"></li>
+			              <li><a onclick="loadURL()" href="javascript:void(0);" data-toggle="modal" data-target="#change-url-user">Cài đặt URL</a></li>
+			          </ul>
+			        </li>
 				</ul>
 			</div>
 		</div>
@@ -58,10 +74,10 @@
 		<!-- end wedding-date -->
 
 		<div class="name">
-			<span class="name-groom-edit name-g">
+			<span class="name-groom-edit name-groom">
 				{{WebsiteController::cutName($website_item->name_groom)}}
 			</span>
-			<span class="name-bride-edit name-b">
+			<span class="name-bride-edit name-bride">
 				{{WebsiteController::cutName($website_item->name_bride)}}
 			</span>
 		</div>
@@ -92,12 +108,13 @@
 							<img src="{{Asset('images/website/themes15/page2_pic1.jpg')}}">
 						@endif
 					</a>
-					
+					<button onclick="send_id(0,222)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' type="button" class="btn btn-primary btn-responsive">Đổi ảnh</button>		
 				</div>
 			</div>
-			<div class="item-content about-g" style="text-align:center;width:280px;">
+			<div class="item-content about-groom" style="text-align:center;width:280px;">
 				{{$website_item->about_groom}}
 			</div>
+			<div class="text-center icon-infor"><a onclick="editInforGroom()"data-toggle="modal" data-target="#edit-infor-groom" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a></div>
 		</div>
 
 		<div style="display: inline-block; width:280px;">
@@ -110,12 +127,13 @@
 							<img src="{{Asset('images/website/themes15/page2_pic1.jpg')}}">
 						@endif
 					</a>
-					
+					<button onclick="send_id(0,111)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' type="button" class="btn btn-primary btn-responsive">Đổi ảnh</button>		
 				</div>
 			</div>
-			<div class="item-content about-b" style="text-align:center; width:280px;">
+			<div class="item-content about-bride" style="text-align:center; width:280px;">
 				{{$website_item->about_bride}}
 			</div>
+			<div class="text-center icon-infor"><a onclick="editInforBride()" data-toggle="modal" data-target="#edit-infor-bride" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a></div>
 		</div>
 
 	</div>
