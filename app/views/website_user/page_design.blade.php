@@ -293,7 +293,7 @@
 					</div>									
 				</div>
 				<div class="modal-footer" style="text-align:center;">
-					<button onclick="loadMyAlbum()" type="button" class="btn btn-primary btn-responsive btn-my-photo" >My Photo</button>
+					<button onclick="loadMyAlbum()" type="button" class="btn btn-primary btn-responsive btn-my-photo" style="display:none;" >My Photo</button>
 					<button onclick="uploadMyAlbum()" type="button" class="btn btn-primary btn-responsive btn-upload-album" >Tải ảnh lên</button>
 		      		<button type="button" onclick="reloadEdit()" data-dismiss="modal" class="btn btn-primary btn-responsive" >Đóng</button>
 				</div>

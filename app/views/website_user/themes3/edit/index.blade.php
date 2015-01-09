@@ -96,8 +96,24 @@
 						    @endforeach
 						    </ul>
 						</li>
-						<li><a style="padding-top:0px; padding-bottom:0px;" onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title" data-placement="top" title="Ẩn/hiện tiêu đề"></a></li>
-        				 <li><a style="padding-top:0px; padding-bottom:0px;" class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}" data-placement="top" title="Cài đặt chung"></a></li>
+						<li  class="dropdown" role="presentation">
+					          <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="padding:0px 15px;">
+					            <i class="glyphicon glyphicon-wrench"></i><span class="caret"></span>
+					          </a>
+					          <ul class="dropdown-menu setting-edit" role="menu">
+					               <li><a  href="{{URL::route('index')}}">Dashboard</a></li>
+					              <li role="presentation" class="divider"></li>
+					              <li><a target="_blank" href="{{URL::route('view-previous',array($id_tmp))}}">Xem trước</a></li>
+					              <li role="presentation" class="divider"></li>
+					              <li><a href="{{URL::route('change_temp')}}">Thay đổi giao diện</a></li>
+					              <li role="presentation" class="divider"></li>
+					              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#change-bg-edit" data-backdrop="static">Thay đổi hình nền</a></li>
+					              <li role="presentation" class="divider"></li>
+					              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#album-photo-user" data-backdrop="static">Album ảnh</a></li>
+					              <li role="presentation" class="divider"></li>
+					              <li><a onclick="loadURL()" href="javascript:void(0);" data-toggle="modal" data-target="#change-url-user">Cài đặt URL</a></li>
+					          </ul>
+				        </li>
 						
 			      	</ul>
 			      	
