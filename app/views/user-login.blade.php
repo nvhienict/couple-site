@@ -39,7 +39,7 @@
   <div style="padding-top: 5px;">
     <!-- <a href="{{URL::to('login/facebook')}}">Đăng nhập bằng Facebook</a> -->
     <a href="{{URL::to('login/facebook')}}" class="btn btn-block btn-social btn-facebook">
-      <i class="fa fa-facebook"></i> Đăng nhập Facebook
+      <i class="fa fa-facebook"></i> Login Facebook
     </a>
   </div>
 

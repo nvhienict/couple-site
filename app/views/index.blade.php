@@ -5,7 +5,7 @@ Trang chủ
 @section('nav-bar')
 
 <!-- Navigation -->
-
+<div class="row bg-menu-top">
 	<div class="navbar">
 	  	<div class="navbar-header">
 		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -20,14 +20,35 @@ Trang chủ
 	  	</div>
 	  	<div class="navbar-collapse collapse navbar-responsive-collapse">
 		    <ul class="nav navbar-nav">
-		      	<li><a href="{{URL::route('index')}}" ><i class="fa fa-home"></i> Trang chủ</a></li>
-		      	<li><a href="{{URL::route('guest-list')}}" >Danh sách khách mời</a></li>
-		        <li><a href="{{URL::route('user-checklist')}}"  >Danh sách công việc</a></li>
-		        <li><a href="{{URL::route('budget')}}"  >Quản lý ngân sách</a></li>
-		        <li><a href="{{URL::route('website')}}"  >Website cưới</a></li>
+		      	<li><a href="{{URL::route('index')}}" title="Trang chủ">
+		      			<img class="icon-hover-home" src="{{Asset('icon/home78.png')}}">
+		      			<span class="txt-menu">Trang chủ</span>
+ 		      		</a>
+		      	</li>
+		      	<li><a href="{{URL::route('guest-list')}}" title="Danh sách khách mời">
+		      			<img class="icon-hover" src="{{Asset('icon/DSKM.png')}}">
+		      			<span class="txt-menu">Danh sách khách mời</span>
+		      		</a>
+		      	</li>
+		        <li><a href="{{URL::route('user-checklist')}}" title="Danh sách công việc">
+		        		<img class="icon-hover" src="{{Asset('icon/Danhsachcongviec.png')}}">
+		        		<span class="txt-menu">Danh sách công việc</span>
+		        	</a>
+		        </li>
+		        <li><a href="{{URL::route('budget')}}" title="Quản lý ngân sách">
+		        		<img class="icon-hover" src="{{Asset('icon/Congculapkehoach.png')}}">
+		        		<span class="txt-menu">Quản lý ngân sách</span>
+		        	</a>
+		        </li>
+		        <li><a href="{{URL::route('website')}}" title="Website cưới">
+		        		<img class="icon-hover-website" src="{{Asset('icon/Quanlyngansach.png')}}">
+		        		<span class="txt-menu">Website cưới</span>
+		        	</a>
+		        </li>
 		      	<li class="dropdown">
-			        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown">
-			        	<span>Âm nhạc</span>
+			        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown" title="Âm nhạc">
+						<img class="icon-hover-music" src="{{Asset('icon/musical7.png')}}">
+			        	<span class="txt-menu">Âm nhạc</span>
 			        	<b class="caret"></b>
 			        </a>
 			        <ul class="dropdown-menu oneUl" role="menu">
@@ -68,12 +89,17 @@ Trang chủ
 			        </ul>
 		      	</li> <!--/music-->
 
-		      	<li><a href="{{URL::action('FortuneController@getIndex')}}" >Xem ngày cưới</a></li>
+		      	<li><a href="{{URL::action('FortuneController@getIndex')}}" title="Xem ngày cưới">
+		      			<img class="icon-hover" src="{{Asset('icon/ngaycuoi.png')}}">
+		      			<span class="txt-menu">Xem ngày cưới</span>
+		      		</a>
+		      	</li>
 		    
 		    </ul>
 	  	</div>
 	</div><!--/.nav-->
-	<div class="lr-bottom-menu"></div>
+</div><!--/.bg-menu-top-->
+<div class="row lr-bottom-menu"></div>
 	  
 
 @include('site-map')
@@ -88,12 +114,12 @@ Trang chủ
 		<!-- Carousel -->
     	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
-			<ol class="carousel-indicators">
+			<!-- <ol class="carousel-indicators">
 			  	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 			    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
 			    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
 			</ol>
-			<!-- Wrapper for slides -->
+ -->			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 			    <div class="item active">
 			    	<img src=" {{Asset("images/slide-main/1-1.jpg")}}" alt="">
@@ -213,8 +239,8 @@ Trang chủ
 		      	<div class="row">
 		        	<div class="col-md-12">
 		        		<div class="form-group">
-		        			<button type="submit" class="btn btn-primary " style="background-color: #fe7225; border: 1px solid #fe7225">Đăng ký</button>
-					      	<a href="{{URL::to('login/facebook')}}" class="btn btn-social btn-facebook">
+		        			<button type="submit" class="btn btn-primary btn-register">Đăng ký</button>
+					      	<a href="{{URL::to('login/facebook')}}" class="btn btn-social btn-facebook bn-login-fb-index">
 						      <i class="fa fa-facebook"></i> Login Facebook
 						    </a>
 					    </div>
@@ -352,7 +378,7 @@ Trang chủ
 </div> <!--/.tab-content-->
 
 <div class="row cam-nhan-khach-hang">
-	<div class="col-lg-12 cam-nha-title">CẢM NHẬN KHÁCH HÀNG ĐỐI VỚI THUNA</div>
+	<div class="col-lg-12 cam-nhan-title">CẢM NHẬN KHÁCH HÀNG ĐỐI VỚI THUNA</div>
 	<div class="col-xs-1"></div>
 	<div class="col-xs-10">
 		<div class="col-lg-4 col-sm-6 col-xs-12 cam-nhan-item ">

@@ -1,7 +1,10 @@
- ==== Google font ==== */
+/* ==== Google font ==== */
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700,900);
 @import url('http://fonts.googleapis.com/css?family=Ek+Mukta:400,600,700');
 @import url(../fonts/UVF Aphrodite Pro.ttf);
+@import url(../fonts/MyriadPro-Regular.otf);
+@import url(../fonts/UVF LH Line1 Sans Thin.ttf);
+
 body {
     
     font-family: Arial;
@@ -72,14 +75,9 @@ h1.font-light,h2.font-light,h3.font-light,h4.font-light,h5.font-light,h6.font-li
 	font-weight: 700;
 }
 
-p {
-    margin: 0 0 20px;
+p { margin: 0 0 20px; }
 
-}
-
-p.lead {
-	font-weight: 600;
-}
+p.lead { font-weight: 600; }
 
 a {
     color: #666;
@@ -89,30 +87,51 @@ a {
 }
 
 a:hover,
-a:focus {
-    text-decoration: none !important;
-}
+a:focus {  text-decoration: none !important; }
 
 /* menu
----------------------------*/
-.navbar {
+---------------------------------------------*/
+.bg-menu-top {
 	background: url(../../icon/bg-header-top.png) no-repeat !important;
 	background-size: cover !important;
+	padding: 0 2%;
+}
+.navbar {
 	padding: 0 !important;
 	border: none !important;
 	border-radius: 0 !important;
-	margin-bottom: 0 !important;
+	margin: 0 auto !important;
+	width: 100%;
+}
+.navbar-nav > li {
+	text-align: center;
+	position: relative;
 }
 .navbar-nav > li > a {
-	font-size: 19px !important;
+	font-size: 20px !important;
 	line-height: 30px !important;
 	color: #FFFFFF !important;
 	outline: none;
+	font-family: "MyriadPro-Regular";
 }
-.navbar-nav > li > a:hover{
-	background-color: #a7254f !important;
+.navbar-nav > li > a:hover { background-color: #a7254f !important; }
+.navbar-nav > li > a:hover span.txt-menu { display: none; }
+.icon-hover, .icon-hover-music, .icon-hover-home, .icon-hover-website {
+	height: 0px;
+    width: 0px;
 }
-
+.navbar-nav > li > a:hover img{
+	width: 30px;
+	height: 25px;
+	-webkit-transition: width,height 0.5s ease-in-out; /* For Safari 3.1 to 6.0 */
+    -moz-transition: width,height 0.5s ease-in-out;
+    -o-transition: width,height 0.5s ease-in-out;
+    transition: width,height 0.5s ease-in-out;
+}
+.navbar-nav > li > a:hover img.icon-hover { margin: 0 65px; }
+.navbar-nav > li > a:hover img.icon-hover-music { margin: 0 15px; }
+.navbar-nav > li > a:hover img.icon-hover-home { margin: 0 40px; }
+.navbar-nav > li > a:hover img.icon-hover-website { margin: 0 50px; }
 
 .lr-bottom-menu {
 	background: url(../../icon/lr-menu.png) no-repeat;
@@ -179,12 +198,13 @@ a.brand {
 .cam-nhan-item {
 	margin: 2% 0;
 }
-.cam-nha-title {
+.cam-nhan-title {
 	text-transform: uppercase;
 	color: #232323;
 	text-align: center;
 	font-size: 18px;
 	margin-bottom: 1.5%;
+	font-family: "UVF LH Line1 Sans Thin";
 }
 .img-cam-nhan {
 	width: 100%;
@@ -315,7 +335,8 @@ hr.bold {
   	margin: 0;
   	padding: 0;
   	width: 100%;
-  	height: 450px;
+  	height: 500px;
+  	margin-bottom: 50px;
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
@@ -1255,14 +1276,14 @@ div.vendor_content button{
 	min-width: 100%;
 	clear: both;
 }
-.oneUl{
-	width: 300%;
+.oneUl {
+	width: 270%;
+	text-align: left;
 }
 
 
-.user-checklist{
-	margin-top: 30px;
-}
+
+.user-checklist{ margin-top: 30px; }
 .notice-checklist{
 	margin-top: 30px;
 	margin-bottom: 20px;
@@ -1335,23 +1356,24 @@ div.vendor_content button{
     border: 1px solid #e5e5e5;
     border-radius: 5px;
     box-shadow: 0 1px 2px;
-    margin: 20px auto 85px;
+    margin: 50px auto 85px;
     max-width: 300px;
-    padding: 19px 29px 29px;
+    padding: 20px 29px 29px;
 }
 
 .form-register-index {
-	padding: 0;
-	position: absolute;
-	top: 0;
-	right: 10%;
-	border: 3px solid #AC2F57;
-	background-color: #AC2F57;
-	min-height: 250px;
-	max-height: 420px;
-	z-index: 10;
-	margin-top: 15px;
-	border-radius: 5px;
+	background-color: #ac2f57;
+    border: 3px solid #ac2f57;
+    border-radius: 5px;
+    margin-top: 30px;
+    max-height: 450px;
+    min-height: 380px;
+    padding: 0;
+    position: absolute;
+    right: 10%;
+    top: 0;
+    z-index: 10;
+    font-family: "MyriadPro-Regular";
 }
 .user_register_title {
 	background-color: #AC2F57;
@@ -1368,11 +1390,22 @@ div.vendor_content button{
 	height: 88%;
 }
 .frm-register .form-group input {
-	padding: 2px 15px !important;
-	height: 37px !important;
+	
 }
-.btn-facebook {
-	width: 67%;
+
+.btn-register {
+	background-color: #fe7225; 
+	border: 1px solid #fe7225;
+	width: 30%;
+	float: left;
+	display: inline-block;
+	margin-bottom: 20px;
+}
+.bn-login-fb-index {
+	width: 66%;
+	float: right;
+	display: inline-block;
+	margin-bottom: 20px;
 }
 
 

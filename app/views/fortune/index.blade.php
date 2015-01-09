@@ -14,7 +14,7 @@ Xem ngày cưới
 		<div class="row" style="margin-top: 50px;">
 			<div class="col-lg-10 col-lg-offset-1 ft-title">
 	@else
-		<div class="row">
+		<div class="row" style="margin-top: 20px;">
 			<div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1 ft-title">
 	@endif
 

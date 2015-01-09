@@ -90,13 +90,13 @@
 			<div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
 		</div>
 
-		<div class="col-xs-4 col-sm-3 col-lg-2 col-lg-offset-1 text-center">
+		<div class="col-xs-5 col-sm-3 col-lg-2 col-lg-offset-1 text-center">
 			<a href="{{URL::route('index')}}">
 		    	<img style="width: 100%; height: 65px;" src="{{Asset('icon/logo-thuna.png')}}">
 		    </a>
 		</div>
 		
-		<div class="col-xs-8 col-sm-4 col-md-3 col-lg-3 pull-right wedding-user-logged">
+		<div class="col-xs-5 col-xs-offset-1 col-sm-4 col-md-3 col-lg-3 pull-right wedding-user-logged">
 				@if( (Session::has('email')) && (UserController::isset_user())!=0 )
 				<ul class="user_profile">
 					<li >
@@ -113,27 +113,48 @@
 				</ul>
 		  		@elseif( (Session::has('email')) && (UserController::isset_user())==0 )
 		  			<?php UserController::get_logout_2(); ?>
-		  			<li><a href="{{URL::route('register')}}" style="color: #ED706F">
+		  			<li class="hidden-xs"><a href="{{URL::route('register')}}" style="color: #ED706F">
 		  					<i class="fa fa-unlock"></i>
 		  					Đăng ký
 		  				</a>
 		  			</li>
-		  			<li><a href="{{URL::route('login')}}" style="color: #3A3A40">
+		  			<li class="hidden-xs"><a href="{{URL::route('login')}}" style="color: #3A3A40">
 		  					<i class="fa fa-sign-in"></i>
 		  					Đăng nhập
 		  				</a>
 		  			</li>
+
+		  			<!-- display mobile -->
+		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('register')}}" style="color: #ED706F">
+		  					<i class="fa fa-unlock fa-2x"></i>
+		  				</a>
+		  			</li>
+		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('login')}}" style="color: #3A3A40">
+		  					<i class="fa fa-sign-in fa-2x"></i>
+		  				</a>
+		  			</li>
 		  		@else
-			  		<li><a href="{{URL::route('register')}}" style="color: #ED706F">
+			  		<li class="hidden-xs"><a href="{{URL::route('register')}}" style="color: #ED706F">
 			  				<i class="fa fa-unlock"></i>
 			  				Đăng ký
 			  			</a>
 			  		</li>
-			  		<li><a href="{{URL::route('login')}}" style="color: #3A3A40">
+			  		<li class="hidden-xs"><a href="{{URL::route('login')}}" style="color: #3A3A40">
 			  				<i class="fa fa-sign-in"></i>
 			  				Đăng nhập
 			  			</a>
 			  		</li>
+
+			  		<!-- display mobile -->
+		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('register')}}" style="color: #ED706F">
+		  					<i class="fa fa-unlock fa-2x"></i>
+		  				</a>
+		  			</li>
+		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('login')}}" style="color: #3A3A40">
+		  					<i class="fa fa-sign-in fa-2x"></i>
+		  				</a>
+		  			</li>
+
 		  		@endif
 		</div>
 	</div><!-- /.row user-header -->
