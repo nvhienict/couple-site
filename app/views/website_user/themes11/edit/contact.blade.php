@@ -1,6 +1,6 @@
 
 <div class="item">                   
-    <div id="slide{{$i+2}}" class="masonry margin-partion" style="min-height:450px;" >
+    <div id="slide{{$i+2}}" class="masonry margin-partion container" style="min-height:450px;" >
         <div class="post-box{{$i+2}} col-sx-12 col-lg-6 col-md-6 col-sm-6 bg-images "> 
             <form  class="contact-website" action="" method="POST" role="form">
            

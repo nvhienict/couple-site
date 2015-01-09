@@ -1,6 +1,6 @@
 
 <div class="item">
-	<div class="masonry margin-partion" id="slide{{$i+2}}">
+	<div class="masonry margin-partion container" id="slide{{$i+2}}">
        	<h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
             {{$tabWeb->title}}
         </h3>

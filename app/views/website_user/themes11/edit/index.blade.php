@@ -1,26 +1,9 @@
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-    <meta name="author" content="Thuna.vn">
-
-    <title>{{$firstname}}'s wedding</title>
-
-    <script src="{{Asset('assets/js/jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
-    <script src="{{Asset("assets/js/map-themes.js")}}"></script>
-
-
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
-    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes11.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
-    <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
-
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
 
@@ -45,58 +28,80 @@
             vertical-align: middle;
         }
     </style>
-
-</head>
-<body>
     <script type="text/javascript">
         $('.carousel.slide').carousel({
             interval: 200000
-});
-    </script>
+        });
+            </script>
+
+</head>
+    
 @if($website)
     @foreach( $website as $website_item )
+    <nav style="padding:0px;" class="navbar navbar-default navbar-fixed-top navbar-main" role="navigation">
+       <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" 
+             data-target="#example-navbar-collapse">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+          </button>
+       </div>
+       <div class="collapse navbar-collapse" id="example-navbar-collapse">
+          <ul class="nav navbar-nav">
+             <li><a href="#" data-target="#myCarousel" data-slide-to="0" class="active">Trang Chủ</a></span></li>
+            @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $i=>$menu_tab)
+             <li id="{{$i+2}}" class="clink">
+                <a href="#" data-target="#myCarousel" data-slide-to="{{$i+1}}">{{$menu_tab->title}}</a>
+            </li>
+             @endforeach()
+            <li  class="dropdown" role="presentation">
+              <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                <span class="glyphicon glyphicon-wrench"></span><span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu setting-edit" role="menu">
+                  <li><a  href="{{URL::route('index')}}">Dashboard</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li><a target="_blank" href="{{URL::route('view-previous',array($id_tmp))}}">Xem trước</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li><a href="{{URL::route('change_temp')}}">Thay đổi giao diện</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li><a href="javascript:void(0);" data-toggle="modal" data-target="#change-bg-edit" data-backdrop="static">Thay đổi hình nền</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li><a href="javascript:void(0);" data-toggle="modal" data-target="#album-photo-user" data-backdrop="static">Album ảnh</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li><a onclick="loadURL()" href="javascript:void(0);" data-toggle="modal" data-target="#change-url-user">Cài đặt URL</a></li>
+              </ul>
+            </li>
 
-        <div class="row header navbar_edits" style="width: 75.5%; margin: 0px; padding-left: 0px; padding-right: 0px;  position: fixed;z-index: 1000;">
-                <!-- narbar -->
-            <nav class="navbar-main "  id="" >
-                <div class=" ">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 navbar-left nav-themes11">
-                        <ul style="padding-left: 0px;">
-                            <li style="padding-left: 5px; padding-right: 5px;"><a href="#" data-target="#myCarousel" data-slide-to="0" class="active" >Trang Chủ</a></li>
-                            @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $i=>$menu_tab)
-                            <li style="padding-left: 5px; padding-right: 5px;" id="{{$i+2}}" class="clink">
-                                <a href="#" data-target="#myCarousel" data-slide-to="{{$i+1}}">{{$menu_tab->title}}</a>
-                            </li>
-                            @endforeach()
-                        </ul>
-                        
-                    </div>                   
-                </div>
-            </nav>
-            <!-- end narbar -->
-        </div>
+              
+          </ul>
+       </div>
+    </nav>
 
     <div id="home" class="header">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" style="margin-top: 0px; top: 53px;">
             <div class="carousel-inner bg-slide" style="margin-top: 0px;">
 
                 <div class="item active">                   
-                    <div id="slide1" class="masonry margin-partion" style="min-height:480px;" >
+                    <div id="slide1" class="masonry container margin-partion" style="min-height:550px;" >
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <figure id="prev_outputcc222" class="text-center">
                                 <a href="#">
                                     @if(($website_item->avatar_groom))
-                                    <img  style="height:350px; width:350px;" class="img-responsive img-circle" src="{{Asset("$website_item->avatar_groom")}}">
+                                    <img  style="height:350px; width:350px; margin:0 auto;" class="img-responsive img-circle" src="{{Asset("$website_item->avatar_groom")}}">
                                     @else
-                                    <img  style="height:350px; width:350px;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/boy.jpg')}}">
+                                    <img  style="height:350px; width:350px;  margin:0 auto;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/boy.jpg')}}">
                                     @endif
                                 </a>
-                                <button onclick="send_id(null,222,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
+                                <button onclick="send_id(0,222)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
                             </figure>
-                            <h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-g">{{$website_item->name_groom}}</h3>
-                            <p class="about-g text-center">{{$website_item->about_groom}} </p>
+                            <h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-groom">{{$website_item->name_groom}}</h3>
+                            <p class="about-groom text-center">{{$website_item->about_groom}} </p>
+                            <div class="text-center icon-infor"><a onclick="editInforGroom()"data-toggle="modal" data-target="#edit-infor-groom" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a></div>
                         </div>
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
                             <hgroup>
                                 <h2 class="text-center" style="text-transform: uppercase; color: #{{$website_item->color1}}; font-family: {{$website_item->font}};"> Ours Wedding </h2>
                                 <h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-g">
@@ -123,15 +128,16 @@
                             <figure id="prev_outputcc111" class="theme-border-big border text-center">
                                     <a href="#">
                                         @if(($website_item->avatar_bride))
-                                        <img style="height:350px; width:350px;" class="img-responsive img-circle" src="{{Asset("$website_item->avatar_bride")}}">
+                                        <img style="height:350px; width:350px; margin:0 auto;" class="img-responsive img-circle" src="{{Asset("$website_item->avatar_bride")}}">
                                         @else
-                                        <img style="height:350px; width:350px;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/girl.jpg')}}">
+                                        <img style="height:350px; width:350px; margin:0 auto;" class="img-responsive img-circle" src="{{Asset('images/website/themes1/girl.jpg')}}">
                                         @endif
                                     </a>
-                                    <button onclick="send_id(null,111,1)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
+                                    <button onclick="send_id(0,111)"  data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi ảnh</button>
                                 </figure>
-                                <h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
-                                <p class="about-b text-center">{{$website_item->about_bride}}</p>
+                                <h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-tab title-bg name-bride">{{$website_item->name_bride}}</h3>
+                                <p class="about-bride text-center">{{$website_item->about_bride}}</p>
+                                <div class="text-center icon-infor"><a onclick="editInforBride()" data-toggle="modal" data-target="#edit-infor-bride" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a></div>
                         </div>
 
                     </div>
@@ -218,6 +224,3 @@
     </div>
     @endforeach
 @endif
-
-
-</body>

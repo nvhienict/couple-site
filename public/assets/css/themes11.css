@@ -177,3 +177,11 @@ footer {
     padding-bottom: 10px;
 }
 
+.navbar-nav >li >a{
+    color: #fff !important;
+
+}
+.navbar-nav >li >a:hover{
+    color: #19B5BC !important;
+}
+

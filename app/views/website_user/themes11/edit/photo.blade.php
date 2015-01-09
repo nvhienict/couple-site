@@ -1,5 +1,5 @@
  <div class="item">                  
-    <div id="slide{{$i+2}}" class="masonry  margin-partion">
+    <div id="slide{{$i+2}}" class="masonry container margin-partion">
         <div class="post-box{{$i+2}} col-sx-12 col-lg-12 col-md-12 col-sm-12"> 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <h3 class="title-tab TT{{$tabWeb->id}}" style="text-align: {{$tabWeb->titlestyle}} ;font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
@@ -40,14 +40,6 @@
         
        
         
-    </div>
-    <div class="row phara-margin">
-        <div class="col-xs-10">
-        </div>
-        <div class="col-xs-1 click-edit ">
-            
-            <span><a style="background: #19b5bc; border:none;" onclick="send_id_album({{$tab->id}})" class="btn btn-primary"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);">Tải ảnh lên</a></span>
-        </div>               
     </div>
     
 </div>

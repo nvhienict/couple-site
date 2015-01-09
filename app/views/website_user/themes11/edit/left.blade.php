@@ -1,5 +1,5 @@
 <div class="item" >                   
-    <div id="slide{{$i+2}}" class="masonry margin-partion" style="min-height:450px;" >
+    <div id="slide{{$i+2}}" class="masonry margin-partion container" style="min-height:450px;" >
         <div id="prev_output{{$tabWeb->id}}" class="post-box{{$i+2}} col-sx-12 col-lg-6 col-md-6 col-sm-6 bg-images "> 
             <a href="#">
                 <?php 
