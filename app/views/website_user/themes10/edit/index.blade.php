@@ -26,28 +26,6 @@
         e.preventDefault();
     });
 
-    function updateName()
-        {
-            var nameBride = $('input[name=name_bride]').val();
-            var nameGroom = $('input[name=name_groom]').val();
-            $.ajax({
-                type:"post",
-                dataType: "html",
-                url:"{{URL::route('updateName')}}",
-                data: {nameBride: nameBride,
-                        nameGroom: nameGroom},
-                success:function(data){
-                    var obj = JSON.parse(data);
-                    $('#topNameGroom').text(obj['name_groom']);
-                    $('#topNameBride').text(obj['name_bride']);
-                    $('#titleNameGroom').text(obj['name_groom']);
-                    $('#titleNameBride').text(obj['name_bride']);
-                }
-            });
-
-          
-        }
-
 </script>
 <body>
 @if($website)
@@ -69,8 +47,24 @@
                     @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tab)
                          <li class="menu-id{{$tab->id}}"><a href="#{{$tab->type}}" class="{{$tab->id}} TT{{$tab->id}}" role="tab" data-toggle="tab">{{$tab->title}}</a></li>                
                     @endforeach()
-                    <li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
-                    <li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
+                    <li  class="dropdown" role="presentation">
+                      <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                        <span class="glyphicon glyphicon-wrench"></span><span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu setting-edit" role="menu">
+                           <li><a  href="{{URL::route('index')}}">Dashboard</a></li>
+                          <li role="presentation" class="divider"></li>
+                          <li><a target="_blank" href="{{URL::route('view-previous',array($id_tmp))}}">Xem trước</a></li>
+                          <li role="presentation" class="divider"></li>
+                          <li><a href="{{URL::route('change_temp')}}">Thay đổi giao diện</a></li>
+                          <li role="presentation" class="divider"></li>
+                          <li><a href="javascript:void(0);" data-toggle="modal" data-target="#change-bg-edit" data-backdrop="static">Thay đổi hình nền</a></li>
+                          <li role="presentation" class="divider"></li>
+                          <li><a href="javascript:void(0);" data-toggle="modal" data-target="#album-photo-user" data-backdrop="static">Album ảnh</a></li>
+                          <li role="presentation" class="divider"></li>
+                          <li><a onclick="loadURL()" href="javascript:void(0);" data-toggle="modal" data-target="#change-url-user">Cài đặt URL</a></li>
+                      </ul>
+                    </li>
               </ul>
            </div>
         
@@ -125,9 +119,9 @@
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 image-title-temp text-center">
 				<img style="position: relative;" class="img-responsive" src="{{Asset("images/website/themes10/temp_title.png")}}" alt="">
 				<h3 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 section-title" id="showName" >
-					<span class="name-g"  id="topNameGroom">{{$website_item->name_groom}}</span>
+					<span class="name-groom"  id="topNameGroom">{{$website_item->name_groom}}</span>
 						<em>&</em>
-					<span class="name-b" id="topNameBride">{{$website_item->name_bride}}</span>
+					<span class="name-bride" id="topNameBride">{{$website_item->name_bride}}</span>
 					
 				</h3>
 				
