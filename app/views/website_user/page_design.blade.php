@@ -145,7 +145,7 @@
 </script>
 
 <!-- upload ajax phototab -->
-	<div class="modal fade" id="modal-changeimage">
+	<div class="modal fade" id="modal-changeimage" style="z-index:9999;">
 		<div class="modal-dialog modal-md">
 			<div class="modal-content ">
 				<div class="modal-header">
@@ -498,9 +498,11 @@
 					if (check_vc == 111) {
 						$("#prev_outputcc111 a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");
 						$("#prev_output111 a").html("<img class='img-responsive' src='"+data.image+"' />");
+						$("#prev_output_theme9_b a").html("<img 'width:100% class='img-responsive' src='"+data.image+"' />");
 					} else{
 						$("#prev_outputcc222 a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");
 						$("#prev_output222 a").html("<img class='img-responsive' src='"+data.image+"' />");
+						$("#prev_output_theme9_g a").html("<img 'width:100% class='img-responsive' src='"+data.image+"' />");
 					};
 				} else{
 					$("#prev_output"+check_tab+" a").html("<img style='width:100%; height:100%;' class='img-responsive' src='"+data.image+"' />");

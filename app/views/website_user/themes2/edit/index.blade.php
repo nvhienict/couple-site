@@ -86,7 +86,7 @@
 								@endif
 							</a> 						
 			            </span>
-			            <div class="text-center"><button onclick="send_id(0,111)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button></div>
+			            <button onclick="send_id(0,111)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' type="button" class="btn btn-primary btn-responsive">Đổi ảnh</button>		
 
 		  				<div class="about-bride text-center">
 							{{$website_item->about_bride}}
@@ -157,7 +157,7 @@
 								@endif
 							</a>	
 		  				</span>
-		  				<div class="text-center"><button onclick="send_id(0,222)" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button></div>
+		  				<button onclick="send_id(0,222)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' type="button" class="btn btn-primary btn-responsive">Đổi ảnh</button>		
 			           				            
 		  				<div class="about-groom text-center">
 							{{$website_item->about_groom}}
