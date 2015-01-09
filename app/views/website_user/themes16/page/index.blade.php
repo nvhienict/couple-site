@@ -5,16 +5,16 @@
 
 		<title>{{$firstname}}'s wedding</title>
 
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
+    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes16.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
+    
     <script src="{{Asset('assets/js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="{{Asset("assets/js/map-themes.js")}}"></script>
 
     <script src="{{Asset("assets/js/themes16.js")}}"></script>
-
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
-    <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes16.css")}}">
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
 
@@ -199,7 +199,7 @@
 
 			@endif
 
-			@if($tabWeb->type=="love_story")
+			<!-- @if($tabWeb->type=="love_story")
 
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="section_{{$tabWeb->type}}">
 				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
@@ -217,11 +217,11 @@
                <p class="collapse" id="viewdetails2"><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
                 <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails2">Xem thêm &raquo;</a></p>
 			</div>
-			@endif
+			@endif -->
 
 			@if($tabWeb->type=="about")
 
-			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-r" id="section_{{$tabWeb->type}}">
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l" id="section_{{$tabWeb->type}}">
 				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
 	        		{{$tabWeb->title}}
 	       		 </h3>
@@ -238,13 +238,7 @@
                 <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails3">Xem thêm &raquo;</a></p>
 			</div>
 			@endif
-		@endforeach	
-		</div>
 
-		<hr class="container">
-
-		<div class="container">
-		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
 			@if($tabWeb->type=="wedding" )
 
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l" id="section_{{$tabWeb->type}}">
@@ -264,8 +258,15 @@
                 <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails4">Xem thêm &raquo;</a></p>
 			</div>
 			@endif
+		@endforeach	
+		</div>
 
-			@if($tabWeb->type=="traval")
+		<hr class="container">
+
+		<div class="container">
+		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
+
+			<!-- @if($tabWeb->type=="traval")
 
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="section_{{$tabWeb->type}}">
 				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
@@ -283,18 +284,18 @@
                 <p class="collapse" id="viewdetails5"><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
                 <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails5">Xem thêm &raquo;</a></p>
 			</div>
-			@endif
+			@endif -->
 
 			 @if($tabWeb->type=="album" )
 
-			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-r" id="section_{{$tabWeb->type}}">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-r" id="section_{{$tabWeb->type}}">
 				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
 		        	{{$tabWeb->title}}
 		        </h3>
 				<?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
 		            @if($albums)
 		                @foreach($albums as $album)
-		                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 images-padding">
+		                    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3 images-padding">
 		                        <a class="fancybox" href="{{Asset("{$album->photo}")}}">
 		                            <img class="img-responsive" style="width:100%;height:150px;" src="{{Asset("{$album->photo}")}}" alt="" />
 		                        </a>
