@@ -16,7 +16,7 @@ Dashboard
 		
 		@for($i=1; $i<=21; $i++)
 			<div class="col-sm-6 col-lg-4 col-md-4 col-xs-12" style="margin-bottom: 2%">
-				<a href="{{URL::route('template-website', array('id'=>"{$i}"))}}" style="outline: none">
+				<a href="{{URL::route('header-website', array('id'=>"{$i}"))}}" style="outline: none">
 					<img style="width: 100%; height: 300px " src="{{Asset("images/website/tmp/{$i}.jpg")}}">
 				</a>
 			</div>

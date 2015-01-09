@@ -36,14 +36,14 @@
 	text-align: center;
 	font-family: "UVF Aphrodite Pro";
 }
-.name-bride {
+.name-bride,.btn-name-bride {
 	position: relative;
 	z-index: 100;
 	top: -97px;
 	left: 0;
 	/*margin-left: 5px;*/
 }
-.name-groom{
+.name-groom,.btn-name-groom{
 	position: relative;
 	z-index: 100;
 	top: -97px;

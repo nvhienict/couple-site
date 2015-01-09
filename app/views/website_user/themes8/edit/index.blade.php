@@ -13,89 +13,6 @@
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 	<script src="{{Asset("assets/js/map-themes.js")}}"></script>
-		 
-	
-
-	<script type="text/javascript">
-		function edit_about_bride()
-		{
-			$('.edit_ctn_about_bride').show();
-			$('.about_bride').hide();
-		}
-		function update_about_bride()
-		{
-			$.ajax({
-				type:"post",
-				dataType: "html",
-				url:"{{URL::route('update_about_bride')}}",
-				data: {	content:CKEDITOR.instances['edit_about_bride'].getData()
-					},
-				success:function(data){
-					var obj = JSON.parse(data);
-					$('.about_bride').html(obj.content);
-				}
-			});
-
-			$('.edit_ctn_about_bride').hide();
-			$('.about_bride').show();
-		}
-		function exit_edit_about_bride()
-		{
-			$('.edit_ctn_about_bride').hide();
-			$('.about_bride').show();
-		}
-
-
-		function edit_about_groom()
-		{
-			$('.edit_ctn_about').show();
-			$('.about_groom').hide();
-		}
-		function update_about_groom()
-		{
-			$.ajax({
-				type:"post",
-				dataType: "html",
-				url:"{{URL::route('update_about_groom')}}",
-				data: {	content:CKEDITOR.instances['edit_about_groom'].getData()
-					},
-				success:function(data){
-					var obj = JSON.parse(data);
-					$('.about_groom').html(obj.content);
-				}
-			});
-
-			$('.edit_ctn_about').hide();
-			$('.about_groom').show();
-		}
-		function exit_edit_about_groom()
-		{
-			$('.edit_ctn_about').hide();
-			$('.about_groom').show();
-		}
-
-		
-		function updateName()
-		{
-			var nameBride = $('input[name=name_bride]').val();
-			var nameGroom = $('input[name=name_groom]').val();
-			$.ajax({
-				type:"post",
-				dataType: "html",
-				url:"{{URL::route('updateName')}}",
-				data: {nameBride: nameBride,
-						nameGroom: nameGroom},
-				success:function(data){
-					var obj = JSON.parse(data);
-					$('.name-groom-edit').html(obj['name_bride']);
-					$('.name-bride').html(obj['name_groom']);
-				}
-			});
-
-		}
-	</script>
-
-
 </head>
 
 @if($website)
@@ -112,11 +29,18 @@
 			</div>
 
 			<div class="name-bride col-xs-6">
-				{{WebsiteController::cutName($website_item->name_groom)}}
+				{{WebsiteController::cutName($website_item->name_bride)}}
 			</div>
 
 			<div class="name-groom col-xs-6">
-				{{WebsiteController::cutName($website_item->name_bride)}}
+				{{WebsiteController::cutName($website_item->name_groom)}}
+			</div>
+			<div class="btn-name-bride text-center col-xs-6">
+				<a onclick="editInforBride()" data-toggle="modal" data-target="#edit-infor-bride" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a>
+			</div>
+
+			<div class="text-center btn-name-groom col-xs-6">
+				<a onclick="editInforGroom()"data-toggle="modal" data-target="#edit-infor-groom" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a>
 			</div>
 		</div>
 		<!-- end logo -->
@@ -150,9 +74,25 @@
 						    	<li class="li-menu-edit-2 menu-id{{$tab->id}}"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
 						    	@endif
 						    @endforeach
-						  		 <li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
-        						 <li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
 					    </ul>
+				    <li  class="dropdown" role="presentation">
+			          <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+			            <span class="glyphicon glyphicon-wrench"></span><span class="caret"></span>
+			          </a>
+			          <ul class="dropdown-menu setting-edit" role="menu">
+			              <li><a  href="{{URL::route('index')}}">Dashboard</a></li>
+			              <li role="presentation" class="divider"></li>
+			              <li><a target="_blank" href="{{URL::route('view-previous',array($id_tmp))}}">Xem trước</a></li>
+			              <li role="presentation" class="divider"></li>
+			              <li><a href="{{URL::route('change_temp')}}">Thay đổi giao diện</a></li>
+			              <li role="presentation" class="divider"></li>
+			              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#change-bg-edit" data-backdrop="static">Thay đổi hình nền</a></li>
+			              <li role="presentation" class="divider"></li>
+			              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#album-photo-user" data-backdrop="static">Album ảnh</a></li>
+			              <li role="presentation" class="divider"></li>
+			              <li><a onclick="loadURL()" href="javascript:void(0);" data-toggle="modal" data-target="#change-url-user">Cài đặt URL</a></li>
+			          </ul>
+			        </li>
 					</li>
 		      	</ul>
 		   	</div>
