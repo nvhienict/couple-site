@@ -91,15 +91,6 @@
 
 		}
 		
-
-		jQuery(document).ready(function($) {
-	    // Call & Apply function scrollTo
-	    $('a.scrollTo').click(function () {
-	        $('.design_website_content_right').scrollTo($(this).attr('href'),{duration:'slow', offsetTop : '-10'});
-	        return false;
-	    });
-	});
-
 	</script>
 	
 </head>
@@ -133,7 +124,7 @@
 						      		<li class="li-menu-edit menu-id{{$tab->id}}"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
 						      		@endif
 						      	@endforeach
-						      		<li ><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
+						      		
 					      	</ul>
 					      	
 					   	</div>
@@ -159,7 +150,24 @@
 						      		<li class="li-menu-edit menu-id{{$tab->id}}"><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" data-toggle="tab">{{$tab->title}}</a></li>
 						      		@endif
 						      	@endforeach
-						      	 	<li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
+						      	 	<li  class="dropdown" role="presentation">
+							          <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+							            <span class="glyphicon glyphicon-wrench"></span><span class="caret"></span>
+							          </a>
+							          <ul class="dropdown-menu setting-edit" role="menu">
+							              <li><a  href="{{URL::route('index')}}">Dashboard</a></li>
+							              <li role="presentation" class="divider"></li>
+							              <li><a target="_blank" href="{{URL::route('view-previous',array($id_tmp))}}">Xem trước</a></li>
+							              <li role="presentation" class="divider"></li>
+							              <li><a href="{{URL::route('change_temp')}}">Thay đổi giao diện</a></li>
+							              <li role="presentation" class="divider"></li>
+							              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#change-bg-edit" data-backdrop="static">Thay đổi hình nền</a></li>
+							              <li role="presentation" class="divider"></li>
+							              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#album-photo-user" data-backdrop="static">Album ảnh</a></li>
+							              <li role="presentation" class="divider"></li>
+							              <li><a onclick="loadURL()" href="javascript:void(0);" data-toggle="modal" data-target="#change-url-user">Cài đặt URL</a></li>
+							          </ul>
+							        </li>
 					      	</ul>
 					      	
 					   	</div>
@@ -185,9 +193,9 @@
 
 			<div class="menu-heart" id="home">
 				<div class="groom">
-					<span id="prev_output222">
+					<span id="prev_output_theme12_g">
   						<a href="#">
-							@if(!empty($website_item->avatar_bride))
+							@if(!empty($website_item->avatar_groom))
 			  					<img class="img-circle" src="{{Asset("$website_item->avatar_groom")}}">
 							@else
 								<img class="img-circle" src="{{Asset('images/website/themes12/groom.png')}}">
@@ -195,11 +203,12 @@
 						</a>
 						
 					</span>
+					<button  style="margin-left: 25%" onclick="send_id(0,222)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' type="button" class="btn btn-primary btn-responsive">Đổi ảnh</button>		
 				</div>
 				<!-- end groom -->
 				
 				<div class="bride">
-					<span id="prev_output111">
+					<span id="prev_output_theme12_b">
   						<a href="#">
 							@if(!empty($website_item->avatar_bride))
 			  					<img class="img-circle" src="{{Asset("$website_item->avatar_bride")}}">
@@ -209,6 +218,7 @@
 						</a>
 						
 					</span>
+					<button style="margin-left: 48%" onclick="send_id(0,111)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' type="button" class="btn btn-primary btn-responsive">Đổi ảnh</button>		
 				</div>
 				<!-- end bride -->
 
