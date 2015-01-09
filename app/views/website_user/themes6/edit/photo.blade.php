@@ -89,16 +89,6 @@
                         </div>
                    
                 @endif
-           
-
-             <div class="row phara-margin float-right">
-            
-                <div class="click-edit click-edit-hide " >
-                     
-                    <span><a style="background: #19b5bc; border:none;" onclick="send_id_album({{$tab->id}})" class="btn btn-primary"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);">Tải ảnh lên</a></span>
-                </div>
-            </div>
-            
    
      </div>     
 <br>
