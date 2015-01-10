@@ -501,12 +501,14 @@
 						$("#prev_output_theme9_b a").html("<img 'width:100% class='img-responsive' src='"+data.image+"' />");
 						$("#prev_output_theme12_b a").html("<img  class='img-circle' src='"+data.image+"' />");
 						$("#prev_output_theme16_b a").html("<img  class='img-responsive img-infor ' src='"+data.image+"' />");
+						$("#prev_output_theme19_b a").html("<img  class='img-responsive img-infor img-circle' src='"+data.image+"' />");
 					} else{
 						$("#prev_outputcc222 a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");
 						$("#prev_output222 a").html("<img class='img-responsive' src='"+data.image+"' />");
 						$("#prev_output_theme9_g a").html("<img 'width:100% class='img-responsive' src='"+data.image+"' />");
 						$("#prev_output_theme12_g a").html("<img  class='img-circle' src='"+data.image+"' />");
 						$("#prev_output_theme16_g a").html("<img  class='img-responsive img-infor' src='"+data.image+"' />");
+						$("#prev_output_theme19_g a").html("<img  class='img-responsive img-infor img-circle' src='"+data.image+"' />");
 					};
 				} else{
 					$("#prev_output"+check_tab+" a").html("<img style='width:100%; height:100%;' class='img-responsive' src='"+data.image+"' />");

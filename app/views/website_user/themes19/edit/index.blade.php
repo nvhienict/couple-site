@@ -195,8 +195,24 @@
                     @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
                      <li class="menu-id{{$menu_tab->id}}"><a class="a_menu scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a></li>
                      @endforeach()
-                    <li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
-                    <li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
+                    <li  class="dropdown" role="presentation">
+                          <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                            <span class="fa fa-wrench"></span><span class="caret"></span>
+                          </a>
+                          <ul class="dropdown-menu setting-edit" role="menu">
+                              <li><a  href="{{URL::route('index')}}">Dashboard</a></li>
+                              <li role="presentation" class="divider"></li>
+                              <li><a target="_blank" href="{{URL::route('view-previous',array($id_tmp))}}">Xem trước</a></li>
+                              <li role="presentation" class="divider"></li>
+                              <li><a href="{{URL::route('change_temp')}}">Thay đổi giao diện</a></li>
+                              <li role="presentation" class="divider"></li>
+                              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#change-bg-edit" data-backdrop="static">Thay đổi hình nền</a></li>
+                              <li role="presentation" class="divider"></li>
+                              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#album-photo-user" data-backdrop="static">Album ảnh</a></li>
+                              <li role="presentation" class="divider"></li>
+                              <li><a onclick="loadURL()" href="javascript:void(0);" data-toggle="modal" data-target="#change-url-user">Cài đặt URL</a></li>
+                          </ul>
+                    </li>
                   </ul>
                </div>
             </nav>
@@ -205,9 +221,9 @@
         <!-- header infor -->
             <div class="row" id="title_home">
                 <div class="header-name">
-                    <h1 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-g">{{$website_item->name_groom}}</h1>
+                    <h1 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-groom">{{$website_item->name_groom}}</h1>
                     <h1><span class="fa fa-heart myheart"></span></h1>
-                    <h1 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-b">{{$website_item->name_bride}}</h1>
+                    <h1 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-bride">{{$website_item->name_bride}}</h1>
                     <h4>ARE GETTING MARRIED!</h4>
                     <h4>on</h4>
                     <h3 class="text-center title-tab" style="color: #{{$website_item->color1}}">
@@ -224,7 +240,7 @@
             <div class="row">
                 
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 infor text-center"  >
-                    <div id="prev_output_theme19_222">
+                    <div id="prev_output_theme19_g">
                     <a href="#">
                         @if(($website_item->avatar_groom))
                         <img style="margin-left:5%;"  class="img-responsive img-circle img-infor" src="{{Asset("$website_item->avatar_groom")}}">
@@ -233,9 +249,11 @@
                         @endif
                     </a>
                     </div>
+                    <button onclick="send_id(0,222)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' type="button" class="btn btn-primary btn-responsive">Đổi ảnh</button>
                     
-                    <h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-g">{{$website_item->name_groom}}</h3>
-                    <p class="about-g text-center">{{$website_item->about_groom}} </p>
+                    <h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-groom">{{$website_item->name_groom}}</h3>
+                    <p class="about-groom text-center">{{$website_item->about_groom}} </p>
+                    <div class="text-center icon-infor"><a onclick="editInforGroom()"data-toggle="modal" data-target="#edit-infor-groom" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a></div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 infor-slide">
                     <!-- slide image -->
@@ -275,18 +293,20 @@
                     <!-- end slide images -->
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 infor text-center" >
-                    <div id="prev_output_theme19_111">
+                    <div id="prev_output_theme19_b">
                     <a href="#">
                         @if(($website_item->avatar_bride))
-                        <img style="margin-left:5%;" class="img-responsive img-circle img-infor" src="{{Asset("$website_item->avatar_bride")}}">
+                        <img  class="img-responsive img-circle img-infor" src="{{Asset("$website_item->avatar_bride")}}">
                         @else
-                        <img style="margin-left:5%;" class="img-responsive img-circle img-infor" src="{{Asset('images/website/themes1/boy.jpg')}}">
+                        <img  class="img-responsive img-circle img-infor" src="{{Asset('images/website/themes1/boy.jpg')}}">
                         @endif
                     </a>
                     </div>
+                    <button onclick="send_id(0,111)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' type="button" class="btn btn-primary btn-responsive">Đổi ảnh</button>
                     
-                    <h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-b">{{$website_item->name_bride}}</h3>
-                    <p class="about-g text-center">{{$website_item->about_bride}} </p>
+                    <h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-bride">{{$website_item->name_bride}}</h3>
+                    <p class="about-bride text-center">{{$website_item->about_bride}} </p>
+                    <div class="text-center icon-infor"><a onclick="editInforBride()" data-toggle="modal" data-target="#edit-infor-bride" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a></div>
                 </div>
             </div>
             <!-- end header infor -->
