@@ -79,19 +79,6 @@
             
             @endif
         </div>
-        <div class="row phara-margin">
-            <div class="col-xs-11"></div>
-            <div class="col-xs-1 click-edit ">
-                <span><a onclick="send_id_album({{$tabWeb->id}})" class="glyphicon glyphicon-edit icon-site"  data-toggle="modal" data-target='#modal-up_images' href="javascript:void(0);"></a></span>
-            </div>               
-        </div>
-        <div class="row phara-margin">
-            <div class="col-xs-10"></div>
-            <div class="col-xs-2 ok-edit ">
-                <span><a class="glyphicon glyphicon-ok icon-site" href="javascript:void(0);"></a></span>
-                <span><a class=" glyphicon glyphicon-remove icon-site" href="javascript:void(0);"></a></span>
-            </div>
-        </div> 
     </div>
 </div>
 

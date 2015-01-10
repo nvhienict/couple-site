@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes18-edit.css")}}">
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
 	<script type="text/javascript">
@@ -166,8 +167,25 @@
 							    @endforeach
 						    </ul>
 						</span>
-						 <span><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></span>
-        				 <span><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></span>
+						<span  class="dropdown" role="presentation">
+				          <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+				            <span class="glyphicon glyphicon-wrench"></span><span class="caret"></span>
+				          </a>
+				          <ul class="dropdown-menu setting-edit" role="menu">
+				              <li><a  href="{{URL::route('index')}}">Dashboard</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a target="_blank" href="{{URL::route('view-previous',array($id_tmp))}}">Xem trước</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a href="{{URL::route('change_temp')}}">Thay đổi giao diện</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#change-bg-edit" data-backdrop="static">Thay đổi hình nền</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#album-photo-user" data-backdrop="static">Album ảnh</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a onclick="loadURL()" href="javascript:void(0);" data-toggle="modal" data-target="#change-url-user">Cài đặt URL</a></li>
+				          </ul>
+				        </span>
+
 						
 			      	</ul>
 			      	
