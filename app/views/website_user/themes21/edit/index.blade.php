@@ -6,55 +6,6 @@
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
-	<script type="text/javascript">
-		function showckeditor(id){
-		        var text=$('.phara'+id).html();
-		        $('.phara'+id).hide();
-		        CKEDITOR.instances['editor'+id].setData(text);
-
-		        $('.editphara'+id).addClass("col-xs-6");
-		        $('.editphara'+id).show();
-		        $('.click-edit-hide'+id).hide();
-		        $('.ok-edit-show'+id).show();
-		    }
-		function showckeditor_text(id){
-		        var text=$('.phara'+id).html();
-		        $('.phara'+id).hide();
-		        CKEDITOR.instances['editor'+id].setData(text);
-
-		        $('.editphara'+id).addClass("col-xs-12");
-		        $('.editphara'+id).show();
-		        $('.click-edit-hide'+id).hide();
-		        $('.ok-edit-show'+id).show();
-		    }
-		function updateckeditor(id){
-			//var t= CKEDITOR.instances['editor4'].getData();alert(t);
-			$.ajax({
-				type:"post",
-				dataType: "html",
-				url:"{{URL::route('update_content_tab')}}",
-				data: {	content:CKEDITOR.instances['editor'+id].getData(),
-						id_tab:$('.get_id'+id).val()
-					},
-				success:function(data){
-					var obj = JSON.parse(data);
-					$('.phara'+id).html(obj.content);	
-				}
-			});
-				$('.editphara'+id).hide();
-				$('.phara'+id).show();
-				$('.click-edit-hide'+id).show();
-		        $('.ok-edit-show'+id).hide();
-		}  
-		function exitckeditor(id){
-				$('.editphara'+id).hide();
-				$('.phara'+id).show();
-				$('.click-edit-hide'+id).show();
-		        $('.ok-edit-show'+id).hide();
-		} 
-
-		
-	</script>
 
 </head>
 
@@ -274,8 +225,24 @@
 			      	 	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $tab)
 			      	 		<li class="menu-id{{$tab->id}}"><a style="font-size: 12px;" class="{{$tab->id}} TT{{$tab->id}} {{$tab->type}}" href="javascript:void(0);" >{{$tab->title}}</a></li>
 			      	 	@endforeach
-			      	 	 <li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
-       					  <li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
+			      	 	 <li  class="dropdown" role="presentation">
+				          <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+				            <span class="fa fa-wrench"></span><span class="caret"></span>
+				          </a>
+				          <ul class="dropdown-menu setting-edit" role="menu" style="margin-top:-564%;">
+				              <li><a  href="{{URL::route('index')}}">Dashboard</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a target="_blank" href="{{URL::route('view-previous',array($id_tmp))}}">Xem trước</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a href="{{URL::route('change_temp')}}">Thay đổi giao diện</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#change-bg-edit" data-backdrop="static">Thay đổi hình nền</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#album-photo-user" data-backdrop="static">Album ảnh</a></li>
+				              <li role="presentation" class="divider"></li>
+				              <li><a onclick="loadURL()" href="javascript:void(0);" data-toggle="modal" data-target="#change-url-user">Cài đặt URL</a></li>
+				          </ul>
+				        </li>
 			      	 	<script type="text/javascript" src="{{Asset("assets/js/themes21.js")}}"></script>
 			     	 </ul>
 			   </div>
