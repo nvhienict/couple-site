@@ -663,3 +663,9 @@ a.contact-admin:hover{
 .infor-check-url{
 	margin-top: 2%;
 }
+#modal-edit h3 {
+	color: #E75292;
+}
+#modal-edit-menu h4 {
+	color: #E75292;
+}
