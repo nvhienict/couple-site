@@ -195,7 +195,7 @@ Trang chủ
 		      	<div class="row">
 			      	<div class="col-md-12">
 			          	<div class="form-group">
-			            	<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Địa chỉ email" tabindex="4" autofocus>
+			            	<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Địa chỉ email" tabindex="1" autofocus>
 			            	@foreach ($errors->get('email') as $message)
 			              		<p class="text-left alert alert-danger" style="color: #ffffff">{{$message}}</p>
 			            	@endforeach
@@ -206,7 +206,7 @@ Trang chủ
 		        	<div class="col-md-12">
 		          
 			            <div  class="input-append form-group">
-			              <input data-format="yyyy-MM-dd" type="text" readonly name="weddingdate" id="weddingdate" class="form-control input-lg " placeholder="Ngày cưới" tabindex="3">
+			              <input data-format="yyyy-MM-dd" type="text" readonly name="weddingdate" id="weddingdate" class="form-control input-lg " placeholder="Ngày cưới" tabindex="2">
 			              <script type="text/javascript">
 			                    $('#weddingdate').bind("mousewheel", function() {
 			                     return false;
@@ -230,7 +230,7 @@ Trang chủ
 		      	<div class="row">
 			        <div class="col-md-12">
 			          <div class="form-group">
-			            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Mật khẩu" tabindex="5">
+			            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Mật khẩu" tabindex="3">
 			            @foreach ($errors->get('password') as $message)
 			              <p class="text-left alert alert-danger" style="color: #ffffff">{{$message}}</p>
 			            @endforeach
@@ -238,7 +238,7 @@ Trang chủ
 			        </div>
 			        <div class="col-md-12">
 			          <div class="form-group">
-			            <input type="password" name="password_confirm" id="password_confirm" class="form-control input-lg" placeholder="Xác nhận mật khẩu" tabindex="6">
+			            <input type="password" name="password_confirm" id="password_confirm" class="form-control input-lg" placeholder="Xác nhận mật khẩu" tabindex="4">
 			            @foreach ($errors->get('password_confirm') as $message)
 			              <p class="text-left alert alert-danger" style="color: #ffffff">{{$message}}</p>
 			            @endforeach
@@ -249,7 +249,7 @@ Trang chủ
 		      	<div class="row">
 		        	<div class="col-md-12">
 		        		<div class="form-group">
-		        			<button type="submit" class="btn btn-primary btn-register">Đăng ký</button>
+		        			<button type="submit" class="btn btn-primary btn-register" tabindex="5">Đăng ký</button>
 					      	<a href="{{URL::to('login/facebook')}}" class="btn btn-social btn-facebook bn-login-fb-index">
 						      <i class="fa fa-facebook"></i> Login Facebook
 						    </a>

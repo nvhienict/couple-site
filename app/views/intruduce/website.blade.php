@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-Công cụ lập kế hoạch
+Webite cưới
 @endsection
 @section('nav-bar')
 @include('nav')
