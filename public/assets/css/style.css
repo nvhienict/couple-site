@@ -103,6 +103,9 @@ a:focus {  text-decoration: none !important; }
 	margin: 0 auto !important;
 	width: 100%;
 }
+.navbar-nav {
+	padding-left: 17%;
+}
 .navbar-nav > li {
 	text-align: center;
 	position: relative;
@@ -113,10 +116,13 @@ a:focus {  text-decoration: none !important; }
 	color: #FFFFFF !important;
 	outline: none;
 	font-family: "MyriadPro-Regular";
+	white-space: nowrap;
 }
 .navbar-nav > li > a:hover { background-color: #a7254f !important; }
 .navbar-nav > li > a:hover span.txt-menu { display: none; }
-.icon-hover, .icon-hover-music, .icon-hover-home, .icon-hover-website {
+.icon-hover, .icon-hover-music,
+.icon-hover-home, .icon-hover-website,
+.icon-hover-planning-tool {
 	height: 0px;
     width: 0px;
 }
@@ -132,6 +138,7 @@ a:focus {  text-decoration: none !important; }
 .navbar-nav > li > a:hover img.icon-hover-music { margin: 0 15px; }
 .navbar-nav > li > a:hover img.icon-hover-home { margin: 0 40px; }
 .navbar-nav > li > a:hover img.icon-hover-website { margin: 0 50px; }
+.navbar-nav > li > a:hover img.icon-hover-planning-tool { margin: 0 90px; }
 
 .lr-bottom-menu {
 	background: url(../../icon/lr-menu.png) no-repeat;
@@ -188,6 +195,7 @@ a.brand {
 }
 .des-index-tool {
 	background-color: #FFFFFF;
+	padding: 10px;
 }
 
 /* cam nhan khach hang
@@ -484,6 +492,7 @@ hr.bold {
 	}
 	.navbar-nav {
 	    float: none!important;
+	    padding-left: 0 !important;
 	}
 	.navbar-nav>li {
 	    float: none;
@@ -517,9 +526,9 @@ hr.bold {
 	.navbar-header {
 		padding:0;
 	}
-	/*.navbar-header button {
-		background: #E75280;
-	}*/
+	.navbar-header button {
+		background: #E3E1E1;
+	}
 	
 	.navbar-header button.navbar-toggle {
 		padding: 10px 15px;

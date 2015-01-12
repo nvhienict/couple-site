@@ -25,7 +25,22 @@ Trang chủ
 		      			<span class="txt-menu">Trang chủ</span>
  		      		</a>
 		      	</li>
-		      	<li><a href="{{URL::route('guest-list')}}" title="Danh sách khách mời">
+		      	<li><a href="{{URL::to('website-introduce')}}" title="Website cưới">
+		        		<img class="icon-hover-website" src="{{Asset('icon/Quanlyngansach.png')}}">
+		        		<span class="txt-menu">Website cưới</span>
+		        	</a>
+		        </li>
+		      	<li><a href="{{URL::to('planning-tool')}}" title="Công cụ lập kế hoạnh">
+		      			<img class="icon-hover-planning-tool" src="{{Asset('icon/notepad-icon.png')}}">
+		      			<span class="txt-menu">Công cụ lập kế hoạch</span>
+ 		      		</a>
+		      	</li>
+		        <!-- <li><a href="{{URL::route('website')}}" title="Website cưới">
+		        		<img class="icon-hover-website" src="{{Asset('icon/Quanlyngansach.png')}}">
+		        		<span class="txt-menu">Website cưới</span>
+		        	</a>
+		        </li>
+		        <li><a href="{{URL::route('guest-list')}}" title="Danh sách khách mời">
 		      			<img class="icon-hover" src="{{Asset('icon/DSKM.png')}}">
 		      			<span class="txt-menu">Danh sách khách mời</span>
 		      		</a>
@@ -39,12 +54,7 @@ Trang chủ
 		        		<img class="icon-hover" src="{{Asset('icon/Congculapkehoach.png')}}">
 		        		<span class="txt-menu">Quản lý ngân sách</span>
 		        	</a>
-		        </li>
-		        <li><a href="{{URL::route('website')}}" title="Website cưới">
-		        		<img class="icon-hover-website" src="{{Asset('icon/Quanlyngansach.png')}}">
-		        		<span class="txt-menu">Website cưới</span>
-		        	</a>
-		        </li>
+		        </li> -->
 		      	<li class="dropdown">
 			        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown" title="Âm nhạc">
 						<img class="icon-hover-music" src="{{Asset('icon/musical7.png')}}">
@@ -322,18 +332,25 @@ Trang chủ
 	</div>
 </div>
 
-<div id="load-content" class="tab-content tab-content-index">
+<div id="load-content" class="tab-content tab-content-index" style="margin-bottom: 50px;">
 	<div role="tabpanel" class="tab-pane active" id="checklist">
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 des-index-tool">
-				<h5 class="introduce-index">Thuận lợi, sắp xếp một cách khoa học, chính xác thời gian trước ngày cưới...</h5>
+				<h5 class="introduce-index">
+					<p>Công cụ cung cấp cho cô dâu và chú rể danh sách những công việc 
+					cần làm trước ngày cưới, chi tiết và gần như đầy đủ.</p>
+					<p>Thuận lợi, sắp xếp một cách khoa học: theo tháng và theo danh mục</p>
+					<p>Có thể thêm, xóa, sửa nội dung từng công việc cụ thể</p>
+					<p>In báo cáo bằng file Excel để dễ lưu trữ và kiểm tra tốt hơn</p>
+				</h5>
 				<h6 class="use-now">
-					<a class="btn btn-success btn-sm" href="{{URL::route('user-checklist')}}" >Sử dụng ngay</a>
+					<a class="btn btn-success btn-sm" href="{{URL::route('user-checklist')}}" >Miễn phí! Sử dụng ngay</a>
 				</h6>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<img class="img-responsive" src="{{Asset('images/tool/checklist.png')}}">
 			</div>
+
 		</div>
 	</div>
   	<div role="tabpanel" class="tab-pane" id="budget">
@@ -342,9 +359,12 @@ Trang chủ
 				<img class="img-responsive" src="{{Asset('images/tool/budget.png')}}">
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 des-index-tool">
-				<h5 class="introduce-index">Sử dụng dễ dàng, tính toán một cách chính xác, phân bố ngân sách chi tiết, hợp lý...</h5>
+				<h5 class="introduce-index">
+					<p>Sử dụng dễ dàng, tính toán một cách chính xác, phân bố ngân sách chi tiết, hợp lý.</p>
+
+				</h5>
 				<h6 class="use-now">
-					<a class="btn btn-success btn-sm" href="{{URL::route('budget')}}" >Sử dụng ngay</a>
+					<a class="btn btn-success btn-sm" href="{{URL::route('budget')}}" >Miễn phí! Sử dụng ngay</a>
 				</h6>
 			</div>
 		</div>
@@ -355,9 +375,14 @@ Trang chủ
 				<img class="img-responsive" src="{{Asset('images/tool/guestlist.png')}}">
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 des-index-tool">
-				<h5 class="introduce-index">Có thể thêm nhóm khách, từng khách riêng lẻ, kiểm tra tình trạng khách mời cho buổi tiệc, thật tiện ích...</h5>
+				<h5 class="introduce-index">
+					<p>Có thể thêm nhóm khách, từng khách riêng lẻ.</p>
+					<p>Kiểm tra tình trạng khách mời cho buổi tiệc: đã mời hay chưa mời</p>
+					<p>Cung cấp mã xác nhận cho từng khách hàng thông Website cưới của bạn, 
+					được tạo <a href="{{URL::route('website')}}">tại đây</a></p>
+				</h5>
 				<h6 class="use-now">
-					<a class="btn btn-success btn-sm" href="{{URL::route('guest-list')}}" >Sử dụng ngay</a>
+					<a class="btn btn-success btn-sm" href="{{URL::route('guest-list')}}" >Miễn phí! Sử dụng ngay</a>
 				</h6>
 			</div>
 		</div>
@@ -365,9 +390,14 @@ Trang chủ
   	<div role="tabpanel" class="tab-pane" id="website">
   		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 des-index-tool">
-				<h5 class="introduce-index">Lưu giữ những câu chuyện tình lãng mạng, chia sẻ những bức ảnh đáng nhớ, những dòng tâm sự hạnh phúc của 2 bạn...với khả năng tạo website cưới cá nhân đơn giản, đẹp và hoàn toàn miễn phí.</h5>
+				<h5 class="introduce-index">
+					<p>Với một số giao diện của chúng tôi, cho phép bạn tạo ra những giao diện đẹp và bắt mắt.</p>
+					<p>Lưu giữ những câu chuyện tình lãng mạng, chia sẻ những bức ảnh đáng nhớ, 
+					những dòng tâm sự hạnh phúc của 2 bạn với người thân và bạn bè khắp mọi nơi.</p>
+					<p>Thân thiện, miễn phí, dễ sử dụng và đạt thẩm mỹ là những gì chúng tôi hướng đến.</p>
+				</h5>
 				<h6 class="use-now">
-					<a class="btn btn-success btn-sm" href="{{URL::route('website')}}" >Sử dụng ngay</a>
+					<a class="btn btn-success btn-sm" href="{{URL::route('website')}}" >Miễn phí! Sử dụng ngay</a>
 				</h6>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">

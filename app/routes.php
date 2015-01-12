@@ -362,3 +362,29 @@ Route::get('sitemap',array('as'=>'sitemap',function(){
 
 // end documents
 
+
+/**=====================================
+* Giới thiệu trước Login
+* ======================================
+*/ 
+
+Route::get('planning-tool', function(){
+	if (!Session::has('email')) {
+		return View::make('intruduce.planning-tool');
+	} else {
+		return View::make('dashboard');
+	}
+	
+});
+
+Route::get('website-introduce', function(){
+	if (!Session::has('email')) {
+		return View::make('intruduce.website');
+	} else {
+		return View::make('website_user.template');
+	}
+});
+
+/*======================================*/ 
+
+

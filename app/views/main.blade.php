@@ -113,12 +113,12 @@
 				</ul>
 		  		@elseif( (Session::has('email')) && (UserController::isset_user())==0 )
 		  			<?php UserController::get_logout_2(); ?>
-		  			<li class="hidden-xs"><a href="{{URL::route('register')}}" style="color: #ED706F">
+		  			<li class="hidden-xs"><a href="{{URL::route('register')}}" style="color: #43609C">
 		  					<i class="fa fa-unlock"></i>
 		  					Đăng ký
 		  				</a>
 		  			</li>
-		  			<li class="hidden-xs"><a href="{{URL::route('login')}}" style="color: #3A3A40">
+		  			<li class="hidden-xs"><a href="{{URL::route('login')}}" style="color: #43609C">
 		  					<i class="fa fa-sign-in"></i>
 		  					Đăng nhập
 		  				</a>
@@ -134,12 +134,12 @@
 		  				</a>
 		  			</li>
 		  		@else
-			  		<li class="hidden-xs"><a href="{{URL::route('register')}}" style="color: #ED706F">
+			  		<li class="hidden-xs"><a href="{{URL::route('register')}}" style="color: #43609C">
 			  				<i class="fa fa-unlock"></i>
 			  				Đăng ký
 			  			</a>
 			  		</li>
-			  		<li class="hidden-xs"><a href="{{URL::route('login')}}" style="color: #3A3A40">
+			  		<li class="hidden-xs"><a href="{{URL::route('login')}}" style="color: #43609C">
 			  				<i class="fa fa-sign-in"></i>
 			  				Đăng nhập
 			  			</a>

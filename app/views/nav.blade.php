@@ -1,4 +1,4 @@
-
+<!-- Navigation -->
 <div class="row bg-menu-top">
   <div class="navbar">
       <div class="navbar-header">
@@ -19,6 +19,21 @@
                 <span class="txt-menu">Trang chủ</span>
               </a>
             </li>
+            <li><a href="{{URL::to('website-introduce')}}" title="Website cưới">
+                <img class="icon-hover-website" src="{{Asset('icon/Quanlyngansach.png')}}">
+                <span class="txt-menu">Website cưới</span>
+              </a>
+            </li>
+            <li><a href="{{URL::to('planning-tool')}}" title="Công cụ lập kế hoạnh">
+                <img class="icon-hover-planning-tool" src="{{Asset('icon/notepad-icon.png')}}">
+                <span class="txt-menu">Công cụ lập kế hoạch</span>
+              </a>
+            </li>
+            <!-- <li><a href="{{URL::route('website')}}" title="Website cưới">
+                <img class="icon-hover-website" src="{{Asset('icon/Quanlyngansach.png')}}">
+                <span class="txt-menu">Website cưới</span>
+              </a>
+            </li>
             <li><a href="{{URL::route('guest-list')}}" title="Danh sách khách mời">
                 <img class="icon-hover" src="{{Asset('icon/DSKM.png')}}">
                 <span class="txt-menu">Danh sách khách mời</span>
@@ -33,12 +48,7 @@
                 <img class="icon-hover" src="{{Asset('icon/Congculapkehoach.png')}}">
                 <span class="txt-menu">Quản lý ngân sách</span>
               </a>
-            </li>
-            <li><a href="{{URL::route('website')}}" title="Website cưới">
-                <img class="icon-hover-website" src="{{Asset('icon/Quanlyngansach.png')}}">
-                <span class="txt-menu">Website cưới</span>
-              </a>
-            </li>
+            </li> -->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown" title="Âm nhạc">
             <img class="icon-hover-music" src="{{Asset('icon/musical7.png')}}">
@@ -94,4 +104,3 @@
   </div><!--/.nav-->
 </div><!--/.bg-menu-top-->
 <div class="row lr-bottom-menu"></div>
-
