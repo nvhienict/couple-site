@@ -9,7 +9,6 @@
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
-    <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
 
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
@@ -49,7 +48,7 @@
 		  	@endforeach
 		  	<li  class="dropdown" role="presentation">
 	          <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-	            <span class="glyphicon glyphicon-wrench"></span><span class="caret"></span>
+	            <span class="fa fa-wrench"></span><span class="caret"></span>
 	          </a>
 	          <ul class="dropdown-menu setting-edit" role="menu">
 	               <li><a  href="{{URL::route('index')}}">Dashboard</a></li>

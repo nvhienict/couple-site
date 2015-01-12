@@ -98,7 +98,7 @@
 						</li>
 						<li  class="dropdown" role="presentation">
 					          <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="padding:0px 15px;">
-					            <i class="glyphicon glyphicon-wrench"></i><span class="caret"></span>
+					            <i class="fa fa-wrench"></i><span class="caret"></span>
 					          </a>
 					          <ul class="dropdown-menu setting-edit" role="menu">
 					               <li><a  href="{{URL::route('index')}}">Dashboard</a></li>

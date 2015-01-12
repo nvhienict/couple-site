@@ -66,7 +66,7 @@
                         @endforeach()
                         <li  class="dropdown" role="presentation">
                           <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-wrench"></span><span class="caret"></span>
+                            <span class="fa fa-wrench"></span><span class="caret"></span>
                           </a>
                           <ul class="dropdown-menu setting-edit" role="menu">
                                <li><a  href="{{URL::route('index')}}">Dashboard</a></li>
