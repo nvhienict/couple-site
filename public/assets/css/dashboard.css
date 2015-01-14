@@ -1106,7 +1106,7 @@ div.song_content button{
 	padding-left: 1%;
 	display: none;
 	position: absolute;
-	 bottom:0%;
+	 bottom:1%;
 	 left: 29%;
 	 width: 20%;
 	 background-color: #E75292!important;
@@ -1115,7 +1115,7 @@ div.song_content button{
 .btn-select{
 	display: none;
 	position: absolute;
-	 bottom:0%;
+	 bottom:1%;
 	 right: 29%;
 	 width: 20%;
 	 background-color: #E75292!important;

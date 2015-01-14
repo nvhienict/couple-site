@@ -2,7 +2,7 @@
 
 <head>
 
-	<title>@yield('title')</title>
+	<title>Thay đổi giao diện website</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=false" />
 	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
 	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logo.png")}}">
