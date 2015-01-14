@@ -2,6 +2,14 @@
 @section('title')
 Trang chủ
 @endsection
+<script>
+    var url = {
+        {{--base: '{{ URL::to() }}',--}}
+        current: '{{ URL::current() }}',
+        previous: '{{ URL::previous() }}',
+        validateFrmRegister: '{{ URL::route('check_user_email') }}'
+    }
+</script>
 @section('nav-bar')
 
 <!-- Navigation -->
@@ -14,9 +22,6 @@ Trang chủ
 	        	<span class="icon-bar"></span>
 	        	<span class="icon-bar"></span>
 	      	</button>
-		    <!-- <a href="{{URL::route('index')}}" class="navbar-brand brand"> -->
-		    	<!-- <img class="img-logo" src="{{Asset('icon/logo-thuna.png')}}"> -->
-		    <!-- </a> -->
 	  	</div>
 	  	<div class="navbar-collapse collapse navbar-responsive-collapse">
 		    <ul class="nav navbar-nav">
@@ -257,50 +262,7 @@ Trang chủ
 					</div>
 				</div>
 		    </form>
-			    <script type="text/javascript">
-			        $('#create_acount').validate({
-			        rules:{
-			          
-			            weddingdate:{
-			            required:true,
-			            },
-			            email:{
-			            required:true,
-			            email: true,
-			            remote:{
-			                      url:'{{URL::route('check_user_email')}}',
-			                      type:"POST"
-			                  }
-			            },
-			            password:{
-			            required:true,
-			            minlength:6,
-			            },
-			            password_confirm:{
-			            equalTo:'#password',
-			            }
-			        },
-			        messages:{
-			            
-			            weddingdate:{
-			            required:'Bạn chưa chọn ngày cưới',
-			            
-			            },
-			            email:{
-			            required:'Bạn chưa điền email của bạn',
-			            email:'Định dạng email không đúng',
-			            remote:'Email này đã tồn tại',
-			            },
-			            password:{
-			            required:'Bạn chưa nhập mật khẩu',
-			            minlength:'Password ít nhất phải có 6 kí tự',
-			            },
-			            password_confirm:{
-			            equalTo:'Không trùng với mật khẩu bạn đã nhập',
-			            }
-			        }
-			    })
-			</script>
+			<script type="text/javascript" src="{{Asset('assets/js/validate-frm-register-index.js')}}"></script>
 		<!-- END FORM REGISTER -->
 
 </div><!--/.row -->
