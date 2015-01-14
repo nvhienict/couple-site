@@ -1,8 +1,6 @@
 		
  		<link href="{{Asset('assets/css/style.css')}}" rel="stylesheet">
  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
- 
-
 
 				<div class="tab-menu" id="photos">
 																		  <!-- Wrapper for slides -->
