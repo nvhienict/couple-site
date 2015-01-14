@@ -111,44 +111,44 @@
 				</ul>
 		  		@elseif( (Session::has('email')) && (UserController::isset_user())==0 )
 		  			<?php UserController::get_logout_2(); ?>
-		  			<li class="hidden-xs"><a href="{{URL::route('register')}}" style="color: #43609C">
+		  			<li class="hidden-xs"><a href="{{URL::route('register')}}" style="color: #43609C" title="Đăng ký">
 		  					<i class="fa fa-unlock"></i>
 		  					Đăng ký
 		  				</a>
 		  			</li>
-		  			<li class="hidden-xs"><a href="{{URL::route('login')}}" style="color: #43609C">
+		  			<li class="hidden-xs"><a href="{{URL::route('login')}}" style="color: #43609C" title="Đăng nhập">
 		  					<i class="fa fa-sign-in"></i>
 		  					Đăng nhập
 		  				</a>
 		  			</li>
 
 		  			<!-- display mobile -->
-		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('register')}}" style="color: #ED706F">
+		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('register')}}" style="color: #ED706F" title="Đăng ký">
 		  					<i class="fa fa-unlock fa-2x"></i>
 		  				</a>
 		  			</li>
-		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('login')}}" style="color: #3A3A40">
+		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('login')}}" style="color: #3A3A40" title="Đăng nhập">
 		  					<i class="fa fa-sign-in fa-2x"></i>
 		  				</a>
 		  			</li>
 		  		@else
-			  		<li class="hidden-xs"><a href="{{URL::route('register')}}" style="color: #43609C">
+			  		<li class="hidden-xs"><a href="{{URL::route('register')}}" style="color: #43609C" title="Đăng ký">
 			  				<i class="fa fa-unlock"></i>
 			  				Đăng ký
 			  			</a>
 			  		</li>
-			  		<li class="hidden-xs"><a href="{{URL::route('login')}}" style="color: #43609C">
+			  		<li class="hidden-xs"><a href="{{URL::route('login')}}" style="color: #43609C" title="Đăng nhập">
 			  				<i class="fa fa-sign-in"></i>
 			  				Đăng nhập
 			  			</a>
 			  		</li>
 
 			  		<!-- display mobile -->
-		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('register')}}" style="color: #ED706F">
+		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('register')}}" style="color: #ED706F" title="Đăng ký">
 		  					<i class="fa fa-unlock fa-2x"></i>
 		  				</a>
 		  			</li>
-		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('login')}}" style="color: #3A3A40">
+		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('login')}}" style="color: #3A3A40" title="Đăng nhập">
 		  					<i class="fa fa-sign-in fa-2x"></i>
 		  				</a>
 		  			</li>
