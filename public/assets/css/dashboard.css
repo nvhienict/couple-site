@@ -76,6 +76,10 @@ label.error{
 
 .dropdown-menu {
 	text-align: left;
+	width: 200% !important;
+}
+.list-unstyled > li > a {
+	font-size: 17px !important;
 }
 
 .dropdown-music {
