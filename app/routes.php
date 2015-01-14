@@ -246,7 +246,7 @@ Route::group(array('before'=>'check_login'), function(){
 	Route::get('website', array('as'=>'website', 'uses'=>'WebsiteController@index'));
 	Route::get('page_temp', array('as'=>'page_temp', 'uses'=>'WebsiteController@template_1'));
 	Route::get('{id}/view-previous', array('as'=>'view-previous', 'uses'=>'WebsiteController@viewPrevious'));
-
+	Route::get('view-theme/{id}', array('as'=>'view_theme', 'uses'=>'WebsiteController@viewTheme'));
 	Route::get('website/edit/pages', array('as'=>'website/edit/pages', 'uses'=>'WebsiteController@editPage'));
 
 

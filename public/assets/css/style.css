@@ -2682,6 +2682,36 @@ a.contact-admin:hover{
 .infor-check-url{
 	margin-top: 2%;
 }
+/*css for button up image themes select*/
+.btn-pre{
+	padding-left: 1%;
+	display: none;
+	position: absolute;
+	 bottom:6%;
+	 left: 29%;
+	 width: 20%;
+	 text-transform: none;
+	 background-color: #E75292!important;
+	 color:white;
+	 letter-spacing: 0;
+}
+.btn-select{
+	display: none;
+	position: absolute;
+	 bottom:6%;
+	 right: 29%;
+	 width: 20%;
+	 text-transform: none;
+	 background-color: #E75292!important;
+	 color:white;
+	 letter-spacing: 0;
+}
+.hover-theme:hover .btn-pre{
+	display: block;
+}
+.hover-theme:hover .btn-select{
+	display: block;
+}
 
 
 

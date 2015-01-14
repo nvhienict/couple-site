@@ -1101,3 +1101,29 @@ div.song_content button{
   	border-color: #777;
 }
 /*----------------------------*/
+/*css for button up image themes select*/
+.btn-pre{
+	padding-left: 1%;
+	display: none;
+	position: absolute;
+	 bottom:0%;
+	 left: 29%;
+	 width: 20%;
+	 background-color: #E75292!important;
+	 color:white;
+}
+.btn-select{
+	display: none;
+	position: absolute;
+	 bottom:0%;
+	 right: 29%;
+	 width: 20%;
+	 background-color: #E75292!important;
+	 color:white;
+}
+.hover-theme:hover .btn-pre{
+	display: block;
+}
+.hover-theme:hover .btn-select{
+	display: block;
+}

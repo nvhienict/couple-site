@@ -22,12 +22,14 @@ Giao diện Website cưới
 
 				@for($i=1; $i<=21; $i++)
 
-					<div class="col-sm-4 col-lg-4 col-md-4">
+					<div class="col-sm-4 col-lg-4 col-md-4 hover-theme">
 						<div class="span_choose_tmp">
-							<a href="{{URL::route('header-website', array('id'=>"{$i}"))}}">
+							<a href="javascript:void(0);">
 								<img src="{{Asset("images/website/tmp/{$i}.jpg")}}">
 							</a>
 						</div>
+						<a href="{{URL::route('view_theme', array('id'=>"{$i}"))}}" target="b_blank" class="btn btn-default btn-pre">Xem trước</a>		
+						<a href="{{URL::route('header-website', array('id'=>"{$i}"))}}" class="btn btn-default btn-select">Chọn</a>
 		  			</div>
 
 				@endfor

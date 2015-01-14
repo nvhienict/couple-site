@@ -15,10 +15,12 @@ Dashboard
 	<div class="row" style="margin-top: 20px;">
 		
 		@for($i=1; $i<=21; $i++)
-			<div class="col-sm-6 col-lg-4 col-md-4 col-xs-12" style="margin-bottom: 2%">
-				<a href="{{URL::route('header-website', array('id'=>"{$i}"))}}" style="outline: none">
+			<div class="col-sm-6 col-lg-4 col-md-4 col-xs-12 text-center hover-theme" style="margin-bottom: 2%">
+				<a href="javascript:void(0);" style="outline: none">
 					<img style="width: 100%; height: 300px " src="{{Asset("images/website/tmp/{$i}.jpg")}}">
-				</a>
+				</a>				
+				<a href="{{URL::route('view_theme', array('id'=>"{$i}"))}}" target="_blank" class="btn btn-default btn-pre">Xem trước</a>		
+				<a href="{{URL::route('header-website', array('id'=>"{$i}"))}}" class="btn btn-default btn-select">Chọn</a>				
 			</div>
 		@endfor
 	
