@@ -4,19 +4,12 @@
 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 phara-temp main-template text-center" >
 
           <!-- count datime to weddingdate -->
-            @if(empty($website_item->count_down))
+   
               @foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
                 <div id="getD{{$index}}" style="display:none;">
                   {{$dd}}
                 </div>
               @endforeach
-            @else
-            @foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
-                <div id="getD{{$index}}" style="display:none;">
-                  {{$dd}}
-                </div>
-              @endforeach
-            @endif
             
           <div id="count_dateTime">
           

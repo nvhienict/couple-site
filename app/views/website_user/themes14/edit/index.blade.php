@@ -19,27 +19,6 @@
         e.preventDefault();
     });
 
-    function updateName()
-        {
-            var nameBride = $('input[name=name_bride]').val();
-            var nameGroom = $('input[name=name_groom]').val();
-            $.ajax({
-                type:"post",
-                dataType: "html",
-                url:"{{URL::route('updateName')}}",
-                data: {nameBride: nameBride,
-                        nameGroom: nameGroom},
-                success:function(data){
-                    var obj = JSON.parse(data);
-                    $('#topNameGroom').text(obj['name_groom']);
-                    $('#topNameBride').text(obj['name_bride']);
-                    $('#titleNameGroom').text(obj['name_groom']);
-                    $('#titleNameBride').text(obj['name_bride']);
-                }
-            });
-
-          
-        }
 
 </script>
 

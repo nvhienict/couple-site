@@ -74,7 +74,7 @@
 			                        <a class="scrollTo" href="#title-home" >Trang chủ</a>
 			                    </li>
 	                  	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
-	                  		@if($index<4)
+	                  		@if($index<3)
 			      				<li class=""><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" >{{$tab->title}}</a></li>
 		      				@endif
 	                  	@endforeach
@@ -84,7 +84,7 @@
 							    </a>
 							    <ul class="dropdown-menu" role="menu" style="background: url('../images/website/themes13/bg-ul.jpg');left:0px;">
 							   		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $index => $tab)
-								    	@if($index>=4)
+								    	@if($index>=3)
 								    	<li class=""><a class="{{$tab->id}} scrollTo" href="#section_{{$tab->type}}" >{{$tab->title}}</a></li>
 								    	@endif
 								    @endforeach

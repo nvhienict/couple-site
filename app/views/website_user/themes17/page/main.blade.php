@@ -4,20 +4,20 @@
 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 phara-temp main-template text-center" >
 
           <!-- count datime to weddingdate -->
-            @if(empty($website_item->count_down))
+            @if(Session::has('email'))
               @foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
                 <div id="getD{{$index}}" style="display:none;">
                   {{$dd}}
                 </div>
               @endforeach
             @else
-            @foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
+              @foreach( $date = explode('-',$date_url) as $index=>$dd )
                 <div id="getD{{$index}}" style="display:none;">
                   {{$dd}}
                 </div>
               @endforeach
+                
             @endif
-            
           <div id="count_dateTime">
           
             <table align="center" class="count_table_dateTime">
