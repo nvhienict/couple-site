@@ -223,8 +223,8 @@ a.navbar-brand {
 }
 .content-index-item{
 	min-height: 100px;
-	padding-left: 0;
-	padding-right: 0.4%;
+	/*padding-left: 0;
+	padding-right: 0.4%;*/
 	margin-top: 2%;
 }
 .content-index-item .div-1{
