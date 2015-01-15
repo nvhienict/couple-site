@@ -18,19 +18,13 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 count-time-wedding" style="background-color: #B5AF47">
           <!-- count datime to weddingdate -->
-            @if(empty($website_item->count_down))
+           
               @foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
                 <div id="getD{{$index}}" style="display:none;">
                   {{$dd}}
                 </div>
               @endforeach
             @else
-            @foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
-                <div id="getD{{$index}}" style="display:none;">
-                  {{$dd}}
-                </div>
-              @endforeach
-            @endif
             
           <div id="count_dateTime" >
           
