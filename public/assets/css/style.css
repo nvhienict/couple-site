@@ -1374,9 +1374,9 @@ div.vendor_content button{
 	background-color: #ac2f57;
     border: 3px solid #ac2f57;
     border-radius: 5px;
-    margin-top: 30px;
+    margin-top: 40px;
     max-height: 450px;
-    min-height: 380px;
+    min-height: 250px;
     padding: 0;
     position: absolute;
     right: 10%;
