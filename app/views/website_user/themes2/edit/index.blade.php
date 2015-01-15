@@ -105,19 +105,11 @@
 		  				
 		  					<table align="center">
 		  					<!-- count datime to weddingdate -->
-		  					@if(empty($website_item->count_down))
 			  					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
 			  						<div id="getD{{$index}}" style="display:none;">
 			  							{{$dd}}
 			  						</div>
 			  					@endforeach
-			  				@else
-								@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
-			  						<div id="getD{{$index}}" style="display:none;">
-			  							{{$dd}}
-			  						</div>
-			  					@endforeach
-			  				@endif
 		  					
 			  				<script type="text/javascript" src="{{Asset("assets/js/count-down-time.js")}}"></script>
 			  				<!-- .end -->

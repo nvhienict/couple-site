@@ -92,7 +92,6 @@
 		  				
 		  					<table align="center">
 		  					<!-- count datime to weddingdate -->
-		  					@if(empty($website_item->count_down))
 		  						@if(Session::has('email'))
 				  					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
 				  						<div id="getD{{$index}}" style="display:none;">
@@ -107,21 +106,6 @@
 				  					@endforeach
 				  						
 			  					@endif
-			  				@else
-			  					@if(Session::has('email'))
-									@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
-				  						<div id="getD{{$index}}" style="display:none;">
-				  							{{$dd}}
-				  						</div>
-				  					@endforeach
-			  					@else
-			  						@foreach( $date = explode('-',$count_down_url) as $index=>$dd )
-				  						<div id="getD{{$index}}" style="display:none;">
-				  							{{$dd}}
-				  						</div>
-				  					@endforeach
-		  						@endif
-			  				@endif
 		  					
 			  				<script type="text/javascript" src="{{Asset("assets/js/count-down-time.js")}}"></script>
 			  				<!-- .end -->
