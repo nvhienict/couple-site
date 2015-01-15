@@ -18,15 +18,15 @@
 						 	</tr>
 					 	</thead>
 					 	<tbody>
-					 @if((Groups::where('user',GuestController::id_user())->get()))
-					 	@foreach(Groups::where('user',GuestController::id_user())->get() as $key=>$group)
+					 @if((Groups::where('user',GuestController::checkIfUrl($url))->get()))
+					 	@foreach(Groups::where('user',GuestController::checkIfUrl($url))->get() as $key=>$group)
 					 		<tr class="guest_cat{{$group->id}} guest_cat" id="cate{{$group->id}}">					 						 			
 					 			<td style="width:15%;text-align: left;">
 					 				<a href="javascript:void(0);" style="color:#555555;"onclick="show_hide({{$group->id}})" >
 						 				<i id="show-hide-group{{$group->id}}" class=" fa fa-minus-square-o"></i>
 						 				<strong class="name_group_edit{{$group->id}}"> {{$group->name}}</strong>
 						 				(<span class="total_group_guest{{$group->id}}">
-						 					{{Guests::where('user',GuestController::id_user())->where('group',$group->id)->sum('attending')}}
+						 					{{Guests::where('user',GuestController::checkIfUrl($url))->where('group',$group->id)->sum('attending')}}
 						 				</span>)
 					 				</a>
 					 			</td>
@@ -34,8 +34,8 @@
 							</tr>
 
 					 		<tbody class="guest_list_show_cat{{$group->id}} guest_list_show_cat">
-					 			@if((Guests::where('user',GuestController::id_user())->where('group',$group->id)->get()))
-					 			@foreach(Guests::where('user',GuestController::id_user())->where('group',$group->id)->get() as $guest)
+					 			@if((Guests::where('user',GuestController::checkIfUrl($url))->where('group',$group->id)->get()))
+					 			@foreach(Guests::where('user',GuestController::checkIfUrl($url))->where('group',$group->id)->get() as $guest)
 			 					<tr class=" guest_list{{$guest->id}} guest_list_item_cat" id="guest_list_item_cat{{$guest->id}}">
 			 											 			
 						 			<td style="width:18%;text-align: left;">
@@ -150,9 +150,9 @@
 						 	<tr>
 						 		<th style="width:15%;">Tổng số khách tham dự:</th>
 						 		<th style="width:13%;">
-						 			{{Guests::where('user',GuestController::id_user())->where('attending',true)->count()}}
+						 			{{Guests::where('user',GuestController::checkIfUrl($url))->where('attending',true)->count()}}
 						 			&nbsp/&nbsp
-						 			{{Guests::where('user',GuestController::id_user())->count()}}
+						 			{{Guests::where('user',GuestController::checkIfUrl($url))->count()}}
 						 		</th>
 						 	</tr>
 					 	</thead>

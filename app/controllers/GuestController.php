@@ -12,7 +12,37 @@ class GuestController extends \BaseController {
 	{
 		return View::make('guest.guest');
 	}
-	public static function id_user(){
+
+	/**====================================
+	* return id_user to view
+	*
+	*/ 
+	public static function checkIfUrl($url)
+	{
+		if ( (Session::has('email')) || ($url==NULL) ) {
+			$id_user = GuestController::id_user();
+		} else {
+			$id_user = GuestController::id_user_url($url);
+		}
+
+		return $id_user;
+		
+	}
+
+	/**=====================================
+	* @return when call url of user
+	*
+	*/ 
+	private static function id_user_url($url) {	
+		$id_user = WeddingWebsite::where( 'url', $url )->get()->first()->user;
+		return $id_user;
+	}
+
+	/**=====================================
+	* @return when call id of user
+	*
+	*/ 
+	public static function id_user() {	
 		$id_user = User::where( 'email', Session::get('email') )->get()->first()->id;
 		return $id_user;
 	}

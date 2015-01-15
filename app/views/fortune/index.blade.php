@@ -193,7 +193,7 @@ Xem ngày cưới
 			</form>
 			
 		</div> <!--/lich-ket-qua-->
-		
+
 		<div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 ft-content">
 			<div class="title-ft-content">
 				<span class="start-red">*</span> Đầu tiên, <span class="txt-bold">Chọn năm đẹp để cưới gả</span> phải <span style="color: red; font-weight:bold">kỵ</span> những <span class="txt-bold">Năm hung niên</span>
