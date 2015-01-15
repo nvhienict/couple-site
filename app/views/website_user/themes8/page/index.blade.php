@@ -134,35 +134,19 @@
 				<i id="info-panel-top1" class="fa fa-clock-o fa-2x"></i>
 			</div>
 			
-			@if(empty($website_item->count_down))
-				@if(Session::has('email'))
-					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
-						<div id="getD{{$index}}" style="display:none;">
-							{{$dd}}
-						</div>
-					@endforeach
-				@else
-					@foreach( $date = explode('-',$date_url) as $index=>$dd )
-						<div id="getD{{$index}}" style="display:none;">
-							{{$dd}}
-						</div>
-					@endforeach
-						
-				@endif
+			@if(Session::has('email'))
+				@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
+					<div id="getD{{$index}}" style="display:none;">
+						{{$dd}}
+					</div>
+				@endforeach
 			@else
-				@if(Session::has('email'))
-				@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
-						<div id="getD{{$index}}" style="display:none;">
-							{{$dd}}
-						</div>
-					@endforeach
-				@else
-					@foreach( $date = explode('-',$count_down_url) as $index=>$dd )
-						<div id="getD{{$index}}" style="display:none;">
-							{{$dd}}
-						</div>
-					@endforeach
-				@endif
+				@foreach( $date = explode('-',$date_url) as $index=>$dd )
+					<div id="getD{{$index}}" style="display:none;">
+						{{$dd}}
+					</div>
+				@endforeach
+					
 			@endif
 			<script type="text/javascript" src="{{Asset("assets/js/count-down-time.js")}}"></script>
 
