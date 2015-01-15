@@ -50,14 +50,20 @@ label.error{
 	/*border-right: 1px dotted #FFFFFF;*/
 }
 .navbar-nav > li > a{
-	color: #FFFFFF !important;
+	/*color: #FFFFFF !important;
     font-size: 17px;
     font-weight: bold;
-    /*padding-left: 10%;
-    padding-right: 10%;*/
+    padding-left: 10%;
+    padding-right: 10%;
     text-transform: uppercase;
-    outline: none;
+    outline: none;*/
+    color: #ffffff !important;
+    font-family: "MyriadPro-Regular";
+    font-size: 20px !important;
+    line-height: 30px !important;
+    white-space: nowrap;
 }
+
 .navbar-nav > li > a:hover{
 	/*text-decoration: underline;*/
 	color: #FFFFFF !important;
