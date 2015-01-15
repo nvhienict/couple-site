@@ -1125,6 +1125,9 @@ div.song_content button{
 	 background-color: #E75292!important;
 	 color:white;
 }
+.hover-theme img{
+	border: solid #FBE5EC 2px;
+}
 .hover-theme:hover .btn-pre{
 	display: block;
 }
