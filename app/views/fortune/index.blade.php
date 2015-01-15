@@ -150,7 +150,7 @@ Xem ngày cưới
 
 					var groom = yearGroom.replace(/&nbsp/gi,' ');
 					var bride = yearBride.replace(/&nbsp/gi,' ');
-					
+
 					$.ajax({
 						type: "post",
 						url: "{{URL::action('FortuneController@postYear')}}",
@@ -185,7 +185,7 @@ Xem ngày cưới
 					@endfor
 				</select>
 				<select name="yy">
-					@for ($i=2014; $i<=2100; $i++)
+					@for ($i=2015; $i<=2100; $i++)
 						<option value="{{$i}}">{{$i}}</option>
 					@endfor
 				</select>
