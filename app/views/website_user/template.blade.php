@@ -145,7 +145,7 @@
 		<div class="row" style="margin:0px;">
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
-				<h1 style="padding-left:2%; color:#E75292;">Giao diện Website</h1>
+				<h1 style="padding-left:2%; color:#E75292; font-size:25px;">Giao diện Website</h1>
 			</div>
 			<div class="col-md-1"></div>
 		</div>

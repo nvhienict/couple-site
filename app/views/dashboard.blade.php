@@ -8,7 +8,7 @@ Dashboard
 	
 	<div class="row" style="margin-top: 50px;">
 		<div class="col-xs-12">
-			<h2 style="color:#E75292;">Chọn giao diện và cài đặt website của bạn</h2>
+			<h2 style="color:#E75292; font-size:25px;">Chọn giao diện và cài đặt website của bạn</h2>
 		</div>
 	</div>
 
