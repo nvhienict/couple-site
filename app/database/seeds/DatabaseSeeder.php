@@ -27,11 +27,112 @@ class DatabaseSeeder extends Seeder {
         $this->call('FtNamTuoiTableSeeder');
         $this->call('FtXemNgayTableSeeder');
         $this->call('FtHungNienTableSeeder');
+        $this->call('WeddingWebsiteTableSeeder');
+        $this->call('TabWebsiteTableSeeder');
 
 	}
 
 }
 // data seed
+//wedding website
+class WeddingWebsiteTableSeeder extends Seeder{
+    public function run()
+    {
+         DB::table('weddingwebsite')->delete();
+         WeddingWebsite::create( array(
+            'user'=>'2',
+            'template'=>'1',
+            'url'=>'nguyen-tu',
+            'tab'=>'1',
+            'name_bride'=>'Tên Cô Dâu',
+            'name_groom'=>'Tên Chú Rể',
+            'about_groom'=>'Thông về chú rể',
+            'about_bride'=>'Thông tin về cô dâu',
+            'background'=>'images/website/themes1/template_1.jpg',
+            'avatar_bride'=>'images/website/themes1/girl.jpg',
+            'avatar_groom'=>'images/website/themes1/boy.jpg')
+         );
+    }
+}
+//tab website
+class TabWebsiteTableSeeder extends Seeder{
+    public function run()
+    {
+        DB::table('tabwebsite')->delete();
+        
+        TabWebsite::create(array(
+            'type' => 'welcome',
+            'title' => 'Chào mừng',
+            'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque. Ut tincidunt eros eu ullamcorper mollis. Nunc porta ac orci id hendrerit. Sed at libero nunc. Aenean quam ligula, ornare vel efficitur accumsan, fringilla sed velit. Sed odio lectus, porta vel erat nec, vehicula sollicitudin orci. Quisque placerat ante ac ligula suscipit tristique. Vivamus quam tellus, placerat sit amet elementum ac, lacinia id mi. Vivamus lacinia justo nibh, sed commodo turpis imperdiet et. Vivamus id hendrerit sem, et sollicitudin tellus. Curabitur feugiat purus non fringilla tempus. Vestibulum laoreet elit nec ornare lacinia. Nullam consequat gravida dignissim. Ut tincidunt nisl et blandit elementum. Donec faucibus turpis eget lacinia fringilla.',
+            'visiable' => '0',
+            'titlestyle' => '',
+            'video' => '',
+            'map' => '',
+            'website'=>'1',
+            'tab'=>'1')
+        );
+
+        TabWebsite::create(array(
+            'type' => 'about',
+            'title' => 'Nói về chúng tôi',
+            'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque. Ut tincidunt eros eu ullamcorper mollis. Nunc porta ac orci id hendrerit. Sed at libero nunc. Aenean quam ligula, ornare vel efficitur accumsan, fringilla sed velit. Sed odio lectus, porta vel erat nec, vehicula sollicitudin orci. Quisque placerat ante ac ligula suscipit tristique. Vivamus quam tellus, placerat sit amet elementum ac, lacinia id mi. Vivamus lacinia justo nibh, sed commodo turpis imperdiet et. Vivamus id hendrerit sem, et sollicitudin tellus. Curabitur feugiat purus non fringilla tempus. Vestibulum laoreet elit nec ornare lacinia. Nullam consequat gravida dignissim. Ut tincidunt nisl et blandit elementum. Donec faucibus turpis eget lacinia fringilla.',
+            'visiable' => '0',
+            'titlestyle' => '',
+            'video' => '',
+            'map' => '',
+            'website'=>'1',
+            'tab'=>'2')
+        );
+
+        TabWebsite::create(array(
+            'type' => 'wedding',
+            'title' => 'Đám cưới',
+            'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque. Ut tincidunt eros eu ullamcorper mollis. Nunc porta ac orci id hendrerit. Sed at libero nunc. Aenean quam ligula, ornare vel efficitur accumsan, fringilla sed velit. Sed odio lectus, porta vel erat nec, vehicula sollicitudin orci. Quisque placerat ante ac ligula suscipit tristique. Vivamus quam tellus, placerat sit amet elementum ac, lacinia id mi. Vivamus lacinia justo nibh, sed commodo turpis imperdiet et. Vivamus id hendrerit sem, et sollicitudin tellus. Curabitur feugiat purus non fringilla tempus. Vestibulum laoreet elit nec ornare lacinia. Nullam consequat gravida dignissim. Ut tincidunt nisl et blandit elementum. Donec faucibus turpis eget lacinia fringilla.',
+            'visiable' => '0',
+            'titlestyle' => '',
+            'video' => '',
+            'map' => '',
+            'website'=>'1',
+            'tab'=>'3')
+        );
+
+        TabWebsite::create(array(
+            'type' => 'album',
+            'title' => 'Album ảnh',
+            'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque. Ut tincidunt eros eu ullamcorper mollis. Nunc porta ac orci id hendrerit. Sed at libero nunc. Aenean quam ligula, ornare vel efficitur accumsan, fringilla sed velit. Sed odio lectus, porta vel erat nec, vehicula sollicitudin orci. Quisque placerat ante ac ligula suscipit tristique. Vivamus quam tellus, placerat sit amet elementum ac, lacinia id mi. Vivamus lacinia justo nibh, sed commodo turpis imperdiet et. Vivamus id hendrerit sem, et sollicitudin tellus. Curabitur feugiat purus non fringilla tempus. Vestibulum laoreet elit nec ornare lacinia. Nullam consequat gravida dignissim. Ut tincidunt nisl et blandit elementum. Donec faucibus turpis eget lacinia fringilla.',
+            'visiable' => '0',
+            'titlestyle' => '',
+            'video' => '',
+            'map' => '',
+            'website'=>'1',
+            'tab'=>'4')
+        );
+
+        TabWebsite::create(array(
+            'type' => 'contact',
+            'title' => 'Liên lạc',
+            'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque.',
+            'visiable' => '0',
+            'titlestyle' =>'',
+            'video' => '',
+            'map' => '',
+            'website'=>'1',
+            'tab'=>'5',)
+        );
+
+        TabWebsite::create(array(
+            'type' => 'guestbook',
+            'title' => 'Khách mời',
+            'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt augue sagittis velit imperdiet ornare. In lectus tellus, auctor ac sagittis nec, dapibus ac sapien. Phasellus in sem velit. Nunc fermentum mauris felis, in euismod libero viverra et. Quisque accumsan sit amet sapien posuere tempor. Donec at viverra libero. Praesent facilisis orci neque. Ut tincidunt eros eu ullamcorper mollis. Nunc porta ac orci id hendrerit.',
+            'visiable' => '0',
+            'titlestyle' => '',
+            'video' => '',
+            'map' =>'',
+            'website'=>'1',
+            'tab'=>'6')
+        );
+    }
+}
 
 class BudgetRangeTableSeeder extends Seeder {
 
@@ -1519,6 +1620,20 @@ class UserTableSeeder extends Seeder {
 
 	    )
 	    );
+
+        User::create(array(
+            'avatar' => 'update/bg22.gif',
+            'email' => 'admin4@thuna.vn',
+            'password' => Hash::make('t01laa1tr0ngtheg101nay'),
+            'firstname'=>'Tu',
+            'lastname'=>'Nguyen',
+            'weddingdate'=>'1',
+            'role_id'=>'2',
+            'remember_me'=>'',
+            'budget'=>'0',
+            'weddingdate'=>'2015-12-12'
+        )
+        );
     }
 }
 // User
