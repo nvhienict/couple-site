@@ -31,10 +31,13 @@
         </div>
         
     </div>
-    <div class="row phara-margin ">      
-        <div class="click-edit click-edit-hide{{$tab->id}}" >            
+    <div class="row phara-margin ">    
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              
+          </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 click-edit-hide{{$tab->id}}" >            
             
-            <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tab->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+            <span> <a style="background: #19b5bc; border:none; float:right;" onclick="showckeditorpartion({{$tab->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
         </div>
     </div>
     

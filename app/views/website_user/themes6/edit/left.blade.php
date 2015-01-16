@@ -32,7 +32,7 @@
       
     </div>
     <div class="row phara-margin float-right">      
-        <div class="click-edit click-edit-hide{{$tab->id}}" >            
+        <div class=" click-edit-hide{{$tab->id}}" >            
            
             <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tab->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
         </div>
