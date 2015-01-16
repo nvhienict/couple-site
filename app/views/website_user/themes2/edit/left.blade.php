@@ -6,7 +6,7 @@
             </h3>
             <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
         </div>
-        <div class="col-xs-6 float-left">
+        <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 float-left">
             <span id="prev_output{{$tabWeb->id}}"> 
                 <a href="#">
                     <?php 
@@ -31,9 +31,9 @@
         
     </div>
     <div class="row phara-margin">
-        <div class="col-xs-10"></div>
-        <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}" >
-            <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+        <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6"></div>
+        <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 click-edit click-edit-hide{{$tabWeb->id}}" >
+            <span> <a style="background: #19b5bc; border:none;float:right;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
         </div>
     </div>
    

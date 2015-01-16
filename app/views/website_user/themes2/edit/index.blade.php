@@ -75,7 +75,7 @@
   			<div class="col-xs-1"></div>
   			<div class="col-xs-10">
   				<div class="row">
-  					<div class="col-sm-4 col-lg-4 col-md-4">
+  					<div class="col-sm-4 col-lg-4 col-md-4 text-center">
 	  					<span id="prev_output111">
 	  						<a href="#">
 		  						@if(!empty($website_item->avatar_bride))
@@ -138,7 +138,7 @@
 		  					<img src="{{Asset('images/website/themes2/floral-center.png')}}">
 		  				</div>
 		  			</div>
-		  			<div class="col-sm-4 col-lg-4 col-md-4">
+		  			<div class="col-sm-4 col-lg-4 col-md-4 text-center">
 		  				<span id="prev_output222">
 		  					<a href="#">
 				  				@if(!empty($website_item->avatar_groom))
