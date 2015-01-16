@@ -118,19 +118,42 @@
 				    <li><a href="{{URL::route('website')}}"  >Website cưới</a></li>
 			       	<li class="dropdown">
 			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Âm nhạc <span class="caret"></span></a>
-			          	<ul class="dropdown-menu" role="menu">
-			            	<li><a href="{{URL::route('songs', array('mo-dau'))}}">Mở đầu</a></li>
-			              	<li><a href="{{URL::route('songs', array('doan-ruoc'))}}">Đoàn rước</a></li>
-			              	<li><a href="{{URL::route('songs', array('nghi-thuc'))}}">Nghi thức</a></li>
-			              	<li><a href="{{URL::route('songs', array('ket-thuc'))}}">Kết thúc</a></li>
-			            	<li class="divider"></li>
-			            	<li><a href="{{URL::route('songs', array('khai-tiec'))}}">Khai tiệc</a></li>
-		                  	<li><a href="{{URL::route('songs', array('phat-bieu'))}}">Phát biểu</a></li>
-		                  	<li><a href="{{URL::route('songs', array('cat-banh'))}}">Cắt bánh</a></li>
-		               		<li><a href="{{URL::route('songs', array('vao-tiec'))}}">Vào tiệc</a></li>
-		                  	<li><a href="{{URL::route('songs', array('chuc-mung'))}}">Chúc mừng</a></li>
-		                  	<li><a href="{{URL::route('songs', array('cuoi-tiec'))}}">Cuối tiệc</a></li>
-			          	</ul>
+			          	<ul class="dropdown-menu oneUl" role="menu">
+				          	<li role="presentation" class="dropdown-header" style="color:black;font-size:17px;"><span>Nghi lễ</span>
+					            <div class="row">
+					              <div class="col-xs-6">
+					                <ul class="list-unstyled">
+					                  <li><a href="{{URL::route('songs', array('mo-dau'))}}">Mở đầu</a></li>
+					                  <li><a href="{{URL::route('songs', array('doan-ruoc'))}}">Đoàn rước</a></li>
+					                </ul>
+					              </div>
+					              <div class="col-xs-6">
+					                <ul class="list-unstyled">
+					                  <li><a href="{{URL::route('songs', array('nghi-thuc'))}}">Nghi thức</a></li>
+					                  <li><a href="{{URL::route('songs', array('ket-thuc'))}}">Kết thúc</a></li>
+					                </ul>
+					              </div>
+					            </div>
+				          	</li>
+				          	<li role="presentation" class="dropdown-header" style="color:black;font-size:17px;"><span>Đãi tiệc</span>
+					            <div class="row">
+					              <div class="col-xs-6">
+					                <ul class="list-unstyled">
+					                  <li><a href="{{URL::route('songs', array('khai-tiec'))}}">Khai tiệc</a></li>
+					                  <li><a href="{{URL::route('songs', array('phat-bieu'))}}">Phát biểu</a></li>
+					                  <li><a href="{{URL::route('songs', array('cat-banh'))}}">Cắt bánh</a></li>
+					                </ul>
+					              </div>
+					              <div class="col-xs-6">
+					                <ul class="list-unstyled">
+					                  <li><a href="{{URL::route('songs', array('vao-tiec'))}}">Vào tiệc</a></li>
+					                  <li><a href="{{URL::route('songs', array('chuc-mung'))}}">Chúc mừng</a></li>
+					                  <li><a href="{{URL::route('songs', array('cuoi-tiec'))}}">Cuối tiệc</a></li>
+					                </ul>
+					              </div>
+					            </div>
+				          	</li>
+				        </ul>
 			        </li>
 			        <li><a href="{{URL::action('FortuneController@getIndex')}}" >Xem ngày cưới</a></li>
 
