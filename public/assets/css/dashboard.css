@@ -1,4 +1,6 @@
-
+@import url(../fonts/UVF Aphrodite Pro.ttf);
+@import url(../fonts/MyriadPro-Regular.otf);
+@import url(../fonts/UVF LH Line1 Sans Thin.ttf);
 
 label.error{
 	color: #d8142b;
@@ -24,7 +26,7 @@ label.error{
 /* menu
 --------------------------------- */
 .navbar-fixed-top {
-	top: 70px !important;
+	top: 70px;
 }
 
 .navbar-default {
@@ -38,6 +40,7 @@ label.error{
 	float: none;
 	/*width: 83%;*/
 	margin: 0 auto;
+	padding-left: 7%;
 }
 .navbar-nav > li{
 	/*border-left: 1px dotted #FFFFFF;*/
@@ -50,20 +53,14 @@ label.error{
 	/*border-right: 1px dotted #FFFFFF;*/
 }
 .navbar-nav > li > a{
-	/*color: #FFFFFF !important;
-    font-size: 17px;
-    font-weight: bold;
-    padding-left: 10%;
-    padding-right: 10%;
-    text-transform: uppercase;
-    outline: none;*/
-    color: #ffffff !important;
+	color: #FFFFFF !important;
+    font-size: 20px;
+    /*font-weight: bold;*/
+    /*padding-left: 10%;
+    padding-right: 10%;*/
+    outline: none;
     font-family: "MyriadPro-Regular";
-    font-size: 20px !important;
-    line-height: 30px !important;
-    white-space: nowrap;
 }
-
 .navbar-nav > li > a:hover{
 	/*text-decoration: underline;*/
 	color: #FFFFFF !important;

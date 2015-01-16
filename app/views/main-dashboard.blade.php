@@ -70,7 +70,7 @@
 	      	</a>
 		</div>
 		<div class="col-xs-4 col-xs-offset-5">
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right" style="padding:0">
 				<li class="dropdown">
 		          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{UserController::getUserName()}} <span class="caret"></span></a>
 		          	<ul class="dropdown-menu" role="menu">
@@ -91,9 +91,7 @@
 		        </li>
 			</ul><!--/.navbar-right-->
 
-		</ul><!--/.nav navbar-nav-->
 		</div>
-		
 	</div><!--/.header-top-->
 
 	<nav class="navbar navbar-default navbar-fixed-top">

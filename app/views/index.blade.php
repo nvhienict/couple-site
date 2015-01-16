@@ -26,17 +26,29 @@ Trang chủ
 	  	<div class="navbar-collapse collapse navbar-responsive-collapse">
 		    <ul class="nav navbar-nav">
 		      	<li><a href="{{URL::route('index')}}" title="Trang chủ">
-		      			<img class="icon-hover-home" src="{{Asset('icon/home78.png')}}">
+		      			<!-- <img class="icon-hover-home" src="{{Asset('icon/home78.png')}}"> -->
+		      			<span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
+			      			<i class="fa fa-home icon-home"></i>
+			      			&nbsp;&nbsp;&nbsp;
+		      			</span>
 		      			<span class="txt-menu">Trang chủ</span>
  		      		</a>
 		      	</li>
 		      	<li><a href="{{URL::to('website-introduce')}}" title="Website cưới">
-		        		<img class="icon-hover-website" src="{{Asset('icon/Quanlyngansach.png')}}">
+		        		<!-- <img class="icon-hover-website" src="{{Asset('icon/Quanlyngansach.png')}}"> -->
+		        		<span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			      			<i class="fa fa-heart"></i>
+			      			&nbsp;&nbsp;&nbsp;&nbsp;
+		      			</span>
 		        		<span class="txt-menu">Website cưới</span>
 		        	</a>
 		        </li>
 		      	<li><a href="{{URL::to('planning-tool')}}" title="Công cụ lập kế hoạnh">
-		      			<img class="icon-hover-planning-tool" src="{{Asset('icon/notepad-icon.png')}}">
+		      			<!-- <img class="icon-hover-planning-tool" src="{{Asset('icon/notepad-icon.png')}}"> -->
+		      			<span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			      			<i class="fa fa-gears"></i>
+			      			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		      			</span>
 		      			<span class="txt-menu">Công cụ lập kế hoạch</span>
  		      		</a>
 		      	</li>
@@ -62,7 +74,12 @@ Trang chủ
 		        </li> -->
 		      	<li class="dropdown">
 			        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown" title="Âm nhạc">
-						<img class="icon-hover-music" src="{{Asset('icon/musical7.png')}}">
+						<!-- <img class="icon-hover-music" src="{{Asset('icon/musical7.png')}}"> -->
+			        	
+			        	<span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
+			      			<i class="fa fa-music"></i>
+			      			&nbsp;&nbsp;
+		      			</span>
 			        	<span class="txt-menu">Âm nhạc</span>
 			        	<b class="caret"></b>
 			        </a>
@@ -105,7 +122,12 @@ Trang chủ
 		      	</li> <!--/music-->
 
 		      	<li><a href="{{URL::action('FortuneController@getIndex')}}" title="Xem ngày cưới">
-		      			<img class="icon-hover" src="{{Asset('icon/ngaycuoi.png')}}">
+		      			<!-- <img class="icon-hover" src="{{Asset('icon/ngaycuoi.png')}}"> -->
+		      			
+		      			<span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			      			<i class="fa fa-calendar"></i>
+			      			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		      			</span>
 		      			<span class="txt-menu">Xem ngày cưới</span>
 		      		</a>
 		      	</li>
@@ -270,25 +292,29 @@ Trang chủ
 <div class="row" id="menu-bar-bottom">
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
 		<a href="#checklist" role="tab" data-toggle="tab" class="active" >
-			<img src="{{Asset('icon/task.png')}}"><br /><br />
+			<!-- <img src="{{Asset('icon/task.png')}}"><br /><br /> -->
+			<i class="fa fa-list fa-2x"></i><br /><br />
 			<span>Danh sách công việc</span>
 		</a>
 	</div>
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
 		<a href="#budget" role="tab" data-toggle="tab" >
-			<img src="{{Asset('icon/data31.png')}}"><br /><br />
+			<!-- <img src="{{Asset('icon/data31.png')}}"><br /><br /> -->
+			<i class="fa fa-dollar fa-2x"></i><br /><br />
 			<span>Quản lý ngân sách</span>
 		</a>
 	</div>
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
 		<a href="#guestlist" role="tab" data-toggle="tab" >
-			<img src="{{Asset('icon/group12.png')}}"><br /><br />
+			<!-- <img src="{{Asset('icon/group12.png')}}"><br /><br /> -->
+			<i class="fa fa-users fa-2x"></i><br /><br />
 			<span>Danh sách khách mời</span>
 		</a>
 	</div>
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
 		<a href="#website" role="tab" data-toggle="tab" >
-			<img src="{{Asset('icon/internet5.png')}}"><br /><br />
+			<!-- <img src="{{Asset('icon/internet5.png')}}"><br /><br /> -->
+			<i class="fa fa-globe fa-2x"></i><br /><br />
 			<span>Website cưới</span>
 		</a>
 	</div>

@@ -95,6 +95,23 @@ a:focus {  text-decoration: none !important; }
 	background: url(../../icon/bg-header-top.png) no-repeat !important;
 	background-size: cover !important;
 	padding: 0 2%;
+	position: relative;
+}
+.bg-menu-top:after {
+	position: absolute;
+	left: 0;
+	border-top: 2px dashed #cb839b;
+	z-index: 2;
+	width: 100%;
+	top: 2px;
+}
+.bg-menu-top:before {
+	position: absolute;
+	left: 0;
+	border-top: 2px dashed #661d35;
+	z-index: 2;
+	width: 100%;
+	top: 3px;
 }
 .navbar {
 	padding: 0 !important;
@@ -119,8 +136,13 @@ a:focus {  text-decoration: none !important; }
 	white-space: nowrap;
 }
 .navbar-nav > li > a:hover { background-color: #a7254f !important; }
+.navbar-nav > li > a > span.icon-show { 
+	display: none;
+	font-size: 25px;
+}
 .navbar-nav > li > a:hover span.txt-menu { display: none; }
-.icon-hover, .icon-hover-music,
+.navbar-nav > li > a:hover span.icon-show { display: inline-block; }
+/*.icon-hover, .icon-hover-music,
 .icon-hover-home, .icon-hover-website,
 .icon-hover-planning-tool {
 	height: 0px;
@@ -130,15 +152,15 @@ a:focus {  text-decoration: none !important; }
 	width: 30px;
 	height: 25px;
 	-webkit-transition: width,height 0.5s ease-in-out; /* For Safari 3.1 to 6.0 */
-    -moz-transition: width,height 0.5s ease-in-out;
+    /*-moz-transition: width,height 0.5s ease-in-out;
     -o-transition: width,height 0.5s ease-in-out;
     transition: width,height 0.5s ease-in-out;
-}
-.navbar-nav > li > a:hover img.icon-hover { margin: 0 65px; }
+}*/
+/*.navbar-nav > li > a:hover img.icon-hover { margin: 0 65px; }
 .navbar-nav > li > a:hover img.icon-hover-music { margin: 0 15px; }
 .navbar-nav > li > a:hover img.icon-hover-home { margin: 0 40px; }
 .navbar-nav > li > a:hover img.icon-hover-website { margin: 0 50px; }
-.navbar-nav > li > a:hover img.icon-hover-planning-tool { margin: 0 90px; }
+.navbar-nav > li > a:hover img.icon-hover-planning-tool { margin: 0 90px; }*/
 
 .lr-bottom-menu {
 	background: url(../../icon/lr-menu.png) no-repeat;
@@ -181,8 +203,8 @@ a.brand {
 	outline: none;
 }
 #menu-bar-bottom > div > a > span{
-	font-weight: bold;
-	font-size: 21px;
+	/*font-weight: bold;*/
+	font-size: 18px;
 }
 
 #load-content{
@@ -196,6 +218,9 @@ a.brand {
 .des-index-tool {
 	background-color: #FFFFFF;
 	padding: 10px;
+}
+.des-index-tool h5 {
+	font-size: 20px;
 }
 
 /* cam nhan khach hang
@@ -454,10 +479,10 @@ hr.bold {
 	}
 
 	h5.introduce-index{
-		font-size: 170%;
+		font-size: 150%;
 	}
 	h6.use-now{
-		font-size: 150%;
+		font-size: 130%;
 	}
 
 	.carousel-inner > .item {
