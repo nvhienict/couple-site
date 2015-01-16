@@ -9,30 +9,18 @@
 	position: absolute;
 	right: 20px;
 	bottom: 5px;
-	display: none;
 }
 .float-right button{
 	position: absolute;
 	right: 20px;
 	bottom: 5px;
-	display: none;
 
-}
-.click-edit{
-	display: none;
-}
-.ok-edit{
-	display: none;
 }
 .edit-content{
 	display: none;
 }
-.partion:hover button{
-	display: inline-block;
-}
-.partion:hover .click-edit{
-	display: inline-block;
-}
+
+
 .background-themes 
 { 
 	/*height: 650px;
@@ -116,15 +104,6 @@
 
 /* Tabs comment */
 /*Circle image*/
-.div_circle1 button{
-	display: none;
-}
-.div_circle2 button{
-	display: none;
-} 
-.partion :hover button{
-	display: inline-block;
-}
 .a_menu{
 	font-size: 18px;
 }
