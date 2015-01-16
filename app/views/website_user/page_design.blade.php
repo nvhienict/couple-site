@@ -148,9 +148,9 @@
 	<div class="modal fade" id="modal-changeimage" style="z-index:9999;">
 		<div class="modal-dialog modal-md">
 			<div class="modal-content ">
-				<div class="modal-header">
+				<div class="modal-header text-center">
 					<button type="button" onclick="load_photo_tab()" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Chọn Ảnh</h4>
+					<h3 class="modal-title">Chọn Ảnh</h3>
 				</div>
 				<div class="modal-body">
 					
@@ -174,7 +174,7 @@
 			<div class="modal-content ">
 				<div class="modal-header">
 					<button type="button" onclick="loadBgEdit()" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title text-center">Chọn Ảnh Nền</h4>
+					<h3 class="modal-title text-center">Chọn Ảnh Nền</h3>
 				</div>
 				<div class="modal-body">
 					
@@ -197,14 +197,20 @@
 			<div class="modal-content ">
 				<div class="modal-header">
 					<button type="button"  class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title text-center">Chỉnh sửa tiêu đề</h4>
+					<h3 class="modal-title text-center">Chỉnh sửa tiêu đề</h3>
 				</div>
 				<div class="modal-body">
 					<div class="row">
-						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+							
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 							<input type="text" name="get-id-title" id="get-id-title" class="form-control" value="">
 							<input type="hidden" value="">
-						</div>								
+						</div>	
+						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+							
+						</div>							
 					</div>
 				</div>
 				<div class="modal-footer" style="text-align:center;">
@@ -222,7 +228,7 @@
 			<div class="modal-content ">
 				<div class="modal-header">
 					<button type="button"  class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title text-center">Chỉnh sửa thông tin cô dâu</h4>
+					<h3 class="modal-title text-center">Chỉnh sửa thông tin cô dâu</h3>
 				</div>
 				<div class="modal-body">
 					<div class="row">
@@ -249,7 +255,7 @@
 			<div class="modal-content ">
 				<div class="modal-header">
 					<button type="button"  class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title text-center">Chỉnh sửa thông tin về chú rể</h4>
+					<h3 class="modal-title text-center">Chỉnh sửa thông tin về chú rể</h3>
 				</div>
 				<div class="modal-body">
 					<div class="row">
@@ -276,7 +282,7 @@
 			<div class="modal-content ">
 				<div class="modal-header">
 					<button type="button" onclick="reloadEdit()" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title text-center">Quản lí ảnh</h4>
+					<h3 class="modal-title text-center">Quản lí ảnh</h3>
 				</div>
 				<div class="modal-body body-album">
 					<div class="row grid-album">		
@@ -308,7 +314,7 @@
 			<div class="modal-content ">
 				<div class="modal-header">
 					<button type="button"  class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title text-center">Thay đổi URL</h4>
+					<h3 class="modal-title text-center">Thay đổi URL</h3>
 				</div>
 				<div class="modal-body">
 					<div class="row">
