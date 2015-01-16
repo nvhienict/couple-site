@@ -280,7 +280,7 @@ Trang chủ
 					      	<a href="{{URL::to('login/facebook')}}" class="btn btn-social btn-facebook bn-login-fb-index">
 						      <i class="fa fa-facebook"></i> Login Facebook
 						    </a>
-					    </div>
+						</div>
 					</div>
 				</div>
 		    </form>

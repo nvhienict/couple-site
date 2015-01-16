@@ -181,7 +181,11 @@
                 <a class="contact-admin" href="mailto:thanh@thuna.vn">thanh@thuna.vn</a><br>
                 Chịu trách nhiệm quản lý nội dung: thuna.vn<br>
                 <a class="thuna-title" href="http://www.thuna.vn" title="Đám cưới, Ảnh cưới, Áo cưới - Trang thông tin dịch vụ cưới hàng đầu Việt Nam">Đám cưới, Ảnh cưới, Áo cưới - Trang thông tin dịch vụ cưới hàng đầu Việt Nam.</a></h2><br>  
-                <div class="site-author">Bản quyền thuộc về thuna.vn © 2014</div>         
+                <div class="site-author">Bản quyền thuộc về thuna.vn &copy; <?php
+                	$copyYear = 2015;
+                	$curYear  = date('Y');
+                	echo $copyYear . ( ($curYear != $copyYear) ? '-' . $curYear : '' );
+                ?></div>         
             </div>
 		</div>
 		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">

@@ -33,7 +33,7 @@ $('#create_acount').validate({
 
         },
         email:{
-            required:'Bạn chưa điền email của bạn',
+            required:'Bạn chưa điền email',
             email:'Định dạng email không đúng',
             remote:'Email này đã tồn tại',
         },

@@ -11,7 +11,7 @@
 	setcountdown(getY,getM,getD);
 	//STEP 2: Change the two text below to reflect the occasion, and message to display on that occasion, respectively
 	var occasion="tới"
-	var message_on_occasion="Xíu Nữa Thôi À"
+	var message_on_occasion="Gần đến đám cưới chúng mình rồi."
 	//STEP 3: Configure the below 5 variables to set the width, height, background color, and text style of the countdown area
 	var countdownwidth='500px'
 	var countdownheight='20px'
@@ -65,7 +65,7 @@
 	document.countdownnsmain.document.countdownnssub.document.close()
 	}
 	else if (document.all||document.getElementById)
-	crosscount.innerHTML=opentags+"Chúng mình đã cưới nhau rùi...ZuiZuiZui "+closetags
+	crosscount.innerHTML=opentags+"Chúng mình đã cưới nhau rồi."+closetags
 	return
 	}
 	//else, if not yet
