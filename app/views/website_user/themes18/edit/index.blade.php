@@ -200,6 +200,62 @@
 	<div class="clear"></div>
 
 	<div id="content">
+		<div class="slider">
+
+				<!-- Carousel -->
+		    	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+					  	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					</ol>
+					<!-- Wrapper for slides -->
+					<?php $check=PhotoTab::where('user',$website_item->user)->get()->count();?>
+					<div class="carousel-inner">
+
+						<?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
+			            @if( $check > 0 )
+			                @foreach($albums as $index => $album)
+			                	@if($index==0)
+			                    	<div class="item active">
+								    	<img src="{{Asset("{$album->photo}")}}" alt="" />
+								    </div>
+			                    @else
+			                    	<div class="item">
+								    	<img src="{{Asset("{$album->photo}")}}" alt="" />
+								    </div>
+			                    @endif
+
+			                @endforeach
+			            @else
+
+						    <div class="item active">
+						    	<img  class="img-responsive" src=" {{Asset("images/slide-main/1-1.jpg")}}" alt="">
+			                </div>
+						    <div class="item">
+						    	<img  class="img-responsive" src=" {{Asset("images/slide-main/2.jpg")}}" alt="">
+						    </div>
+						    <div class="item">
+						    	<img  class="img-responsive" src=" {{Asset("images/slide-main/3.jpg")}}" alt="">
+						  	</div>
+						    <div class="item">
+						    	<img  class="img-responsive" src=" {{Asset("images/slide-main/4.jpg")}}" alt="">
+						    </div>
+						@endif
+
+					</div>
+					<!-- Controls -->
+					<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+				    	<span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+					<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+				    	<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+				</div><!-- /carousel -->
+
+		</div>
+		<!-- end slider -->
 		<div id="home" style="display:none;"></div>
 
 		@foreach(TabWebsite::where('website',$id_web)->orderBy('sort','ASC')->get() as $tabWeb)
