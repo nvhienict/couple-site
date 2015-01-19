@@ -458,7 +458,7 @@ class WebsiteController extends \BaseController {
 		$id_tmp = $id;
 		$id_user =$this->id_user();
 
-		if (!empty($this->getWeb())) {
+		if (!empty($this->getWeb()->id )) {
 			return WebsiteController::viewPrevious($id_tmp);
 		} 
 		else 
