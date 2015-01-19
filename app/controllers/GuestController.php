@@ -119,7 +119,7 @@ class GuestController extends \BaseController {
 					 </div>			 
 	 			</td>
 	 			<td style="width:18%; text-align: left;">
-					<div> 
+					<div class="text-center"> 
 						<a class="span-id-guest" title="Tìm hiểu thêm" data-toggle="modal" data-target="#alert-id-guest" data-backdrop="static">
 							'.$guest_add->address.'
 						</a> 										 	

@@ -103,13 +103,21 @@ Danh sách khách mời
 							      
 							        <form id="form_add_group" action="{{Asset('guest-list/add_group')}}" method="post">
 										<div class="modal-body">
-											<label for="name" class="control-label hidden-xs">Tên nhóm:</label>
-											<input type="text" class="form-control" name="name" id="name" placeholder="Tên nhóm mới">
+											<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="margin-top:1%;">
+												<label for="name" class="control-label hidden-xs">Tên nhóm:</label>
+											</div>
+											<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+												<input type="text" class="form-control" name="name" id="name" placeholder="Tên nhóm mới">
+											</div>
+											
+											<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+												
+											</div>
 											
 									   	</div>
-									   	<div class="modal-footer" style="text-align:center;">								  		
+									   	<div class="modal-footer" style="text-align:center;border-top:none;">								  		
 									    	<button type="submit" class="btn btn-primary" id="submit_add"> Thêm </button>
-									    	<a data-dismiss="modal" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>								  										  		
+									    	<a data-dismiss="modal" class="btn btn-primary" style="cursor:pointer; margin-left: 10px;"> Huỷ bỏ </a>								  										  		
 										</div> 
 										<!-- end modal body -->
 									</form>	
@@ -470,7 +478,7 @@ Danh sách khách mời
 		    <div class="modal-content">
 		    	<div class="modal-header">
 		        	<button style="color:red" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		        	<h4 style="color:#3276B1;" class="modal-title">Thông báo</h4>
+		        	<h4 style="color:#3276B1;" class="modal-title text-center">Thông báo</h4>
 		      	</div>		      
 		      	<div class="modal-body">										        
 				    <div class="row form-group algin-delete">
