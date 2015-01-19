@@ -85,30 +85,31 @@
 	<div id="carousel-example-generic" class="carousel slide item-slide container"  data-ride="carousel">
 				
 		<!-- Wrapper for slides -->
+		<?php $check=PhotoTab::where('user',$website_item->user)->get()->count();?>
 		<div class="carousel-inner">
 		    <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
-            @if($albums)
+            @if( $check > 0 )
                 @foreach($albums as $index => $album)
                 	@if($index==0)
                     	<div class="item active">
-					    	<img class="img-responsive fix-slide" src="{{Asset("{$album->photo}")}}" alt="" />
+					    	<img class="img-responsive fix-slide" style="margin:0 auto;" src="{{Asset("{$album->photo}")}}" alt="" />
 					    </div>
                     @else
                     	<div class="item">
-					    	<img class="img-responsive fix-slide" src="{{Asset("{$album->photo}")}}" alt="" />
+					    	<img class="img-responsive fix-slide" style="margin:0 auto;" src="{{Asset("{$album->photo}")}}" alt="" />
 					    </div>
                     @endif
 
                 @endforeach
             @else
             	<div class="item active item-slide-edit">
-			    	<img src="{{Asset("images/website/themes16/picture2.jpg")}}" alt="First slide">
+			    	<img class="img-responsive" style="margin:0 auto;" src="{{Asset("images/website/themes16/picture2.jpg")}}" alt="First slide">
                 </div>
 			    <div class="item item-slide">
-			    	<img src="{{Asset("images/website/themes16/picture1.jpg")}}" alt="Second slide">
+			    	<img class="img-responsive" style="margin:0 auto;" src="{{Asset("images/website/themes16/picture1.jpg")}}" alt="Second slide">
 			    </div>
 			    <div class="item item-slide">
-			    	<img  src="{{Asset("images/website/themes16/picture3.jpg")}}" alt="Third slide">
+			    	<img class="img-responsive" style="margin:0 auto;" src="{{Asset("images/website/themes16/picture3.jpg")}}" alt="Third slide">
 			    </div>
             @endif
 		</div>
