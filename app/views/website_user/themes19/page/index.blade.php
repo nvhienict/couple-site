@@ -248,9 +248,10 @@
 					<div id="carousel-example-generic" class="carousel slide item-slide"  data-ride="carousel">
 								<!-- data-interval="false" -->
 						<!-- Wrapper for slides -->
+						<?php $check=PhotoTab::where('user',$website_item->user)->get()->count();?>
 						<div class="carousel-inner">
 						    <?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
-				            @if($albums)
+				            @if( $check > 0 )
 				                @foreach($albums as $index => $album)
 				                	@if($index==0)
 				                    	<div class="item active">
