@@ -1422,6 +1422,7 @@ div.vendor_content button{
 	padding: 0 5%;
 	background-color: #AC2F57;
 	height: 88%;
+	position: relative;
 }
 .frm-register .form-group input {
 	
@@ -1430,7 +1431,6 @@ div.vendor_content button{
 .btn-register {
 	background-color: #fe7225; 
 	border: 1px solid #fe7225;
-	width: 30%;
 	float: left;
 	display: inline-block;
 	margin-bottom: 20px;

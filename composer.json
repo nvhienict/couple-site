@@ -8,7 +8,6 @@
 		"maatwebsite/excel": "1.*",
 		"facebook/php-sdk": "dev-master",
 		"intervention/image": "2.*",
-		"artdarek/oauth-4-laravel": "dev-master",
 		"cviebrock/eloquent-sluggable": "2.*"
 	},
 	"autoload": {

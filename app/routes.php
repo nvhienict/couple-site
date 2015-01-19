@@ -10,9 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('test',function(){
-	return View::make('website_user.header');
-});
+
 Route::get('/',array("as"=>"index", function()
 {	
 	if( (Session::has('email')) && (UserController::isset_user())!=0 )
@@ -334,7 +332,12 @@ Route::group(array('before'=>'check_login'), function(){
 Route::get('website/{url}',array('as'=>'url_website','uses'=>"WebsiteController@url_website"));
 
 
-Route::get('login/facebook', array("as" => "facebook", "uses" => "UserController@loginFacebook"));
+// Route::get('login/facebook', array("as" => "facebook", "uses" => "UserController@loginFacebook"));
+Route::post('login-facebook', array("as" => "facebook", "uses" => "UserController@loginFacebookDialog"));
+
+Route::get('facebook-step', function(){
+	return View::make('after-login-fb');
+});
 
 Route::post('change_weddingdate', array("as" => "change_weddingdate", "uses" => "UserController@loginFacebookUpdate"));
 
@@ -386,5 +389,12 @@ Route::get('website-introduce', function(){
 });
 
 /*======================================*/ 
+
+
+Route::get('gh', function(){
+
+	return View::make('gh');
+
+});
 
 

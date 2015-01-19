@@ -276,8 +276,8 @@ Trang chủ
 		      	<div class="row">
 		        	<div class="col-md-12">
 		        		<div class="form-group">
-		        			<button type="submit" class="btn btn-primary btn-register" tabindex="5">Đăng ký</button>
-					      	<a href="{{URL::to('login/facebook')}}" class="btn btn-social btn-facebook bn-login-fb-index">
+		        			<button type="submit" class="btn btn-warning btn-register" tabindex="5">Đăng ký</button>
+					      	<a href="javascript:;" onclick="FB.login()" class="btn btn-social btn-facebook bn-login-fb-index">
 						      <i class="fa fa-facebook"></i> Login Facebook
 						    </a>
 						</div>
@@ -286,6 +286,8 @@ Trang chủ
 		    </form>
 			<script type="text/javascript" src="{{Asset('assets/js/validate-frm-register-index.js')}}"></script>
 		<!-- END FORM REGISTER -->
+
+@include('login-fb')
 
 </div><!--/.row -->
 
