@@ -185,20 +185,12 @@
 					<div class="top-widget-title">
 						Cùng chúng tôi chờ đợi
 					</div>
-					<div class="time-count-down">
-						@if(empty($website_item->count_down))
+					<div class="time-count-down">						
 							@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
 								<div id="getD{{$index}}" style="display:none;">
 									{{$dd}}
 								</div>
 							@endforeach
-						@else
-						@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
-								<div id="getD{{$index}}" style="display:none;">
-									{{$dd}}
-								</div>
-							@endforeach
-						@endif
 						<script type="text/javascript" src="{{Asset("assets/js/count-down-time.js")}}"></script>
 
 						<span id="echo_dday"></span> | <span id="echo_dhour"></span> | 
