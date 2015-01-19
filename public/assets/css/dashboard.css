@@ -1116,7 +1116,7 @@ div.song_content button{
 	 bottom:4%;
 	 left: 29%;
 	 width: 20%;
-	 background-color: #E75292!important;
+	 background-color: #428bca !important;
 	 color:white;
 }
 .btn-select{
@@ -1125,7 +1125,7 @@ div.song_content button{
 	 bottom:4%;
 	 right: 29%;
 	 width: 20%;
-	 background-color: #E75292!important;
+	 background-color: #428bca !important;
 	 color:white;
 }
 .hover-theme img{
@@ -1136,4 +1136,15 @@ div.song_content button{
 }
 .hover-theme:hover .btn-select{
 	display: block;
+}
+.btn-pre:hover{
+	background-color: #2a6496!important;
+	color: white;
+}
+.btn-select:hover{
+	background-color: #2a6496!important;
+	color: white;
+}
+.hover-theme:hover img{
+	box-shadow: 0 0 5px #2a6496;
 }
