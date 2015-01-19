@@ -35,7 +35,7 @@
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '943743042306339',
+    appId      : '1495505887402749',
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
@@ -93,7 +93,8 @@
 	  		},
 	  		success:function(data){
 	  			window.location.href = "http://localhost/couple-site/public/"+data+"";
-	  		}
+          location.reload(true);
+        }
 	 	});
 
     });

@@ -80,7 +80,7 @@ p { margin: 0 0 20px; }
 p.lead { font-weight: 600; }
 
 a {
-    color: #666;
+    color: #2A6496;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -1726,7 +1726,7 @@ a.budget_icon_notes{
 	color: #fff;
 	display: none;
 	position: fixed;
-	z-index: 99999;
+	z-index: 100;
 	top: 0;
 }
 .checklist-statis-formonth-hide span{
