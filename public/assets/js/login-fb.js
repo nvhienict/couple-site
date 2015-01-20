@@ -9,7 +9,6 @@
 	 
 	    };
 
-	    
     	function loginFb() {
 		    FB.login(function(response) {
 		        if (response.authResponse) {

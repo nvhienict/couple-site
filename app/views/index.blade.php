@@ -139,7 +139,6 @@ Trang chủ
 </div><!--/.bg-menu-top-->
 <div class="row lr-bottom-menu"></div>
 	  
-
 @include('site-map')
 
 @endsection
