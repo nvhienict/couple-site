@@ -4,13 +4,20 @@
 				<div class="col-md-12">
 					<h2 style="padding-top: 100px; color: #{{$website_item->color2}}">{{$website_item->name_groom}} &amp; {{$website_item->name_bride}}</h2>
 					<!-- count datime to weddingdate -->
-		  					
+	  		 					@if(Session::has('email'))
 				  					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
 				  						<div id="getD{{$index}}" style="display:none;">
 				  							{{$dd}}
 				  						</div>
 				  					@endforeach
-				  		 					
+				  				@else
+				  					@foreach( $date = explode('-',$date_url) as $index=>$dd )
+				  						<div id="getD{{$index}}" style="display:none;">
+				  							{{$dd}}
+				  						</div>
+				  					@endforeach
+				  						
+			  					@endif
 		  				<div style="text-align:center; margin-bottom:100px; font-weight: bold; font-size: 50px;color: #{{$website_item->color1}};">
 		  				
 		  					<table align="center">
