@@ -9,7 +9,7 @@
         </div>
         <div class="tab-text-date-time">
             <i class="fa fa-clock-o"></i>&nbsp
-            @if(Session::has(mail))
+            @if(Session::has(email))
                 {{WebsiteController::getDates()}}
             @else
                 {{data_url}}
