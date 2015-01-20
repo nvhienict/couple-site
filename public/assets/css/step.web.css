@@ -45,3 +45,46 @@
 #upload-photo-album{
 	min-height: 258px;
 }
+@media only screen  and (max-width: 1280px) {
+  .btn-change-img {
+	position: absolute;
+	bottom: 48%;
+	left: 38%;
+} 
+}
+@media only screen  and (min-width: 1280px) {
+  .btn-change-img {
+	position: absolute;
+	bottom: 38%;
+	left: 43%;
+} 
+}
+@media only screen  and (max-width: 1280px) {
+  .btn-change-img-groom {
+	position: absolute;
+	bottom: 47%;
+	left: 38%;
+} 
+}
+@media only screen  and (min-width: 1280px) {
+  .btn-change-img-groom {
+	position: absolute;
+	bottom: 36.5%;
+	left: 43%;
+} 
+}
+@media only screen  and (max-width: 1280px) {
+  .btn-change-bg {
+	position: absolute;
+	bottom: 3%;
+	left: 35%;
+} 
+}
+@media only screen  and (min-width: 1280px) {
+  .btn-change-bg {
+	position: absolute;
+	bottom: 2%;
+	left: 43%;
+} 
+}
+

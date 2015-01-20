@@ -149,11 +149,12 @@ Website cưới
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-md-offset-1 col-sm-offset-1 col-lg-offset-1">
+			<div class="col-xs-12 col-sm-1 col-md-1 col-lg-1"></div>
+			<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
 				<div class="load-avatar-bride">
 					<img  class="img-responsive" src="{{Asset('images/website/themes1/girl.jpg')}}">
 				</div>
-				<div class="text-center">
+				<div class="text-center btn-change-img">
 					<button type="button" class="btn btn-responsive btn-primary"  onclick="send_check(111)" data-backdrop="static" data-toggle="modal" data-target='#modal-wedding'>Đổi ảnh</button>
 				</div>
 				<div class="about-infor">
@@ -167,7 +168,7 @@ Website cưới
 				<div class="load-avatar-groom">
 					<img  class="img-responsive" src="{{Asset('images/website/themes1/boy.jpg')}}">
 				</div>
-				<div class="text-center">
+				<div class="text-center btn-change-img-groom">
 					<button type="button" class="btn btn-responsive btn-primary"  onclick="send_check(222)" data-backdrop="static" data-toggle="modal" data-target='#modal-wedding'>Đổi ảnh</button>
 				</div>
 				<div class="about-infor">
@@ -208,7 +209,7 @@ Website cưới
 				<div class="load-bg">
 					<img  class="img-responsive" src="{{Asset('images/website/themes1/boy.jpg')}}">
 				</div>
-				<div class="text-center"><button type="button" class="btn btn-responsive btn-primary" data-backdrop="static" data-toggle="modal" data-target='#modal-bg'>Đổi ảnh</button></div>
+				<div class="text-center btn-change-bg"><button type="button" class="btn btn-responsive btn-primary" data-backdrop="static" data-toggle="modal" data-target='#modal-bg'>Đổi ảnh</button></div>
 			</div>
 			<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
 				<img  class="img-responsive" src="{{Asset('images/website/tmp/infor-images.jpg')}}">
