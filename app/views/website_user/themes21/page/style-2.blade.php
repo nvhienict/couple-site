@@ -9,10 +9,10 @@
         </div>
         <div class="tab-text-date-time">
             <i class="fa fa-clock-o"></i>&nbsp
-            @if(Session::has(email))
+            @if(Session::has('email'))
                 {{WebsiteController::getDates()}}
             @else
-                {{data_url}}
+                {{$data_url}}
             @endif
 
             <img class="tab-text-date-time-img" src="{{Asset('images/website/themes21/p3_pic4.png')}}">

@@ -171,7 +171,7 @@
 
   		@if($tabWeb->type=="guestbook" && $tabWeb->visiable==0)
 			<div id="guestbook">
-				@include('website_user.themes21.edit.guestbook')
+				@include('website_user.themes21.page.guestbook')
 				<!-- element -->
 				<em class="element_23"></em>
 				<em class="element_24"></em>
