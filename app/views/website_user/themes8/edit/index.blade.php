@@ -141,7 +141,12 @@
 			</div>
 
 			Chúng tôi sẽ tổ chức đám cưới<br />
-			vào {{WebsiteController::getDates()}}
+			vào 
+			@if(Session::has('email'))
+				{{WebsiteController::getDates()}}
+			@else
+				{{$date_url}}
+			@endif
 		</div>
 		<!-- end date-wedding -->
 
