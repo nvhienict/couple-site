@@ -187,8 +187,8 @@
 	</head>
 	<body>
 		
-		@if($website)
-	    	@foreach( $website as $website_item )
+	@if($website)
+    	@foreach( $website as $website_item )
 	    	<!-- navabr -->
     		<div class="row">
 				<nav class="navbar navbar-default navbar-fixed-top navbar-main nav-themes19-default" role="navigation">
@@ -544,6 +544,8 @@
 			@endif
 			<!-- end guest book -->
 		@endforeach
+	@endforeach	
+@endif
 			<!-- end content-->
 			<footer>
 				<div class="bird"></div>
@@ -569,8 +571,5 @@
 					</div>
 				</div>
 			</footer>
-		@endforeach	
-	@endif
-		
 	</body>
 </html>
