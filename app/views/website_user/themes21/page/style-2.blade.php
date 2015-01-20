@@ -8,7 +8,12 @@
             <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
         </div>
         <div class="tab-text-date-time">
-            <i class="fa fa-clock-o"></i>&nbsp{{WebsiteController::getDates()}}
+            <i class="fa fa-clock-o"></i>&nbsp
+            @if(Session::has(mail))
+                {{WebsiteController::getDates()}}
+            @else
+                {{data_url}}
+            @endif
 
             <img class="tab-text-date-time-img" src="{{Asset('images/website/themes21/p3_pic4.png')}}">
         </div>
