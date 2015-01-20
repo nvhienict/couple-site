@@ -22,16 +22,6 @@ Route::get('/',array("as"=>"index", function()
 	
 }));
 
-Route::get('index',array("as"=>"index", function()
-{
-	if( (Session::has('email')) && (UserController::isset_user())!=0 )
-	{
-		return Redirect::to('dashboard');
-	} else {
-		return View::make('index');
-	}
-}));
-
 Route::filter("check_login", function(){
 
 		$view = View::make('user-login');
