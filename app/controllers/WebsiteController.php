@@ -1311,6 +1311,7 @@ class WebsiteController extends \BaseController {
 																->with('firstname', $firstname)
 																->with('id_web', $id_website)
 																->with('date_url',$date_url)
+																->with('backgrounds',$backgrounds)
 																->with('email',$email)
 																->with('count_down_url',$count_down_url)
 																->with('url', $url);
