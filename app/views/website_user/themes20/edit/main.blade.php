@@ -24,8 +24,6 @@
                   {{$dd}}
                 </div>
               @endforeach
-            @else
-            
           <div id="count_dateTime" >
           
             <table align="center" class="count_table_dateTime">
