@@ -101,13 +101,9 @@ p{
 	clear: both;
 }
 
-.navbar-right > li > a:focus{
-	background:none;
-}
-
 .navbar-right > li > a:hover {
-	background:#FF9B83;
-	color:#fff;
+	background:#FF9B83!important;
+	color:#fff!important;
 
 }
 .sorted_table tr {

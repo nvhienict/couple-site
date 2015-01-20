@@ -3,92 +3,6 @@
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes5.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
-    <script type="text/javascript">
-		
-		function update_about_bride()
-		{
-			$.ajax({
-				type:"post",
-				dataType: "html",
-				url:"{{URL::route('update_about_bride')}}",
-				data: {	content:CKEDITOR.instances['edit_about_bride'].getData()
-					},
-				success:function(data){
-					var obj = JSON.parse(data);
-					$('#about_bride1').text(obj.content);
-				}
-			});
-
-			$('.edit_ctn_about_bride').hide();
-			$('.about_bride').show();
-		}
-		function exit_edit_about_bride()
-		{
-			$('.edit_ctn_about_bride').hide();
-			$('.about_bride').show();
-		}
-
-
-		function edit_about_groom()
-		{
-			$('.edit_ctn_about').show();
-			$('.about_groom').hide();
-		}
-		function update_about_groom()
-		{
-			$.ajax({
-				type:"post",
-				dataType: "html",
-				url:"{{URL::route('update_about_groom')}}",
-				data: {	content:CKEDITOR.instances['edit_about_groom'].getData()
-					},
-				success:function(data){
-					var obj = JSON.parse(data);
-					$('#about_groom1').text(obj.content);
-				}
-			});
-
-			$('.edit_ctn_about').hide();
-			$('.about_groom').show();
-		}
-		function exit_edit_about_groom()
-		{
-			$('.edit_ctn_about').hide();
-			$('.about_groom').show();
-		}
-		function editName(){
-			$("#showName").hide();
-			$("#editName").show();
-		}
-		function updateName()
-		{
-			var nameBride = $('input[name=name_bride]').val();
-			var nameGroom = $('input[name=name_groom]').val();
-			$.ajax({
-				type:"post",
-				dataType: "html",
-				url:"{{URL::route('updateName')}}",
-				data: {nameBride: nameBride,
-						nameGroom: nameGroom},
-				success:function(data){
-					var obj = JSON.parse(data);
-					$('#topNameGroom').text(obj['name_groom']);
-					$('#topNameBride').text(obj['name_bride']);
-					$('#titleNameGroom').text(obj['name_groom']);
-					$('#titleNameBride').text(obj['name_bride']);
-				}
-			});
-
-			$("#showName").show();
-			$("#editName").hide();
-		}
-		function exitEditName()
-		{
-			$("#showName").show();
-			$("#editName").hide();
-		}
-		
-</script>
 	</head>
 		@if($website)
 		@foreach( $website as $website_item )
@@ -99,23 +13,47 @@
 				<div id="nav-wrapper">
 					<div id="nav" class="navbar"  role="navigation">
 						<div class="container">
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
-								<a class="navbar-brand" href="index.html"><img src="{{Asset('images/website/themes5/key-icon.png')}}" alt="logo"></a>
-							</div>
-							<div class="navbar-collapse collapse">
-							<ul class="nav navbar-nav navbar-right">
-								@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
-								<li class="menu-id{{$tabWeb->id}}"><a href="#section_{{$tabWeb->type}}">{{$tabWeb->title}}</a></li>
-								@endforeach
-								<li><a onclick="loadAddTitle()" class="fa fa-plus-square btn-add-title" data-toggle="modal" data-target="#modal-add-title"></a></li>
-     							<li><a class="fa fa-wrench fa-2x btn-config" href="{{URL::route('website')}}"></a></li>
-							</ul>
-							</div>
+							<nav style="padding:0px;" class="navbar navbar-default navbar-fixed-top" role="navigation">
+							   <div class="navbar-header">
+							      <button type="button" class="navbar-toggle" data-toggle="collapse" 
+							         data-target="#example-navbar-collapse">
+							         <span class="sr-only">Toggle navigation</span>
+							         <span class="icon-bar"></span>
+							         <span class="icon-bar"></span>
+							         <span class="icon-bar"></span>
+							      </button>
+							      <a class="navbar-brand"><img src="{{Asset('images/website/themes5/key-icon.png')}}" alt="logo"></a>
+							   </div>
+							   <div class="collapse navbar-collapse" id="example-navbar-collapse">
+							      <ul class="nav navbar-nav navbar-right">
+							         <li><a class="a_menu scrollTo" href="#title_home">Trang Chủ</a></span></li>
+							        @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
+							         <li class="menu-id{{$menu_tab->id}} text-center">
+							          <a class="a_menu scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a>
+							        </li>
+							         @endforeach()
+							        <li  class="dropdown" role="presentation">
+							          <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+							            <span class="fa fa-wrench"></span><span class="caret"></span>
+							          </a>
+							          <ul class="dropdown-menu setting-edit" role="menu">
+							              <li><a  href="{{URL::route('index')}}">Dashboard</a></li>
+							              <li role="presentation" class="divider"></li>
+							              <li><a target="_blank" href="{{URL::route('view-previous',array($id_tmp))}}">Xem trước</a></li>
+							              <li role="presentation" class="divider"></li>
+							              <li><a href="{{URL::route('change_temp')}}">Thay đổi giao diện</a></li>
+							              <li role="presentation" class="divider"></li>
+							              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#change-bg-edit" data-backdrop="static">Thay đổi hình nền</a></li>
+							              <li role="presentation" class="divider"></li>
+							              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#album-photo-user" data-backdrop="static">Album ảnh</a></li>
+							              <li role="presentation" class="divider"></li>
+							              <li><a onclick="loadURL()" href="javascript:void(0);" data-toggle="modal" data-target="#change-url-user">Cài đặt URL</a></li>
+							          </ul>
+							        </li>						          
+							      </ul>
+							   </div>
+							</nav>	
+
 						</div>
 					</div>  	
 				</div>
