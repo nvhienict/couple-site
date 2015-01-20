@@ -276,18 +276,19 @@ Trang chủ
 		      	<div class="row">
 		        	<div class="col-md-12">
 		        		<div class="form-group">
-		        			<button type="submit" class="btn btn-warning btn-register" tabindex="5">Đăng ký</button>
-					      	<a href="javascript:;" onclick="FB.login()" class="btn btn-social btn-facebook bn-login-fb-index">
+							<button type="submit" class="btn btn-warning btn-register" tabindex="5">Đăng ký</button>
+					      	<a href="javascript:;" onclick="loginFb();" class="btn btn-social btn-facebook bn-login-fb-index">
 						      <i class="fa fa-facebook"></i> Login Facebook
 						    </a>
+						    <script src="//connect.facebook.net/en_US/all.js"></script>
+						    <div id="fb-root"></div>
+						    <script type="text/javascript" src="{{Asset('assets/js/login-fb.js')}}"></script>
 						</div>
 					</div>
 				</div>
 		    </form>
 			<script type="text/javascript" src="{{Asset('assets/js/validate-frm-register-index.js')}}"></script>
 		<!-- END FORM REGISTER -->
-
-@include('login-fb')
 
 </div><!--/.row -->
 

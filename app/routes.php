@@ -335,10 +335,6 @@ Route::get('website/{url}',array('as'=>'url_website','uses'=>"WebsiteController@
 // Route::get('login/facebook', array("as" => "facebook", "uses" => "UserController@loginFacebook"));
 Route::post('login-facebook', array("as" => "facebook", "uses" => "UserController@loginFacebookDialog"));
 
-Route::get('facebook-step', function(){
-	return View::make('after-login-fb');
-});
-
 Route::post('change_weddingdate', array("as" => "change_weddingdate", "uses" => "UserController@loginFacebookUpdate"));
 
 
