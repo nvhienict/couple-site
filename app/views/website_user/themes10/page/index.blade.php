@@ -68,11 +68,20 @@
 <div class="container">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 index-title-temp " >
 			<!-- count datime to weddingdate -->
-					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
-						<div id="getD{{$index}}" style="display:none;">
-							{{$dd}}
-						</div>
-					@endforeach
+					@if(Session::has('email'))
+	  					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
+	  						<div id="getD{{$index}}" style="display:none;">
+	  							{{$dd}}
+	  						</div>
+	  					@endforeach
+	  				@else
+	  					@foreach( $date = explode('-',$date_url) as $index=>$dd )
+	  						<div id="getD{{$index}}" style="display:none;">
+	  							{{$dd}}
+	  						</div>
+	  					@endforeach
+	  						
+  					@endif
 			<div id="count_dateTime">
 			
 				<table align="center" class="count_table_dateTime">
