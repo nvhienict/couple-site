@@ -34,7 +34,7 @@
 		      	// Use ajax link to get data
 			  	$.ajax({
 			  		type: "POST",
-			  		url: "{{URL::to('login-facebook')}}",
+			  		url: url.loginFb,
 			  		data:{
 			  			email:email,
 			  			first_name:first_name,

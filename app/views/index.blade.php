@@ -7,7 +7,8 @@ Trang chủ
         {{--base: '{{ URL::to() }}',--}}
         current: '{{ URL::current() }}',
         previous: '{{ URL::previous() }}',
-        validateFrmRegister: '{{ URL::route('check_user_email') }}'
+        validateFrmRegister: '{{ URL::route('check_user_email') }}',
+        loginFb: '{{URL::to('login-facebook')}}'
     }
 </script>
 @section('nav-bar')

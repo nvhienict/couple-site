@@ -1623,7 +1623,7 @@ class UserTableSeeder extends Seeder {
 
         User::create(array(
             'avatar' => 'update/bg22.gif',
-            'email' => 'admin4@thuna.vn',
+            'email' => 'user-default@thuna.vn',
             'password' => Hash::make('t01laa1tr0ngtheg101nay'),
             'firstname'=>'Tu',
             'lastname'=>'Nguyen',
