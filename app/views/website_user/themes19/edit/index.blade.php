@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="">
     <head>
     <script src="{{Asset("assets/js/map-themes.js")}}"></script>
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes19.css")}}">
@@ -319,12 +317,11 @@
                     <table align="center">
                     <!-- count datime to weddingdate -->
                    
-                        @if(Session::has('email'))
                             @foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
-                                <div id="getD{{$index}}" style="display:none;">
-                                    {{$dd}}
-                                </div>
-                            @endforeach
+                              <div id="getD{{$index}}" style="display:none;">
+                                  {{$dd}}
+                              </div>
+                        @endforeach
                   
                     <script type="text/javascript" src="{{Asset("assets/js/count-down-time.js")}}"></script>
                     <!-- .end -->
@@ -350,7 +347,7 @@
                 </div>
             </div>
             <div class="line-infor1"></div>
-            @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
+          @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
             <!-- welcome -->
             @if($tabWeb->type =="welcome" )
             <div class="row bg-w r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">  
@@ -683,7 +680,7 @@
             <div class="line-infor1 r-title{{$tabWeb->id}}"></div>
             @endif
             <!-- end guest book -->
-            @endforeach
+          @endforeach
 
             <footer>
                 <div class="bird"></div>
@@ -711,4 +708,3 @@
             </footer>
         @endforeach
     @endif
-</html>
