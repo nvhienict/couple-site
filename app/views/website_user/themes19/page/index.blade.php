@@ -337,7 +337,7 @@
 				</div>
 			</div>
 			<div class="line-infor1"></div>
-			@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
+		@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $tabWeb)
 			<!-- welcome -->
 			@if($tabWeb->type =="welcome" )
 			<div class="row bg-w" id="section_{{$tabWeb->type}}">	
@@ -543,7 +543,7 @@
 			<div class="line-infor1"></div>
 			@endif
 			<!-- end guest book -->
-			@endforeach
+		@endforeach
 			<!-- end content-->
 			<footer>
 				<div class="bird"></div>
@@ -569,7 +569,8 @@
 					</div>
 				</div>
 			</footer>
-		@endif
+		@endforeach	
+	@endif
 		
 	</body>
 </html>
