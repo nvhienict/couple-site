@@ -569,7 +569,6 @@
 					</div>
 				</div>
 			</footer>
-			@endforeach
 		@endif
 		
 	</body>
