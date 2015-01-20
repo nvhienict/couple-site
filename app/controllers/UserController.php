@@ -564,57 +564,14 @@ class UserController extends \BaseController {
         	// get avatar default
 			$avatar_default 	= User::where('role_id', '=', 1)->get()->first()->avatar;
 
-			$date_wedding_fb 	= New DateTime('now');
-			$date_wedding_fb_cv = $date_wedding_fb->format('Y-m-d');
-
 			$user 				= new User();
 			$user->firstname 	= $first_name;
 			$user->lastname 	= $last_name;
 			$user->email 		= $email;
 			$user->avatar 		= $avatar_default;
-			$user->weddingdate 	= $date_wedding_fb_cv;
 			$user->role_id 		= 2;
 			$user->budget 		= 0;
 			$user->save();
-
-	        
-			//kiểm tra nếu startdate so với hiện tại đã qua, thì lưu startdate của user bằng startdate hiện tại
-			$dateNow 			= New DateTime('now');
-			$date_wedding 		= new DateTime($date_wedding_fb_cv);
-
-			if(date_timestamp_get($dateNow) > date_timestamp_get($date_wedding))
-			{
-				$NowToWedding 	= (date_timestamp_get($dateNow)- date_timestamp_get($date_wedding))/(3600*24);
-			}
-			else
-			{
-				$NowToWedding 	= (date_timestamp_get($date_wedding)- date_timestamp_get($dateNow))/(3600*24);
-			}
-				
-				//truyền dữ liệu sang bảng usertask
-				$id_user 		= User::where('email','=',$email)->get()->first()->id; 
-					
-					$tasks 		= Task::get();
-					foreach($tasks as $task){
-						if( $NowToWedding > $task->startdate){
-							$startdate = $task->startdate;
-						}
-						else
-						{
-							$startdate = $NowToWedding+1;
-						}
-						
-
-						$usertask = new UserTask();
-						$usertask->title 	   = $task->title;
-						$usertask->user 	   = $id_user;
-						$usertask->startdate   = $startdate;
-						$usertask->category    = $task->category;
-						$usertask->description = $task->description;
-						$usertask->todo 	   = 0;
-						$usertask->save();
-
-					}
 
 			Session::put("email", $email);
 
@@ -632,7 +589,46 @@ class UserController extends \BaseController {
 
 
 	public function loginFacebookUpdate(){
+
 		$weddingdateInput 	= Input::get("weddingdate");
+
+		//kiểm tra nếu startdate so với hiện tại đã qua, thì lưu startdate của user bằng startdate hiện tại
+		$dateNow 			= New DateTime('now');
+		$date_wedding 		= new DateTime($weddingdateInput);
+
+		if(date_timestamp_get($dateNow) > date_timestamp_get($date_wedding))
+		{
+			$NowToWedding 	= (date_timestamp_get($dateNow)- date_timestamp_get($date_wedding))/(3600*24);
+		}
+		else
+		{
+			$NowToWedding 	= (date_timestamp_get($date_wedding)- date_timestamp_get($dateNow))/(3600*24);
+		}
+			
+		//truyền dữ liệu sang bảng usertask
+		$id_user 			= User::where('email', Session::get('email'))->get()->first()->id; 
+			
+		$tasks 				= Task::get();
+		foreach($tasks as $task){
+
+			if( $NowToWedding > $task->startdate){
+				$startdate = $task->startdate;
+			} else {
+				$startdate = $NowToWedding+1;
+			}
+			
+			$usertask 			   = new UserTask();
+			$usertask->title 	   = $task->title;
+			$usertask->user 	   = $id_user;
+			$usertask->startdate   = $startdate;
+			$usertask->category    = $task->category;
+			$usertask->description = $task->description;
+			$usertask->todo 	   = 0;
+			$usertask->save();
+
+		}
+
+
 		$cover_weddingdate 	= Carbon::parse($weddingdateInput)->format('Y-m-d');
 
 		// update to database
