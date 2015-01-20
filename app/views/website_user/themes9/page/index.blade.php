@@ -187,11 +187,20 @@
 						Cùng chúng tôi chờ đợi
 					</div>
 					<div class="time-count-down">						
-							@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
-								<div id="getD{{$index}}" style="display:none;">
-									{{$dd}}
-								</div>
-							@endforeach
+							@if(Session::has('email'))
+			  					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
+			  						<div id="getD{{$index}}" style="display:none;">
+			  							{{$dd}}
+			  						</div>
+			  					@endforeach
+			  				@else
+			  					@foreach( $date = explode('-',$date_url) as $index=>$dd )
+			  						<div id="getD{{$index}}" style="display:none;">
+			  							{{$dd}}
+			  						</div>
+			  					@endforeach
+			  						
+		  					@endif
 						<script type="text/javascript" src="{{Asset("assets/js/count-down-time.js")}}"></script>
 
 						<span id="echo_dday"></span> | <span id="echo_dhour"></span> | 
