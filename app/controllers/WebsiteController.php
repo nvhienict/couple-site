@@ -1139,7 +1139,7 @@ class WebsiteController extends \BaseController {
 				$backgrounds='';
 				break;
 			case 10:
-				$backgrounds='';
+				$backgrounds='images/website/themes3/body_image_1.jpg';
 			break;
 			case 11:
 				$backgrounds='';
