@@ -7,13 +7,13 @@
 @endsection
 @section('content')
 
-<form role="form" action="{{Asset('change_weddingdate')}}" method="post" id="user_login" style="margin: 22px auto 70px;" >
+<form role="form" action="{{Asset('change_weddingdate')}}" method="post" id="user_login" style="margin: 70px auto 120px; max-width: 350px;" >
   
-  <div class="form-group">
+  <div class="form-group" style="text-align: center;">
     <label style="color: #4965B5;">ĐĂNG NHẬP BẰNG FACEBOOK</label>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" style="text-align: justify;">
     <label>Để sử dụng tốt nhất những công cụ của thuna.vn, bạn vui lòng cập nhật ngày cưới của mình</label>
   </div>
 
