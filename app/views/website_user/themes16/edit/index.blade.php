@@ -124,12 +124,12 @@
 								
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 about" id="title_home">
         	<hgroup>
-        		<h2 class="text-center" style="text-transform: uppercase; color: #{{$website_item->color1}}; font-family: {{$website_item->font}};"> Ours Wedding </h2>
-        		<h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-groom">
+        		<h2 class="text-center" style="font-family: 'UvfAphroditePro'"> Ours Wedding </h2>
+        		<h1 style="font-family: 'UvfAphroditePro'" class="font-name text-center name-groom">
         			{{$website_item->name_groom}} 
         		</h1>
         		<h6 class="text-center" style="font-size:20px;">&</h6>
-        		<h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-bride">
+        		<h1 style="font-family: 'UvfAphroditePro'" class="font-name text-center name-bride">
         			{{$website_item->name_bride}}
         		</h1>
         		<h6 class="text-center">on</h6>
@@ -155,8 +155,8 @@
 					</a>
 					<button onclick="send_id(0,222)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' type="button" class="btn btn-primary btn-responsive">Đổi ảnh</button>		
 				</figure>
-				<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="title-bg name-groom">{{$website_item->name_groom}}</h3>
-				<p class="about-groom">{{$website_item->about_groom}}</p>
+				<h3 style="font-family: 'UvfAphroditePro'" class="title-bg name-groom">{{$website_item->name_groom}}</h3>
+				<p class="about-groom" style="font-family: 'UvfAphroditePro'">{{$website_item->about_groom}}</p>
 				<div class="text-center icon-infor"><a onclick="editInforGroom()"data-toggle="modal" data-target="#edit-infor-groom" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a></div>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 text-center">
@@ -170,8 +170,8 @@
 					</a>
 					<button onclick="send_id(0,111)" data-backdrop="static" class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' type="button" class="btn btn-primary btn-responsive">Đổi ảnh</button>		
 				</figure>
-				<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="title-tab title-bg name-bride">{{$website_item->name_bride}}</h3>
-				<p class="about-bride">{{$website_item->about_bride}}</p>
+				<h3 style="font-family: 'UvfAphroditePro'" class="title-tab title-bg name-bride">{{$website_item->name_bride}}</h3>
+				<p class="about-bride" style="font-family: 'UvfAphroditePro'">{{$website_item->about_bride}}</p>
 				<div class="text-center icon-infor"><a onclick="editInforBride()" data-toggle="modal" data-target="#edit-infor-bride" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a></div>
 			</div>
 		</div>
@@ -185,7 +185,7 @@
 
 		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
 			<div class="inline-title text-center">
-	            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+	            <h3 class="text-center title-tab" style="font-family: 'UvfAphroditePro'" id = "nameTitle{{$tabWeb->id}}">
 	                {{$tabWeb->title}}
 	            </h3>
 	            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
@@ -259,7 +259,7 @@
 
 		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
 			<div class="inline-title text-center">
-	            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+	            <h3 class="text-center title-tab" style="font-family: 'UvfAphroditePro'" id = "nameTitle{{$tabWeb->id}}">
 	                {{$tabWeb->title}}
 	            </h3>
 	            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
@@ -296,7 +296,7 @@
 
 		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
 			<div class="inline-title text-center">
-	            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+	            <h3 class="text-center title-tab" style="font-family: 'UvfAphroditePro'" id = "nameTitle{{$tabWeb->id}}">
 	                {{$tabWeb->title}}
 	            </h3>
 	            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
@@ -377,7 +377,7 @@
 
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-l r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
 			<div class="inline-title text-center">
-	            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+	            <h3 class="text-center title-tab" style="font-family: 'UvfAphroditePro'" id = "nameTitle{{$tabWeb->id}}">
 	                {{$tabWeb->title}}
 	            </h3>
 	            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
@@ -423,7 +423,7 @@
 
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
 			<div class="inline-title text-center">
-	            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+	            <h3 class="text-center title-tab" style="font-family: 'UvfAphroditePro'" id = "nameTitle{{$tabWeb->id}}">
 	                {{$tabWeb->title}}
 	            </h3>
 	            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>
@@ -460,7 +460,7 @@
 
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
 				<div class="inline-title text-center">
-		            <h3 class="text-center title-tab" style="font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}" id = "nameTitle{{$tabWeb->id}}">
+		            <h3 class="text-center title-tab" style="font-family: 'UvfAphroditePro'" id = "nameTitle{{$tabWeb->id}}">
 		                {{$tabWeb->title}}
 		            </h3>
 		            <span onclick="sendTitle({{$tabWeb->id}},{{$tabWeb->visiable}})" class="glyphicon glyphicon-edit" data-toggle="modal" data-target='#modal-edit-menu'></span>

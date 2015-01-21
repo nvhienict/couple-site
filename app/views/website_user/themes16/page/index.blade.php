@@ -9,6 +9,7 @@
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes16.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/template-font.css")}}">
     
     <script src="{{Asset('assets/js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
@@ -123,12 +124,12 @@
 									
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 about" id="title_home">
 	        	<hgroup>
-	        		<h2 class="text-center" style="text-transform: uppercase; color: #{{$website_item->color1}}; font-family: {{$website_item->font}};"> Ours Wedding </h2>
-	        		<h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-g">
+	        		<h2 class="text-center" style="font-family: 'UvfAphroditePro'"> Ours Wedding </h2>
+	        		<h1 style="font-family: 'UvfAphroditePro'" class="font-name text-center name-g">
 	        			{{$website_item->name_groom}} 
 	        		</h1>
 	        		<h6 class="text-center" style="font-size:20px;">&</h6>
-	        		<h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-b">
+	        		<h1 style="font-family: 'UvfAphroditePro'" class="font-name text-center name-b">
 	        			{{$website_item->name_bride}}
 	        		</h1>
 	        		<h6 class="text-center">on</h6>
@@ -153,7 +154,7 @@
 							@endif
 						</a>
 					</figure>
-					<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="title-bg name-g">{{$website_item->name_groom}}</h3>
+					<h3 style="font-family: 'UvfAphroditePro'" class="title-bg name-g">{{$website_item->name_groom}}</h3>
 					<p class="about-g">{{$website_item->about_groom}} </p>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 text-center">
@@ -166,7 +167,7 @@
 							@endif
 						</a>
 					</figure>
-					<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
+					<h3 style="font-family: 'UvfAphroditePro'" class="title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
 					<p class="about-b">{{$website_item->about_bride}}</p>
 				</div>
 			</div>
@@ -179,7 +180,7 @@
 			@if($tabWeb->type =="welcome" )
 
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l" id="section_{{$tabWeb->type}}">
-				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="font-family: 'UvfAphroditePro'">
 	        	{{$tabWeb->title}}
 	       		</h3>
 
@@ -223,7 +224,7 @@
 			@if($tabWeb->type=="about")
 
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l" id="section_{{$tabWeb->type}}">
-				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="font-family: 'UvfAphroditePro'">
 	        		{{$tabWeb->title}}
 	       		 </h3>
 				<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
@@ -243,7 +244,7 @@
 			@if($tabWeb->type=="wedding" )
 
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l" id="section_{{$tabWeb->type}}">
-				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="font-family: 'UvfAphroditePro'">
 		        	{{$tabWeb->title}}
 		        </h3>
 				<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
@@ -290,7 +291,7 @@
 			 @if($tabWeb->type=="album" )
 
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-r" id="section_{{$tabWeb->type}}">
-				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="font-family: 'UvfAphroditePro'">
 		        	{{$tabWeb->title}}
 		        </h3>
 				<?php $albums=PhotoTab::where('user',$website_item->user)->get();?>
@@ -319,7 +320,7 @@
 			@if($tabWeb->type=="register" )
 
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pad-l" id="section_{{$tabWeb->type}}">
-				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="font-family: 'UvfAphroditePro'">
 		        	{{$tabWeb->title}}
 		        </h3>
 				<?php  $images=PhotoTab::where('tab',$tabWeb->id)->get()->first(); ?>
@@ -339,7 +340,7 @@
 			 @if($tabWeb->type=="contact")
 
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="section_{{$tabWeb->type}}">
-				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+				<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="font-family: 'UvfAphroditePro'">
 		        	{{$tabWeb->title}}
 		        </h3>
 				<form  class="contact-website" action="" method="POST" role="form">				             

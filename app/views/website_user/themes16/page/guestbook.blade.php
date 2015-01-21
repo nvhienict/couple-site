@@ -1,7 +1,7 @@
 
 <div class="partion">
 	<div class="row phara-margin">
-       	<h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}} " id = "nameTitle{{$tabWeb->id}}">
+       	<h3 class="text-center title-tab" style="font-family: 'UvfAphroditePro'" id = "nameTitle{{$tabWeb->id}}">
             {{$tabWeb->title}}
         </h3>
 
