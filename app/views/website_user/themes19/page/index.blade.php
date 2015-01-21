@@ -13,6 +13,7 @@
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes19.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/template-font.css")}}">
 
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
 
@@ -215,9 +216,9 @@
 			<!-- header infor -->
 			<div class="row" id="title_home">
 				<div class="header-name">
-					<h1 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-g">{{$website_item->name_groom}}</h1>
+					<h1 style="font-family: 'UvfAphroditePro'" class="text-center title-bg name-g">{{$website_item->name_groom}}</h1>
 					<h1><span class="fa fa-heart myheart"></span></h1>
-					<h1 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-b">{{$website_item->name_bride}}</h1>
+					<h1 style="font-family: 'UvfAphroditePro'" class="text-center title-bg name-b">{{$website_item->name_bride}}</h1>
 					<h4>ARE GETTING MARRIED!</h4>
 					<h4>on</h4>
 					<h3 class="text-center title-tab" style="color: #{{$website_item->color1}}">
@@ -239,8 +240,8 @@
 					@else
 					<img  class="img-responsive img-circle img-infor" src="{{Asset('images/website/themes1/boy.jpg')}}">
 					@endif
-					<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-g">{{$website_item->name_groom}}</h3>
-					<p class="about-g text-center">{{$website_item->about_groom}} </p>
+					<h3 style="font-family: 'UvfAphroditePro'" class="text-center title-bg name-g">{{$website_item->name_groom}}</h3>
+					<p class="about-g text-center" style="font-family: 'UvfAphroditePro'">{{$website_item->about_groom}} </p>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 infor-slide">
 					<!-- slide image -->
@@ -286,8 +287,8 @@
 					@else
 					<img  class="img-responsive img-circle img-infor" src="{{Asset('images/website/themes1/boy.jpg')}}">
 					@endif
-					<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="text-center title-bg name-b">{{$website_item->name_bride}}</h3>
-					<p class="about-g text-center">{{$website_item->about_bride}} </p>
+					<h3 style="font-family: 'UvfAphroditePro'" class="text-center title-bg name-b">{{$website_item->name_bride}}</h3>
+					<p class="about-g text-center" style="font-family: 'UvfAphroditePro'">{{$website_item->about_bride}} </p>
 				</div>
 			</div>
 			<!-- end header infor -->
@@ -355,7 +356,7 @@
 	                @endif            
 				</div>
 				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
-					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="font-family: 'UvfAphroditePro'">
 		        		{{$tabWeb->title}}
 		       		</h3>
 					<p><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
@@ -381,7 +382,7 @@
 	                @endif            
 				</div>
 				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
-					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="font-family: 'UvfAphroditePro'">
 		        		{{$tabWeb->title}}
 		       		</h3>
 					<p><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
@@ -396,7 +397,7 @@
 	       					
    				</div>		
 				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
-					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="font-family: 'UvfAphroditePro'">
 			        	{{$tabWeb->title}}
 		       		</h3>
 					<p><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
@@ -433,7 +434,7 @@
 		            <!-- -end map -->          
 				</div>
 				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
-					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="font-family: 'UvfAphroditePro'">
 		        		{{$tabWeb->title}}
 		       		</h3>
 					<p><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>  
@@ -449,7 +450,7 @@
 	       					
    				</div>		
 				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
-					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="font-family: 'UvfAphroditePro'">
 			        	{{$tabWeb->title}}
 		       		</h3>
 					<p><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
@@ -475,7 +476,7 @@
 	       					
    				</div>	
    				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-   					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+   					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="font-family: 'UvfAphroditePro'">
 			        	{{$tabWeb->title}}
 		       		</h3>
 					<p><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>	
@@ -526,7 +527,7 @@
 		            </form>         
 				</div>
 				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
-					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="text-align: {{$tabWeb->titlestyle}}; font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="font-family: 'UvfAphroditePro'">
 		        		{{$tabWeb->title}}
 		       		</h3>
 					<p><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>  
@@ -566,7 +567,7 @@
 					</div>
 					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center margin-footer">
 						<h4>WEBSITE DESIGN BY THUNA</h4>
-						<h4>Contact to email:<a href="thanh@thuna.vn">thanh@thuna.vn</a> or mobille:0966666886</h4>
+						<h4>Contact to email:<a href="thanh@thuna.vn" style="color:#19B5BC;">thanh@thuna.vn</a> or mobille:0966666886</h4>
 						
 					</div>
 				</div>
