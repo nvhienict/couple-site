@@ -104,11 +104,11 @@
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
                             <hgroup>
                                 <h2 class="text-center" style="text-transform: uppercase; color: #{{$website_item->color1}}; font-family: {{$website_item->font}};"> Ours Wedding </h2>
-                                <h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-g">
+                                <h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-groom">
                                     {{$website_item->name_groom}}
                                 </h1>
                                 <h6 class="text-center" style="font-size:20px;">&</h6>
-                                <h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-b">
+                                <h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-bride">
                                     {{$website_item->name_bride}}
                                 </h1>
                                 <h6 class="text-center" style="font-size:20px;">on</h6>
