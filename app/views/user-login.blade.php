@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-Đăng nhập
+Đăng nhập | thuna.vn
 @endsection
 @section('nav-bar')
 @include('nav')

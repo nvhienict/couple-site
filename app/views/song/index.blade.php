@@ -2,7 +2,7 @@
 @extends((Session::has('email')) ? 'main-dashboard' : 'main')
 
 @section('title')
-Âm nhạc
+Âm nhạc | thuna.vn
 @endsection
 @section('nav-bar')
 @include('nav')

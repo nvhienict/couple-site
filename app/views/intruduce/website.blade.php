@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-Webite cưới
+Webite cưới | thuna.vn
 @endsection
 @section('nav-bar')
 @include('nav')

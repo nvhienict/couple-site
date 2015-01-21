@@ -2,7 +2,7 @@
 @extends((Session::has('email')) ? 'main-dashboard' : 'main')
 
 @section('title')
-Xem ngày cưới
+Xem ngày cưới | thuna.vn
 @endsection
 @section('nav-bar')
 @include('nav')

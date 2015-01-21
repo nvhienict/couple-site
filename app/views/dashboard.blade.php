@@ -1,7 +1,7 @@
 
 @extends('main-dashboard')
 @section('title')
-Dashboard
+Dashboard | thuna.vn
 @endsection
 
 @section('content')

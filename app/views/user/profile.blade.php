@@ -1,6 +1,6 @@
 @extends('main-dashboard')
 @section('title')
-Thông tin cá nhân
+Thông tin cá nhân | thuna.vn
 @endsection
 @section('nav-bar')
 @include('nav')

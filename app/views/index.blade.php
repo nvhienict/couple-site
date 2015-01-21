@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-Trang chủ
+Trang chủ | thuna.vn
 @endsection
 <script>
     var url = {

@@ -1,6 +1,6 @@
 @extends('main-dashboard')
 @section('title')
-Danh sách công việc
+Danh sách công việc | thuna.vn
 @endsection
 @section('nav-bar')
 @include('nav')

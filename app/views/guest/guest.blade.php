@@ -1,7 +1,7 @@
 
 @extends('main-dashboard')
 @section('title')
-Danh sách khách mời
+Danh sách khách mời | thuna.vn
 @endsection
 @section('nav-bar')
 @include('nav')

@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-Danh sách Dịch vụ
+Danh sách Dịch vụ | thuna.vn
 @endsection
 @section('nav-bar')
 @include('nav')

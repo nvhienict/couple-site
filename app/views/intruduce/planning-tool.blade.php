@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-Công cụ lập kế hoạch
+Công cụ lập kế hoạch | thuna.vn
 @endsection
 @section('nav-bar')
 @include('nav')

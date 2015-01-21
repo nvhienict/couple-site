@@ -1,7 +1,7 @@
 
 @extends('main-dashboard')
 @section('title')
-Quản lý ngân sách
+Quản lý ngân sách | thuna.vn
 @endsection
 @section('nav-bar')
 @include('nav')
