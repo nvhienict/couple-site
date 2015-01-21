@@ -1,0 +1,16 @@
+
+User-agent: *
+Disallow: /thanhbo/*
+Disallow: /vendor/*
+Disallow: /cgi-bin/*
+Disallow: /bootstrap/
+Disallow: /public/*
+Disallow: /app/config/*
+Disallow: /app/database/*
+Disallow: /app/models/*
+Disallow: /app/start/*
+Disallow: /app/test/*
+Disallow: /composer.json
+Disallow: /server.php
+
+
