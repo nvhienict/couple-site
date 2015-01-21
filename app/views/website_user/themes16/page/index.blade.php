@@ -155,7 +155,7 @@
 						</a>
 					</figure>
 					<h3 style="font-family: 'UvfAphroditePro'" class="title-bg name-g">{{$website_item->name_groom}}</h3>
-					<p class="about-g">{{$website_item->about_groom}} </p>
+					<p class="about-g" style="font-family: 'UvfAphroditePro'">{{$website_item->about_groom}} </p>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 text-center">
 					<figure class="bg-pro">
@@ -168,7 +168,7 @@
 						</a>
 					</figure>
 					<h3 style="font-family: 'UvfAphroditePro'" class="title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
-					<p class="about-b">{{$website_item->about_bride}}</p>
+					<p class="about-b"style="font-family: 'UvfAphroditePro'">{{$website_item->about_bride}}</p>
 				</div>
 			</div>
 	    </div>
@@ -381,7 +381,7 @@
 		<div class="row footer-line">
 			<!-- footer -->
 			<footer class="text-center" style="margin-top: 40px;">
-				<p class="col-xs-12">
+				<p class="col-xs-12" style="font-family: 'UvfAphroditePro'">
 					{{$website_item->name_groom}} &amp; {{$website_item->name_bride}} 
 				</p>
 				on 
