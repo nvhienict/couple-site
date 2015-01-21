@@ -18,6 +18,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/template-font.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
     <style type="text/css">
     	body{
@@ -74,10 +75,10 @@
             		{{$date_url}}
             	@endif
             </h2>
-            <h1 class="text-center" style="text-transform: uppercase; color: #{{$website_item->color1}}; font-family: {{$website_item->font}};">
+            <h1 class="text-center" style="text-transform: uppercase;">
                 {{$firstname}}'s wedding
             </h1>
-            <h2 class="text-center" style="color: #{{$website_item->color2}}" >Chào bạn đến Website cưới của chúng tôi</h2>     
+            <h2 class="text-center" style="font-family:UvfAphroditePro;" >Chào bạn đến Website cưới của chúng tôi</h2>     
         </div>
 		<hr>
 		@include('website_user.themes.page.circle')

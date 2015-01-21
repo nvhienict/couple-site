@@ -27,7 +27,7 @@
 						 				<i id="show-hide-group{{$group->id}}" class=" fa fa-minus-square-o"></i>
 						 				<strong class="name_group_edit{{$group->id}}"> {{$group->name}}</strong>
 						 				(<span class="total_group_guest{{$group->id}}">
-						 					{{Guests::where('user',checkIfUrl($url))->where('group',$group->id)->sum('attending')}}
+						 					{{Guests::where('user',GuestController::checkIfUrl($url))->where('group',$group->id)->sum('attending')}}
 						 				</span>)
 					 				</a>
 					 			</td>
