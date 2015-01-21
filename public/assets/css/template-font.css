@@ -18,3 +18,15 @@
 	font-weight: normal;
     font-style: normal;
 }
+@font-face {
+	font-family: 'UVF Before the Rain';
+	src: url('../fonts/UVF Before the Rain.ttf') format('truetype');
+	font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+	font-family: 'UVF Centeria';
+	src: url('../fonts/UVF Centeria.ttf') format('truetype');
+	font-weight: normal;
+    font-style: normal;
+}

@@ -14,6 +14,7 @@
 		<!-- Custom CSS -->
 		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes4new.css")}}">
 		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
+		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/template-font.css")}}">
 
 		<!-- Bootstrap JS -->
 		<script src="{{Asset('assets/js/jquery.min.js')}}"></script>
@@ -93,11 +94,11 @@
 				        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 about">
 				        	<hgroup>
 				        		<h2 class="text-center" style="text-transform: uppercase; color: #{{$website_item->color1}}; font-family: {{$website_item->font}};"> Ours Wedding </h2>
-				        		<h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-g">
+				        		<h1 style="font-family: 'UVF Before the Rain',font-size:16px;,cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-g">
 				        			{{$website_item->name_groom}} 
 				        		</h1>
 				        		<h6 class="text-center" style="font-size:20px;">&</h6>
-				        		<h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-b">
+				        		<h1 style="font-family: 'UVF Before the Rain',font-size:16px;,cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-b">
 				        			{{$website_item->name_bride}}
 				        		</h1>
 				        		<h6>on</h6>
@@ -125,8 +126,8 @@
 										@endif
 									</a>
 								</figure>
-								<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="title-bg name-g">{{$website_item->name_groom}}</h3>
-								<p class="about-g">{{$website_item->about_groom}} </p>
+								<h3 style="font-family: 'UVF Before the Rain',cursive; color: #{{$website_item->color2}};" class="title-bg name-g">{{$website_item->name_groom}}</h3>
+								<p class="about-g" style="font-family:'UVF Before the Rain';">{{$website_item->about_groom}} </p>
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 text-center">
 								<figure class="theme-border-big border">
@@ -138,8 +139,8 @@
 										@endif
 									</a>
 								</figure>
-								<h3 style="font-family: 'Great Vibes',cursive; color: #{{$website_item->color2}};" class="title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
-								<p class="about-b">{{$website_item->about_bride}}</p>
+								<h3 style="font-family: 'UVF Before the Rain',cursive; color: #{{$website_item->color2}};" class="title-tab title-bg name-b">{{$website_item->name_bride}}</h3>
+								<p class="about-b" style="font-family:'UVF Before the Rain';">{{$website_item->about_bride}}</p>
 							</div>
 						</div>
 						<div class="dt-sc-hr-invisible  "></div>
