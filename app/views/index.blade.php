@@ -296,28 +296,28 @@ Trang chủ | thuna.vn
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
 		<a href="#checklist" role="tab" data-toggle="tab" class="active" >
 			<!-- <img src="{{Asset('icon/task.png')}}"><br /><br /> -->
-			<i class="fa fa-list fa-2x"></i><br /><br />
+			<i class="fa fa-list fa-2x"></i><br />
 			<span>Danh sách công việc</span>
 		</a>
 	</div>
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
 		<a href="#budget" role="tab" data-toggle="tab" >
 			<!-- <img src="{{Asset('icon/data31.png')}}"><br /><br /> -->
-			<i class="fa fa-dollar fa-2x"></i><br /><br />
+			<i class="fa fa-dollar fa-2x"></i><br />
 			<span>Quản lý ngân sách</span>
 		</a>
 	</div>
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
 		<a href="#guestlist" role="tab" data-toggle="tab" >
 			<!-- <img src="{{Asset('icon/group12.png')}}"><br /><br /> -->
-			<i class="fa fa-users fa-2x"></i><br /><br />
+			<i class="fa fa-users fa-2x"></i><br />
 			<span>Danh sách khách mời</span>
 		</a>
 	</div>
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
 		<a href="#website" role="tab" data-toggle="tab" >
 			<!-- <img src="{{Asset('icon/internet5.png')}}"><br /><br /> -->
-			<i class="fa fa-globe fa-2x"></i><br /><br />
+			<i class="fa fa-globe fa-2x"></i><br />
 			<span>Website cưới</span>
 		</a>
 	</div>

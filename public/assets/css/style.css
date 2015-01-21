@@ -1,9 +1,6 @@
 /* ==== Google font ==== */
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700,900);
 @import url('http://fonts.googleapis.com/css?family=Ek+Mukta:400,600,700');
-/*@import url(../fonts/UVF Aphrodite Pro.ttf);*/
-/*@import url(../fonts/MyriadPro-Regular.ttf);*/
-/*@import url(../fonts/UVF LH Line1 Sans Thin.ttf);*/
 
 @font-face {
 	font-family: 'UvfAphroditePro';
@@ -222,6 +219,10 @@ a.brand {
 #menu-bar-bottom > div > a{
 	text-transform: uppercase !important;
 	outline: none;
+	color: #2A6496;
+}
+#menu-bar-bottom > div > a:hover{
+	color: #E8529F;
 }
 #menu-bar-bottom > div > a > span{
 	/*font-weight: bold;*/
@@ -976,7 +977,7 @@ a.btn:focus{
 
 /*--- list-vendor ---*/
 .top-list-vendor-function a{
-	color: #19b5bc;
+	color: #2a6496;
 	font-weight: bold;
 }
 .top-list-vendor-function a:hover{
@@ -985,7 +986,7 @@ a.btn:focus{
 .top-list-vendor-function button{
 	width: 100px;
 	height: 45px;
-	color: #19b5bc;
+	color: #2a6496;
 	font-weight: bold;
 	padding: 3px;
 	border: none;
