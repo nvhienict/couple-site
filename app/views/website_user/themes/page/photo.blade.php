@@ -2,8 +2,6 @@
     <!--  Slide Album -->
 
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
-            <script src="{{Asset('assets/js/bootstrap.3.2.0.min.js')}}"></script>
-
             <!-- Add mousewheel plugin (this is optional) -->
             <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery.mousewheel-3.0.6.pack.js")}}"></script>
 
@@ -31,7 +29,7 @@
 </head>
 <div>
     <div class="partion">		         
-        <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">{{$tabWeb->title}}</h3>  
+        <h3 class="text-center title-tab" style=" font-family:UvfAphroditePro;">{{$tabWeb->title}}</h3>  
         <div class="show-content phara{{$tabWeb->id}}">                            
             <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>     
     	</div> 
