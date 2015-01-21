@@ -2,7 +2,7 @@
 	
 	<div class="wrapper">
 		<div class="row phara-margin">
-	        <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">
+	        <h3 class="text-center title-tab" style="font-family: 'UvfAphroditePro'">
 	        	{{$tabWeb->title}}
 	        </h3>
 	        <div class="col-xs-12 col-md-5 col-sm-5 col-lg-5 col-md-offset-1 col-sm-offset-1 col-offset-lg-1 float-left border-r">

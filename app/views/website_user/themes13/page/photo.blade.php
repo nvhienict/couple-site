@@ -1,7 +1,7 @@
 <article id="content">
 	<div class="wrapper">
     	<div class="partion col-xs-10 col-md-10 col-sm-10 col-lg-10 col-md-offset-1 col-sm-offset-1 col-offset-lg-1">               
-            <h3 class="text-center title-tab" style="text-align: {{$tabWeb->titlestyle}} font-familly: {{$website_item->font}}; color: #{{$website_item->color2}}">{{$tabWeb->title}}</h3>  
+            <h3 class="text-center title-tab" style="font-family: 'UvfAphroditePro'">{{$tabWeb->title}}</h3>  
             <div class="show-content phara{{$tabWeb->id}}">                            
                 <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>     
             </div> 

@@ -11,6 +11,7 @@
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes13.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
+     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/template-font.css")}}">
 
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
 
@@ -133,12 +134,12 @@
 				<!-- end featured-img  -->
 				<div id="title-home" class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 bg-infor">
 					<hgroup>
-                        <h2 class="text-center" style="text-transform: uppercase; color: #{{$website_item->color1}}; font-family: {{$website_item->font}};"> Ours Wedding </h2>
-                        <h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-g">
+                        <h2 class="text-center" style="font-family: 'UvfAphroditePro',cursive;"> Ours Wedding </h2>
+                        <h1 style="font-family: 'UvfAphroditePro',cursive;" class="font-name text-center name-g">
                             {{$website_item->name_groom}}
                         </h1>
                         <h6 class="text-center" style="font-size:20px;">&</h6>
-                        <h1 style="font-family: 'Great Vibes',cursive; text-transform: uppercase; color: #{{$website_item->color2}};" class="font-name text-center name-b">
+                        <h1 style="font-family: 'UvfAphroditePro',cursive;" class="font-name text-center name-b">
                             {{$website_item->name_bride}}
                         </h1>
                         <h6 class="text-center" style="font-size:20px;">on</h6>
