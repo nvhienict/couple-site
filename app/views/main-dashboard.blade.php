@@ -35,6 +35,7 @@
 		}
 	</script>
 	
+	<link rel="favicon icon" href="{{Asset('icon/favicon.ico')}}">
 
 	<!-- css -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
