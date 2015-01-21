@@ -35,12 +35,26 @@
     </script>
 
   <div class="form-group" style="text-align: center;">
-    <button type="submit" class="btn btn-primary">CẬP NHẬT</button>
+    <button type="submit" class="btn btn-primary" id="btnUpdate">CẬP NHẬT</button>
   </div>
 
 </form>
 
+<script type="text/javascript">
+  
+  $(document).click(function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      return false;
+  });
 
+  // $('#btnUpdate').unbind('click');
+  $('#btnUpdate').click(function(){
+    $('#user_login').submit();
+  })
+
+</script>
 
 
 @endsection

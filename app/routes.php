@@ -317,16 +317,18 @@ Route::group(array('before'=>'check_login'), function(){
 
 	Route::post('update_infor',array('as'=>'update_infor','uses'=>'WebsiteController@update_infor'));
 	
-});
+	
+	Route::get('facebook-step', function(){
+		return View::make('after-login-fb');
+	});
+
+}); // check login
 
 Route::get('website/{url}',array('as'=>'url_website','uses'=>"WebsiteController@url_website"));
 
 
 // Route::get('login/facebook', array("as" => "facebook", "uses" => "UserController@loginFacebook"));
 Route::post('login-facebook', array("as" => "facebook", "uses" => "UserController@loginFacebookDialog"));
-Route::get('facebook-step', function(){
-	return View::make('after-login-fb');
-});
 
 Route::post('change_weddingdate', array("as" => "change_weddingdate", "uses" => "UserController@loginFacebookUpdate"));
 
