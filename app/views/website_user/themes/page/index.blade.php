@@ -7,7 +7,8 @@
     <meta name="author" content="Thuna.vn">
     <meta property="og:title" content="{{$firstname}}'s wedding">
 	<meta property="og:description" content="Tạo website cưới chuyên nghiệp">
-	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://thuna.vn/website/{{$url}}">
+	<meta property="og:type" content="article">
 	<meta property="og:image" content="{{$website_tamp->backgrounds}}" />
 	<meta property="fb:app_id" content="692038267552175" />
 
