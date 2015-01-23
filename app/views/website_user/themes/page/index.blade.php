@@ -10,8 +10,6 @@
 	<meta property="og:url" content="http://thuna.vn/website/{{$url}}">
 	<meta property="og:type" content="article">
 	<meta property="og:image" content="{{$website_tamp->backgrounds}}" />
-	<meta property="fb:app_id" content="692038267552175" />
-
     <title>{{$firstname}}'s wedding</title>
 
     <!-- Bootstrap Core CSS -->

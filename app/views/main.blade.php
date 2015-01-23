@@ -12,8 +12,6 @@
 	<meta property="og:url" content="http://thuna.vn">
 	<meta property="og:type" content="website">
 	<meta property="og:image" content="{{Asset("assets/img/logofb.jpg")}}" />
-	<meta property="fb:app_id" content="692038267552175" />
-	
 	<script type="text/javascript">
 		// Test for the ugliness.
 		if (window.location.hash == '#_=_'){
