@@ -75,26 +75,19 @@
 
 <body style="overflow-x:hidden;">
 
-	<!--Header login-->	
+	<!-- Header -->	
 	<div class="row user-header">
-	
-		<script>
-		    $(document).ready(function() {
-		        $('.fb-like').attr("data-href", document.URL);
-		    });
-		</script>
-	
-		<div class="col-sm-4 col-md-4 col-lg-4 hidden-xs">
-			<div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
-		</div>
-
-		<div class="col-xs-5 col-sm-3 col-lg-2 col-lg-offset-1 text-center">
-			<a href="{{URL::route('index')}}">
-		    	<img style="width: 100%; height: 65px;" src="{{Asset('icon/logo-thuna.png')}}">
-		    </a>
-		</div>
-		
-		<div class="col-xs-5 col-xs-offset-1 col-sm-4 col-md-3 col-lg-3 pull-right wedding-user-logged">
+		<div class="row to-top">
+			
+			<div class="col-xs-2 text-left">
+				<script>
+				    $(document).ready(function() {
+				        $('.fb-like').attr("data-href", document.URL);
+				    });
+				</script>
+				<div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+			</div><!--/.col-md-2>-->
+			<div class="col-xs-10 btn-action-user">
 				@if( (Session::has('email')) && (UserController::isset_user())!=0 )
 				<ul class="user_profile">
 					<li >
@@ -111,53 +104,51 @@
 				</ul>
 		  		@elseif( (Session::has('email')) && (UserController::isset_user())==0 )
 		  			<?php UserController::get_logout_2(); ?>
-		  			<li class="hidden-xs"><a href="{{URL::route('register')}}" style="color: #43609C" title="">
-		  					<i class="fa fa-unlock"></i>
-		  					Đăng ký
-		  				</a>
-		  			</li>
-		  			<li class="hidden-xs"><a href="{{URL::route('login')}}" style="color: #43609C">
-		  					<i class="fa fa-sign-in"></i>
-		  					Đăng nhập
-		  				</a>
-		  			</li>
-
-		  			<!-- display mobile -->
-		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('register')}}" style="color: #ED706F">
-		  					<i class="fa fa-unlock fa-2x"></i>
-		  				</a>
-		  			</li>
-		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('login')}}" style="color: #3A3A40">
-		  					<i class="fa fa-sign-in fa-2x"></i>
-		  				</a>
-		  			</li>
+		  			<ul class="ul-login-register">
+		  				<li><a href="{{URL::route('register')}}" style="color: #43609C" title="">
+			  					<i class="fa fa-unlock"></i>
+			  					Đăng ký
+			  				</a>
+			  			</li>
+			  			<li><a href="{{URL::route('login')}}" style="color: #43609C">
+			  					<i class="fa fa-sign-in"></i>
+			  					Đăng nhập
+			  				</a>
+			  			</li>
+		  			</ul>
+		  			
 		  		@else
-			  		<li class="hidden-xs"><a href="{{URL::route('register')}}" style="color: #43609C">
-			  				<i class="fa fa-unlock"></i>
-			  				Đăng ký
-			  			</a>
-			  		</li>
-			  		<li class="hidden-xs"><a href="{{URL::route('login')}}" style="color: #43609C">
-			  				<i class="fa fa-sign-in"></i>
-			  				Đăng nhập
-			  			</a>
-			  		</li>
-
-			  		<!-- display mobile -->
-		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('register')}}" style="color: #ED706F">
-		  					<i class="fa fa-unlock fa-2x"></i>
-		  				</a>
-		  			</li>
-		  			<li class="hidden-md hidden-lg hidden-sm"><a href="{{URL::route('login')}}" style="color: #3A3A40">
-		  					<i class="fa fa-sign-in fa-2x"></i>
-		  				</a>
-		  			</li>
-
+		  			<ul class="ul-login-register">
+				  		<li><a href="{{URL::route('register')}}" style="color: #43609C">
+				  				<i class="fa fa-unlock"></i>
+				  				Đăng ký
+				  			</a>
+				  		</li>
+				  		<li><a href="{{URL::route('login')}}" style="color: #43609C">
+				  				<i class="fa fa-sign-in"></i>
+				  				Đăng nhập
+				  			</a>
+				  		</li>
+				  	</ul>
 		  		@endif
-		</div>
+			</div><!--/.col-xs-10-->
+
+		</div><!--/.row-->
+		
+		<div class="row top-logo">
+			<div class="col-xs-12 text-center">
+				<a href="{{URL::route('index')}}">
+			    	<img style="width: 150px; height: 50px;" src="{{Asset('icon/logo-2.png')}}">
+			    </a>
+			</div>
+		</div><!--/.row-->		
+
+		<div class="row top-menu">
+			@yield('nav-bar')
+		</div><!--/.top-menu-->
+		
 	</div><!-- /.row user-header -->
 
-@yield('nav-bar')
 @yield('content')
 	<!-- footer -->
 	<div class="row footer">

@@ -13,29 +13,32 @@
         <ul class="nav navbar-nav">
             <li><a href="{{URL::route('index')}}" title="Trang chủ">
                 <!-- <img class="icon-hover-home" src="{{Asset('icon/home78.png')}}"> -->
-                <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
                   <i class="fa fa-home icon-home"></i>
                   &nbsp;&nbsp;&nbsp;
-                </span>
-                <span class="txt-menu">Trang chủ</span>
+                </span> -->
+                <!-- <span class="txt-menu">Trang chủ</span> -->
+                Trang chủ
               </a>
             </li>
             <li><a href="{{URL::to('website-introduce')}}" title="Website cưới">
                 <!-- <img class="icon-hover-website" src="{{Asset('icon/Quanlyngansach.png')}}"> -->
-                <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <i class="fa fa-heart"></i>
                   &nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
-                <span class="txt-menu">Website cưới</span>
+                <span class="txt-menu">Website cưới</span> -->
+                Website cưới
               </a>
             </li>
             <li><a href="{{URL::to('planning-tool')}}" title="Công cụ lập kế hoạnh">
                 <!-- <img class="icon-hover-planning-tool" src="{{Asset('icon/notepad-icon.png')}}"> -->
-                <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <i class="fa fa-gears"></i>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
-                <span class="txt-menu">Công cụ lập kế hoạch</span>
+                <span class="txt-menu">Công cụ lập kế hoạch</span> -->
+                Công cụ lập kế hoạch
               </a>
             </li>
             <!-- <li><a href="{{URL::route('website')}}" title="Website cưới">
@@ -62,14 +65,15 @@
               <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown" title="Âm nhạc">
             <!-- <img class="icon-hover-music" src="{{Asset('icon/musical7.png')}}"> -->
                 
-                <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
                   <i class="fa fa-music"></i>
                   &nbsp;&nbsp;
                 </span>
                 <span class="txt-menu">Âm nhạc</span>
-                <b class="caret"></b>
+                <b class="caret"></b> -->
+                Âm nhạc
               </a>
-              <ul class="dropdown-menu oneUl" role="menu">
+              <!-- <ul class="dropdown-menu oneUl" role="menu">
                   <li role="presentation" class="dropdown-header"><span>Nghi lễ</span>
                     <div class="row">
                       <div class="col-xs-6">
@@ -104,17 +108,18 @@
                       </div>
                     </div>
                   </li>
-              </ul>
+              </ul> -->
             </li> <!--/music-->
 
             <li><a href="{{URL::action('FortuneController@getIndex')}}" title="Xem ngày cưới">
                 <!-- <img class="icon-hover" src="{{Asset('icon/ngaycuoi.png')}}"> -->
                 
-                <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <i class="fa fa-calendar"></i>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
-                <span class="txt-menu">Xem ngày cưới</span>
+                <span class="txt-menu">Xem ngày cưới</span> -->
+                Xem ngày cưới
               </a>
             </li>
         
@@ -122,4 +127,4 @@
       </div>
   </div><!--/.nav-->
 </div><!--/.bg-menu-top-->
-<div class="row lr-bottom-menu"></div>
+<!-- <div class="row lr-bottom-menu"></div> -->

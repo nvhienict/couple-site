@@ -28,29 +28,32 @@ Trang chủ | thuna.vn
 		    <ul class="nav navbar-nav">
 		      	<li><a href="{{URL::route('index')}}" title="Trang chủ">
 		      			<!-- <img class="icon-hover-home" src="{{Asset('icon/home78.png')}}"> -->
-		      			<span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
+		      			<!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
 			      			<i class="fa fa-home icon-home"></i>
 			      			&nbsp;&nbsp;&nbsp;
-		      			</span>
-		      			<span class="txt-menu">Trang chủ</span>
+		      			</span> -->
+		      			<!-- <span class="txt-menu">Trang chủ</span> -->
+		      			Trang chủ
  		      		</a>
 		      	</li>
 		      	<li><a href="{{URL::to('website-introduce')}}" title="Website cưới">
 		        		<!-- <img class="icon-hover-website" src="{{Asset('icon/Quanlyngansach.png')}}"> -->
-		        		<span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		        		<!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			      			<i class="fa fa-heart"></i>
 			      			&nbsp;&nbsp;&nbsp;&nbsp;
 		      			</span>
-		        		<span class="txt-menu">Website cưới</span>
+		        		<span class="txt-menu">Website cưới</span> -->
+		        		Website cưới
 		        	</a>
 		        </li>
 		      	<li><a href="{{URL::to('planning-tool')}}" title="Công cụ lập kế hoạnh">
 		      			<!-- <img class="icon-hover-planning-tool" src="{{Asset('icon/notepad-icon.png')}}"> -->
-		      			<span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		      			<!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			      			<i class="fa fa-gears"></i>
 			      			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		      			</span>
-		      			<span class="txt-menu">Công cụ lập kế hoạch</span>
+		      			<span class="txt-menu">Công cụ lập kế hoạch</span> -->
+		      			Công cụ lập kế hoạch
  		      		</a>
 		      	</li>
 		        <!-- <li><a href="{{URL::route('website')}}" title="Website cưới">
@@ -77,12 +80,13 @@ Trang chủ | thuna.vn
 			        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown" title="Âm nhạc">
 						<!-- <img class="icon-hover-music" src="{{Asset('icon/musical7.png')}}"> -->
 			        	
-			        	<span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
+			        	<!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
 			      			<i class="fa fa-music"></i>
 			      			&nbsp;&nbsp;
 		      			</span>
 			        	<span class="txt-menu">Âm nhạc</span>
-			        	<b class="caret"></b>
+			        	<b class="caret"></b> -->
+			        	Âm nhạc
 			        </a>
 			        <ul class="dropdown-menu oneUl" role="menu">
 			          	<li role="presentation" class="dropdown-header"><span>Nghi lễ</span>
@@ -125,11 +129,12 @@ Trang chủ | thuna.vn
 		      	<li><a href="{{URL::action('FortuneController@getIndex')}}" title="Xem ngày cưới">
 		      			<!-- <img class="icon-hover" src="{{Asset('icon/ngaycuoi.png')}}"> -->
 		      			
-		      			<span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		      			<!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			      			<i class="fa fa-calendar"></i>
 			      			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		      			</span>
-		      			<span class="txt-menu">Xem ngày cưới</span>
+		      			<span class="txt-menu">Xem ngày cưới</span> -->
+		      			Xem ngày cưới
 		      		</a>
 		      	</li>
 		    
@@ -137,7 +142,7 @@ Trang chủ | thuna.vn
 	  	</div>
 	</div><!--/.nav-->
 </div><!--/.bg-menu-top-->
-<div class="row lr-bottom-menu"></div>
+<!-- <div class="row lr-bottom-menu"></div> -->
 	  
 @include('site-map')
 
@@ -159,7 +164,7 @@ Trang chủ | thuna.vn
  -->			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 			    <div class="item active">
-			    	<img src=" {{Asset("images/slide-main/1-1.jpg")}}" alt="">
+			    	<img src=" {{Asset("images/slide-main/1.jpg")}}" alt="">
                     <!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -167,41 +172,17 @@ Trang chủ | thuna.vn
                         </div>
                     </div><!-- /header-text -->
 			    </div>
-			    <div class="item">
-			    	<img src=" {{Asset("images/slide-main/2.jpg")}}" alt="">
-			    	<!-- Static Header -->
-                    <div class="header-text hidden-xs">
-                        <div class="col-md-12 text-left">
-                            <!-- <h2><span>Niềm vui trọn vẹn</span></h2> -->
-                        </div>
-                    </div><!-- /header-text -->
-			    </div>
-			    <div class="item">
-			    	<img src=" {{Asset("images/slide-main/3.jpg")}}" alt="">
-			    	<!-- Static Header -->
-                    <div class="header-text hidden-xs">
-                        <div class="col-md-12 text-center">
-                            <!-- <h2><span>Hạnh phúc vĩnh cửu</span></h2> -->
-
-                        </div>
-                    </div><!-- /header-text -->
-			    </div>
-			    <div class="item">
-			    	<img src=" {{Asset("images/slide-main/4.jpg")}}" alt="">
-			    	<!-- Static Header -->
-                    <div class="header-text hidden-xs">
-                        <div class="col-md-12 text-center">
-                           <!--  <h2><span>
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            Happy 
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                             Ending ♥</span></h2> -->
-
-                        </div>
-                    </div><!-- /header-text -->
-			    </div>
+			    @for($i=2; $i<=5; $i++)
+				    <div class="item">
+				    	<img src="{{Asset("images/slide-main/{$i}.jpg")}}" alt="">
+	                    <!-- Static Header -->
+	                    <div class="header-text hidden-xs">
+	                        <div class="col-md-12 text-center">
+	                            <!-- <h2><span>Liên hệ ngay !!! <br /> Để được tư vấn miễn phí</span></h2> -->
+	                        </div>
+	                    </div><!-- /header-text -->
+				    </div>
+			    @endfor
 			</div>
 			<!-- Controls -->
 			<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -215,7 +196,10 @@ Trang chủ | thuna.vn
 
 	<!-- FORM REGISTER -->
 		<div class="col-md-3 col-xs-12 form-register-index hidden-sm hidden-xs">
-			<h6 class="user_register_title">Đăng ký ngay</h6>
+			<h6 class="user_register_title">
+				Đăng ký tài khoản miễn phí<br />
+				<a href="http://thuna.vn/" style="color: #ea4398">Thuna.vn</a>
+			</h6>
 
 		    @if(isset($msg)) <p class="alert alert-danger">{{$msg}}</p>@endif
 		    <form role="form" action="{{Asset('register')}}" method="post" id="create_acount" class="frm-register">
@@ -276,7 +260,7 @@ Trang chủ | thuna.vn
 		      	<div class="row">
 		        	<div class="col-md-12">
 		        		<div class="form-group">
-							<button type="submit" class="btn btn-warning btn-register" tabindex="5">Đăng ký</button>
+							<button type="submit" class="btn btn-register" tabindex="5" >Đăng ký</button>
 					      	<a href="javascript:;" onclick="loginFb();" class="btn btn-social btn-facebook bn-login-fb-index">
 						      <i class="fa fa-facebook"></i> Login Facebook
 						    </a>
@@ -296,28 +280,28 @@ Trang chủ | thuna.vn
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
 		<a href="#checklist" role="tab" data-toggle="tab" class="active" >
 			<!-- <img src="{{Asset('icon/task.png')}}"><br /><br /> -->
-			<i class="fa fa-list fa-2x"></i><br />
+			<i class="fa fa-list fa-2x"></i>
 			<span>Danh sách công việc</span>
 		</a>
 	</div>
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
 		<a href="#budget" role="tab" data-toggle="tab" >
 			<!-- <img src="{{Asset('icon/data31.png')}}"><br /><br /> -->
-			<i class="fa fa-dollar fa-2x"></i><br />
+			<i class="fa fa-dollar fa-2x"></i>
 			<span>Quản lý ngân sách</span>
 		</a>
 	</div>
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
 		<a href="#guestlist" role="tab" data-toggle="tab" >
 			<!-- <img src="{{Asset('icon/group12.png')}}"><br /><br /> -->
-			<i class="fa fa-users fa-2x"></i><br />
+			<i class="fa fa-users fa-2x"></i>
 			<span>Danh sách khách mời</span>
 		</a>
 	</div>
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
 		<a href="#website" role="tab" data-toggle="tab" >
 			<!-- <img src="{{Asset('icon/internet5.png')}}"><br /><br /> -->
-			<i class="fa fa-globe fa-2x"></i><br />
+			<i class="fa fa-globe fa-2x"></i>
 			<span>Website cưới</span>
 		</a>
 	</div>
@@ -335,7 +319,7 @@ Trang chủ | thuna.vn
 					<p>In báo cáo bằng file Excel để dễ lưu trữ và kiểm tra tốt hơn</p>
 				</h5>
 				<h6 class="use-now">
-					<a class="btn btn-success btn-sm" href="{{URL::route('user-checklist')}}" >Miễn phí! Sử dụng ngay</a>
+					<a class="btn btn-sm btn-use-now" href="{{URL::route('user-checklist')}}" >Miễn phí! Sử dụng ngay</a>
 				</h6>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -355,7 +339,7 @@ Trang chủ | thuna.vn
 
 				</h5>
 				<h6 class="use-now">
-					<a class="btn btn-success btn-sm" href="{{URL::route('budget')}}" >Miễn phí! Sử dụng ngay</a>
+					<a class="btn btn-sm btn-use-now" href="{{URL::route('budget')}}" >Miễn phí! Sử dụng ngay</a>
 				</h6>
 			</div>
 		</div>
@@ -373,7 +357,7 @@ Trang chủ | thuna.vn
 					được tạo <a href="{{URL::route('website')}}">tại đây</a></p>
 				</h5>
 				<h6 class="use-now">
-					<a class="btn btn-success btn-sm" href="{{URL::route('guest-list')}}" >Miễn phí! Sử dụng ngay</a>
+					<a class="btn btn-sm btn-use-now" href="{{URL::route('guest-list')}}" >Miễn phí! Sử dụng ngay</a>
 				</h6>
 			</div>
 		</div>
@@ -388,7 +372,7 @@ Trang chủ | thuna.vn
 					<p>Thân thiện, miễn phí, dễ sử dụng và đạt thẩm mỹ là những gì chúng tôi hướng đến.</p>
 				</h5>
 				<h6 class="use-now">
-					<a class="btn btn-success btn-sm" href="{{URL::route('website')}}" >Miễn phí! Sử dụng ngay</a>
+					<a class="btn btn-sm btn-use-now" href="{{URL::route('website')}}" >Miễn phí! Sử dụng ngay</a>
 				</h6>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
