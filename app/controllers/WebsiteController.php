@@ -1386,7 +1386,8 @@ class WebsiteController extends \BaseController {
 																	->with('id_web', $id_website)
 																	->with('backgrounds',$backgrounds)
 																	->with('date_url',$date_url)
-																	->with('url', $url);
+																	->with('url', $url)
+																	->with('web_fb',$$website_tamp);
 				break;
 		}
 

@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
     <meta name="author" content="Thuna.vn">
+    <meta property="og:title" content="{{$firstname}}'s wedding">
+	<meta property="og:description" content="Tạo website cưới chuyên nghiệp">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="{{$website_tamp->backgrounds}}" />
+	<meta property="fb:app_id" content="692038267552175" />
 
     <title>{{$firstname}}'s wedding</title>
 

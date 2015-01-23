@@ -5,11 +5,12 @@
 	<title>@yield('title')</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=false" />
 	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logo.png")}}">
+	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logofb.jpg")}}">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta property="og:title" content="Dịch vụ cưới hỏi Thuna.vn">
+	<meta property="og:description" content="Dịch vụ cưới hỏi chuyên nghiệp">
 	<meta property="og:type" content="website">
-	<meta property="og:image" content="{{Asset("assets/img/logo.png")}}" />
+	<meta property="og:image" content="{{Asset("assets/img/logofb.jpg")}}" />
 	<meta property="fb:app_id" content="692038267552175" />
 	
 	<script type="text/javascript">
