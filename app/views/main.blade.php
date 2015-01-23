@@ -1,6 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
 
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
 
 	<title>@yield('title')</title>
@@ -38,8 +37,8 @@
 
 	<link rel="favicon icon" href="{{Asset('icon/favicon.ico')}}">
 
-	<!-- css -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
+	<!-- Core Css Files -->
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap/bootstrap.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
    	
 	<link href="{{Asset("assets/css/animate.css")}}" rel="stylesheet" />
@@ -47,9 +46,9 @@
     <link href="{{Asset("assets/css/social-buttons.css")}}" rel="stylesheet">
 	<link href="{{Asset("assets/color/default.css")}}" rel="stylesheet">
 	<link href="{{Asset("assets/css/sweet-alert.css")}}" rel="stylesheet">
-	<!-- <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/header.web.css")}}"> -->
-	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/step.web.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/step.web.css")}}">
 	<link href="{{Asset("assets/css/dropzone.css")}}" rel="stylesheet">
+	
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
 	<script src="{{Asset("assets/js/sweet-alert.min.js")}}"></script>

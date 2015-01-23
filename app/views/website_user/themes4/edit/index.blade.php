@@ -1,6 +1,6 @@
 	<head>
 		<!-- Custom CSS -->
-		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes4new.css")}}">
+		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes4new.css")}}">
 		 <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 		 <!-- // <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>		 -->
 	 <!--  Slide Album -->

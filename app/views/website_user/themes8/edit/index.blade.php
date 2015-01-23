@@ -1,12 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
-
 
 <head>
-	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes8.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes8.css")}}">
 
 	<!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes.css")}}">
 
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">	
 	<!-- Core JavaScript Files -->
@@ -36,11 +33,11 @@
 				{{WebsiteController::cutName($website_item->name_groom)}}
 			</div>
 			<div class="btn-name-bride text-center col-xs-6">
-				<a onclick="editInforBride()" data-toggle="modal" data-target="#edit-infor-bride" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a>
+				<a onclick="editInforBride()" data-toggle="modal" data-target="#edit-infor-bride" data-backdrop="static" class="fa fa-edit" href="javascript:void(0);"></a>
 			</div>
 
 			<div class="text-center btn-name-groom col-xs-6">
-				<a onclick="editInforGroom()"data-toggle="modal" data-target="#edit-infor-groom" data-backdrop="static" class="glyphicon glyphicon-edit" href="javascript:void(0);"></a>
+				<a onclick="editInforGroom()"data-toggle="modal" data-target="#edit-infor-groom" data-backdrop="static" class="fa fa-edit" href="javascript:void(0);"></a>
 			</div>
 		</div>
 		<!-- end logo -->

@@ -42,7 +42,7 @@
 
 
 .menu_tab_boder{
-	background-image: url("../../images/website/themes2/gifts-border-bottom.png");
+	background-image: url("../../../images/website/themes2/gifts-border-bottom.png");
 	padding: 5px 0 4px;
 	margin: 0px 0px 20px 0px; 
 	width: 100%;
@@ -111,7 +111,7 @@
 }
 
 .footer_boder{
-	background-image: url("../../images/website/themes2/gifts-border.png");
+	background-image: url("../../../images/website/themes2/gifts-border.png");
 	padding: 4px;
 	margin: 0px
 }

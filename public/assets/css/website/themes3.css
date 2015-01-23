@@ -1,20 +1,20 @@
 
 
 .wrapper{
-	background: url("../../images/website/themes3/body_image_1.jpg") no-repeat fixed 50% 0 rgba(0, 0, 0, 0);
+	background: url("../../../images/website/themes3/body_image_1.jpg") no-repeat fixed 50% 0 rgba(0, 0, 0, 0);
     min-height: 673px;
 
 }
 
 
 .main_top{
-	background: url("../../images/website/themes3/main_bg_tb.png") center 0 no-repeat;
+	background: url("../../../images/website/themes3/main_bg_tb.png") center 0 no-repeat;
 	height: 70px;
 }
 /*end main_top*/
 
 .main_mid{
-	background: url("../../images/website/themes3/main_bg_mid.png") center center repeat-y;
+	background: url("../../../images/website/themes3/main_bg_mid.png") center center repeat-y;
 	/*padding: 0 440px;*/
 	min-height: 670px;
 }
@@ -109,7 +109,7 @@
 	overflow: hidden;
 	position: absolute;
 	top: 26px;
-	background: url(../../images/website/themes3/ribbon_top.png) 0 0 no-repeat;
+	background: url(../../../images/website/themes3/ribbon_top.png) 0 0 no-repeat;
 	z-index: 2;
 }
 .ribbon_left {
@@ -122,7 +122,7 @@
 }
 
 .topmenu_line_top, .topmenu_line_bot {
-	background: url(../../images/website/themes3/topmenu_line.png) top repeat-x;
+	background: url(../../../images/website/themes3/topmenu_line.png) top repeat-x;
 	height: 1px;
 	clear: both;
 	margin: 0 auto;
@@ -195,7 +195,7 @@
 	height: 27px;
 	position: absolute;
 	z-index: 2;
-	background: url(../../images/website/themes3/corner_big.png) no-repeat;
+	background: url(../../../images/website/themes3/corner_big.png) no-repeat;
 }
 .img_tl {
 	background-position: 0 0 !important;
@@ -242,7 +242,7 @@
 }
 
 .social_box {
-	background: url(../../images/website/themes3/divider_line.png) top repeat-x;
+	background: url(../../../images/website/themes3/divider_line.png) top repeat-x;
 	padding: 17px 0 0 0;
 	text-align: center;
 	width: 35%;
@@ -259,20 +259,20 @@
 }
 
 .social_vimeo {
-	background: url(../../images/website/themes3/social_vimeo.png) 0 0 no-repeat;
+	background: url(../../../images/website/themes3/social_vimeo.png) 0 0 no-repeat;
 }
 .social_twitter {
-	background: url(../../images/website/themes3/social_twitter.png) 0 0 no-repeat;
+	background: url(../../../images/website/themes3/social_twitter.png) 0 0 no-repeat;
 }
 .social_picasa {
-	background: url(../../images/website/themes3/social_picasa.png) 0 0 no-repeat;
+	background: url(../../../images/website/themes3/social_picasa.png) 0 0 no-repeat;
 }
 
 
 /*end main_mid*/
 
 .main_bot{
-	background: url("../../images/website/themes3/main_bg_tb.png") center -70px no-repeat;
+	background: url("../../../images/website/themes3/main_bg_tb.png") center -70px no-repeat;
 	height: 86px;
 }
 /*end main_bot*/

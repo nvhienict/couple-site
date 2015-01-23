@@ -37,10 +37,9 @@
 	
 	<link rel="favicon icon" href="{{Asset('icon/favicon.ico')}}">
 
-	<!-- css -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
+	<!-- Core Css Files -->
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap/bootstrap.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
-
    	<link href="{{Asset("assets/css/dashboard.css")}}" rel="stylesheet">
    	<link href="{{Asset("assets/css/chart/morris.css")}}" rel="stylesheet">
     <link href="{{Asset("assets/css/social-buttons.css")}}" rel="stylesheet">

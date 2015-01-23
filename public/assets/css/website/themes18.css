@@ -3,14 +3,14 @@
 @import url(http://fonts.googleapis.com/css?family=Courgette);
 
 body{
-	background: url(../../images/website/themes18/bg.gif) top center repeat;
+	background: url(../../../images/website/themes18/bg.gif) top center repeat;
 }
 
 .clear{
 	clear: both;
 }
 .line-hr{
-	background: url(../../images/website/themes18/line-hr.png) repeat-x;
+	background: url(../../../images/website/themes18/line-hr.png) repeat-x;
 	height: 2px;
 	width: 80%;
 	margin: 50px auto;
@@ -59,7 +59,7 @@ body{
 	line-height: 30px !important;
 }
 .nav > li{
-	background: url(../../images/website/themes18/menu.png) left 25% no-repeat;
+	background: url(../../../images/website/themes18/menu.png) left 25% no-repeat;
 	width: 170px;
 
 }
@@ -67,7 +67,7 @@ body{
 	background: none;
 }
 .nav > li:first-child > a, .nav > li > a:hover, .nav > li.active > a, .nav > li.active > a:hover{
-	background: url(../../images/website/themes18/nav.png) repeat-x	;
+	background: url(../../../images/website/themes18/nav.png) repeat-x	;
 	border-radius: 8px;
 	padding-top: 10px;
 	border: 1px solid #9a6253;
@@ -90,7 +90,7 @@ body{
 .carousel{
 	width: 80%;
 	margin: 0 auto;
-	background: url(../../images/website/themes18/slider.png) top center no-repeat;
+	background: url(../../../images/website/themes18/slider.png) top center no-repeat;
 	height: 663px;
 	padding-top: 5%;
 	padding-left: 14.7%;
@@ -142,7 +142,7 @@ body{
 	margin-top: 10px;
 }
 .item-des > .btn-view-more a, .item-des > .btn-back-view-more a{
-	background: url(../../images/website/themes18/btn.png) repeat-x;
+	background: url(../../../images/website/themes18/btn.png) repeat-x;
 	margin-left: 3px;
 	margin-bottom: 3px;
 	margin-right: 3px;
@@ -164,7 +164,7 @@ body{
 }
 
 .item-detail{
-	background: url(../../images/website/themes18/icon_home.jpg) top center no-repeat;
+	background: url(../../../images/website/themes18/icon_home.jpg) top center no-repeat;
 	display: none;
 	height: 280px;
 	position: relative;

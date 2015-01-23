@@ -1,7 +1,7 @@
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes5.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes5.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 	</head>
 		@if($website)

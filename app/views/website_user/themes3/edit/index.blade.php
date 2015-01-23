@@ -1,17 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
-
 
 <head>
 	<!-- style css -->
-	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes3.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes3.css")}}">
 
 	<!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
     <!-- menu_tab -->
-    <link rel="stylesheet" href="{{Asset('assets/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{Asset('assets/css/bootstrap/bootstrap.css')}}">
 
 
 </head>

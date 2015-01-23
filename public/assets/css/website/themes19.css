@@ -1,7 +1,7 @@
 
 
 body{
-	background: url(../../images/website/themes19/bg.svg) no-repeat center top fixed;
+	background: url(../../../images/website/themes19/bg.svg) no-repeat center top fixed;
 	background-color: transparent;
 	background-size: auto;
 
@@ -395,15 +395,15 @@ body{
 	display: inline;
 }
 .line-infor{
-	background: url(../../images/website/themes19/menu-lines.svg) no-repeat center center;
+	background: url(../../../images/website/themes19/menu-lines.svg) no-repeat center center;
 	height: 18px;
 }
 .line-infor1{
-	background: url(../../images/website/themes19/menu-lines.svg) no-repeat center center;
+	background: url(../../../images/website/themes19/menu-lines.svg) no-repeat center center;
 	height: 43px;
 }
 .time-until{
-	background: url(../../images/website/themes19/timer_bg1.png) no-repeat center center;
+	background: url(../../../images/website/themes19/timer_bg1.png) no-repeat center center;
 	background-size: 100%;
 	height: 300px;
 }
@@ -452,7 +452,7 @@ tr td.time_txt {
 	color: #CACACA;
 }
 .bird{
-	background: url(../../images/website/themes19/bird.svg) no-repeat center center;
+	background: url(../../../images/website/themes19/bird.svg) no-repeat center center;
 	height: 70px;
 }
 .myheart{

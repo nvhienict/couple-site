@@ -1,6 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
-
 <head>
 	<title>@yield('title')</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,13 +12,14 @@
 	<meta property="og:image" content="{{Asset("assets/img/logo.png")}}" />
 	<meta property="fb:app_id" content="692038267552175" />
 	
-	<!-- css -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
+	<!-- Core Css Files -->
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap/bootstrap.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <link href="{{Asset("assets/css/dropzone.css")}}" rel="stylesheet">		
 	<link href="{{Asset("assets/css/animate.css")}}" rel="stylesheet" />
-    <link href="{{Asset("assets/css/style.web.css")}}" rel="stylesheet">
-     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
+    <link href="{{Asset("assets/css/website/style.web.css")}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
+	
 	<!-- Core JavaScript Files -->
 	<script src="{{Asset("assets/js/jquery.min.js")}}"></script>
 	<script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>

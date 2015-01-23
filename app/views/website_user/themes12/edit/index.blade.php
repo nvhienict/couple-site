@@ -3,9 +3,9 @@
 
 <head>
 	<!-- style css -->
-	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes12.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes12.css")}}">
 	<!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>

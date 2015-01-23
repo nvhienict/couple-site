@@ -3,7 +3,7 @@
 @import url(../fonts/UVF Aphrodite Pro.ttf);
 
 body{
-	background: url(../../images/website/themes21/bg_piece.jpg) repeat;
+	background: url(../../../images/website/themes21/bg_piece.jpg) repeat;
 	width: 100%;
 	height: 100%;
 }
@@ -44,7 +44,7 @@ body{
 	right: 30%;
 }
 .line-name{
-	background: url(../../images/website/themes21/logo_border.png) repeat-x;
+	background: url(../../../images/website/themes21/logo_border.png) repeat-x;
 	width: 10%;
 	height: 1px;
 	background-color: transparent;
@@ -99,7 +99,7 @@ body{
 }
 
 .element_12{
-	background: url(../../images/website/themes21/element_9.png) no-repeat;
+	background: url(../../../images/website/themes21/element_9.png) no-repeat;
 	width: 292px;
 	height: 173px;
 	position: absolute;
@@ -108,7 +108,7 @@ body{
 	z-index: -1;
 }
 .element_13, .element_22{
-	background: url(../../images/website/themes21/element_10.png) no-repeat;
+	background: url(../../../images/website/themes21/element_10.png) no-repeat;
 	width: 111px;
 	height: 100px;
 	position: absolute;
@@ -124,7 +124,7 @@ body{
 	right: 35%;
 }
 .element_14{
-	background: url(../../images/website/themes21/element_14.png) no-repeat;
+	background: url(../../../images/website/themes21/element_14.png) no-repeat;
 	width: 136px;
 	height: 140px;
 	position: absolute;
@@ -133,7 +133,7 @@ body{
 	z-index: -1;
 }
 .element_15, .element_21{
-	background: url(../../images/website/themes21/element_11.png) no-repeat;
+	background: url(../../../images/website/themes21/element_11.png) no-repeat;
 	width: 20px;
 	height: 20px;
 	position: absolute;
@@ -148,7 +148,7 @@ body{
 	right: 40%;
 }
 .element_16{
-	background: url(../../images/website/themes21/element_16.png) no-repeat;
+	background: url(../../../images/website/themes21/element_16.png) no-repeat;
 	width: 175px;
 	height: 49px;
 	position: absolute;
@@ -157,7 +157,7 @@ body{
 	z-index: -1;
 }
 .element_17{
-	background: url(../../images/website/themes21/element_17.png) no-repeat;
+	background: url(../../../images/website/themes21/element_17.png) no-repeat;
 	width: 274px;
 	height: 76px;
 	position: absolute;
@@ -166,7 +166,7 @@ body{
 	z-index: -1;
 }
 .element_18, .element_19, .element_20{
-	background: url(../../images/website/themes21/element_12.png) no-repeat;
+	background: url(../../../images/website/themes21/element_12.png) no-repeat;
 	width: 13px;
 	height: 13px;
 	position: absolute;
@@ -198,7 +198,7 @@ body{
 	border-radius: 10% 0 10% 0;
 }
 .element_1, .element_2, .element_3, .element_3_3{
-	background: url(../../images/website/themes21/element_1.png) no-repeat;
+	background: url(../../../images/website/themes21/element_1.png) no-repeat;
 	width: 33px;
 	height: 33px;
 	position: absolute;
@@ -221,7 +221,7 @@ body{
     top: 77%;
 }
 .element_4, .element_5{
-	background: url(../../images/website/themes21/element_3.png) no-repeat;
+	background: url(../../../images/website/themes21/element_3.png) no-repeat;
 	width: 17px;
 	height: 17px;
 	position: absolute;
@@ -236,7 +236,7 @@ body{
 	left: 20%;
 }
 .element_6{
-	background: url(../../images/website/themes21/element_2.png) no-repeat;
+	background: url(../../../images/website/themes21/element_2.png) no-repeat;
 	width: 42px;
 	height: 42px;
 	position: absolute;
@@ -245,7 +245,7 @@ body{
 	z-index: -1;
 }
 .element_7{
-	background: url(../../images/website/themes21/element_5.png) no-repeat;
+	background: url(../../../images/website/themes21/element_5.png) no-repeat;
 	width: 259px;
 	height: 392px;
 	position: absolute;
@@ -254,7 +254,7 @@ body{
 	z-index: -1;
 }
 .element_8{
-	background: url(../../images/website/themes21/element_7.png) no-repeat;
+	background: url(../../../images/website/themes21/element_7.png) no-repeat;
 	width: 128px;
 	height: 194px;
 	position: absolute;
@@ -263,7 +263,7 @@ body{
 	z-index: -1;
 }
 .element_9, .element_10{
-	background: url(../../images/website/themes21/element_4.png) no-repeat;
+	background: url(../../../images/website/themes21/element_4.png) no-repeat;
 	width: 17px;
 	height: 17px;
 	position: absolute;
@@ -278,7 +278,7 @@ body{
 	left: 60%;
 }
 .element_11{
-	background: url(../../images/website/themes21/element_6.png) no-repeat;
+	background: url(../../../images/website/themes21/element_6.png) no-repeat;
 	width: 239px;
 	height: 93px;
 	position: absolute;
@@ -328,21 +328,21 @@ body{
 }
 
 .element_23{
-	background: url(../../images/website/themes21/element_20.png) no-repeat;
+	background: url(../../../images/website/themes21/element_20.png) no-repeat;
 	width: 1000px;
 	height: 500px;
 	position: absolute;
 	z-index: -1;
 }
 .element_24{
-	background: url(../../images/website/themes21/element_21.png) no-repeat;
+	background: url(../../../images/website/themes21/element_21.png) no-repeat;
 	width: 1000px;
 	height: 500px;
 	position: absolute;
 	z-index: -1;
 }
 .element_25{
-	background: url(../../images/website/themes21/element_18.png) no-repeat;
+	background: url(../../../images/website/themes21/element_18.png) no-repeat;
 	width: 300px;
 	height: 133px;
 	position: absolute;
@@ -351,7 +351,7 @@ body{
 	z-index: -1;
 }
 .element_26{
-	background: url(../../images/website/themes21/element_19.png) no-repeat;
+	background: url(../../../images/website/themes21/element_19.png) no-repeat;
 	width: 28px;
 	height: 30px;
 	position: absolute;
@@ -360,7 +360,7 @@ body{
 	z-index: -1;
 }
 .element_27{
-	background: url(../../images/website/themes21/element_23.png) no-repeat;
+	background: url(../../../images/website/themes21/element_23.png) no-repeat;
 	width: 13px;
 	height: 12px;
 	position: absolute;
@@ -369,7 +369,7 @@ body{
 	z-index: -1;
 }
 .element_28{
-	background: url(../../images/website/themes21/element_24.png) no-repeat;
+	background: url(../../../images/website/themes21/element_24.png) no-repeat;
 	width: 22px;
 	height: 20px;
 	position: absolute;
@@ -378,7 +378,7 @@ body{
 	z-index: -1;
 }
 .element_29{
-	background: url(../../images/website/themes21/element_25.png) no-repeat;
+	background: url(../../../images/website/themes21/element_25.png) no-repeat;
 	width: 4px;
 	height: 4px;
 	position: absolute;
@@ -387,7 +387,7 @@ body{
 	z-index: -1;
 }
 .element_30{
-	background: url(../../images/website/themes21/element_27.png) no-repeat;
+	background: url(../../../images/website/themes21/element_27.png) no-repeat;
 	width: 32px;
 	height: 27px;
 	position: absolute;
@@ -396,7 +396,7 @@ body{
 	z-index: -1;
 }
 .element_31{
-	background: url(../../images/website/themes21/element_28.png) no-repeat;
+	background: url(../../../images/website/themes21/element_28.png) no-repeat;
 	width: 32px;
 	height: 27px;
 	position: absolute;
@@ -405,7 +405,7 @@ body{
 	z-index: -1;
 }
 .element_32{
-	background: url(../../images/website/themes21/element_26.png) no-repeat;
+	background: url(../../../images/website/themes21/element_26.png) no-repeat;
 	width: 19px;
 	height: 19px;
 	position: absolute;
@@ -414,7 +414,7 @@ body{
 	z-index: -1;
 }
 .element_33{
-	background: url(../../images/website/themes21/element_29.png) no-repeat;
+	background: url(../../../images/website/themes21/element_29.png) no-repeat;
 	width: 257px;
 	height: 115px;
 	position: absolute;
@@ -439,7 +439,7 @@ body{
 	padding-bottom: 0.2%;
 }
 .element_34{
-	background: url(../../images/website/themes21/element_30.png) no-repeat;
+	background: url(../../../images/website/themes21/element_30.png) no-repeat;
 	width: 259px;
 	height: 392px;
 	position: absolute;
@@ -448,7 +448,7 @@ body{
 	z-index: -1;
 }
 .element_35{
-	background: url(../../images/website/themes21/element_31.png) no-repeat;
+	background: url(../../../images/website/themes21/element_31.png) no-repeat;
 	width: 100%;
 	height: 500px;
 	position: absolute;
@@ -456,7 +456,7 @@ body{
 	z-index: -1;
 }
 .element_36{
-	background: url(../../images/website/themes21/element_32.png) no-repeat;
+	background: url(../../../images/website/themes21/element_32.png) no-repeat;
 	width: 70%;
 	height: 500px;
 	position: absolute;
@@ -465,7 +465,7 @@ body{
 	z-index: -1;
 }
 .element_37{
-	background: url(../../images/website/themes21/element_33.png) no-repeat;
+	background: url(../../../images/website/themes21/element_33.png) no-repeat;
 	width: 80%;
 	height: 600px;
 	position: absolute;
@@ -474,7 +474,7 @@ body{
 	z-index: -1;
 }
 .element_38{
-	background: url(../../images/website/themes21/element_34.png) no-repeat;
+	background: url(../../../images/website/themes21/element_34.png) no-repeat;
 	width: 80%;
 	height: 600px;
 	position: absolute;
@@ -483,7 +483,7 @@ body{
 	z-index: -1;
 }
 .element_39{
-	background: url(../../images/website/themes21/element_35.png) no-repeat;
+	background: url(../../../images/website/themes21/element_35.png) no-repeat;
 	width: 105px;
 	height: 92px;
 	position: absolute;
@@ -492,7 +492,7 @@ body{
 	z-index: -1;
 }
 .element_40{
-	background: url(../../images/website/themes21/element_36.png) no-repeat;
+	background: url(../../../images/website/themes21/element_36.png) no-repeat;
 	width: 75px;
 	height: 31px;
 	position: absolute;
@@ -501,7 +501,7 @@ body{
 	z-index: -1;
 }
 .element_41{
-	background: url(../../images/website/themes21/element_40.png) no-repeat;
+	background: url(../../../images/website/themes21/element_40.png) no-repeat;
 	width: 24px;
 	height: 26px;
 	position: absolute;
@@ -510,7 +510,7 @@ body{
 	z-index: -1;
 }
 .element_42{
-	background: url(../../images/website/themes21/element_38.png) no-repeat;
+	background: url(../../../images/website/themes21/element_38.png) no-repeat;
 	width: 18px;
 	height: 16px;
 	position: absolute;
@@ -519,7 +519,7 @@ body{
 	z-index: -1;
 }
 .element_43{
-	background: url(../../images/website/themes21/element_39.png) no-repeat;
+	background: url(../../../images/website/themes21/element_39.png) no-repeat;
 	width: 12px;
 	height: 10px;
 	position: absolute;
@@ -528,7 +528,7 @@ body{
 	z-index: -1;
 }
 .element_44{
-	background: url(../../images/website/themes21/element_37.png) no-repeat;
+	background: url(../../../images/website/themes21/element_37.png) no-repeat;
 	width: 98px;
 	height: 50px;
 	position: absolute;
@@ -537,7 +537,7 @@ body{
 	z-index: -1;
 }
 .element_45{
-	background: url(../../images/website/themes21/element_41.png) no-repeat;
+	background: url(../../../images/website/themes21/element_41.png) no-repeat;
 	width: 38px;
 	height: 40px;
 	position: absolute;
@@ -546,7 +546,7 @@ body{
 	z-index: -1;
 }
 .element_46{
-	background: url(../../images/website/themes21/element_42.png) no-repeat;
+	background: url(../../../images/website/themes21/element_42.png) no-repeat;
 	width: 16px;
 	height: 16px;
 	position: absolute;

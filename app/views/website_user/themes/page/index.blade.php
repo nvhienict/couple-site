@@ -9,7 +9,7 @@
     <title>{{$firstname}}'s wedding</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap/bootstrap.min.css")}}">
     <script src="{{Asset('assets/ckeditor/ckeditor.js')}}"></script>
    	<script type="text/javascript" src="{{Asset("assets/js/api-google.js")}}"></script>
     <script src="{{Asset("assets/js/jquery.min.js")}}"></script>
@@ -17,8 +17,8 @@
    	<script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/template-font.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/template-font.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
     <style type="text/css">
     	body{

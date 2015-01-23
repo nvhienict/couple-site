@@ -1,6 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
-
 <head>
 	<title>{{$firstname}}'s</title>
 	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
@@ -12,7 +10,7 @@
 	<meta property="fb:app_id" content="692038267552175" />
 	
 	<!-- css -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap/bootstrap.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
 	<link href="{{Asset("assets/color/default.css")}}" rel="stylesheet">
 	
@@ -22,7 +20,7 @@
 	<script src="{{Asset("assets/js/jquery.scrollTo.js")}}"></script>
 	<script src="{{Asset("assets/js/custom.js")}}"></script>
 	<script src="{{Asset('assets/ckeditor/ckeditor.js')}}"></script>
-	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes5.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes5.css")}}">
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 	<style type="text/css">
 		body{

@@ -1,6 +1,6 @@
 
 body {
-	background: url(../../images/website/themes15/bg_pic.jpg) center center no-repeat;
+	background: url(../../../images/website/themes15/bg_pic.jpg) center center no-repeat;
 	background-attachment: fixed;
 }
 a{
@@ -66,7 +66,7 @@ a{
   display: inline-block;
   width: 100%;
   height: 8px;
-  background: url(../../images/website/themes15/arr_menu.png) 50% 0 no-repeat;
+  background: url(../../../images/website/themes15/arr_menu.png) 50% 0 no-repeat;
 }
 .menuMov {
   position: relative;
@@ -108,7 +108,7 @@ a{
   height: 50px;
   list-style: none;
   text-align: center;
-  background: url(../../images/website/themes15/bg_menu.png) 0 0 repeat;
+  background: url(../../../images/website/themes15/bg_menu.png) 0 0 repeat;
   border-bottom: 1px solid #b9bdac;
 }
 .sf-menu > li > a {
@@ -130,7 +130,7 @@ a{
   left: 142px;
   width: 140px;
   z-index: 5;
-  background: url(../../images/website/themes15/bg_menu.png) 0 0 repeat;
+  background: url(../../../images/website/themes15/bg_menu.png) 0 0 repeat;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -177,7 +177,7 @@ a{
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: url('../img/bg_menu.png') 0 0 repeat;
+  background: url('../../img/bg_menu.png') 0 0 repeat;
 }
 .submenu_2 .marTop {
   margin: 10px 0 0;
@@ -291,7 +291,7 @@ a{
 .logo{
 	width: 625px;
 	height: 272px;
-	background: url(../../images/website/themes15/logo.png) center center no-repeat;
+	background: url(../../../images/website/themes15/logo.png) center center no-repeat;
 	margin-top: 50px;
 	margin-left: auto;
 	margin-right: auto;
@@ -366,7 +366,7 @@ a{
 	height: 2px;
 	width: 70%;
 	margin: 0 auto;
-	background: url(../../images/website/themes15/line_hor.jpg) center center repeat-x;
+	background: url(../../../images/website/themes15/line_hor.jpg) center center repeat-x;
 }
 .sep-1, .sep-2{
 	width: 25px;
@@ -377,11 +377,11 @@ a{
 	z-index: 9;
 }
 .sep-1{
-	background: url(../../images/website/themes15/sep_1.png) left top no-repeat;
+	background: url(../../../images/website/themes15/sep_1.png) left top no-repeat;
 	left: -300px;
 }
 .sep-2{
-	background: url(../../images/website/themes15/sep_2.png) right top no-repeat;
+	background: url(../../../images/website/themes15/sep_2.png) right top no-repeat;
 	left: 300px;
 }
 .img{

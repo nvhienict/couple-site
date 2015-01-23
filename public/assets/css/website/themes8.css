@@ -1,6 +1,6 @@
 
 
-@import url(../fonts/UVF Aphrodite Pro.ttf);
+@import url(../../fonts/UVF Aphrodite Pro.ttf);
 
 #container{
 	padding-left: 13%;
@@ -12,7 +12,7 @@
 	height: 100px;
 	position: fixed;
 	z-index: 99;
-	background: transparent url(../../images/website/themes8/header-bg.png) repeat-x;
+	background: transparent url(../../../images/website/themes8/header-bg.png) repeat-x;
 	background-position: bottom left;
 }
 
@@ -140,7 +140,7 @@
 .line-hr-left, .line-hr-right{
 	width: 41%;
 	height: 15px;
-	background: transparent url(../../images/website/themes8/line-pattern.png);
+	background: transparent url(../../../images/website/themes8/line-pattern.png);
 	display: inline-block;
 }
 
@@ -148,7 +148,7 @@
 	width: 159px;
 	height: 35px;
 	margin-top: -10px;
-	background: transparent url(../../images/website/themes8/floral.png) center center no-repeat;
+	background: transparent url(../../../images/website/themes8/floral.png) center center no-repeat;
 	display: inline-block;
 }
 
@@ -156,7 +156,7 @@
 .title-content{
 	padding: 25px;
 	text-align: center;
-	background: transparent url(../../images/website/themes8/title-bg.png) center center no-repeat;
+	background: transparent url(../../../images/website/themes8/title-bg.png) center center no-repeat;
 	color: #6B686B;
 	font-size: 25px;
 	font-family: "UVF Aphrodite Pro";

@@ -5,7 +5,7 @@
     <script type="text/javascript" src="{{Asset("assets/slide/f-slide.js")}}"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes14-edit.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes14-edit.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
    
 </head>

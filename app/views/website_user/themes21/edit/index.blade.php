@@ -1,10 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
-
 <head>
-	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes21.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes21.css")}}">
 	<!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
 </head>
@@ -243,7 +241,7 @@
 				              <li><a onclick="loadURL()" href="javascript:void(0);" data-toggle="modal" data-target="#change-url-user">Cài đặt URL</a></li>
 				          </ul>
 				        </li>
-			      	 	<script type="text/javascript" src="{{Asset("assets/js/themes21.js")}}"></script>
+			      	 	<script type="text/javascript" src="{{Asset("assets/js/website/themes21.js")}}"></script>
 			     	 </ul>
 			   </div>
 			</nav>

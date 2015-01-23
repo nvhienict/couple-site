@@ -23,7 +23,7 @@
 .line-hr-left, .line-hr-right{
 	width: 41%;
 	height: 15px;
-	background: transparent url(../../images/website/themes4/line-pattern.png);
+	background: transparent url(../../../images/website/themes4/line-pattern.png);
 	display: inline-block;
 	margin-top: 3%;
 }
@@ -32,7 +32,7 @@
 	width: 159px;
 	height: 35px;
 	margin-top: 2%;
-	background: transparent url(../../images/website/themes4/floral.png) center center no-repeat;
+	background: transparent url(../../../images/website/themes4/floral.png) center center no-repeat;
 	display: inline-block;
 }
 #geomap{
@@ -103,13 +103,13 @@
 }
 .navbar-main{
 	height: 53px;
-	background: url("../../images/website/themes4/navbar-bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+	background: url("../../../images/website/themes4/navbar-bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
 }
 .navbar-center{
 	padding:0px;
 	top:-30px;
 	height:150px;
-	background: url("../../images/website/themes4/pink.jpg") no-repeat scroll center center rgba(0, 0, 0, 0);
+	background: url("../../../images/website/themes4/pink.jpg") no-repeat scroll center center rgba(0, 0, 0, 0);
 	background-size: 100%;
 }
 .about{
@@ -117,7 +117,7 @@
 }
 .hr-bg{
 	height: 50px;
-	background: url("../../images/website/themes4/hr.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+	background: url("../../../images/website/themes4/hr.png") no-repeat scroll center center rgba(0, 0, 0, 0);
 }
 .page-title{
 	background-color: #160f10;
@@ -125,13 +125,13 @@
 }
 .bg-title{
 	height: 150px;
-	background:url("../../images/website/themes4/tree.png") no-repeat fixed 100% -3px ;
+	background:url("../../../images/website/themes4/tree.png") no-repeat fixed 100% -3px ;
 }
 .bgin-title{
 	margin-top: -1.5%;
 	width: 100%;
 	height: 150px;
-	background:url("../../images/website/themes4/petals.png") repeat fixed 50% -336.25px rgba(0, 0, 0, 0);
+	background:url("../../../images/website/themes4/petals.png") repeat fixed 50% -336.25px rgba(0, 0, 0, 0);
 
 }
 .hr-white-two{
@@ -155,7 +155,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 317px;
-	background: url("../../images/website/themes4/page-bottom-bg.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+	background: url("../../../images/website/themes4/page-bottom-bg.png") no-repeat scroll center center rgba(0, 0, 0, 0);
 }
 .main-content{
 	height: 578px;
@@ -285,7 +285,7 @@ footer {
     display: block;
     transition: all 400ms ease-in-out 0s;
     z-index: 99;
-	background-image: url("../../images/website/themes4/circle-bg.png");
+	background-image: url("../../../images/website/themes4/circle-bg.png");
 
 }
 .border-image{
@@ -296,7 +296,7 @@ footer {
     height: 335px;
 }
 .border-line{
-	background-image: url("../../images/website/themes4/border-line.jpg");
+	background-image: url("../../../images/website/themes4/border-line.jpg");
 	background-size: 50%;
 	background-position: center;
 	background-attachment:fixed;
@@ -309,7 +309,7 @@ footer {
 	background: transparent;
 }
 .bg-event{
-	background-image: url("../../images/website/themes4/tree.png");
+	background-image: url("../../../images/website/themes4/tree.png");
 	background-repeat: no-repeat;
 	background-position: right;
 	background-attachment: fixed;
@@ -319,7 +319,7 @@ section{
 	margin-top: 0px;
 }
 .bg-traval{
-	background-image: url("../../images/website/themes4/bg-travals.jpg");
+	background-image: url("../../../images/website/themes4/bg-travals.jpg");
 	background-repeat: no-repeat;
 	background-position: left;
 	background-attachment: fixed;

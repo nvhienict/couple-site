@@ -1,7 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
-
-
 <head>
 	<title>{{$firstname}}'s Wedding Website | thuna.vn</title>
 	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
@@ -14,18 +11,18 @@
 	
 
 	<!-- style css -->
-	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes2.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes2.css")}}">
 
 	<!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
    
 
     <!-- menu_tab -->
-    <link rel="stylesheet" href="{{Asset('assets/css/bootstrap-v3.1.1.min.css')}}">
+    <link rel="stylesheet" href="{{Asset('assets/css/bootstrap/bootstrap-v3.1.1.min.css')}}">
 
-	<link rel="stylesheet" href="{{Asset('assets/css/bootstrap-v3.1.1-theme.min.css')}}">
+	<link rel="stylesheet" href="{{Asset('assets/css/bootstrap/bootstrap-v3.1.1-theme.min.css')}}">
 
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 

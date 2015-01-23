@@ -2,7 +2,7 @@
 <html lang="">
 	<head>
     
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes16.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes16.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
     <script src="{{Asset("assets/js/map-themes.js")}}"></script>
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>

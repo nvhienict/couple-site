@@ -147,7 +147,7 @@
 }
 .hr-bg{
 	height: 50px;
-	background: url("../../images/website/themes16/hr.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+	background: url("../../../images/website/themes16/hr.png") no-repeat scroll center center rgba(0, 0, 0, 0);
 }
 /*menu*/
 .nav-themes16 > li > .a_menu{

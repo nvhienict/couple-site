@@ -142,7 +142,7 @@ body
     a.slidesjs-previous,
     a.slidesjs-play,
     a.slidesjs-stop {
-      background-image: url('../../images/website/themes14/img/btns-next-prev.png');
+      background-image: url('../../../images/website/themes14/img/btns-next-prev.png');
       background-repeat: no-repeat;
       display:block;
       width:12px;

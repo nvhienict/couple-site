@@ -1,11 +1,11 @@
 #page1{
-	background-image: url('../../images/website/themes13/bg.jpg');
+	background-image: url('../../../images/website/themes13/bg.jpg');
 	background-repeat: #D9ECF2;	
 	background-attachment: fixed;
 }
 .menu-theme-13{
 	/*display: none;*/
-	background: url('../../images/website/themes13/menu_bg.png') center center no-repeat;
+	background: url('../../../images/website/themes13/menu_bg.png') center center no-repeat;
 	/*background-position: right;*/
 	width: 58%;
 	height: 93px;
@@ -49,7 +49,7 @@
 	color: #FF2BC0;
 }
 #menu li {
-    background: url("../../images/website/themes13/menu_line.png") no-repeat scroll 0 16px rgba(0, 0, 0, 0);
+    background: url("../../../images/website/themes13/menu_line.png") no-repeat scroll 0 16px rgba(0, 0, 0, 0);
     float: left;
     padding-bottom: 0px;
     padding-left: 2px;
@@ -59,7 +59,7 @@
 .slider_box{
 	margin-top: 12%;
 	min-height: 450px;
-	background: url('../../images/website/themes13/bg_image.png');
+	background: url('../../../images/website/themes13/bg_image.png');
 	background-repeat: no-repeat;
 	background-position: left top;
 	padding: 2%;
@@ -93,7 +93,7 @@
 	min-height: 170px;
 }
 .bg-line{
-	background: url('../../images/website/themes13/line.png');
+	background: url('../../../images/website/themes13/line.png');
 	background-repeat: repeat-x;
 	height: 62px;
 	margin-left: -15px;

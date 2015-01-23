@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,12 +8,12 @@
 		<title>{{$firstname}}'s wedding</title>
 
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.min.css")}}">
+		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap/bootstrap.min.css")}}">
 		<link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
 		<!-- Custom CSS -->
-		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes4new.css")}}">
+		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes4new.css")}}">
 		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
-		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/template-font.css")}}">
+		<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/template-font.css")}}">
 
 		<!-- Bootstrap JS -->
 		<script src="{{Asset('assets/js/jquery.min.js')}}"></script>

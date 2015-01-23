@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
 
 <head>  
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes10-edit.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes10-edit.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">	
     <script type="text/javascript" src="{{Asset("assets/slide/f-slide.js")}}"></script>
     <style type="text/css">

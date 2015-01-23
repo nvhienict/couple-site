@@ -24,7 +24,7 @@
     </style>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes17-edit.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes17-edit.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
    
 </head>

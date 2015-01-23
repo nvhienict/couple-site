@@ -1,6 +1,6 @@
 <head>
    
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes7-edit.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes7-edit.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
     <script type="text/javascript">
         

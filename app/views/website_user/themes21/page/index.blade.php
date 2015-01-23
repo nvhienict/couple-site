@@ -1,6 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
-
 <head>
 	<title>{{$firstname}}'s Wedding Website | thuna.vn</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=false" />
@@ -15,12 +13,12 @@
 	
 	
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap/bootstrap.css")}}">
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
     <!-- style css -->
-	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes21.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes21.css")}}">
 	<!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/themes.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
 
 
@@ -254,7 +252,7 @@
 			      	 	@foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->get() as $tab)
 			      	 		<li><a class="{{$tab->id}} TT{{$tab->id}} {{$tab->type}}" href="javascript:void(0);" >{{$tab->title}}</a></li>
 			      	 	@endforeach
-			      	 	<script type="text/javascript" src="{{Asset("assets/js/themes21.js")}}"></script>
+			      	 	<script type="text/javascript" src="{{Asset("assets/js/website/themes21.js")}}"></script>
 			     	 </ul>
 			   </div>
 			</nav>
