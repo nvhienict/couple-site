@@ -486,8 +486,8 @@ function printStyle() {
 	res += '  .t2t6 {text-align:left;font-size:125%;color:black}\n';
 	res += '  .t7 {text-align:left;font-size:125%;line-height:100%;color:green}\n';
 	res += '  .cn {text-align:left;font-size:125%;line-height:100%;color:red}\n';
-	res += '  .chure {background-color:#007cf9}\n';
-	res += '  .codau {background-color:#a200f9}\n';
+	//res += '  .chure {background-color:#007cf9}\n';
+	//res += '  .codau {background-color:#a200f9}\n';
 	// res += '  .couple {background: url(../icon/heart.png)}\n';
 	res += '  .couple {background-color:#f799dc}\n';
 	res += '  .ngaytamnuongsat {background-color:#aaa5a5}\n';
