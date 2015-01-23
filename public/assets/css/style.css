@@ -1,3 +1,4 @@
+
 /* ==== Google font ==== */
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700,900);
 @import url('http://fonts.googleapis.com/css?family=Ek+Mukta:400,600,700');
@@ -23,9 +24,17 @@
     font-style: normal;
 }
 
+@font-face {
+	font-family: 'OpenSan-Regular';
+	src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+	font-weight: normal;
+    font-style: normal;
+}
+
 body {
     
-    font-family: Arial;
+    /*font-family: Arial;*/
+    font-family: "OpenSan-Regular";
 	font-weight: 300;
     color: #666;
     background-color: #fff;
@@ -110,12 +119,12 @@ a:focus {  text-decoration: none !important; }
 /* menu
 ---------------------------------------------*/
 .bg-menu-top {
-	background: url(../../icon/bg-header-top.png) no-repeat !important;
-	background-size: cover !important;
+	/*background: url(../../icon/bg-header-top.png) no-repeat !important;*/
+	/*background-size: cover !important;*/
 	padding: 0 2%;
 	position: relative;
 }
-.bg-menu-top:after {
+/*.bg-menu-top:after {
 	position: absolute;
 	left: 0;
 	border-top: 2px dashed #cb839b;
@@ -130,7 +139,7 @@ a:focus {  text-decoration: none !important; }
 	z-index: 2;
 	width: 100%;
 	top: 3px;
-}
+}*/
 .navbar {
 	padding: 0 !important;
 	border: none !important;
@@ -139,27 +148,26 @@ a:focus {  text-decoration: none !important; }
 	width: 100%;
 }
 .navbar-nav {
-	padding-left: 17%;
+	padding-left: 20%;
 }
 .navbar-nav > li {
 	text-align: center;
 	position: relative;
 }
 .navbar-nav > li > a {
-	font-size: 20px !important;
-	line-height: 30px !important;
-	color: #FFFFFF !important;
+	font-size: 18px !important;
+	/*line-height: 30px !important;*/
+	color: #333333 !important;
 	outline: none;
-	font-family: "MyriadPro-Regular";
 	white-space: nowrap;
 }
-.navbar-nav > li > a:hover { background-color: #a7254f !important; }
-.navbar-nav > li > a > span.icon-show { 
+.navbar-nav > li > a:hover { background: none !important; color: #ef4c9b !important; }
+/*.navbar-nav > li > a > span.icon-show { 
 	display: none;
 	font-size: 25px;
 }
 .navbar-nav > li > a:hover span.txt-menu { display: none; }
-.navbar-nav > li > a:hover span.icon-show { display: inline-block; }
+.navbar-nav > li > a:hover span.icon-show { display: inline-block; }*/
 /*.icon-hover, .icon-hover-music,
 .icon-hover-home, .icon-hover-website,
 .icon-hover-planning-tool {
@@ -219,10 +227,12 @@ a.brand {
 #menu-bar-bottom > div > a{
 	text-transform: uppercase !important;
 	outline: none;
-	color: #2A6496;
+	color: #000000;
+	display: block;
 }
+#menu-bar-bottom > div > a i { margin-bottom: 7px; display: block; }
 #menu-bar-bottom > div > a:hover{
-	color: #E8529F;
+	color: #e75280;
 }
 #menu-bar-bottom > div > a > span{
 	/*font-weight: bold;*/
@@ -245,6 +255,13 @@ a.brand {
 	font-size: 20px;
 }
 
+.btn-use-now {
+	background-color: #e92d91;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	border-radius: 3px;
+}
+
 /* cam nhan khach hang
 -------------------------*/
 .cam-nhan-khach-hang {
@@ -257,9 +274,8 @@ a.brand {
 	text-transform: uppercase;
 	color: #232323;
 	text-align: center;
-	font-size: 18px;
+	font-size: 22px;
 	margin-bottom: 1.5%;
-	font-family: "UVF-LH-Line1-Sans-Thin";
 }
 .img-cam-nhan {
 	width: 100%;
@@ -268,7 +284,7 @@ a.brand {
 .name-khach-hang {
 	text-align: center;
 	font-family: 'UvfAphroditePro';
-	font-size: 14px;
+	font-size: 18px;
 	color: #e75280;
 	margin: 5% 0;
 }
@@ -390,7 +406,7 @@ hr.bold {
   	margin: 0;
   	padding: 0;
   	width: 100%;
-  	height: 500px;
+  	height: 470px;
   	margin-bottom: 50px;
 }
 .carousel-inner > .item > img,
@@ -1299,30 +1315,57 @@ div.vendor_content button{
 **/
 .user-header{
 	background-color: #ffffff;
-    height: 75px;
-    padding-top: 5px;
+    height: 180px;
+    /*padding-top: 5px;*/
     padding-bottom: 5px;
-    box-shadow: 0 3px #d5e7fa;
+    /*box-shadow: 0 3px #d5e7fa;*/
+}
+.to-top {
+	height: 35px;
+	padding: 5px 15px !important;
+	background-color: #b4b4b4;
 }
 .fb-like{
 	color: #fff;
-    margin-left: 40%;
-    margin-top: 20px;
-    z-index: 99999;
+	margin: 2px 0 0 0;
+    /*z-index: 99999;*/
 }
-.wedding-user-logged{
 
+/**
+| logo
+|*/
+.top-logo {
+	height: 80px;
+	padding: 10px 0;
+	text-align: center;
 }
-.wedding-user-logged li{
+/* end logo */
+
+.top-menu {
+	height: 50px;
+	/*padding: 10px 0;*/
+	border: 1px solid #b4b4b4;
+}
+
+.btn-action-user { text-align: right; }
+.ul-login-register {
+	list-style: none;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+.ul-login-register li{
 	float: left;
-    font-size: 17px;
-    list-style: outside none none;
-    margin-right: 20px;
-    margin-top: 20px;
+    border-right: 2px solid #FFFFFF;
+    padding: 0 10px;
 }
-.wedding-user-logged li a{
-	
+.ul-login-register li:last-child { border-right: none; }
+.ul-login-register li a{
+	color: #FFFFFF !important;
+	font-size: 14px;
+	font-weight: bold;
 }
+.ul-login-register li a:hover { color: #EF4C9B !important; }
 
 
 #form-search button{
@@ -1336,6 +1379,8 @@ div.vendor_content button{
 	width: 270%;
 	text-align: left;
 }
+.oneUl a { color: #c1bfbf !important; }
+.oneUl a:hover { color: #EA4398 !important; }
 
 
 
@@ -1418,9 +1463,7 @@ div.vendor_content button{
 }
 
 .form-register-index {
-	background-color: #ac2f57;
-    border: 3px solid #ac2f57;
-    border-radius: 5px;
+	background-color: #f2f0ee;
     margin-top: 40px;
     max-height: 450px;
     min-height: 250px;
@@ -1429,12 +1472,12 @@ div.vendor_content button{
     right: 10%;
     top: 0;
     z-index: 10;
-    font-family: "MyriadPro-Regular";
 }
 .user_register_title {
-	background-color: #AC2F57;
-    color: #ffffff;
+	background-color: #f2f0ee;
+    color: #333333;
     padding: 2%;
+    margin-top: 15px;
     padding-bottom: 5%;
     text-align: center;
     margin-bottom: 0;
@@ -1442,20 +1485,28 @@ div.vendor_content button{
 }
 .frm-register {
 	padding: 0 5%;
-	background-color: #AC2F57;
+	background-color: #f2f0ee;
 	height: 88%;
 	position: relative;
 }
-.frm-register .form-group input {
-	
+.frm-register .error { font-size: 13px; }
+
+/* all */
+::-webkit-input-placeholder { font-size: 14px; padding-top: 4px;}
+:-moz-placeholder { font-size: 14px; padding-top: 4px;} /* firefox 19+ */
+:-ms-input-placeholder { font-size: 14px; padding-top: 4px;} /* ie */
+input:-moz-placeholder { font-size: 14px; padding-top: 4px;}
+
+.frm-register input {
+	height: 35px;
 }
 
 .btn-register {
-	background-color: #fe7225; 
-	border: 1px solid #fe7225;
 	float: left;
 	display: inline-block;
 	margin-bottom: 20px;
+	background-color: #e92d91; 
+	border: 1px solid #e92d91
 }
 .bn-login-fb-index {
 	width: 66%;
