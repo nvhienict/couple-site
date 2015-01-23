@@ -602,12 +602,12 @@ function printCell(lunarDate, solarDate, solarMonth, solarYear) {
 	}
 
 	// ngay khac
-	if ( checkInNgayKhacChuRe(cc[0])<0 ) {
-		cellClass = "chure";
-	}
-	if ( checkInNgayKhacCodau(cc[0])<0 ) {
-		cellClass = "codau";
-	}
+	// if ( checkInNgayKhacChuRe(cc[0])<0 ) {
+	// 	cellClass = "chure";
+	// }
+	// if ( checkInNgayKhacCodau(cc[0])<0 ) {
+	// 	cellClass = "codau";
+	// }
 	if ( (checkInNgayKhacChuRe(cc[0])<0)&&
 		(checkInNgayKhacCodau(cc[0])<0) ) {
 			cellClass = "couple";
