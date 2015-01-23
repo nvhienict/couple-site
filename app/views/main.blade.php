@@ -4,9 +4,9 @@
 
 	<title>@yield('title')</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=false" />
-	<meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
-	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logofb.jpg")}}">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Thuna Planner là công ty chuyên cung cấp các dịch vụ cưới hỏi tại Huế và Đà Nẵng. Mong muốn của chúng tôi là mang lại cho khách hàng những trải nghiệm hoàn hảo và tuyệt vời nhất vào những dịp trọng đại như đám cưới, đám hỏi, cẩm...">
+	<meta property="og:image" itemprop="thumbnailUrl" content="{{Asset("assets/img/logofb.jpg")}}">
 	<meta property="og:title" content="Dịch vụ cưới hỏi Thuna.vn">
 	<meta property="og:description" content="Dịch vụ cưới hỏi chuyên nghiệp">
 	<meta property="og:url" content="http://thuna.vn">

@@ -6,10 +6,10 @@
     <meta name="description" content="Dịch vụ cưới hỏi chuyên nghiệp">
     <meta name="author" content="Thuna.vn">
     <meta property="og:title" content="{{$firstname}}'s wedding">
-	<meta property="og:description" content="Tạo website cưới chuyên nghiệp">
+	<meta property="og:description" content="Chào mừng đến với website cưới của chúng tôi">
 	<meta property="og:url" content="http://thuna.vn/website/{{$url}}">
 	<meta property="og:type" content="article">
-	<meta property="og:image" content="{{$website_tamp->backgrounds}}" />
+	<meta property="og:image" content="{{Asset("{$web_fb}")}}" />
     <title>{{$firstname}}'s wedding</title>
 
     <!-- Bootstrap Core CSS -->

@@ -1190,7 +1190,8 @@ class WebsiteController extends \BaseController {
 																	->with('date_url',$date_url)
 																	->with('email',$email)
 																	->with('count_down_url',$count_down_url)
-																	->with('url', $url);
+																	->with('url', $url)
+																	->with('web_fb',$website_tamp->background);
 				break;
 			case 3:
 				return View::make('website_user.themes3.page.index')->with('website', $website)
@@ -1199,7 +1200,8 @@ class WebsiteController extends \BaseController {
 																	->with('id_web', $id_website)
 																	->with('date_url',$date_url)
 																	->with('count_down_url',$count_down_url)
-																	->with('url', $url);
+																	->with('url', $url)
+																	->with('web_fb',$website_tamp->background);
 				break;
 
 			case 4:
@@ -1209,7 +1211,8 @@ class WebsiteController extends \BaseController {
 																->with('date_url',$date_url)
 																->with('email',$email)
 																->with('count_down_url',$count_down_url)
-																->with('url', $url);
+																->with('url', $url)
+																->with('web_fb',$website_tamp->background);
 				break;
 			
 			case 5:
@@ -1219,7 +1222,8 @@ class WebsiteController extends \BaseController {
 																	->with('id_web', $id_website)
 																	->with('date_url',$date_url)
 																	->with('count_down_url',$count_down_url)
-																	->with('url', $url);
+																	->with('url', $url)
+																	->with('web_fb',$website_tamp->background);
 				break;
 
 			case 6:
@@ -1228,7 +1232,8 @@ class WebsiteController extends \BaseController {
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_website)
 																	->with('date_url',$date_url)
-																	->with('url', $url);
+																	->with('url', $url)
+																	->with('web_fb',$website_tamp->background);
 				break;
 			case 7:
 				return View::make('website_user.themes7.page.index')->with('website', $website)
@@ -1236,7 +1241,8 @@ class WebsiteController extends \BaseController {
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_website)
 																	->with('date_url',$date_url)
-																	->with('url', $url);
+																	->with('url', $url)
+																	->with('web_fb',$website_tamp->background);
 				break;
 
 			case 8:
@@ -1245,7 +1251,8 @@ class WebsiteController extends \BaseController {
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_website)
 																	->with('date_url',$date_url)
-																	->with('url', $url);
+																	->with('url', $url)
+																	->with('web_fb',$website_tamp->background);
 				break;
 
 			case 9:
@@ -1254,7 +1261,8 @@ class WebsiteController extends \BaseController {
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_website)
 																	->with('date_url',$date_url)
-																	->with('url', $url);
+																	->with('url', $url)
+																	->with('web_fb',$website_tamp->background);
 				break;
 			
 			case 10:
@@ -1265,7 +1273,8 @@ class WebsiteController extends \BaseController {
 																->with('backgrounds',$backgrounds)
 																->with('email',$email)
 																->with('count_down_url',$count_down_url)
-																->with('url', $url);
+																->with('url', $url)
+																->with('web_fb',$website_tamp->background);
 				break;
 
 			case 11:
@@ -1275,7 +1284,8 @@ class WebsiteController extends \BaseController {
 																->with('date_url',$date_url)
 																->with('email',$email)
 																->with('count_down_url',$count_down_url)
-																->with('url', $url);
+																->with('url', $url)
+																->with('web_fb',$website_tamp->background);
 				break;
 
 			case 12:
@@ -1285,7 +1295,8 @@ class WebsiteController extends \BaseController {
 																->with('date_url',$date_url)
 																->with('email',$email)
 																->with('count_down_url',$count_down_url)
-																->with('url', $url);
+																->with('url', $url)
+																->with('web_fb',$website_tamp->background);
 				break;
 			case 13:
 				return View::make('website_user.themes13.page.index')->with('website', $website)
@@ -1294,7 +1305,8 @@ class WebsiteController extends \BaseController {
 																->with('date_url',$date_url)
 																->with('email',$email)
 																->with('count_down_url',$count_down_url)
-																->with('url', $url);
+																->with('url', $url)
+																->with('web_fb',$website_tamp->background);
 				break;
 			case 14:
 				return View::make('website_user.themes14.page.index')->with('website', $website)
@@ -1304,7 +1316,8 @@ class WebsiteController extends \BaseController {
 																->with('backgrounds',$backgrounds)
 																->with('email',$email)
 																->with('count_down_url',$count_down_url)
-																->with('url', $url);
+																->with('url', $url)
+																->with('web_fb',$website_tamp->background);
 				break;
 			case 15:
 				return View::make('website_user.themes15.page.index')->with('website', $website)
@@ -1314,7 +1327,8 @@ class WebsiteController extends \BaseController {
 																->with('backgrounds',$backgrounds)
 																->with('email',$email)
 																->with('count_down_url',$count_down_url)
-																->with('url', $url);
+																->with('url', $url)
+																->with('web_fb',$website_tamp->background);
 				break;	
 			case 16:
 				return View::make('website_user.themes16.page.index')->with('website', $website)
@@ -1345,7 +1359,8 @@ class WebsiteController extends \BaseController {
 																->with('email',$email)
 																->with('backgrounds',$backgrounds)
 																->with('count_down_url',$count_down_url)
-																->with('url', $url);
+																->with('url', $url)
+																->with('web_fb',$website_tamp->background);;
 				break;
 
 			case 19:
@@ -1356,7 +1371,8 @@ class WebsiteController extends \BaseController {
 																->with('email',$email)
 																->with('backgrounds',$backgrounds)
 																->with('count_down_url',$count_down_url)
-																->with('url', $url);
+																->with('url', $url)
+																->with('web_fb',$website_tamp->background);
 				break;
 
 			case 20:
@@ -1367,7 +1383,8 @@ class WebsiteController extends \BaseController {
 																->with('email',$email)
 																->with('backgrounds',$backgrounds)
 																->with('count_down_url',$count_down_url)
-																->with('url', $url);
+																->with('url', $url)
+																->with('web_fb',$website_tamp->background);
 				break;
 
 			case 21:
@@ -1378,7 +1395,8 @@ class WebsiteController extends \BaseController {
 																->with('email',$email)
 																->with('backgrounds',$backgrounds)
 																->with('count_down_url',$count_down_url)
-																->with('url', $url);
+																->with('url', $url)
+																->with('web_fb',$website_tamp->background);
 				break;
 			default:
 				return View::make('website_user.themes.page.index')->with('website', $website)
@@ -1387,7 +1405,7 @@ class WebsiteController extends \BaseController {
 																	->with('backgrounds',$backgrounds)
 																	->with('date_url',$date_url)
 																	->with('url', $url)
-																	->with('web_fb',$$website_tamp);
+																	->with('web_fb',$website_tamp->background);
 				break;
 		}
 
