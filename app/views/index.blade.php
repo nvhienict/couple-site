@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-Đám cưới-Dam cuoi-Đám hỏi-Đam hoi chuyên nghiệp-Thuna
+	Trang chủ | thuna.vn
 @endsection
 <script>
     var url = {
