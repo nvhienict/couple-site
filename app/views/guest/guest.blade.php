@@ -40,7 +40,7 @@ Danh sách khách mời | thuna.vn
 	 			<tbody>
 	 				<tr class="info">
 	 					<td>Khách chưa mời</td>
-	 					<td>
+	 					<td style="width:60%;">
 	 						<div class="progress progress-striped active">
                                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
                                     {{ GuestController::getGuestOverInvitedPercent() }}%
