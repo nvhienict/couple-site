@@ -539,6 +539,35 @@ hr.bold {
 		padding-left: 15px !important;
 	}
 
+	.navbar-nav { padding-left: 10%; }
+	
+
+}
+
+@media (max-width: 800px) {
+
+	.navbar-nav { padding-left: 1%; }
+	.navbar-nav > li > a { font-size: 110% !important; }
+
+  	#form-search-index{
+  		width: 90% !important;
+	    top: 14% !important;
+	}
+
+	.carousel-inner > .item {
+	  /*height: 350px !important;*/
+	}
+
+	h5.introduce-index { font-size: 120%; }
+	
+}
+
+@media (max-width: 768px) {
+  	
+	.xs-marginbot-20{
+		margin-bottom: 5px !important;
+	}
+
 	/* menu
 	--------------------------*/
 	.navbar-header {
@@ -598,52 +627,21 @@ hr.bold {
 	}
 	
 	.navbar-header button.navbar-toggle {
+		margin-right: 5%;
 		padding: 10px 15px;
 		font-size: 14px;
-		color: #fff;
+		background-color: #EF4C9B;
+	}
+	.navbar-header button.navbar-toggle .icon-bar {
+		display: block;
+		border: 1px solid #fff;
 	}
 	/*------------------------*/
 
-}
-
-@media (max-width: 800px) {
-  	#form-search-index{
-  		width: 90% !important;
-	    top: 14% !important;
-	}
-
-	.carousel-inner > .item {
-	  /*height: 350px !important;*/
-	}
-	
-}
-
-@media (max-width: 768px) {
-  	
-	.xs-marginbot-20{
-		margin-bottom: 5px !important;
-	}
 	
 }
 
 @media (max-width: 568px) {
-  	
-	.dropdown {
-		width: 100% !important;
-		background-color: #E75280 !important;
-	}
-
-	.dropdown a {
-		color: #fff !important;
-	}
-
-	.nav .open > a,
-	.nav .open > a:hover,
-	.nav .open > a:focus {
-	  background-color: #E75280 !important;
-	  border-color: #428bca !important;
-	}
-
 	.carousel-inner > .item {
 	  height: 300px !important;
 	}
@@ -684,21 +682,6 @@ hr.bold {
 	    top: 20% !important;
 	}
 
-	.dropdown {
-		width: 100% !important;
-		/*background-color: #E75280 !important;*/
-	}
-
-	.dropdown a {
-		color: #fff !important;
-	}
-
-	.nav .open > a,
-	.nav .open > a:hover,
-	.nav .open > a:focus {
-	  background-color: #E75280 !important;
-	  border-color: #428bca !important;
-	}
 }
 
 @media (max-width: 360px) {
@@ -711,18 +694,23 @@ hr.bold {
 		font-size: 90%;
 	}
 	h5.introduce-index{
-		font-size: 140%;
+		font-size: 110%;
 	}
 	h6.use-now{
 		font-size: 110%;
 	}
 
-	.title-ft-content{
-		font-size: 85% !important;
-	}
-	.tbl-nam-hung-nien{
-		font-size: 85% !important;
-	}
+	.cam-nhan-title { font-size: 100% !important; }
+
+	.title-ft-content{ font-size: 85% !important; }
+
+	.tbl-nam-hung-nien{ font-size: 85% !important; }
+
+	/* menu
+	--------------------------*/
+	.navbar-header button.navbar-toggle { margin-right: 10%; }
+	.navbar-nav { padding-left: 5% !important; }
+	/*------------------------*/
 
 }
 
@@ -1319,7 +1307,7 @@ div.vendor_content button{
 **/
 .user-header{
 	background-color: #ffffff;
-    height: 180px;
+    min-height: 180px;
     /*padding-top: 5px;*/
     padding-bottom: 5px;
     /*box-shadow: 0 3px #d5e7fa;*/
@@ -1346,7 +1334,7 @@ div.vendor_content button{
 /* end logo */
 
 .top-menu {
-	height: 50px;
+	min-height: 50px;
 	/*padding: 10px 0;*/
 	border: 1px solid #b4b4b4;
 }
@@ -1829,7 +1817,7 @@ a.budget_icon_notes{
     display:none;
     width: 60px;
     position:fixed;
-    bottom:200px;
+    bottom:50px;
     right:15px;
     background-color: #F382B7;
   	border-color: #E92D91;
