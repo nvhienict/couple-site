@@ -22,6 +22,7 @@
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/template-font.css")}}">
 
     <style type="text/css">
       .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style]
@@ -54,6 +55,21 @@
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=943743042306339&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+<script>
+    $(document).ready(function() {
+        $('.fb-share-button').attr("data-href", document.URL);
+    });
+</script>
+
 	<div id="top"></div>
 	<!-- end top -->
 
@@ -201,6 +217,9 @@
 						@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
 							<div id="section_{{$tabWeb->type}}" class="item">
 								@include('website_user.themes12.page.left')
+								<div class="">
+						            <div class="fb-share-button" data-layout="button"></div>
+						        </div>
 							</div>
 							<!-- end item -->
 						@endif
@@ -209,6 +228,9 @@
 							<div id="section_{{$tabWeb->type}}" class="item">
 								@include('website_user.themes12.page.left')
 							</div>
+							<div class="">
+					            <div class="fb-share-button" data-layout="button"></div>
+					        </div>
 							<!-- end item -->
 						@endif
 
@@ -224,6 +246,9 @@
 							<div id="section_{{$tabWeb->type}}" class="item">
 								@include('website_user.themes12.page.left')
 							</div>
+							<div class="">
+					            <div class="fb-share-button" data-layout="button"></div>
+					        </div>
 							<!-- end item -->
 							<div class="row phara-margin" style="padding-top:10px;">
 					           <!-- -change map --> 
