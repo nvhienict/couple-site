@@ -243,19 +243,26 @@ a.brand {
 }
 
 #load-content{
-	width: 85% !important;
+	/*width: 85% !important;*/
 	margin: 0 auto;
 }
 .tab-content-index {
-	background-color: #e3e1e1;
 	padding: 2%;
 }
+.div-content-intruduce {
+	background-color: #E3E1E1;
+	padding: 20px 0;
+	margin-bottom: 20px;
+}
+.div-content-intruduce:last-child { margin-bottom: 0px; }
+.div-content-intruduce img {width: 100%;}
 .des-index-tool {
-	background-color: #FFFFFF;
-	padding: 10px;
+	/*background-color: #FFFFFF;*/
+	padding: 0 10px;
 }
 .des-index-tool h5 {
 	font-size: 20px;
+	color: #11a5b6;
 }
 
 .btn-use-now {
@@ -265,6 +272,19 @@ a.brand {
 	border-radius: 3px;
 }
 .btn-use-now:hover { color: #FFFFFF; background-color: #CC1071; }
+
+
+.td-register {
+	background-color: #11a5b6;
+}
+.td-register h6 {
+	background-color: #11a5b6;
+	color: #fff;
+}
+.td-register h6 a { color: #fff; }
+.td-register form {
+	background-color: #11a5b6;
+}
 
 /* cam nhan khach hang
 -------------------------*/
