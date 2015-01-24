@@ -30,3 +30,11 @@
 	font-weight: normal;
     font-style: normal;
 }
+.btn-share{
+	left: 4%;
+	bottom: 2%;
+	position: absolute;
+}
+div.share-img img:hover .btn-share{
+	display: block!important;
+}

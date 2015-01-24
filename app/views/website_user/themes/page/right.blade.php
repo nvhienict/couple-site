@@ -1,9 +1,9 @@
 <div class="partion">
 	<div class="row phara-margin">
        	<h3 class="text-center title-tab" style=" font-family:UvfAphroditePro;" >{{$tabWeb->title}}</h3>
-        <div class="col-xs-6 float-right">
+        <div class="col-xs-6 float-right share-img">
             <span>
-                <a href="#">
+                <a>
                     <?php 
                     $images=PhotoTab::where('tab',$tabWeb->id)->get()->first();
                      ?>
@@ -15,6 +15,9 @@
                 @endif
                 </a>
             </span>
+           <div class="btn-share">
+                <div class="fb-share-button" data-layout="button"></div>
+            </div> 
         </div>
         <div class="show-content phara{{$tabWeb->id}}">
     
