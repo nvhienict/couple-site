@@ -519,7 +519,7 @@
 						$("#prev_output_theme21_g a").html("<img  class='img-groom img-circle' src='"+data.image+"' />");
 					};
 				} else{
-					$("#prev_output"+check_tab+" a").html("<img style='width:100%; height:100%;' class='img-responsive' src='"+data.image+"' />");
+					$("#prev_output"+check_tab+" a").html("<img class='img-responsive' src='"+data.image+"' />");
 					$("#prev_output_themes21"+check_tab+" a").html("<img class='tab-text-img' src='"+data.image+"' />");
 					$("#prev_output_theme4"+check_tab+" a").html("<img style='width: 350px;height: 350px;' class='img-responsive img-circle' src='"+data.image+"' />");
 				};
