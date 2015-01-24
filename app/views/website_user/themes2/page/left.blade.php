@@ -18,6 +18,9 @@
                 @endif
                 </a>
             </span>
+            <div class="btn-share">
+                <div class="fb-share-button" data-layout="button"></div>
+            </div>
         </div>
         <div class="show-content phara{{$tabWeb->id}}">
             <p style="color: #{{$website_item->color3}}">
