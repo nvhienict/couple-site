@@ -13,6 +13,7 @@
 	<meta property="og:image" content="{{Asset("{$web_fb}")}}" />
 
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/bootstrap/bootstrap.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/template-font.css")}}">
     <script src="{{Asset("assets/js/jquery.min.js")}}"></script>
     <script type="text/javascript" src="{{Asset("assets/js/bootstrap.min.js")}}"></script>
    	
@@ -43,6 +44,20 @@
    
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=943743042306339&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+<script>
+    $(document).ready(function() {
+        $('.fb-share-button').attr("data-href", document.URL);
+    });
+</script>
 @if($website)
 @foreach( $website as $website_item )
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
