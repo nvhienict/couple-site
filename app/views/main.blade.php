@@ -235,7 +235,7 @@
 	});
 </script>
 
-
+<!-- JDK Facebook -->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -244,6 +244,14 @@
   js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=943743042306339&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Live Chat -->
+<script lang="javascript">
+(function() {var _h1= document.getElementsByTagName('title')[0] || false;
+var product_name = ''; if(_h1){product_name= _h1.textContent || _h1.innerText;}var ga = document.createElement('script'); ga.type = 'text/javascript';
+ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=82fcf1fcdbc86bb2ca315feba840b27a&data=eyJzc29faWQiOjEyNDA0MjQsImhhc2giOiJjNzRkNTY2YjQwYmY0YzZhODFmMmM0NTgzNjMyMTNkOCJ9&pname='+product_name;
+var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();
+</script>	
 
 
 </body>
