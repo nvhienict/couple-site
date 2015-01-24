@@ -18,7 +18,7 @@ Webite cưới | thuna.vn
 				<img class="img-responsive" src="{{Asset('images/tool/edit-website.png')}}">
 			</h5>
 			<h6 class="use-now">
-				<a class="btn btn-success btn-sm" href="{{URL::route('website')}}" >Miễn phí! Sử dụng ngay</a>
+				<a class="btn btn-use-now btn-sm" href="{{URL::route('website')}}" >Miễn phí! Sử dụng ngay</a>
 			</h6>
 		</div>
 		<div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">

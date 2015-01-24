@@ -46,7 +46,7 @@ Công cụ lập kế hoạch | thuna.vn
 					<p>In báo cáo bằng file Excel để dễ lưu trữ và kiểm tra tốt hơn</p>
 				</h5>
 				<h6 class="use-now">
-					<a class="btn btn-success btn-sm" href="{{URL::route('user-checklist')}}" >Miễn phí! Sử dụng ngay</a>
+					<a class="btn btn-use-now btn-sm" href="{{URL::route('user-checklist')}}" >Miễn phí! Sử dụng ngay</a>
 				</h6>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -66,7 +66,7 @@ Công cụ lập kế hoạch | thuna.vn
 
 				</h5>
 				<h6 class="use-now">
-					<a class="btn btn-success btn-sm" href="{{URL::route('budget')}}" >Miễn phí! Sử dụng ngay</a>
+					<a class="btn btn-use-now btn-sm" href="{{URL::route('budget')}}" >Miễn phí! Sử dụng ngay</a>
 				</h6>
 			</div>
 		</div>
@@ -84,7 +84,7 @@ Công cụ lập kế hoạch | thuna.vn
 					được tạo <a href="{{URL::route('website')}}">tại đây</a></p>
 				</h5>
 				<h6 class="use-now">
-					<a class="btn btn-success btn-sm" href="{{URL::route('guest-list')}}" >Miễn phí! Sử dụng ngay</a>
+					<a class="btn btn-use-now btn-sm" href="{{URL::route('guest-list')}}" >Miễn phí! Sử dụng ngay</a>
 				</h6>
 			</div>
 		</div>
@@ -99,7 +99,7 @@ Công cụ lập kế hoạch | thuna.vn
 					<p>Thân thiện, miễn phí, dễ sử dụng và đạt thẩm mỹ là những gì chúng tôi hướng đến.</p>
 				</h5>
 				<h6 class="use-now">
-					<a class="btn btn-success btn-sm" href="{{URL::route('website')}}" >Miễn phí! Sử dụng ngay</a>
+					<a class="btn btn-use-now btn-sm" href="{{URL::route('website')}}" >Miễn phí! Sử dụng ngay</a>
 				</h6>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
