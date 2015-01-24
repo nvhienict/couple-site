@@ -20,7 +20,9 @@
             <span class="img_tr"></span>
             <span class="img_bl"></span>
             <span class="img_br"></span>
-            
+            <div class="btn-share">
+                <div class="fb-share-button" data-layout="button"></div>
+            </div>
         </div>
         <!-- end frame_box frame_big frame_center -->
 
