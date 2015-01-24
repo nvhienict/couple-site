@@ -1829,10 +1829,10 @@ a.budget_icon_notes{
     display:none;
     width: 60px;
     position:fixed;
-    bottom:15px;
+    bottom:200px;
     right:15px;
-    background-color: #555;
-  	border-color: #777;
+    background-color: #F382B7;
+  	border-color: #E92D91;
 }
 .btn-top:hover,
 .btn-top:focus,
