@@ -17,6 +17,7 @@
     <link href="{{Asset("assets/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
 	<!-- style css -->
 	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes15.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/template-font.css")}}">
 	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
@@ -28,7 +29,20 @@
 </head>
 
 <body style="background: url({{Asset("{$backgrounds}")}});">
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=943743042306339&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+<script>
+    $(document).ready(function() {
+        $('.fb-share-button').attr("data-href", document.URL);
+    });
+</script>
 @if($website)
 @foreach( $website as $website_item )
 
@@ -146,7 +160,7 @@
 		  	
 	  	@if($tabWeb->type =="welcome" && $tabWeb->visiable==0 )
 			<div class="item-1 tab-pane" id="welcome" >
-		  		@include('website_user.themes15.page.left')
+		  		@include('website_user.themes15.page.left') 
 		  	</div>
 		  	<!-- .tab welcome -->
 	  	@endif
@@ -161,14 +175,18 @@
   		@if($tabWeb->type=="about" && $tabWeb->visiable==0)
 		  	<div class="item-1 tab-pane" id="about" >
 		  		@include('website_user.themes15.page.left')
-
+		  		<div class="btn-share">
+	                <div class="fb-share-button" data-layout="button"></div>
+	            </div>  
 		  	</div>
 		@endif
 
 		@if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
 		  	<div class="item-1 tab-pane" id="wedding" >
 		  		@include('website_user.themes15.page.left')
-
+		  		<div class="btn-share">
+	                <div class="fb-share-button" data-layout="button"></div>
+	            </div>  
 		  	</div>
 	  	@endif
 

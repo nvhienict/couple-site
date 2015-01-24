@@ -20,6 +20,9 @@
 
         <div class="item-content">
             <span style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>
+            <div class="">
+                <div class="fb-share-button" data-layout="button"></div>
+            </div> 
         </div>
         <!-- end text_big -->
         
