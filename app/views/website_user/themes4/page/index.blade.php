@@ -64,6 +64,20 @@
 
 	</head>
 	<body  style="background-color: #F5EBEF;position:relative;overflow-x:hidden">
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=943743042306339&version=v2.0";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<script>
+		    $(document).ready(function() {
+		        $('.fb-share-button').attr("data-href", document.URL);
+		    });
+		</script>
 		<!-- header -->
 @if($website)
 	@foreach( $website as $website_item )
@@ -183,7 +197,10 @@
 				                    <img  style='width: 350px;height: 350px;'  class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
 				                @endif
-		            			</div>			
+		            			</div>
+		            			<div class="btn-share">
+					                <div class="fb-share-button" data-layout="button"></div>
+					            </div>			
 		            		</div>
 		            		
 		            	</div>
@@ -273,7 +290,10 @@
 					                    <img  style='width: 350px;height: 350px;' class="img-responsive img-circle" src="{{Asset("images/website/themes1/images.jpg")}}" alt="">
 
 					                @endif
-		            			</div>			
+		            			</div>
+		            			<div class="btn-share">
+					                <div class="fb-share-button" data-layout="button"></div>
+					            </div>			
 		            		</div>
 		            		
 		            	</div>
