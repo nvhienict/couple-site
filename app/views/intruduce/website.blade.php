@@ -3,7 +3,7 @@
 Webite cưới | thuna.vn
 @endsection
 @section('nav-bar')
-@include('nav')
+@include('intruduce.nav-website')
 @endsection
 @section('content')
 

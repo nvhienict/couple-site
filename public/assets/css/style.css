@@ -161,7 +161,9 @@ a:focus {  text-decoration: none !important; }
 	outline: none;
 	white-space: nowrap;
 }
+.navbar-nav > li.active > a { color: #ef4c9b !important; }
 .navbar-nav > li > a:hover { background: none !important; color: #ef4c9b !important; }
+
 /*.navbar-nav > li > a > span.icon-show { 
 	display: none;
 	font-size: 25px;
@@ -224,15 +226,16 @@ a.brand {
 #menu-bar-bottom > div{
 	text-align: center !important;
 }
-#menu-bar-bottom > div > a{
+#menu-bar-bottom > div > a {
 	text-transform: uppercase !important;
 	outline: none;
 	color: #000000;
 	display: block;
 }
+/*#menu-bar-bottom > div > a.active { color: #EF4C9B; }*/
 #menu-bar-bottom > div > a i { margin-bottom: 7px; display: block; }
 #menu-bar-bottom > div > a:hover{
-	color: #e75280;
+	color: #e92d91;
 }
 #menu-bar-bottom > div > a > span{
 	/*font-weight: bold;*/
@@ -261,6 +264,7 @@ a.brand {
 	text-transform: uppercase;
 	border-radius: 3px;
 }
+.btn-use-now:hover { color: #FFFFFF; background-color: #CC1071; }
 
 /* cam nhan khach hang
 -------------------------*/
@@ -284,7 +288,7 @@ a.brand {
 .name-khach-hang {
 	text-align: center;
 	font-family: 'UvfAphroditePro';
-	font-size: 18px;
+	font-size: 16px;
 	color: #e75280;
 	margin: 5% 0;
 }
@@ -1464,7 +1468,7 @@ div.vendor_content button{
 
 .form-register-index {
 	background-color: #f2f0ee;
-    margin-top: 40px;
+    margin-top: 35px;
     max-height: 450px;
     min-height: 250px;
     padding: 0;
@@ -1483,19 +1487,17 @@ div.vendor_content button{
     margin-bottom: 0;
     height: 12%;
 }
+
 .frm-register {
 	padding: 0 5%;
 	background-color: #f2f0ee;
 	height: 88%;
 	position: relative;
 }
+.frm-register .form-group {
+	margin-bottom: 10px;
+}
 .frm-register .error { font-size: 13px; }
-
-/* all */
-::-webkit-input-placeholder { font-size: 14px; padding-top: 4px;}
-:-moz-placeholder { font-size: 14px; padding-top: 4px;} /* firefox 19+ */
-:-ms-input-placeholder { font-size: 14px; padding-top: 4px;} /* ie */
-input:-moz-placeholder { font-size: 14px; padding-top: 4px;}
 
 .frm-register input {
 	height: 35px;
@@ -1508,12 +1510,19 @@ input:-moz-placeholder { font-size: 14px; padding-top: 4px;}
 	background-color: #e92d91; 
 	border: 1px solid #e92d91
 }
+.btn-register:hover { color: #FFFFFF; background-color: #CC1071; }
 .bn-login-fb-index {
 	width: 66%;
 	float: right;
 	display: inline-block;
 	margin-bottom: 20px;
 }
+
+/* all */
+::-webkit-input-placeholder { font-size: 14px; padding-top: 4px;}
+:-moz-placeholder { font-size: 14px; padding-top: 4px;} /* firefox 19+ */
+:-ms-input-placeholder { font-size: 14px; padding-top: 4px;} /* ie */
+input:-moz-placeholder { font-size: 14px; padding-top: 4px;}
 
 
 /***** BUTGET *****/

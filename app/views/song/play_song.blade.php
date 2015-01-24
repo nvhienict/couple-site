@@ -5,7 +5,7 @@
 Âm nhạc | thuna.vn
 @endsection
 @section('nav-bar')
-@include('nav')
+@include('song.nav')
 @endsection
 @section('content')
 

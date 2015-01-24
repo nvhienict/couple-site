@@ -11,7 +11,7 @@
       </div>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="{{URL::route('index')}}" title="Trang chủ">
+            <li><a href="{{URL::route('index')}}" title="Trang chủ">
                 <!-- <img class="icon-hover-home" src="{{Asset('icon/home78.png')}}"> -->
                 <!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
                   <i class="fa fa-home icon-home"></i>
@@ -31,7 +31,7 @@
                 Website cưới
               </a>
             </li>
-            <li><a href="{{URL::to('planning-tool')}}" title="Công cụ lập kế hoạnh">
+            <li class="active"><a href="{{URL::to('planning-tool')}}" title="Công cụ lập kế hoạnh">
                 <!-- <img class="icon-hover-planning-tool" src="{{Asset('icon/notepad-icon.png')}}"> -->
                 <!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <i class="fa fa-gears"></i>
