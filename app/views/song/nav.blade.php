@@ -11,7 +11,7 @@
       </div>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="{{URL::route('index')}}" title="Trang chủ">
+            <li><a href="{{URL::route('index')}}" title="Trang chủ">
                 <!-- <img class="icon-hover-home" src="{{Asset('icon/home78.png')}}"> -->
                 <!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
                   <i class="fa fa-home icon-home"></i>
@@ -61,7 +61,7 @@
                 <span class="txt-menu">Quản lý ngân sách</span>
               </a>
             </li> -->
-            <li class="dropdown">
+            <li class="dropdown active">
               <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown" title="Âm nhạc">
             <!-- <img class="icon-hover-music" src="{{Asset('icon/musical7.png')}}"> -->
                 

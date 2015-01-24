@@ -11,7 +11,7 @@
       </div>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="{{URL::route('index')}}" title="Trang chủ">
+            <li><a href="{{URL::route('index')}}" title="Trang chủ">
                 <!-- <img class="icon-hover-home" src="{{Asset('icon/home78.png')}}"> -->
                 <!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
                   <i class="fa fa-home icon-home"></i>
@@ -111,7 +111,7 @@
               </ul>
             </li> <!--/music-->
 
-            <li><a href="{{URL::action('FortuneController@getIndex')}}" title="Xem ngày cưới">
+            <li class="active"><a href="{{URL::action('FortuneController@getIndex')}}" title="Xem ngày cưới">
                 <!-- <img class="icon-hover" src="{{Asset('icon/ngaycuoi.png')}}"> -->
                 
                 <!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

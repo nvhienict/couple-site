@@ -5,7 +5,7 @@
 Xem ngày cưới | thuna.vn
 @endsection
 @section('nav-bar')
-@include('nav')
+@include('fortune.nav')
 @endsection
 
 @section('content')

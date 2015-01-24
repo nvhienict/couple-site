@@ -3,7 +3,7 @@
 Công cụ lập kế hoạch | thuna.vn
 @endsection
 @section('nav-bar')
-@include('nav')
+@include('intruduce.nav-planner')
 @endsection
 @section('content')
 

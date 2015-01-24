@@ -213,22 +213,27 @@
 		</div>
 	</div>	
 	<!-- .row -->
-	<script type="text/javascript">
-		(function(){
-		    // Cuộn trang lên với scrollTop
-		    $('#go_top').click(function(){
-		        $('body,html').animate({scrollTop:0},400);
-		        return false;
-		    })
-		})(jQuery)
-        $(window).scroll(function(){
-		    if( $(window).scrollTop() > 500 ) {
-		        $('#go_top').stop(false,true).fadeIn(300);
-		    }else{
-		        $('#go_top').hide();
-		    }
-		});
-	</script>
+
+<!-- Click Menu Active -->
+<script type="text/javascript" src="{{Asset('assets/js/active-menu.js')}}"></script>
+
+<!-- Button Go Top -->
+<script type="text/javascript">
+	(function(){
+	    // Cuộn trang lên với scrollTop
+	    $('#go_top').click(function(){
+	        $('body,html').animate({scrollTop:0},400);
+	        return false;
+	    })
+	})(jQuery)
+    $(window).scroll(function(){
+	    if( $(window).scrollTop() > 500 ) {
+	        $('#go_top').stop(false,true).fadeIn(300);
+	    }else{
+	        $('#go_top').hide();
+	    }
+	});
+</script>
 
 
 <div id="fb-root"></div>
