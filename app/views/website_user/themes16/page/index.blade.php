@@ -198,9 +198,11 @@
 
                 @endif
                 
-                <p class="collapse" id="viewdetails1"><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
-                <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails1">Xem thêm &raquo;</a></p>
-            
+                <p class="collapse" id="viewdetails2"><span  style="color: #{{$website_item->color2}}">{{$tabWeb->content}}</span> </p>
+                <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails2">Xem thêm &raquo;</a></p>
+            	<div class="" style="bottom:-2%;">
+	                <div class="fb-share-button" data-layout="button"></div>
+	            </div> 
 			</div>
 
 
@@ -240,9 +242,12 @@
                     <img  class="img-responsive " src="{{Asset("images/website/themes16/picture1.jpg")}}" alt="">
 
                 @endif
-
+                 
                <p class="collapse" id="viewdetails3"><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
                 <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails3">Xem thêm &raquo;</a></p>
+				<div class="" style="bottom:-2%;">
+	                <div class="fb-share-button" data-layout="button"></div>
+	            </div> 
 			</div>
 			@endif
 
@@ -260,9 +265,12 @@
                     <img  class="img-responsive " src="{{Asset("images/website/themes16/picture1.jpg")}}" alt="">
 
                 @endif
-
+                  
                 <p class="collapse" id="viewdetails4"><span  style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span> </p>
                 <p class="more-content"><a class="btn btn-more" data-toggle="collapse" data-target="#viewdetails4">Xem thêm &raquo;</a></p>
+				<div class="" style="bottom:-2%;">
+	                <div class="fb-share-button" data-layout="button"></div>
+	            </div> 
 			</div>
 			@endif
 		@endforeach	
@@ -407,6 +415,20 @@
 			</footer>
 <!-- / footer -->
 		</div>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=943743042306339&version=v2.0";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<script>
+		    $(document).ready(function() {
+		        $('.fb-share-button').attr("data-href", document.URL);
+		    });
+		</script>
 	</body>
 	@endforeach
 @endif

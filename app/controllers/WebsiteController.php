@@ -1358,7 +1358,8 @@ class WebsiteController extends \BaseController {
 																->with('date_url',$date_url)
 																->with('email',$email)
 																->with('count_down_url',$count_down_url)
-																->with('url', $url);
+																->with('url', $url)
+																->with('web_fb',$website_tamp->background);
 				break;	
 
 			case 17:
@@ -1369,7 +1370,8 @@ class WebsiteController extends \BaseController {
 																->with('email',$email)
 																->with('backgrounds',$backgrounds)
 																->with('count_down_url',$count_down_url)
-																->with('url', $url);
+																->with('url', $url)
+																->with('web_fb',$website_tamp->background);
 				break;
 
 			case 18:
