@@ -175,18 +175,12 @@
   		@if($tabWeb->type=="about" && $tabWeb->visiable==0)
 		  	<div class="item-1 tab-pane" id="about" >
 		  		@include('website_user.themes15.page.left')
-		  		<div class="btn-share">
-	                <div class="fb-share-button" data-layout="button"></div>
-	            </div>  
 		  	</div>
 		@endif
 
 		@if($tabWeb->type=="wedding" && $tabWeb->visiable==0)
 		  	<div class="item-1 tab-pane" id="wedding" >
-		  		@include('website_user.themes15.page.left')
-		  		<div class="btn-share">
-	                <div class="fb-share-button" data-layout="button"></div>
-	            </div>  
+		  		@include('website_user.themes15.page.left') 
 		  	</div>
 	  	@endif
 
