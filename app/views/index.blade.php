@@ -26,67 +26,22 @@
 	  	</div>
 	  	<div class="navbar-collapse collapse navbar-responsive-collapse">
 		    <ul class="nav navbar-nav">
-		      	<li class="active"><a href="{{URL::route('index')}}" title="Trang chủ">
-		      			<!-- <img class="icon-hover-home" src="{{Asset('icon/home78.png')}}"> -->
-		      			<!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
-			      			<i class="fa fa-home icon-home"></i>
-			      			&nbsp;&nbsp;&nbsp;
-		      			</span> -->
-		      			<!-- <span class="txt-menu">Trang chủ</span> -->
+		      	<li class="active">
+		      		<a href="{{URL::route('index')}}" title="Trang chủ">
 		      			Trang chủ
  		      		</a>
 		      	</li>
 		      	<li><a href="{{URL::to('website-introduce')}}" title="Website cưới">
-		        		<!-- <img class="icon-hover-website" src="{{Asset('icon/Quanlyngansach.png')}}"> -->
-		        		<!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			      			<i class="fa fa-heart"></i>
-			      			&nbsp;&nbsp;&nbsp;&nbsp;
-		      			</span>
-		        		<span class="txt-menu">Website cưới</span> -->
 		        		Website cưới
 		        	</a>
 		        </li>
 		      	<li><a href="{{URL::to('planning-tool')}}" title="Công cụ lập kế hoạnh">
-		      			<!-- <img class="icon-hover-planning-tool" src="{{Asset('icon/notepad-icon.png')}}"> -->
-		      			<!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			      			<i class="fa fa-gears"></i>
-			      			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		      			</span>
-		      			<span class="txt-menu">Công cụ lập kế hoạch</span> -->
 		      			Công cụ lập kế hoạch
  		      		</a>
 		      	</li>
-		        <!-- <li><a href="{{URL::route('website')}}" title="Website cưới">
-		        		<img class="icon-hover-website" src="{{Asset('icon/Quanlyngansach.png')}}">
-		        		<span class="txt-menu">Website cưới</span>
-		        	</a>
-		        </li>
-		        <li><a href="{{URL::route('guest-list')}}" title="Danh sách khách mời">
-		      			<img class="icon-hover" src="{{Asset('icon/DSKM.png')}}">
-		      			<span class="txt-menu">Danh sách khách mời</span>
-		      		</a>
-		      	</li>
-		        <li><a href="{{URL::route('user-checklist')}}" title="Danh sách công việc">
-		        		<img class="icon-hover" src="{{Asset('icon/Danhsachcongviec.png')}}">
-		        		<span class="txt-menu">Danh sách công việc</span>
-		        	</a>
-		        </li>
-		        <li><a href="{{URL::route('budget')}}" title="Quản lý ngân sách">
-		        		<img class="icon-hover" src="{{Asset('icon/Congculapkehoach.png')}}">
-		        		<span class="txt-menu">Quản lý ngân sách</span>
-		        	</a>
-		        </li> -->
 		      	<li class="dropdown">
 			        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown" title="Âm nhạc">
-						<!-- <img class="icon-hover-music" src="{{Asset('icon/musical7.png')}}"> -->
-			        	
-			        	<!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;
-			      			<i class="fa fa-music"></i>
-			      			&nbsp;&nbsp;
-		      			</span>
-			        	<span class="txt-menu">Âm nhạc</span>
-			        	<b class="caret"></b> -->
-			        	Âm nhạc
+						Âm nhạc
 			        </a>
 			        <ul class="dropdown-menu oneUl" role="menu">
 			          	<li role="presentation" class="dropdown-header"><span>Nghi lễ</span>
@@ -127,13 +82,6 @@
 		      	</li> <!--/music-->
 
 		      	<li><a href="{{URL::action('FortuneController@getIndex')}}" title="Xem ngày cưới">
-		      			<!-- <img class="icon-hover" src="{{Asset('icon/ngaycuoi.png')}}"> -->
-		      			
-		      			<!-- <span class="icon-show">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			      			<i class="fa fa-calendar"></i>
-			      			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		      			</span>
-		      			<span class="txt-menu">Xem ngày cưới</span> -->
 		      			Xem ngày cưới
 		      		</a>
 		      	</li>
@@ -155,13 +103,6 @@
 
 		<!-- Carousel -->
     	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-			<!-- Indicators -->
-			<!-- <ol class="carousel-indicators">
-			  	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-			    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-			    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-			</ol>
- -->			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 			    <div class="item active">
 			    	<img src=" {{Asset("images/slide-main/1.jpg")}}" alt="">
@@ -278,31 +219,31 @@
 
 <div class="row" id="menu-bar-bottom">
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
-		<a href="#checklist" role="tab" data-toggle="tab" class="active" >
+		<a href="#checklist" role="tab" data-toggle="tab" class="active" title="Danh sách công việc" >
 			<!-- <img src="{{Asset('icon/task.png')}}"><br /><br /> -->
 			<i class="fa fa-list fa-2x"></i>
-			<span>Danh sách công việc</span>
+			<span class="hidden-xs">Danh sách công việc</span>
 		</a>
 	</div>
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
-		<a href="#budget" role="tab" data-toggle="tab" >
+		<a href="#budget" role="tab" data-toggle="tab" title="Quản lý ngân sách" >
 			<!-- <img src="{{Asset('icon/data31.png')}}"><br /><br /> -->
 			<i class="fa fa-dollar fa-2x"></i>
-			<span>Quản lý ngân sách</span>
+			<span class="hidden-xs">Quản lý ngân sách</span>
 		</a>
 	</div>
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
-		<a href="#guestlist" role="tab" data-toggle="tab" >
+		<a href="#guestlist" role="tab" data-toggle="tab" title="Danh sách khách mời" >
 			<!-- <img src="{{Asset('icon/group12.png')}}"><br /><br /> -->
 			<i class="fa fa-users fa-2x"></i>
-			<span>Danh sách khách mời</span>
+			<span class="hidden-xs">Danh sách khách mời</span>
 		</a>
 	</div>
 	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
-		<a href="#website" role="tab" data-toggle="tab" >
+		<a href="#website" role="tab" data-toggle="tab" title="Website cưới" >
 			<!-- <img src="{{Asset('icon/internet5.png')}}"><br /><br /> -->
 			<i class="fa fa-globe fa-2x"></i>
-			<span>Website cưới</span>
+			<span class="hidden-xs">Website cưới</span>
 		</a>
 	</div>
 </div>

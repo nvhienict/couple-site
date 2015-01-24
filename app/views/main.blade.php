@@ -79,7 +79,7 @@
 	<div class="row user-header">
 		<div class="row to-top">
 			
-			<div class="col-xs-2 text-left">
+			<div class="col-xs-3 text-left">
 				<script>
 				    $(document).ready(function() {
 				        $('.fb-like').attr("data-href", document.URL);
@@ -87,7 +87,7 @@
 				</script>
 				<div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
 			</div><!--/.col-md-2>-->
-			<div class="col-xs-10 btn-action-user">
+			<div class="col-xs-9 btn-action-user">
 				@if( (Session::has('email')) && (UserController::isset_user())!=0 )
 				<ul class="user_profile">
 					<li >
