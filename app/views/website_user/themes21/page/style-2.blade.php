@@ -27,4 +27,7 @@
     @else 
         <img class="tab-text-img" src="{{Asset('images/website/themes21/pic4.jpg')}}">
     @endif
+    <div class="">
+        <div class="fb-share-button" data-layout="button"></div>
+    </div>
  
