@@ -12,7 +12,9 @@
         @else 
             <img src="{{Asset('images/website/themes9/widget1.png')}}">
         @endif
-
+        <div class="">
+            <div class="fb-share-button" data-layout="button"></div>
+        </div>
         <div class="item-content phara{{$tabWeb->id}}" onclick="showckeditor({{$tabWeb->id}})" >
             <span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>        
         </div>
