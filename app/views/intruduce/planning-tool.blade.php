@@ -42,6 +42,12 @@ Công cụ lập kế hoạch | thuna.vn
 		</a>
 	</div>
 </div>
+<script type="text/javascript">
+	$('#menu-bar-bottom div a').click(function(){
+		$('#menu-bar-bottom div a').removeClass('active');
+		$(this).addClass('active');
+	});
+</script>
 
 <div class="row">
 	
