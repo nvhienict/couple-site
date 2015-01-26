@@ -10,7 +10,9 @@
         @else 
             <img class="item-des-img{{$tabWeb->id}}" src="{{Asset('images/website/themes3/post_img_1.jpg')}}" style="width:100%; height:100%;" >
         @endif
-
+        <div class="">
+            <div class="fb-share-button" data-layout="button"></div>
+        </div>
         <div class="btn-view-more" id="btn-view-more{{$tabWeb->id}}">
             <a href="javascript:;" onclick="view_more({{$tabWeb->id}});">Xem thêm</a>
         </div>
