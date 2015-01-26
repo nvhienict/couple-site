@@ -250,7 +250,7 @@
 
 <div id="load-content" class="tab-content tab-content-index" style="margin-bottom: 50px;">
 	<div role="tabpanel" class="tab-pane active" id="checklist">
-		<div class="row">
+		<div class="container">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 des-index-tool">
 				<h5 class="introduce-index">
 					<p>Công cụ cung cấp cho cô dâu và chú rể danh sách những công việc 
@@ -270,7 +270,7 @@
 		</div>
 	</div>
   	<div role="tabpanel" class="tab-pane" id="budget">
-  		<div class="row">
+  		<div class="container">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<img class="img-responsive" src="{{Asset('images/tool/budget.png')}}">
 			</div>
@@ -286,7 +286,7 @@
 		</div>
   	</div>
   	<div role="tabpanel" class="tab-pane" id="guestlist">
-  		<div class="row">	
+  		<div class="container">	
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<img class="img-responsive" src="{{Asset('images/tool/guestlist.png')}}">
 			</div>
@@ -304,7 +304,7 @@
 		</div>
   	</div>
   	<div role="tabpanel" class="tab-pane" id="website">
-  		<div class="row">
+  		<div class="container">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 des-index-tool">
 				<h5 class="introduce-index">
 					<p>Với một số giao diện của chúng tôi, cho phép bạn tạo ra những giao diện đẹp và bắt mắt.</p>
