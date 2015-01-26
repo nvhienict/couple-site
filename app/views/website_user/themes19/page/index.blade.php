@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/themes19.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/style-checkbox-guestbook.css")}}">
     <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/template-font.css")}}">
-
+    <link rel="stylesheet" type="text/css" href="{{Asset("assets/css/website/template-font.css")}}">
     <script type="text/javascript" src="{{Asset("assets/slide/lib/jquery-1.8.2.min.js")}}"></script>
 
     <!-- Add mousewheel plugin (this is optional) -->
@@ -191,7 +191,20 @@
 </script>
 	</head>
 	<body>
-		
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=943743042306339&version=v2.0";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+	<script>
+	    $(document).ready(function() {
+	        $('.fb-share-button').attr("data-href", document.URL);
+	    });
+	</script>	
 	@if($website)
     	@foreach( $website as $website_item )
 	    	<!-- navabr -->
@@ -357,7 +370,10 @@
 	                @else 
 	                    <img  class="img-responsive " src="{{Asset("images/website/themes16/picture1.jpg")}}" alt="">
 
-	                @endif            
+	                @endif   
+	                <div class="btn-share">
+		                <div class="fb-share-button" data-layout="button"></div>
+		            </div>         
 				</div>
 				<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
 					<h3 id = "nameTitle{{$tabWeb->id}}" class="title-tab" style="font-family: 'UvfAphroditePro'">
@@ -414,7 +430,10 @@
 	                @else 
 	                    <img  class="img-responsive " src="{{Asset("images/website/themes16/picture1.jpg")}}" alt="">
 
-	                @endif            
+	                @endif
+	                <div class="btn-share">
+		                <div class="fb-share-button" data-layout="button"></div>
+		            </div>            
 				</div>
 			</div>
 			<div class="line-infor1"></div>
