@@ -124,7 +124,7 @@ Công cụ lập kế hoạch | thuna.vn
 			<script type="text/javascript" src="{{Asset('assets/js/validate-frm-register-index.js')}}"></script>
 		</div><!--/.col-md-4-->
 
-		<div class="col-md-7 hidden-sm hidden-xs">
+		<div class="col-md-7 col-sm-12">
 
 			<div id="load-content" class="tab-content tab-content-index" style="margin-bottom: 50px; padding-top:0;">
 				<div role="tabpanel" class="tab-pane active" id="checklist">
@@ -137,53 +137,41 @@ Công cụ lập kế hoạch | thuna.vn
 								<p>Công cụ cung cấp cho cô dâu và chú rể danh sách những công việc 
 								cần làm trước ngày cưới, chi tiết và gần như đầy đủ.</p>
 							</h5>
-							<!-- <h6 class="use-now">
-								<a class="btn btn-use-now btn-sm" href="{{URL::route('user-checklist')}}" >Miễn phí! Sử dụng ngay</a>
-							</h6> -->
 						</div>
 					</div>
 
 					<div class="row div-content-intruduce">
 						<div class="col-xs-12" style="margin-bottom: 20px;">
-							<img class="img-responsive" src="{{Asset('images/tool/checklist.png')}}">
+							<img class="img-responsive" src="{{Asset('images/tool/checklist-1.png')}}">
 						</div>
 						<div class="col-xs-12 des-index-tool">
 							<h5 class="introduce-index">
 								<p>Thuận lợi, sắp xếp một cách khoa học: theo tháng và theo danh mục</p>
-								<!-- <p>Có thể thêm, xóa, sửa nội dung từng công việc cụ thể</p> -->
-								<!-- <p>In báo cáo bằng file Excel để dễ lưu trữ và kiểm tra tốt hơn</p> -->
 							</h5>
-							<!-- <h6 class="use-now">
-								<a class="btn btn-use-now btn-sm" href="{{URL::route('user-checklist')}}" >Miễn phí! Sử dụng ngay</a>
-							</h6> -->
 						</div>
 					</div>
 
 					<div class="row div-content-intruduce">
 						<div class="col-xs-12" style="margin-bottom: 20px;">
-							<img class="img-responsive" src="{{Asset('images/tool/checklist.png')}}">
+							<img class="img-responsive" src="{{Asset('images/tool/checklist-add.png')}}"><br />
+							<img class="img-responsive" src="{{Asset('images/tool/checklist-edit.png')}}"><br />
+							<img class="img-responsive" src="{{Asset('images/tool/checklist-del.png')}}">
 						</div>
 						<div class="col-xs-12 des-index-tool">
 							<h5 class="introduce-index">
 								<p>Có thể thêm, xóa, sửa nội dung từng công việc cụ thể</p>
 							</h5>
-							<!-- <h6 class="use-now">
-								<a class="btn btn-use-now btn-sm" href="{{URL::route('user-checklist')}}" >Miễn phí! Sử dụng ngay</a>
-							</h6> -->
 						</div>
 					</div>
 
 					<div class="row div-content-intruduce">
 						<div class="col-xs-12" style="margin-bottom: 20px;">
-							<img class="img-responsive" src="{{Asset('images/tool/checklist.png')}}">
+							<img class="img-responsive" src="{{Asset('images/tool/checklist-export.png')}}">
 						</div>
 						<div class="col-xs-12 des-index-tool">
 							<h5 class="introduce-index">
 								<p>In báo cáo bằng file Excel để dễ lưu trữ và kiểm tra tốt hơn</p>
 							</h5>
-							<!-- <h6 class="use-now">
-								<a class="btn btn-use-now btn-sm" href="{{URL::route('user-checklist')}}" >Miễn phí! Sử dụng ngay</a>
-							</h6> -->
 						</div>
 					</div>
 
@@ -203,11 +191,11 @@ Công cụ lập kế hoạch | thuna.vn
 
 					<div class="row div-content-intruduce">
 						<div class="col-xs-12" style="margin-bottom: 20px;">
-							<img class="img-responsive" src="{{Asset('images/tool/budget.png')}}">
+							<img class="img-responsive" src="{{Asset('images/tool/budget-1.png')}}">
 						</div>
 						<div class="col-xs-12 des-index-tool">
 							<h5 class="introduce-index">
-								<p>Sử dụng dễ dàng, tính toán một cách chính xác, phân bố ngân sách chi tiết, hợp lý.</p>
+								<p>Có thể thêm mục quản lý, sửa, xóa. Công cụ sẽ thống kê, báo cáo cho người dùng.</p>
 							</h5>
 						</div>
 					</div>
@@ -221,30 +209,10 @@ Công cụ lập kế hoạch | thuna.vn
 						</div>
 						<div class="col-xs-12 des-index-tool">
 							<h5 class="introduce-index">
-								<p>Có thể thêm nhóm khách, từng khách riêng lẻ.</p>
-							</h5>
-						</div>
-					</div>
-
-					<div class="row div-content-intruduce">
-						<div class="col-xs-12" style="margin-bottom: 20px;">
-							<img class="img-responsive" src="{{Asset('images/tool/guestlist.png')}}">
-						</div>
-						<div class="col-xs-12 des-index-tool">
-							<h5 class="introduce-index">
-								<p>Kiểm tra tình trạng khách mời cho buổi tiệc: đã mời hay chưa mời</p>
-							</h5>
-						</div>
-					</div>
-
-					<div class="row div-content-intruduce">
-						<div class="col-xs-12" style="margin-bottom: 20px;">
-							<img class="img-responsive" src="{{Asset('images/tool/guestlist.png')}}">
-						</div>
-						<div class="col-xs-12 des-index-tool">
-							<h5 class="introduce-index">
-								<p>Cung cấp mã xác nhận cho từng khách hàng thông Website cưới của bạn, 
-								được tạo</p>
+								<p>Quản lý khách mời tiệc cưới theo nhóm riêng lẻ.</p>
+								<p>Có thể thêm nhóm khách, từng khách trong nhóm.</p>
+								<p>Kiểm tra tình trạng đã mời hay chưa mời cho mỗi khách.</p>
+								<p>Cung cấp mã xác nhận cho từng khách hàng thông Website cưới của bạn.</p>
 							</h5>
 						</div>
 					</div>
@@ -259,28 +227,8 @@ Công cụ lập kế hoạch | thuna.vn
 						<div class="col-xs-12 des-index-tool">
 							<h5 class="introduce-index">
 								<p>Với một số giao diện của chúng tôi, cho phép bạn tạo ra những giao diện đẹp và bắt mắt.</p>
-							</h5>
-						</div>
-					</div>
-
-					<div class="row div-content-intruduce">
-						<div class="col-xs-12" style="margin-bottom: 20px;">
-							<img class="img-responsive" src="{{Asset('images/tool/website.png')}}">
-						</div>
-						<div class="col-xs-12 des-index-tool">
-							<h5 class="introduce-index">
 								<p>Lưu giữ những câu chuyện tình lãng mạng, chia sẻ những bức ảnh đáng nhớ, 
 								những dòng tâm sự hạnh phúc của 2 bạn với người thân và bạn bè khắp mọi nơi.</p>
-							</h5>
-						</div>
-					</div>
-
-					<div class="row div-content-intruduce">
-						<div class="col-xs-12" style="margin-bottom: 20px;">
-							<img class="img-responsive" src="{{Asset('images/tool/website.png')}}">
-						</div>
-						<div class="col-xs-12 des-index-tool">
-							<h5 class="introduce-index">
 								<p>Thân thiện, miễn phí, dễ sử dụng và đạt thẩm mỹ là những gì chúng tôi hướng đến.</p>
 							</h5>
 						</div>
