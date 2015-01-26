@@ -328,56 +328,48 @@
 	<div class="col-xs-1"></div>
 	<div class="col-xs-10">
 		<div class="col-lg-4 col-sm-6 col-xs-12 cam-nhan-item ">
-			<img class="img-cam-nhan" src="{{Asset('images/slide-main/kh-nhan-xet-h2.png')}}">
-			<div class="name-khach-hang">Hoài Anh & Bích Phương</div>
-			<div class="nhan-xet-khach-hang">Lorem ipsum dolor sit amet, 
-				consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-				et dolore magna aliqua. Ut enim ad 
-				minim veniam, quis nostrud 
-				exercitation ullamco laboris nisi ut 
-				aliquip ex ea commodo consequat. 
-				Duis aute irure dolor in reprehenderit 
-				in voluptate velit esse cillum dolore 
-				eu fugiat nulla pariatur. Excepteur 
-				sint occaecat cupidatat non proident, 
-				sunt in culpa qui officia deserunt 
-				mollit anim id est laborum.
+			<img class="img-cam-nhan" src="{{Asset('images/slide-main/minhthanh-thaithu.jpg')}}">
+			<div class="name-khach-hang">Minh Thanh & Thái Thu</div>
+			<div class="nhan-xet-khach-hang">
+				<i class="fa fa-heart" style="color: #F382B7"></i>&nbsp;
+				Thuna thật thú vị, đám cưới của tụi mình được trang trí đẹp,
+				theo sở thích của cô dâu và chú rể, tông màu, vật dụng tỉ mỷ trong từng họa tiết.<br />
+				<i class="fa fa-heart" style="color: #F382B7"></i>&nbsp;
+				Cùng với công cụ website, nó đã giúp đỡ chúng mình rất nhiều 
+				trong thời gian chuẩn bị đám cưới, phân chia công việc, túi tiền phù hợp.<br />
+				<i class="fa fa-heart" style="color: #F382B7"></i>&nbsp;
+				Nếu bạn đang chuẩn bị tổ chức đám cưới, chúng mình nghĩ bạn nên sử dụng
+				và trải nghiệm dịch vụ tiện ích từ Thuna.<br />
+				Ghé thăm website của tụi mình &nbsp; <a href="#">Tại đây</a>
 			</div>
 		</div>
 
 		<div class="col-lg-4 col-sm-6 col-xs-12 cam-nhan-item">
-			<img class="img-cam-nhan" src="{{Asset('images/slide-main/kh-nhan-xet-h3.png')}}">
-			<div class="name-khach-hang">Đăng Khánh & Thu Lan</div>
-			<div class="nhan-xet-khach-hang">Lorem ipsum dolor sit amet, 
-				consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-				et dolore magna aliqua. Ut enim ad 
-				minim veniam, quis nostrud 
-				exercitation ullamco laboris nisi ut 
-				aliquip ex ea commodo consequat. 
-				Duis aute irure dolor in reprehenderit 
-				in voluptate velit esse cillum dolore 
-				eu fugiat nulla pariatur. Excepteur 
-				sint occaecat cupidatat non proident, 
-				sunt in culpa qui officia deserunt 
-				mollit anim id est laborum.
+			<img class="img-cam-nhan" src="{{Asset('images/slide-main/khanhnhi-nguyenloc.jpg')}}">
+			<div class="name-khach-hang">Khánh Nhi & Nguyên Lộc</div>
+			<div class="nhan-xet-khach-hang">
+				<i class="fa fa-heart" style="color: #F382B7"></i>&nbsp;
+				Đẹp, phong cách làm việc nhiệt tình! Đó là cảm nhận của tôi về Thuna.<br />
+				<i class="fa fa-heart" style="color: #F382B7"></i>&nbsp;
+				Ban đầu mình hơi hoài nghi về những dịch vụ cũng như phong cách, 
+				nhưng bạn thấy đấy, chúng mình đã có một bữa tiệc thật đẹp, nhận được sự phục vụ tận tình từ Thuna.<br />
+				<i class="fa fa-heart" style="color: #F382B7"></i>&nbsp;
+				Nếu còn ngần ngại hãy đến với họ để khám phá như chúng mình nhé!
 			</div>
 		</div>
 
 		<div class="col-lg-4 col-sm-6 col-xs-12 cam-nhan-item">
-			<img class="img-cam-nhan" src="{{Asset('images/slide-main/kh-nhan-xet-h1.png')}}">
-			<div class="name-khach-hang">Tùng Lâm & Ngọc Hà</div>
-			<div class="nhan-xet-khach-hang">Lorem ipsum dolor sit amet, 
-				consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-				et dolore magna aliqua. Ut enim ad 
-				minim veniam, quis nostrud 
-				exercitation ullamco laboris nisi ut 
-				aliquip ex ea commodo consequat. 
-				Duis aute irure dolor in reprehenderit 
-				in voluptate velit esse cillum dolore 
-				eu fugiat nulla pariatur. Excepteur 
-				sint occaecat cupidatat non proident, 
-				sunt in culpa qui officia deserunt 
-				mollit anim id est laborum.
+			<img class="img-cam-nhan" src="{{Asset('images/slide-main/minhnhat-ductri.jpg')}}">
+			<div class="name-khach-hang">Minh Nhật & Đức Trí</div>
+			<div class="nhan-xet-khach-hang">
+				<i class="fa fa-heart" style="color: #F382B7"></i>&nbsp;
+				Dịch vụ chăm sóc khách hàng tận tình, khi bắt đầu truy cập vào website. Bạn không cần hỏi gì cả sẽ có nhân viên Thuna bắt chuyện và tư vấn cho bạn.<br />
+				<i class="fa fa-heart" style="color: #F382B7"></i>&nbsp;
+				Chúng tôi không quan trọng vấn đề kinh phí, chúng tôi mong đợi sự làm việc chuyên nghiệp. Đó là lý do chúng tôi đến với Thuna!<br />
+				<i class="fa fa-heart" style="color: #F382B7"></i>&nbsp;
+				Chắc chắn Thuna sẽ xây dựng cho mình một cộng đồng cưới hỏi lớn mạnh trong tương lai.<br />
+				<i class="fa fa-heart" style="color: #F382B7"></i>&nbsp;
+				Cùng đi dạo trong khu vườn tình yêu và cưới hỏi chuyên nghiệp tại Thuna với chúng tôi nhé!
 			</div>
 		</div>
 
