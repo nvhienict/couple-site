@@ -234,9 +234,8 @@ a.brand {
 }
 /*#menu-bar-bottom > div > a.active { color: #EF4C9B; }*/
 #menu-bar-bottom > div > a i { margin-bottom: 7px; display: block; }
-#menu-bar-bottom > div > a:hover{
-	color: #e92d91;
-}
+#menu-bar-bottom > div > a:hover { color: #e92d91; }
+#menu-bar-bottom > div > a.active { color: #EF4C9B !important; }
 #menu-bar-bottom > div > a > span{
 	/*font-weight: bold;*/
 	font-size: 18px;

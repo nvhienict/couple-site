@@ -247,6 +247,12 @@
 		</a>
 	</div>
 </div>
+<script type="text/javascript">
+	$('#menu-bar-bottom div a').click(function(){
+		$('#menu-bar-bottom div a').removeClass('active');
+		$(this).addClass('active');
+	});
+</script>
 
 <div id="load-content" class="tab-content tab-content-index" style="margin-bottom: 50px;">
 	<div role="tabpanel" class="tab-pane active" id="checklist">
