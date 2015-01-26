@@ -354,9 +354,13 @@ class UserController extends \BaseController {
 			"password_confirm"=>"required|min:3"
 			);
 		$validator=Validator::make(Input::all(),$rules);
-		if($validator->passes())
+		if($validator->fails())
 		{
-
+			$errors = $validator->messages();
+			return Redirect::route("index")->with("errors",$errors);
+		}
+		else
+		{
 			// get avatar default
 			$avatar_default 	= User::where('role_id', '=', 1)->get()->first()->avatar;
 
@@ -410,16 +414,8 @@ class UserController extends \BaseController {
 
 					}
 
-			$IdUser=User::where('email','=',Input::get('email'))->get()->first()->id;
-
 			Session::put("email",Input::get('email'));
-
 			return Redirect::to('dashboard');
-			
-			
-		}else{
-			$errors=$validator->messages();
-			return Redirect::route("index")->with("errors",$errors);
 		}
 	}
 
