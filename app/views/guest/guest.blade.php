@@ -8,59 +8,34 @@ Danh sách khách mời | thuna.vn
 @endsection
 @section('content')
 
+	<div class="col-md-12 thong-ke-chi-tiet-cong-viec">
 
-	@if(empty($website_item->count_down))
-		@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
-			<div id="getD{{$index}}" style="display:none;">
-				{{$dd}}
-			</div>
-		@endforeach
-	@else
-	@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
-			<div id="getD{{$index}}" style="display:none;">
-				{{$dd}}
-			</div>
-		@endforeach
-	@endif
+		<h4>Thống kê khách mời</h4>
 
-	<div class="col-xs-12 time-count-down">
-		<span class="display-dd-mm-yyyy-1"></span>
-		<span class="margin-two-dot">:</span>
-		<span class="display-dd-mm-yyyy-2"></span>
-		<span class="margin-two-dot">:</span>
-		<span class="display-dd-mm-yyyy-3"></span>
-		<span class="margin-two-dot">:</span>
-		<span class="display-dd-mm-yyyy-4"></span>
-	</div><!--/.time-count-down-->
-	<script type="text/javascript" src={{Asset('assets/js/count-down-time.js')}}></script>
-
-	<div class="col-xs-6 col-xs-offset-3 thong-ke-chi-tiet-cong-viec">
 		<div class="table-responsive">
 	 		<table class="table table-hover">
 	 			<tbody>
-	 				<tr class="info">
-	 					<td>Khách chưa mời</td>
-	 					<td style="width:60%;">
+	 				<tr>
+	 					<td class="info">Khách chưa mời</td>
+						<td class="warning">Khách đã mời</td>
+						<td class="success">Tổng số khách</td>
+	 				</tr>
+	 				<tr>
+	 					<td class="info">
 	 						<div class="progress progress-striped active">
                                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
                                     {{ GuestController::getGuestOverInvitedPercent() }}%
                                 </div>
                             </div>
 						</td>
-	 				</tr>
-	 				<tr class="warning">
-	 					<td>Khách đã mời</td>
-	 					<td>
+	 					<td class="warning">
 	 						<div class="progress progress-striped active">
                                 <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
                                     {{ GuestController::getGuestInvitedPercent() }}%
                                 </div>
                             </div>
 						</td>
-	 				</tr>
-	 				<tr class="success">
-	 					<td>Tổng số khách</td>
-	 					<td>
+						<td class="success">
 	 						<div class="progress progress-striped active">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%;" >
                                     {{ GuestController::getAllGuest() }}
@@ -77,13 +52,13 @@ Danh sách khách mời | thuna.vn
 	<div class="col-xs-12">
 		<div class="row sort-by">
 			<div class="col-xs-12">
-				<h2>Danh sách khách mời</h2>
+				<h4>Danh sách khách mời</h4>
 			</div>
 		</div>
 		<div class="submenu">
-			<div class="row">
-				<div class="col-lg-2 col-sm-3 col-xs-4">
-					<a href="" id="add-group-webding" style="cursor:pointer;" data-toggle="modal" data-target="#myGroup" data-backdrop="static" >
+			<div class="row guest-action-btn">
+				<div class="col-md-2 col-sm-3 col-xs-4">
+					<a href="" id="add-group-webding" class="btn btn-primary" data-toggle="modal" data-target="#myGroup" data-backdrop="static" >
 						<span class="hidden-xs">
 							<i class="glyphicon glyphicon-plus"></i>
 							Thêm Nhóm
@@ -128,8 +103,8 @@ Danh sách khách mời | thuna.vn
 						<!-- end modal Add -->
 						<script type="text/javascript" src="{{Asset('assets/js/script_thuy.js')}}"></script>
 				</div>
-				<div class="col-lg-2 col-sm-3 col-xs-4">
-					<a href="" onclick="showHideAddGuest()" id="add-guest-wedding" style="cursor:pointer;" data-toggle="modal" data-target="" >
+				<div class="col-md-2 col-sm-3 col-xs-4">
+					<a href="" onclick="showHideAddGuest()" id="add-guest-wedding" class="btn btn-primary" data-toggle="modal" data-target="" >
 						<span class="hidden-xs">
 							<i class="glyphicon glyphicon-plus"></i>
 							Thêm Khách
@@ -227,8 +202,8 @@ Danh sách khách mời | thuna.vn
 							<script type="text/javascript" src="{{Asset('assets/js/script-binh.js')}}"></script>
 					</div>
 
-					<div class="col-lg-2 col-sm-3 col-xs-4">
-						<a href="{{URL::route('guest-list/exportfile')}}" >
+					<div class="col-md-2 col-sm-3 col-xs-4">
+						<a href="{{URL::route('guest-list/exportfile')}}" class="btn btn-warning" >
 							<span class="hidden-xs">
 								<i class="fa fa-print"></i>
 								Xuất file
@@ -238,15 +213,15 @@ Danh sách khách mời | thuna.vn
 							</span>
 						</a>
 					</div>
+
+					<div class="col-md-6 text-right">
+						<span style="color: #19b5bc; cursor:pointer; margin-right: 5px;" id="guest_all_item_sign_down"><i class="glyphicon glyphicon-chevron-down"></i></span>
+						<span style="color: #19b5bc; cursor:pointer; " id="guest_all_item_sign_up"><i class="glyphicon glyphicon-chevron-up"></i></span>
+					</div>
+
 				</div>
 			</div>
 			<!-- /.row -->
-				<div class="col-xs-12" align="right">
-					<span style="color: #19b5bc; cursor:pointer; margin-right: 5px;" id="guest_all_item_sign_down"><i class="glyphicon glyphicon-chevron-down"></i></span>
-					<span style="color: #19b5bc; cursor:pointer; " id="guest_all_item_sign_up"><i class="glyphicon glyphicon-chevron-up"></i></span>
-					<!-- display or hide all items -->
-					
-				</div>
 			</div>
 			<!-- /.sub_menu -->
 
@@ -403,13 +378,12 @@ Danh sách khách mời | thuna.vn
 						 				</div>
 						 				
 						 			</td><!-- Due -->
-						 			<td>
+						 			<td width="10px">
 						 				@if($guest->invited==false)
 						 				<input onclick="invited1_click({{$guest->id}})" type="submit" name="invited1" id="invited1{{$guest->id}}" class="invited1 form-control " value="Chưa mời" required="required" title="">
 						 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
 						 				<input onclick="invited2_click({{$guest->id}})" type="submit" style="display:none" name="invited2" id="invited2{{$guest->id}}" class="form-control invited2" value="Đã mời" required="required" title="">
 						 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
-						 				
 						 				@else
 						 				<input onclick="invited1_click({{$guest->id}})" type="submit" style="display:none" name="invited1" id="invited1{{$guest->id}}" class="form-control invited1" value="Chưa mời" required="required" title="">
 						 				<input type="hidden" name="{{$guest->id}}" value="{{$guest->id}}">
@@ -431,7 +405,8 @@ Danh sách khách mời | thuna.vn
 						 	@endif	
 						 		<tr class="guest_list_item_cat{{$group->id}}" id="guest_list_item_cat{{$group->id}}">
 						 			
-						 			<td style="text-align: left;" colspan="7"><a onclick="add_guest({{$group->id}})" href="javascript:void(0)" class="guest_list_add{{$group->id}}" style="cursor:pointer;">
+						 			<td style="text-align: left;" colspan="7">
+						 				<a onclick="add_guest({{$group->id}})" href="javascript:void(0)" class="guest_list_add{{$group->id}} btn btn-primary">
 											<i class="glyphicon glyphicon-plus"></i>&nbsp Thêm Khách
 										</a>
 										<input type="hidden" value="{{$group->id}}" name="{{$group->id}}">
