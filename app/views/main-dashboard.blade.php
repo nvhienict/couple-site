@@ -64,11 +64,11 @@
 
 	<div class="row user-header">
 		<div class="row to-top">
-			<div class="col-xs-8 col-sm-11 col-md-11 col-lg-11">
+			<div class="col-xs-8 col-sm-10 col-md-10 col-lg-10">
 				
 			</div>
-			<div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-				<ul class="menu-user" style="padding:0;">
+			<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
+				<ul class="menu-user" style="padding:0;float:right;">
 					<li class="dropdown">
 			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{UserController::getUserName()}} <span class="caret"></span></a>
 			          	<ul class="dropdown-menu drop-user" role="menu" style="left: -125%;">
