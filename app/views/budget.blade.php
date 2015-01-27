@@ -3,45 +3,104 @@
 @section('title')
 Quản lý ngân sách | thuna.vn
 @endsection
-@section('nav-bar')
-@include('nav')
+@section('nav-dash')
+	<!-- Navigation -->
+	<div class="row bg-menu-top">
+		<div class="navbar">
+		  	<div class="navbar-header">
+			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+		        	<span class="sr-only">Toggle navigation</span>
+		        	<span class="icon-bar"></span>
+		        	<span class="icon-bar"></span>
+		        	<span class="icon-bar"></span>
+		      	</button>
+		  	</div>
+		  	<div class="navbar-collapse collapse navbar-responsive-collapse">
+			    <ul class="nav navbar-nav">
+			      	<li>
+			      		<a href="{{URL::route('index')}}" title="Trang chủ">
+			      			Trang chủ
+	 		      		</a>
+			      	</li>
+			      	<li><a href="{{URL::route('website')}}" title="Website cưới">
+			        		Website cưới
+			        	</a>
+			        </li>
+			      	<li><a href="{{URL::route('user-checklist')}}" title="Danh sách công việc">
+			      			Danh sách công việc
+	 		      		</a>
+			      	</li>
+			      	<li><a href="{{URL::route('guest-list')}}" title="Danh sách khác mời">
+			      			Danh sách khách mời
+	 		      		</a>
+			      	</li>
+			      	<li class="active"><a href="{{URL::route('budget')}}" title="Quăn lí ngân sách">
+			      			Quản lí ngân sách
+	 		      		</a>
+			      	</li>
+			      	<li class="dropdown">
+				        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown" title="Âm nhạc">
+							Âm nhạc
+				        </a>
+				        <ul class="dropdown-menu oneUl" role="menu">
+				          	<li role="presentation" class="dropdown-header"><span>Nghi lễ</span>
+					            <div class="row">
+					              <div class="col-xs-6">
+					                <ul class="list-unstyled">
+					                  <li><a href="{{URL::route('songs', array('mo-dau'))}}">Mở đầu</a></li>
+					                  <li><a href="{{URL::route('songs', array('doan-ruoc'))}}">Đoàn rước</a></li>
+					                </ul>
+					              </div>
+					              <div class="col-xs-6">
+					                <ul class="list-unstyled">
+					                  <li><a href="{{URL::route('songs', array('nghi-thuc'))}}">Nghi thức</a></li>
+					                  <li><a href="{{URL::route('songs', array('ket-thuc'))}}">Kết thúc</a></li>
+					                </ul>
+					              </div>
+					            </div>
+				          	</li>
+				          	<li role="presentation" class="dropdown-header"><span>Đãi tiệc</span>
+					            <div class="row">
+					              <div class="col-xs-6">
+					                <ul class="list-unstyled">
+					                  <li><a href="{{URL::route('songs', array('khai-tiec'))}}">Khai tiệc</a></li>
+					                  <li><a href="{{URL::route('songs', array('phat-bieu'))}}">Phát biểu</a></li>
+					                  <li><a href="{{URL::route('songs', array('cat-banh'))}}">Cắt bánh</a></li>
+					                </ul>
+					              </div>
+					              <div class="col-xs-6">
+					                <ul class="list-unstyled">
+					                  <li><a href="{{URL::route('songs', array('vao-tiec'))}}">Vào tiệc</a></li>
+					                  <li><a href="{{URL::route('songs', array('chuc-mung'))}}">Chúc mừng</a></li>
+					                  <li><a href="{{URL::route('songs', array('cuoi-tiec'))}}">Cuối tiệc</a></li>
+					                </ul>
+					              </div>
+					            </div>
+				          	</li>
+				        </ul>
+			      	</li> <!--/music-->
+
+			      	<li><a href="{{URL::action('FortuneController@getIndex')}}" title="Xem ngày cưới">
+			      			Xem ngày cưới
+			      		</a>
+			      	</li>
+			    
+			    </ul>
+		  	</div>
+		</div><!--/.nav-->
+	</div><!--/.bg-menu-top-->
+@endsection
+@section('total')
+	@include('total')
 @endsection
 @section('content')
-
-	@if(empty($website_item->count_down))
-		@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
-			<div id="getD{{$index}}" style="display:none;">
-				{{$dd}}
-			</div>
-		@endforeach
-	@else
-	@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
-			<div id="getD{{$index}}" style="display:none;">
-				{{$dd}}
-			</div>
-		@endforeach
-	@endif
-
-	<div class="col-xs-12 time-count-down">
-		<span class="display-dd-mm-yyyy-1"></span>
-		<span class="margin-two-dot">:</span>
-		<span class="display-dd-mm-yyyy-2"></span>
-		<span class="margin-two-dot">:</span>
-		<span class="display-dd-mm-yyyy-3"></span>
-		<span class="margin-two-dot">:</span>
-		<span class="display-dd-mm-yyyy-4"></span>
-	</div><!--/.time-count-down-->
-	<script type="text/javascript" src={{Asset('assets/js/count-down-time.js')}}></script>
-
-	
-
 
 <script src="{{Asset("assets/js/budget-top.js")}}"></script>
 
 	<div class="row" style="margin-left:0">
 		<div class="col-xs-12">
-			<div class="row" style="margin-right:0; padding-top:2%">
-				<div class="col-lg-10 col-sm-10 col-xs-12"><h1 class="title-budget">Quản lý ngân sách</h1></div>
+			<div class="row" style="margin-right:0;">
+				<div class="col-lg-10 col-sm-10 col-xs-12"><h2 class="title-budget" style="color:#E75292;">Quản lý ngân sách</h2></div>
 				<div class="col-lg-2 col-sm-2 col-xs-12">
 					<a class="btn btn-warning" href="{{URL::route('reset-budget')}}" style="padding: 3px 5px;">
 					Số tiền khác</a>

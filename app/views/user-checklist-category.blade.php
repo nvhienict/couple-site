@@ -2,76 +2,97 @@
 @section('title')
 Danh sách công việc | thuna.vn
 @endsection
-@section('nav-bar')
-@include('nav')
+@section('nav-dash')
+	<!-- Navigation -->
+	<div class="row bg-menu-top">
+		<div class="navbar">
+		  	<div class="navbar-header">
+			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+		        	<span class="sr-only">Toggle navigation</span>
+		        	<span class="icon-bar"></span>
+		        	<span class="icon-bar"></span>
+		        	<span class="icon-bar"></span>
+		      	</button>
+		  	</div>
+		  	<div class="navbar-collapse collapse navbar-responsive-collapse">
+			    <ul class="nav navbar-nav">
+			      	<li>
+			      		<a href="{{URL::route('index')}}" title="Trang chủ">
+			      			Trang chủ
+	 		      		</a>
+			      	</li>
+			      	<li><a href="{{URL::route('website')}}" title="Website cưới">
+			        		Website cưới
+			        	</a>
+			        </li>
+			      	<li class="active"><a href="{{URL::route('user-checklist')}}" title="Danh sách công việc">
+			      			Danh sách công việc
+	 		      		</a>
+			      	</li>
+			      	<li><a href="{{URL::route('guest-list')}}" title="Danh sách khác mời">
+			      			Danh sách khách mời
+	 		      		</a>
+			      	</li>
+			      	<li><a href="{{URL::route('budget')}}" title="Quăn lí ngân sách">
+			      			Quản lí ngân sách
+	 		      		</a>
+			      	</li>
+			      	<li class="dropdown">
+				        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown" title="Âm nhạc">
+							Âm nhạc
+				        </a>
+				        <ul class="dropdown-menu oneUl" role="menu">
+				          	<li role="presentation" class="dropdown-header"><span>Nghi lễ</span>
+					            <div class="row">
+					              <div class="col-xs-6">
+					                <ul class="list-unstyled">
+					                  <li><a href="{{URL::route('songs', array('mo-dau'))}}">Mở đầu</a></li>
+					                  <li><a href="{{URL::route('songs', array('doan-ruoc'))}}">Đoàn rước</a></li>
+					                </ul>
+					              </div>
+					              <div class="col-xs-6">
+					                <ul class="list-unstyled">
+					                  <li><a href="{{URL::route('songs', array('nghi-thuc'))}}">Nghi thức</a></li>
+					                  <li><a href="{{URL::route('songs', array('ket-thuc'))}}">Kết thúc</a></li>
+					                </ul>
+					              </div>
+					            </div>
+				          	</li>
+				          	<li role="presentation" class="dropdown-header"><span>Đãi tiệc</span>
+					            <div class="row">
+					              <div class="col-xs-6">
+					                <ul class="list-unstyled">
+					                  <li><a href="{{URL::route('songs', array('khai-tiec'))}}">Khai tiệc</a></li>
+					                  <li><a href="{{URL::route('songs', array('phat-bieu'))}}">Phát biểu</a></li>
+					                  <li><a href="{{URL::route('songs', array('cat-banh'))}}">Cắt bánh</a></li>
+					                </ul>
+					              </div>
+					              <div class="col-xs-6">
+					                <ul class="list-unstyled">
+					                  <li><a href="{{URL::route('songs', array('vao-tiec'))}}">Vào tiệc</a></li>
+					                  <li><a href="{{URL::route('songs', array('chuc-mung'))}}">Chúc mừng</a></li>
+					                  <li><a href="{{URL::route('songs', array('cuoi-tiec'))}}">Cuối tiệc</a></li>
+					                </ul>
+					              </div>
+					            </div>
+				          	</li>
+				        </ul>
+			      	</li> <!--/music-->
+
+			      	<li><a href="{{URL::action('FortuneController@getIndex')}}" title="Xem ngày cưới">
+			      			Xem ngày cưới
+			      		</a>
+			      	</li>
+			    
+			    </ul>
+		  	</div>
+		</div><!--/.nav-->
+	</div><!--/.bg-menu-top-->
+@endsection
+@section('total')
+	@include('total')
 @endsection
 @section('content')
-
-
-	@if(empty($website_item->count_down))
-		@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
-			<div id="getD{{$index}}" style="display:none;">
-				{{$dd}}
-			</div>
-		@endforeach
-	@else
-	@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
-			<div id="getD{{$index}}" style="display:none;">
-				{{$dd}}
-			</div>
-		@endforeach
-	@endif
-
-	<div class="col-xs-12 time-count-down">
-		<span class="display-dd-mm-yyyy-1"></span>
-		<span class="margin-two-dot">:</span>
-		<span class="display-dd-mm-yyyy-2"></span>
-		<span class="margin-two-dot">:</span>
-		<span class="display-dd-mm-yyyy-3"></span>
-		<span class="margin-two-dot">:</span>
-		<span class="display-dd-mm-yyyy-4"></span>
-	</div><!--/.time-count-down-->
-	<script type="text/javascript" src={{Asset('assets/js/count-down-time.js')}}></script>
-
-	<div class="col-xs-6 col-xs-offset-3 thong-ke-chi-tiet-cong-viec">
-		<div class="table-responsive">
-	 		<table class="table table-hover">
-	 			<tbody>
-	 				<tr class="info">
-	 					<td>Việc cần làm</td>
-	 					<td>
-	 						<div class="progress progress-striped active">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
-                                    {{ChecklistController::countTasksToDo()}}
-                                </div>
-                            </div>
-						</td>
-	 				</tr>
-	 				<tr class="warning">
-	 					<td>Việc quá hạn</td>
-	 					<td>
-	 						<div class="progress progress-striped active">
-                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
-                                    {{ChecklistController::overdue()}}
-                                </div>
-                            </div>
-						</td>
-	 				</tr>
-	 				<tr class="success">
-	 					<td>Việc hoàn thành</td>
-	 					<td>
-	 						<div class="progress progress-striped active">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
-                                    {{ChecklistController::countTasksComplete()}}
-                                </div>
-                            </div>
-						</td>
-	 				</tr>
-	 			</tbody>
-	 		</table>
-	 	</div>
-	</div><!--/.thong-ke-chi-tiet-cong-viec-->
-
 
 <div class="col-xs-12" style="padding-right: 0;">
 	<div class="row sort-by">

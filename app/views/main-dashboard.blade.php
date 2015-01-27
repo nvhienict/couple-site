@@ -59,213 +59,59 @@
 	<script src="{{Asset('assets/js/jquery-validate/jquery.validate.min.js')}}"></script>
 	<script src="{{Asset('assets/js/jquery.number.js')}}"></script>
 	<script src="{{Asset('assets/js/jquery.number.min.js')}}"></script>
-
 </head>
-<body>
+<body style="overflow-x:hidden;">
 
-	<div class="row header-top">
-		<div class="col-xs-3">
-			<a href="{{URL::route('index')}}">
-	      		<img class="img-logo" src="{{Asset('icon/logo-thuna.png')}}">
-	      	</a>
-		</div>
-		<div class="col-xs-4 col-xs-offset-5">
-			<ul class="nav navbar-nav navbar-right" style="padding:0">
-				<li class="dropdown">
-		          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{UserController::getUserName()}} <span class="caret"></span></a>
-		          	<ul class="dropdown-menu" role="menu">
-		            	<li>
-		            		<a href="{{Asset('profile')}}">
-		            			<i class="fa fa-user"></i>
-		            			Thông tin cá nhân
-		            		</a>
-						</li>
-		            	<li class="divider"></li>
-		            	<li>
-			            	<a href="{{URL::route('logout')}}">
-			            		<i class="fa fa-sign-out"></i>
-			            		Thoát
-			            	</a>
-		            	</li>
-		          	</ul>
-		        </li>
-			</ul><!--/.navbar-right-->
-
-		</div>
-	</div><!--/.header-top-->
-
-	<nav class="navbar navbar-default navbar-fixed-top">
-	  	<div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-			        <span class="sr-only">Toggle navigation</span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-		      	</button>
-		      	
-		    </div>
-
-		  	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  		<ul class="nav navbar-nav">
-		  			<li><a href="{{URL::route('index')}}" ><i class="fa fa-home fa-1x"></i> Trang chủ</a></li>
-			        <li><a href="{{URL::route('guest-list')}}" >Danh sách khách mời</a></li>
-			        <li><a href="{{URL::route('user-checklist')}}"  >Danh sách công việc</a></li>
-			        <li><a href="{{URL::route('budget')}}"  >Quản lý ngân sách</a></li>
-				    <li><a href="{{URL::route('website')}}"  >Website cưới</a></li>
-			       	<li class="dropdown">
-			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Âm nhạc <span class="caret"></span></a>
-			          	<!-- <ul class="dropdown-menu" role="menu">
-			            	<li><a href="{{URL::route('songs', array('mo-dau'))}}">Mở đầu</a></li>
-			              	<li><a href="{{URL::route('songs', array('doan-ruoc'))}}">Đoàn rước</a></li>
-			              	<li><a href="{{URL::route('songs', array('nghi-thuc'))}}">Nghi thức</a></li>
-			              	<li><a href="{{URL::route('songs', array('ket-thuc'))}}">Kết thúc</a></li>
+	<div class="row user-header">
+		<div class="row to-top">
+			<div class="col-xs-8 col-sm-11 col-md-11 col-lg-11">
+				
+			</div>
+			<div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+				<ul class="menu-user" style="padding:0;">
+					<li class="dropdown">
+			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{UserController::getUserName()}} <span class="caret"></span></a>
+			          	<ul class="dropdown-menu drop-user" role="menu" style="left: -125%;">
+			            	<li>
+			            		<a href="{{Asset('profile')}}">
+			            			<i class="fa fa-user"></i>
+			            			Thông tin cá nhân
+			            		</a>
+							</li>
 			            	<li class="divider"></li>
-			            	<li><a href="{{URL::route('songs', array('khai-tiec'))}}">Khai tiệc</a></li>
-		                  	<li><a href="{{URL::route('songs', array('phat-bieu'))}}">Phát biểu</a></li>
-		                  	<li><a href="{{URL::route('songs', array('cat-banh'))}}">Cắt bánh</a></li>
-		               		<li><a href="{{URL::route('songs', array('vao-tiec'))}}">Vào tiệc</a></li>
-		                  	<li><a href="{{URL::route('songs', array('chuc-mung'))}}">Chúc mừng</a></li>
-		                  	<li><a href="{{URL::route('songs', array('cuoi-tiec'))}}">Cuối tiệc</a></li>
-			          	</ul> -->
-			          	<ul class="dropdown-menu oneUl" role="menu">
-				          	<li role="presentation" class="dropdown-header" style="color:black;font-size:17px;"><span>Nghi lễ</span>
-					            <div class="row">
-					              <div class="col-xs-6">
-					                <ul class="list-unstyled">
-					                  <li><a href="{{URL::route('songs', array('mo-dau'))}}">Mở đầu</a></li>
-					                  <li><a href="{{URL::route('songs', array('doan-ruoc'))}}">Đoàn rước</a></li>
-					                </ul>
-					              </div>
-					              <div class="col-xs-6">
-					                <ul class="list-unstyled">
-					                  <li><a href="{{URL::route('songs', array('nghi-thuc'))}}">Nghi thức</a></li>
-					                  <li><a href="{{URL::route('songs', array('ket-thuc'))}}">Kết thúc</a></li>
-					                </ul>
-					              </div>
-					            </div>
-				          	</li>
-				          	<li role="presentation" class="dropdown-header" style="color:black;font-size:17px;"><span>Đãi tiệc</span>
-					            <div class="row">
-					              <div class="col-xs-6">
-					                <ul class="list-unstyled">
-					                  <li><a href="{{URL::route('songs', array('khai-tiec'))}}">Khai tiệc</a></li>
-					                  <li><a href="{{URL::route('songs', array('phat-bieu'))}}">Phát biểu</a></li>
-					                  <li><a href="{{URL::route('songs', array('cat-banh'))}}">Cắt bánh</a></li>
-					                </ul>
-					              </div>
-					              <div class="col-xs-6">
-					                <ul class="list-unstyled">
-					                  <li><a href="{{URL::route('songs', array('vao-tiec'))}}">Vào tiệc</a></li>
-					                  <li><a href="{{URL::route('songs', array('chuc-mung'))}}">Chúc mừng</a></li>
-					                  <li><a href="{{URL::route('songs', array('cuoi-tiec'))}}">Cuối tiệc</a></li>
-					                </ul>
-					              </div>
-					            </div>
-				          	</li>
-				        </ul>
+			            	<li>
+				            	<a href="{{URL::route('logout')}}">
+				            		<i class="fa fa-sign-out"></i>
+				            		Thoát
+				            	</a>
+			            	</li>
+			          	</ul>
 			        </li>
-			        <li><a href="{{URL::action('FortuneController@getIndex')}}" >Xem ngày cưới</a></li>
+				</ul><!--/.navbar-right-->
+			</div>
+		</div><!--/.header-top-->
+
+		<div class="row top-logo">
+			<div class="col-xs-12 text-center">
+				<a href="{{URL::route('index')}}">
+			    	<img style="width: 150px; height: 50px;" src="{{Asset('icon/logo-2.png')}}">
+			    </a>
+			</div>
+		</div><!--/.row-->	
+
+		<div class="row top-menu">
+			@yield('nav-dash')
+		</div><!--/.top-menu-->
 
 
-		  	</div><!--/.collapse navbar-collapse-->
 
-		</div><!--/.container-fluid-->
-	</nav><!--/navbar-fixed-top-->
-	<div class="col-xs-12 lr-menu"></div><!--/.lr-menu-->
+	</div>	
 
-	
 	<div class="row center-dashboard">
 		
-		<div class="col-lg-10 col-lg-offset-1 content-thong-ke">
-			
-			<div class="row" style="margin:0">
-				<div class="col-lg-3 col-sm-6 content-index-item">
-					<div class="div-1" style="background-color: #2f80e7">
-						<i class="fa fa-file-text-o"></i>
-						Danh sách công việc
-					</div>
-					<div class="div-2" style="background-color: #78adf0">
-						Hoàn thành<br />
-						<span>
-							{{ChecklistController::countTasksComplete()}}/{{ChecklistController::countTasksToDo()}}
-							&nbsp({{ChecklistController::countTasksCompletePercent()}}%)
-						</span>
-					</div>
-					<div class="div-3" style="background-color: #78adf0">
-						<a href="{{URL::route('user-checklist')}}">
-							Xem chi tiết
-							<i class="fa fa-arrow-circle-right"></i>
-						</a>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6 content-index-item">
-					<div class="div-1" style="background-color: #564aa3">
-						<i class="fa fa-group"></i>
-						Danh sách khách mời
-					</div>
-					<div class="div-2" style="background-color: #8e85c9">
-						Hoàn thành<br />
-						<span>
-							{{GuestController::getGuestInvited()}}/{{GuestController::getAllGuest()}}
-							&nbsp({{GuestController::getGuestInvitedPercent()}}%)
-						</span>
-					</div>
-					<div class="div-3" style="background-color: #8e85c9">
-						<a href="{{URL::route('guest-list')}}">
-							Xem chi tiết
-							<i class="fa fa-arrow-circle-right"></i>
-						</a>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6 content-index-item">
-					<div class="div-1" style="background-color: #2b957a">
-						<i class="fa fa-dollar"></i>
-						Quản lý ngân sách
-					</div>
-					<div class="div-2" style="background-color: #5ebba3">
-						Hoàn thành<br />
-						<span>
-							{{UserBudgetController::getDisplayMoneyTotal('pay')}}/{{UserBudgetController::getDisplayMoneyTotal('actual')}}
-							&nbsp({{UserBudgetController::getDisplayMoneyTotalPercent()}}%)
-						</span>
-					</div>
-					<div class="div-3" style="background-color: #5ebba3">
-						<a href="{{URL::route('budget')}}">
-							Xem chi tiết
-							<i class="fa fa-arrow-circle-right"></i>
-						</a>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6 content-index-item">
-					<div class="div-1" style="background-color: #f1a70a">
-						<i class="fa fa-globe"></i>
-						Website cưới
-					</div>
-					<div class="div-2" style="background-color: #e6c275">
-						Hoàn thành<br />
-						<span>
-							{{WebsiteController::getCountDataPercent()}}%
-						</span>
-					</div>
-					<div class="div-3" style="background-color: #e6c275">
-						<a href="{{URL::route('website')}}">
-							Xem chi tiết
-							<i class="fa fa-arrow-circle-right"></i>
-						</a>
-					</div>
-				</div>
-			</div><!--/.row-->
-		</div><!--/.content-thong-ke-->
+		@yield('total')
 
 		<div class="col-lg-10 col-lg-offset-1 container-content">
-			<div class="breadcrumb">
-				{{UserController::getUrl()}}
-			</div>
 			@yield('content')
 		</div><!--/.row-->
 
@@ -290,7 +136,7 @@
 	</div><!--center-dashboard-->
 
 <!-- footer -->
-<div class="row footer">
+<div class="col-xs-12 footer">
 	<div class="col-sm-8 col-md-8 col-lg-8 menu-footer">
 		<ul class="hidden-xs" >
 			<li>
