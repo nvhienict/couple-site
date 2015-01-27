@@ -93,33 +93,31 @@ Danh sách công việc | thuna.vn
 	@include('total')
 @endsection
 @section('content')
-	<div class="col-xs-6 col-xs-offset-3 thong-ke-chi-tiet-cong-viec">
+	<div class="col-xs-12 thong-ke-chi-tiet-cong-viec">
 		<div class="table-responsive">
 	 		<table class="table table-hover">
 	 			<tbody>
-	 				<tr class="info">
-	 					<td>Việc cần làm</td>
-	 					<td>
+	 				<tr>
+	 					<td class="info">Việc cần làm</td>
+	 					<td class="warning">Việc hoàn thành</td>
+	 					<td class="success">Việc hoàn thành</td>
+	 				</tr>
+	 				<tr>	 					
+	 					<td class="info">
 	 						<div class="progress progress-striped active">
                                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
                                     {{ChecklistController::countTasksToDo()}}
                                 </div>
                             </div>
 						</td>
-	 				</tr>
-	 				<tr class="warning">
-	 					<td>Việc quá hạn</td>
-	 					<td>
+	 					<td class="warning">
 	 						<div class="progress progress-striped active">
                                 <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
                                     {{ChecklistController::overdue()}}
                                 </div>
                             </div>
 						</td>
-	 				</tr>
-	 				<tr class="success">
-	 					<td>Việc hoàn thành</td>
-	 					<td>
+						<td class="success">
 	 						<div class="progress progress-striped active">
                                 <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
                                     {{ChecklistController::countTasksComplete()}}
