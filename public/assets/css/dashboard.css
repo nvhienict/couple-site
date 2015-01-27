@@ -1234,6 +1234,10 @@ div.song_content button{
 	background-color: #EF4C9B;
 	color: white;
 }
+.btn-sd:hover{
+	background-color: #C40768;
+	color:white;
+}
 .bg-img-dash{
 	background-color:#f0f0f0;
 	width: 56.333%;
