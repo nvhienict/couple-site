@@ -16,7 +16,7 @@
 		        	testAPI();
 		        } else {
 		            // cancelled
-		            alert('You not login');
+		            alert('Bạn chưa đăng nhập!');
 		        }
 		    }, { scope: 'email' });
 		}

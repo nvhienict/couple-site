@@ -21,8 +21,8 @@ Xem ngày cưới | thuna.vn
 			<h2>Xem ngày cưới</h2>
 			<p class="hidden-xs">
 				Quan niệm <span class="txt-bold-italic">phong tục tập quán xưa</span> có câu: 
-				"Lấy vợ xem tuổi đàn bà, làm nhà xem tuổi đàn ông", 
-				vì vậy khi muốn tổ chức cưới, hai gia đình sẽ căn cứ vào tuổi của cô dâu.
+				"<span style="color: #e92d91">Lấy vợ xem tuổi đàn bà, làm nhà xem tuổi đàn ông</span>", 
+				vì vậy khi muốn tổ chức cưới, hai gia đình sẽ căn cứ vào <span style="color: #e92d91">tuổi của cô dâu</span>.
 				Hầu hết các vị phụ huynh sẽ tránh cưới cho con đúng vào năm tuổi
 				<span class="txt-bold-italic">Kim Lâu</span> của cô dâu.
 			</p>
@@ -31,10 +31,10 @@ Xem ngày cưới | thuna.vn
 		<div class="col-lg-12 col-sm-12 text-center">
 
         		<div class="row form-group">
-        			<div class="lb-input-year col-lg-1 col-lg-offset-4 col-sm-2 col-sm-offset-4 col-xs-3 col-xs-offset-1">
+        			<div class="lb-input-year col-md-1 col-md-offset-3 col-sm-2 col-xs-4">
         				Chú rể
         			</div>
-	        		<div class="col-lg-2 col-sm-2 col-xs-7">
+	        		<div class="col-md-2 col-sm-3 col-xs-8">
 		        		<select class="form-control" name="tuoi_chu_re" onchange="yearGroomSelect(this.value);">
 		        			@for($i=1954; $i<=2015; $i++)
 
@@ -60,12 +60,11 @@ Xem ngày cưới | thuna.vn
 		        			@endfor
 		        		</select>
 	        		</div>
-	        	</div>
-	        	<div class="row form-group">
-        			<div class="lb-input-year col-lg-1 col-lg-offset-4 col-sm-2 col-sm-offset-4 col-xs-3 col-xs-offset-1">
+
+	        		<div class="lb-input-year col-md-1 col-sm-2 col-xs-4 lb-iput-cd">
 	        			Cô dâu
 	        		</div>
-	        		<div class="col-lg-2 col-sm-2 col-xs-7">
+	        		<div class="col-md-2 col-sm-3 col-xs-8">
 	        			<select class="form-control" name="tuoi_co_dau" onchange="yearBrideSelect(this.value);">
 		        			@for($i=1954; $i<=2015; $i++)
 
@@ -91,6 +90,7 @@ Xem ngày cưới | thuna.vn
 		        			@endfor
 		        		</select>
 		        	</div>
+
 	        	</div>
 	        	<button type="button" class="btn btn-warning" onclick="viewResult()">Xem kết quả</button>
 
@@ -178,18 +178,18 @@ Xem ngày cưới | thuna.vn
 			</script>
 
 			<form action="" method="get" id="frmViewMMYY">
-				<label>Chọn ngày tháng năm: </label>
-				<select name="mm">
+				<label>Chọn năm: </label>
+				<!-- <select name="mm">
 					@for ($i=1; $i<=12; $i++)
 						<option value="{{$i}}">{{$i}}</option>
 					@endfor
-				</select>
+				</select> -->
 				<select name="yy">
 					@for ($i=2015; $i<=2100; $i++)
 						<option value="{{$i}}">{{$i}}</option>
 					@endfor
 				</select>
-				<input type="submit" value="Xem ngày tháng" />
+				<button type="submit" class="btn btn-warning">Xem ngày tháng</button>
 			</form>
 			
 		</div> <!--/lich-ket-qua-->
@@ -234,38 +234,38 @@ Xem ngày cưới | thuna.vn
 						<thead>
 							<tr>
 								<th>
-									<a href="#" title="Tuổi con gái Xuất giá">
+									<a class="tbl-nam-hung-nien-a" href="#" title="Tuổi con gái Xuất giá">
 										Năm tuổi con gái Xuất giá
 									</a>
 								</th>
 								<th>
-									<a href="#" title="Tháng tốt nhất">
+									<a class="tbl-nam-hung-nien-a" href="#" title="Tháng tốt nhất">
 										Tháng đại lợi
 									</a>
 								</th>
 								<th>
-									<a href="#" title="Tức là tháng tiểu lợi và kiêng kỵ tránh gặp người mai mối ( Nếu có người mai mối thì không nên cưới tháng này)">
+									<a class="tbl-nam-hung-nien-a" href="#" title="Tức là tháng tiểu lợi và kiêng kỵ tránh gặp người mai mối ( Nếu có người mai mối thì không nên cưới tháng này)">
 										Phòng tiểu lợi mai nhân
 									</a>
 								</th>
 								<th>
-									<a href="#" title="Lúc đón dâu, cô dâu tránh gặp mặt bố mẹ chồng">
+									<a class="tbl-nam-hung-nien-a" href="#" title="Lúc đón dâu, cô dâu tránh gặp mặt bố mẹ chồng">
 										Phòng ông cô
 									</a>
 								</th>
 								<th>
-									<a href="#" title="Lúc đón dâu, tránh mặt bố mẹ cô dâu">
+									<a class="tbl-nam-hung-nien-a" href="#" title="Lúc đón dâu, tránh mặt bố mẹ cô dâu">
 										Phòng phụ mẫu
 									</a>
 									
 								</th>
 								<th>
-									<a href="#" title="Lúc đón dâu, tránh mặt người trai">
+									<a class="tbl-nam-hung-nien-a" href="#" title="Lúc đón dâu, tránh mặt người trai">
 										Phòng phụ chủ
 									</a>
 								</th>
 								<th>
-									<a href="#" title="﻿Lúc đón dâu, tránh mặt người ﻿gái">
+									<a class="tbl-nam-hung-nien-a" href="#" title="﻿Lúc đón dâu, tránh mặt người ﻿gái">
 										Phòng nữ nhân
 									</a>
 								</th>

@@ -409,7 +409,7 @@ function getGioHoangDao(jd) {
 var DAYNAMES = new Array("CN", "T2", "T3", "T4", "T5", "T6", "T7");
 var PRINT_OPTS = new OutputOptions();
 var FONT_SIZES = new Array("11pt", "13pt", "17pt");
-var TAB_WIDTHS = new Array(/*"180px"*/ "280px", "420px", "500px");
+var TAB_WIDTHS = new Array(/*"180px"*/ "92.99%", "420px", "500px");
 
 function OutputOptions() {
 	this.fontSize = "13pt";
@@ -473,12 +473,12 @@ function printStyle() {
 	res += '<!--\n';
 	//res += '  body {margin:0}\n';
 	res += '  .tennam {text-align:center; font-size:100%; line-height:120%; font-weight:bold; color:#000000; background-color: #CCCCCC}\n';
-	res += '  .thang {font-size: '+fontSize+'; padding:1; line-height:100%; font-family:Tahoma,Verdana,Arial; table-layout:fixed; margin: 4% 2% 0% 2%;}\n';
-	res += '  .tenthang {text-align:center; font-size:125%; line-height:140%; font-weight:bold; color:#330033; background-color: #CCFFCC}\n';
+	res += '  .thang {font-size: '+fontSize+'; padding:1; line-height:100%; font-family:Tahoma,Verdana,Arial; table-layout:fixed; margin: 4% auto;}\n';
+	res += '  .tenthang {text-align:center; font-size:125%; line-height:140%; font-weight:bold; color:#fff; background-color: #1b7f3c}\n';
 	res += '  .navi-l {text-align:center; font-size:75%; line-height:100%; font-family:Verdana,Times New Roman,Arial; font-weight:bold; background-color: #CCFFCC}\n';
 	res += '  .navi-r {text-align:center; font-size:75%; line-height:100%; font-family:Verdana,Arial,Times New Roman; font-weight:bold; color:#330033; background-color: #CCFFCC}\n';
-	res += '  .ngaytuan {width:14%; text-align:center; font-size:100%; line-height:120%; color:#330033; background-color: #FFFFCC}\n';
-	res += '  .ngaythang {background-color:#FDFDF0}\n';
+	res += '  .ngaytuan {width:14%; text-align:center; font-size:100%; line-height:120%; color:#fff; background-color: #48bc57}\n';
+	res += '  .ngaythang {background-color:#E8E8E8}\n';
 	res += '  .homnay {background-color:#FFF000;}\n';
 	res += '  .tet {background-color:#FF0000}\n';
 	res += '  .am {text-align:right;font-size:60%;line-height:100%;color:#0000FF}\n';
@@ -488,8 +488,8 @@ function printStyle() {
 	res += '  .cn {text-align:left;font-size:125%;line-height:100%;color:red}\n';
 	//res += '  .chure {background-color:#007cf9}\n';
 	//res += '  .codau {background-color:#a200f9}\n';
-	// res += '  .couple {background: url(../icon/heart.png)}\n';
-	res += '  .couple {background-color:#f799dc}\n';
+	res += '  .couple {background: #E8E8E8 url(../icon/heart.png) no-repeat top right}\n';
+	// res += '  .couple {background-color:#f799dc}\n';
 	res += '  .ngaytamnuongsat {background-color:#aaa5a5}\n';
 	res += '  .ngaysatchu {background-color:#7a4848}\n';
 	res += '  .ngaythotu {background-color:#ff4800}\n';

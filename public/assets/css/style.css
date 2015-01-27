@@ -732,6 +732,7 @@ hr.bold {
 	.navbar-nav { padding-left: 5% !important; }
 	/*------------------------*/
 
+
 }
 
 @media (max-width: 320px) {
@@ -2623,12 +2624,10 @@ a.contact-admin:hover{
 	font-size: 15px;
 }
 
-.lb-input-year{
+.lb-input-year {
 	font-size: 17px;
 	text-align: left;
-	color: 
 }
-
 .ft-content{
 	min-height: 250px;
 	border-top: 2px dotted #E5DBB8;
@@ -2644,9 +2643,9 @@ a.contact-admin:hover{
 	padding: 5px 0px;
 }
 
-.tbl-nam-hung-nien th{
-	text-align: center !important;
-}
+.tbl-nam-hung-nien th { text-align: center; background-color: #F495C1; }
+
+.tbl-nam-hung-nien-a { color: #666; }
 
 .lich-ket-qua{
 	min-height: 100px;
