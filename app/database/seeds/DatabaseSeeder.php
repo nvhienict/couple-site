@@ -28,9 +28,27 @@ class DatabaseSeeder extends Seeder {
         $this->call('FtHungNienTableSeeder');
         $this->call('WeddingWebsiteTableSeeder');
         $this->call('TabWebsiteTableSeeder');
+        $this->call('UserCheckListTableSeeder');
 
 	}
 
+}
+// tao photo
+
+// tao checklist
+class UserCheckListTableSeeder extends Seeder{
+    public function run()
+    {
+         DB::table('usertask')->delete();
+         UserTask::create( array(
+            'user'=>'2',
+            'title'=>'test',
+            'description'=>'test',
+            'category'=>'1',
+            'startdate'=>'30',
+            )
+         );
+    }
 }
 // data seed
 //wedding website
