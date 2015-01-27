@@ -44,7 +44,7 @@
 			      			Quản lí ngân sách
 	 		      		</a>
 			      	</li>
-			      	<li class="dropdown">
+			      	<li class="dropdown active">
 				        <a href="#" class="dropdown-toggle main_menu" data-toggle="dropdown" title="Âm nhạc">
 							Âm nhạc
 				        </a>
@@ -86,7 +86,7 @@
 				        </ul>
 			      	</li> <!--/music-->
 
-			      	<li class="active"><a href="{{URL::action('FortuneController@getIndex')}}" title="Xem ngày cưới">
+			      	<li><a href="{{URL::action('FortuneController@getIndex')}}" title="Xem ngày cưới">
 			      			Xem ngày cưới
 			      		</a>
 			      	</li>
