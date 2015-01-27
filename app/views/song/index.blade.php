@@ -23,7 +23,7 @@
 		  	</div>
 		  	<div class="navbar-collapse collapse navbar-responsive-collapse">
 			    <ul class="nav navbar-nav">
-			      	<li class="active">
+			      	<li >
 			      		<a href="{{URL::route('index')}}" title="Trang chủ">
 			      			Trang chủ
 	 		      		</a>
@@ -86,7 +86,7 @@
 				        </ul>
 			      	</li> <!--/music-->
 
-			      	<li><a href="{{URL::action('FortuneController@getIndex')}}" title="Xem ngày cưới">
+			      	<li class="active"><a href="{{URL::action('FortuneController@getIndex')}}" title="Xem ngày cưới">
 			      			Xem ngày cưới
 			      		</a>
 			      	</li>
