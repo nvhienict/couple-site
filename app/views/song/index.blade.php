@@ -4,7 +4,12 @@
 @section('title')
 Âm nhạc | thuna.vn
 @endsection
-@section('nav-dash')
+@if(!Session::has('email'))
+	@section('nav-bar')
+	@include('song.nav')
+	@endsection
+@else
+	@section('nav-dash')
 	<!-- Navigation -->
 	<div class="row bg-menu-top">
 		<div class="navbar">
@@ -90,7 +95,9 @@
 		  	</div>
 		</div><!--/.nav-->
 	</div><!--/.bg-menu-top-->
-@endsection
+	@endsection
+@endif
+
 @section('content')
 
 	@foreach($cats as $index=>$cat)

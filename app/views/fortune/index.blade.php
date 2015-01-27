@@ -4,7 +4,12 @@
 @section('title')
 Xem ngày cưới | thuna.vn
 @endsection
-@section('nav-dash')
+@if(!Session::has('email'))
+	@section('nav-bar')
+	@include('song.nav')
+	@endsection
+@else
+	@section('nav-dash')
 	<!-- Navigation -->
 	<div class="row bg-menu-top">
 		<div class="navbar">
@@ -90,7 +95,8 @@ Xem ngày cưới | thuna.vn
 		  	</div>
 		</div><!--/.nav-->
 	</div><!--/.bg-menu-top-->
-@endsection
+	@endsection
+@endif
 
 @section('content')
 	
