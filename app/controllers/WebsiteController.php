@@ -591,7 +591,8 @@ class WebsiteController extends \BaseController {
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 
 				case 3:
@@ -599,7 +600,8 @@ class WebsiteController extends \BaseController {
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 
 				case 4:
@@ -607,7 +609,8 @@ class WebsiteController extends \BaseController {
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 				
 				case 5:
@@ -615,7 +618,8 @@ class WebsiteController extends \BaseController {
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 
 				case 6:
@@ -623,7 +627,8 @@ class WebsiteController extends \BaseController {
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 
 				case 7:
@@ -631,7 +636,8 @@ class WebsiteController extends \BaseController {
 																	->with('firstname', $firstname)
 																	->with('backgrounds',$backgrounds)
 																	->with('id_web', $id_Web)
-																	->with('url',$url);
+																	->with('url',$url)
+																	->with('web_fb',$check);
 				break;	
 				
 				case 8:
@@ -639,7 +645,8 @@ class WebsiteController extends \BaseController {
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 
 				case 9:
@@ -647,14 +654,16 @@ class WebsiteController extends \BaseController {
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 				case 10:
 					return View::make('website_user.themes10.page.index')->with('website', $website)
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 
 				case 11:
@@ -662,7 +671,8 @@ class WebsiteController extends \BaseController {
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 
 				case 12:
@@ -670,21 +680,24 @@ class WebsiteController extends \BaseController {
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 				case 13:
 					return View::make('website_user.themes13.page.index')->with('website', $website)
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;	
 				case 14:
 					return View::make('website_user.themes14.page.index')->with('website', $website)
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 
 				case 15:
@@ -692,28 +705,32 @@ class WebsiteController extends \BaseController {
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 				case 16:
 					return View::make('website_user.themes16.page.index')->with('website', $website)
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 				case 17:
 					return View::make('website_user.themes17.page.index')->with('website', $website)
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 				case 18:
 					return View::make('website_user.themes18.page.index')->with('website', $website)
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 
 				case 19:
@@ -721,7 +738,8 @@ class WebsiteController extends \BaseController {
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 
 				case 20:
@@ -729,7 +747,8 @@ class WebsiteController extends \BaseController {
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 
 				case 21:
@@ -737,7 +756,8 @@ class WebsiteController extends \BaseController {
 																		->with('firstname', $firstname)
 																		->with('backgrounds',$backgrounds)
 																		->with('id_web', $id_Web)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 				
 				default:
@@ -745,7 +765,8 @@ class WebsiteController extends \BaseController {
 																		->with('firstname', $firstname)
 																		->with('id_web', $id_Web)
 																		->with('backgrounds',$backgrounds)
-																		->with('url',$url);
+																		->with('url',$url)
+																		->with('web_fb',$check);
 					break;
 			}	
 		}
