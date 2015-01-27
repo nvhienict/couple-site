@@ -89,7 +89,7 @@
 			</div><!--/.col-md-2>-->
 			<div class="col-xs-9 btn-action-user">
 				@if( (Session::has('email')) && (UserController::isset_user())!=0 )
-				<ul class="user_profile">
+				<ul class="ul-login-register">
 					<li >
 						<a href="{{Asset('profile')}}">
 							<i class="fa fa-user"></i> 
