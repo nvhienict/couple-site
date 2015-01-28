@@ -108,7 +108,7 @@ Quản lý ngân sách | thuna.vn
 			</div>
 			<div class="row">
 				<div class="col-xs-4">
-					<a href="{{URL::route('exportfile')}}" style="cursor:pointer;">
+					<a href="{{URL::route('exportfile')}}" class="btn btn-warning">
 						<i class="fa fa-print"></i>&nbsp Xuất file
 					</a>
 				</div>
@@ -334,7 +334,8 @@ Quản lý ngân sách | thuna.vn
 						 		@endif
 						 		<tr class="budget_item_cat_add{{$category->id}}" id="budget_item_cat_add{{$category->id}}">
 						 			<td></td>
-						 			<td colspan="7"><a href="javascript:void(0);" onclick="item_add({{$category->id}})" class="item-add{{$category->id}}" style="cursor:pointer;">
+						 			<td colspan="7">
+						 				<a href="javascript:void(0);" onclick="item_add({{$category->id}})" class="item-add{{$category->id}} btn btn-primary">
 											<i class="glyphicon glyphicon-plus"></i>&nbsp Thêm chi tiêu
 										</a>
 										<input type="hidden" value="{{$category->id}}" name="{{$category->id}}">

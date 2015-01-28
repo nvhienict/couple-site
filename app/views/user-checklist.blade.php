@@ -147,16 +147,16 @@ Danh sách công việc | thuna.vn
 			</div>
 		</div>
 
-		<div class="row" style="margin-top:1%;">
+		<div class="row" style="margin:1% 0;">
 			<div class="col-lg-3 col-sm-4 col-xs-6">
-				<a href="" id="add-checklist" style="cursor:pointer;" data-toggle="modal" data-target="#myModalAddChecklist" data-backdrop="static">
+				<a href="" id="add-checklist" class="btn btn-primary" data-toggle="modal" data-target="#myModalAddChecklist" data-backdrop="static">
 					<i class="glyphicon glyphicon-plus"></i>
 					&nbsp Thêm công việc
 				</a>
 			</div>
 
 			<div class="col-lg-2 col-sm-3 col-sm-offset-5 col-xs-4 col-xs-offset-2">
-				<a href="{{Asset('exportfile')}}" ><i class="fa fa-print"></i>&nbspXuất file</a>
+				<a href="{{Asset('exportfile')}}" class="btn btn-warning" ><i class="fa fa-print"></i>&nbspXuất file</a>
 			</div>
 		</div>
 

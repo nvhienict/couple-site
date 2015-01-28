@@ -67,11 +67,15 @@
 			<div class="col-xs-8 col-sm-10 col-md-10 col-lg-10">
 				
 			</div>
-			<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
-				<ul class="menu-user" style="padding:0;float:right;">
+			<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 text-right">
+				<ul class="menu-user">
 					<li class="dropdown">
-			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{UserController::getUserName()}} <span class="caret"></span></a>
-			          	<ul class="dropdown-menu drop-user" role="menu" style="left: -125%;">
+			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+			          		<?php $avatar = UserController::getUserAvatar(); ?>
+			          		<img src="{{Asset("{$avatar}")}}">
+			          		{{UserController::getUserName()}} <span class="caret"></span>
+			          	</a>
+			          	<ul class="dropdown-menu drop-user" role="menu">
 			            	<li>
 			            		<a href="{{Asset('profile')}}">
 			            			<i class="fa fa-user"></i>
@@ -210,6 +214,14 @@
 	        $('#go_top').hide();
 	    }
 	});
+</script>
+
+<!-- Live Chat -->
+<script lang="javascript">
+(function() {var _h1= document.getElementsByTagName('title')[0] || false;
+var product_name = ''; if(_h1){product_name= _h1.textContent || _h1.innerText;}var ga = document.createElement('script'); ga.type = 'text/javascript';
+ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=82fcf1fcdbc86bb2ca315feba840b27a&data=eyJzc29faWQiOjEyNDA0MjQsImhhc2giOiJjNzRkNTY2YjQwYmY0YzZhODFmMmM0NTgzNjMyMTNkOCJ9&pname='+product_name;
+var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();
 </script>
 
 	

@@ -1112,6 +1112,7 @@ div.song_content button{
     right:15px;
     background-color: #F382B7;
   	border-color: #F382B7;
+  	color: #fff;
 }
 /*----------------------------*/
 /*css for button up image themes select*/
@@ -1226,6 +1227,11 @@ div.song_content button{
 	font-weight: bold;
 	color: white;
 }
+.menu-user img {
+	width: 30px;
+	height: 100%;
+}
+.menu-user { padding-right: 15px; }
 .drop-user{
 	width: 200%!important;
 }

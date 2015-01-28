@@ -659,6 +659,17 @@ class UserController extends \BaseController {
 	}
 
 	/**
+	* get avatar user
+	*
+	*/ 
+	public static function getUserAvatar()
+	{
+		$avatar = User::where('email',Session::get('email'))->get()->first()->avatar;
+	
+		return $avatar;
+	}
+
+	/**
 	* get site map for dashboard
 	*
 	*/ 
