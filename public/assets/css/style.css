@@ -2492,6 +2492,7 @@ tr.even td{
 	font-size: 13px;
 	color: black;
 	font-weight: bold;
+	font-family: 'OpenSan-Regular';
 
 }
 .menu-footer ul li a:hover{
@@ -2502,6 +2503,7 @@ tr.even td{
 	text-align: left;
 	padding: 0 20px;
 	margin: 15px 0px 0px 15px;
+	font-family: 'OpenSan-Regular';
 }
 .contact-admin{
 	font-size: 11px;

@@ -293,6 +293,7 @@ a.navbar-brand {
 	font-size: 13px;
 	color: black;
 	font-weight: bold;
+	font-family: 'OpenSan-Regular';
 
 }
 .menu-footer ul li a:hover{
@@ -304,6 +305,7 @@ a.navbar-brand {
 	text-align: left;
 	padding: 0 20px;
 	margin: 15px 0px 0px 15px;
+	font-family: 'OpenSan-Regular';
 }
 .contact-admin{
 	font-size: 11px;
@@ -1253,6 +1255,7 @@ div.song_content button{
 .bg-introduce{
 	background-color: #f0f0f0;
 	min-height: 328px;
+	font-family: 'OpenSan-Regular';
 }
 .navbar-header button.navbar-toggle {
     background-color: #ef4c9b;
