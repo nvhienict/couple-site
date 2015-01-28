@@ -17,7 +17,7 @@ Webite cưới | thuna.vn
 @section('content')
 
 	<div class="row" style="margin: 50px auto;">
-		<div class="col-md-6 col-md-offset-1 col-sm-12 des-index-tool">
+		<div class="col-md-7 col-md-offset-1 col-sm-12 des-index-tool">
 			<h5 class="introduce-index">
 				<p>Chỉ cần <a href="{{URL::route('login')}}">Đăng nhập</a> 
 				sau đó chọn một trong những giao diện.</p>
@@ -30,7 +30,7 @@ Webite cưới | thuna.vn
 				<a class="btn btn-use-now btn-sm" href="{{URL::route('website')}}" >Miễn phí! Sử dụng ngay</a>
 			</h6>
 		</div>
-		<div class="col-md-4 hidden-sm hidden-xs td-register">
+		<div class="col-md-3 hidden-sm hidden-xs td-register">
 				<h6 class="user_register_title">
 					Đăng ký tài khoản miễn phí<br />
 					<a href="http://thuna.vn/">Thuna.vn</a>
