@@ -1233,9 +1233,26 @@ div.song_content button{
 	height: 100%;
 }
 .menu-user { padding-right: 15px; }
-.drop-user{
-	width: 200%!important;
+@media(max-width:768px){
+	.drop-user{
+	width: 13%!important;
+	left: 44%;
+	}
 }
+@media(min-width:768px){
+	.drop-user{
+	width: 13%!important;
+	left: 80%;
+	}
+}
+
+@media(min-width:1280px){
+	.drop-user{
+	width: 13%!important;
+	left: 88%;
+	}
+}
+
 /*index user*/
 .btn-sd {
 	background-color: #EF4C9B;

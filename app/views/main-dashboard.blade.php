@@ -63,11 +63,7 @@
 <body style="overflow-x:hidden;">
 
 	<div class="row user-header">
-		<div class="row to-top">
-			<div class="col-xs-8 col-sm-10 col-md-10 col-lg-10">
-				
-			</div>
-			<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 text-right">
+			<div class="col-xs-12 text-right to-top">
 				<ul class="menu-user">
 					<li class="dropdown">
 			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -93,9 +89,7 @@
 			        </li>
 				</ul><!--/.navbar-right-->
 			</div>
-		</div><!--/.header-top-->
-
-		<div class="row top-logo">
+		<div class="col-xs-12 top-logo">
 			<div class="col-xs-12 text-center">
 				<a href="{{URL::route('index')}}">
 			    	<img style="width: 150px; height: 50px;" src="{{Asset('icon/logo-2.png')}}">
@@ -103,7 +97,7 @@
 			</div>
 		</div><!--/.row-->	
 
-		<div class="row top-menu">
+		<div class="col-xs-12 top-menu">
 			@yield('nav-dash')
 		</div><!--/.top-menu-->
 
