@@ -1,32 +1,32 @@
 @font-face {
 	font-family: 'UvfAphroditePro';
-	src: url('../fonts/UVF Aphrodite Pro.ttf') format('truetype');
+	src: url('../../../fonts/UVF Aphrodite Pro.ttf') format('truetype');
 	font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
 	font-family: 'MyriadPro-Regular';
-	src: url('../fonts/MyriadPro-Regular.ttf') format('truetype');
+	src: url('../../../fonts/MyriadPro-Regular.ttf') format('truetype');
 	font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
 	font-family: 'UVF-LH-Line1-Sans-Thin';
-	src: url('../fonts/UVF LH Line1 Sans Thin.ttf') format('truetype');
+	src: url('../../../fonts/UVF LH Line1 Sans Thin.ttf') format('truetype');
 	font-weight: normal;
     font-style: normal;
 }
 @font-face {
 	font-family: 'UVF Before the Rain';
-	src: url('../fonts/UVF Before the Rain.ttf') format('truetype');
+	src: url('../../../fonts/UVF Before the Rain.ttf') format('truetype');
 	font-weight: normal;
     font-style: normal;
 }
 @font-face {
 	font-family: 'UVF Centeria';
-	src: url('../fonts/UVF Centeria.ttf') format('truetype');
+	src: url('../../../fonts/UVF Centeria.ttf') format('truetype');
 	font-weight: normal;
     font-style: normal;
 }
