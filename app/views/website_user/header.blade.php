@@ -207,7 +207,7 @@ Website cưới
 		<div class="row">
 			<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-md-offset-1 col-sm-offset-1 col-lg-offset-1">
 				<div class="load-bg">
-					<img  class="img-responsive" src="{{Asset('images/website/themes1/boy.jpg')}}">
+					<img  class="img-responsive" src="{{Asset('images/website/themes1/template_1.jpg')}}">
 				</div>
 				<div class="text-center btn-change-bg"><button type="button" class="btn btn-responsive btn-primary" data-backdrop="static" data-toggle="modal" data-target='#modal-bg'>Đổi ảnh</button></div>
 			</div>
