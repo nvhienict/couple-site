@@ -1108,10 +1108,10 @@ div.song_content button{
     display:none;
     width: 60px;
     position:fixed;
-    bottom:15px;
+    bottom:50px;
     right:15px;
-    background-color: #555;
-  	border-color: #777;
+    background-color: #F382B7;
+  	border-color: #F382B7;
 }
 /*----------------------------*/
 /*css for button up image themes select*/
