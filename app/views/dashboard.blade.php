@@ -99,21 +99,21 @@ Dashboard | thuna.vn
 	</div>
 
 	<div class="row" style="margin-top: 1%;">
-		<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 bg-introduce">
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 bg-introduce">
 			<h4>Chọn giao diện và cài đặt website của bạn</h4>
 			<p>Giao diện website luôn được cập nhật liên tục, có nhiều giao diện đẹp đang chờ bạn.</p>
 			<a class="btn btn-sd" href="{{URL::route('website')}}">Sử dụng ngay</a>
 		</div>
-		<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 bg-img-dash" style="margin-left:2%;">
-			<img class="img-responsive" src="{{Asset('images/tool/website.png')}}">
+		<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 bg-img-dash" style="margin-left:2%;">
+			<img class="img-responsive" src="{{Asset('images/tool/website.gif')}}">
 		</div>
 	</div>
 
 	<div class="row" style="margin-top: 3%;">
-		<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 bg-img-dash" style="margin-right:2%;">
-			<img class="img-responsive" src="{{Asset('images/tool/checklist.png')}}">
+		<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 bg-img-dash" style="margin-right:2%;">
+			<img class="img-responsive" src="{{Asset('images/tool/checklist.gif')}}">
 		</div>
-		<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 bg-introduce">
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 bg-introduce">
 			<h4>Công cụ quản lí danh sách công việc đám cưới</h4>
 			<p>Cập nhật công việc mỗi ngày sẽ giúp bạn chủ động trong mọi việc.Mọi việc sẽ sẽ diễn ra như ý muốn của bạn.</p>
 			<a class="btn btn-sd" href="{{URL::route('user-checklist')}}">Sử dụng ngay</a>
@@ -121,24 +121,21 @@ Dashboard | thuna.vn
 	</div>
 
 	<div class="row" style="margin-top: 3%;">
-		<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 bg-introduce">
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 bg-introduce">
 			<h4>Công cụ quản lí ngân sách đám cưới</h4>
 			<p>Kiểm tra ngân sách mỗi ngày sẽ giúp bạn quản lí ngân sách của đám cưới một cách chính xác, mọi việc đều nằm trong tầm kiểm soát của bạn.</p>
 			<a class="btn btn-sd" href="{{URL::route('budget')}}">Sử dụng ngay</a>
 		</div>
-		<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 bg-img-dash" style="margin-left:2%;">
-			<img class="img-responsive" src="{{Asset('images/tool/budget.png')}}">
+		<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 bg-img-dash" style="margin-left:2%;">
+			<img class="img-responsive" src="{{Asset('images/tool/budget.gif')}}">
 		</div>
 	</div>
 
 	<div class="row" style="margin-top: 3%;">
-		<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 bg-img-dash" style="margin-right:2%;">
-			<img class="img-responsive" src="{{Asset('images/tool/guestlist.png')}}">
+		<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 bg-img-dash" style="margin-right:2%;">
+			<img class="img-responsive" src="{{Asset('images/tool/guestlist.gif')}}">
 		</div>
-		<div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-			
-		</div>
-		<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 bg-introduce">
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 bg-introduce">
 			<h4>Công cụ quản lí khách mời đám cưới</h4>
 			<p>Luôn luôn kiểm tra danh sách khách mời để đảm bảo rằng bạn sẽ không thiếu sót bất kì một người thân hay bạn bè đến chung vui cùng đám cưới của bạn.</p>
 			<a class="btn btn-sd" href="{{URL::route('guest-list')}}">Sử dụng ngay</a>

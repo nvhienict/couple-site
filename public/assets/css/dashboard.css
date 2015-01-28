@@ -1262,17 +1262,44 @@ div.song_content button{
 	background-color: #C40768;
 	color:white;
 }
-.bg-img-dash{
-	background-color:#f0f0f0;
-	width: 56.333%;
+.bg-img-dash {
+	padding: 0px;
 }
 .bg-img-dash img {
-	padding: 5% 5%;
+	padding: 0px;
 }
 .bg-introduce{
 	background-color: #f0f0f0;
-	min-height: 328px;
 	font-family: 'OpenSan-Regular';
+}
+@media (max-width: 768px){
+	.bg-introduce{
+		min-height: 120px;
+	}
+}
+@media (min-width: 768px){
+	.bg-introduce{
+		min-height: 247px;
+	}
+	.bg-img-dash {
+	width: 64.6667%;
+	}
+}
+@media (min-width: 800px){
+	.bg-introduce{
+		min-height: 256px;
+	}
+}
+@media (min-width: 980px){
+	.bg-introduce{
+		min-height: 315px;
+	}
+}
+@media (min-width: 1280px){
+	.bg-introduce{
+		min-height: 350px;
+	}
+	
 }
 .navbar-header button.navbar-toggle {
     background-color: #ef4c9b;
