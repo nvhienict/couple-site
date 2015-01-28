@@ -99,7 +99,7 @@ Danh sách công việc | thuna.vn
 	 			<tbody>
 	 				<tr>
 	 					<td class="info">Việc cần làm</td>
-	 					<td class="warning">Việc hoàn thành</td>
+	 					<td class="warning">Việc chưa hoàn thành</td>
 	 					<td class="success">Việc hoàn thành</td>
 	 				</tr>
 	 				<tr>	 					

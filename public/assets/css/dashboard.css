@@ -279,11 +279,6 @@ a.navbar-brand {
 /*end center --------------------------------------------------*/
 
 /*css footer*/
-.footer{
-	margin: 0;
-	background-color: #FBE5EC;
-	padding-top: 2%;
-}
 .menu-footer{
 	padding: 0;
 }
@@ -302,6 +297,7 @@ a.navbar-brand {
 }
 .menu-footer ul li a:hover{
 	color: #e75280;
+	text-decoration: none;
 }
 .infor-company{
 	font-size: 11px;
@@ -857,6 +853,9 @@ a.budget_icon_notes{
 	/*--------------------*/
 
 }
+.dropdown-menu > li > a {
+		color: #E752AA !important;
+	}
 
 
 .time-count-down {
@@ -1264,4 +1263,13 @@ div.song_content button{
 .navbar-header button.navbar-toggle .icon-bar {
     border: 1px solid #fff;
     display: block;
+}
+.footer {
+    background-color: #f2f0ee;
+    padding: 2% 0;
+    text-align: center;
+}
+.table-hover > tbody > tr.sum-table:hover > td,
+.table-hover > tbody > tr.sum-table:hover > th {
+  background-color: #555555;
 }

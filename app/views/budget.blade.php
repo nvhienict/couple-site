@@ -137,7 +137,7 @@ Quản lý ngân sách | thuna.vn
 				<div class="col-xs-12">
 					<table class="table table-hover table-budget">
 
-						<tr class="table-budget-thead-fixed hidden-sm hidden-xs">
+						<tr class="table-budget-thead-fixed hidden-sm hidden-xs sum-table">
 							<th style="width:5.1%;"><i class="glyphicon glyphicon-th-large"></i></th>
 					 		<th style="width:22.1%;">Danh mục</th>
 							<th style="width:19.2%;">Chi phí dự kiến</th>
@@ -345,7 +345,7 @@ Quản lý ngân sách | thuna.vn
 						@endforeach
 						@endif
 					 	</tbody>
-					 	<tr>
+					 	<tr class="sum-table">
 					 		<th><i class="glyphicon glyphicon-gbp"></i></th>
 					 		<th>Tổng cộng chi phí</th>
 					 		<th class="TienVND" id="rowSumExpected">
