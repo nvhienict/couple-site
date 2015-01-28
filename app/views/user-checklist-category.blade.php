@@ -97,7 +97,7 @@ Danh sách công việc | thuna.vn
 <div class="col-xs-12" style="padding-right: 0;">
 	<div class="row sort-by">
 		<div class="col-lg-6 col-sm-12 col-xs-12">
-			<h2>Danh sách công việc</h2>
+			<h2 style="color:#E75292;">Danh sách công việc</h2>
 		</div>
 		<div class="col-lg-4 col-sm-12 col-xs-12 pull-right" style="padding-top: 1.5%">
 			<ul class="nav nav-pills text-right" role="tablist">
