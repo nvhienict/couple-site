@@ -58,7 +58,7 @@ class WeddingWebsiteTableSeeder extends Seeder{
          DB::table('weddingwebsite')->delete();
          WeddingWebsite::create( array(
             'user'=>'2',
-            'template'=>'1',
+            'template'=>'9',
             'url'=>'nguyen-tu',
             'tab'=>'1',
             'name_bride'=>'Tên Cô Dâu',
