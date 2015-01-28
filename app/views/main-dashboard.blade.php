@@ -68,7 +68,7 @@
 				
 			</div>
 			<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
-				<ul class="menu-user" style="padding:0;float:right;">
+				<ul class="menu-user" style="padding:0;float:right;margin-right:10%;">
 					<li class="dropdown">
 			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{UserController::getUserName()}} <span class="caret"></span></a>
 			          	<ul class="dropdown-menu drop-user" role="menu" style="left: -125%;">
