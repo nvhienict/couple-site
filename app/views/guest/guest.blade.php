@@ -95,34 +95,38 @@ Danh sách khách mời | thuna.vn
 @endsection
 @section('content')
 
-	<div class="col-md-12 thong-ke-chi-tiet-cong-viec">
+	<div class="row">
+		<div class="col-xs-12">
+			<h2 style="color:#E75292; padding-left:15px;">Danh sách khách mời</h2>
+		</div>
+	</div>
 
-		<h4>Thống kê khách mời</h4>
+	<div class="col-md-12 thong-ke-chi-tiet-cong-viec">
 
 		<div class="table-responsive">
 	 		<table class="table table-hover">
 	 			<tbody>
 	 				<tr>
-	 					<td class="info">Khách chưa mời</td>
-						<td class="warning">Khách đã mời</td>
-						<td class="success">Tổng số khách</td>
+	 					<td style="border-top:none; padding: 15px 8px 0 8px;">Khách chưa mời</td>
+						<td style="border-top:none; padding: 15px 8px 0 8px;">Khách đã mời</td>
+						<td style="border-top:none; padding: 15px 8px 0 8px;">Tổng số khách</td>
 	 				</tr>
 	 				<tr>
-	 					<td class="info">
+	 					<td>
 	 						<div class="progress progress-striped active">
                                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
                                     {{ GuestController::getGuestOverInvitedPercent() }}%
                                 </div>
                             </div>
 						</td>
-	 					<td class="warning">
+	 					<td>
 	 						<div class="progress progress-striped active">
                                 <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
                                     {{ GuestController::getGuestInvitedPercent() }}%
                                 </div>
                             </div>
 						</td>
-						<td class="success">
+						<td>
 	 						<div class="progress progress-striped active">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%;" >
                                     {{ GuestController::getAllGuest() }}
@@ -137,11 +141,7 @@ Danh sách khách mời | thuna.vn
 
 
 	<div class="col-xs-12">
-		<div class="row sort-by">
-			<div class="col-xs-12">
-				<h2 style="color:#E75292;">Danh sách khách mời</h2>
-			</div>
-		</div>
+
 		<div class="submenu">
 			<div class="row guest-action-btn">
 				<div class="col-md-2 col-sm-3 col-xs-4">

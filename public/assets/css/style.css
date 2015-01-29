@@ -2646,7 +2646,8 @@ a.contact-admin:hover{
 	padding: 5px 0px;
 }
 
-.tbl-nam-hung-nien th { text-align: center; background-color: #F495C1; }
+.tbl-nam-hung-nien th { text-align: center; background-color: #fff; color: #2a6496; }
+.tbl-nam-hung-nien th a { color: #2a6496; }
 
 .tbl-nam-hung-nien-a { color: #666; }
 
@@ -2660,6 +2661,7 @@ a.contact-admin:hover{
 .ngay-hien-tai{
 	height: 30px;
 	font-style: 20px;
+	font-size: 18px;
 	color: #13A547;
 	text-transform: uppercase;
 	/*border-bottom: 1px solid #ddd;*/

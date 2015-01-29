@@ -94,35 +94,75 @@ Danh sách công việc | thuna.vn
 @endsection
 @section('content')
 
-<div class="col-xs-12" style="padding-right: 0;">
-	<div class="row sort-by">
-		<div class="col-lg-6 col-sm-12 col-xs-12">
-			<h2 style="color:#E75292;">Danh sách công việc</h2>
-		</div>
-		<div class="col-lg-4 col-sm-12 col-xs-12 pull-right" style="padding-top: 1.5%">
-			<ul class="nav nav-pills text-right" role="tablist">
-				<li>
-					<a href="{{URL::route('user-checklist')}}" ><span class="fa fa-calendar"></span> Theo tháng</a>
-				</li>
-				<li class="active">
-					<a href="{{URL::route('user-checklist-category')}}" ><span class="glyphicon glyphicon-list"></span> Theo danh mục</a>
-				</li>
-			</ul>
+	<div class="row">
+		<div class="col-xs-12">
+			<h2 style="color:#E75292; padding-left:15px;">Danh sách công việc</h2>
 		</div>
 	</div>
 
-	<div class="row" style="margin:1% 0;">
-		<div class="col-lg-3 col-sm-4 col-xs-6">
-			<a href="" id="add-checklist" class="btn btn-primary" data-toggle="modal" data-target="#myModalAddChecklist" data-backdrop="static">
-				<i class="glyphicon glyphicon-plus"></i>
-				&nbsp Thêm công việc
-			</a>
-		</div>
+	<div class="col-xs-12 thong-ke-chi-tiet-cong-viec">
+		<div class="table-responsive">
+	 		<table class="table table-hover">
+	 			<tbody>
+	 				<tr>
+	 					<td style="border-top:none; padding: 15px 8px 0 8px;">Việc cần làm</td>
+	 					<td style="border-top:none; padding: 15px 8px 0 8px;">Việc chưa hoàn thành</td>
+	 					<td style="border-top:none; padding: 15px 8px 0 8px;">Việc hoàn thành</td>
+	 				</tr>
+	 				<tr>	 					
+	 					<td>
+	 						<div class="progress progress-striped active">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+                                    {{ChecklistController::countTasksToDo()}}
+                                </div>
+                            </div>
+						</td>
+	 					<td>
+	 						<div class="progress progress-striped active">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+                                    {{ChecklistController::overdue()}}
+                                </div>
+                            </div>
+						</td>
+						<td>
+	 						<div class="progress progress-striped active">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+                                    {{ChecklistController::countTasksComplete()}}
+                                </div>
+                            </div>
+						</td>
+	 				</tr>
+	 			</tbody>
+	 		</table>
+	 	</div>
+	</div><!--/.thong-ke-chi-tiet-cong-viec-->
 
-		<div class="col-lg-2 col-sm-3 col-sm-offset-5 col-xs-4 col-xs-offset-2">
-			<a href="{{Asset('exportfile')}}" class="btn btn-warning" ><i class="fa fa-print"></i>&nbspXuất file</a>
+	<div class="col-xs-12" style="padding-right: 0;">
+
+		<div class="row" style="margin:1% 0;">
+			<div class="col-lg-2 col-sm-4 col-xs-4" style="padding-left: 0">
+				<a href="" id="add-checklist" class="btn btn-primary" data-toggle="modal" data-target="#myModalAddChecklist" data-backdrop="static">
+					<i class="glyphicon glyphicon-plus"></i>
+					&nbsp Thêm công việc
+				</a>
+			</div>
+
+			<div class="col-lg-2 col-sm-3 col-xs-4">
+				<a href="{{Asset('exportfile')}}" class="btn btn-warning" ><i class="fa fa-print"></i>&nbspXuất file</a>
+			</div>
+
+			<div class="col-lg-4 col-sm-5 col-xs-4 pull-right">
+				<ul class="nav nav-pills text-right" role="tablist">
+					<li class="active">
+						<a href="{{URL::route('user-checklist')}}" ><span class="fa fa-calendar"></span> Theo tháng</a>
+					</li>
+					<li>
+						<a href="{{URL::route('user-checklist-category')}}" ><span class="glyphicon glyphicon-list"></span> Theo danh mục</a>
+					</li>
+				</ul>
+			</div>
+
 		</div>
-	</div>
 
 	<div class="checklist-statis-formonth">
 		<div class="row">
