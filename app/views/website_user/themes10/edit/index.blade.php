@@ -73,19 +73,11 @@
 <div class="main_temp_10 container">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 index-title-temp " >
 			<!-- count datime to weddingdate -->
-				@if(empty($website_item->count_down))
-					@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
-						<div id="getD{{$index}}" style="display:none;">
-							{{$dd}}
-						</div>
-					@endforeach
-				@else
-				@foreach( $date = explode('-', WebsiteController::getCountDown()) as $index=>$dd )
-						<div id="getD{{$index}}" style="display:none;">
-							{{$dd}}
-						</div>
-					@endforeach
-				@endif
+				@foreach( $date = explode('-', WebsiteController::getDates()) as $index=>$dd )
+          <div id="getD{{$index}}" style="display:none;">
+            {{$dd}}
+          </div>
+        @endforeach
 				
 			<div id="count_dateTime">
 			
@@ -112,9 +104,8 @@
 					</tr>
 				</table>
 				<p class="date-time-title">				
-	           		{{WebsiteController::getDates()}}
-	            
-	            </p>
+       		{{WebsiteController::getDates()}}
+        </p>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 image-title-temp text-center">
 				<img style="position: relative;" class="img-responsive" src="{{Asset("images/website/themes10/temp_title.png")}}" alt="">
