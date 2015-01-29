@@ -270,7 +270,7 @@
 				</h6>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<img class="img-responsive" src="{{Asset('images/tool/checklist.png')}}">
+				<img class="img-responsive" src="{{Asset('images/tool/checklist.gif')}}">
 			</div>
 
 		</div>
@@ -278,7 +278,7 @@
   	<div role="tabpanel" class="tab-pane" id="budget">
   		<div class="container">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<img class="img-responsive" src="{{Asset('images/tool/budget.png')}}">
+				<img class="img-responsive" src="{{Asset('images/tool/budget.gif')}}">
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 des-index-tool">
 				<h5 class="introduce-index">
@@ -294,7 +294,7 @@
   	<div role="tabpanel" class="tab-pane" id="guestlist">
   		<div class="container">	
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<img class="img-responsive" src="{{Asset('images/tool/guestlist.png')}}">
+				<img class="img-responsive" src="{{Asset('images/tool/guestlist.gif')}}">
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 des-index-tool">
 				<h5 class="introduce-index">
@@ -323,7 +323,7 @@
 				</h6>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<img class="img-responsive" src="{{Asset('images/tool/website.png')}}">
+				<img class="img-responsive" src="{{Asset('images/tool/website.gif')}}">
 			</div>
 		</div>
   	</div>
@@ -333,7 +333,7 @@
 	<div class="col-lg-12 cam-nhan-title">CẢM NHẬN KHÁCH HÀNG ĐỐI VỚI THUNA</div>
 	<div class="col-xs-1"></div>
 	<div class="col-xs-10">
-		<div class="col-lg-4 col-sm-6 col-xs-12 cam-nhan-item ">
+		<div class="col-lg-4 col-sm-6 col-md-4 col-xs-12 cam-nhan-item ">
 			<img class="img-cam-nhan" src="{{Asset('images/slide-main/minhthanh-thaithu.jpg')}}">
 			<div class="name-khach-hang">Minh Thanh & Thái Thu</div>
 			<div class="nhan-xet-khach-hang">
@@ -350,7 +350,7 @@
 			</div>
 		</div>
 
-		<div class="col-lg-4 col-sm-6 col-xs-12 cam-nhan-item">
+		<div class="col-lg-4 col-sm-6 col-md-4 col-xs-12 cam-nhan-item">
 			<img class="img-cam-nhan" src="{{Asset('images/slide-main/khanhnhi-nguyenloc.jpg')}}">
 			<div class="name-khach-hang">Khánh Nhi & Nguyên Lộc</div>
 			<div class="nhan-xet-khach-hang">
@@ -364,7 +364,7 @@
 			</div>
 		</div>
 
-		<div class="col-lg-4 col-sm-6 col-xs-12 cam-nhan-item">
+		<div class="col-lg-4 col-sm-6 col-md-4 col-xs-12 cam-nhan-item">
 			<img class="img-cam-nhan" src="{{Asset('images/slide-main/minhnhat-ductri.jpg')}}">
 			<div class="name-khach-hang">Minh Nhật & Đức Trí</div>
 			<div class="nhan-xet-khach-hang">

@@ -137,7 +137,7 @@ Công cụ lập kế hoạch | thuna.vn
 
 						<div class="row div-content-intruduce">
 							<div class="col-xs-12" style="margin-bottom: 20px;">
-								<img class="img-responsive" src="{{Asset('images/tool/checklist.png')}}">
+								<img class="img-responsive" src="{{Asset('images/tool/checklist.gif')}}">
 							</div>
 							<div class="col-xs-12 des-index-tool">
 								<h5 class="introduce-index">
@@ -187,7 +187,7 @@ Công cụ lập kế hoạch | thuna.vn
 
 	  				<div class="row div-content-intruduce">
 						<div class="col-xs-12" style="margin-bottom: 20px;">
-							<img class="img-responsive" src="{{Asset('images/tool/budget.png')}}">
+							<img class="img-responsive" src="{{Asset('images/tool/budget.gif')}}">
 						</div>
 						<div class="col-xs-12 des-index-tool">
 							<h5 class="introduce-index">
@@ -212,7 +212,7 @@ Công cụ lập kế hoạch | thuna.vn
 					
 					<div class="row div-content-intruduce">
 						<div class="col-xs-12" style="margin-bottom: 20px;">
-							<img class="img-responsive" src="{{Asset('images/tool/guestlist.png')}}">
+							<img class="img-responsive" src="{{Asset('images/tool/guestlist.gif')}}">
 						</div>
 						<div class="col-xs-12 des-index-tool">
 							<h5 class="introduce-index">
@@ -229,7 +229,7 @@ Công cụ lập kế hoạch | thuna.vn
 
 			  		<div class="row div-content-intruduce">
 						<div class="col-xs-12" style="margin-bottom: 20px;">
-							<img class="img-responsive" src="{{Asset('images/tool/website.png')}}">
+							<img class="img-responsive" src="{{Asset('images/tool/website.gif')}}">
 						</div>
 						<div class="col-xs-12 des-index-tool">
 							<h5 class="introduce-index">
