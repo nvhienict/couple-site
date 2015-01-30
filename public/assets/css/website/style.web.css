@@ -32,6 +32,16 @@
 	font-weight: normal;
     font-style: normal;
 }
+@font-face {
+	font-family: 'OpenSan-Regular';
+	src: url('../../../fonts/OpenSans-Regular.ttf') format('truetype');
+	font-weight: normal;
+    font-style: normal;
+}
+body{
+	font-family: "OpenSan-Regular";
+	font-size: 14px;
+}
 
 .design_website_heading{
 	height: 50px;
