@@ -3,7 +3,7 @@
 @import url(../fonts/UVF LH Line1 Sans Thin.ttf);
 @font-face {
 	font-family: 'OpenSan-Regular';
-	src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+	src: url('../../fonts/OpenSans-Regular.ttf') format('truetype');
 	font-weight: normal;
     font-style: normal;
 }
