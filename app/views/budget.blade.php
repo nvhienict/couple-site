@@ -101,18 +101,19 @@ Quản lý ngân sách | thuna.vn
 		<div class="col-xs-12">
 			<div class="row" style="margin-right:0;">
 				<div class="col-lg-10 col-sm-10 col-xs-12"><h2 class="title-budget" style="color:#E75292;">Quản lý ngân sách</h2></div>
-				<div class="col-lg-2 col-sm-2 col-xs-12">
-					<a class="btn btn-warning" href="{{URL::route('reset-budget')}}" style="padding: 3px 5px;">
-					Số tiền khác</a>
-				</div>
+				
 			</div>
 			<div class="row">
-				<div class="col-xs-4">
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 					<a href="{{URL::route('exportfile')}}" class="btn btn-warning">
 						<i class="fa fa-print"></i>&nbsp Xuất file
 					</a>
 				</div>
-				<div class="col-xs-8" align="right">
+				<div class="col-xs-6 col-sm-7 col-md-7 col-lg-7" align="right">
+					<a class="btn btn-warning" href="{{URL::route('reset-budget')}}" style="padding: 3px 5px;">
+					Số tiền khác</a>
+				</div>
+				<div class="col-xs-1" align="right">
 					<span style="color: #19b5bc; cursor:pointer; margin-right: 5px;" id="budget_all_item_sign_down"><i class="glyphicon glyphicon-chevron-down"></i></span>
 					<span style="color: #19b5bc; cursor:pointer; " id="budget_all_item_sign_up"><i class="glyphicon glyphicon-chevron-up"></i></span>
 					<!-- display or hide all items -->
