@@ -24,7 +24,7 @@
             </span>
 
             <span>
-                <button onclick="send_id({{$tabWeb->id}},null)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage' style="background: #19b5bc; border:none;">Đổi Ảnh</button>
+                <button onclick="send_id({{$tabWeb->id}},null)" data-backdrop="static"  class="btn btn-primary" data-toggle="modal" data-target='#modal-changeimage'>Đổi Ảnh</button>
                 <input id="id-tab-photo{{$tabWeb->id}}" type="hidden" value="{{$tabWeb->id}}">
             </span>
         </div>
@@ -36,7 +36,7 @@
     <div class="row phara-margin">
 
     	<div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 click-edit-hide{{$tabWeb->id}}">
-    		<span> <a style="background: #19b5bc; border:none; float:right;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+    		<span> <a style="float:right;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
     	</div>
         <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6"></div>
     </div>

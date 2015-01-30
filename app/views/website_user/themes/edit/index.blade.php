@@ -177,7 +177,7 @@
       <ul style="background-color:#6EC7B6;" class="nav navbar-nav">
          <li><a class="a_menu scrollTo" href="#title_home">Trang Chủ</a></span></li>
         @foreach(TabWebsite::where('website',$id_web)->where('visiable',0)->orderBy('sort','ASC')->get() as $menu_tab)
-         <li class="menu-id{{$menu_tab->id}} text-center">
+         <li class="menu-id{{$menu_tab->id}}">
           <a class="a_menu scrollTo" href="#section_{{$menu_tab->type}}">{{$menu_tab->title}}</a>
         </li>
          @endforeach()

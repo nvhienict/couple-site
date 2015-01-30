@@ -14,7 +14,7 @@
     <div class="row phara-margin">
         <div class="col-xs-6 col-md-10 col-sm-10 col-lg-10"></div>
         <div class="col-xs-1 click-edit click-edit-hide{{$tabWeb->id}}">
-           <span> <a style="background: #19b5bc; border:none;" onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
+           <span> <a onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="btn btn-primary" href="javascript:void(0);">Sửa nội dung</a></span>
         </div>               
     </div>
                           
