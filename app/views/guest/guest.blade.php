@@ -315,7 +315,7 @@ Danh sách khách mời | thuna.vn
 			<div class="row" style="margin-left:0">
 				<div class="col-xs-12">
 					<table class="table table-hover table-guest">
-						<tr class="table-guest-thead-fixed hidden-xs">
+						<tr class="table-guest-thead-fixed hidden-xs sum-table">
 							<th style="width:10%;">Nhóm</th>
 							<th style="width:35%;">Mã khách mời</th>
 							<th style="width:15%;">Số điện thoại</th>
