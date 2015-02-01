@@ -80,7 +80,7 @@
 			</nav>	
 			<!-- end header -->			
 			<!-- content -->
-			<div class="container">
+			<div class="container" style="padding:0px;">
 				<section class="content current" id="title_home" style="padding-top: 35px;">
 				    <div class="">   
 									
