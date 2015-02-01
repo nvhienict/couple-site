@@ -145,7 +145,7 @@
 				@if($tabWeb->type =="welcome" )
 				<!-- chao mung -->
 				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
-					<div class="page-title container">
+					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
 			                    <div class="inline-title text-center inline-title4">
@@ -168,7 +168,7 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div class="container partion " >
+		            <div class="row partion " >
 		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
 		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		            			<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-md-offset-2 col-lg-offset-2">
@@ -211,7 +211,7 @@
 		<!-- cau chuyen tinh yeu -->
 				@if($tabWeb->type=="love_story")
 				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
-					<div class="page-title container">
+					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
 			                    <div class="inline-title text-center inline-title4">
@@ -234,7 +234,7 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div class="container partion " >
+		            <div class="row partion " >
 		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content phara{{$tabWeb->id}}">
 		            		<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 	            		</div>
@@ -278,7 +278,7 @@
 				@if($tabWeb->type=="about")
 				<!-- about -->
 				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
-					<div class="page-title container">
+					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
 			                    <div class="inline-title text-center inline-title4">
@@ -301,7 +301,7 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div class="container partion border-line" >
+		            <div class="row partion border-line" >
 		            	<div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-content phara{{$tabWeb->id}}">
 		            		<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 	            		</div>
@@ -344,7 +344,7 @@
 		<!-- Wedding Event -->
 				@if($tabWeb->type=="wedding" )
 				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
-					<div class="page-title container">
+					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
 			                    <div class="inline-title text-center inline-title4">
@@ -361,7 +361,7 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div class="container partion bg-event" >
+		            <div class="row partion bg-event" >
 
 		            	<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 part-image">
 		            		<a href="#">
@@ -428,7 +428,7 @@
 			@if($tabWeb->type=="traval")
 				<!-- traval -->
 				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
-					<div class="page-title container">
+					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
 			                    <div class="inline-title text-center inline-title4">
@@ -451,7 +451,7 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div class="container partion bg-traval" >
+		            <div class="row partion bg-traval" >
 		            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 part-image">
 		            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		            			<div id="prev_output_theme4{{$tabWeb->id}}" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
@@ -493,7 +493,7 @@
         <!-- Photo Album -->
     		    @if($tabWeb->type=="album")
 				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
-					<div class="page-title container">
+					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
 			                    <div class="inline-title text-center inline-title4">
@@ -516,11 +516,11 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="container part-content partion phara{{$tabWeb->id}}">
+		            <div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="row part-content partion phara{{$tabWeb->id}}">
 		            	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 		            </div>
 		           
-		            <div class="container phara-margin">
+		            <div class="row phara-margin">
 				    	<div class="col-xs-12 col-md-6 col-sm-6 col-lg-6"></div>
 				    	<div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 click-edit click-edit-hide{{$tabWeb->id}}" >
 				    		
@@ -548,7 +548,7 @@
         		@if($tabWeb->type=="contact")
 				<!-- contact -->
 				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
-					<div class="page-title container">
+					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
 			                    <div class="inline-title text-center inline-title4">
@@ -571,7 +571,7 @@
 			                </div>
 		            	</div>               		
 		            </div>
-		            <div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="container part-content partion phara{{$tabWeb->id}}">
+		            <div onclick="showckeditorpartion({{$tabWeb->id}})" data-toggle="modal" data-target='#modal-edit' data-backdrop="static" class="row part-content partion phara{{$tabWeb->id}}">
 		            	<span name="phara" style="color: #{{$website_item->color3}}">{{$tabWeb->content}}</span>  
 		            </div>
 		            
@@ -583,8 +583,8 @@
 				    	</div>
 				    </div>
 				    
-		            <div class="container partion " >		            	
-			        	<div class="col-xs-6 ">
+		            <div class="row partion " >		            	
+			        	<div class="col-xs-12 col-sm-6-col-md-6 col-lg-6 ">
 			                <form  class="contact-website" action="" method="POST" role="form">
 				             
 				                 <div class="form-group">
@@ -616,7 +616,7 @@
        			<!--  Guest book -->
      			 @if($tabWeb->type=="guestbook")
 				<section class="our-history r-title{{$tabWeb->id}}" id="section_{{$tabWeb->type}}">
-					<div class="page-title container">
+					<div class="page-title">
 						<div class="bg-title" >
 			                <div class="bgin-title" >
 			                    <div class="inline-title text-center inline-title4">

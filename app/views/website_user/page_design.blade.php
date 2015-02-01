@@ -5,7 +5,6 @@
 @section('content')
 
 <body style="overflow-x:hidden;">
-	<div class="row">
 			<!-- viet theo thu tu cho de kiem soat =>Giang -->
 			@if($id_tmp==1)
 					@include('website_user.themes.edit.index')
@@ -84,8 +83,7 @@
 					@if($id_tmp==21)
 						@include('website_user.themes21.edit.index')
 					@endif
-			@endif
-	</div>	
+			@endif	
 <!-- modal edit content website -->
 
 <div class="modal fade" id="modal-edit">

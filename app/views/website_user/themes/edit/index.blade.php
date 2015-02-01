@@ -160,7 +160,7 @@
 
 @if($website)
 @foreach( $website as $website_item )
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 theme1-edit">
   
 
 <nav style="padding:0px;" class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -204,7 +204,7 @@
       </ul>
    </div>
 </nav>	
-<div class="background-themes" style="background-image: url({{Asset("{$backgrounds}")}}); margin-top:3%;margin-right: -15px; margin-left: 15px;">	
+<div class="background-themes" style="background-image: url({{Asset("{$backgrounds}")}}); margin-top:3%;">	
 	<div class="after-image-themes">
 		<!-- Themes Heading -->
 		<div class="title-website"id="title_home">

@@ -326,3 +326,8 @@ section{
 	background-size: 100%;
 	
 }
+@media (max-width: 1280px){
+	.line-hr{
+		display: none;
+	}
+}

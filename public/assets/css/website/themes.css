@@ -20,14 +20,15 @@
 	display: none;
 }
 
-
+.theme1-edit{
+	padding: 0px;
+}
 .background-themes 
 { 
 	/*height: 650px;
 	overflow-y:auto;*/
 	padding: 0px;
 	margin-left: 0px;
-	margin-right: -4px;
 	background-attachment:fixed;
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
