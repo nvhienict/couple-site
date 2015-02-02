@@ -542,10 +542,10 @@ hr.bold {
 	}
 
 	h5.introduce-index{
-		font-size: 150%;
+		font-size: 110%;
 	}
 	h6.use-now{
-		font-size: 130%;
+		font-size: 110%;
 	}
 
 	.carousel-inner > .item {
@@ -579,7 +579,7 @@ hr.bold {
 	  /*height: 350px !important;*/
 	}
 
-	h5.introduce-index { font-size: 120%; }
+	h5.introduce-index { font-size: 110%; }
 	
 }
 
@@ -715,10 +715,10 @@ hr.bold {
 		font-size: 90%;
 	}
 	h5.introduce-index{
-		font-size: 110%;
+		font-size: 90%;
 	}
 	h6.use-now{
-		font-size: 110%;
+		font-size: 90%;
 	}
 
 	.cam-nhan-title { font-size: 100% !important; }
@@ -1522,8 +1522,8 @@ div.vendor_content button{
 }
 .btn-register:hover { color: #FFFFFF; background-color: #CC1071; }
 .bn-login-fb-index {
-	width: 66%;
-	float: right;
+	width: 100%;
+	float: left;
 	display: inline-block;
 	margin-bottom: 20px;
 }

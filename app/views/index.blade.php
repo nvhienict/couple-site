@@ -199,9 +199,13 @@
 			        </div>
 		      	</div>
 		      	<div class="row">
-		        	<div class="col-md-12">
+		        	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 		        		<div class="form-group">
 							<button type="submit" class="btn btn-register" tabindex="5" >Đăng ký</button>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+		        		<div class="form-group">
 					      	<a href="javascript:;" onclick="loginFb();" class="btn btn-social btn-facebook bn-login-fb-index">
 						      <i class="fa fa-facebook"></i> Login Facebook
 						    </a>
